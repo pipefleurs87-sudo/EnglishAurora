@@ -1,4 +1,81 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+"""
+ACTUALIZADOR: Landing Page = Galaxia
+Convierte index.html en la experiencia 2.5D Sky Galaxy de English Aurora
+y adapta js/landing.js para resolver rutas relativas en la raiz o en subcarpetas.
+"""
+
+import pathlib
+import re
+import subprocess
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+def update_landing_js():
+    src_js = ROOT / 'englishaurora' / 'js' / 'landing.js'
+    txt = src_js.read_text(encoding='utf-8')
+    
+    # 1. Inject ROOT_PREFIX
+    if 'const ROOT_PREFIX =' not in txt:
+        txt = txt.replace("'use strict';", "'use strict';\n\nconst ROOT_PREFIX = (window.location.pathname.includes('/englishaurora/')) ? '../' : '';")
+        
+    # 2. Update image paths
+    txt = txt.replace("const sky1 = new Image(); sky1.src = 'assets/cielo-profundo.jpg';", "const sky1 = new Image(); sky1.src = ROOT_PREFIX + 'assets/cielo-profundo.jpg';")
+    txt = txt.replace("const sky2 = new Image(); sky2.src = 'assets/cielo-dorado.jpg';", "const sky2 = new Image(); sky2.src = ROOT_PREFIX + 'assets/cielo-dorado.jpg';")
+    
+    aurora_old = """const AURORA_STATES = { saludo:'assets/aurora.png', explicando:'assets/aurora-explicando.png',
+  celebrando:'assets/aurora-celebrando.png', corrigiendo:'assets/aurora-corrigiendo.png' };"""
+    aurora_new = """const AURORA_STATES = { 
+  saludo: ROOT_PREFIX + 'assets/aurora.png', 
+  explicando: ROOT_PREFIX + 'assets/aurora-explicando.png',
+  celebrando: ROOT_PREFIX + 'assets/aurora-celebrando.png', 
+  corrigiendo: ROOT_PREFIX + 'assets/aurora-corrigiendo.png' 
+};"""
+    txt = txt.replace(aurora_old, aurora_new)
+    
+    # 3. Update pageURL
+    page_url_old = """function pageURL(topicId, wave, kind){ /* kind: leccion | preview | evaluacion */
+  if (wave === 'b') {
+    if (kind === 'leccion') {
+      return '../leccion/' + topicId + '-wave-b.html';
+    }
+    return '../' + kind + '/' + topicId + '.html';
+  }
+  return '../' + kind + '/' + topicId + '.html';
+}"""
+    page_url_new = """function pageURL(topicId, wave, kind){ /* kind: leccion | preview | evaluacion */
+  if (wave === 'b') {
+    if (kind === 'leccion') {
+      return ROOT_PREFIX + 'leccion/' + topicId + '-wave-b.html';
+    }
+    return ROOT_PREFIX + kind + '/' + topicId + '.html';
+  }
+  return ROOT_PREFIX + kind + '/' + topicId + '.html';
+}"""
+    txt = txt.replace(page_url_old, page_url_new)
+
+    # 4. Update student telemetry paths
+    txt = txt.replace("`../aula/ejercicio.html?t=${encodeURIComponent(studentToken)}&tema=${encodeURIComponent(topicId)}`",
+                      "`${ROOT_PREFIX}aula/ejercicio.html?t=${encodeURIComponent(studentToken)}&tema=${encodeURIComponent(topicId)}`")
+    txt = txt.replace("`../leccion/${topicId}-wave-b.html?t=${encodeURIComponent(studentToken)}`",
+                      "`${ROOT_PREFIX}leccion/${topicId}-wave-b.html?t=${encodeURIComponent(studentToken)}`")
+    txt = txt.replace("`../leccion/${topicId}.html?t=${encodeURIComponent(studentToken)}`",
+                      "`${ROOT_PREFIX}leccion/${topicId}.html?t=${encodeURIComponent(studentToken)}`")
+    txt = txt.replace("`../evaluacion/${topicId}.html?t=${encodeURIComponent(studentToken)}`",
+                      "`${ROOT_PREFIX}evaluacion/${topicId}.html?t=${encodeURIComponent(studentToken)}`")
+    txt = txt.replace("`../aula/estudiante.html?t=${encodeURIComponent(studentToken)}`",
+                      "`${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(studentToken)}`")
+    txt = txt.replace("<a href=\"../herramientas/teacher-hub.html\"",
+                      "<a href=\"${ROOT_PREFIX}herramientas/teacher-hub.html\"")
+
+    # Write both to englishaurora/js/landing.js and js/landing.js
+    src_js.write_text(txt, encoding='utf-8')
+    dest_js = ROOT / 'js' / 'landing.js'
+    dest_js.write_text(txt, encoding='utf-8')
+    print('[Landing JS] Actualizado con soporte para rutas raiz y subcarpetas.')
+
+def update_root_index():
+    index_html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -281,3 +358,10 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
 <script src="js/landing.js"></script>
 </body>
 </html>
+"""
+    (ROOT / 'index.html').write_text(index_html_content, encoding='utf-8')
+    print('[Index HTML] Actualizado index.html como la Landing Page de la Galaxia!')
+
+if __name__ == '__main__':
+    update_landing_js()
+    update_root_index()

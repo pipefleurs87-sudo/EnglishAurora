@@ -7,9 +7,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-let htmlPath = path.resolve(__dirname, '../../ui-lab/teacher-hub.html');
+let htmlPath = path.resolve(__dirname, '../../herramientas/teacher-hub.html');
 if (!fs.existsSync(htmlPath)) {
-  htmlPath = path.resolve(__dirname, '../../herramientas/teacher-hub.html');
+  htmlPath = path.resolve(__dirname, '../../ui-lab/teacher-hub.html');
 }
 const htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
