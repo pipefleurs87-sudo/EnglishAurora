@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Adverbs of Manner — quickly, carefully & comparatives · Wave B Master Session | English Aurora</title>
-<meta name="description" content="Wave B 1-Hour Masterclass on Adverbs of Manner — quickly, carefully & comparatives (B1). Featuring Aurora AI Host, recurrent character dialogues, 4 grammatical forms, 3 cognitive stages, reading comprehension and printable PDF worksheet.">
-<meta name="robots" content="noindex, nofollow">
+<title>Adverbs of Manner — quickly, carefully & comparatives — Printable PDF Worksheet (with Answer Key) & Lesson | English Aurora</title>
+<meta name="description" content="Free printable PDF worksheet with answer key for Adverbs of Manner — quickly, carefully & comparatives (B1). Complete masterclass lesson with audio pronunciation, character dialogues, and CEFR practice.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="Adverbs of Manner — quickly, carefully & comparatives, English Worksheet PDF, Printable English exercises, English Aurora">
+<link rel="canonical" href="https://pipefleurs87-sudo.github.io/EnglishAurora/leccion/b1-adverbs-01-wave-b.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,6 +178,24 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
 }
 .toast-bar.show { display: flex; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Adverbs of Manner — quickly, carefully & comparatives Printable Worksheet and Master Lesson",
+  "description": "Free printable PDF worksheet with answer key for Adverbs of Manner — quickly, carefully & comparatives (B1).",
+  "educationalLevel": "B1",
+  "inLanguage": "en",
+  "learningResourceType": "Worksheet",
+  "educationalUse": "Worksheet, Practice, Assessment",
+  "isAccessibleForFree": true,
+  "provider": {
+    "@type": "Organization",
+    "name": "English Aurora",
+    "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -205,6 +225,9 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
     <div class="hud-actions-box">
       <button class="btn-hud-control" id="btn-toggle-cc" title="Toggle Subtitles [C]">
         <span>💬</span> <span id="cc-status-label">CC: ON</span>
+      </button>
+      <button class="btn-hud-control" id="btn-share-lesson" onclick="shareTeacherWorksheet()" title="Assign to Students via WhatsApp">
+        <span>📲</span> Asignar Ficha
       </button>
       <button class="btn-hud-control" id="btn-fullscreen" title="Clean Screen Recording Mode [F]">
         <span>📺</span> Fullscreen
@@ -509,7 +532,10 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
               <div class="sheet-title-txt">Adverbs of Manner — quickly, carefully & comparatives · Master Worksheet (10 Exercises)</div>
               <div style="font-family:var(--mono); font-size:11px; color:#6B7079;">English Aurora · Wave B Masterclass Collection</div>
             </div>
-            <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
           </div>
           <div class="sheet-meta-fields">
             <span>Student Name: _________________________________</span>
@@ -752,6 +778,26 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
 
   renderScene(0);
 })();
+</script>
+<script>
+window.shareTeacherWorksheet = function() {
+  var topic = document.title.split('—')[0].trim();
+  var url = window.location.href;
+  var msg = "📖 *English Aurora — Ficha & Lección de Inglés*\nTema: *" + topic + "*\nCompleta la lección interactiva y descarga la ficha práctica con respuestas aquí:\n👉 " + url;
+  window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(msg), "_blank");
+};
+window.copyTeacherWorksheetLink = function() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert("¡Enlace de la lección y ficha copiado al portapapeles! Listo para enviar por WhatsApp o Classroom.");
+    }).catch(function() {
+      prompt("Copia este enlace:", url);
+    });
+  } else {
+    prompt("Copia este enlace:", url);
+  }
+};
 </script>
 </body>
 </html>

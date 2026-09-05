@@ -307,6 +307,16 @@ html, body {
 .btn-play-game:hover { background: var(--teal); color: var(--ink); box-shadow: 0 0 16px var(--teal-glow); }
 .btn-play-game.secondary { background: rgba(255, 255, 255, 0.05); color: var(--paper); border-color: rgba(255, 255, 255, 0.15); }
 .btn-play-game.secondary:hover { background: rgba(242, 193, 78, 0.15); border-color: var(--gold); color: var(--gold); }
+.btn-share-card {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  background: rgba(37, 211, 102, 0.12); color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.35); border-radius: 8px;
+  padding: 8px 12px; cursor: pointer; transition: all 0.2s ease;
+  display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;
+}
+.btn-share-card:hover {
+  background: #25D366; color: #070B18; box-shadow: 0 0 14px rgba(37, 211, 102, 0.4); transform: translateY(-1px);
+}
 
 /* SEO Prerender */
 .seo-prerender-layer { position: relative; z-index: 5; max-width: 100%; margin: 30px auto 10px; color: var(--paper); font-family: var(--sans); }
@@ -403,6 +413,7 @@ html, body {
     <div class="hero-actions">
       <a class="btn-primary" href="juegos/meteor-words-pilot.html">🚀 Quick Play: Meteor Words</a>
       <a class="btn-secondary" href="showcase/a1-articles-aurora-rpg.html">🗺️ Explore Master Sky</a>
+      <button class="btn-secondary" id="btn-share-all-games" style="border-color:#25D366; color:#25D366; background:rgba(37, 211, 102, 0.1);" onclick="openTeacherAssignModal('Ludoteca Completa', 'ludoteca.html')">📲 Asignar Misiones a Alumnos</button>
     </div>
   </section>
 
@@ -819,6 +830,98 @@ html, body {
   Aurora.init({
     onOpenSave: () => drawGalaxyConstellation('modal-galaxy-canvas')
   });
+
+  // --- DYNAMIC TEACHER VIRAL LOOP (ASSIGNMENT SYSTEM) ---
+  const allCards = document.querySelectorAll('.game-card');
+  allCards.forEach(card => {
+    const playBtn = card.querySelector('.btn-play-game');
+    const name = card.dataset.name || 'Misión Arcade';
+    const href = playBtn ? playBtn.getAttribute('href') : '';
+    if (playBtn && href) {
+      const actionRow = document.createElement('div');
+      actionRow.style.display = 'flex';
+      actionRow.style.gap = '8px';
+      actionRow.style.alignItems = 'center';
+      actionRow.style.width = '100%';
+
+      playBtn.style.flex = '1';
+      playBtn.parentNode.insertBefore(actionRow, playBtn);
+      actionRow.appendChild(playBtn);
+
+      const shareBtn = document.createElement('button');
+      shareBtn.className = 'btn-share-card';
+      shareBtn.innerHTML = '<span>📲</span> Asignar';
+      shareBtn.title = 'Asignar misión a mis alumnos (WhatsApp / Enlace)';
+      shareBtn.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openTeacherAssignModal(name, href);
+      };
+      actionRow.appendChild(shareBtn);
+    }
+  });
+
+  window.openTeacherAssignModal = function(name, relativeUrl) {
+    const fullUrl = new URL(relativeUrl, window.location.href).href;
+    let modal = document.getElementById('teacher-assign-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'teacher-assign-modal';
+      modal.className = 'modal-overlay';
+      modal.innerHTML = `
+        <div class="modal-card" style="max-width: 480px; text-align: center;">
+          <button class="modal-close" id="assign-modal-close">&times;</button>
+          <div class="modal-title" id="assign-modal-title" style="color: #2DD4BF; font-size: 20px;">📲 Asignar Misión a Alumnos</div>
+          <div class="modal-sub" id="assign-modal-sub" style="margin-bottom: 16px;">
+            Envía esta misión de entrenamiento de inglés por WhatsApp o copia el enlace directo para Classroom.
+          </div>
+          <div style="background: rgba(7, 11, 24, 0.7); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px; font-family: var(--mono); font-size: 11px; color: #CCD7DE; margin-bottom: 18px; text-align: left; word-break: break-all;" id="assign-modal-preview"></div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button class="btn-primary" id="btn-assign-modal-wa" style="background: #25D366; color: #070B18; width: 100%; justify-content: center;">
+              📲 Compartir por WhatsApp
+            </button>
+            <button class="btn-secondary" id="btn-assign-modal-copy" style="width: 100%; justify-content: center;">
+              📋 Copiar Enlace de Tarea
+            </button>
+            <a href="herramientas/teacher-hub.html" class="btn-secondary" style="width: 100%; justify-content: center; color: #2DD4BF; border-color: rgba(45,212,191,0.3);">
+              🪐 Abrir Teacher's Hub
+            </a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modal.querySelector('#assign-modal-close').onclick = () => modal.classList.remove('active');
+      modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
+    }
+
+    const preview = modal.querySelector('#assign-modal-preview');
+    const btnWa = modal.querySelector('#btn-assign-modal-wa');
+    const btnCopy = modal.querySelector('#btn-assign-modal-copy');
+    const title = modal.querySelector('#assign-modal-title');
+
+    title.textContent = '📲 Asignar: ' + name;
+    const taskMsg = `🎮 *English Aurora — Tarea Arcade de Inglés*\nMisión: *${name}*\n¡Hola clase! Jueguen hoy a esta misión para entrenar su pronunciación y vocabulario:\n👉 ${fullUrl}\n¡Sumen estrellas y derroten la sombra! ⭐`;
+    preview.textContent = taskMsg;
+
+    btnWa.onclick = () => {
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(taskMsg), '_blank');
+    };
+
+    btnCopy.onclick = () => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullUrl).then(() => {
+          btnCopy.textContent = '✓ ¡Enlace Copiado!';
+          setTimeout(() => btnCopy.textContent = '📋 Copiar Enlace de Tarea', 2000);
+        }).catch(() => {
+          prompt('Copia este enlace de tarea:', fullUrl);
+        });
+      } else {
+        prompt('Copia este enlace de tarea:', fullUrl);
+      }
+    };
+
+    modal.classList.add('active');
+  };
 
   function drawGalaxyConstellation(canvasId) {
     const cvs = document.getElementById(canvasId);

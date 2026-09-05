@@ -418,8 +418,129 @@
         box-shadow: 0 16px 50px rgba(0,0,0,0.8), 0 0 30px rgba(242, 193, 78, 0.65);
         z-index: 100; pointer-events: none; animation: auroraPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
+      /* Teacher Viral Loop */
+      .aurora-teacher-viral-box {
+        margin-top: 18px;
+        background: rgba(13, 22, 38, 0.88);
+        border: 1px dashed rgba(45, 212, 191, 0.45);
+        border-radius: 14px;
+        padding: 14px 18px;
+        text-align: center;
+      }
+      .aurora-viral-title {
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #F2C14E;
+        margin-bottom: 4px;
+      }
+      .aurora-viral-sub {
+        font-size: 11.5px;
+        color: #8B99AE;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .aurora-viral-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-aurora-viral-wa {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 11px;
+        font-weight: 700;
+        background: #25D366;
+        color: #070B18;
+        border: none;
+        border-radius: 8px;
+        padding: 7px 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .btn-aurora-viral-wa:hover {
+        background: #1EBE5B;
+        transform: translateY(-1px);
+      }
+      .btn-aurora-viral-copy {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 11px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.08);
+        color: #F2F5F7;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 7px 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .btn-aurora-viral-copy:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #2DD4BF;
+        border-color: #2DD4BF;
+      }
+      .btn-aurora-viral-hub {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 11px;
+        font-weight: 600;
+        color: #2DD4BF;
+        text-decoration: none;
+        padding: 7px 10px;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s ease;
+      }
+      .btn-aurora-viral-hub:hover {
+        color: #F2C14E;
+      }
     `;
     document.head.appendChild(style);
+  }
+
+  function setupResultsTeacherViral() {
+    const resultsModal = document.getElementById('results-modal');
+    if (!resultsModal) return;
+    const card = resultsModal.querySelector('.modal-card');
+    if (!card || card.querySelector('.aurora-teacher-viral-box')) return;
+
+    const viralBox = document.createElement('div');
+    viralBox.className = 'aurora-teacher-viral-box';
+    viralBox.innerHTML = `
+      <div class="aurora-viral-title">👨‍🏫 ¿Enseñas inglés? Asigna esta misión a tus alumnos</div>
+      <div class="aurora-viral-sub">Entrenan discriminación auditiva y vocabulario jugando directamente sin registro previo.</div>
+      <div class="aurora-viral-actions">
+        <button class="btn-aurora-viral-wa" id="btn-aurora-viral-wa">📲 Asignar por WhatsApp</button>
+        <button class="btn-aurora-viral-copy" id="btn-aurora-viral-copy">📋 Copiar Tarea</button>
+        <a class="btn-aurora-viral-hub" href="../herramientas/teacher-hub.html" target="_blank">🪐 Teacher's Hub →</a>
+      </div>
+    `;
+    card.appendChild(viralBox);
+
+    const btnWa = viralBox.querySelector('#btn-aurora-viral-wa');
+    const btnCopy = viralBox.querySelector('#btn-aurora-viral-copy');
+    const gameTitle = (document.title || 'Misión de Inglés').split('—')[0].split('·')[0].split('|')[0].trim();
+    const gameUrl = window.location.href;
+
+    if (btnWa) {
+      btnWa.onclick = () => {
+        const msg = `🎮 *English Aurora — Tarea Arcade de Inglés*\nMisión: *${gameTitle}*\n¡Hola clase! Jueguen hoy a esta misión para entrenar su oído y vocabulario:\n👉 ${gameUrl}\n¡Sumen estrellas y derroten la sombra! ⭐`;
+        window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
+      };
+    }
+
+    if (btnCopy) {
+      btnCopy.onclick = () => {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(gameUrl).then(() => {
+            showToast(0, '¡Enlace copiado para tus alumnos! 📋', null, null, false);
+          }).catch(() => {
+            prompt('Copia este enlace de misión:', gameUrl);
+          });
+        } else {
+          prompt('Copia este enlace de misión:', gameUrl);
+        }
+      };
+    }
   }
 
   function updateHUD() {
@@ -491,6 +612,7 @@
     init(options) {
       injectStyles();
       updateHUD();
+      setupResultsTeacherViral();
 
       // Shadow drawer click handler
       const sBox = document.getElementById('aurora-shadow-box');
