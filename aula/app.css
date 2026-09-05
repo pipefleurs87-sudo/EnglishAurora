@@ -1,0 +1,49 @@
+/* EnglishAngel Aula — tokens compartidos con el sitio público */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap');
+:root{
+  --ink:#1B2A41; --paper:#EFF1EC; --red:#B23A2E; --gold:#C9962F;
+  --muted:#6B7079; --line:#D8DAD1; --card:#FFFFFF;
+  --serif:'Source Serif 4',serif; --sans:'IBM Plex Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace; --hand:'Caveat',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 80px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+h1{font-family:var(--serif);font-size:clamp(26px,5vw,38px);line-height:1.15;margin:6px 0 4px}
+h2{font-family:var(--serif);font-size:22px;margin:34px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+h3{font-family:var(--serif);font-size:17px;margin:0 0 6px}
+.sub{color:var(--muted);margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:10px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grow{flex:1;min-width:160px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:2px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);white-space:nowrap}
+.tag.lvl{color:var(--gold);border-color:var(--gold)}
+.tag.ok{color:#2E7D4F;border-color:#2E7D4F}
+.tag.pend{color:var(--red);border-color:var(--red)}
+button,.btn{font-family:var(--sans);font-weight:600;font-size:14px;border:none;border-radius:8px;padding:9px 16px;cursor:pointer;background:var(--ink);color:#fff;text-decoration:none;display:inline-block}
+button.sec,.btn.sec{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+button.red{background:var(--red)}
+button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+button:disabled{opacity:.45;cursor:not-allowed}
+input,select,textarea{font-family:var(--sans);font-size:15px;padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+label{font-family:var(--mono);font-size:12px;color:var(--muted);display:block;margin:10px 0 4px;letter-spacing:.05em}
+.score{font-family:var(--serif);font-weight:700;font-size:22px}
+.score.good{color:#2E7D4F}.score.mid{color:var(--gold)}.score.low{color:var(--red)}
+.hand{font-family:var(--hand);font-size:19px;color:var(--red)}
+.muted{color:var(--muted);font-size:14px}
+.mono{font-family:var(--mono);font-size:13px}
+.comment{border-left:3px solid var(--line);padding:8px 12px;margin:8px 0;border-radius:0 8px 8px 0;background:#fff}
+.comment.prof{border-left-color:var(--gold);background:#FDF9F0}
+.comment .who{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:3px}
+.empty{color:var(--muted);font-style:italic;padding:14px 4px}
+.hidden{display:none!important}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+.modal-bg{position:fixed;inset:0;background:rgba(27,42,65,.45);display:flex;align-items:center;justify-content:center;z-index:40;padding:16px}
+.modal{background:var(--paper);border-radius:12px;padding:22px;max-width:480px;width:100%;max-height:90vh;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+@media(max-width:560px){.wrap{padding:18px 12px 60px}}

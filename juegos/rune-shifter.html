@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rune Shifter — Determinantes y Cuantificadores B1 | Juegos para aprender inglés · English Aurora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #070B18;
+  --night: #0A101C;
+  --night-card: rgba(13, 22, 38, 0.88);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45, 212, 191, 0.35);
+  --teal-glow: rgba(45, 212, 191, 0.6);
+  --gold: #F2C14E;
+  --gold-dim: rgba(242, 193, 78, 0.3);
+  --gold-glow: rgba(242, 193, 78, 0.65);
+  --purple: #815CD8;
+  --paper: #F2F5F7;
+  --muted: #8B99AE;
+
+  --serif: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --hand: 'Caveat', cursive;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; touch-action: manipulation;
+}
+
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.aurora-layer {
+  position: fixed; inset: -10% -10% auto -10%; height: 80%;
+  z-index: 1; pointer-events: none; opacity: 0.45;
+  background: radial-gradient(ellipse 65% 45% at 25% 30%, rgba(45, 212, 191, 0.3), transparent 60%),
+              radial-gradient(ellipse 55% 40% at 75% 25%, rgba(129, 92, 216, 0.28), transparent 60%),
+              radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242, 193, 78, 0.15), transparent 65%);
+  filter: blur(40px);
+  animation: auroraDrift 20s ease-in-out infinite alternate;
+}
+@keyframes auroraDrift {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(3vw, 4vh, 0); }
+}
+
+.app-viewport {
+  position: relative; z-index: 10;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  padding: 12px 20px;
+}
+
+/* Rune Arena */
+.rune-arena {
+  position: relative; flex: 1;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 50% 50%, rgba(13, 22, 38, 0.6) 0%, rgba(7, 11, 24, 0.5) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 24px; overflow: hidden;
+}
+
+/* Arcane Rune Tablet */
+.rune-tablet {
+  width: 100%; max-width: 620px;
+  background: linear-gradient(145deg, rgba(28, 40, 68, 0.94), rgba(12, 18, 34, 0.98));
+  border: 2px solid var(--gold); border-radius: 20px;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.7), 0 0 30px var(--gold-dim);
+  padding: 26px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.rune-sentence-wrap {
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--paper);
+}
+.rune-slot {
+  min-width: 65px; height: 42px; border: 2px dashed var(--gold);
+  border-radius: 10px; background: rgba(242, 193, 78, 0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 18px;
+}
+
+/* 4 Determiner Runes */
+.runes-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; width: 100%; max-width: 620px; z-index: 10;
+}
+.rune-button {
+  background: linear-gradient(145deg, rgba(20, 32, 54, 0.9), rgba(10, 16, 30, 0.98));
+  border: 1.5px solid rgba(45, 212, 191, 0.35); border-radius: 16px;
+  padding: 16px 12px; font-family: var(--serif); font-size: 18px; font-weight: 700;
+  color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.22s var(--e-out); text-align: center;
+}
+.rune-button:hover {
+  border-color: var(--gold); background: rgba(242, 193, 78, 0.18);
+  color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 24px var(--gold-dim);
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(7, 11, 24, 0.88); backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-card {
+  width: 90%; max-width: 500px;
+  background: var(--night-card);
+  border: 1px solid var(--gold); border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(242, 193, 78, 0.25);
+  padding: 28px 24px; text-align: center; position: relative;
+  transform: translateY(20px); transition: transform 0.35s var(--e-spring);
+}
+.modal-overlay.active .modal-card { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer;
+}
+.modal-close:hover { color: var(--paper); }
+.modal-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 8px;
+}
+.modal-sub {
+  font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 20px;
+}
+.galaxy-preview-box {
+  width: 100%; height: 150px; border-radius: 12px;
+  background: rgba(10, 16, 28, 0.85); border: 1px solid rgba(45, 212, 191, 0.3);
+  margin-bottom: 18px; position: relative; overflow: hidden;
+}
+.btn-primary {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  border-radius: 10px; padding: 11px 20px; cursor: pointer;
+  box-shadow: 0 0 20px var(--gold-glow); transition: all 0.25s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-primary:hover {
+  background: #FFE28A; transform: translateY(-2px); box-shadow: 0 0 30px var(--gold-glow);
+}
+.btn-secondary {
+  font-family: var(--mono); font-size: 11px;
+  background: rgba(255, 255, 255, 0.05); color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px;
+  padding: 10px 16px; cursor: pointer; transition: all 0.2s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+/* SEO Prerender Accessible Styling (Visible to Crawlers & Collapsible) */
+.seo-prerender-layer {
+  position: relative; z-index: 5; max-width: 860px; margin: 20px auto 40px;
+  padding: 0 16px; color: var(--paper); font-family: var(--sans);
+}
+.seo-prerender-card {
+  background: rgba(13, 22, 38, 0.92); border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 14px; padding: 20px 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.seo-game-title { font-family: var(--serif); font-size: 18px; color: var(--gold); margin-bottom: 6px; }
+.seo-lead { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+.seo-section-title { font-family: var(--serif); font-size: 14px; color: var(--teal); margin-bottom: 8px; }
+.seo-items-list { list-style: square; padding-left: 20px; font-size: 12.5px; color: var(--paper); line-height: 1.6; margin-bottom: 16px; }
+.seo-ipa { font-family: var(--mono); color: var(--gold); font-size: 11.5px; }
+.seo-clue { color: var(--muted); }
+.seo-triad-nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+.seo-triad-label { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.seo-nav-link { font-family: var(--mono); font-size: 11.5px; color: var(--teal); text-decoration: none; padding: 4px 10px; background: rgba(45,212,191,0.08); border-radius: 6px; border: 1px solid var(--teal-dim); transition: all 0.2s ease; }
+.seo-nav-link:hover { background: rgba(242,193,78,0.15); border-color: var(--gold); color: var(--gold); }
+.seo-nav-link.hub { color: var(--gold); border-color: var(--gold-dim); background: rgba(242,193,78,0.1); }
+
+</style>
+
+<!-- REGLA 1 & 5 SEO: META DESCRIPTION, CANONICAL & OPEN GRAPH -->
+<meta name="description" content="Encaja artículos y determinantes en ranuras de runas antes de que se bloquee el portal. Práctica gramatical CEFR B1 interactiva.">
+<link rel="canonical" href="https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/rune-shifter.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/rune-shifter.html">
+<meta property="og:title" content="Rune Shifter — Determinantes y Cuantificadores B1 | Juegos para aprender inglés · English Aurora">
+<meta property="og:description" content="Encaja artículos y determinantes en ranuras de runas antes de que se bloquee el portal. Práctica gramatical CEFR B1 interactiva.">
+<meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/assets/aurora.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- REGLA 3 SEO: DATOS ESTRUCTURADOS JSON-LD (WebApplication & Breadcrumbs) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/rune-shifter.html#app",
+      "name": "Rune Shifter — Determinantes y Cuantificadores B1 | Juegos para aprender inglés · English Aurora",
+      "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/rune-shifter.html",
+      "description": "Encaja artículos y determinantes en ranuras de runas antes de que se bloquee el portal. Práctica gramatical CEFR B1 interactiva.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All modern web browsers",
+      "isAccessibleForFree": true,
+      "inLanguage": [
+        "en",
+        "es"
+      ],
+      "educationalLevel": "CEFR B1",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "English Aurora",
+        "url": "https://pipefleurs87-sudo.github.io/EnglishAurora"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/rune-shifter.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ludoteca",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Nivel B1",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html?level=b1"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Rune Shifter 🔮"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="aurora-layer"></div>
+
+<div class="app-viewport">
+  <!-- HUD (Synced with Aurora Companion) -->
+  <header class="aurora-hud-bar">
+    <div class="aurora-brand-group">
+      <div class="aurora-brand-title">ENGLISH AURORA</div>
+      <div class="aurora-level-pill" id="aurora-level-tag">SPARK · LV 1</div>
+    </div>
+
+    <div class="aurora-stats-group">
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Galaxy XP</div>
+        <div class="aurora-stat-val gold" id="aurora-xp-val">⭐ 0</div>
+      </div>
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Streak</div>
+        <div class="aurora-streak-pill" id="aurora-streak-pill">🔥 ×1</div>
+      </div>
+      <div class="aurora-stat-box clickable" id="aurora-shadow-box" title="Click to view dim stars">
+        <div class="aurora-stat-label">Shadow Words</div>
+        <div class="aurora-stat-val teal" id="aurora-shadow-val">🌘 0</div>
+      </div>
+      <button class="aurora-btn-save" id="aurora-btn-save">
+        <span>✨</span><span id="aurora-save-text">Save Galaxy</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SHADOW WORDS DRAWER -->
+  <div class="aurora-shadow-drawer" id="aurora-shadow-drawer">
+    <div class="aurora-drawer-title">
+      <span>🌘 Dim Stars (Shadow Words)</span>
+      <span id="aurora-shadow-count">0 waiting</span>
+    </div>
+    <div id="aurora-shadow-list">
+      <div style="color:#8B99AE; font-size:12px; font-style:italic;">No shadow stars yet. Missed words will be collected here for redemption.</div>
+    </div>
+  </div>
+
+  <!-- ARENA -->
+  <main class="rune-arena" id="arena">
+    <div style="font-family:var(--mono); font-size:12px; color:var(--teal); letter-spacing:0.1em;">
+      ARCANE RUNE GATE: SLOT THE CORRECT ARTICLE RUNE
+    </div>
+
+    <div class="rune-tablet">
+      <div class="rune-sentence-wrap" id="sentence-wrap">
+        <span>She bought</span>
+        <div class="rune-slot" id="rune-slot">?</div>
+        <span>apple from the market.</span>
+      </div>
+    </div>
+
+    <div class="runes-grid">
+      <button class="rune-button" data-rune="a">A</button>
+      <button class="rune-button" data-rune="an">AN</button>
+      <button class="rune-button" data-rune="the">THE</button>
+      <button class="rune-button" data-rune="zero">∅ (ZERO)</button>
+    </div>
+  </main>
+
+  <!-- GUIDANCE FOOTER (Aurora Avatar Companion) -->
+  <footer class="aurora-guidance-panel">
+    <div class="aurora-character-wrap">
+      <img id="aurora-avatar-img" class="aurora-character-img" src="../assets/aurora.png" alt="Aurora · Guardian of Light">
+      <div class="aurora-dialogue-bubble">
+        <div class="aurora-name">Aurora · Guardian of Light</div>
+        <div class="aurora-quote" id="aurora-quote">"Slot the correct article rune to unlock the arcane gate." 🔮</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- SAVE MODAL -->
+<div class="modal-overlay" id="save-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-title">Preserve Your Galaxy</div>
+    <div class="modal-sub">
+      "Don't let your light fade into the void. Anchor your ignited stars and keep your Shadow Words burning."
+    </div>
+    
+    <div class="galaxy-preview-box">
+      <canvas id="modal-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <button class="btn-primary" id="btn-save-google">✨ Save with Google (1-Click)</button>
+      <button class="btn-secondary" id="btn-save-email">📧 Save with Email</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS MODAL -->
+<div class="modal-overlay" id="results-modal">
+  <div class="modal-card">
+    <div class="modal-title" id="results-title">Rune Gates Unlocked! 🔮</div>
+    <div class="modal-sub" id="results-sub">All determiner runes slotted with ancient arcane precision.</div>
+
+    <div class="galaxy-preview-box">
+      <canvas id="results-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+      <button class="btn-primary" id="btn-restart-runes">🚀 Shift More Runes</button>
+      <a class="btn-secondary" href="../ludoteca.html">🌌 Return to Ludoteca</a>
+      <button class="btn-secondary" id="btn-results-save">✨ Save My Galaxy</button>
+    </div>
+  </div>
+</div>
+
+<!-- AURORA COMPANION ENGINE -->
+<script src="../js/aurora-curriculum.js"></script>
+<script src="../js/aurora-companion.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  const RUNES_DATA = [
+    { prefix: 'She ate', slot: 'an', suffix: 'apple this morning.', full: 'She ate an apple this morning.' },
+    { prefix: 'He is studying to become', slot: 'a', suffix: 'doctor in Boston.', full: 'He is studying to become a doctor in Boston.' },
+    { prefix: 'Look at', slot: 'the', suffix: 'moon glowing in the night sky.', full: 'Look at the moon glowing in the night sky.' },
+    { prefix: 'I love drinking', slot: 'zero', suffix: 'coffee with milk.', full: 'I love drinking coffee with milk.' },
+    { prefix: 'They stayed at', slot: 'a', suffix: 'beautiful hotel by the sea.', full: 'They stayed at a beautiful hotel by the sea.' },
+    { prefix: 'She is', slot: 'an', suffix: 'honest and hardworking pilot.', full: 'She is an honest and hardworking pilot.' }
+  ];
+
+  // --- BACKGROUND CANVAS ---
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgCtx = bgCanvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    bgCanvas.width = window.innerWidth;
+    bgCanvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 110; i++) {
+      stars.push({
+        x: Math.random() * bgCanvas.width,
+        y: Math.random() * bgCanvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        alpha: Math.random() * 0.7 + 0.2,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function renderGalaxy() {
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      bgCtx.fillStyle = 'rgba(242, 193, 78, ' + a + ')';
+      bgCtx.beginPath();
+      bgCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      bgCtx.fill();
+    });
+    requestAnimationFrame(renderGalaxy);
+  }
+  renderGalaxy();
+
+  Aurora.init({
+    onOpenSave: () => drawGalaxyConstellation('modal-galaxy-canvas')
+  });
+
+  // --- GAMEPLAY CONTROLLER ---
+  const sentenceWrap = document.getElementById('sentence-wrap');
+  const runeSlot = document.getElementById('rune-slot');
+  const runeButtons = document.querySelectorAll('.rune-button');
+
+  let currentTarget = null;
+  let roundCount = 0;
+  const ROUND_TOTAL = 5;
+  let isTransitioning = false;
+
+  function startNextRune() {
+    roundCount++;
+    isTransitioning = false;
+
+    if (roundCount > ROUND_TOTAL) {
+      finishWave();
+      return;
+    }
+
+    const item = RUNES_DATA[(roundCount - 1) % RUNES_DATA.length];
+    currentTarget = item;
+
+    sentenceWrap.innerHTML = `
+      <span>${item.prefix}</span>
+      <div class="rune-slot" id="rune-slot">?</div>
+      <span>${item.suffix}</span>
+    `;
+  }
+
+  runeButtons.forEach(btn => {
+    btn.onclick = (e) => {
+      if (isTransitioning || !currentTarget) return;
+      const chosenRune = btn.getAttribute('data-rune');
+      const clickX = e.clientX;
+      const clickY = e.clientY;
+
+      const slotEl = document.getElementById('rune-slot');
+
+      if (chosenRune === currentTarget.slot) {
+        isTransitioning = true;
+        slotEl.textContent = chosenRune === 'zero' ? '∅' : chosenRune.toUpperCase();
+        slotEl.style.borderColor = '#57D98A';
+        slotEl.style.color = '#57D98A';
+
+        Aurora.celebrate({ xp: 10, x: clickX, y: clickY, message: 'Rune Slotted! 🔮' });
+        setTimeout(startNextRune, 1400);
+      } else {
+        isTransitioning = true;
+        Aurora.comfortMistake({
+          word: currentTarget.slot.toUpperCase(),
+          icon: '🔮',
+          slug: 'determiner',
+          clue: currentTarget.full,
+          x: clickX,
+          y: clickY,
+          mountSelector: '#arena'
+        });
+        setTimeout(startNextRune, 2600);
+      }
+    };
+  });
+
+  function finishWave() {
+    Aurora.sfx.waveComplete();
+    const resultsModal = document.getElementById('results-modal');
+    resultsModal.classList.add('active');
+    drawGalaxyConstellation('results-galaxy-canvas');
+  }
+
+  function drawGalaxyConstellation(canvasId) {
+    const cvs = document.getElementById(canvasId);
+    if (!cvs) return;
+    const ctx = cvs.getContext('2d');
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+    const state = Aurora.getState();
+    const totalStars = Math.min(state.starsIgnited + 6, 24);
+    const starCoords = [];
+    for (let i = 0; i < totalStars; i++) {
+      const x = 30 + Math.random() * (cvs.width - 60);
+      const y = 20 + Math.random() * (cvs.height - 40);
+      starCoords.push({ x, y });
+
+      ctx.fillStyle = '#F2C14E';
+      ctx.shadowColor = '#F2C14E';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.strokeStyle = 'rgba(45, 212, 191, 0.35)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    for (let i = 0; i < starCoords.length - 1; i++) {
+      if (Math.random() > 0.3) {
+        ctx.moveTo(starCoords[i].x, starCoords[i].y);
+        ctx.lineTo(starCoords[i+1].x, starCoords[i+1].y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  document.getElementById('btn-restart-runes').onclick = () => {
+    document.getElementById('results-modal').classList.remove('active');
+    roundCount = 0;
+    startNextRune();
+  };
+
+  startNextRune();
+
+})();
+</script>
+
+  <!-- ========================================================================= -->
+  <!-- REGLA 2 SEO: PRERENDER RASTREABLE ESTÁTICO (DOM PLANO PARA GOOGLE CRAWLER) -->
+  <!-- ========================================================================= -->
+  <section class="seo-prerender-layer" aria-label="Contenido pedagógico y vocabulario de la lección">
+    <div class="seo-prerender-card">
+      <header class="seo-header">
+        <h1 class="seo-game-title">Rune Shifter 🔮 — Determinantes y Cuantificadores</h1>
+        <p class="seo-lead">Juego educativo interactivo gratis para aprender inglés en nivel <strong>CEFR B1</strong> con el método sensorial de <strong>English Aurora</strong>.</p>
+      </header>
+
+      <div class="seo-content-block">
+        <h2 class="seo-section-title">Contenido pedagógico y banco léxico evaluado:</h2>
+        <ul class="seo-items-list">
+      <li class="seo-item"><strong>Rune Slot 1</strong> <span class="seo-ipa">Target</span> — <em>She found ___ ancient artifact in the desert.</em>: <span class="seo-clue">AN (vowel initial)</span></li>
+      <li class="seo-item"><strong>Rune Slot 2</strong> <span class="seo-ipa">Target</span> — <em>He solved ___ difficult math problem.</em>: <span class="seo-clue">A (consonant initial)</span></li>
+      <li class="seo-item"><strong>Rune Slot 3</strong> <span class="seo-ipa">Target</span> — <em>We crossed ___ Atlantic Ocean on a ship.</em>: <span class="seo-clue">THE (oceans and seas)</span></li>
+      <li class="seo-item"><strong>Rune Slot 4</strong> <span class="seo-ipa">Target</span> — <em>___ gold is a precious metal.</em>: <span class="seo-clue">∅ ZERO (uncountable generic)</span></li>
+        </ul>
+      </div>
+
+      <nav class="seo-triad-nav" aria-label="Tríada pedagógica del tema">
+        <span class="seo-triad-label">Tríada Pedagógica Completa:</span>
+        <a class="seo-nav-link" href="../leccion/b1-indefinite-pronouns-01.html">📖 Ver Lección Teórica</a>
+        <a class="seo-nav-link" href="../preview/b1-indefinite-pronouns-01.html">✏️ Práctica Cognitiva</a>
+        <a class="seo-nav-link" href="../evaluacion/b1-indefinite-pronouns-01.html">✓ Evaluación del Tema</a>
+        <a class="seo-nav-link hub" href="../ludoteca.html">🌌 Hub Central de Juegos (Ludoteca)</a>
+      </nav>
+    </div>
+  </section>
+
+</body>
+</html>

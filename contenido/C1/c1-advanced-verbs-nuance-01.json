@@ -1,0 +1,123 @@
+{
+  "id": "c1-advanced-verbs-nuance-01",
+  "nivel": "C1",
+  "arquetipo": "vocabulario",
+  "tema": "Advanced Verbs — Precision & Nuance (The Scholar's Arsenal)",
+  "habilidades": ["vocabulary", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "implicar / dar a entender", "palabra": "imply", "traduccion": "dar a entender (el hablante sugiere)"},
+    {"bandera": "inferir", "palabra": "infer", "traduccion": "deducir (el oyente concluye)"},
+    {"bandera": "transmitir (idea)", "palabra": "convey", "traduccion": "transmitir, comunicar (una idea)"},
+    {"bandera": "articular", "palabra": "articulate", "traduccion": "articular, expresar con claridad"},
+    {"bandera": "afirmar con firmeza", "palabra": "assert", "traduccion": "afirmar con convicción"},
+    {"bandera": "refutar", "palabra": "refute", "traduccion": "refutar, rebatir"},
+    {"bandera": "socavar", "palabra": "undermine", "traduccion": "socavar, debilitar"},
+    {"bandera": "facilitar", "palabra": "facilitate", "traduccion": "facilitar (registro formal)"},
+    {"bandera": "obstaculizar", "palabra": "hinder", "traduccion": "obstaculizar, dificultar"},
+    {"bandera": "aliviar", "palabra": "alleviate", "traduccion": "aliviar, mitigar"},
+    {"bandera": "exacerbar", "palabra": "exacerbate", "traduccion": "exacerbar, agravar"},
+    {"bandera": "escudriñar", "palabra": "scrutinize", "traduccion": "escudriñar, examinar minuciosamente"},
+    {"bandera": "contemplar (considerar)", "palabra": "contemplate", "traduccion": "contemplar, considerar seriamente"},
+    {"bandera": "esforzarse (formal)", "palabra": "endeavour", "traduccion": "esforzarse (registro formal)"},
+    {"bandera": "prevalecer", "palabra": "prevail", "traduccion": "prevalecer, imponerse"},
+    {"bandera": "deteriorarse", "palabra": "deteriorate", "traduccion": "deteriorarse, empeorar"},
+    {"bandera": "prosperar", "palabra": "flourish", "traduccion": "prosperar, florecer"},
+    {"bandera": "surgir", "palabra": "arise → arose → arisen", "traduccion": "surgir (problema/situación)"},
+    {"bandera": "suscitar", "palabra": "spark (debate/outrage)", "traduccion": "suscitar, provocar (debate/indignación)"},
+    {"bandera": "abordar (problema)", "palabra": "address (an issue)", "traduccion": "abordar, tratar (un problema)"},
+    {"bandera": "reunir (evidencia)", "palabra": "gather (evidence)", "traduccion": "reunir, recopilar (evidencia)"},
+    {"bandera": "descartar", "palabra": "rule out", "traduccion": "descartar (una posibilidad)"},
+    {"bandera": "señalar / destacar", "palabra": "point out", "traduccion": "señalar, hacer notar"},
+    {"bandera": "llevar a cabo", "palabra": "carry out", "traduccion": "llevar a cabo (estudio/plan)"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The author clearly implies that economic inequality is deepening."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "From these findings, the researchers inferred a direct causal link."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "The new policy helped alleviate the severe housing shortage in urban areas."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Scholars must scrutinize primary sources before publishing their theses."},
+    {"id": "s5", "forma": "negativo", "oracion": "The panel did not refute the counterarguments presented by the defense."},
+    {"id": "s6", "forma": "negativo", "oracion": "Such unverified claims will not undermine the integrity of the institution."},
+    {"id": "s7", "forma": "negativo", "oracion": "The committee could not rule out the possibility of environmental contamination."},
+    {"id": "s8", "forma": "negativo", "oracion": "He failed to articulate his core hypothesis with sufficient precision."},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did the speaker imply that the current measures are inadequate?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How can academic institutions facilitate interdisciplinary dialogue?"},
+    {"id": "s11", "forma": "interrogativo", "oracion": "What factors might exacerbate the diplomatic tension between the nations?"},
+    {"id": "s12", "forma": "interrogativo", "oracion": "Will rational discourse prevail over sensationalist narratives?"},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did the evidence refute the original thesis? Yes, it did."},
+    {"id": "s14", "forma": "short_answer", "oracion": "Can we rule out human error entirely? No, we cannot."},
+    {"id": "s15", "forma": "short_answer", "oracion": "Did they articulate the proposal clearly? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Sofía: The essay's tone seemed to **imply** that cultural heritage is being neglected.",
+        "Kenji: As critical readers, we must **infer** conclusions strictly from verified data, not assumptions.",
+        "Ben: If we fail to **scrutinize** these statistics, we risk **undermining** our entire argument.",
+        "Abuela Carmen: True wisdom lies not in using big words, but in choosing the exact word that **articulates** the truth."
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "What are you inferring when you say that?",
+        "opcion_b": "What are you implying when you say that?",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "At the C1 level, vocabulary precision distinguishes competent speakers from master communicators. 'Imply' is what the speaker sends; 'infer' is what the listener concludes.",
+      "tabla": {
+        "titulo": "Precision Matrix: Academic Verbs in Contrast",
+        "encabezados": ["Verb Pair", "Nuance & Distinction", "Sample Context"],
+        "filas": [
+          ["Imply vs Infer", "Imply = to suggest indirectly (speaker) · Infer = to deduce (listener)", "The data implies a shift; we infer its impact."],
+          ["Alleviate vs Exacerbate", "Alleviate = to reduce severity / soothe · Exacerbate = to worsen", "Medication alleviates symptoms; stress exacerbates them."],
+          ["Facilitate vs Hinder", "Facilitate = to make easier · Hinder = to impede / delay", "Clear regulations facilitate trade, while tariffs hinder it."],
+          ["Assert vs Refute", "Assert = to declare firmly · Refute = to prove wrong with evidence", "He asserted his innocence, but facts refuted it."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "pregunta": "The speaker didn't state it outright, but her remarks strongly ___ that budget cuts were imminent.", "opciones": ["implied", "inferred", "articulated"], "respuesta": "implied"},
+        {"tipo": "multiple_choice", "pregunta": "From the archaeological artifacts discovered, historians ___ that trade routes were extensive.", "opciones": ["inferred", "implied", "exacerbated"], "respuesta": "inferred"},
+        {"tipo": "multiple_choice", "pregunta": "Implementing stringent quality control will ___ the risk of manufacturing defects.", "opciones": ["alleviate", "hinder", "exacerbate"], "respuesta": "alleviate"},
+        {"tipo": "multiple_choice", "pregunta": "The committee decided to ___ an independent investigation into the financial discrepancies.", "opciones": ["carry out", "rule out", "spark out"], "respuesta": "carry out"},
+        {"tipo": "multiple_choice", "pregunta": "Lack of adequate funding will severely ___ the progress of clinical trials.", "opciones": ["hinder", "facilitate", "prevail"], "respuesta": "hinder"},
+        {"tipo": "true_false", "afirmacion": "The verb 'imply' means to deduce information from context as a listener.", "respuesta": "false"},
+        {"tipo": "true_false", "afirmacion": "'Exacerbate' and 'alleviate' are antonyms in academic English.", "respuesta": "true"},
+        {"tipo": "gap_fill", "texto": "Unfounded rumors will only ___ (exacerbate / alleviate) existing social tensions.", "respuesta": "exacerbate"},
+        {"tipo": "gap_fill", "texto": "Before reaching a consensus, scholars must rigorously ___ (scrutinize / undermine) every hypothesis.", "respuesta": "scrutinize"},
+        {"tipo": "gap_fill", "texto": "The defense team managed to ___ (refute / convey) the key accusations using video evidence.", "respuesta": "refute"},
+        {"tipo": "unscramble", "palabras": ["we", "cannot", "rule", "out", "the", "possibility", "of", "contamination"], "respuesta": "We cannot rule out the possibility of contamination"},
+        {"tipo": "unscramble", "palabras": ["the", "new", "reforms", "will", "facilitate", "sustainable", "economic", "growth"], "respuesta": "The new reforms will facilitate sustainable economic growth"},
+        {"tipo": "correct_mistake", "texto_con_error": "Are you inferring that I am responsible for this error?", "respuesta": "Are you implying that I am responsible for this error?"},
+        {"tipo": "correct_mistake", "texto_con_error": "The medication only exacerbated his intense pain.", "respuesta": "The medication only alleviated his intense pain."},
+        {"tipo": "transformation", "oracion_base": "He suggested without saying that the experiment was flawed.", "instruccion": "Rewrite using the verb 'imply'.", "respuesta": "He implied that the experiment was flawed."},
+        {"tipo": "transformation", "oracion_base": "The data clearly showed a connection between the variables.", "instruccion": "Rewrite using the verb 'convey'.", "respuesta": "The data clearly conveyed a connection between the variables."},
+        {"tipo": "write_opposite", "oracion_base": "The policies facilitated foreign investment.", "instruccion": "Rewrite the sentence using 'hindered'.", "respuesta": "The policies hindered foreign investment."},
+        {"tipo": "short_answer_production", "pregunta": "Did the newly discovered data refute the longstanding hypothesis? (Short answer: Yes)", "respuesta": "Yes, it did."},
+        {"tipo": "short_answer_production", "pregunta": "Did the committee scrutinize the financial report? (Short answer: Yes)", "respuesta": "Yes, they did."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: The keynote speaker managed to **articulate** complex ethical questions with remarkable clarity.",
+        "Kenji: Indeed. Rather than **undermining** opposing schools of thought, she sought to **facilitate** a constructive debate.",
+        "Ben: Did she **rule out** the possibility of regulatory intervention?",
+        "Sofía: No, she **pointed out** that government oversight might be necessary if conditions **deteriorate**.",
+        "Abuela Carmen: When people speak with truth and precision, understanding will always **prevail**."
+      ],
+      "gaps": ["articulate", "facilitate", "pointed", "deteriorate"],
+      "comprension": [
+        {"pregunta": "How did the speaker address opposing schools of thought?", "opciones": ["By facilitating constructive debate", "By undermining them", "By ignoring them"], "respuesta": "By facilitating constructive debate"},
+        {"pregunta": "When might regulatory oversight be necessary according to the speaker?", "opciones": ["If conditions deteriorate", "Immediately without delay", "Never under any circumstance"], "respuesta": "If conditions deteriorate"}
+      ]
+    },
+    "reading": {
+      "texto": "In philosophical discourse, the precision of one's lexicon is not merely stylistic; it forms the foundation of valid argumentation. When theorists assert conclusions without sufficient empirical substantiation, their claims inevitably invite rigorous academic scrutiny. Careful scholars do not rush to refute counterarguments; instead, they endeavour to comprehend the underlying premises before pinpointing logical fallacies. By distinguishing between what evidence directly implies and what researchers tentatively infer, academic communities cultivate an environment where rational inquiry can truly flourish.",
+      "preguntas": [
+        {"afirmacion": "Lexical precision is foundational to valid philosophical argumentation.", "respuesta": "true"},
+        {"afirmacion": "Scholars are advised to refute counterarguments without examining premises.", "respuesta": "false"},
+        {"afirmacion": "Distinguishing between 'imply' and 'infer' aids rational inquiry.", "respuesta": "true"},
+        {"afirmacion": "The text suggests that empirical substantiation is unnecessary for theorists.", "respuesta": "false"}
+      ]
+    }
+  }
+}

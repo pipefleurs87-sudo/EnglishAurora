@@ -1,0 +1,464 @@
+[
+  {
+    "id": "b1-adverbs-01",
+    "file": "audio/b1-adverbs-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "She finished it quickly and carefully."
+  },
+  {
+    "id": "b1-adverbs-01",
+    "file": "audio/b1-adverbs-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "Kenji speaks Spanish really well."
+  },
+  {
+    "id": "b1-adverbs-01",
+    "file": "audio/b1-adverbs-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "Sofía works faster than anyone in the office."
+  },
+  {
+    "id": "b1-adverbs-01",
+    "file": "audio/b1-adverbs-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Could you say that more slowly, please?"
+  },
+  {
+    "id": "b1-adverbs-01",
+    "file": "audio/b1-adverbs-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "He drives dangerously when he's late."
+  },
+  {
+    "id": "b1-adverbs-01",
+    "file": "audio/b1-adverbs-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Sofía works quickly but very carefully, so she rarely makes mistakes. Ben does everything faster than everyone else — and usually worse. Kenji speaks Spanish more slowly than Sofía, but he pronounces every word more clearly. In the end, the careful one always finishes first."
+  },
+  {
+    "id": "b1-conditionals-0-1-2-01",
+    "file": "audio/b1-conditionals-0-1-2-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "If I study, I'll pass the exam."
+  },
+  {
+    "id": "b1-conditionals-0-1-2-01",
+    "file": "audio/b1-conditionals-0-1-2-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "If it rains, we'll stay at home."
+  },
+  {
+    "id": "b1-conditionals-0-1-2-01",
+    "file": "audio/b1-conditionals-0-1-2-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "If I had a million dollars, I'd travel the world."
+  },
+  {
+    "id": "b1-conditionals-0-1-2-01",
+    "file": "audio/b1-conditionals-0-1-2-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Water boils if you heat it to 100 degrees."
+  },
+  {
+    "id": "b1-conditionals-0-1-2-01",
+    "file": "audio/b1-conditionals-0-1-2-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "If I were you, I would call her."
+  },
+  {
+    "id": "b1-conditionals-0-1-2-01",
+    "file": "audio/b1-conditionals-0-1-2-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "If the weather is nice this weekend, Sofía goes hiking — she always does. If it rains on Saturday, she will stay home and design instead. And if she had all the money in the world, she would build a studio up in the mountains. Three different 'ifs', three different realities."
+  },
+  {
+    "id": "b1-gerund-vs-infinitive-01",
+    "file": "audio/b1-gerund-vs-infinitive-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "I enjoy reading before bed."
+  },
+  {
+    "id": "b1-gerund-vs-infinitive-01",
+    "file": "audio/b1-gerund-vs-infinitive-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "Kenji wants to visit every region of Colombia."
+  },
+  {
+    "id": "b1-gerund-vs-infinitive-01",
+    "file": "audio/b1-gerund-vs-infinitive-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "Sofía decided to open her own studio."
+  },
+  {
+    "id": "b1-gerund-vs-infinitive-01",
+    "file": "audio/b1-gerund-vs-infinitive-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Ben keeps losing his phone."
+  },
+  {
+    "id": "b1-gerund-vs-infinitive-01",
+    "file": "audio/b1-gerund-vs-infinitive-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "I've stopped drinking coffee at night."
+  },
+  {
+    "id": "b1-gerund-vs-infinitive-01",
+    "file": "audio/b1-gerund-vs-infinitive-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Kenji enjoys travelling, so he has decided to visit every region of Colombia. He wants to try new food everywhere he goes, but he keeps forgetting to book hotels in advance. Last week he promised to plan better — and then forgot again."
+  },
+  {
+    "id": "b1-passive-voice-01",
+    "file": "audio/b1-passive-voice-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "Coffee is grown in Colombia."
+  },
+  {
+    "id": "b1-passive-voice-01",
+    "file": "audio/b1-passive-voice-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "This house was built in 1980."
+  },
+  {
+    "id": "b1-passive-voice-01",
+    "file": "audio/b1-passive-voice-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "The logo is being changed by the client. Again."
+  },
+  {
+    "id": "b1-passive-voice-01",
+    "file": "audio/b1-passive-voice-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Coffee has been grown here since 1900."
+  },
+  {
+    "id": "b1-passive-voice-01",
+    "file": "audio/b1-passive-voice-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "These shoes were made in Italy."
+  },
+  {
+    "id": "b1-passive-voice-01",
+    "file": "audio/b1-passive-voice-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Coffee is grown on the green hills near Medellín. The beans are picked by hand, and then they are dried in the sun for several days. Finally, the coffee is packed and exported all over the world. Nobody remembers exactly who did each step — and that is the point of the passive."
+  },
+  {
+    "id": "b1-present-perfect-bucket-list-01",
+    "file": "audio/b1-present-perfect-bucket-list-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "I have already gotten a tattoo."
+  },
+  {
+    "id": "b1-present-perfect-bucket-list-01",
+    "file": "audio/b1-present-perfect-bucket-list-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "Sofía has already run half a marathon."
+  },
+  {
+    "id": "b1-present-perfect-bucket-list-01",
+    "file": "audio/b1-present-perfect-bucket-list-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "I haven't written a book yet."
+  },
+  {
+    "id": "b1-present-perfect-bucket-list-01",
+    "file": "audio/b1-present-perfect-bucket-list-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Have you finished the course yet?"
+  },
+  {
+    "id": "b1-present-perfect-bucket-list-01",
+    "file": "audio/b1-present-perfect-bucket-list-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "We've already seen that film twice."
+  },
+  {
+    "id": "b1-present-perfect-bucket-list-01",
+    "file": "audio/b1-present-perfect-bucket-list-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Sofía has already run a half marathon, and she has already learned to swim in the sea. But she hasn't travelled to Asia yet, and she hasn't written her book yet. She says this is the year she finally does both of them."
+  },
+  {
+    "id": "b1-present-perfect-continuous-01",
+    "file": "audio/b1-present-perfect-continuous-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "I have been working here since 2020."
+  },
+  {
+    "id": "b1-present-perfect-continuous-01",
+    "file": "audio/b1-present-perfect-continuous-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "Kenji has been studying Spanish for six months."
+  },
+  {
+    "id": "b1-present-perfect-continuous-01",
+    "file": "audio/b1-present-perfect-continuous-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "I haven't been sleeping well lately."
+  },
+  {
+    "id": "b1-present-perfect-continuous-01",
+    "file": "audio/b1-present-perfect-continuous-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "I've just been thinking about it."
+  },
+  {
+    "id": "b1-present-perfect-continuous-01",
+    "file": "audio/b1-present-perfect-continuous-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "She's been waiting for an hour."
+  },
+  {
+    "id": "b1-present-perfect-continuous-01",
+    "file": "audio/b1-present-perfect-continuous-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Kenji has been studying Spanish for six months, and he has been living in Medellín since January. He has been practising with strangers every single day, so he is getting better fast. He hasn't been sleeping much lately, though — the city never really stops."
+  },
+  {
+    "id": "b1-present-perfect-ever-experiences-01",
+    "file": "audio/b1-present-perfect-ever-experiences-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "Have you ever been to Europe?"
+  },
+  {
+    "id": "b1-present-perfect-ever-experiences-01",
+    "file": "audio/b1-present-perfect-ever-experiences-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "Yes, I have. I went to Madrid in 2020."
+  },
+  {
+    "id": "b1-present-perfect-ever-experiences-01",
+    "file": "audio/b1-present-perfect-ever-experiences-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "I have never seen snow in my life."
+  },
+  {
+    "id": "b1-present-perfect-ever-experiences-01",
+    "file": "audio/b1-present-perfect-ever-experiences-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Has she ever won a prize?"
+  },
+  {
+    "id": "b1-present-perfect-ever-experiences-01",
+    "file": "audio/b1-present-perfect-ever-experiences-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "No, I haven't. Never."
+  },
+  {
+    "id": "b1-present-perfect-ever-experiences-01",
+    "file": "audio/b1-present-perfect-ever-experiences-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Abuela Carmen has done almost everything. She has met a famous writer — she met him at the market in 1982. She has won a cumbia competition too; she won it back in 1975. But she has never left Colombia, and she says she never will."
+  },
+  {
+    "id": "b1-present-perfect-vs-past-simple-01",
+    "file": "audio/b1-present-perfect-vs-past-simple-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "I have been to Madrid twice."
+  },
+  {
+    "id": "b1-present-perfect-vs-past-simple-01",
+    "file": "audio/b1-present-perfect-vs-past-simple-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "I went there in 2020 and 2023."
+  },
+  {
+    "id": "b1-present-perfect-vs-past-simple-01",
+    "file": "audio/b1-present-perfect-vs-past-simple-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "Ben has broken his arm three times."
+  },
+  {
+    "id": "b1-present-perfect-vs-past-simple-01",
+    "file": "audio/b1-present-perfect-vs-past-simple-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Ben broke his arm last year."
+  },
+  {
+    "id": "b1-present-perfect-vs-past-simple-01",
+    "file": "audio/b1-present-perfect-vs-past-simple-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "I haven't seen that movie yet."
+  },
+  {
+    "id": "b1-present-perfect-vs-past-simple-01",
+    "file": "audio/b1-present-perfect-vs-past-simple-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Ben has broken his arm three times in his life. He broke it the first time when he was ten, and he broke it again last year falling off a hammock. He has been to hospital more often than anyone Kenji knows — but he went there alone every single time."
+  },
+  {
+    "id": "b1-review-grand-01",
+    "file": "audio/b1-review-grand-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "Carmen used to sell mangoes at the market every morning."
+  },
+  {
+    "id": "b1-review-grand-01",
+    "file": "audio/b1-review-grand-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "She has never forgotten his kind smile."
+  },
+  {
+    "id": "b1-review-grand-01",
+    "file": "audio/b1-review-grand-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "She's been living in Medellín since 1975."
+  },
+  {
+    "id": "b1-review-grand-01",
+    "file": "audio/b1-review-grand-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "If she could travel back in time, she would dance again."
+  },
+  {
+    "id": "b1-review-grand-01",
+    "file": "audio/b1-review-grand-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "She has done almost everything on her list."
+  },
+  {
+    "id": "b1-review-grand-01",
+    "file": "audio/b1-review-grand-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Abuela Carmen used to sell mangoes at the market every morning. She has been living in Medellín since 1975, and she has never forgotten the day she met a famous writer. If she could go back in time, she would dance at the cumbia contest again — and this time, she says, she would win."
+  },
+  {
+    "id": "b1-used-to-01",
+    "file": "audio/b1-used-to-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "Abuela Carmen used to live in the countryside."
+  },
+  {
+    "id": "b1-used-to-01",
+    "file": "audio/b1-used-to-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "I used to play soccer every Sunday."
+  },
+  {
+    "id": "b1-used-to-01",
+    "file": "audio/b1-used-to-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "Ben used to have long hair — there are photos."
+  },
+  {
+    "id": "b1-used-to-01",
+    "file": "audio/b1-used-to-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "She didn't use to like coffee."
+  },
+  {
+    "id": "b1-used-to-01",
+    "file": "audio/b1-used-to-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "Did you use to walk to school?"
+  },
+  {
+    "id": "b1-used-to-01",
+    "file": "audio/b1-used-to-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Ben used to have really long hair, and he used to play in a rock band on weekends. He didn't use to like coffee at all, and he used to sleep until noon every day. Now he is a completely different person — well, except for the coffee. Now he drinks five cups."
+  },
+  {
+    "id": "b1-will-vs-going-to-01",
+    "file": "audio/b1-will-vs-going-to-01/fluency/1.mp3",
+    "n": 1,
+    "role": "shadowing",
+    "text": "I'm going to travel to Cartagena in December."
+  },
+  {
+    "id": "b1-will-vs-going-to-01",
+    "file": "audio/b1-will-vs-going-to-01/fluency/2.mp3",
+    "n": 2,
+    "role": "shadowing",
+    "text": "You know what? I'll go with you!"
+  },
+  {
+    "id": "b1-will-vs-going-to-01",
+    "file": "audio/b1-will-vs-going-to-01/fluency/3.mp3",
+    "n": 3,
+    "role": "shadowing",
+    "text": "I think Colombia will win tomorrow."
+  },
+  {
+    "id": "b1-will-vs-going-to-01",
+    "file": "audio/b1-will-vs-going-to-01/fluency/4.mp3",
+    "n": 4,
+    "role": "shadowing",
+    "text": "Look at those clouds — it's going to rain."
+  },
+  {
+    "id": "b1-will-vs-going-to-01",
+    "file": "audio/b1-will-vs-going-to-01/fluency/5.mp3",
+    "n": 5,
+    "role": "shadowing",
+    "text": "I'll always remember this trip."
+  },
+  {
+    "id": "b1-will-vs-going-to-01",
+    "file": "audio/b1-will-vs-going-to-01/fluency/6.mp3",
+    "n": 6,
+    "role": "retelling_model",
+    "text": "Sofía is going to travel to Cartagena in December — she has already bought the tickets. She thinks it will be very hot, so she is going to pack light. 'I'll send you a postcard,' she promised Kenji. 'And I'll never forget this trip.'"
+  }
+]

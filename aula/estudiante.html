@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Mi aula — EnglishAngel</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="wrap" id="app">
+  <div class="empty" id="cargando">Cargando tu aula…</div>
+</div>
+
+<div class="modal-bg hidden" id="modalBg">
+  <div class="modal">
+    <h3 id="mTitulo">Registrar resultado</h3>
+    <p class="muted" id="mTema"></p>
+    <label>Tu score (0–100) — el que te dio la página al calificar</label>
+    <input type="number" id="mScore" min="0" max="100" placeholder="p. ej. 85">
+    <label>Comentario para Felipe (opcional)</label>
+    <textarea id="mNota" rows="2" placeholder="¿Qué se te dificultó?"></textarea>
+    <div class="row" style="margin-top:14px;justify-content:flex-end">
+      <button class="ghost" onclick="cerrarModal()">Cancelar</button>
+      <button class="red" id="mGuardar" onclick="guardarResultado()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
+<script src="comun.js"></script>
+<script>
+const token = new URLSearchParams(location.search).get('t');
+let EST = null, modalCtx = null;
+const ref = () => db.collection('estudiantes').doc(token);
+
+async function init(){
+  if(!token){ return errorPage('Este link no es válido. Pídele a Felipe tu link personal.'); }
+  try{
+    const [snap] = await Promise.all([ ref().get(), cargarCatalogo() ]);
+    if(!snap.exists) return errorPage('No encontramos tu aula. Verifica que copiaste el link completo.');
+    EST = snap.data();
+    render();
+    cargarTareas(); cargarHistorial(); cargarComentarios();
+  }catch(e){
+    console.error(e);
+    errorPage('No se pudo cargar. Revisa tu conexión e intenta de nuevo.');
+  }
+}
+function errorPage(msg){
+  document.getElementById('app').innerHTML =
+    '<div class="kicker">EnglishAngel · Aula</div><h1>Ups</h1><p class="sub">' + esc(msg) + '</p>';
+}
+function render(){
+  document.getElementById('app').innerHTML = `
+    <div class="kicker">EnglishAngel · Aula</div>
+    <h1>Hola, ${esc(EST.nombre.split(' ')[0])} 👋</h1>
+    <p class="sub">Nivel <span class="tag lvl">${esc(EST.nivel)}</span> · Tu profesor: ${esc(TEACHER_NAME)}</p>
+    <div style="margin:14px 0 4px">
+      <a class="btn" href="../englishaurora/index.html?t=${encodeURIComponent(token)}">✨ Mi galaxia de progreso (English Aurora)</a>
+    </div>
+
+    <h2>📌 Tus tareas</h2>
+    <div id="tareas"><div class="empty">Cargando…</div></div>
+
+    <h2>🎲 Práctica libre</h2>
+    <div class="card">
+      <p class="muted" style="margin-bottom:8px">¿Quieres practicar algo por tu cuenta? Elige un tema y hazlo aquí mismo — tu score se guarda solo.</p>
+      <div class="row">
+        <select id="libreNivel" class="grow" onchange="poblarTemasLibres()"></select>
+        <select id="libreTema" class="grow"></select>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="red" onclick="abrirLibre()">Practicar →</button>
+        <button class="ghost" onclick="registrarLibre()">Registrar un score a mano</button>
+      </div>
+    </div>
+
+    <h2>📈 Mi historial</h2>
+    <div id="historial"><div class="empty">Cargando…</div></div>
+
+    <h2>💬 Comentarios con Felipe</h2>
+    <div id="comentarios"><div class="empty">Cargando…</div></div>
+    <div class="card">
+      <textarea id="nuevoComentario" rows="2" placeholder="Escríbele algo a Felipe…"></textarea>
+      <div class="row" style="margin-top:10px;justify-content:flex-end">
+        <button onclick="enviarComentario()">Enviar</button>
+      </div>
+    </div>
+    <p class="hand" style="margin-top:26px">Keep going — every exercise counts! ✎</p>`;
+  poblarNivelesLibres();
+}
+
+// ---------- tareas ----------
+async function cargarTareas(){
+  const q = await ref().collection('tareas').orderBy('fecha','desc').get();
+  const cont = document.getElementById('tareas');
+  if(q.empty){ cont.innerHTML = '<div class="empty">No tienes tareas asignadas por ahora.</div>'; return; }
+  cont.innerHTML = q.docs.map(d => {
+    const t = d.data();
+    const hecha = t.estado === 'hecha';
+    return `<div class="card">
+      <div class="row">
+        <div class="grow">
+          <h3>${esc(t.titulo)}</h3>
+          <div class="row" style="gap:6px">
+            <span class="tag">${esc(TIPO_LBL[t.tipo]||t.tipo)}</span>
+            ${t.nivel?`<span class="tag lvl">${esc(t.nivel)}</span>`:''}
+            ${t.area?`<span class="tag">${esc(t.area)}</span>`:''}
+            <span class="tag ${hecha?'ok':'pend'}">${hecha?'✓ hecha':'pendiente'}</span>
+          </div>
+          <p class="muted" style="margin-top:6px">Asignada: ${fmtFecha(t.fecha)}</p>
+        </div>
+        <div class="row" style="gap:8px">
+          ${t.tipo==='practica'&&t.temaId
+            ?`<a class="btn red" href="ejercicio.html?t=${encodeURIComponent(token)}&tema=${encodeURIComponent(t.temaId)}&tarea=${d.id}">Hacer ejercicio →</a>`
+            :`<a class="btn sec" target="_blank" rel="noopener" href="${esc(t.url)}">Abrir ↗</a>`}
+          ${hecha||(t.tipo==='practica'&&t.temaId)?'':`<button class="red" onclick="abrirModal('${d.id}')">Registrar resultado</button>`}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  window._tareas = Object.fromEntries(q.docs.map(d => [d.id, d.data()]));
+}
+
+// ---------- modal registrar ----------
+function abrirModal(tareaId){
+  const t = window._tareas[tareaId];
+  modalCtx = { tareaId, temaId:t.temaId||'', tema:t.titulo, area:t.area||'', nivel:t.nivel||EST.nivel, tipo:t.tipo||'practica' };
+  document.getElementById('mTema').textContent = t.titulo;
+  document.getElementById('mScore').value = ''; document.getElementById('mNota').value = '';
+  document.getElementById('modalBg').classList.remove('hidden');
+}
+function registrarLibre(){
+  const id = document.getElementById('libreTema').value;
+  const t = temaPorId(id);
+  if(!t) return toast('Elige un tema primero');
+  modalCtx = { tareaId:null, temaId:t.id, tema:t.tema, area:t.area, nivel:t.nivel, tipo:'practica' };
+  document.getElementById('mTema').textContent = t.tema;
+  document.getElementById('mScore').value = ''; document.getElementById('mNota').value = '';
+  document.getElementById('modalBg').classList.remove('hidden');
+}
+function cerrarModal(){ document.getElementById('modalBg').classList.add('hidden'); }
+async function guardarResultado(){
+  const score = Number(document.getElementById('mScore').value);
+  if(isNaN(score) || score < 0 || score > 100 || document.getElementById('mScore').value === '')
+    return toast('Escribe un score entre 0 y 100');
+  const btn = document.getElementById('mGuardar'); btn.disabled = true;
+  try{
+    await ref().collection('resultados').add({
+      temaId: modalCtx.temaId, tema: modalCtx.tema, area: modalCtx.area,
+      nivel: modalCtx.nivel, tipo: modalCtx.tareaId ? 'tarea' : 'libre',
+      tareaId: modalCtx.tareaId, score,
+      comentario: document.getElementById('mNota').value.trim(),
+      fecha: FV.serverTimestamp()
+    });
+    if(modalCtx.tareaId) await ref().collection('tareas').doc(modalCtx.tareaId).update({estado:'hecha'});
+    cerrarModal(); toast('¡Resultado guardado! 🎉');
+    cargarTareas(); cargarHistorial();
+  }catch(e){ console.error(e); toast('No se pudo guardar, intenta de nuevo'); }
+  btn.disabled = false;
+}
+
+// ---------- práctica libre ----------
+function poblarNivelesLibres(){
+  const sel = document.getElementById('libreNivel');
+  const niveles = [...new Set(CATALOGO.map(t => t.nivel))];
+  const idx = niveles.indexOf(EST.nivel);
+  sel.innerHTML = niveles.map(n => `<option ${n===EST.nivel?'selected':''}>${n}</option>`).join('');
+  if(idx === -1 && niveles.length) sel.value = niveles[0];
+  poblarTemasLibres();
+}
+function poblarTemasLibres(){
+  const n = document.getElementById('libreNivel').value;
+  document.getElementById('libreTema').innerHTML =
+    CATALOGO.filter(t => t.nivel === n).map(t => `<option value="${esc(t.id)}">${esc(t.tema)}</option>`).join('');
+}
+function abrirLibre(){
+  const id = document.getElementById('libreTema').value;
+  if(id) location.href = 'ejercicio.html?t=' + encodeURIComponent(token) + '&tema=' + encodeURIComponent(id);
+}
+
+// ---------- historial ----------
+async function cargarHistorial(){
+  const q = await ref().collection('resultados').orderBy('fecha','desc').limit(40).get();
+  const cont = document.getElementById('historial');
+  if(q.empty){ cont.innerHTML = '<div class="empty">Aún no has registrado resultados. ¡Tu primer score te espera!</div>'; return; }
+  cont.innerHTML = '<div class="card" style="padding:6px 10px;overflow-x:auto"><table><thead><tr><th>Fecha</th><th>Tema</th><th>Tipo</th><th>Score</th></tr></thead><tbody>' +
+    q.docs.map(d => { const r = d.data(); return `<tr>
+      <td class="mono">${fmtFecha(r.fecha)}</td>
+      <td>${esc(r.tema)}</td>
+      <td><span class="tag">${esc(r.tipo)}</span></td>
+      <td><span class="score ${scoreClass(r.score)}">${r.score}</span></td>
+    </tr>`; }).join('') + '</tbody></table></div>';
+}
+
+// ---------- comentarios ----------
+async function cargarComentarios(){
+  const q = await ref().collection('comentarios').orderBy('fecha','desc').limit(30).get();
+  const cont = document.getElementById('comentarios');
+  if(q.empty){ cont.innerHTML = '<div class="empty">Sin comentarios todavía.</div>'; return; }
+  cont.innerHTML = q.docs.map(d => { const c = d.data(); return `
+    <div class="comment ${c.autor==='profesor'?'prof':''}">
+      <div class="who">${c.autor==='profesor'?esc(TEACHER_NAME)+' (profesor)':'Tú'} · ${fmtFecha(c.fecha)}</div>
+      <div>${esc(c.texto)}</div>
+    </div>`; }).join('');
+}
+async function enviarComentario(){
+  const ta = document.getElementById('nuevoComentario');
+  const texto = ta.value.trim();
+  if(!texto) return;
+  try{
+    await ref().collection('comentarios').add({texto, autor:'estudiante', fecha: FV.serverTimestamp()});
+    ta.value = ''; toast('Enviado'); cargarComentarios();
+  }catch(e){ toast('No se pudo enviar'); }
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Aurora — Your sky of English</title>
+<!-- ENGLISH AURORA · native prototype
+     Galaxy landing (ui-lab v2) + real Lesson/Practice/Test pages + waves A/B/C.
+     Data 100% embedded (js/data.js) — zero fetch, works over file:// -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A101C;
+  --dawn:#22384A;
+  --teal:#2DD4BF;
+  --teal-dim:rgba(45,212,191,.55);
+  --gold:#F2C14E;
+  --paper:#F2F5F7;
+  --muted:#8B99AE;
+  --serif:'EB Garamond',Georgia,serif;
+  --title:'Cinzel',serif;
+  --mono:'IBM Plex Mono',monospace;
+  --e-fluid:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--serif);background:var(--ink);color:var(--paper)}
+
+#sky{position:fixed;inset:0;display:block;cursor:crosshair}
+
+/* ---------- top HUD ---------- */
+.hud{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;
+  justify-content:space-between;padding:20px 28px;pointer-events:none;
+  transition:opacity .8s var(--e-fluid)}
+.hud > *{pointer-events:auto}
+.brand{font-family:var(--title);font-weight:700;font-size:24px;letter-spacing:.18em;color:var(--gold);
+  text-shadow:0 0 26px rgba(242,193,78,.45)}
+.brand em{font-style:normal;color:var(--teal);text-shadow:0 0 26px rgba(45,212,191,.5)}
+.tagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);margin-top:4px}
+.hud-right{display:flex;align-items:center;gap:14px}
+.esencia{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--gold);
+  border:1px solid rgba(242,193,78,.4);border-radius:4px;padding:9px 14px;
+  background:rgba(242,193,78,.06)}
+
+/* ---------- teal HUD buttons ---------- */
+.btn-hud{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);background:rgba(45,212,191,.05);border:1px solid var(--teal-dim);
+  border-radius:4px;padding:10px 20px;cursor:pointer;position:relative;overflow:hidden;
+  transition:all .35s var(--e-fluid);text-decoration:none;display:inline-block}
+.btn-hud::after{content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(45,212,191,.22),transparent);
+  transition:left .5s var(--e-fluid)}
+.btn-hud:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(45,212,191,.35),inset 0 0 14px rgba(45,212,191,.1);
+  text-shadow:0 0 8px rgba(45,212,191,.6)}
+.btn-hud:hover::after{left:110%}
+.btn-hud:active{transform:translateY(1px)}
+.btn-hud.gold{color:var(--gold);border-color:rgba(242,193,78,.55);background:rgba(242,193,78,.05)}
+.btn-hud.gold:hover{border-color:var(--gold);box-shadow:0 0 22px rgba(242,193,78,.35);text-shadow:0 0 8px rgba(242,193,78,.6)}
+.btn-hud.gold::after{background:linear-gradient(100deg,transparent,rgba(242,193,78,.22),transparent)}
+
+/* ---------- floating title ---------- */
+.hero{position:fixed;left:50%;top:34%;transform:translate(-50%,-50%);z-index:5;text-align:center;
+  pointer-events:none;transition:opacity 1s var(--e-fluid),transform 1.2s var(--e-fluid)}
+.hero h1{font-family:var(--title);font-weight:700;font-size:clamp(28px,4vw,50px);line-height:1.18;
+  letter-spacing:.04em;text-shadow:0 2px 40px rgba(10,16,28,.9)}
+.hero h1 em{font-style:normal;background:linear-gradient(92deg,#8B6CFF,var(--teal) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:17px;color:var(--muted);margin-top:14px}
+.hero .hint{font-size:20px;color:var(--teal);margin-top:20px;font-style:italic;
+  text-shadow:0 0 18px rgba(45,212,191,.5);animation:breathe 3.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+body.zoomed .hero, body.zoomed .hud .tagline{opacity:0;transform:translate(-50%,-58%)}
+
+/* ---------- star tooltip ---------- */
+.tip{position:fixed;z-index:12;pointer-events:none;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;color:var(--paper);background:rgba(10,16,28,.85);border:1px solid rgba(45,212,191,.35);
+  padding:7px 12px;border-radius:6px;opacity:0;transition:opacity .25s;backdrop-filter:blur(6px);
+  transform:translate(14px,-30px);white-space:nowrap}
+.tip b{color:var(--teal)}
+
+/* ---------- Aurora: the guide ---------- */
+.aurora{position:fixed;left:26px;bottom:0;z-index:11;display:flex;align-items:flex-end;gap:0;
+  transition:transform 1s var(--e-fluid),opacity .8s var(--e-fluid);transform-origin:bottom left}
+.aurora img{transition:opacity .38s ease;height:min(38vh,340px);filter:drop-shadow(0 0 34px rgba(45,212,191,.28));
+  animation:floaty 5.5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.bubble{position:relative;margin:0 0 190px -34px;max-width:290px;
+  background:rgba(13,22,34,.78);border:1px solid rgba(45,212,191,.3);border-radius:14px;
+  padding:14px 17px;font-size:15.5px;line-height:1.5;color:var(--paper);
+  backdrop-filter:blur(10px);box-shadow:0 14px 44px rgba(0,0,0,.45);
+  opacity:0;transform:translateY(10px);transition:opacity .6s var(--e-fluid),transform .6s var(--e-fluid)}
+.bubble.show{opacity:1;transform:translateY(0)}
+.bubble::before{content:'';position:absolute;left:-8px;bottom:26px;width:16px;height:16px;
+  background:inherit;border-left:1px solid rgba(45,212,191,.3);border-bottom:1px solid rgba(45,212,191,.3);
+  transform:rotate(45deg)}
+.bubble b{color:var(--teal)}
+.bubble .who{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+body.zoomed .aurora{transform:scale(.68)}
+
+/* ---------- topic panel ---------- */
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(430px,92vw);z-index:9;
+  background:linear-gradient(200deg,rgba(244,247,248,.97),rgba(228,238,240,.97));
+  color:#12333B;padding:64px 34px 34px;box-shadow:-30px 0 80px rgba(0,0,0,.45);
+  transform:translateX(105%);transition:transform 1s var(--e-fluid);
+  display:flex;flex-direction:column}
+body.zoomed .panel{transform:translateX(0)}
+.panel .p-area{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#1F6A72}
+.panel h2{font-family:var(--title);font-weight:700;font-size:26px;line-height:1.2;margin:10px 0 8px}
+.panel .p-meta{font-family:var(--mono);font-size:11.5px;color:#5E7276;letter-spacing:.05em;margin-bottom:18px}
+.panel .p-desc{font-size:15.5px;line-height:1.6;color:#3A4A4E;margin-bottom:22px}
+.panel .p-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.panel .chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid rgba(31,106,114,.25);border-radius:999px;padding:4px 11px;color:#1F6A72;background:rgba(255,255,255,.5)}
+.panel .p-waves-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:#5E7276;margin-bottom:8px}
+.panel .p-waves{display:flex;gap:8px;margin-bottom:18px}
+.panel .wave-pill{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:#1F6A72;border:1px solid rgba(31,106,114,.35);border-radius:999px;padding:7px 18px;cursor:pointer;
+  background:rgba(255,255,255,.5);transition:all .25s var(--e-fluid)}
+.panel .wave-pill:hover{border-color:#1F6A72}
+.panel .wave-pill.on{background:linear-gradient(180deg,#3AA69B,#1F6A72);color:#fff;border-color:transparent;
+  box-shadow:0 0 16px rgba(45,212,191,.35)}
+.panel .wave-pill.locked{opacity:.38;pointer-events:none}
+.panel .wave-note{font-size:13.5px;font-style:italic;color:#5E7276;margin:-10px 0 16px;min-height:18px}
+.panel .p-actions{display:flex;flex-direction:column;gap:11px;margin-top:auto}
+.panel .btn-hud{color:#0F6B5C;border-color:rgba(15,107,92,.4);background:rgba(45,212,191,.07);text-align:center}
+.panel .btn-hud:hover{box-shadow:0 0 18px rgba(45,212,191,.3)}
+.panel .btn-hud.solid{background:linear-gradient(180deg,#3AA69B,#1F6A72);color:#fff;border-color:transparent}
+.panel .p-close{position:absolute;top:18px;right:20px;background:none;border:none;cursor:pointer;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#5E7276;text-transform:uppercase;
+  padding:8px;transition:color .3s}
+.panel .p-close:hover{color:#12333B}
+
+/* ---------- skills carousel ---------- */
+.skills-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:8;text-align:center;
+  transition:opacity .6s var(--e-fluid),transform .8s var(--e-fluid);width:min(860px,94vw)}
+body.zoomed .skills-bar{opacity:0;transform:translateX(-50%) translateY(24px);pointer-events:none}
+.skill-desc{font-size:14.5px;color:var(--muted);margin:0 auto 12px;
+  text-shadow:0 1px 14px rgba(10,16,28,.95);transition:opacity .3s}
+.skills{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.skill-item{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(210,228,240,.55);background:rgba(10,16,28,.45);border:1px solid transparent;
+  border-bottom:1px solid rgba(140,210,225,.25);padding:8px 14px;cursor:pointer;
+  transition:all .3s var(--e-fluid);backdrop-filter:blur(6px)}
+.skill-item span{color:rgba(242,193,78,.75);margin-left:5px}
+.skill-item:hover{color:#fff;border-bottom-color:var(--teal);transform:translateY(-2px)}
+.skill-item.on{color:#fff;border-color:rgba(45,212,191,.5);background:rgba(45,212,191,.08);
+  box-shadow:0 0 18px rgba(45,212,191,.25);text-shadow:0 0 10px rgba(45,212,191,.7)}
+
+/* ---------- CEFR rail ---------- */
+.levels-rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:8;
+  display:flex;flex-direction:column;gap:6px;align-items:flex-end;
+  transition:opacity .6s var(--e-fluid),transform .8s var(--e-fluid)}
+body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%) translateX(16px)}
+.rail-title{font-family:var(--mono);font-size:9px;letter-spacing:.26em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:6px;text-shadow:0 1px 10px rgba(10,16,28,.9)}
+.level-item{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-align:right;
+  color:rgba(210,228,240,.55);background:rgba(10,16,28,.45);cursor:pointer;
+  border:1px solid transparent;border-right:2px solid rgba(140,210,225,.25);
+  padding:8px 12px 8px 16px;transition:all .3s var(--e-fluid);backdrop-filter:blur(6px)}
+.level-item span{color:rgba(242,193,78,.75);margin-left:6px;font-size:10px}
+.level-item:hover{color:#fff;border-right-color:var(--gold);transform:translateX(-3px)}
+.level-item.on{color:#fff;border-color:rgba(242,193,78,.45);border-right-color:var(--gold);
+  background:rgba(242,193,78,.07);box-shadow:0 0 18px rgba(242,193,78,.2);
+  text-shadow:0 0 10px rgba(242,193,78,.7)}
+@media (max-width:640px){.levels-rail{display:none}}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+
+<div class="hud">
+  <div>
+    <div class="brand">ENGLISH <em>AURORA</em></div>
+    <div class="tagline" id="hud-tagline">85 stars · A1 → C1 · the arcane academy of English</div>
+  </div>
+  <div class="hud-right">
+    <a class="btn-hud gold" id="btn-back-aula" href="#" style="display:none;" title="Volver a mi aula">← Mi Aula</a>
+    <div class="esencia" id="esencia">✦ 0 ESSENCE</div>
+    <a class="btn-hud" id="btn-arcade" href="../ludoteca.html">🎮 Games</a>
+    <a class="btn-hud gold" id="btn-teacher-hub" href="../herramientas/teacher-hub.html" title="Access Teacher's Hub & Live Classroom">🔭 Teacher's Hub</a>
+    <button class="btn-hud gold" id="btn-ignite">✨ My galaxy</button>
+  </div>
+</div>
+
+<div class="hero" id="hero">
+  <h1 id="hero-title">Your English is a sky.<br><em>Every star, a lesson mastered.</em></h1>
+  <p id="hero-sub">Complete sequences — diagnosis → rule → practice → listening → reading → test.</p>
+  <p class="hint">drift toward a star ✦</p>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<div class="aurora" id="aurora">
+  <img id="aurora-img" src="assets/aurora.png" alt="Aurora, your guide">
+  <div class="bubble" id="bubble"><span class="who">Aurora · your guide</span><span id="bubble-txt"></span></div>
+</div>
+
+<aside class="panel" id="panel">
+  <button class="p-close" id="p-close">✕ Back to the sky</button>
+  <div class="p-area" id="p-area"></div>
+  <h2 id="p-title"></h2>
+  <div class="p-meta" id="p-meta"></div>
+
+  <div id="p-student-box" style="display:none; margin: 0 0 16px; padding: 12px 14px; border-radius: 8px; background: rgba(31,106,114,.08); border: 1px solid rgba(31,106,114,.2);">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+      <span style="font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#1F6A72;">Student Record</span>
+      <span id="p-student-badge" style="font-family:var(--mono); font-weight:600; font-size:11px; padding:2px 8px; border-radius:12px;"></span>
+    </div>
+    <div id="p-student-score" style="font-size:14px; font-weight:600; color:#12333B;"></div>
+    <div id="p-student-pend" style="display:none; margin-top:6px; font-family:var(--mono); font-size:10.5px; color:#B45309; background:rgba(242,193,78,.2); padding:4px 8px; border-radius:4px;">📌 Assigned Quest by Felipe</div>
+  </div>
+
+  <p class="p-desc">A complete mini-lesson, not a loose worksheet: you start with the typical Spanish-speaker mistake, learn the rule, practice across three cognitive stages, and close with listening, reading and a test.</p>
+  <div class="p-chips" id="p-chips"></div>
+  <div class="p-waves-label">Wave — same structure, new vocabulary</div>
+  <div class="p-waves" id="p-waves"></div>
+  <div class="wave-note" id="wave-note"></div>
+  <div class="p-actions">
+    <a class="btn-hud solid" id="btn-lesson" href="#">▶&nbsp;&nbsp;Lesson</a>
+    <a class="btn-hud" id="btn-practice" href="#">✎&nbsp;&nbsp;Practice</a>
+    <a class="btn-hud" id="btn-test" href="#">✓&nbsp;&nbsp;Test</a>
+  </div>
+</aside>
+
+<div class="levels-rail" id="levels-rail">
+  <div class="rail-title">Common European Framework</div>
+  <div id="levels" style="display:flex;flex-direction:column;gap:6px;align-items:stretch"></div>
+</div>
+
+<div class="skills-bar" id="skills-bar">
+  <div class="skill-desc" id="skill-desc"></div>
+  <div class="skills" id="skills"></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../aula/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Lab · Variante A — Mar | EnglishAngel</title>
+<!-- CONCEPTO: MAR / ENFOQUE
+     Paleta verde-azul. Efecto buscado: CALMA Y CONFIANZA.
+     El usuario siente "aquí puedo concentrarme, esto es serio y amable".
+     Suelo tranquilo, figura vibrante: halos de mar en deriva lenta,
+     cristal (backdrop-filter) en todo lo interactivo. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12333B;
+  --paper:#EDF4F2;
+  --paper-lo:#E3EEEB;
+  --sea:#3E969B;
+  --sea-deep:#1F6A72;
+  --sea-ink:#0F4A52;
+  --gold:#C9962F;
+  --muted:#5E7276;
+  --line:rgba(31,106,114,.18);
+  --glass:rgba(255,255,255,.55);
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --hand:'Caveat',cursive;
+  --lift:0 1px 2px rgba(15,74,82,.06),0 16px 44px rgba(15,74,82,.10);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+  --e-out:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);color:var(--ink);min-height:100vh;overflow-x:hidden;
+  background:radial-gradient(120% 90% at 15% 0%,#F6FAF8 0%,var(--paper) 45%,var(--paper-lo) 100%)}
+
+/* --- halos de mar en deriva (profundidad sin contraste) --- */
+.halo{position:fixed;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;opacity:.5}
+.halo.h1{width:44vw;height:44vw;top:-12vw;right:-10vw;background:radial-gradient(circle,rgba(62,150,155,.35),transparent 70%);animation:drift1 26s ease-in-out infinite alternate}
+.halo.h2{width:36vw;height:36vw;bottom:-14vw;left:-8vw;background:radial-gradient(circle,rgba(201,150,47,.18),transparent 70%);animation:drift2 32s ease-in-out infinite alternate}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(-6vw,5vh) scale(1.12)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(5vw,-4vh) scale(1.08)}}
+
+.wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:40px 22px 70px}
+
+/* --- entrada escalonada --- */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.rise{opacity:0;animation:rise .8s var(--e-out) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}
+.d4{animation-delay:.38s}.d5{animation-delay:.48s}.d6{animation-delay:.58s}.d7{animation-delay:.68s}
+
+.brand{font-family:var(--hand);font-size:30px;color:var(--sea-deep)}
+.hero{margin:34px 0 30px;max-width:760px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1.08;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--sea-deep);position:relative;white-space:nowrap}
+.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:.28em;background:rgba(62,150,155,.22);z-index:-1;border-radius:3px;transform:scaleX(0);transform-origin:left;animation:underline 1s var(--e-out) .9s forwards}
+@keyframes underline{to{transform:scaleX(1)}}
+.sub{font-family:var(--serif);font-size:17.5px;color:var(--muted);margin-top:16px;line-height:1.55}
+.sub b{color:var(--ink)}
+.kicker{font-family:var(--hand);font-size:22px;color:var(--sea-deep);margin-top:14px;transform:rotate(-1.2deg);display:inline-block}
+
+/* --- CTA: cristal vibrante sobre suelo tranquilo --- */
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:14px 26px;border-radius:14px;
+  font-weight:600;font-size:15.5px;color:#fff;text-decoration:none;cursor:pointer;
+  background:linear-gradient(180deg,#4AA6AB,var(--sea-deep));
+  box-shadow:0 2px 0 var(--sea-ink),0 14px 34px rgba(31,106,114,.35);
+  transition:transform .25s var(--e-spring),box-shadow .25s var(--e-out)}
+.cta:hover{transform:translateY(-3px);box-shadow:0 4px 0 var(--sea-ink),0 22px 46px rgba(31,106,114,.42)}
+.cta:active{transform:translateY(1px);box-shadow:0 1px 0 var(--sea-ink),0 8px 20px rgba(31,106,114,.3)}
+
+/* --- toolbar de cristal --- */
+.toolbar{position:sticky;top:14px;z-index:5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  margin:34px 0 26px;padding:12px 14px;border-radius:16px;
+  background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.7);box-shadow:var(--lift)}
+.search{flex:1;min-width:200px;display:flex;align-items:center;gap:9px;padding:10px 14px;border-radius:11px;
+  background:rgba(255,255,255,.75);border:1px solid var(--line);color:var(--muted);font-size:13.5px;font-family:var(--mono)}
+.chip-f{font-family:var(--mono);font-size:11px;letter-spacing:.07em;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);color:var(--sea-deep);background:rgba(255,255,255,.5);cursor:pointer;
+  transition:all .25s var(--e-out)}
+.chip-f:hover{border-color:var(--sea);transform:translateY(-2px)}
+.chip-f.on{background:var(--sea-deep);color:#fff;border-color:var(--sea-deep)}
+
+/* --- tarjetas: vidrio flotando sobre el mar --- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{position:relative;border-radius:18px;padding:20px;display:flex;flex-direction:column;
+  background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.75);box-shadow:var(--lift);
+  transition:transform .35s var(--e-spring),box-shadow .35s var(--e-out),border-color .3s}
+.card:hover{transform:translateY(-7px);border-color:rgba(62,150,155,.5);
+  box-shadow:0 2px 4px rgba(15,74,82,.06),0 28px 60px rgba(15,74,82,.16)}
+.card::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;border-radius:18px 18px 0 0;
+  background:linear-gradient(90deg,var(--sea),var(--sea-deep));opacity:0;transition:opacity .3s}
+.card:hover::before{opacity:1}
+.card-area{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea-deep);margin-bottom:6px}
+.card-tema{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.22}
+.card-meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin:8px 0 13px;letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted);background:rgba(255,255,255,.45)}
+.actions{margin-top:auto;display:flex;gap:7px;flex-wrap:wrap}
+.act{font-weight:600;font-size:12.5px;text-decoration:none;border-radius:9px;padding:8px 13px;
+  transition:transform .2s var(--e-spring)}
+.act.primary{background:linear-gradient(180deg,#4AA6AB,var(--sea-deep));color:#fff;box-shadow:0 2px 0 var(--sea-ink)}
+.act.primary:hover{transform:translateY(-2px)}
+.act.primary:active{transform:translateY(1px);box-shadow:none}
+.act:not(.primary){color:var(--sea-ink);border:1px solid var(--line);background:rgba(255,255,255,.5)}
+.act:not(.primary):hover{border-color:var(--sea-deep)}
+
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:20px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lab{position:fixed;bottom:16px;right:16px;z-index:10;font-family:var(--mono);font-size:11px;
+  background:rgba(15,74,82,.9);color:#CFF0EE;padding:9px 14px;border-radius:999px;letter-spacing:.05em;
+  box-shadow:0 8px 24px rgba(15,74,82,.35)}
+.lab a{color:#8FE3E0;margin:0 4px}
+@media (max-width:640px){.toolbar{position:static}}
+</style>
+</head>
+<body>
+<div class="halo h1"></div><div class="halo h2"></div>
+<div class="wrap">
+  <div class="brand rise d1">EnglishAngel</div>
+  <header class="hero">
+    <h1 class="rise d2">Free English grammar exercises — <em>complete sequences</em>, not random worksheets.</h1>
+    <p class="sub rise d3">Every topic is a full mini-lesson: <b>diagnosis → rule → practice → listening → reading</b>, plus a video lesson and a test. Made by a teacher, with recurring characters.</p>
+    <p class="kicker rise d4">respira. esto se aprende sin prisa ↓</p>
+    <br><a class="cta rise d5" href="#">🌊 Empieza gratis — elige tu nivel</a>
+  </header>
+
+  <div class="toolbar rise d5">
+    <div class="search">🔍 present simple, articles, have got…</div>
+    <button class="chip-f on">A1</button><button class="chip-f">A2</button><button class="chip-f">B1</button>
+  </div>
+
+  <div class="grid">
+    <div class="card rise d4">
+      <div class="card-area">Adjectives · A1</div>
+      <div class="card-tema">Adjectives — Describing People &amp; Things</div>
+      <div class="card-meta">20 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">vocabulary</span><span class="chip">listening</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+    <div class="card rise d5">
+      <div class="card-area">Articles · A1</div>
+      <div class="card-tema">Articles — a / an / the</div>
+      <div class="card-meta">20 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">listening</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+    <div class="card rise d6">
+      <div class="card-area">Determiners · A1</div>
+      <div class="card-tema">This / That / These / Those</div>
+      <div class="card-meta">10 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+    <div class="card rise d7">
+      <div class="card-area">Have Got · A1</div>
+      <div class="card-tema">Have got — Possessions</div>
+      <div class="card-meta">20 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">vocabulary</span><span class="chip">listening</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+  </div>
+
+  <footer><span>EnglishAngel — made by a teacher</span><span>A1 · A2 · B1 — 81 temas</span></footer>
+</div>
+<div class="lab">UI LAB · A — MAR 🌊 | <a href="variante-b-brasa.html">B →</a><a href="variante-c-aurora.html">C →</a></div>
+</body>
+</html>

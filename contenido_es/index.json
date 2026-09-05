@@ -1,0 +1,77 @@
+{
+  "idioma": "es",
+  "nombre": "Spanish Aurora",
+  "descripcion": "Currículo canónico de Español como Lengua Extranjera (ELE) basado en el Marco Común Europeo (MCER) y el Plan Curricular del Instituto Cervantes (PCIC).",
+  "niveles": {
+    "A1": {
+      "nombre": "Acceso / Fundamentos Arcanos",
+      "descripcion": "Construcción de la base lingüística: identidad, presente regular e irregular, ser/estar/haber y ortografía acentual.",
+      "sendas": [
+        {
+          "id": "es-a1-saludos-presentacion-01",
+          "tema": "Saludos y Presentaciones",
+          "arquetipo": "vocabulario",
+          "prerrequisitos": []
+        },
+        {
+          "id": "es-a1-ser-estar-01",
+          "tema": "Ser vs Estar (Fundamentos)",
+          "arquetipo": "ser_vs_estar",
+          "prerrequisitos": ["es-a1-saludos-presentacion-01"]
+        },
+        {
+          "id": "es-a1-presente-regular-01",
+          "tema": "Presente de Indicativo (Regulares -ar, -er, -ir)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-ser-estar-01"]
+        },
+        {
+          "id": "es-a1-genero-numero-01",
+          "tema": "Género y Número (Artículos y Concordancia)",
+          "arquetipo": "determinantes",
+          "prerrequisitos": []
+        },
+        {
+          "id": "es-a1-tildes-diacriticas-01",
+          "tema": "Tildes Diacríticas y Acentuación",
+          "arquetipo": "ortografia",
+          "prerrequisitos": []
+        },
+        {
+          "id": "es-a1-hay-estar-01",
+          "tema": "Hay vs Estar (Existencia y Ubicación)",
+          "arquetipo": "ser_vs_estar",
+          "prerrequisitos": ["es-a1-ser-estar-01"]
+        },
+        {
+          "id": "es-a1-gustar-preferencias-01",
+          "tema": "Verbo Gustar y Preferencias",
+          "arquetipo": "pronombres",
+          "prerrequisitos": ["es-a1-presente-regular-01"]
+        },
+        {
+          "id": "es-a1-presente-irregular-01",
+          "tema": "Presente de Indicativo (Irregulares y Diptongos)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-presente-regular-01"]
+        },
+        {
+          "id": "es-a1-repaso-grand-01",
+          "tema": "Repaso Grand A1 (Checkpoint Elemental)",
+          "arquetipo": "joined_exercise",
+          "prerrequisitos": ["es-a1-ser-estar-01", "es-a1-presente-regular-01", "es-a1-tildes-diacriticas-01"]
+        }
+      ]
+    },
+    "A2": {
+      "nombre": "Plataforma / Senderos de Exploración",
+      "descripcion": "Contraste de pasados (Indefinido vs Imperfecto), Por vs Para, pronombres de objeto directo e indirecto.",
+      "sendas": []
+    },
+    "B1": {
+      "nombre": "Umbral / Reinos del Subjuntivo",
+      "descripcion": "Subjuntivo presente e imperfecto, estilo indirecto, condicionales y marcadores del discurso.",
+      "sendas": []
+    }
+  }
+}

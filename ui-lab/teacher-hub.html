@@ -1,0 +1,3487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teacher's Hub · Astral Command Cockpit | English Aurora</title>
+
+<!-- METADATA & ASSETS -->
+<meta name="description" content="Faculty command center and lesson planner for English Aurora. Student roster telemetry, Arcade missions, CEFR diagnostics, Wave B & C Broadcast Studio, and Bio-Phonetics Lab.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- DESIGN SYSTEM FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Caveat:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script src="../englishaurora/js/data.js" onerror="console.warn('Optional data.js not loaded, using embedded fallback.');"></script>
+
+<style>
+/* ==========================================================================
+   DESIGN TOKENS — SYSTEMATIC COCKPIT DESIGN SYSTEM
+   Base Spacing: 4px / 8px | Fluid Scales | WCAG AA Contrast Ratios
+   ========================================================================== */
+:root {
+  /* BASE LIGHT THEME: Ethereal Veil (Pastel Teal & Solar Amber) */
+  --ink: #F0F5F8;
+  --ink-card: #FFFFFF;
+  --ink-panel: #F7FAFC;
+  --ink-sub: #EBF3F6;
+  --ink-border: rgba(13, 115, 119, 0.16);
+  
+  --paper: #092B35;
+  --paper-muted: #486874;
+  --paper-sub: #6A8B97;
+  
+  --teal: #0D7377;
+  --teal-dark: #0A585B;
+  --teal-light: #149A9E;
+  --teal-dim: rgba(13, 115, 119, 0.12);
+  --teal-glow: rgba(13, 115, 119, 0.25);
+  
+  --gold: #B45309;
+  --gold-hover: #92400E;
+  --gold-light: #F59E0B;
+  --gold-dim: rgba(180, 83, 9, 0.15);
+  --gold-glow: rgba(180, 83, 9, 0.3);
+  
+  --ruby: #E11D48;
+  --ruby-dim: rgba(225, 29, 72, 0.12);
+  --sky: #0284C7;
+  --sky-dim: rgba(2, 132, 199, 0.12);
+  --green: #059669;
+  --green-dim: rgba(5, 150, 105, 0.12);
+  --purple: #7C3AED;
+  --purple-dim: rgba(124, 58, 237, 0.12);
+  
+  --muted: #5A7B87;
+  --line: rgba(13, 115, 119, 0.16);
+
+  --theme-accent: #0D7377;
+  --theme-glow: rgba(13, 115, 119, 0.25);
+
+  /* Typography Scale */
+  --serif: 'Source Serif 4', Georgia, serif;
+  --title-font: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --hand: 'Caveat', cursive;
+
+  /* Elevation & Motion */
+  --shadow-sm: 0 2px 6px rgba(9, 43, 53, 0.04);
+  --shadow-md: 0 6px 20px rgba(9, 43, 53, 0.08);
+  --shadow-lg: 0 12px 36px rgba(9, 43, 53, 0.12);
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==========================================================================
+   THEME 1: ETHEREAL PASTEL (CANONICAL BLONDE AURORA)
+   ========================================================================== */
+body.theme-ethereal {
+  --ink: #F0F5F8;
+  --ink-card: #FFFFFF;
+  --ink-panel: #F7FAFC;
+  --ink-sub: #EBF3F6;
+  --paper: #092B35;
+  --paper-muted: #486874;
+  --teal: #0D7377;
+  --teal-dim: rgba(13, 115, 119, 0.12);
+  --teal-glow: rgba(13, 115, 119, 0.25);
+  --gold: #B45309;
+  --gold-dim: rgba(180, 83, 9, 0.15);
+  --gold-glow: rgba(180, 83, 9, 0.3);
+  --line: rgba(13, 115, 119, 0.16);
+  --theme-accent: #0D7377;
+  --theme-glow: rgba(13, 115, 119, 0.25);
+}
+
+/* ==========================================================================
+   THEME 2: HIGH-TECH QUANTUM WHITE (REDHEAD SCIENTIST AURORA)
+   ========================================================================== */
+body.theme-solar {
+  --ink: #FFFFFF;
+  --ink-card: #FFFFFF;
+  --ink-panel: #F8FAFC;
+  --ink-sub: #F1F5F9;
+  --paper: #0B132B;
+  --paper-muted: #475569;
+  --paper-sub: #64748B;
+  --teal: #0284C7;
+  --teal-dim: rgba(2, 132, 199, 0.12);
+  --teal-glow: rgba(2, 132, 199, 0.35);
+  --gold: #E11D48;
+  --gold-dim: rgba(225, 29, 72, 0.12);
+  --gold-glow: rgba(225, 29, 72, 0.35);
+  --muted: #64748B;
+  --line: rgba(2, 132, 199, 0.2);
+  --theme-accent: #0284C7;
+  --theme-glow: rgba(2, 132, 199, 0.3);
+}
+body.theme-solar .glass-panel,
+body.theme-solar .cockpit-header,
+body.theme-solar .onboarding-modal-card,
+body.theme-solar .wardrobe-card {
+  border-radius: 12px;
+  border: 1.5px solid #0284C7;
+  box-shadow: 0 4px 24px rgba(2, 132, 199, 0.12);
+}
+body.theme-solar .panel-title { color: #0284C7; letter-spacing: 0.04em; }
+body.theme-solar .student-card.selected {
+  border-color: #0284C7;
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.25);
+}
+
+/* ==========================================================================
+   THEME 3: GOTHIC ARCANE NOIR (OBSIDIAN CATHEDRAL AURORA)
+   ========================================================================== */
+body.theme-glacial {
+  --ink: #08040C;
+  --ink-card: #13091F;
+  --ink-panel: #1B0D2C;
+  --ink-sub: #24113B;
+  --paper: #F3E8FF;
+  --paper-muted: #A899B8;
+  --paper-sub: #C4B5D4;
+  --teal: #C084FC;
+  --teal-dim: rgba(192, 132, 252, 0.2);
+  --teal-glow: rgba(192, 132, 252, 0.55);
+  --gold: #F43F5E;
+  --gold-dim: rgba(244, 63, 94, 0.2);
+  --gold-glow: rgba(244, 63, 94, 0.55);
+  --muted: #9E8DB3;
+  --line: rgba(192, 132, 252, 0.22);
+  --theme-accent: #C084FC;
+  --theme-glow: rgba(192, 132, 252, 0.45);
+}
+body.theme-glacial .glass-panel,
+body.theme-glacial .cockpit-header,
+body.theme-glacial .onboarding-modal-card,
+body.theme-glacial .wardrobe-card {
+  border-radius: 18px;
+  border: 1.5px solid rgba(192, 132, 252, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(192, 132, 252, 0.18);
+}
+body.theme-glacial .panel-title { color: #C084FC; }
+body.theme-glacial .student-card.selected {
+  border-color: #C084FC;
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+}
+
+/* ==========================================================================
+   GLOBAL RESET & ANIMATIONS
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100%;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
+  line-height: 1.5;
+}
+
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.aurora-layer {
+  position: fixed; inset: -10% -10% auto -10%; height: 85%;
+  z-index: 1; pointer-events: none; opacity: 0.28;
+  background: radial-gradient(ellipse 60% 40% at 20% 20%, rgba(13, 115, 119, 0.14), transparent 60%),
+              radial-gradient(ellipse 55% 45% at 80% 25%, rgba(180, 83, 9, 0.1), transparent 60%),
+              radial-gradient(ellipse 65% 50% at 50% 50%, rgba(2, 132, 199, 0.08), transparent 65%);
+  filter: blur(55px);
+  animation: auroraFlow 24s ease-in-out infinite alternate;
+  transition: background 0.6s ease;
+}
+body.theme-solar .aurora-layer {
+  opacity: 0.18;
+  background: radial-gradient(ellipse 60% 40% at 20% 20%, rgba(2, 132, 199, 0.15), transparent 60%),
+              radial-gradient(ellipse 55% 45% at 80% 25%, rgba(225, 29, 72, 0.1), transparent 60%);
+}
+body.theme-glacial .aurora-layer {
+  opacity: 0.45;
+  background: radial-gradient(ellipse 60% 40% at 20% 20%, rgba(192, 132, 252, 0.4), transparent 60%),
+              radial-gradient(ellipse 55% 45% at 80% 25%, rgba(244, 63, 94, 0.3), transparent 60%);
+}
+@keyframes auroraFlow {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.08) translate3d(2vw, 3vh, 0); }
+}
+
+.app-container {
+  position: relative; z-index: 10;
+  max-width: 1420px; margin: 0 auto;
+  min-height: 100vh; display: flex; flex-direction: column;
+  padding: 18px 24px 80px; gap: 20px;
+}
+
+/* ==========================================================================
+   COCKPIT HUD (HEADER)
+   ========================================================================== */
+.cockpit-header {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--ink-card); backdrop-filter: blur(16px);
+  border: 1.5px solid var(--line); border-radius: 18px;
+  padding: 14px 22px; box-shadow: var(--shadow-md);
+  flex-wrap: wrap; gap: 14px;
+}
+.brand-zone { display: flex; align-items: center; gap: 14px; }
+.brand-avatar-box {
+  width: 50px; height: 50px; border-radius: 14px;
+  background: var(--ink-sub); border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 14px var(--gold-glow); overflow: hidden;
+}
+.brand-avatar-box img { width: 100%; height: 100%; object-fit: cover; }
+.brand-titles { display: flex; flex-direction: column; }
+.brand-title {
+  font-family: var(--title-font); font-size: 17px; font-weight: 900;
+  color: var(--gold); letter-spacing: 0.06em;
+}
+.brand-subtitle {
+  font-family: var(--mono); font-size: 10.5px; color: var(--teal);
+  letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+}
+
+.skin-dock {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--ink-sub); border: 1px solid var(--line);
+  border-radius: 12px; padding: 4px 8px;
+}
+.skin-dock-tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  color: var(--muted); letter-spacing: 0.08em; margin-right: 2px;
+}
+.skin-pills-group { display: flex; gap: 4px; }
+.skin-pill-btn {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  background: transparent; border: 1px solid transparent;
+  color: var(--paper-muted); border-radius: 8px; padding: 5px 9px;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
+  transition: all 0.2s ease;
+}
+.skin-pill-btn:hover { color: var(--paper); border-color: var(--line); }
+.skin-pill-btn.active {
+  background: var(--ink-card); border-color: var(--theme-accent);
+  color: var(--paper); box-shadow: 0 2px 10px var(--theme-glow); font-weight: 700;
+}
+.skin-pill-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dot-ethereal { background: #0D7377; }
+.dot-solar { background: #0284C7; }
+.dot-glacial { background: #C084FC; }
+
+.skin-wardrobe-trigger {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  background: var(--gold-dim); color: var(--gold);
+  border: 1px solid var(--gold-dim); border-radius: 8px;
+  padding: 5px 9px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+  transition: all 0.2s ease;
+}
+.skin-wardrobe-trigger:hover {
+  background: var(--gold); color: #FFFFFF; box-shadow: 0 0 14px var(--gold-glow);
+}
+
+.cockpit-metrics {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.metric-pill { display: flex; flex-direction: column; align-items: flex-end; }
+.metric-label { font-family: var(--mono); font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.metric-val { font-family: var(--mono); font-size: 14.5px; font-weight: 700; color: var(--paper); }
+.metric-val.gold { color: var(--gold); }
+.metric-val.teal { color: var(--teal); }
+
+.header-buttons-group { display: flex; gap: 8px; align-items: center; }
+.header-action-btn {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  background: var(--teal-dim); color: var(--teal);
+  border: 1.5px solid var(--teal); border-radius: 10px;
+  padding: 8px 14px; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.header-action-btn:hover {
+  background: var(--teal); color: #FFFFFF; box-shadow: 0 0 16px var(--teal-glow);
+}
+.header-action-btn.tour-btn {
+  background: var(--gold-dim); color: var(--gold); border-color: var(--gold);
+}
+.header-action-btn.tour-btn:hover {
+  background: var(--gold); color: #FFFFFF; box-shadow: 0 0 16px var(--gold-glow);
+}
+
+/* ==========================================================================
+   NAVIGATION TABS (7 MÓDULOS FACULTY)
+   ========================================================================== */
+.cockpit-nav-bar {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  border-bottom: 1.5px solid var(--line); padding-bottom: 12px;
+}
+.cockpit-tab {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  background: var(--ink-sub); border: 1.5px solid var(--line);
+  color: var(--paper-muted); border-radius: 10px; padding: 10px 16px;
+  cursor: pointer; display: flex; align-items: center; gap: 8px;
+  transition: all 0.2s var(--e-out); min-height: 44px;
+}
+.cockpit-tab:hover { color: var(--paper); border-color: var(--teal); }
+.cockpit-tab.active {
+  background: var(--ink-card); border-color: var(--teal);
+  color: var(--teal); box-shadow: 0 2px 14px var(--teal-dim); font-weight: 700;
+}
+.cockpit-tab.premium-tag {
+  border-color: var(--gold-dim); color: var(--gold);
+}
+.cockpit-tab.premium-tag.active {
+  background: var(--ink-card); border-color: var(--gold);
+  color: var(--gold); box-shadow: 0 2px 16px var(--gold-glow); font-weight: 700;
+}
+
+/* ==========================================================================
+   PANEL VIEWS & GRIDS
+   ========================================================================== */
+.tab-content-panel { display: none; flex-direction: column; gap: 20px; animation: fadeIn 0.25s ease; }
+.tab-content-panel.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.dual-cockpit-grid {
+  display: grid; grid-template-columns: 380px 1fr;
+  gap: 20px; align-items: start;
+}
+@media (max-width: 1024px) {
+  .dual-cockpit-grid { grid-template-columns: 1fr; }
+}
+
+.glass-panel {
+  background: var(--ink-card); backdrop-filter: blur(16px);
+  border: 1.5px solid var(--line); border-radius: 18px;
+  padding: 22px; box-shadow: var(--shadow-md);
+  display: flex; flex-direction: column; gap: 16px;
+  transition: all 0.25s ease; color: var(--paper);
+}
+.glass-panel.glow-gold { border-color: var(--gold); }
+.glass-panel.glow-teal { border-color: var(--teal); }
+
+.panel-header-row {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--line); padding-bottom: 10px;
+}
+.panel-title {
+  font-family: var(--title-font); font-size: 16px; font-weight: 700;
+  color: var(--gold); display: flex; align-items: center; gap: 8px;
+}
+.panel-tag { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-transform: uppercase; }
+
+/* Filter & Search Bar */
+.filter-search-row {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+}
+.filter-pill {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px; cursor: pointer;
+  background: var(--ink-sub); border: 1px solid var(--line); color: var(--paper-muted);
+  transition: all 0.15s ease;
+}
+.filter-pill:hover { border-color: var(--teal); color: var(--paper); }
+.filter-pill.active { background: var(--teal); border-color: var(--teal); color: #FFFFFF; }
+
+/* CEFR Badges */
+.cefr-badge {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 6px; text-transform: uppercase;
+}
+.cefr-badge.a1 { background: rgba(180, 83, 9, 0.15); color: #B45309; border: 1px solid rgba(180, 83, 9, 0.35); }
+.cefr-badge.a2 { background: rgba(13, 115, 119, 0.15); color: #0D7377; border: 1px solid rgba(13, 115, 119, 0.35); }
+.cefr-badge.b1 { background: rgba(2, 132, 199, 0.15); color: #0284C7; border: 1px solid rgba(2, 132, 199, 0.35); }
+.cefr-badge.b2 { background: rgba(124, 58, 237, 0.15); color: #7C3AED; border: 1px solid rgba(124, 58, 237, 0.35); }
+.cefr-badge.c1 { background: rgba(225, 29, 72, 0.15); color: #E11D48; border: 1px solid rgba(225, 29, 72, 0.35); }
+
+/* Form Controls */
+.form-ctrl {
+  background: var(--ink-sub); border: 1.5px solid var(--line);
+  border-radius: 8px; padding: 9px 12px; font-family: var(--sans);
+  font-size: 13px; color: var(--paper); outline: none; width: 100%;
+  transition: border-color 0.15s ease;
+}
+.form-ctrl:focus { border-color: var(--teal); }
+
+/* Collapsible Accordion Modules */
+.collapsible-module {
+  background: var(--ink-card); border: 1.5px solid var(--line);
+  border-radius: 14px; margin-bottom: 12px; overflow: hidden;
+  transition: all 0.22s var(--e-out);
+}
+.collapsible-module:hover { border-color: var(--teal-dim); }
+.collapsible-module.expanded {
+  border-color: var(--teal); box-shadow: 0 4px 18px var(--teal-dim);
+}
+.collapsible-module-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 18px; background: var(--ink-sub); cursor: pointer;
+  user-select: none; transition: background 0.15s ease; gap: 10px;
+}
+.collapsible-module-header:hover { background: var(--ink-panel); }
+.collapsible-title-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.collapsible-title {
+  font-family: var(--serif); font-size: 14px; font-weight: 700;
+  color: var(--paper); display: flex; align-items: center; gap: 8px;
+}
+.collapsible-summary-pill {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  color: var(--teal); background: var(--teal-dim);
+  border: 1px solid var(--line); padding: 3px 8px; border-radius: 6px;
+}
+.collapsible-chevron {
+  font-family: var(--mono); font-size: 13px; font-weight: bold;
+  color: var(--paper-muted); transition: transform 0.22s ease;
+  width: 24px; height: 24px; display: flex; align-items: center;
+  justify-content: center; border-radius: 50%; background: var(--ink-card);
+  border: 1px solid var(--line); flex-shrink: 0;
+}
+.collapsible-module.expanded .collapsible-chevron {
+  transform: rotate(180deg); color: var(--teal); border-color: var(--teal);
+}
+.collapsible-module-body {
+  padding: 16px 18px; display: none; border-top: 1px solid var(--line);
+  animation: fadeIn 0.2s ease;
+}
+.collapsible-module.expanded .collapsible-module-body { display: block; }
+
+/* Student Cards */
+.students-list-stack { display: flex; flex-direction: column; gap: 10px; max-height: 480px; overflow-y: auto; }
+.student-card {
+  background: var(--ink-sub); border: 1.5px solid var(--line);
+  border-radius: 12px; padding: 12px 16px; display: flex;
+  flex-direction: column; gap: 8px; cursor: pointer;
+  transition: all 0.2s ease; color: var(--paper);
+}
+.student-card:hover { border-color: var(--teal); transform: translateX(3px); }
+.student-card.selected {
+  border-color: var(--teal); background: var(--ink-card);
+  box-shadow: 0 4px 16px var(--teal-dim);
+}
+.student-top-row { display: flex; align-items: center; justify-content: space-between; }
+.student-name-group { display: flex; align-items: center; gap: 10px; }
+.student-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--ink-card); display: flex; align-items: center;
+  justify-content: center; font-size: 16px; border: 1.5px solid var(--line);
+}
+.student-name { font-weight: 600; font-size: 14px; color: var(--paper); }
+.student-meta { font-family: var(--mono); font-size: 11px; color: var(--paper-muted); }
+.student-progress-bar {
+  width: 100%; height: 6px; background: var(--line);
+  border-radius: 99px; overflow: hidden; display: flex;
+}
+.student-progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); transition: width 0.3s ease; }
+.student-stats-row {
+  display: flex; justify-content: space-between; font-family: var(--mono);
+  font-size: 10.5px; color: var(--paper-muted);
+}
+
+/* Dossier Metrics */
+.dossier-hero {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px; background: var(--ink-sub); border-radius: 14px;
+  border: 1.5px solid var(--line); color: var(--paper); flex-wrap: wrap; gap: 10px;
+}
+.dossier-metrics-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+.dossier-stat-box {
+  background: var(--ink-card); border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px;
+}
+.dossier-stat-num { font-family: var(--title-font); font-size: 22px; font-weight: 700; color: var(--gold); }
+.dossier-stat-desc { font-family: var(--mono); font-size: 9.5px; color: var(--paper-muted); text-transform: uppercase; }
+
+/* Interactive Attendance Calendar */
+.attendance-cal-wrap {
+  background: var(--ink-card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px;
+}
+.cal-nav-bar { display: flex; align-items: center; justify-content: space-between; font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--paper); }
+.cal-nav-btn { background: var(--ink-sub); border: 1px solid var(--line); border-radius: 6px; width: 30px; height: 30px; font-size: 14px; cursor: pointer; color: var(--paper); }
+.cal-grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-dow { font-family: var(--mono); font-size: 9.5px; color: var(--paper-muted); text-align: center; text-transform: uppercase; font-weight: 700; }
+.cal-cell {
+  aspect-ratio: 1; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--ink-sub); font-family: var(--mono); font-size: 11px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  color: var(--paper); transition: all 0.15s;
+}
+.cal-cell:hover:not(.blank) { border-color: var(--teal); transform: scale(1.05); }
+.cal-cell.blank { background: transparent; border: none; cursor: default; }
+.cal-cell.today { border: 2px solid var(--gold); }
+.cal-cell.has { background: var(--green); color: #FFFFFF; font-weight: 700; border-color: var(--green); }
+.cal-cell.future { color: var(--paper-muted); opacity: 0.5; }
+
+/* Vocab Chips & Sentences */
+.vocab-chips-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.vocab-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--ink-card); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 12px; font-size: 12px;
+}
+.vocab-chip strong { color: var(--gold); }
+.vocab-chip em { color: var(--paper-muted); font-style: normal; font-size: 11px; }
+
+.sentence-bank-box { display: flex; flex-direction: column; gap: 6px; max-height: 240px; overflow-y: auto; }
+.sentence-item {
+  background: var(--ink-card); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 12px; font-size: 12.5px;
+  display: flex; align-items: center; justify-content: space-between; color: var(--paper);
+}
+.sentence-form-tag {
+  font-family: var(--mono); font-size: 9.5px; text-transform: uppercase;
+  color: var(--paper-muted); background: var(--ink-sub); padding: 2px 6px; border-radius: 4px;
+}
+
+/* Mission Dispatcher Cards */
+.mission-builder-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 16px;
+}
+.game-dispatch-card {
+  background: var(--ink-sub); border: 1.5px solid var(--line);
+  border-radius: 14px; padding: 16px; display: flex; flex-direction: column;
+  justify-content: space-between; gap: 12px; transition: all 0.2s ease; color: var(--paper);
+}
+.game-dispatch-card:hover {
+  border-color: var(--gold); transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--gold-glow);
+}
+.game-dispatch-title { font-family: var(--title-font); font-size: 15px; font-weight: 700; color: var(--paper); display: flex; align-items: center; gap: 8px; }
+.generated-link-box {
+  background: var(--ink-card); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; display: flex; align-items: center;
+  justify-content: space-between; gap: 8px; font-family: var(--mono); font-size: 11px;
+}
+.generated-url-text { color: var(--teal); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.btn-copy-link {
+  background: var(--teal); border: 1px solid var(--teal);
+  color: #FFFFFF; border-radius: 6px; padding: 4px 8px; cursor: pointer;
+  flex-shrink: 0; font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+}
+.btn-copy-link:hover { background: var(--gold); border-color: var(--gold); }
+
+/* Cinema Studio Viewport */
+.cinema-slide-viewport {
+  position: relative; width: 100%; min-height: 520px;
+  background: var(--ink-card); border: 2px solid var(--gold);
+  border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 0 30px var(--gold-glow);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 28px 36px; overflow: hidden; color: var(--paper);
+}
+.cinema-proscenium-layout {
+  display: grid; grid-template-columns: 240px 1fr;
+  gap: 28px; align-items: stretch; margin: 8px 0;
+}
+@media (max-width: 860px) {
+  .cinema-proscenium-layout { grid-template-columns: 1fr; }
+}
+.cinema-aurora-hero-stage {
+  background: var(--ink-sub); border: 2px solid var(--gold-dim);
+  border-radius: 18px; padding: 20px 16px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  box-shadow: 0 6px 20px var(--gold-glow); position: relative;
+}
+.cinema-aurora-portrait-wrap {
+  position: relative; width: 130px; height: 130px;
+  border-radius: 50%; padding: 4px;
+  background: linear-gradient(135deg, var(--gold), var(--teal));
+  box-shadow: 0 0 24px var(--gold-glow); margin-bottom: 10px;
+}
+.cinema-aurora-portrait-wrap img {
+  width: 100%; height: 100%; border-radius: 50%;
+  object-fit: cover; background: var(--ink-card); display: block;
+}
+.cinema-aurora-portrait-wrap::after {
+  content: ''; position: absolute; inset: -6px; border-radius: 50%;
+  border: 1.5px dashed var(--gold); opacity: 0.5;
+  animation: orbitRotate 20s linear infinite; pointer-events: none;
+}
+.cinema-aurora-portrait-wrap.speaking::after {
+  animation: orbitRotate 4s linear infinite; opacity: 1; border-color: var(--teal);
+  box-shadow: 0 0 20px var(--teal-glow);
+}
+@keyframes orbitRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.cinema-title {
+  font-family: var(--serif); font-size: clamp(24px, 3vw, 36px); font-weight: 700;
+  color: var(--paper); line-height: 1.25; margin-bottom: 8px;
+}
+.cinema-body-text {
+  font-family: var(--serif); font-size: 17.5px; color: var(--paper);
+  line-height: 1.6; max-width: 900px;
+}
+.cinema-body-text strong { color: var(--gold); font-weight: 700; }
+.cinema-speech-bubble-card {
+  background: var(--ink-sub); border: 1.5px solid var(--teal-dim);
+  border-left: 4px solid var(--gold); border-radius: 14px;
+  padding: 14px 20px;
+}
+.bubble-quote-text {
+  font-family: var(--hand); font-size: 20px; color: var(--paper); line-height: 1.4;
+}
+
+/* Director Recording Suite Controls */
+.director-toolbar {
+  display: flex; gap: 8px; align-items: center; background: var(--ink-card);
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 8px 14px;
+  flex-wrap: wrap; margin-bottom: 12px; box-shadow: var(--shadow-sm);
+}
+.director-tool-btn {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  background: var(--ink-sub); border: 1px solid var(--line); color: var(--paper-muted);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer; display: inline-flex;
+  align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.director-tool-btn:hover { border-color: var(--gold); color: var(--paper); }
+.director-tool-btn.active {
+  background: var(--gold); border-color: var(--gold); color: #092B35;
+  box-shadow: 0 0 14px var(--gold-glow); font-weight: 800;
+}
+.teleprompter-hud {
+  position: absolute; top: 20px; right: 24px; width: 330px; z-index: 100;
+  background: rgba(9, 43, 53, 0.96); backdrop-filter: blur(14px);
+  border: 1.5px solid var(--gold); border-radius: 16px; padding: 18px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.35), 0 0 30px var(--gold-glow);
+  color: #FFFFFF; display: none; flex-direction: column; gap: 10px;
+  animation: prompterIn 0.25s var(--e-spring);
+}
+.teleprompter-hud.active { display: flex; }
+@keyframes prompterIn { from { transform: translateX(24px) scale(0.96); opacity: 0; } to { transform: translateX(0) scale(1); opacity: 1; } }
+
+#spotlight-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 9998; display: none; }
+#spotlight-canvas.active { display: block; }
+#laser-dot-cursor {
+  position: fixed; width: 14px; height: 14px; border-radius: 50%;
+  background: #E11D48; box-shadow: 0 0 16px #E11D48, 0 0 32px #E11D48, 0 0 4px #FFFFFF;
+  pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+  display: none;
+}
+#laser-dot-cursor.active { display: block; }
+
+/* Bio-Phonetics Lab */
+.bio-lab-header-banner {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink-card); border: 1.5px solid var(--line); border-radius: 16px;
+  padding: 16px 22px; flex-wrap: wrap; gap: 12px;
+}
+.bio-sagittal-grid {
+  display: grid; grid-template-columns: 380px 1fr; gap: 20px; align-items: stretch;
+}
+@media (max-width: 1024px) { .bio-sagittal-grid { grid-template-columns: 1fr; } }
+
+.sagittal-viewer-card {
+  background: var(--ink-card); border: 1.5px solid var(--line); border-radius: 18px;
+  padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  gap: 14px;
+}
+.sagittal-svg-wrap {
+  width: 100%; max-width: 320px; height: 320px; position: relative;
+  background: radial-gradient(circle at center, rgba(13, 115, 119, 0.08), transparent 70%);
+  border-radius: 16px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+}
+.ipa-key-btn {
+  font-family: var(--serif); font-size: 15px; font-weight: 700;
+  background: var(--ink-sub); border: 1.5px solid var(--line); color: var(--paper);
+  border-radius: 8px; width: 44px; height: 42px; display: inline-flex;
+  align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s ease;
+}
+.ipa-key-btn:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+.ipa-key-btn.active {
+  background: var(--teal); border-color: var(--teal-dark); color: #FFFFFF;
+  box-shadow: 0 4px 14px var(--teal-glow); transform: scale(1.06);
+}
+
+/* CEFR Diagnostic Radar & Canvas */
+.radar-canvas-wrap {
+  width: 100%; height: 340px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+#radarCanvas { width: 100%; height: 100%; max-width: 440px; }
+
+/* Modals & Overlays */
+.wardrobe-modal-overlay, .onboarding-overlay {
+  position: fixed; inset: 0; z-index: 2500;
+  background: rgba(4, 8, 16, 0.75); backdrop-filter: blur(14px);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px; animation: fadeIn 0.25s ease;
+}
+.wardrobe-modal-overlay.active, .onboarding-overlay.active { display: flex; }
+.wardrobe-card, .onboarding-modal-card {
+  width: 100%; max-width: 960px; max-height: 90vh; overflow-y: auto;
+  background: var(--ink-card); border: 2px solid var(--gold);
+  border-radius: 24px; padding: 28px 32px; position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 35px var(--gold-glow);
+  display: flex; flex-direction: column; gap: 20px; color: var(--paper);
+}
+.onboarding-modal-card { max-width: 680px; }
+
+.toast-notice {
+  position: fixed; bottom: 24px; right: 24px; z-index: 3000;
+  background: var(--ink-card); border: 1.5px solid var(--teal);
+  border-radius: 12px; padding: 12px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  font-family: var(--mono); font-size: 12px; color: var(--teal); font-weight: 700;
+  display: none; align-items: center; gap: 8px; animation: fadeIn 0.3s ease;
+}
+.toast-notice.show { display: flex; }
+</style>
+</head>
+<body class="theme-ethereal">
+
+<canvas id="bg-canvas"></canvas>
+<div class="aurora-layer"></div>
+
+<div class="app-container">
+  <!-- COCKPIT HUD -->
+  <header class="cockpit-header">
+    <div class="brand-zone">
+      <div class="brand-avatar-box" id="brand-avatar-box">
+        <img src="assets/aurora.png" id="cockpit-brand-avatar" alt="Aurora Mentor" onerror="handleImgError(this)">
+      </div>
+      <div class="brand-titles">
+        <div class="brand-title">TEACHER'S COCKPIT · PROF. FELIPE</div>
+        <div class="brand-subtitle">English Aurora · Faculty Astral Observatory</div>
+      </div>
+    </div>
+
+    <!-- SKIN SELECTOR DOCK -->
+    <div class="skin-dock" id="skin-dock">
+      <span class="skin-dock-tag">SKIN:</span>
+      <div class="skin-pills-group">
+        <button class="skin-pill-btn active" data-skin="ethereal" onclick="setTeacherSkin('ethereal', this)" title="Ethereal Veil (Pastel Teal / Canonical)">
+          <span class="skin-pill-dot dot-ethereal"></span> Ethereal
+        </button>
+        <button class="skin-pill-btn" data-skin="solar" onclick="setTeacherSkin('solar', this)" title="Quantum White (Tech Lab Redhead)">
+          <span class="skin-pill-dot dot-solar"></span> Solar
+        </button>
+        <button class="skin-pill-btn" data-skin="glacial" onclick="setTeacherSkin('glacial', this)" title="Gothic Noir (Arcane Cathedral)">
+          <span class="skin-pill-dot dot-glacial"></span> Glacial
+        </button>
+      </div>
+      <button class="skin-wardrobe-trigger" onclick="openWardrobeModal()" title="Open Wardrobe & Skins Gallery">
+        <span>👘</span> Wardrobe
+      </button>
+    </div>
+
+    <div class="cockpit-metrics">
+      <div class="metric-pill">
+        <span class="metric-label">Lead Instructor</span>
+        <span class="metric-val teal">Felipe Morales</span>
+      </div>
+      <div class="metric-pill">
+        <span class="metric-label">Faculty Rank</span>
+        <span class="metric-val gold">Educator Pro ⭐</span>
+      </div>
+      <div class="metric-pill">
+        <span class="metric-label">Active Curriculum</span>
+        <span class="metric-val gold">85 Lessons A1–C1</span>
+      </div>
+      <div class="metric-pill">
+        <span class="metric-label">Synced Arcade</span>
+        <span class="metric-val">17 Arcade Games</span>
+      </div>
+    </div>
+
+    <div class="header-buttons-group">
+      <a class="header-action-btn" href="../index.html" target="_blank" style="background:var(--gold); color:#092B35; font-weight:700; border-color:var(--gold);">
+        <span>🌠</span> Galaxy Landing
+      </a>
+      <button class="header-action-btn tour-btn" id="btn-relaunch-tour" onclick="openTour()">
+        <span>✨</span> Guided Tour
+      </button>
+      <a class="header-action-btn" href="../ludoteca.html" target="_blank">
+        <span>🌌</span> Arcade Hub
+      </a>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="cockpit-nav-bar" id="cockpit-tabs">
+    <button class="cockpit-tab active" data-tab="tab-students" id="tab-btn-students">
+      <span>👥</span> Cohorts & Students
+    </button>
+    <button class="cockpit-tab" data-tab="tab-planner" id="tab-btn-planner">
+      <span>📖</span> Lesson Planner (85 Lessons)
+    </button>
+    <button class="cockpit-tab" data-tab="tab-missions" id="tab-btn-missions">
+      <span>🚀</span> Mission Dispatcher (Arcade)
+    </button>
+    <button class="cockpit-tab premium-tag" data-tab="tab-showcase" id="tab-btn-showcase">
+      <span>👑</span> Wave B & C Studio (Private Master)
+    </button>
+    <button class="cockpit-tab" data-tab="tab-phonetics" id="tab-btn-phonetics" style="border-color:var(--gold-dim);">
+      <span>🧬</span> Bio-Phonetics & Fluency Lab
+    </button>
+    <button class="cockpit-tab" data-tab="tab-hours" id="tab-btn-hours">
+      <span>⏱️</span> Hours & Attendance Ledger
+    </button>
+    <button class="cockpit-tab" data-tab="tab-diagnostics" id="tab-btn-diagnostics">
+      <span>📊</span> CEFR Diagnostic Radar
+    </button>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 1: COHORTS & STUDENTS -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel active" id="tab-students">
+    <div class="dual-cockpit-grid">
+      <!-- Left Column: Student Enrollment & Roster Stack -->
+      <div class="glass-panel" id="panel-students-list">
+        <div class="panel-header-row">
+          <h2 class="panel-title"><span>👥</span> Active Cohort Roster</h2>
+          <span class="panel-tag" id="roster-count-tag">Live Sync</span>
+        </div>
+
+        <!-- Quick Enrollment Form Card -->
+        <div class="enroll-card" style="background:var(--ink-sub); border:1.5px dashed var(--teal); border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+          <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); text-transform:uppercase;">
+            + Enroll New Student
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <input type="text" id="altaNombre" class="form-ctrl" placeholder="Full name *" style="font-size:12px; padding:6px 10px;">
+            <input type="email" id="altaCorreo" class="form-ctrl" placeholder="Email (optional)" style="font-size:12px; padding:6px 10px;">
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr auto; gap:6px; align-items:center;">
+            <select id="altaNivel" class="form-ctrl" style="font-size:12px; padding:6px 10px;">
+              <option value="A1">Level A1 (Spark)</option>
+              <option value="A2">Level A2 (Pulse)</option>
+              <option value="B1" selected>Level B1 (Velocity)</option>
+              <option value="B2">Level B2 (Apex)</option>
+              <option value="C1">Level C1 (Horizon)</option>
+            </select>
+            <input type="number" id="altaHoras" class="form-ctrl" value="60" min="5" max="200" step="5" placeholder="Package hrs" style="font-size:12px; padding:6px 10px;">
+            <button class="btn-enroll-submit" onclick="altaEstudianteHub()" style="background:var(--teal); color:#FFFFFF; border:none; border-radius:8px; padding:7px 12px; font-family:var(--mono); font-size:11px; font-weight:700; cursor:pointer;">
+              Enroll ➜
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Roster -->
+        <div class="filter-search-row">
+          <input type="text" id="rosterSearchInput" oninput="filterStudentsRoster()" class="form-ctrl" placeholder="🔍 Search student name..." style="font-size:12px; padding:6px 10px;">
+        </div>
+        <div class="filter-search-row" id="rosterLevelFilters">
+          <span class="filter-pill active" onclick="setRosterLevelFilter('ALL', this)">ALL</span>
+          <span class="filter-pill" onclick="setRosterLevelFilter('A1', this)">A1</span>
+          <span class="filter-pill" onclick="setRosterLevelFilter('A2', this)">A2</span>
+          <span class="filter-pill" onclick="setRosterLevelFilter('B1', this)">B1</span>
+          <span class="filter-pill" onclick="setRosterLevelFilter('B2', this)">B2</span>
+          <span class="filter-pill" onclick="setRosterLevelFilter('C1', this)">C1</span>
+        </div>
+
+        <!-- Student Cards Stack -->
+        <div class="students-list-stack" id="students-stack">
+          <!-- Populated dynamically via renderStudentsRoster() -->
+        </div>
+      </div>
+
+      <!-- Right Column: Selected Student Dossier & Operations -->
+      <div class="glass-panel" id="panel-student-dossier">
+        <div class="panel-header-row">
+          <h2 class="panel-title"><span>📋</span> Student Dossier & Operations</h2>
+          <div style="display:flex; gap:6px;">
+            <button class="filter-pill" onclick="copiarLinkEstudiante()" title="Copy Student Portal Link">📋 Copy Portal Link</button>
+            <button class="filter-pill" onclick="abrirPortalEstudiante()" title="Open Student Portal in new tab">🚀 Open Portal</button>
+            <button class="filter-pill" onclick="borrarEstudianteDoc()" style="color:var(--ruby); border-color:var(--ruby-dim);">✕ Delete</button>
+          </div>
+        </div>
+
+        <!-- Student Hero Banner -->
+        <div class="dossier-hero">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <h3 id="dossier-name" style="font-family:var(--serif); font-size:20px; font-weight:700;">Select a student</h3>
+              <span id="dossier-level-badge" class="cefr-badge b1">B1 Level</span>
+            </div>
+            <div id="dossier-subtitle" style="font-family:var(--mono); font-size:11.5px; color:var(--paper-muted); margin-top:2px;">
+              Select a student from the left roster to view complete academic profile.
+            </div>
+          </div>
+          <button class="header-action-btn" onclick="logTodayClassHub()" style="background:var(--green); color:#FFFFFF; border-color:var(--green);">
+            ✓ Log Today's Class (-1h)
+          </button>
+        </div>
+
+        <!-- Dossier 4-Stat Metrics -->
+        <div class="dossier-metrics-grid">
+          <div class="dossier-stat-box">
+            <span class="dossier-stat-num" id="dossier-contracted-hours">0h</span>
+            <span class="dossier-stat-desc">Contracted Hours</span>
+          </div>
+          <div class="dossier-stat-box">
+            <span class="dossier-stat-num" id="dossier-completed-classes">0</span>
+            <span class="dossier-stat-desc">Completed Classes</span>
+          </div>
+          <div class="dossier-stat-box">
+            <span class="dossier-stat-num" id="dossier-remaining-hours" style="color:var(--teal);">0h</span>
+            <span class="dossier-stat-desc">Remaining Hours</span>
+          </div>
+          <div class="dossier-stat-box">
+            <span class="dossier-stat-num" id="dossier-avg-score">0%</span>
+            <span class="dossier-stat-desc">Avg Quiz Score</span>
+          </div>
+        </div>
+
+        <!-- Accordion Module 1: Attendance Matrix -->
+        <div class="collapsible-module expanded" id="mod-cal">
+          <div class="collapsible-module-header" onclick="toggleModule('mod-cal')">
+            <div class="collapsible-title-group">
+              <span class="collapsible-title"><span>📅</span> Attendance & Hours Matrix</span>
+              <span class="collapsible-summary-pill" id="mod-summary-hours">Interactive Calendar</span>
+            </div>
+            <span class="collapsible-chevron">▼</span>
+          </div>
+          <div class="collapsible-module-body">
+            <div class="attendance-cal-wrap">
+              <div class="cal-nav-bar">
+                <button class="cal-nav-btn" onclick="prevCalendarMonth()">◀</button>
+                <span id="dossier-cal-month-title">Current Month</span>
+                <button class="cal-nav-btn" onclick="nextCalendarMonth()">▶</button>
+              </div>
+              <div class="cal-grid-7" id="dossier-cal-grid">
+                <!-- Populated via renderStudentCalendar() -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Module 2: Assigned Tasks -->
+        <div class="collapsible-module expanded" id="mod-tasks">
+          <div class="collapsible-module-header" onclick="toggleModule('mod-tasks')">
+            <div class="collapsible-title-group">
+              <span class="collapsible-title"><span>📌</span> Task Dispatcher & Homework</span>
+              <span class="collapsible-summary-pill" id="mod-summary-tasks">0 pending</span>
+            </div>
+            <span class="collapsible-chevron">▼</span>
+          </div>
+          <div class="collapsible-module-body">
+            <div style="display:grid; grid-template-columns:1.2fr 1fr 1.5fr auto; gap:6px; margin-bottom:10px; align-items:center;">
+              <select id="aTipo" class="form-ctrl" onchange="modoAsignarHub()" style="font-size:12px;">
+                <option value="practica">Interactive Practice</option>
+                <option value="leccion">Video & Lesson Slides</option>
+                <option value="examen">Evaluative Quiz</option>
+                <option value="custom">Custom URL / Task</option>
+              </select>
+              <select id="aNivel" class="form-ctrl" onchange="poblarTemasAsignarHub()" style="font-size:12px;">
+                <option value="A1">Level A1</option>
+                <option value="A2">Level A2</option>
+                <option value="B1" selected>Level B1</option>
+                <option value="B2">Level B2</option>
+                <option value="C1">Level C1</option>
+              </select>
+              <select id="aTema" class="form-ctrl" style="font-size:12px;"></select>
+              <button class="header-action-btn" onclick="asignarTareaHub()" style="padding:7px 12px; font-size:11px;">
+                + Assign
+              </button>
+            </div>
+            <div id="aCustomRow" style="display:none; gap:6px; margin-bottom:10px;">
+              <input type="text" id="aCustomTitulo" class="form-ctrl" placeholder="Task title..." style="font-size:12px;">
+              <input type="text" id="aCustomUrl" class="form-ctrl" placeholder="URL link..." style="font-size:12px;">
+            </div>
+            <div id="dTareasList" style="display:flex; flex-direction:column; gap:6px; max-height:180px; overflow-y:auto;">
+              <!-- Populated dynamically via loadStudentTasksHub() -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Module 3: Shadow Words & Clinical Errors -->
+        <div class="collapsible-module" id="mod-shadow">
+          <div class="collapsible-module-header" onclick="toggleModule('mod-shadow')">
+            <div class="collapsible-title-group">
+              <span class="collapsible-title"><span>⚠️</span> Shadow Words & Clinical Errors</span>
+              <span class="collapsible-summary-pill">Target Warm-Ups</span>
+            </div>
+            <span class="collapsible-chevron">▼</span>
+          </div>
+          <div class="collapsible-module-body">
+            <div class="shadow-table-wrap">
+              <div class="shadow-pill-item" style="display:flex; justify-content:space-between; padding:8px 12px; background:var(--ink-sub); border-radius:8px; border:1px solid rgba(225,29,72,0.25);">
+                <div>
+                  <span class="shadow-word-txt" style="color:var(--ruby); font-weight:700;">/θ/ vs /s/ ("think" vs "sink")</span>
+                  <div class="shadow-clue-txt" style="font-size:11px; color:var(--paper-muted);">L1 Spanish interdental transfer error during fast speech.</div>
+                </div>
+                <button class="filter-pill" onclick="selectPhoneme('/θ/'); document.getElementById('tab-btn-phonetics').click();">Inspect Sagittal →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Module 4: Academic History & Comments -->
+        <div class="collapsible-module" id="mod-results">
+          <div class="collapsible-module-header" onclick="toggleModule('mod-results')">
+            <div class="collapsible-title-group">
+              <span class="collapsible-title"><span>📝</span> Academic Results & Direct Stream</span>
+              <span class="collapsible-summary-pill">Quizzes & Feedback</span>
+            </div>
+            <span class="collapsible-chevron">▼</span>
+          </div>
+          <div class="collapsible-module-body">
+            <div id="dAreasBreakdown" class="vocab-chips-cloud" style="margin-bottom:12px;"></div>
+            <table class="results-table-compact" style="width:100%; border-collapse:collapse; font-size:12px; margin-bottom:12px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10px; color:var(--paper-muted);">DATE</th>
+                  <th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10px; color:var(--paper-muted);">TOPIC</th>
+                  <th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10px; color:var(--paper-muted);">TYPE</th>
+                  <th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10px; color:var(--paper-muted);">SCORE</th>
+                  <th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10px; color:var(--paper-muted);">NOTES</th>
+                </tr>
+              </thead>
+              <tbody id="dHistorialTbody">
+                <tr><td colspan="5" style="text-align:center; padding:12px; color:var(--paper-muted);">Select a student to inspect quiz submissions.</td></tr>
+              </tbody>
+            </table>
+
+            <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); margin-bottom:6px;">
+              💬 Direct Classroom Stream:
+            </div>
+            <div id="dComentariosStream" class="comment-stream-box" style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto; margin-bottom:8px;"></div>
+            <div style="display:flex; gap:6px;">
+              <input type="text" id="dNuevoComentario" class="form-ctrl" placeholder="Write feedback for student portal..." style="font-size:12px;">
+              <button class="header-action-btn" onclick="comentarProfesorHub()" style="padding:7px 12px; font-size:11px;">Send ➜</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 2: LESSON PLANNER (85 CURRICULUM SEQUENCES) -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel" id="tab-planner">
+    <div class="dual-cockpit-grid">
+      <!-- Left Column: Topic Navigator & Search -->
+      <div class="glass-panel" id="panel-planner-selector">
+        <div class="panel-header-row">
+          <h2 class="panel-title"><span>📖</span> Curriculum Browser</h2>
+          <span class="panel-tag">85 Sequences A1–C1</span>
+        </div>
+
+        <input type="text" id="plannerSearchInput" oninput="filterPlannerTopics()" class="form-ctrl" placeholder="🔍 Search grammar topic, level, skill..." style="font-size:13px;">
+
+        <div class="filter-search-row" id="plannerLevelFilterGroup">
+          <span class="filter-pill active" onclick="setPlannerLevelFilter('ALL', this)">ALL</span>
+          <span class="filter-pill" onclick="setPlannerLevelFilter('A1', this)">A1 Spark</span>
+          <span class="filter-pill" onclick="setPlannerLevelFilter('A2', this)">A2 Pulse</span>
+          <span class="filter-pill" onclick="setPlannerLevelFilter('B1', this)">B1 Velocity</span>
+          <span class="filter-pill" onclick="setPlannerLevelFilter('B2', this)">B2 Apex</span>
+          <span class="filter-pill" onclick="setPlannerLevelFilter('C1', this)">C1 Horizon</span>
+        </div>
+
+        <select id="planner-topic-select" size="14" class="form-ctrl" style="height:380px; overflow-y:auto; padding:8px; font-size:12.5px;">
+          <!-- Populated dynamically via initPlannerCatalog() -->
+        </select>
+      </div>
+
+      <!-- Right Column: Deep Lesson Dossier & Action Launchers -->
+      <div class="glass-panel">
+        <div class="panel-header-row">
+          <h2 class="panel-title"><span>🎯</span> Lesson Pedagogical Dossier</h2>
+          <span class="cefr-badge a1" id="lesson-dossier-badge">A1 Spark · Wave B</span>
+        </div>
+
+        <div class="lesson-meta-banner" style="background:var(--ink-sub); border:1.5px solid var(--teal-dim); border-radius:14px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div class="lesson-meta-title" id="lesson-dossier-title" style="font-family:var(--serif); font-size:20px; font-weight:700;">Articles — A / An / The & Zero Article</div>
+            <div class="lesson-meta-sub" id="lesson-dossier-sub" style="font-family:var(--mono); font-size:11.5px; color:var(--teal); margin-top:2px;">Code: a1-articles-01 · Wave B Active · 100% English Immersion</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <a id="btn-open-wave-b" href="../leccion/a1-articles-01-wave-b.html" target="_blank" class="header-action-btn" style="background:var(--gold); color:#092B35; font-weight:700; border-color:var(--gold);">
+              <span>✨</span> <span id="label-btn-waveb">Launch Wave B (100% English)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Teacher Note & Tip -->
+        <div style="background:var(--gold-dim); border-left:4px solid var(--gold); border-radius:8px; padding:12px 16px; font-size:13px; color:var(--paper);">
+          <strong>💡 Pedagogical Director Tip:</strong> <span id="planner-tip-txt">"Remember to emphasize the phonetic rule: 'an' is used before vowel SOUNDS, not just letters (e.g. an hour vs a hotel)."</span>
+        </div>
+
+        <!-- Vocabulary Chips Cloud -->
+        <div>
+          <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); text-transform:uppercase; margin-bottom:6px;">
+            Key Lexical Atoms (IPA & Phonetics):
+          </div>
+          <div class="vocab-chips-cloud" id="lesson-vocab-cloud">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Spoken Sentence Bank -->
+        <div>
+          <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); text-transform:uppercase; margin-bottom:6px;">
+            Spoken Sentence Bank for Oral Modeling:
+          </div>
+          <div class="sentence-bank-box" id="lesson-sentence-box">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Action Grid Links -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; padding-top:10px; border-top:1px solid var(--line);">
+          <a id="btn-open-slides" href="#" target="_blank" class="header-action-btn" style="justify-content:center;">
+            <span>📽️</span> Classic Slides (<span id="link-waveb">leccion/...</span>)
+          </a>
+          <a id="btn-open-exercises" href="#" target="_blank" class="header-action-btn" style="justify-content:center;">
+            <span>📝</span> Practice Quizzes
+          </a>
+          <a id="btn-open-arcade-topic" href="#" target="_blank" class="header-action-btn" style="justify-content:center;">
+            <span>🚀</span> Synchronized Arcade
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 3: MISSION DISPATCHER (17 ARCADE GAMES) -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel" id="tab-missions">
+    <div class="glass-panel" id="panel-missions-dispatcher">
+      <div class="panel-header-row">
+        <div>
+          <h2 class="panel-title"><span>🚀</span> Arcade Mission Dispatcher</h2>
+          <div style="font-size:12.5px; color:var(--paper-muted); margin-top:2px;">
+            1-Click shareable gamified missions with preloaded student token and curriculum topic.
+          </div>
+        </div>
+        <div style="display:flex; gap:6px; align-items:center;">
+          <span style="font-family:var(--mono); font-size:11px; color:var(--paper-muted);">Token:</span>
+          <select id="mission-student-token-select" class="form-ctrl" style="font-size:12px; width:160px;" onchange="updateMissionDispatcherLinks()">
+            <option value="">(No student token)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filter by category -->
+      <div class="filter-search-row" id="arcadeGameCategoryFilters">
+        <span class="filter-pill active" onclick="filterArcadeCategory('ALL', this)">ALL GAMES (17)</span>
+        <span class="filter-pill" onclick="filterArcadeCategory('vocab', this)">Vocabulary & Wordplay</span>
+        <span class="filter-pill" onclick="filterArcadeCategory('listening', this)">Phonetics & Listening</span>
+        <span class="filter-pill" onclick="filterArcadeCategory('grammar', this)">Grammar & Boss Battles</span>
+        <span class="filter-pill" onclick="filterArcadeCategory('rpg', this)">RPG & Narrative</span>
+      </div>
+
+      <div class="mission-builder-grid" id="arcade-missions-grid">
+        <!-- 17 Arcade Cards populated dynamically via renderArcadeMissions() -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 4: WAVE B & C BROADCAST STUDIO (RECORDING MASTER) -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel" id="tab-showcase">
+    <!-- Showcase Control Bar -->
+    <div class="glass-panel" style="padding:14px 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase;">Wave Mode:</span>
+          <div class="wave-selector-pills" style="display:flex; gap:6px;">
+            <button class="wave-pill-btn" onclick="setWaveMode('A', this)" style="font-family:var(--mono); font-size:11.5px; font-weight:700; background:var(--ink-sub); border:1px solid var(--line); color:var(--paper-muted); border-radius:8px; padding:6px 12px; cursor:pointer;">
+              Wave A (Rules)
+            </button>
+            <button class="wave-pill-btn active" onclick="setWaveMode('B', this)" style="font-family:var(--mono); font-size:11.5px; font-weight:700; background:var(--gold); border:1px solid var(--gold); color:#FFFFFF; border-radius:8px; padding:6px 12px; cursor:pointer;">
+              Wave B (Context Story)
+            </button>
+            <button class="wave-pill-btn" onclick="setWaveMode('C', this)" style="font-family:var(--mono); font-size:11.5px; font-weight:700; background:var(--ink-sub); border:1px solid var(--line); color:var(--paper-muted); border-radius:8px; padding:6px 12px; cursor:pointer;">
+              Wave C (Spoken Drill)
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-family:var(--mono); font-size:11px; color:var(--paper-muted);">Studio Topic:</span>
+          <select id="showcase-wave-b-select" class="form-ctrl" style="font-size:12px; width:220px;"></select>
+          <button class="header-action-btn" onclick="toggleCinemaFullscreen()" title="Fullscreen 4K Mode [F]">
+            <span>⛶</span> Fullscreen
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Director Hotkey Toolbar -->
+    <div class="director-toolbar">
+      <span style="font-family:var(--mono); font-size:10.5px; font-weight:700; color:var(--gold); text-transform:uppercase; margin-right:4px;">Director FX:</span>
+      <button class="director-tool-btn" onclick="triggerDirectorSFX('chime')" title="528Hz Transformation Chime [1]"><span>🔔</span> Solfeggio 528Hz [1]</button>
+      <button class="director-tool-btn" onclick="triggerDirectorSFX('crystal')" title="Focus Alert [2]"><span>💎</span> Crystal Alert [2]</button>
+      <button class="director-tool-btn" onclick="triggerDirectorSFX('fanfare')" title="Level Up Fanfare [3]"><span>⭐</span> Astral Fanfare [3]</button>
+      <div style="width:1px; height:18px; background:var(--line); margin:0 4px;"></div>
+      <button class="director-tool-btn" id="btn-director-spotlight" onclick="toggleDirectorSpotlight()" title="Focus Spotlight [S]"><span>🔦</span> Spotlight [S]</button>
+      <button class="director-tool-btn" id="btn-director-laser" onclick="toggleDirectorLaser()" title="Laser Pointer [L]"><span>🔴</span> Laser [L]</button>
+      <button class="director-tool-btn" id="btn-director-prompter" onclick="toggleDirectorPrompter()" title="Teleprompter HUD [T]"><span>📜</span> Prompter [T]</button>
+    </div>
+
+    <!-- Cinema Slide Viewport Stage -->
+    <div class="cinema-slide-viewport" id="cinema-viewport">
+      <!-- Teleprompter Overlay -->
+      <div class="teleprompter-hud" id="teleprompter-hud">
+        <div class="teleprompter-header">
+          <span class="teleprompter-title">DIRECTOR TELEPROMPTER</span>
+          <span class="teleprompter-timer" id="teleprompter-clock">⏱️ 00:00</span>
+        </div>
+        <div class="teleprompter-body" id="teleprompter-body">
+          Introduce this slide with steady conversational rhythm. Have the student repeat the highlighted target structure before advancing.
+        </div>
+      </div>
+
+      <div class="cinema-top-telemetry">
+        <span class="cinema-watermark">ENGLISH AURORA · WAVE B STUDIO</span>
+        <span class="cinema-kicker" id="cinema-kicker">WAVE B · ARTICLES · SCENE 1</span>
+      </div>
+
+      <!-- 2-Column Proscenium Layout -->
+      <div class="cinema-proscenium-layout">
+        <!-- Aurora Mentor Stage Box -->
+        <div class="cinema-aurora-hero-stage">
+          <div class="cinema-aurora-portrait-wrap" id="cinema-aurora-wrap">
+            <img src="assets/aurora.png" id="cinema-aurora-avatar" onerror="handleImgError(this)" alt="Aurora Co-Host">
+          </div>
+          <div class="cinema-aurora-identity">
+            <div class="cinema-aurora-name">AURORA</div>
+            <div class="cinema-aurora-badge">Lead Co-Host & Mentor</div>
+          </div>
+          <div class="cinema-eq-visualizer" id="cinema-eq-bars">
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          </div>
+          <button class="cinema-voice-play-btn" onclick="playCinemaAudio()" id="btn-cinema-voice" title="Play model voice [P]">
+            <span id="cinema-voice-btn-icon">🔊</span> <span id="cinema-voice-btn-txt">Play Model Voice</span>
+          </button>
+        </div>
+
+        <!-- Narrative & Drill Stage -->
+        <div class="cinema-main-lesson-pane" style="display:flex; flex-direction:column; justify-content:space-between; gap:14px;">
+          <div>
+            <h2 class="cinema-title" id="cinema-title">Definite vs. Indefinite Articles</h2>
+            <div class="cinema-body-text" id="cinema-body">
+              We use <strong>A / AN</strong> for general singular countable nouns, and <strong>THE</strong> when both speakers know the exact object.
+            </div>
+          </div>
+
+          <div class="cinema-speech-bubble-card">
+            <div class="bubble-header-tag" style="font-family:var(--title-font); font-size:11px; letter-spacing:0.1em; color:var(--gold); text-transform:uppercase; font-weight:700;">
+              ✨ Aurora's Golden Rule:
+            </div>
+            <div class="bubble-quote-text" id="cinema-aurora-quote">
+              "A/AN introduces something new; THE points to something already known!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav HUD -->
+      <div class="cinema-bottom-hud">
+        <span class="cinema-slide-counter" id="cinema-slide-counter">Scene 1 of 3 · Use [Space] or [Arrow Keys]</span>
+        <div class="cinema-nav-controls">
+          <button class="cinema-nav-btn" onclick="prevCinemaSlide()">◀ Previous</button>
+          <button class="cinema-nav-btn" onclick="nextCinemaSlide()" style="background:var(--teal); color:#FFFFFF; border-color:var(--teal);">Next Scene ▶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 5: BIO-ACOUSTIC PHONETICS & FLUENCY LAB -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel" id="tab-phonetics">
+    <div class="bio-lab-container" style="display:flex; flex-direction:column; gap:20px;">
+      <!-- Header Bar -->
+      <div class="bio-lab-header-banner">
+        <div>
+          <h2 class="bio-lab-title">🧬 Bio-Acoustic Phonetics & Fluency Lab</h2>
+          <div class="bio-lab-subtitle">Interactive Vocal Tract Anatomy, Procedural Dual-Formant Synthesizer & Pitch F0 Contours</div>
+        </div>
+        <div class="bio-mode-nav">
+          <button class="bio-mode-btn active" onclick="switchBioMode('sagittal', this)">1. Sagittal Anatomy</button>
+          <button class="bio-mode-btn" onclick="switchBioMode('formants', this)">2. Vowel Formants (F1/F2)</button>
+          <button class="bio-mode-btn" onclick="switchBioMode('intonation', this)">3. Intonation (Pitch F0)</button>
+          <button class="bio-mode-btn" onclick="switchBioMode('connected', this)">4. Connected Speech & Metronome</button>
+        </div>
+      </div>
+
+      <!-- Subpanel 1: Sagittal Anatomy & Keypad -->
+      <div id="biopanel-sagittal" class="bio-subpanel">
+        <div class="bio-sagittal-grid">
+          <!-- Left: SVG Sagittal Cross-Section -->
+          <div class="sagittal-viewer-card">
+            <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); text-transform:uppercase;">
+              Vocal Tract Sagittal Cross-Section
+            </div>
+            <div class="sagittal-svg-wrap">
+              <svg viewBox="0 0 320 320" class="sagittal-canvas" id="sagittal-svg">
+                <!-- Hard palate & Head boundary -->
+                <path d="M 60,60 Q 120,40 180,60 Q 240,80 250,150 L 250,260 L 210,260 L 210,180 Q 200,100 130,95 Q 80,100 70,160 Z" fill="rgba(13,115,119,0.06)" stroke="var(--line)" stroke-width="2"/>
+                <!-- Upper Lip & Teeth -->
+                <path d="M 70,135 Q 90,135 100,140 L 105,155 L 95,155 Z" fill="var(--ink-card)" stroke="var(--paper-muted)" stroke-width="2"/>
+                <!-- Lower Lip & Teeth -->
+                <path d="M 70,195 Q 90,195 100,190 L 105,175 L 95,175 Z" fill="var(--ink-card)" stroke="var(--paper-muted)" stroke-width="2"/>
+                <!-- Hard Palate -->
+                <path d="M 105,140 Q 145,130 185,135" fill="none" stroke="var(--gold)" stroke-width="3"/>
+                <!-- Velum (Soft Palate) -->
+                <path id="svg-velum" d="M 185,135 Q 205,140 215,160" fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+                <!-- Active Dynamic Tongue -->
+                <path id="svg-tongue" d="M 105,190 Q 140,160 170,150 Q 200,170 210,225 Z" fill="rgba(180,83,9,0.2)" stroke="var(--gold)" stroke-width="3.5" style="transition:all 0.25s ease;"/>
+                <!-- Glottis & Vocal Cords Vibration -->
+                <g id="svg-glottis" class="glottis-vibration-ring" style="display:block;">
+                  <circle cx="210" cy="245" r="8" fill="rgba(225,29,72,0.3)" stroke="var(--ruby)" stroke-width="2"/>
+                  <path d="M 205,245 L 215,245" stroke="#FFFFFF" stroke-width="2"/>
+                </g>
+              </svg>
+            </div>
+            <div style="display:flex; justify-content:space-between; width:100%; font-family:var(--mono); font-size:11px;">
+              <span id="sagittal-voicing-tag" style="color:var(--gold); font-weight:700;">Voiced (528Hz Resonance)</span>
+              <button class="filter-pill" onclick="synthesizeActivePhoneme()">🔊 Synthesize</button>
+            </div>
+          </div>
+
+          <!-- Right: IPA Keypad & Biological Dossier -->
+          <div class="glass-panel" style="gap:14px;">
+            <div>
+              <div class="ipa-group-title">12 Monophthongs (Pure Vowels):</div>
+              <div class="ipa-chips-row" id="ipa-vowels-row"></div>
+            </div>
+            <div>
+              <div class="ipa-group-title">8 Diphthongs (Gliding Vowels):</div>
+              <div class="ipa-chips-row" id="ipa-diphthongs-row"></div>
+            </div>
+            <div>
+              <div class="ipa-group-title">16 Consonants (Fricatives, Plosives, Affricates):</div>
+              <div class="ipa-chips-row" id="ipa-consonants-row"></div>
+            </div>
+            <div>
+              <div class="ipa-group-title">8 Nasals & Approximants:</div>
+              <div class="ipa-chips-row" id="ipa-nasals-row"></div>
+            </div>
+
+            <!-- Phoneme Telemetry Box -->
+            <div class="phoneme-dossier-box" style="background:var(--ink-sub); border:1.5px solid var(--teal-dim); border-radius:12px; padding:14px 18px; display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:6px;">
+                <span class="phoneme-symbol-hero" id="dossier-symbol" style="font-family:var(--serif); font-size:26px; font-weight:900; color:var(--gold);">/θ/</span>
+                <div>
+                  <div class="phoneme-name-tag" id="dossier-category" style="font-family:var(--mono); font-size:11.5px; color:var(--teal); font-weight:700;">Voiceless Dental Fricative</div>
+                  <div style="font-size:11px; color:var(--paper-muted);" id="dossier-word">e.g. "think", "bath", "method"</div>
+                </div>
+              </div>
+              <div id="dossier-instruction" style="font-size:12.5px; color:var(--paper); line-height:1.5;">
+                <strong>Biological Gesture:</strong> Tongue tip placed gently between or behind incisal edges. Continuous unvoiced turbulent airflow.
+              </div>
+              <div id="dossier-trap" style="font-size:12px; color:var(--ruby); background:rgba(225,29,72,0.1); border-left:3px solid var(--ruby); padding:6px 10px; border-radius:6px;">
+                ⚠️ <strong>Spanish L1 Transfer Trap:</strong> Do NOT substitute with /s/ ("sink") or /t/ ("tink").
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subpanel 2: Formant Trapezoid (F1 vs F2) -->
+      <div id="biopanel-formants" class="bio-subpanel" style="display:none;">
+        <div class="glass-panel">
+          <div class="panel-header-row">
+            <h2 class="panel-title"><span>📊</span> Acoustic Formant Trapezoid (F1 Height vs F2 Fronting)</h2>
+            <button class="filter-pill" onclick="playActiveFormantSound()">🔊 Play Selected Vowel</button>
+          </div>
+          <div style="font-size:13px; color:var(--paper-muted);">
+            Click any vowel node to inspect its acoustic frequency profile (Jaw Opening = F1, Lingual Fronting = F2):
+          </div>
+          <svg viewBox="0 0 760 380" class="formant-chart-svg" id="formant-svg" style="width:100%; height:360px; background:var(--ink-sub); border-radius:14px; border:1px solid var(--line);">
+            <!-- Grid Lines -->
+            <line x1="120" y1="40" x2="680" y2="40" stroke="var(--line)" stroke-width="1"/>
+            <line x1="120" y1="180" x2="680" y2="180" stroke="var(--line)" stroke-width="1"/>
+            <line x1="120" y1="320" x2="680" y2="320" stroke="var(--line)" stroke-width="1"/>
+            <!-- Vowel Trapezoid Boundary -->
+            <polygon points="170,60 660,60 550,290 280,280" fill="rgba(13,115,119,0.06)" stroke="var(--teal)" stroke-width="2" stroke-dasharray="4,4"/>
+            <!-- Nodes Container -->
+            <g id="formant-vowel-nodes"></g>
+          </svg>
+          <div id="formant-active-label" style="font-family:var(--mono); font-size:12px; color:var(--paper); padding:10px; background:var(--ink-sub); border-radius:8px;">
+            Click a vowel node above to inspect formants.
+          </div>
+        </div>
+      </div>
+
+      <!-- Subpanel 3: Intonation & Pitch F0 -->
+      <div id="biopanel-intonation" class="bio-subpanel" style="display:none;">
+        <div class="intonation-studio-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:18px;">
+          <div class="intonation-card">
+            <div class="intonation-kicker">Statement / Wh- Questions</div>
+            <div class="intonation-title">Falling Tone (↘)</div>
+            <canvas id="canvas-pitch-falling" class="intonation-curve-canvas"></canvas>
+            <button class="filter-pill" onclick="previewIntonationCurve('falling')">🎵 Hear Pitch Sweep ↘</button>
+          </div>
+          <div class="intonation-card">
+            <div class="intonation-kicker">Yes/No Inquiries</div>
+            <div class="intonation-title">Rising Tone (↗)</div>
+            <canvas id="canvas-pitch-rising" class="intonation-curve-canvas"></canvas>
+            <button class="filter-pill" onclick="previewIntonationCurve('rising')">🎵 Hear Pitch Sweep ↗</button>
+          </div>
+          <div class="intonation-card">
+            <div class="intonation-kicker">Polite Hesitation / Nuance</div>
+            <div class="intonation-title">Fall-Rise (↘↗)</div>
+            <canvas id="canvas-pitch-fallrise" class="intonation-curve-canvas"></canvas>
+            <button class="filter-pill" onclick="previewIntonationCurve('fall-rise')">🎵 Hear Pitch Sweep ↘↗</button>
+          </div>
+          <div class="intonation-card">
+            <div class="intonation-kicker">Excitement / Strong Surprise</div>
+            <div class="intonation-title">Rise-Fall (↗↘)</div>
+            <canvas id="canvas-pitch-risefall" class="intonation-curve-canvas"></canvas>
+            <button class="filter-pill" onclick="previewIntonationCurve('rise-fall')">🎵 Hear Pitch Sweep ↗↘</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subpanel 4: Connected Speech & Metronome -->
+      <div id="biopanel-connected" class="bio-subpanel" style="display:none;">
+        <div class="connected-speech-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px;">
+          <!-- Metronome Box -->
+          <div class="metronome-box">
+            <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase;">
+              Isochronous Shadowing Metronome
+            </div>
+            <div class="metronome-bpm-display" id="metronome-bpm-val">90 BPM</div>
+            <input type="range" class="metronome-slider" min="50" max="150" value="90" oninput="updateMetronomeBPM(this.value)">
+            <div class="metronome-pulse-dot" id="metronome-dot"></div>
+            <button class="header-action-btn" id="btn-toggle-metronome" onclick="toggleMetronome()" style="background:var(--gold); color:#092B35; font-weight:700; border-color:var(--gold);">
+              ▶ Start Metronome
+            </button>
+          </div>
+
+          <!-- Connected Speech Drills -->
+          <div class="connected-drill-card">
+            <span class="drill-rule-badge">1. Consonant-to-Vowel Linking</span>
+            <div style="font-family:var(--serif); font-size:16px; font-weight:700;">"Hold_on_an_hour"</div>
+            <div style="font-family:var(--mono); font-size:11.5px; color:var(--teal);">/hoʊl-dɒ-nə-naʊ-ər/</div>
+            <button class="filter-pill" onclick="playConnectedAudio('hold-on')">🔊 Listen Reduction</button>
+          </div>
+
+          <div class="connected-drill-card">
+            <span class="drill-rule-badge">2. Flap T in American English</span>
+            <div style="font-family:var(--serif); font-size:16px; font-weight:700;">"A lot of water"</div>
+            <div style="font-family:var(--mono); font-size:11.5px; color:var(--teal);">/ə lɑː-ɾəv ˈwɑː-ɾər/</div>
+            <button class="filter-pill" onclick="playConnectedAudio('water')">🔊 Listen Flap T</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 6: HOURS & ATTENDANCE LEDGER -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel" id="tab-hours">
+    <div class="glass-panel">
+      <div class="panel-header-row">
+        <div>
+          <h2 class="panel-title"><span>⏱️</span> Faculty Hours & Attendance Ledger</h2>
+          <div style="font-size:12.5px; color:var(--paper-muted); margin-top:2px;">
+            Synchronized package tracking. 1 marked class = 1.0 hour deducted from student package balance.
+          </div>
+        </div>
+        <button class="filter-pill" onclick="exportHoursToCSV()">📥 Export to CSV</button>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table class="hours-ledger-table" style="width:100%; border-collapse:collapse; font-size:13px;">
+          <thead>
+            <tr>
+              <th>STUDENT</th>
+              <th>LEVEL</th>
+              <th>CONTRACTED</th>
+              <th>COMPLETED</th>
+              <th>BALANCE</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="hours-ledger-tbody">
+            <tr><td colspan="7" style="text-align:center; padding:18px; color:var(--paper-muted);">Loading ledger records...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 7: CEFR DIAGNOSTIC RADAR & ANALYTICS -->
+  <!-- ========================================================================= -->
+  <section class="tab-content-panel" id="tab-diagnostics">
+    <div class="dual-cockpit-grid">
+      <!-- Left: Interactive Canvas Radar (Spider Chart) -->
+      <div class="glass-panel" id="panel-diagnostics-radar">
+        <div class="panel-header-row">
+          <h2 class="panel-title"><span>📊</span> CEFR 6-Axis Competency Radar</h2>
+          <span class="panel-tag">Cohort Telemetry</span>
+        </div>
+        <div style="font-size:13px; color:var(--paper-muted); line-height:1.5;">
+          Multidimensional comparison of Cohort Skill Mastery vs Target CEFR Benchmark across 6 core linguistic axes:
+        </div>
+        <div class="radar-canvas-wrap">
+          <canvas id="radarCanvas" width="400" height="340"></canvas>
+        </div>
+        <div style="display:flex; justify-content:center; gap:16px; font-family:var(--mono); font-size:11px;">
+          <span style="display:inline-flex; align-items:center; gap:6px; color:var(--teal);">
+            <span style="width:10px; height:10px; background:var(--teal); border-radius:2px;"></span> Cohort Average
+          </span>
+          <span style="display:inline-flex; align-items:center; gap:6px; color:var(--gold);">
+            <span style="width:10px; height:10px; background:var(--gold); border-radius:2px;"></span> CEFR B2 Target
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Cohort Level Distribution & Actionable Recommendations -->
+      <div class="glass-panel glow-teal">
+        <div class="panel-header-row">
+          <h2 class="panel-title"><span>🎯</span> Level Distribution & Remediation</h2>
+          <span class="panel-tag">Clinical Analytics</span>
+        </div>
+        <div id="cohort-cefr-bars" style="display:flex; flex-direction:column; gap:10px;">
+          <!-- Populated via updateTab7Diagnostics() -->
+        </div>
+
+        <div style="border-top:1px solid var(--line); padding-top:12px; margin-top:6px;">
+          <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase; margin-bottom:8px;">
+            Target Clinical Interventions:
+          </div>
+          <ul style="list-style:square; padding-left:20px; font-size:13px; color:var(--paper); line-height:1.6;">
+            <li><strong>Phonemic Vowel Discrimination (/ɪ/ vs /iː/):</strong> <em>Recommended: 5 min warm-up in Sound Catch or Bio-Phonetics Lab.</em></li>
+            <li><strong>Article Precision (A/AN before vowel sounds):</strong> <em>Recommended: Assign a1-articles-01 Wave B contextual story.</em></li>
+            <li><strong>Connected Speech (Flap T & Reductions):</strong> <em>Recommended: 90 BPM Isochronous Metronome drill.</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========================================================================= -->
+<!-- AURORA WARDROBE & SKIN MODAL -->
+<!-- ========================================================================= -->
+<div class="wardrobe-modal-overlay" id="wardrobe-modal">
+  <div class="wardrobe-card">
+    <div class="wardrobe-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:12px;">
+      <div>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:0.12em; text-transform:uppercase;">FACULTY WARDROBE</span>
+        <h2 style="font-family:var(--title-font); font-size:20px; font-weight:700; color:var(--paper);">🌌 Aurora's Wardrobe & Cockpit Themes</h2>
+      </div>
+      <button class="filter-pill" onclick="closeWardrobeModal()" style="font-size:14px; padding:6px 12px;">&times; Close</button>
+    </div>
+
+    <div class="wardrobe-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:18px;">
+      <!-- Skin 1: Ethereal Pastel -->
+      <div class="skin-showcase-box" id="box-skin-ethereal" style="background:var(--ink-sub); border:1.5px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:12px;">
+        <span class="cefr-badge a2">🌿 Canonical Ethereal (Blonde & Teal)</span>
+        <img src="assets/aurora-explicando.png" onerror="handleImgError(this)" class="skin-preview-img" id="img-preview-ethereal" alt="Aurora Ethereal" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <div style="font-family:var(--serif); font-size:16px; font-weight:700;">Ethereal Pastel</div>
+        <div style="font-size:12px; color:var(--paper-muted);">Canonical Aurora. Warm pastel cream and noble teal palette.</div>
+        <button class="header-action-btn" onclick="setTeacherSkin('ethereal'); closeWardrobeModal();" style="justify-content:center;">
+          ✨ Equip Ethereal
+        </button>
+      </div>
+
+      <!-- Skin 2: High-Tech White -->
+      <div class="skin-showcase-box" id="box-skin-solar" style="background:var(--ink-sub); border:1.5px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:12px;">
+        <span class="cefr-badge b1">🔮 Quantum White (Redhead Lab)</span>
+        <img src="assets/skins/aurora-tech-redhead.png" onerror="handleImgError(this)" class="skin-preview-img" id="img-preview-solar" alt="Aurora Tech" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <div style="font-family:var(--serif); font-size:16px; font-weight:700;">Quantum Pure White</div>
+        <div style="font-size:12px; color:var(--paper-muted);">Modern scientific cockpit. Electric cyan and clean white surfaces.</div>
+        <button class="header-action-btn" onclick="setTeacherSkin('solar'); closeWardrobeModal();" style="justify-content:center;">
+          🔮 Equip Solar
+        </button>
+      </div>
+
+      <!-- Skin 3: Gothic Noir -->
+      <div class="skin-showcase-box" id="box-skin-glacial" style="background:var(--ink-sub); border:1.5px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:12px;">
+        <span class="cefr-badge c1">❄️ Gothic Arcane Noir (Cathedral)</span>
+        <img src="assets/skins/aurora-goth-noir.png" onerror="handleImgError(this)" class="skin-preview-img" id="img-preview-glacial" alt="Aurora Noir" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <div style="font-family:var(--serif); font-size:16px; font-weight:700;">Gothic Arcane Noir</div>
+        <div style="font-size:12px; color:var(--paper-muted);">Victorian archmage Aurora. Obsidian velvet and amethyst stained glass.</div>
+        <button class="header-action-btn" onclick="setTeacherSkin('glacial'); closeWardrobeModal();" style="justify-content:center;">
+          ❄️ Equip Glacial
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- ONBOARDING GUIDED TOUR WIZARD -->
+<!-- ========================================================================= -->
+<div class="onboarding-overlay" id="onboarding-overlay">
+  <div class="onboarding-modal-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:8px;">
+      <span style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase;">✨ Faculty Astral Briefing</span>
+      <button class="filter-pill" onclick="closeTour()">&times; Skip Tour</button>
+    </div>
+    <div style="display:flex; justify-content:center; margin:8px 0;">
+      <img src="assets/aurora.png" onerror="handleImgError(this)" class="onboarding-aurora-avatar" id="onboarding-aurora-avatar" alt="Aurora Mentor" style="width:96px; height:96px; border-radius:50%; border:3px solid var(--gold); box-shadow:0 0 24px var(--gold-glow); object-fit:cover;">
+    </div>
+    <div id="tour-step-title" style="font-family:var(--title-font); font-size:19px; font-weight:700; color:var(--gold); text-align:center;">
+      Welcome to your Teacher's Cockpit, Professor Felipe! ✨
+    </div>
+    <div class="onboarding-dialogue-bubble" id="tour-dialogue-text" style="background:var(--ink-sub); border:1.5px solid var(--teal); border-radius:14px; padding:16px 20px; font-family:var(--serif); font-size:15px; line-height:1.6; color:var(--paper);">
+      "Hello, <strong>Professor Felipe</strong>. I am <strong>Aurora</strong>, your pedagogical co-pilot. I have crafted this command hub specifically for you: complete mastery over your classroom roster, student telemetry, 85 structured curriculum sequences, and 17 immersive Arcade games. Let's explore how to make the most of it!"
+    </div>
+    <div class="onboarding-dots-row" id="tour-dots-row" style="display:flex; justify-content:center; gap:6px;">
+      <div class="tour-dot active" style="width:8px; height:8px; border-radius:50%; background:var(--gold);"></div>
+      <div class="tour-dot" style="width:8px; height:8px; border-radius:50%; background:var(--line);"></div>
+      <div class="tour-dot" style="width:8px; height:8px; border-radius:50%; background:var(--line);"></div>
+      <div class="tour-dot" style="width:8px; height:8px; border-radius:50%; background:var(--line);"></div>
+      <div class="tour-dot" style="width:8px; height:8px; border-radius:50%; background:var(--line);"></div>
+      <div class="tour-dot" style="width:8px; height:8px; border-radius:50%; background:var(--line);"></div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <button class="filter-pill" onclick="closeTour()">Skip Tour</button>
+      <div style="display:flex; gap:8px;">
+        <button class="header-action-btn" id="btn-tour-prev" style="display:none;">◀ Previous</button>
+        <button class="header-action-btn tour-btn" id="btn-tour-next">Start Guided Tour ▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST FEEDBACK -->
+<div class="toast-notice" id="toast-notice">
+  <span>✨</span> <span id="toast-msg">Action completed</span>
+</div>
+
+<!-- FIREBASE COMPAT SDKs (AULA CLOUD INTEGRATION) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- SCRIPTS: COCKPIT ENGINE, SOUND SYNTHESIS & CEFR RADAR -->
+<script>
+(function() {
+  'use strict';
+
+  // --- 1. LAZY WEB AUDIO CONTEXT HELPER ---
+  let sharedAudioCtx = null;
+  function getAudioContext() {
+    if (!sharedAudioCtx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) sharedAudioCtx = new AudioCtx();
+    }
+    if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') {
+      sharedAudioCtx.resume().catch(() => {});
+    }
+    return sharedAudioCtx;
+  }
+
+  // Direct Chime Generator (No ReferenceErrors)
+  window.playDirectorChime = function(freq = 528, type = 'sine') {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, now);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.48);
+    } catch(e) {}
+  };
+
+  window.triggerDirectorSFX = function(type) {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+    try {
+      if (type === 'chime') {
+        window.playDirectorChime(528, 'sine');
+        showToast('✨ Solfeggio 528Hz Transformation Chime');
+      } else if (type === 'crystal') {
+        [880, 1320].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.04);
+          gain.gain.setValueAtTime(0.07, now + idx * 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.04 + 0.35);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(now + idx * 0.04); osc.stop(now + idx * 0.04 + 0.38);
+        });
+        showToast('🎯 Focus Crystal Alert');
+      } else if (type === 'fanfare') {
+        [523.25, 659.25, 783.99].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+          gain.gain.setValueAtTime(0.09, now + idx * 0.09);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.09 + 0.55);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(now + idx * 0.09); osc.stop(now + idx * 0.09 + 0.6);
+        });
+        showToast('🌟 Level-Up Fanfare!');
+      }
+    } catch(e) {}
+  };
+
+  // --- 2. CELESTIAL BACKGROUND CANVAS ---
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas ? canvas.getContext('2d') : null;
+  let stars = [];
+
+  function resizeStars() {
+    if (!canvas) return;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 75; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.3 + 0.3,
+        alpha: Math.random() * 0.6 + 0.2,
+        twinkle: Math.random() * Math.PI,
+        speed: Math.random() * 0.02 + 0.006
+      });
+    }
+  }
+  window.addEventListener('resize', resizeStars);
+  resizeStars();
+
+  function animateStars() {
+    if (!ctx || !canvas) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      ctx.fillStyle = 'rgba(242, 193, 78, ' + a + ')';
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(animateStars);
+  }
+  animateStars();
+
+  // --- 3. TABS CONTROLLER ---
+  const tabs = document.querySelectorAll('.cockpit-tab');
+  const panels = document.querySelectorAll('.tab-content-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const targetId = tab.dataset.tab;
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      if (targetId === 'tab-diagnostics') drawCEFRRadarChart();
+    });
+  });
+
+  // --- 4. ACCORDION & MODULE TOGGLES ---
+  window.toggleModule = function(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('expanded');
+  };
+
+  // --- 5. AULA CLOUD & FIRESTORE ENGINE ---
+  const FIREBASE_CONFIG = {
+    apiKey: "AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM",
+    authDomain: "sanguine-fusion-403621.firebaseapp.com",
+    projectId: "sanguine-fusion-403621",
+    storageBucket: "sanguine-fusion-403621.firebasestorage.app",
+    messagingSenderId: "1048421550101",
+    appId: "1:1048421550101:web:c068b31ef9873cd525a61c",
+    measurementId: "G-Q9PWY206RY"
+  };
+  const COL_ESTUDIANTES = "estudiantes";
+  const TIPO_LBL = { practica: 'Practice', leccion: 'Lesson', examen: 'Exam', custom: 'Custom Mission' };
+
+  let db = null, auth = null, cloudMode = false;
+  let ALL_STUDENTS = [];
+  let selectedToken = null, selectedData = null;
+  let rosterLevelFilter = 'ALL';
+  let calYear = new Date().getFullYear(), calMonth = new Date().getMonth();
+
+  const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const DOW_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function nuevoToken() {
+    const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    const a = new Uint8Array(22);
+    crypto.getRandomValues(a);
+    return Array.from(a, b => abc[b % abc.length]).join('');
+  }
+
+  function formatTimestamp(ts) {
+    if (!ts) return '—';
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    if (isNaN(d.getTime())) return '—';
+    return d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function formatDateIso(d) {
+    const yr = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const da = String(d.getDate()).padStart(2, '0');
+    return `${yr}-${mo}-${da}`;
+  }
+
+  function linkEstudiante(token) {
+    const base = location.href.replace(/\/ui-lab\/.*$/, '').replace(/\/herramientas\/.*$/, '').replace(/\?.*$/, '').replace(/\/$/, '');
+    return `${base}/aula/estudiante.html?t=${token}`;
+  }
+
+  function urlTemaHub(id, tipo) {
+    const carpeta = { practica: 'preview', leccion: 'leccion', examen: 'evaluacion' }[tipo] || 'preview';
+    return `../${carpeta}/${id}.html`;
+  }
+
+  // --- 6. CATALOG LOADER (85 LESSONS & DATA) ---
+  let CATALOGO_HUB = [];
+
+  async function cargarCatalogoHub() {
+    try {
+      const r = await fetch('temas.json', { cache: 'no-cache' });
+      if (!r.ok) throw new Error(r.status);
+      const d = await r.json();
+      CATALOGO_HUB = d.map(t => ({ id: t.id, nivel: t.level || t.nivel, area: t.area || '', tema: t.title || t.tema }));
+    } catch(e) {
+      if (window.EA_DATA && window.EA_DATA.index) {
+        CATALOGO_HUB = window.EA_DATA.index.map(t => ({ id: t.id, nivel: t.level, area: t.area || '', tema: t.title }));
+      }
+    }
+    initPlannerCatalog();
+    poblarTemasAsignarHub();
+  }
+
+  // --- 7. ROSTER CONTROLLER & FILTER ---
+  function renderStudentsRoster() {
+    const stack = document.getElementById('students-stack');
+    if (!stack) return;
+
+    let filtered = ALL_STUDENTS;
+    if (rosterLevelFilter !== 'ALL') {
+      filtered = filtered.filter(s => (s.nivel || '').toUpperCase() === rosterLevelFilter);
+    }
+    const qSearch = (document.getElementById('rosterSearchInput')?.value || '').toLowerCase().trim();
+    if (qSearch) {
+      filtered = filtered.filter(s => (s.nombre || '').toLowerCase().includes(qSearch) || (s.correo || '').toLowerCase().includes(qSearch));
+    }
+
+    if (!filtered.length) {
+      stack.innerHTML = `<div style="padding:20px; text-align:center; color:var(--paper-muted); font-size:12px; font-family:var(--mono);">
+        👥 No students match the active filter.
+      </div>`;
+      return;
+    }
+
+    stack.innerHTML = filtered.map(s => {
+      const isSel = s.id === selectedToken;
+      const pct = s.horasContratadas > 0 ? Math.min(100, Math.round((s.horasDadas / s.horasContratadas) * 100)) : 0;
+      const lvlClass = (s.nivel || 'a1').toLowerCase();
+      return `
+        <div class="student-card ${isSel ? 'selected' : ''}" onclick="selectStudentHub('${s.id}')" id="scard-${s.id}">
+          <div class="student-top-row">
+            <div class="student-name-group">
+              <div class="student-avatar">👩‍🎓</div>
+              <div>
+                <div class="student-name">${esc(s.nombre)}</div>
+                <div class="student-meta">${s.horasContratadas}h Pkg · ${s.horasRestantes}h left</div>
+              </div>
+            </div>
+            <span class="cefr-badge ${lvlClass}">${esc(s.nivel)}</span>
+          </div>
+          <div class="student-progress-bar">
+            <div class="student-progress-fill" style="width: ${pct}%;"></div>
+          </div>
+          <div class="student-stats-row">
+            <span id="st-score-${s.id}">⭐ 85% avg</span>
+            <span>⏱️ ${s.horasDadas}/${s.horasContratadas}h</span>
+            <span id="st-pend-${s.id}">📌 0 tasks</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    updateMissionStudentTokenSelect();
+  }
+
+  window.setRosterLevelFilter = function(lvl, el) {
+    rosterLevelFilter = lvl;
+    document.querySelectorAll('#rosterLevelFilters .filter-pill').forEach(p => p.classList.remove('active'));
+    if (el) el.classList.add('active');
+    renderStudentsRoster();
+  };
+
+  window.filterStudentsRoster = function() {
+    renderStudentsRoster();
+  };
+
+  async function selectStudentHub(token, doScroll = true) {
+    selectedToken = token;
+    selectedData = ALL_STUDENTS.find(s => s.id === token);
+
+    document.querySelectorAll('.student-card').forEach(c => c.classList.remove('selected'));
+    const activeCard = document.getElementById(`scard-${token}`);
+    if (activeCard) activeCard.classList.add('selected');
+
+    if (!selectedData) return;
+
+    const dName = document.getElementById('dossier-name');
+    const dSub = document.getElementById('dossier-subtitle');
+    const dBadge = document.getElementById('dossier-level-badge');
+    if (dName) dName.textContent = selectedData.nombre;
+    if (dSub) dSub.innerHTML = `Email: <b>${esc(selectedData.correo || 'No email')}</b> · Enrolled: <b>${formatTimestamp(selectedData.fecha_alta)}</b>`;
+    if (dBadge) {
+      dBadge.textContent = `${selectedData.nivel} Level`;
+      dBadge.className = `cefr-badge ${(selectedData.nivel || 'a1').toLowerCase()}`;
+    }
+
+    const dCont = document.getElementById('dossier-contracted-hours');
+    const dGiven = document.getElementById('dossier-completed-classes');
+    const dRem = document.getElementById('dossier-remaining-hours');
+    if (dCont) dCont.textContent = `${selectedData.horasContratadas}h`;
+    if (dGiven) dGiven.textContent = `${selectedData.horasDadas}`;
+    if (dRem) {
+      dRem.textContent = `${selectedData.horasRestantes}h`;
+      dRem.style.color = selectedData.horasRestantes <= 5 ? 'var(--ruby)' : selectedData.horasRestantes <= 15 ? 'var(--gold)' : 'var(--teal)';
+    }
+
+    const modHours = document.getElementById('mod-summary-hours');
+    if (modHours) modHours.textContent = `${selectedData.horasDadas}h / ${selectedData.horasContratadas}h logged`;
+
+    renderStudentCalendar();
+    loadStudentTasksHub(token);
+    loadStudentResultsHub(token);
+    loadStudentCommentsHub(token);
+  }
+
+  // --- 8. ATTENDANCE & CALENDAR ---
+  function renderStudentCalendar() {
+    const grid = document.getElementById('dossier-cal-grid');
+    const title = document.getElementById('dossier-cal-month-title');
+    if (!grid || !title || !selectedData) return;
+
+    title.textContent = `${MONTH_NAMES[calMonth]} ${calYear}`;
+    let html = DOW_NAMES.map(d => `<div class="cal-dow">${d}</div>`).join('');
+
+    const firstDay = new Date(calYear, calMonth, 1);
+    let startDayIndex = firstDay.getDay() - 1;
+    if (startDayIndex < 0) startDayIndex = 6;
+
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+    const todayStr = formatDateIso(new Date());
+    const studentClases = new Set(selectedData.clases || []);
+
+    for (let i = 0; i < startDayIndex; i++) {
+      html += `<div class="cal-cell blank"></div>`;
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateObj = new Date(calYear, calMonth, day);
+      const dateStr = formatDateIso(dateObj);
+      const isToday = dateStr === todayStr;
+      const isPast = dateStr <= todayStr;
+      const hasClass = studentClases.has(dateStr);
+
+      const cellClass = [
+        'cal-cell',
+        isToday ? 'today' : '',
+        hasClass ? 'has' : '',
+        !isPast ? 'future' : ''
+      ].filter(Boolean).join(' ');
+
+      html += `<div class="${cellClass}" onclick="toggleAttendanceDateHub('${dateStr}')" title="${dateStr}${hasClass ? ' (1.0 hr Logged)' : ''}">${day}</div>`;
+    }
+
+    grid.innerHTML = html;
+  }
+
+  window.prevCalendarMonth = function() {
+    calMonth--;
+    if (calMonth < 0) { calMonth = 11; calYear--; }
+    renderStudentCalendar();
+  };
+
+  window.nextCalendarMonth = function() {
+    calMonth++;
+    if (calMonth > 11) { calMonth = 0; calYear++; }
+    renderStudentCalendar();
+  };
+
+  window.toggleAttendanceDateHub = async function(dateStr) {
+    if (!selectedData || !selectedToken) return;
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    const idx = clases.indexOf(dateStr);
+
+    if (idx >= 0) {
+      clases.splice(idx, 1);
+      showToast(`Class on ${dateStr} unlogged (+1.0 hr balance)`);
+    } else {
+      clases.push(dateStr);
+      clases.sort();
+      window.playDirectorChime(528);
+      showToast(`Class on ${dateStr} logged (-1.0 hr balance)`);
+    }
+
+    selectedData.clases = clases;
+    selectedData.horasDadas = clases.length;
+    selectedData.horasRestantes = Math.max(0, selectedData.horasContratadas - clases.length);
+
+    renderStudentCalendar();
+    selectStudentHub(selectedToken, false);
+    updateTab6HoursLedger();
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+          clases: clases,
+          horas_dadas: selectedData.horasDadas,
+          horas_restantes: selectedData.horasRestantes,
+          updated: new Date().toISOString()
+        }, { merge: true });
+      } catch(e) {}
+    }
+  };
+
+  window.logTodayClassHub = async function() {
+    if (!selectedToken || !selectedData) {
+      showToast('Select a student first');
+      return;
+    }
+    const todayStr = formatDateIso(new Date());
+    await window.toggleAttendanceDateHub(todayStr);
+  };
+
+  // --- 9. ENROLLMENT & TASKS ---
+  window.altaEstudianteHub = async function() {
+    const nameInput = document.getElementById('altaNombre');
+    const emailInput = document.getElementById('altaCorreo');
+    const levelInput = document.getElementById('altaNivel');
+    const hoursInput = document.getElementById('altaHoras');
+
+    const nombre = nameInput.value.trim();
+    const correo = emailInput.value.trim();
+    const nivel = levelInput.value || 'B1';
+    const horas = Number(hoursInput.value) || 60;
+
+    if (!nombre) {
+      showToast('⚠️ Please enter student full name');
+      return;
+    }
+
+    const token = nuevoToken();
+    const newStudent = {
+      nombre, correo, nivel,
+      horas_contratadas: horas,
+      horas_dadas: 0,
+      horas_restantes: horas,
+      clases: [],
+      student_token: token,
+      id: token,
+      horasContratadas: horas,
+      horasDadas: 0,
+      horasRestantes: horas,
+      fecha_alta: new Date()
+    };
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(token).set({
+          ...newStudent,
+          fecha_alta: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      } catch(e) {}
+    }
+
+    ALL_STUDENTS.unshift(newStudent);
+    nameInput.value = '';
+    emailInput.value = '';
+
+    window.playDirectorChime(880);
+    showToast(`✨ Enrolled ${nombre}! Link copied to clipboard.`);
+    renderStudentsRoster();
+    selectStudentHub(token);
+    updateTab6HoursLedger();
+    updateTab7Diagnostics();
+  };
+
+  window.poblarTemasAsignarHub = function() {
+    const nivelEl = document.getElementById('aNivel');
+    const temaEl = document.getElementById('aTema');
+    if (!nivelEl || !temaEl) return;
+    const n = (nivelEl.value || 'B1').toUpperCase();
+    const filtered = CATALOGO_HUB.filter(t => (t.nivel || '').toUpperCase() === n);
+    temaEl.innerHTML = filtered.map(t => `<option value="${esc(t.id)}">${esc(t.tema)}</option>`).join('');
+  };
+
+  window.modoAsignarHub = function() {
+    const tipo = document.getElementById('aTipo').value;
+    const isCustom = tipo === 'custom';
+    document.getElementById('aCustomRow').style.display = isCustom ? 'flex' : 'none';
+    document.getElementById('aNivel').disabled = isCustom;
+    document.getElementById('aTema').disabled = isCustom;
+  };
+
+  window.asignarTareaHub = async function() {
+    if (!selectedToken) return showToast('Select a student first');
+    const tipo = document.getElementById('aTipo').value;
+    let tarea;
+
+    if (tipo === 'custom') {
+      const titulo = document.getElementById('aCustomTitulo').value.trim();
+      const url = document.getElementById('aCustomUrl').value.trim();
+      if (!titulo || !url) return showToast('⚠️ Provide task title and URL');
+      tarea = { titulo, url, tipo, temaId: '', area: '', nivel: selectedData.nivel || 'B1' };
+    } else {
+      const temaId = document.getElementById('aTema').value;
+      const temaObj = CATALOGO_HUB.find(t => t.id === temaId);
+      if (!temaObj) return showToast('⚠️ Select a curriculum topic');
+      tarea = {
+        titulo: `${TIPO_LBL[tipo]}: ${temaObj.tema}`,
+        url: urlTemaHub(temaObj.id, tipo),
+        tipo,
+        temaId: temaObj.id,
+        area: temaObj.area || '',
+        nivel: temaObj.nivel
+      };
+    }
+
+    tarea.estado = 'pendiente';
+    tarea.fecha = new Date();
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).collection('tareas').add({
+          ...tarea,
+          fecha: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      } catch(e) {}
+    }
+
+    window.playDirectorChime(660);
+    showToast('📌 Task assigned to student!');
+    loadStudentTasksHub(selectedToken);
+  };
+
+  async function loadStudentTasksHub(token) {
+    const listEl = document.getElementById('dTareasList');
+    if (!listEl) return;
+    if (!db || !cloudMode) {
+      listEl.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Offline mode — local tasks simulated.</div>`;
+      return;
+    }
+    try {
+      const q = await db.collection(COL_ESTUDIANTES).doc(token).collection('tareas').orderBy('fecha', 'desc').get();
+      const pending = q.docs.filter(d => d.data().estado === 'pendiente');
+      const modTasks = document.getElementById('mod-summary-tasks');
+      if (modTasks) modTasks.textContent = `${pending.length} pending · ${q.docs.length} total`;
+      if (q.empty) {
+        listEl.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">No assigned tasks yet.</div>`;
+        return;
+      }
+      listEl.innerHTML = q.docs.map(d => {
+        const t = d.data();
+        return `
+          <div class="task-item-card" style="background:var(--ink-card); border:1px solid var(--line); border-radius:8px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <a href="${esc(t.url)}" target="_blank" style="font-weight:600; font-size:12.5px; color:var(--paper); text-decoration:none;">${esc(t.titulo)} ↗</a>
+              <div style="font-family:var(--mono); font-size:10px; color:var(--paper-muted);">${formatTimestamp(t.fecha)}</div>
+            </div>
+            <span class="task-tag ${t.estado === 'hecha' ? 'done' : 'pending'}" style="font-family:var(--mono); font-size:9.5px; font-weight:700; padding:2px 6px; border-radius:4px; background:${t.estado === 'hecha' ? 'var(--green-dim)' : 'var(--gold-dim)'}; color:${t.estado === 'hecha' ? 'var(--green)' : 'var(--gold)'};">${t.estado === 'hecha' ? '✓ Done' : '⏳ Pending'}</span>
+          </div>
+        `;
+      }).join('');
+    } catch(e) {}
+  }
+
+  async function loadStudentResultsHub(token) {
+    const tbody = document.getElementById('dHistorialTbody');
+    if (!tbody) return;
+    if (!db || !cloudMode) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:12px; color:var(--paper-muted);">Cloud sync active — ready for student submissions.</td></tr>`;
+      return;
+    }
+  }
+
+  async function loadStudentCommentsHub(token) {
+    const stream = document.getElementById('dComentariosStream');
+    if (!stream) return;
+    if (!db || !cloudMode) {
+      stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Direct student stream ready.</div>`;
+      return;
+    }
+  }
+
+  window.comentarProfesorHub = async function() {
+    if (!selectedToken) return showToast('Select a student first');
+    const input = document.getElementById('dNuevoComentario');
+    const texto = input.value.trim();
+    if (!texto) return;
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).collection('comentarios').add({
+          texto, autor: 'profesor', fecha: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      } catch(e) {}
+    }
+    input.value = '';
+    window.playDirectorChime(528);
+    showToast('💬 Feedback sent to student portal!');
+  };
+
+  window.copiarLinkEstudiante = function() {
+    if (!selectedToken) return showToast('Select a student first');
+    const link = linkEstudiante(selectedToken);
+    navigator.clipboard.writeText(link).then(() => showToast('📋 Student portal link copied!')).catch(() => prompt('Copy portal link:', link));
+  };
+
+  window.abrirPortalEstudiante = function() {
+    if (!selectedToken) return showToast('Select a student first');
+    window.open(linkEstudiante(selectedToken), '_blank', 'noopener');
+  };
+
+  window.borrarEstudianteDoc = async function() {
+    if (!selectedToken || !selectedData) return showToast('Select a student first');
+    if (!confirm(`Delete ${selectedData.nombre}? Classroom history will be permanently deleted.`)) return;
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).delete();
+      } catch(e) {}
+    }
+    ALL_STUDENTS = ALL_STUDENTS.filter(s => s.id !== selectedToken);
+    selectedToken = ALL_STUDENTS.length ? ALL_STUDENTS[0].id : null;
+    showToast('Student deleted');
+    renderStudentsRoster();
+    if (selectedToken) selectStudentHub(selectedToken);
+    updateTab6HoursLedger();
+    updateTab7Diagnostics();
+  };
+
+  // --- 10. LESSON PLANNER (85 CURRICULUM SEQUENCES) ---
+  let plannerLevelFilter = 'ALL';
+
+  function initPlannerCatalog() {
+    const select = document.getElementById('planner-topic-select');
+    const showcaseSelect = document.getElementById('showcase-wave-b-select');
+    if (!select) return;
+
+    let filtered = CATALOGO_HUB;
+    if (plannerLevelFilter !== 'ALL') {
+      filtered = filtered.filter(t => (t.nivel || '').toUpperCase() === plannerLevelFilter);
+    }
+    const qSearch = (document.getElementById('plannerSearchInput')?.value || '').toLowerCase().trim();
+    if (qSearch) {
+      filtered = filtered.filter(t => (t.tema || '').toLowerCase().includes(qSearch) || (t.id || '').toLowerCase().includes(qSearch) || (t.area || '').toLowerCase().includes(qSearch));
+    }
+
+    select.innerHTML = filtered.map(t => `<option value="${esc(t.id)}">[${esc(t.nivel)}] · ${esc(t.tema)}</option>`).join('');
+
+    if (showcaseSelect) {
+      showcaseSelect.innerHTML = CATALOGO_HUB.map(t => `<option value="${esc(t.id)}">[${esc(t.nivel)}] ${esc(t.tema)}</option>`).join('');
+    }
+
+    if (filtered.length > 0) {
+      select.value = filtered[0].id;
+      updatePlannerTopic(filtered[0].id);
+    }
+  }
+
+  window.setPlannerLevelFilter = function(lvl, el) {
+    plannerLevelFilter = lvl;
+    document.querySelectorAll('#plannerLevelFilterGroup .filter-pill').forEach(p => p.classList.remove('active'));
+    if (el) el.classList.add('active');
+    initPlannerCatalog();
+  };
+
+  window.filterPlannerTopics = function() {
+    initPlannerCatalog();
+  };
+
+  const WAVE_B_CURRICULUM_DB = {
+    'a1-articles-01': {
+      title: 'Articles — A / An / The & Zero Article',
+      code: 'a1-articles-01',
+      badge: 'A1 Spark · Wave B',
+      waveBUrl: '../leccion/a1-articles-01-wave-b.html',
+      isWaveB: true,
+      tip: '"Remember to emphasize the phonetic rule: \'an\' is used before vowel SOUNDS, not just letters (e.g. an hour vs a hotel)."',
+      vocab: [
+        { icon: '☕', word: 'a coffee', ipa: '/ə ˈkɒfi/' },
+        { icon: '🍎', word: 'an apple', ipa: '/ən ˈæpəl/' },
+        { icon: '🌍', word: 'the earth', ipa: '/ði ɜːrθ/' },
+        { icon: '🏙️', word: 'a city', ipa: '/ə ˈsɪti/' },
+        { icon: '🔑', word: 'the key', ipa: '/ðə kiː/' }
+      ],
+      sentences: [
+        { en: 'Sofía drinks a coffee in the morning.', type: 'Affirmative (a / the)' },
+        { en: 'Kenji has an idea for a new game.', type: 'Affirmative (an / a)' },
+        { en: 'The sun rises in the east.', type: 'Unique Universal Noun (the)' },
+        { en: 'Teachers love books and stories.', type: 'Zero Article (General Plural)' }
+      ]
+    },
+    'a1-present-simple-routines-01': {
+      title: 'Present Simple — Daily Routines & Time',
+      code: 'a1-present-simple-routines-01',
+      badge: 'A1 Spark · Wave B',
+      waveBUrl: '../leccion/a1-present-simple-routines-01-wave-b.html',
+      isWaveB: true,
+      tip: '"Focus on 3rd person -s pronunciation /s/, /z/, /ɪz/ and temporal prepositions at/in/on."',
+      vocab: [
+        { icon: '⏰', word: 'wake up', ipa: '/weɪk ʌp/' },
+        { icon: '🍳', word: 'have breakfast', ipa: '/hæv ˈbrɛkfəst/' },
+        { icon: '🚶', word: 'go to work', ipa: '/ɡoʊ tu wɜːrk/' },
+        { icon: '💻', word: 'start work', ipa: '/stɑːrt wɜːrk/' }
+      ],
+      sentences: [
+        { en: 'Sofía wakes up at 7:00 AM every day.', type: 'Affirmative (3rd person -s)' },
+        { en: 'Kenji doesn\'t go to bed early on Fridays.', type: 'Negative (doesn\'t)' },
+        { en: 'What time do you usually have dinner?', type: 'Wh- Question' }
+      ]
+    }
+  };
+
+  function updatePlannerTopic(topicKey) {
+    const isWaveB = topicKey.includes('wave-b') || !!WAVE_B_CURRICULUM_DB[topicKey];
+    const data = WAVE_B_CURRICULUM_DB[topicKey];
+
+    const dTitle = document.getElementById('lesson-dossier-title');
+    const dSub = document.getElementById('lesson-dossier-sub');
+    const dBadge = document.getElementById('lesson-dossier-badge');
+    const dTip = document.getElementById('planner-tip-txt');
+    const vCloud = document.getElementById('lesson-vocab-cloud');
+    const sBox = document.getElementById('lesson-sentence-box');
+    const btnWaveB = document.getElementById('btn-open-wave-b');
+    const labelWaveB = document.getElementById('label-btn-waveb');
+
+    if (data) {
+      if (dTitle) dTitle.textContent = data.title;
+      if (dSub) dSub.textContent = `Code: ${topicKey} · Wave B Active · 100% English Immersion`;
+      if (dBadge) { dBadge.textContent = data.badge; dBadge.className = 'cefr-badge a1'; }
+      if (dTip) dTip.textContent = data.tip;
+      if (vCloud) vCloud.innerHTML = data.vocab.map(v => `<div class="vocab-chip"><span>${v.icon}</span> <strong>${v.word}</strong> <em>${v.ipa}</em></div>`).join('');
+      if (sBox) sBox.innerHTML = data.sentences.map(s => `<div class="sentence-item"><span>${s.en}</span><span class="sentence-form-tag">${s.type}</span></div>`).join('');
+    } else {
+      const opt = CATALOGO_HUB.find(t => t.id === topicKey);
+      const title = opt ? opt.tema : topicKey;
+      const lvl = opt ? opt.nivel : 'B1';
+      if (dTitle) dTitle.textContent = title;
+      if (dSub) dSub.textContent = `Code: ${topicKey} · General Curriculum Sequence`;
+      if (dBadge) { dBadge.textContent = `CEFR ${lvl}`; dBadge.className = `cefr-badge ${(lvl || 'b1').toLowerCase()}`; }
+      if (dTip) dTip.textContent = `"Lead with conversational modeling, then verify understanding through active recall questions."`;
+      if (vCloud) vCloud.innerHTML = `<div class="vocab-chip"><strong>Core Lexicon</strong> <em>/${topicKey}/</em></div>`;
+      if (sBox) sBox.innerHTML = `<div class="sentence-item"><span>Standard contextual production for ${title}.</span><span class="sentence-form-tag">Target Form</span></div>`;
+    }
+
+    if (btnWaveB) {
+      btnWaveB.href = isWaveB ? `../leccion/${topicKey}-wave-b.html` : `../leccion/${topicKey}.html`;
+      if (labelWaveB) labelWaveB.textContent = isWaveB ? 'Launch Wave B (100% English)' : 'Launch Classic Slides';
+    }
+    const btnSlides = document.getElementById('btn-open-slides');
+    const btnExercises = document.getElementById('btn-open-exercises');
+    const btnArcade = document.getElementById('btn-open-arcade-topic');
+    if (btnSlides) btnSlides.href = `../leccion/${topicKey}.html`;
+    if (btnExercises) btnExercises.href = `../preview/${topicKey}.html`;
+    if (btnArcade) btnArcade.href = `../ludoteca.html?topic=${topicKey}`;
+
+    currentShowcaseTopic = topicKey;
+    currentCinemaSlide = 0;
+    renderCinemaSlide();
+  }
+
+  document.getElementById('planner-topic-select')?.addEventListener('change', (e) => {
+    updatePlannerTopic(e.target.value);
+  });
+  document.getElementById('showcase-wave-b-select')?.addEventListener('change', (e) => {
+    updatePlannerTopic(e.target.value);
+  });
+
+  // --- 11. MISSION DISPATCHER (17 ARCADE GAMES) ---
+  const ARCADE_GAMES_DB = [
+    { id: 'meteor-words-pilot', name: 'Meteor Words', icon: '☄️', level: 'A1', cat: 'vocab', file: 'juegos/meteor-words-pilot.html', desc: 'Speed typing and lexical reaction before meteors crash.' },
+    { id: 'constellation-match', name: 'Constellation Match', icon: '✨', level: 'A1', cat: 'vocab', file: 'juegos/constellation-match.html', desc: 'Pair semantic antonyms and celestial vocabulary.' },
+    { id: 'cosmic-wordsearch', name: 'Cosmic Word Search', icon: '🔍', level: 'A1', cat: 'vocab', file: 'juegos/cosmic-wordsearch.html', desc: 'Orthographic visual scanning of key topic terms.' },
+    { id: 'gravity-sort', name: 'Gravity Sort', icon: '🌌', level: 'A2', cat: 'vocab', file: 'juegos/gravity-sort.html', desc: 'Categorize parts of speech under shifting gravitational fields.' },
+    { id: 'rapid-eclipse', name: 'Rapid Eclipse', icon: '🌑', level: 'A2', cat: 'vocab', file: 'juegos/rapid-eclipse.html', desc: 'High-speed multiple choice before the eclipse completes.' },
+    { id: 'star-hangman', name: 'Star Saver Hangman', icon: '⭐', level: 'A2', cat: 'vocab', file: 'juegos/star-hangman.html', desc: 'Rescue celestial stars through phonetic spelling clues.' },
+    { id: 'astral-wordle', name: 'Astral Wordle', icon: '🟩', level: 'B1', cat: 'vocab', file: 'juegos/astral-wordle.html', desc: '6 attempts to deduce 5-letter English target words.' },
+    { id: 'riddles', name: 'Celestial Riddles', icon: '🔮', level: 'B1', cat: 'vocab', file: 'juegos/riddles.html', desc: 'Lateral thinking and conceptual reading comprehension.' },
+    { id: 'signal-hunter', name: 'Signal Hunter', icon: '📡', level: 'A2', cat: 'listening', file: 'juegos/signal-hunter.html', desc: 'Acoustic audio radar tracking target phonemes.' },
+    { id: 'sound-catch', name: 'Sound Catch', icon: '🎧', level: 'B1', cat: 'listening', file: 'juegos/sound-catch.html', desc: 'Discriminate minimal pairs (/ɪ/ vs /iː/, /b/ vs /v/).' },
+    { id: 'echo-chamber', name: 'Echo Chamber', icon: '🗣️', level: 'B2', cat: 'listening', file: 'juegos/echo-chamber.html', desc: 'Voice pitch shadowing and connected speech rhythm.' },
+    { id: 'unscramble-sentence', name: 'Sentence Unscramble', icon: '🧩', level: 'A1', cat: 'grammar', file: 'juegos/unscramble-sentence.html', desc: 'Reconstruct syntactic word order in Affirmative & Questions.' },
+    { id: 'rune-shifter', name: 'Rune Shifter', icon: '🪨', level: 'A2', cat: 'grammar', file: 'juegos/rune-shifter.html', desc: 'Shift grammatical verb tenses to unlock ancient runes.' },
+    { id: 'void-breaker', name: 'Void Breaker', icon: '⚡', level: 'B1', cat: 'grammar', file: 'juegos/void-breaker.html', desc: 'Break grammar errors in rapid-fire sentences.' },
+    { id: 'arcane-duel', name: 'Arcane Duel', icon: '⚔️', level: 'B2', cat: 'grammar', file: 'juegos/arcane-duel.html', desc: 'Boss battle testing advanced conditionals and modal deduction.' },
+    { id: 'chronos-gate', name: 'Chronos Gate', icon: '⏳', level: 'B2', cat: 'rpg', file: 'juegos/chronos-gate.html', desc: 'Narrative time paradox RPG applying past perfect and used-to.' },
+    { id: 'stellar-rpg', name: 'Aurora Stellar RPG', icon: '👑', level: 'C1', cat: 'rpg', file: 'juegos/stellar-rpg.html', desc: 'Grand branching RPG dialogue with C1 nuance and register.' }
+  ];
+
+  let arcadeCategoryFilter = 'ALL';
+
+  function renderArcadeMissions() {
+    const grid = document.getElementById('arcade-missions-grid');
+    if (!grid) return;
+
+    let filtered = ARCADE_GAMES_DB;
+    if (arcadeCategoryFilter !== 'ALL') {
+      filtered = filtered.filter(g => g.cat === arcadeCategoryFilter);
+    }
+
+    const tokenSel = document.getElementById('mission-student-token-select');
+    const curToken = tokenSel ? tokenSel.value : '';
+
+    grid.innerHTML = filtered.map(g => {
+      const url = `../${g.file}${curToken ? `?t=${curToken}` : ''}`;
+      return `
+        <div class="game-dispatch-card">
+          <div>
+            <div class="game-dispatch-title">
+              <span>${g.icon}</span> ${g.name}
+              <span class="cefr-badge ${g.level.toLowerCase()}" style="margin-left:auto;">${g.level}</span>
+            </div>
+            <div style="font-size:12px; color:var(--paper-muted); margin-top:4px;">${g.desc}</div>
+          </div>
+          <div class="generated-link-box">
+            <span class="generated-url-text" id="url-${g.id}">${url}</span>
+            <button class="btn-copy-link" onclick="copyLink('url-${g.id}')">📋 Copy</button>
+          </div>
+          <a href="${url}" target="_blank" class="header-action-btn" style="justify-content:center; padding:6px 12px; font-size:11px;">
+            Launch Mission ➜
+          </a>
+        </div>
+      `;
+    }).join('');
+  }
+
+  window.filterArcadeCategory = function(cat, el) {
+    arcadeCategoryFilter = cat;
+    document.querySelectorAll('#arcadeGameCategoryFilters .filter-pill').forEach(p => p.classList.remove('active'));
+    if (el) el.classList.add('active');
+    renderArcadeMissions();
+  };
+
+  function updateMissionStudentTokenSelect() {
+    const sel = document.getElementById('mission-student-token-select');
+    if (!sel) return;
+    sel.innerHTML = `<option value="">(No student token)</option>` + ALL_STUDENTS.map(s => `<option value="${s.id}">${esc(s.nombre)}</option>`).join('');
+  }
+
+  window.updateMissionDispatcherLinks = function() {
+    renderArcadeMissions();
+  };
+
+  // --- 12. WAVE B & C STUDIO CINEMA PLAYER ---
+  let currentCinemaSlide = 0;
+  let currentWaveMode = 'B';
+  let currentShowcaseTopic = 'a1-articles-01';
+
+  const STUDIO_WAVE_CONTENT_DB = {
+    'a1-articles-01': {
+      A: [
+        { kicker: 'WAVE A · CORE GRAMMAR · SLIDE 1 OF 3', title: 'Definite vs. Indefinite Articles', body: 'In foundational grammar, <strong>A / AN</strong> is used for general singular countable nouns. <strong>THE</strong> is used when both the speaker and listener know the specific object.', quote: 'A/AN introduces general items; THE refers to something already known!' },
+        { kicker: 'WAVE A · PHONETIC RULE · SLIDE 2 OF 3', title: 'Vowel Sounds vs. Consonant Letters', body: 'Use <strong>AN</strong> before vowel sounds: <em>"an apple /æ/"</em>, <em>"an hour /aʊ/"</em>. Use <strong>A</strong> before consonant sounds: <em>"a university /juː/"</em>, <em>"a notebook /n/"</em>.', quote: 'Sound decides the article, not the written letter!' },
+        { kicker: 'WAVE A · ZERO ARTICLE · SLIDE 3 OF 3', title: 'General Plurals & Uncountables', body: 'Do not use \'the\' when speaking about entire categories: <em>"<strong>Teachers</strong> love books."</em> (Zero Article), <em>"<strong>Water</strong> is essential for life."</em>', quote: 'Zero article creates clean, natural, academic English!' }
+      ],
+      B: [
+        { kicker: 'WAVE B · CAST STORY · SCENE 1 OF 3', title: 'Sofía & Kenji in the Design Studio', body: 'Sofía opens Figma: <em>"Kenji, I have <strong>an idea</strong> for <strong>a mobile interface</strong>. <strong>The prototype</strong> is on my screen right now."</em>', quote: 'Notice how Sofía uses \'an idea\' first, then specifies \'the prototype\'! ✨' },
+        { kicker: 'WAVE B · CAST STORY · SCENE 2 OF 3', title: 'Kenji\'s Game Development Sprint', body: 'Kenji smiles: <em>"I need <strong>a new soundtrack</strong> for <strong>the level 3 boss</strong>. <strong>The music</strong> must feel fast and electronic."</em>', quote: 'Zero translation needed! The story visualizes the exact grammar in action!' },
+        { kicker: 'WAVE B · CAST STORY · SCENE 3 OF 3', title: 'Abuela Carmen\'s Morning Breakfast', body: 'Abuela Carmen brings breakfast: <em>"Here is <strong>a cup of coffee</strong> with <strong>fresh arepas</strong>. Enjoy <strong>the morning</strong>, children!"</em>', quote: 'Articles flow naturally when anchored to real characters and daily life!' }
+      ],
+      C: [
+        { kicker: 'WAVE C · SPOKEN ROLEPLAY · DRILL 1 OF 3', title: 'Ordering at an International Café', body: 'Roleplay: You are ordering at a London café. Say out loud: <em>"Hi, could I get <strong>a flat white</strong> and <strong>an almond croissant</strong>, please?"</em>', quote: 'Focus on smooth connected rhythm without translating in your head! ☕' },
+        { kicker: 'WAVE C · CONNECTED SPEECH · DRILL 2 OF 3', title: 'Phonetic Glide /ðə/ vs /ðiː/', body: 'Before consonants pronounce /ðə/ (the book), but before vowels link smoothly with /ðiː/ (the apple, the idea).', quote: 'Hear the glide: \'the_idea\' connects with a smooth /j/ sound!' },
+        { kicker: 'WAVE C · SPEED GAUNTLET · DRILL 3 OF 3', title: '60-Second Rapid Fire Challenge', body: 'Say these in 5 seconds without pausing: 1. a laptop, 2. an engineer, 3. the internet, 4. coffee in the morning!', quote: 'Project your voice! Spoken reflex is the goal!' }
+      ]
+    }
+  };
+
+  function getShowcaseSlideDeck(topicKey, waveKey) {
+    const topicData = STUDIO_WAVE_CONTENT_DB[topicKey];
+    if (topicData && topicData[waveKey]) return topicData[waveKey];
+
+    const cleanTitle = (topicKey || 'topic').replace(/^a[12]-|^b[12]-|^c[12]-/, '').replace(/-01$/, '').replace(/-/g, ' ');
+    if (waveKey === 'A') {
+      return [
+        { kicker: `WAVE A · CORE RULES · 1 OF 3`, title: `${cleanTitle.toUpperCase()} — Core Rules`, body: `Master the foundational grammatical architecture of <strong>${cleanTitle}</strong> in English.`, quote: `Focus on accuracy and structural consistency!` },
+        { kicker: `WAVE A · TRANSFORMATION · 2 OF 3`, title: `Form Variations & Syntactic Shifts`, body: `Examine affirmative, negative, and interrogative transformations for <strong>${cleanTitle}</strong>.`, quote: `Auxiliary verbs control sentence mechanics!` },
+        { kicker: `WAVE A · DRILLS · 3 OF 3`, title: `Controlled Written Precision`, body: `Apply the grammar rules to target sentence models.`, quote: `Precision first, then fluency!` }
+      ];
+    } else if (waveKey === 'B') {
+      return [
+        { kicker: `WAVE B · CAST STORY · 1 OF 3`, title: `Sofía & Kenji: ${cleanTitle.toUpperCase()}`, body: `Sofía and Kenji collaborate applying <strong>${cleanTitle}</strong> in 100% natural, contextualized English.`, quote: `Zero translation! Experience language through story! ✨` },
+        { kicker: `WAVE B · CAST STORY · 2 OF 3`, title: `Ben's Urban Architecture Challenge`, body: `Ben explains his design decisions applying <strong>${cleanTitle}</strong> with clarity and authority.`, quote: `Rich vocabulary connected to real life!` },
+        { kicker: `WAVE B · CAST STORY · 3 OF 3`, title: `Abuela Carmen's Family Dialogue`, body: `Abuela Carmen shares warm family stories illustrating <strong>${cleanTitle}</strong>.`, quote: `Language is alive when spoken with emotion!` }
+      ];
+    } else {
+      return [
+        { kicker: `WAVE C · SPOKEN DRILL · 1 OF 3`, title: `Spoken Challenge: ${cleanTitle}`, body: `Roleplay a real-world scenario applying <strong>${cleanTitle}</strong> in spontaneous dialogue.`, quote: `Speak from your diaphragm with confidence!` },
+        { kicker: `WAVE C · CONNECTED SPEECH · 2 OF 3`, title: `Reductions & Rhythm`, body: `Master linking sounds and rhythm patterns for <strong>${cleanTitle}</strong>.`, quote: `Flow naturally without pausing between words!` },
+        { kicker: `WAVE C · SPEED GAUNTLET · 3 OF 3`, title: `60-Second Speaking Gauntlet`, body: `Shadow Aurora's spoken model out loud at native speed!`, quote: `Fluency is muscle memory: repeat with energy!` }
+      ];
+    }
+  }
+
+  window.setWaveMode = function(waveKey, btnEl) {
+    currentWaveMode = waveKey;
+    document.querySelectorAll('.wave-pill-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.background = 'var(--ink-sub)';
+      b.style.borderColor = 'var(--line)';
+      b.style.color = 'var(--paper-muted)';
+    });
+    if (btnEl) {
+      btnEl.classList.add('active');
+      btnEl.style.background = 'var(--gold)';
+      btnEl.style.borderColor = 'var(--gold)';
+      btnEl.style.color = '#FFFFFF';
+    }
+    currentCinemaSlide = 0;
+    renderCinemaSlide();
+    showToast(`Switched to Wave ${waveKey}`);
+  };
+
+  function renderCinemaSlide() {
+    const slides = getShowcaseSlideDeck(currentShowcaseTopic, currentWaveMode);
+    const s = slides[currentCinemaSlide % slides.length];
+
+    const kickerEl = document.getElementById('cinema-kicker');
+    const titleEl = document.getElementById('cinema-title');
+    const bodyEl = document.getElementById('cinema-body');
+    const quoteEl = document.getElementById('cinema-aurora-quote');
+    const counterEl = document.getElementById('cinema-slide-counter');
+
+    if (kickerEl) kickerEl.textContent = s.kicker;
+    if (titleEl) titleEl.textContent = s.title;
+    if (bodyEl) bodyEl.innerHTML = s.body;
+    if (quoteEl) quoteEl.textContent = `"${s.quote}"`;
+    if (counterEl) counterEl.textContent = `Scene ${currentCinemaSlide + 1} of ${slides.length} · Use [Space] or [Arrow Keys]`;
+  }
+
+  window.nextCinemaSlide = function() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    const slides = getShowcaseSlideDeck(currentShowcaseTopic, currentWaveMode);
+    currentCinemaSlide = (currentCinemaSlide + 1) % slides.length;
+    renderCinemaSlide();
+  };
+
+  window.prevCinemaSlide = function() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    const slides = getShowcaseSlideDeck(currentShowcaseTopic, currentWaveMode);
+    currentCinemaSlide = (currentCinemaSlide - 1 + slides.length) % slides.length;
+    renderCinemaSlide();
+  };
+
+  window.addEventListener('keydown', (e) => {
+    const showcaseTab = document.getElementById('tab-showcase');
+    if (showcaseTab && showcaseTab.classList.contains('active')) {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        window.nextCinemaSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        window.prevCinemaSlide();
+      } else if (e.key.toLowerCase() === 'p') {
+        e.preventDefault();
+        window.playCinemaAudio();
+      } else if (e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        window.toggleCinemaFullscreen();
+      }
+    }
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+    if (e.key === '1') triggerDirectorSFX('chime');
+    else if (e.key === '2') triggerDirectorSFX('crystal');
+    else if (e.key === '3') triggerDirectorSFX('fanfare');
+    else if (e.key.toLowerCase() === 's') toggleDirectorSpotlight();
+    else if (e.key.toLowerCase() === 'l') toggleDirectorLaser();
+    else if (e.key.toLowerCase() === 't') toggleDirectorPrompter();
+  });
+
+  // Voice synthesis
+  let isCinemaAudioPlaying = false;
+
+  window.playCinemaAudio = function() {
+    const eqBars = document.getElementById('cinema-eq-bars');
+    const voiceBtnTxt = document.getElementById('cinema-voice-btn-txt');
+    const voiceBtnIcon = document.getElementById('cinema-voice-btn-icon');
+    const avatarImg = document.getElementById('cinema-aurora-wrap');
+
+    if (isCinemaAudioPlaying) {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      stopVisualizer();
+      return;
+    }
+
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    isCinemaAudioPlaying = true;
+    if (eqBars) eqBars.style.opacity = '1';
+    if (avatarImg) avatarImg.classList.add('speaking');
+    if (voiceBtnTxt) voiceBtnTxt.textContent = 'Pause Voice';
+    if (voiceBtnIcon) voiceBtnIcon.textContent = '⏸️';
+
+    function stopVisualizer() {
+      isCinemaAudioPlaying = false;
+      if (eqBars) eqBars.style.opacity = '0.4';
+      if (avatarImg) avatarImg.classList.remove('speaking');
+      if (voiceBtnTxt) voiceBtnTxt.textContent = 'Play Model Voice';
+      if (voiceBtnIcon) voiceBtnIcon.textContent = '🔊';
+    }
+
+    window.playDirectorChime(528);
+
+    const slides = getShowcaseSlideDeck(currentShowcaseTopic, currentWaveMode);
+    const s = slides[currentCinemaSlide % slides.length];
+    const cleanTitle = (s.title || '').replace(/<[^>]*>/g, '').trim();
+    const cleanBody = (s.body || '').replace(/<[^>]*>/g, '').replace(/[✨📖🚲🔑📐🎮🎨☕💼📊🎙️❤️👍🤝👎💔🍣🎒👓👀🚗💯📈⏳📉🚫]/g, '').trim();
+    const speechScript = `${cleanTitle}. ${cleanBody}. Remember: ${s.quote.replace(/[✨📖🚲🔑📐🎮🎨☕💼📊🎙️❤️👍🤝👎💔🍣🎒👓👀🚗💯📈⏳📉🚫]/g, '')}`;
+
+    if (!('speechSynthesis' in window)) {
+      showToast('Speech synthesis not available in this browser');
+      stopVisualizer();
+      return;
+    }
+
+    const u = new SpeechSynthesisUtterance(speechScript);
+    u.lang = 'en-US';
+    u.rate = 0.92;
+    u.pitch = 1.05;
+
+    const voices = window.speechSynthesis.getVoices();
+    const bestVoice = voices.find(v => v.name.includes('Natural') || v.name.includes('Aria') || v.name.includes('Jenny') || v.lang === 'en-US') || voices[0];
+    if (bestVoice) u.voice = bestVoice;
+
+    u.onend = stopVisualizer;
+    u.onerror = stopVisualizer;
+    window.speechSynthesis.speak(u);
+  };
+
+  window.toggleCinemaFullscreen = function() {
+    const vp = document.getElementById('cinema-viewport');
+    if (!document.fullscreenElement) {
+      if (vp.requestFullscreen) vp.requestFullscreen().catch(() => {});
+      else if (vp.webkitRequestFullscreen) vp.webkitRequestFullscreen().catch(() => {});
+    } else {
+      if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+    }
+  };
+
+  // --- 13. DIRECTOR RECORDING SUITE (SPOTLIGHT, LASER, PROMPTER) ---
+  let isSpotlightActive = false;
+  let isLaserActive = false;
+  let isPrompterActive = false;
+  let prompterInterval = null;
+  let prompterSecs = 0;
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+
+  const spotCanvas = document.getElementById('spotlight-canvas');
+  const spotCtx = spotCanvas ? spotCanvas.getContext('2d') : null;
+
+  function resizeSpotlight() {
+    if (!spotCanvas) return;
+    spotCanvas.width = window.innerWidth;
+    spotCanvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeSpotlight);
+  resizeSpotlight();
+
+  function drawSpotlight() {
+    if (!isSpotlightActive || !spotCtx) return;
+    spotCtx.clearRect(0, 0, spotCanvas.width, spotCanvas.height);
+    spotCtx.fillStyle = 'rgba(9, 15, 20, 0.65)';
+    spotCtx.fillRect(0, 0, spotCanvas.width, spotCanvas.height);
+
+    spotCtx.globalCompositeOperation = 'destination-out';
+    const radGrad = spotCtx.createRadialGradient(mouseX, mouseY, 30, mouseX, mouseY, 160);
+    radGrad.addColorStop(0, 'rgba(0, 0, 0, 1)');
+    radGrad.addColorStop(0.85, 'rgba(0, 0, 0, 0.85)');
+    radGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    spotCtx.fillStyle = radGrad;
+    spotCtx.beginPath();
+    spotCtx.arc(mouseX, mouseY, 160, 0, Math.PI * 2);
+    spotCtx.fill();
+    spotCtx.globalCompositeOperation = 'source-over';
+
+    spotCtx.strokeStyle = 'rgba(242, 193, 78, 0.55)';
+    spotCtx.lineWidth = 2.5;
+    spotCtx.beginPath();
+    spotCtx.arc(mouseX, mouseY, 158, 0, Math.PI * 2);
+    spotCtx.stroke();
+
+    requestAnimationFrame(drawSpotlight);
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    const laserEl = document.getElementById('laser-dot-cursor');
+    if (laserEl && isLaserActive) {
+      laserEl.style.left = `${mouseX}px`;
+      laserEl.style.top = `${mouseY}px`;
+    }
+  });
+
+  window.toggleDirectorSpotlight = function() {
+    isSpotlightActive = !isSpotlightActive;
+    if (spotCanvas) spotCanvas.classList.toggle('active', isSpotlightActive);
+    document.getElementById('btn-director-spotlight')?.classList.toggle('active', isSpotlightActive);
+    if (isSpotlightActive) { resizeSpotlight(); drawSpotlight(); showToast('🔦 Spotlight ON [S]'); }
+    else showToast('Spotlight OFF');
+  };
+
+  window.toggleDirectorLaser = function() {
+    isLaserActive = !isLaserActive;
+    document.getElementById('laser-dot-cursor')?.classList.toggle('active', isLaserActive);
+    document.getElementById('btn-director-laser')?.classList.toggle('active', isLaserActive);
+    showToast(`🔴 Laser Pointer: ${isLaserActive ? 'ON [L]' : 'OFF'}`);
+  };
+
+  window.toggleDirectorPrompter = function() {
+    isPrompterActive = !isPrompterActive;
+    document.getElementById('teleprompter-hud')?.classList.toggle('active', isPrompterActive);
+    document.getElementById('btn-director-prompter')?.classList.toggle('active', isPrompterActive);
+
+    if (isPrompterActive) {
+      if (!prompterInterval) {
+        prompterInterval = setInterval(() => {
+          prompterSecs++;
+          const mins = String(Math.floor(prompterSecs / 60)).padStart(2, '0');
+          const secs = String(prompterSecs % 60).padStart(2, '0');
+          const clock = document.getElementById('teleprompter-clock');
+          if (clock) clock.textContent = `⏱️ ${mins}:${secs}`;
+        }, 1000);
+      }
+      showToast('📜 Teleprompter HUD ON [T]');
+    } else {
+      showToast('Teleprompter Hidden');
+    }
+  };
+
+  // --- 14. BIO-PHONETICS LAB & PROCEDURAL AUDIO SYNTHESIZER ---
+  const PHONEMES_DB = {
+    '/iː/': { symbol: '/iː/', name: 'Close Front Vowel (Tense)', group: 'vowel', examples: '"sheep", "tree"', voiced: true, formants: { f1: 280, f2: 2250 }, chartCoords: { x: 170, y: 60 }, biologicalGesture: 'Closed jaw. Tongue arch high toward anterior palate. Lips spread in subtle smile.', spanishTrap: 'Spanish only has short lax /i/. Failing to tense causes confusion with "ship" /ɪ/.', sagittal: { tongue: 'M 125,210 Q 140,150 170,140 Q 200,160 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɪ/': { symbol: '/ɪ/', name: 'Near-Close Near-Front Vowel (Lax)', group: 'vowel', examples: '"ship", "bit"', voiced: true, formants: { f1: 400, f2: 1900 }, chartCoords: { x: 260, y: 110 }, biologicalGesture: 'Jaw slightly lower than in /iː/. Tongue muscles relaxed (lax) toward center.', spanishTrap: 'Do not use Spanish tense /i/. Relax lingual tension.', sagittal: { tongue: 'M 125,210 Q 145,165 175,160 Q 205,175 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/e/': { symbol: '/e/', name: 'Close-Mid Front Vowel', group: 'vowel', examples: '"bed", "head"', voiced: true, formants: { f1: 550, f2: 1750 }, chartCoords: { x: 280, y: 170 }, biologicalGesture: 'Medium jaw lowering. Mid-front tongue body elevated halfway.', spanishTrap: 'Shorter and more open than Spanish "e".', sagittal: { tongue: 'M 125,210 Q 150,175 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/æ/': { symbol: '/æ/', name: 'Open Front Vowel (TRAP)', group: 'vowel', examples: '"cat", "black"', voiced: true, formants: { f1: 660, f2: 1720 }, chartCoords: { x: 280, y: 280 }, biologicalGesture: 'Wide open jaw. Tongue body flat on floor of mouth, front pushed forward.', spanishTrap: 'Does not exist in Spanish. Shape mouth for "ah" but articulate "eh".', sagittal: { tongue: 'M 125,210 Q 160,195 190,195 Q 215,205 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɑː/': { symbol: '/ɑː/', name: 'Open Back Vowel (PALM)', group: 'vowel', examples: '"father", "car"', voiced: true, formants: { f1: 750, f2: 1100 }, chartCoords: { x: 550, y: 290 }, biologicalGesture: 'Maximum jaw lowering. Tongue retracted deep into posterior pharynx.', spanishTrap: 'Deeper and more posterior than Spanish "a".', sagittal: { tongue: 'M 125,210 Q 160,205 195,200 Q 220,210 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɒ/': { symbol: '/ɒ/', name: 'Open Back Rounded (LOT)', group: 'vowel', examples: '"dog", "stop"', voiced: true, formants: { f1: 600, f2: 950 }, chartCoords: { x: 620, y: 260 }, biologicalGesture: 'Open mouth with slightly rounded lips in low back posture.', spanishTrap: 'Short in British RP; merges with /ɑː/ in General American.', sagittal: { tongue: 'M 125,210 Q 165,200 200,190 Q 220,205 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɔː/': { symbol: '/ɔː/', name: 'Open-Mid Back Rounded', group: 'vowel', examples: '"thought", "law"', voiced: true, formants: { f1: 450, f2: 800 }, chartCoords: { x: 670, y: 170 }, biologicalGesture: 'Tongue retracted toward velum. Lips firmly rounded into tight circle.', spanishTrap: 'Much more rounded and sustained than Spanish "o".', sagittal: { tongue: 'M 125,210 Q 160,185 205,170 Q 220,190 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ʊ/': { symbol: '/ʊ/', name: 'Near-Close Back Rounded (FOOT)', group: 'vowel', examples: '"foot", "good"', voiced: true, formants: { f1: 440, f2: 1020 }, chartCoords: { x: 580, y: 110 }, biologicalGesture: 'Posterior tongue body elevated but lax. Lips moderately rounded.', spanishTrap: 'Do not substitute with tense Spanish "u" (which matches /uː/).', sagittal: { tongue: 'M 125,210 Q 155,170 195,150 Q 215,170 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/uː/': { symbol: '/uː/', name: 'Close Back Rounded (GOOSE)', group: 'vowel', examples: '"goose", "two"', voiced: true, formants: { f1: 300, f2: 870 }, chartCoords: { x: 660, y: 60 }, biologicalGesture: 'Back of tongue arches high against velum. Lips strongly protruded.', spanishTrap: 'More tense and prolonged than Spanish "u".', sagittal: { tongue: 'M 125,210 Q 150,155 200,135 Q 220,160 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ʌ/': { symbol: '/ʌ/', name: 'Open-Mid Back (STRUT)', group: 'vowel', examples: '"cup", "love"', voiced: true, formants: { f1: 600, f2: 1200 }, chartCoords: { x: 500, y: 220 }, biologicalGesture: 'Semi-open jaw. Tongue resting relaxed in mid-back posture. Lips neutral.', spanishTrap: 'Confused with /æ/ ("cup" vs "cap"). Crisp, central pulse.', sagittal: { tongue: 'M 125,210 Q 160,185 190,180 Q 215,195 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɜː/': { symbol: '/ɜː/', name: 'Open-Mid Central (NURSE)', group: 'vowel', examples: '"nurse", "bird"', voiced: true, formants: { f1: 500, f2: 1400 }, chartCoords: { x: 420, y: 160 }, biologicalGesture: 'Tongue suspended in absolute geometric center of vocal tract.', spanishTrap: 'Do NOT pronounce written letter ("bird" has no "i"). Sustained central vowel.', sagittal: { tongue: 'M 125,210 Q 150,170 180,165 Q 210,180 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ə/': { symbol: '/ə/', name: 'Schwa — Mid Central Neutral', group: 'vowel', examples: '"about", "banana"', voiced: true, formants: { f1: 500, f2: 1500 }, chartCoords: { x: 400, y: 150 }, biologicalGesture: 'Most frequent sound in English. Articulatory muscles rest in total equilibrium.', spanishTrap: 'Only occurs in UNSTRESSED syllables. Avoid full phonetic weight.', sagittal: { tongue: 'M 125,210 Q 155,180 185,175 Q 210,190 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+
+    '/eɪ/': { symbol: '/eɪ/', name: 'Diphthong: FACE', group: 'diphthong', examples: '"face", "day"', voiced: true, biologicalGesture: 'Glide from /e/ toward /ɪ/.', spanishTrap: 'Do not reduce to flat Spanish "e".', sagittal: { tongue: 'M 125,210 Q 145,160 175,150 Q 205,170 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/aɪ/': { symbol: '/aɪ/', name: 'Diphthong: PRICE', group: 'diphthong', examples: '"price", "sky"', voiced: true, biologicalGesture: 'Glide from open /a/ toward /ɪ/.', spanishTrap: 'Close smoothly without hardening into "y".', sagittal: { tongue: 'M 125,210 Q 150,180 180,165 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɔɪ/': { symbol: '/ɔɪ/', name: 'Diphthong: CHOICE', group: 'diphthong', examples: '"choice", "boy"', voiced: true, biologicalGesture: 'Glide from /ɔː/ toward /ɪ/.', spanishTrap: 'Articulate transition clearly.', sagittal: { tongue: 'M 125,210 Q 155,180 195,160 Q 215,180 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/aʊ/': { symbol: '/aʊ/', name: 'Diphthong: MOUTH', group: 'diphthong', examples: '"mouth", "house"', voiced: true, biologicalGesture: 'Glide from /a/ toward /ʊ/ with lip rounding.', spanishTrap: 'Do not substitute with Spanish "ao".', sagittal: { tongue: 'M 125,210 Q 155,190 190,170 Q 215,190 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/əʊ/': { symbol: '/əʊ/', name: 'Diphthong: GOAT', group: 'diphthong', examples: '"goat", "home"', voiced: true, biologicalGesture: 'Initiates in schwa /ə/ and glides toward /ʊ/.', spanishTrap: 'Spanish speakers say flat "O". It is a true diphthong.', sagittal: { tongue: 'M 125,210 Q 155,175 190,160 Q 215,180 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ɪə/': { symbol: '/ɪə/', name: 'Centring: NEAR', group: 'diphthong', examples: '"near", "here"', voiced: true, biologicalGesture: 'Glide from /ɪ/ toward central schwa /ə/.', spanishTrap: 'Keep schwa smooth.', sagittal: { tongue: 'M 125,210 Q 150,165 180,165 Q 210,180 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/eə/': { symbol: '/eə/', name: 'Centring: SQUARE', group: 'diphthong', examples: '"square", "hair"', voiced: true, biologicalGesture: 'Glide from /e/ toward schwa /ə/.', spanishTrap: 'Do not open into flat "ah".', sagittal: { tongue: 'M 125,210 Q 150,175 180,170 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ʊə/': { symbol: '/ʊə/', name: 'Centring: CURE', group: 'diphthong', examples: '"cure", "tour"', voiced: true, biologicalGesture: 'Glide from /ʊ/ toward schwa /ə/.', spanishTrap: 'Merges into /ɔː/ in casual English.', sagittal: { tongue: 'M 125,210 Q 155,170 195,160 Q 215,180 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+
+    '/θ/': { symbol: '/θ/', name: 'Voiceless Dental Fricative', group: 'consonant', examples: '"think", "bath"', voiced: false, biologicalGesture: 'Tongue tip gently between incisal edges with unvoiced airflow.', spanishTrap: 'Do NOT substitute with /s/ or /t/.', sagittal: { tongue: 'M 120,158 Q 145,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ð/': { symbol: '/ð/', name: 'Voiced Dental Fricative', group: 'consonant', examples: '"this", "mother"', voiced: true, biologicalGesture: 'Interdental posture with active glottal vibration.', spanishTrap: 'Do not substitute with /d/. Maintain friction.', sagittal: { tongue: 'M 120,158 Q 145,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/v/': { symbol: '/v/', name: 'Voiced Labiodental Fricative', group: 'consonant', examples: '"very", "voice"', voiced: true, biologicalGesture: 'Upper incisors make light contact with inner lower lip. Vocal folds vibrate.', spanishTrap: '#1 Hispanic transfer error! Spanish lacks V. "berry" vs "very" are distinct.', sagittal: { tongue: 'M 125,210 Q 150,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/b/': { symbol: '/b/', name: 'Voiced Bilabial Plosive', group: 'consonant', examples: '"boy", "rub"', voiced: true, biologicalGesture: 'Hermetic bilabial seal released with voiced burst.', spanishTrap: 'Preserves plosive occlusion (does not soften into [β]).', sagittal: { tongue: 'M 125,210 Q 150,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/p/': { symbol: '/p/', name: 'Voiceless Bilabial Plosive', group: 'consonant', examples: '"pen", "stop"', voiced: false, biologicalGesture: 'Bilabial seal released with aspiration puff [pʰ].', spanishTrap: 'Spanish "p" is unaspirated. In English, puff must flutter paper.', sagittal: { tongue: 'M 125,210 Q 150,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/z/': { symbol: '/z/', name: 'Voiced Alveolar Fricative', group: 'consonant', examples: '"zoo", "music"', voiced: true, biologicalGesture: 'Tongue tip near alveolar ridge creating groove with glottal buzz.', spanishTrap: 'Spanish lacks voiced /z/. Learners devoice and say "iss".', sagittal: { tongue: 'M 128,142 Q 150,175 180,170 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/s/': { symbol: '/s/', name: 'Voiceless Alveolar Fricative', group: 'consonant', examples: '"sun", "city"', voiced: false, biologicalGesture: 'Narrow alveolar groove with high-frequency unvoiced hiss.', spanishTrap: 'Avoid adding prosthetic "e" before "s-" (never say "eschool").', sagittal: { tongue: 'M 128,142 Q 150,175 180,170 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ʃ/': { symbol: '/ʃ/', name: 'Voiceless Postalveolar (SH)', group: 'consonant', examples: '"ship", "wash"', voiced: false, biologicalGesture: 'Tongue blade raised toward postalveolar zone with flared lips.', spanishTrap: 'Contrast with /tʃ/ ("cheap"): airflow is continuous.', sagittal: { tongue: 'M 135,145 Q 155,160 185,165 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/ʒ/': { symbol: '/ʒ/', name: 'Voiced Postalveolar', group: 'consonant', examples: '"vision", "measure"', voiced: true, biologicalGesture: 'Postalveolar friction with active glottal voicing.', spanishTrap: 'Smooth friction like "ll" in Argentine Spanish.', sagittal: { tongue: 'M 135,145 Q 155,160 185,165 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/tʃ/': { symbol: '/tʃ/', name: 'Voiceless Affricate (CH)', group: 'consonant', examples: '"chair", "nature"', voiced: false, biologicalGesture: 'Plosive /t/ stop released with fricative /ʃ/.', spanishTrap: 'Matches Spanish "ch".', sagittal: { tongue: 'M 132,138 Q 155,160 185,165 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/dʒ/': { symbol: '/dʒ/', name: 'Voiced Affricate (J)', group: 'consonant', examples: '"job", "gym"', voiced: true, biologicalGesture: 'Plosive /d/ stop released with voiced /ʒ/.', spanishTrap: 'Do not substitute with Spanish "y" ("yob"). Must maintain initial stop.', sagittal: { tongue: 'M 132,138 Q 155,160 185,165 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/t/': { symbol: '/t/', name: 'Voiceless Alveolar Plosive', group: 'consonant', examples: '"time", "tea"', voiced: false, biologicalGesture: 'Tongue tip seals on alveolar ridge. Released with aspiration [tʰ].', spanishTrap: 'English "t" is alveolar and aspirated, not dental.', sagittal: { tongue: 'M 125,134 Q 150,170 180,170 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/d/': { symbol: '/d/', name: 'Voiced Alveolar Plosive', group: 'consonant', examples: '"day", "red"', voiced: true, biologicalGesture: 'Alveolar closure with glottal voicing.', spanishTrap: 'Alveolar, not interdental.', sagittal: { tongue: 'M 125,134 Q 150,170 180,170 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/k/': { symbol: '/k/', name: 'Voiceless Velar Plosive', group: 'consonant', examples: '"cat", "key"', voiced: false, biologicalGesture: 'Tongue dorsum seals against velum.', spanishTrap: 'Aspirated [kʰ] in initial stressed position.', sagittal: { tongue: 'M 125,210 Q 150,180 200,125 Q 220,160 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/g/': { symbol: '/g/', name: 'Voiced Velar Plosive', group: 'consonant', examples: '"go", "big"', voiced: true, biologicalGesture: 'Velar occlusion with glottal voicing.', spanishTrap: 'Maintains stop closure between vowels.', sagittal: { tongue: 'M 125,210 Q 150,180 200,125 Q 220,160 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/f/': { symbol: '/f/', name: 'Voiceless Labiodental', group: 'consonant', examples: '"fish", "coffee"', voiced: false, biologicalGesture: 'Upper incisors meet lower lip with unvoiced airflow.', spanishTrap: 'Clean labiodental friction.', sagittal: { tongue: 'M 125,210 Q 150,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+
+    '/m/': { symbol: '/m/', name: 'Voiced Bilabial Nasal', group: 'nasal', examples: '"man", "home"', voiced: true, biologicalGesture: 'Sealed lips with lowered velum.', spanishTrap: 'Lips must remain firmly closed at word end.', sagittal: { tongue: 'M 125,210 Q 150,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 210,150 215,170' } },
+    '/n/': { symbol: '/n/', name: 'Voiced Alveolar Nasal', group: 'nasal', examples: '"no", "sun"', voiced: true, biologicalGesture: 'Tongue tip on alveolar ridge with lowered velum.', spanishTrap: 'Standard nasal resonance.', sagittal: { tongue: 'M 125,134 Q 150,170 180,170 Q 210,185 220,225 Z', velum: 'M 200,120 Q 210,150 215,170' } },
+    '/ŋ/': { symbol: '/ŋ/', name: 'Voiced Velar Nasal (ENG)', group: 'nasal', examples: '"sing", "ring"', voiced: true, biologicalGesture: 'Tongue dorsum seals against velum with nasal flow. NO /g/ release.', spanishTrap: 'Do NOT pronounce "sin-g". Single continuous phoneme.', sagittal: { tongue: 'M 125,210 Q 150,180 200,125 Q 220,160 220,225 Z', velum: 'M 200,120 Q 210,150 215,170' } },
+    '/l/': { symbol: '/l/', name: 'Lateral Approximant (Dark L)', group: 'nasal', examples: '"light", "milk"', voiced: true, biologicalGesture: 'Clear L: Tip on ridge. Dark L: Posterior dorsum arches toward velum.', spanishTrap: 'Dark L ("ball") carries deep velar resonance.', sagittal: { tongue: 'M 125,134 Q 150,170 190,145 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/r/': { symbol: '/r/', name: 'Post-Alveolar Approximant', group: 'nasal', examples: '"red", "right"', voiced: true, biologicalGesture: 'Tongue tip curved toward postalveolar region WITHOUT touching roof.', spanishTrap: 'Never trill like Spanish "rr"! Tongue never touches palate.', sagittal: { tongue: 'M 130,150 Q 150,165 180,165 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/w/': { symbol: '/w/', name: 'Labial-Velar Approximant', group: 'nasal', examples: '"water", "quick"', voiced: true, biologicalGesture: 'Tight lip rounding with velar tongue elevation.', spanishTrap: 'Never add a "g" sound (say "water", NEVER "güater").', sagittal: { tongue: 'M 125,210 Q 150,160 200,135 Q 220,160 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/j/': { symbol: '/j/', name: 'Palatal Approximant (Y)', group: 'nasal', examples: '"yes", "yellow"', voiced: true, biologicalGesture: 'Tongue blade raised smoothly against hard palate.', spanishTrap: 'Pure semivowel glide ("year" has no hard friction).', sagittal: { tongue: 'M 125,210 Q 145,150 175,140 Q 205,160 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } },
+    '/h/': { symbol: '/h/', name: 'Glottal Fricative', group: 'nasal', examples: '"house", "happy"', voiced: false, biologicalGesture: 'Gentle airflow friction through open vocal folds.', spanishTrap: 'Not harsh Spanish "j". A gentle warm breath.', sagittal: { tongue: 'M 125,210 Q 150,180 180,175 Q 210,185 220,225 Z', velum: 'M 200,120 Q 215,125 220,135' } }
+  };
+
+  let activePhonemeKey = '/θ/';
+
+  window.switchBioMode = function(modeKey, btnEl) {
+    document.querySelectorAll('.bio-subpanel').forEach(p => p.style.display = 'none');
+    const targetPanel = document.getElementById(`biopanel-${modeKey}`);
+    if (targetPanel) targetPanel.style.display = 'block';
+
+    document.querySelectorAll('.bio-mode-btn').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+
+    if (modeKey === 'formants') initFormantChart();
+    else if (modeKey === 'intonation') renderAllIntonationCurves();
+  };
+
+  window.selectPhoneme = function(symbol) {
+    const p = PHONEMES_DB[symbol];
+    if (!p) return;
+    activePhonemeKey = symbol;
+
+    document.getElementById('dossier-symbol').textContent = p.symbol;
+    document.getElementById('dossier-word').textContent = `e.g. ${p.examples}`;
+    document.getElementById('dossier-category').textContent = p.name;
+    document.getElementById('dossier-instruction').innerHTML = `<strong>Biological Gesture:</strong> ${p.biologicalGesture}`;
+    document.getElementById('dossier-trap').innerHTML = `⚠️ <strong>Spanish L1 Transfer Trap:</strong> ${p.spanishTrap}`;
+    document.getElementById('sagittal-voicing-tag').textContent = p.voiced ? 'Voiced (528Hz Resonance)' : 'Voiceless';
+    document.getElementById('sagittal-voicing-tag').style.color = p.voiced ? 'var(--gold)' : 'var(--paper-muted)';
+
+    const tongueEl = document.getElementById('svg-tongue');
+    if (tongueEl && p.sagittal && p.sagittal.tongue) tongueEl.setAttribute('d', p.sagittal.tongue);
+    const velumEl = document.getElementById('svg-velum');
+    if (velumEl && p.sagittal && p.sagittal.velum) velumEl.setAttribute('d', p.sagittal.velum);
+    const glottisEl = document.getElementById('svg-glottis');
+    if (glottisEl) glottisEl.style.display = p.voiced ? 'block' : 'none';
+
+    document.querySelectorAll('.ipa-key-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === symbol));
+    synthesizeActivePhoneme();
+  };
+
+  window.synthesizeActivePhoneme = function() {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const p = PHONEMES_DB[activePhonemeKey];
+    if (!p) return;
+    const now = ctx.currentTime;
+
+    try {
+      if (p.formants) {
+        const osc = ctx.createOscillator();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(130, now);
+
+        const filter1 = ctx.createBiquadFilter();
+        filter1.type = 'bandpass';
+        filter1.frequency.setValueAtTime(p.formants.f1, now);
+        filter1.Q.setValueAtTime(8, now);
+
+        const filter2 = ctx.createBiquadFilter();
+        filter2.type = 'bandpass';
+        filter2.frequency.setValueAtTime(p.formants.f2, now);
+        filter2.Q.setValueAtTime(10, now);
+
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.linearRampToValueAtTime(0.12, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+
+        osc.connect(filter1); osc.connect(filter2);
+        filter1.connect(gain); filter2.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now); osc.stop(now + 0.52);
+      } else {
+        if (p.voiced) {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(160, now);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(now); osc.stop(now + 0.32);
+        } else {
+          const bufSize = ctx.sampleRate * 0.2;
+          const buffer = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+          const noise = ctx.createBufferSource();
+          noise.buffer = buffer;
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'highpass';
+          filter.frequency.setValueAtTime(3000, now);
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+          noise.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
+          noise.start(now); noise.stop(now + 0.22);
+        }
+      }
+    } catch(e) {}
+  };
+
+  function initPhonemesKeypad() {
+    const vRow = document.getElementById('ipa-vowels-row');
+    const dRow = document.getElementById('ipa-diphthongs-row');
+    const cRow = document.getElementById('ipa-consonants-row');
+    const nRow = document.getElementById('ipa-nasals-row');
+    if (!vRow) return;
+
+    vRow.innerHTML = ''; dRow.innerHTML = ''; cRow.innerHTML = ''; nRow.innerHTML = '';
+
+    Object.keys(PHONEMES_DB).forEach(sym => {
+      const p = PHONEMES_DB[sym];
+      const btn = document.createElement('button');
+      btn.className = `ipa-key-btn ${sym === activePhonemeKey ? 'active' : ''}`;
+      btn.textContent = sym;
+      btn.title = `${p.name} (${p.examples})`;
+      btn.onclick = () => selectPhoneme(sym);
+
+      if (p.group === 'vowel') vRow.appendChild(btn);
+      else if (p.group === 'diphthong') dRow.appendChild(btn);
+      else if (p.group === 'nasal') nRow.appendChild(btn);
+      else cRow.appendChild(btn);
+    });
+  }
+
+  function initFormantChart() {
+    const group = document.getElementById('formant-vowel-nodes');
+    if (!group) return;
+    group.innerHTML = '';
+
+    Object.keys(PHONEMES_DB).forEach(sym => {
+      const p = PHONEMES_DB[sym];
+      if (!p.formants || !p.chartCoords) return;
+
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.style.cursor = 'pointer';
+      g.onclick = () => {
+        activePhonemeKey = sym;
+        document.getElementById('formant-active-label').innerHTML = `<strong>Selected Vowel:</strong> ${p.symbol} (${p.examples}) · Formant <strong>F1</strong> (Height): ${p.formants.f1}Hz · <strong>F2</strong> (Fronting): ${p.formants.f2}Hz · <em>${p.biologicalGesture}</em>`;
+        synthesizeActivePhoneme();
+      };
+
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', p.chartCoords.x);
+      circle.setAttribute('cy', p.chartCoords.y);
+      circle.setAttribute('r', '10');
+      circle.setAttribute('fill', 'var(--teal)');
+      circle.setAttribute('stroke', '#FFFFFF');
+      circle.setAttribute('stroke-width', '2');
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', p.chartCoords.x + 14);
+      text.setAttribute('y', p.chartCoords.y + 5);
+      text.setAttribute('fill', 'var(--paper)');
+      text.setAttribute('font-family', 'var(--serif)');
+      text.setAttribute('font-size', '14');
+      text.setAttribute('font-weight', '700');
+      text.textContent = sym;
+
+      g.appendChild(circle); g.appendChild(text);
+      group.appendChild(g);
+    });
+  }
+
+  window.playActiveFormantSound = function() {
+    synthesizeActivePhoneme();
+  };
+
+  const INTONATION_PROFILES = {
+    'falling': { title: 'Falling Tone (↘)', points: [[20, 45], [120, 42], [180, 20], [280, 75]], f0: [170, 190, 230, 95] },
+    'rising': { title: 'Rising Tone (↗)', points: [[20, 55], [120, 50], [200, 60], [280, 20]], f0: [140, 135, 130, 240] },
+    'fall-rise': { title: 'Fall-Rise (↘↗)', points: [[20, 40], [140, 75], [220, 75], [280, 35]], f0: [160, 95, 95, 175] },
+    'rise-fall': { title: 'Rise-Fall (↗↘)', points: [[20, 65], [140, 15], [220, 20], [280, 75]], f0: [130, 260, 240, 90] }
+  };
+
+  function drawPitchCanvas(id, prof) {
+    const cvs = document.getElementById(id);
+    if (!cvs) return;
+    cvs.width = cvs.clientWidth || 300;
+    cvs.height = 90;
+    const c = cvs.getContext('2d');
+    c.clearRect(0, 0, cvs.width, cvs.height);
+
+    c.strokeStyle = 'rgba(255,255,255,0.08)';
+    c.beginPath(); c.moveTo(0, 45); c.lineTo(cvs.width, 45); c.stroke();
+
+    const pts = prof.points;
+    const scaleX = cvs.width / 300;
+    c.strokeStyle = 'var(--gold)';
+    c.lineWidth = 3.5;
+    c.beginPath();
+    c.moveTo(pts[0][0] * scaleX, pts[0][1]);
+    for (let i = 1; i < pts.length - 1; i++) {
+      const xc = ((pts[i][0] + pts[i + 1][0]) / 2) * scaleX;
+      const yc = (pts[i][1] + pts[i + 1][1]) / 2;
+      c.quadraticCurveTo(pts[i][0] * scaleX, pts[i][1], xc, yc);
+    }
+    c.quadraticCurveTo(pts[pts.length - 2][0] * scaleX, pts[pts.length - 2][1], pts[pts.length - 1][0] * scaleX, pts[pts.length - 1][1]);
+    c.stroke();
+  }
+
+  function renderAllIntonationCurves() {
+    drawPitchCanvas('canvas-pitch-falling', INTONATION_PROFILES['falling']);
+    drawPitchCanvas('canvas-pitch-rising', INTONATION_PROFILES['rising']);
+    drawPitchCanvas('canvas-pitch-fallrise', INTONATION_PROFILES['fall-rise']);
+    drawPitchCanvas('canvas-pitch-risefall', INTONATION_PROFILES['rise-fall']);
+  }
+
+  window.previewIntonationCurve = function(curveKey) {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const prof = INTONATION_PROFILES[curveKey];
+    if (!prof) return;
+    const now = ctx.currentTime;
+
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(prof.f0[0], now);
+      osc.frequency.exponentialRampToValueAtTime(prof.f0[1], now + 0.2);
+      osc.frequency.exponentialRampToValueAtTime(prof.f0[2], now + 0.4);
+      osc.frequency.exponentialRampToValueAtTime(prof.f0[3], now + 0.7);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.linearRampToValueAtTime(0.12, now + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.75);
+
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(now); osc.stop(now + 0.78);
+      showToast(`🎼 Pitch: ${prof.title}`);
+    } catch(e) {}
+  };
+
+  // Metronome
+  let metronomeInterval = null;
+  let metronomeBPM = 90;
+
+  window.updateMetronomeBPM = function(val) {
+    metronomeBPM = parseInt(val, 10);
+    document.getElementById('metronome-bpm-val').textContent = `${metronomeBPM} BPM`;
+    if (metronomeInterval) {
+      clearInterval(metronomeInterval);
+      startMetronomeLoop();
+    }
+  };
+
+  function startMetronomeLoop() {
+    const ms = (60 / metronomeBPM) * 1000;
+    metronomeInterval = setInterval(() => {
+      window.playDirectorChime(1000, 'sine');
+      const dot = document.getElementById('metronome-dot');
+      if (dot) {
+        dot.style.background = 'var(--gold)';
+        dot.style.transform = 'scale(1.5)';
+        setTimeout(() => {
+          dot.style.background = 'var(--teal)';
+          dot.style.transform = 'scale(1)';
+        }, 90);
+      }
+    }, ms);
+  }
+
+  window.toggleMetronome = function() {
+    const btn = document.getElementById('btn-toggle-metronome');
+    if (metronomeInterval) {
+      clearInterval(metronomeInterval);
+      metronomeInterval = null;
+      btn.textContent = '▶ Start Metronome';
+      btn.style.background = 'var(--gold)';
+      showToast('Metronome Stopped');
+    } else {
+      startMetronomeLoop();
+      btn.textContent = '⏹ Pause Metronome';
+      btn.style.background = '#E11D48';
+      btn.style.color = '#FFFFFF';
+      showToast(`Metronome at ${metronomeBPM} BPM`);
+    }
+  };
+
+  window.playConnectedAudio = function(drillType) {
+    if (!('speechSynthesis' in window)) return;
+    const phrase = drillType === 'water' ? 'A lot of water' : 'Hold on an hour';
+    const u = new SpeechSynthesisUtterance(phrase);
+    u.lang = 'en-US';
+    u.rate = 0.88;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+    showToast(`🔊 Reduction: "${phrase}"`);
+  };
+
+  // --- 15. HOURS LEDGER & CSV EXPORT ---
+  function updateTab6HoursLedger() {
+    const tbody = document.getElementById('hours-ledger-tbody');
+    if (!tbody) return;
+    if (!ALL_STUDENTS.length) {
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:18px; color:var(--paper-muted);">No enrolled students yet.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = ALL_STUDENTS.map(s => {
+      const isLow = s.horasRestantes <= 5;
+      const isOut = s.horasRestantes <= 0;
+      const statusBadge = isOut ?
+        `<span style="color:var(--ruby); font-weight:700;">Renew Required (0h)</span>` :
+        isLow ?
+        `<span style="color:var(--gold); font-weight:700;">Low Hours (${s.horasRestantes}h)</span>` :
+        `<span style="color:var(--green); font-weight:700;">Active (${s.horasRestantes}h)</span>`;
+
+      return `
+        <tr>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line);"><strong>${esc(s.nombre)}</strong></td>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line);"><span class="cefr-badge ${(s.nivel || 'a1').toLowerCase()}">${esc(s.nivel)}</span></td>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line); font-family:var(--mono);">${s.horasContratadas} hrs</td>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line); font-family:var(--mono); color:var(--paper-muted);">${s.horasDadas} hrs</td>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line); font-family:var(--mono); font-weight:700; color:${isLow ? 'var(--ruby)' : 'var(--teal)'};">${s.horasRestantes} hrs</td>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line);">${statusBadge}</td>
+          <td style="padding:10px 12px; border-bottom:1px solid var(--line);">
+            <button class="filter-pill" onclick="selectStudentHub('${s.id}'); document.getElementById('tab-btn-students').click();">
+              Inspect →
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  window.exportHoursToCSV = function() {
+    if (!ALL_STUDENTS.length) return showToast('No students to export');
+    let csv = 'Student,Level,Contracted Hours,Completed Classes,Remaining Hours,Status\n';
+    ALL_STUDENTS.forEach(s => {
+      csv += `"${s.nombre}","${s.nivel}",${s.horasContratadas},${s.horasDadas},${s.horasRestantes},"${s.horasRestantes <= 0 ? 'Renew' : s.horasRestantes <= 5 ? 'Low' : 'Active'}"\n`;
+    });
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `EnglishAurora_Faculty_Ledger_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    showToast('📥 CSV Ledger downloaded!');
+  };
+
+  // --- 16. CEFR DIAGNOSTIC RADAR (6-AXIS CANVAS) ---
+  function drawCEFRRadarChart() {
+    const cvs = document.getElementById('radarCanvas');
+    if (!cvs) return;
+    const rCtx = cvs.getContext('2d');
+    const width = cvs.width, height = cvs.height;
+    const centerX = width / 2, centerY = height / 2;
+    const radius = Math.min(centerX, centerY) - 40;
+
+    rCtx.clearRect(0, 0, width, height);
+
+    const axes = [
+      'Listening',
+      'Spoken Fluency',
+      'Phonetic Precision',
+      'Grammar Accuracy',
+      'Reading Syntax',
+      'Lexical Diversity'
+    ];
+    const numAxes = axes.length;
+    const angleSlice = (Math.PI * 2) / numAxes;
+
+    // Draw concentric polygon rings
+    for (let level = 1; level <= 5; level++) {
+      const r = (radius / 5) * level;
+      rCtx.strokeStyle = 'rgba(13, 115, 119, 0.15)';
+      rCtx.lineWidth = 1;
+      rCtx.beginPath();
+      for (let i = 0; i < numAxes; i++) {
+        const angle = i * angleSlice - Math.PI / 2;
+        const x = centerX + Math.cos(angle) * r;
+        const y = centerY + Math.sin(angle) * r;
+        if (i === 0) rCtx.moveTo(x, y);
+        else rCtx.lineTo(x, y);
+      }
+      rCtx.closePath();
+      rCtx.stroke();
+    }
+
+    // Draw axes lines & labels
+    for (let i = 0; i < numAxes; i++) {
+      const angle = i * angleSlice - Math.PI / 2;
+      const x = centerX + Math.cos(angle) * radius;
+      const y = centerY + Math.sin(angle) * radius;
+      rCtx.strokeStyle = 'rgba(13, 115, 119, 0.25)';
+      rCtx.beginPath();
+      rCtx.moveTo(centerX, centerY);
+      rCtx.lineTo(x, y);
+      rCtx.stroke();
+
+      // Axis Labels
+      const labelX = centerX + Math.cos(angle) * (radius + 22);
+      const labelY = centerY + Math.sin(angle) * (radius + 22);
+      rCtx.fillStyle = 'var(--paper)';
+      rCtx.font = '600 11px IBM Plex Mono';
+      rCtx.textAlign = 'center';
+      rCtx.textBaseline = 'middle';
+      rCtx.fillText(axes[i], labelX, labelY);
+    }
+
+    // Target Benchmark Shape (B2: 85%)
+    const targetValues = [0.85, 0.85, 0.85, 0.85, 0.85, 0.85];
+    rCtx.strokeStyle = 'rgba(180, 83, 9, 0.7)';
+    rCtx.fillStyle = 'rgba(180, 83, 9, 0.12)';
+    rCtx.lineWidth = 2;
+    rCtx.beginPath();
+    for (let i = 0; i < numAxes; i++) {
+      const angle = i * angleSlice - Math.PI / 2;
+      const r = radius * targetValues[i];
+      const x = centerX + Math.cos(angle) * r;
+      const y = centerY + Math.sin(angle) * r;
+      if (i === 0) rCtx.moveTo(x, y);
+      else rCtx.lineTo(x, y);
+    }
+    rCtx.closePath();
+    rCtx.fill();
+    rCtx.stroke();
+
+    // Cohort Live Skill Shape
+    const cohortValues = [0.88, 0.74, 0.68, 0.82, 0.90, 0.78];
+    rCtx.strokeStyle = 'var(--teal)';
+    rCtx.fillStyle = 'rgba(13, 115, 119, 0.35)';
+    rCtx.lineWidth = 2.5;
+    rCtx.beginPath();
+    for (let i = 0; i < numAxes; i++) {
+      const angle = i * angleSlice - Math.PI / 2;
+      const r = radius * cohortValues[i];
+      const x = centerX + Math.cos(angle) * r;
+      const y = centerY + Math.sin(angle) * r;
+      if (i === 0) rCtx.moveTo(x, y);
+      else rCtx.lineTo(x, y);
+    }
+    rCtx.closePath();
+    rCtx.fill();
+    rCtx.stroke();
+  }
+
+  function updateTab7Diagnostics() {
+    const barsContainer = document.getElementById('cohort-cefr-bars');
+    if (!barsContainer) return;
+
+    if (!ALL_STUDENTS.length) {
+      barsContainer.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">No student distribution data available yet.</div>`;
+      return;
+    }
+
+    const counts = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0 };
+    ALL_STUDENTS.forEach(s => {
+      const lvl = (s.nivel || 'B1').toUpperCase();
+      if (counts[lvl] !== undefined) counts[lvl]++;
+      else counts.B1++;
+    });
+
+    const total = ALL_STUDENTS.length;
+    barsContainer.innerHTML = Object.entries(counts).map(([lvl, cnt]) => {
+      const pct = Math.round((cnt / total) * 100);
+      return `
+        <div>
+          <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; margin-bottom:4px; color:var(--paper);">
+            <span>${lvl} (${cnt} Students)</span>
+            <span>${pct}%</span>
+          </div>
+          <div class="student-progress-bar">
+            <div class="student-progress-fill" style="width:${pct}%;"></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    drawCEFRRadarChart();
+  }
+
+  // --- 17. SKINS & WARDROBE ---
+  const SKINS_DB = {
+    ethereal: { name: 'Ethereal Pastel', themeClass: 'theme-ethereal', idle: 'assets/aurora.png' },
+    solar: { name: 'Quantum White', themeClass: 'theme-solar', idle: 'assets/skins/aurora-tech-redhead.png' },
+    glacial: { name: 'Gothic Arcane Noir', themeClass: 'theme-glacial', idle: 'assets/skins/aurora-goth-noir.png' }
+  };
+
+  window.setTeacherSkin = function(skinKey, btnEl) {
+    const skin = SKINS_DB[skinKey];
+    if (!skin) return;
+
+    document.body.classList.remove('theme-ethereal', 'theme-solar', 'theme-glacial');
+    document.body.classList.add(skin.themeClass);
+
+    document.querySelectorAll('.skin-pill-btn').forEach(b => b.classList.toggle('active', b.dataset.skin === skinKey));
+
+    const brandAvatar = document.getElementById('cockpit-brand-avatar');
+    if (brandAvatar) brandAvatar.src = skin.idle;
+    const tourAvatar = document.getElementById('onboarding-aurora-avatar');
+    if (tourAvatar) tourAvatar.src = skin.idle;
+    const cinemaAvatar = document.getElementById('cinema-aurora-avatar');
+    if (cinemaAvatar) cinemaAvatar.src = skin.idle;
+
+    try { localStorage.setItem('ea_teacher_skin', skinKey); } catch(e) {}
+    showToast(`✨ Skin Activated: ${skin.name}`);
+  };
+
+  window.openWardrobeModal = function() {
+    document.getElementById('wardrobe-modal')?.classList.add('active');
+  };
+  window.closeWardrobeModal = function() {
+    document.getElementById('wardrobe-modal')?.classList.remove('active');
+  };
+
+  // --- 18. GUIDED TOUR ---
+  const TOUR_STEPS = [
+    { title: 'Welcome to your Astral Observatory, Professor Felipe! ✨', text: 'Hello, <strong>Professor Felipe</strong>. I am <strong>Aurora</strong>, your pedagogical co-pilot. This command hub gives you complete mastery over your classroom roster, student telemetry, 85 structured curriculum sequences, and 17 immersive Arcade games. Let\'s explore how to make the most of it in 60 seconds!', tabId: null, btnLabel: 'Start Guided Tour ▶' },
+    { title: '1. Astral Classroom & Student Roster 👥', text: 'Manage active cohorts right here. Click calendar dates to log attendance (+1.0 hr deduction), assign tailored homework, and review live Shadow Words diagnostic warm-ups.', tabId: 'tab-students', btnLabel: 'Next: Lesson Planner ▶' },
+    { title: '2. 10-Second Lesson Planner 📖', text: 'Filter across all <strong>85 official CEFR sequences (A1 to C1)</strong> to project IPA phonetic breakdowns, sentence banks, and direct interactive lessons.', tabId: 'tab-planner', btnLabel: 'Next: Mission Dispatcher ▶' },
+    { title: '3. Arcade Mission Dispatcher 🚀', text: 'Assign homework your students will genuinely love. Generate 1-click links to any of our <strong>17 Arcade games</strong> synchronized to your active classroom topic.', tabId: 'tab-missions', btnLabel: 'Next: Broadcast Studio ▶' },
+    { title: '4. Wave B & C Studio (Recording Master) 🎬', text: 'Record lessons or YouTube content with <strong>Aurora as your Co-Host</strong> in full-screen 4K mode, neural voice audio, and director spotlight fx.', tabId: 'tab-showcase', btnLabel: 'Next: Bio-Phonetics Lab ▶' },
+    { title: '5. Bio-Phonetics & Fluency Lab 🧬', text: 'Explore our interactive Sagittal cross-section, dual-formant vowel synthesizer, pitch F0 curves, and isochronous metronome rhythm drills.', tabId: 'tab-phonetics', btnLabel: 'Ready to Teach! 🚀' }
+  ];
+
+  let currentTourStep = 0;
+  function showTourStep(idx) {
+    currentTourStep = idx;
+    const step = TOUR_STEPS[idx];
+    document.getElementById('tour-step-title').innerHTML = step.title;
+    document.getElementById('tour-dialogue-text').innerHTML = step.text;
+    document.getElementById('btn-tour-next').textContent = step.btnLabel;
+    document.getElementById('btn-tour-prev').style.display = idx === 0 ? 'none' : 'inline-flex';
+
+    document.querySelectorAll('.tour-dot').forEach((d, i) => d.style.background = i === idx ? 'var(--gold)' : 'var(--line)');
+
+    if (step.tabId) {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      document.getElementById(`tab-btn-${step.tabId.replace('tab-', '')}`)?.classList.add('active');
+      document.getElementById(step.tabId)?.classList.add('active');
+    }
+  }
+
+  document.getElementById('btn-tour-next')?.addEventListener('click', () => {
+    if (currentTourStep < TOUR_STEPS.length - 1) showTourStep(currentTourStep + 1);
+    else closeTour();
+  });
+  document.getElementById('btn-tour-prev')?.addEventListener('click', () => {
+    if (currentTourStep > 0) showTourStep(currentTourStep - 1);
+  });
+
+  window.openTour = function() {
+    document.getElementById('onboarding-overlay')?.classList.add('active');
+    showTourStep(0);
+  };
+  window.closeTour = function() {
+    document.getElementById('onboarding-overlay')?.classList.remove('active');
+  };
+
+  // --- 19. TOAST NOTIFICATIONS & COPY LINK ---
+  window.showToast = function(msg) {
+    const toast = document.getElementById('toast-notice');
+    const toastMsg = document.getElementById('toast-msg');
+    if (!toast || !toastMsg) return;
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2800);
+  };
+
+  window.copyLink = function(elementId) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    const text = el.textContent;
+    navigator.clipboard.writeText(text).then(() => showToast(`📋 Copied: ${text}`)).catch(() => showToast(`Link: ${text}`));
+  };
+
+  window.handleImgError = function(img) {
+    if (!img.dataset.retried) {
+      img.dataset.retried = 'true';
+      const file = img.src.split('/').pop();
+      img.src = img.src.includes('/skins/') ? '../assets/skins/' + file : '../assets/' + file;
+    }
+  };
+
+  // --- 20. INITIALIZATION RUNNER ---
+  function initAulaCloud() {
+    if (typeof firebase === 'undefined') {
+      loadOfflineFallback();
+      return;
+    }
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+      db = firebase.firestore();
+      auth = firebase.auth();
+      cloudMode = true;
+
+      db.collection(COL_ESTUDIANTES).orderBy('nombre').onSnapshot(snap => {
+        ALL_STUDENTS = snap.docs.map(d => {
+          const x = d.data() || {};
+          const contracted = Number(x.horas_contratadas) || 0;
+          const clases = Array.isArray(x.clases) ? x.clases : [];
+          return {
+            id: d.id,
+            nombre: x.nombre || '(Unnamed)',
+            correo: x.correo || '',
+            nivel: x.nivel || 'B1',
+            horasContratadas: contracted,
+            horasDadas: clases.length,
+            horasRestantes: Math.max(0, contracted - clases.length),
+            clases: clases,
+            fecha_alta: x.fecha_alta,
+            data: x
+          };
+        });
+
+        renderStudentsRoster();
+        updateTab6HoursLedger();
+        updateTab7Diagnostics();
+
+        if (selectedToken && ALL_STUDENTS.some(s => s.id === selectedToken)) {
+          selectStudentHub(selectedToken, false);
+        } else if (ALL_STUDENTS.length > 0 && !selectedToken) {
+          selectStudentHub(ALL_STUDENTS[0].id, false);
+        }
+      }, () => loadOfflineFallback());
+    } catch(e) {
+      loadOfflineFallback();
+    }
+  }
+
+  function loadOfflineFallback() {
+    const cached = localStorage.getItem('englishaurora_students_cache');
+    if (cached) {
+      try {
+        ALL_STUDENTS = JSON.parse(cached);
+        renderStudentsRoster();
+        updateTab6HoursLedger();
+        updateTab7Diagnostics();
+        if (ALL_STUDENTS.length > 0) selectStudentHub(ALL_STUDENTS[0].id, false);
+        return;
+      } catch(e) {}
+    }
+    ALL_STUDENTS = [
+      { id: 'mock-1', nombre: 'Astrid Lindgren', correo: 'astrid@example.com', nivel: 'B1', horasContratadas: 60, horasDadas: 14, horasRestantes: 46, clases: ['2026-08-10', '2026-08-15'], fecha_alta: new Date() },
+      { id: 'mock-2', nombre: 'Kenji Sato', correo: 'kenji@example.com', nivel: 'A1', horasContratadas: 40, horasDadas: 8, horasRestantes: 32, clases: ['2026-08-12'], fecha_alta: new Date() }
+    ];
+    renderStudentsRoster();
+    updateTab6HoursLedger();
+    updateTab7Diagnostics();
+    if (ALL_STUDENTS.length > 0) selectStudentHub(ALL_STUDENTS[0].id, false);
+  }
+
+  // Auto-run bootstrap
+  cargarCatalogoHub();
+  initAulaCloud();
+  renderArcadeMissions();
+  initPhonemesKeypad();
+  selectPhoneme('/θ/');
+
+  try {
+    const saved = localStorage.getItem('ea_teacher_skin') || 'ethereal';
+    window.setTeacherSkin(saved);
+  } catch(e) {}
+
+})();
+</script>
+
+<!-- Laser & Spotlight Overlays -->
+<canvas id="spotlight-canvas"></canvas>
+<div id="laser-dot-cursor"></div>
+
+</body>
+</html>

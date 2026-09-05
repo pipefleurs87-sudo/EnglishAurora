@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Aurora — Senda A1: Las Runas de los Artículos (SHOWCASE)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#2dd4bf; --teal-deep:#0f766e; --teal-dark:#134e4a;
+    --night:#0b1020; --night2:#101a33; --gold:#e8c26a; --gold-soft:#f3dd9d;
+    --parchment:#f5ecd7; --ink:#2a2118; --danger:#e05d5d; --ok:#57d98a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    font-family:'EB Garamond', serif; color:var(--parchment);
+    background:var(--night); min-height:100vh; overflow-x:hidden;
+  }
+  /* ===== Fondo: galaxia + aurora boreal ===== */
+  .sky{position:fixed; inset:0; z-index:-2;
+    background:linear-gradient(180deg,#070b18 0%, #0b1020 40%, #0d2233 100%);}
+  .aurora{position:fixed; inset:-20% -10% auto -10%; height:70%; z-index:-1; opacity:.55;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(45,212,191,.35), transparent 60%),
+      radial-gradient(ellipse 50% 35% at 70% 20%, rgba(129,92,216,.28), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 45% 45%, rgba(87,217,138,.22), transparent 65%);
+    filter:blur(30px); animation:auroraMove 14s ease-in-out infinite alternate;}
+  @keyframes auroraMove{from{transform:translateX(-3%) skewX(-4deg)} to{transform:translateX(3%) skewX(4deg)}}
+  .stars{position:fixed; inset:0; z-index:-1; pointer-events:none}
+  .star{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%;
+    animation:twinkle 3s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.2} 50%{opacity:.9}}
+
+  .wrap{max-width:860px; margin:0 auto; padding:24px 16px 80px}
+  .screen{display:none; animation:fadeIn .5s ease}
+  .screen.active{display:block}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+
+  h1,h2,h3,.font-title{font-family:'Cinzel', serif}
+  .brand{text-align:center; letter-spacing:.35em; font-size:.8rem; color:var(--teal); text-transform:uppercase}
+  .brand b{color:var(--gold)}
+
+  /* ===== Marco RPG ===== */
+  .rpg-frame{
+    background:linear-gradient(180deg, rgba(19,78,74,.35), rgba(11,16,32,.85));
+    border:2px solid var(--gold); border-radius:14px; padding:22px;
+    box-shadow:0 0 0 4px rgba(232,194,106,.12), 0 0 30px rgba(45,212,191,.15), inset 0 0 40px rgba(0,0,0,.45);
+    position:relative;
+  }
+  .rpg-frame::before{content:""; position:absolute; inset:6px; border:1px solid rgba(232,194,106,.35);
+    border-radius:9px; pointer-events:none}
+  .corner{position:absolute; width:14px; height:14px; border:2px solid var(--gold)}
+  .corner.tl{top:-4px; left:-4px; border-right:none; border-bottom:none; border-radius:6px 0 0 0}
+  .corner.tr{top:-4px; right:-4px; border-left:none; border-bottom:none; border-radius:0 6px 0 0}
+  .corner.bl{bottom:-4px; left:-4px; border-right:none; border-top:none; border-radius:0 0 0 6px}
+  .corner.br{bottom:-4px; right:-4px; border-left:none; border-top:none; border-radius:0 0 6px 0}
+
+  /* ===== Aurora ===== */
+  .aurora-hero{display:flex; align-items:center; gap:20px; margin:18px 0}
+  .aurora-hero svg{flex:0 0 130px; filter:drop-shadow(0 0 18px rgba(45,212,191,.5))}
+  .dialog{
+    background:rgba(11,16,32,.9); border:1px solid var(--teal); border-radius:12px;
+    padding:16px 18px; font-size:1.15rem; line-height:1.55; position:relative;
+  }
+  .dialog .who{font-family:'Cinzel',serif; color:var(--teal); font-size:.85rem; letter-spacing:.15em; display:block; margin-bottom:6px}
+  .dialog em{color:var(--gold-soft)}
+
+  .btn{
+    font-family:'Cinzel',serif; font-weight:700; letter-spacing:.08em; cursor:pointer;
+    background:linear-gradient(180deg,#1d7a6e,#0f4f47); color:var(--gold-soft);
+    border:2px solid var(--gold); border-radius:10px; padding:13px 30px; font-size:1rem;
+    box-shadow:0 4px 0 #082a26, 0 0 16px rgba(45,212,191,.25); transition:all .15s;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 6px 0 #082a26, 0 0 24px rgba(45,212,191,.45)}
+  .btn:active{transform:translateY(2px); box-shadow:0 2px 0 #082a26}
+  .btn:disabled{opacity:.45; cursor:not-allowed; transform:none}
+  .center{text-align:center; margin-top:26px}
+
+  /* ===== Tabla rúnica ===== */
+  table.rune{width:100%; border-collapse:collapse; margin-top:14px; font-size:1.05rem}
+  table.rune th{font-family:'Cinzel',serif; color:var(--gold); background:rgba(15,118,110,.35);
+    padding:10px; border:1px solid rgba(232,194,106,.4); font-size:.9rem; letter-spacing:.05em}
+  table.rune td{padding:10px; border:1px solid rgba(232,194,106,.25); color:var(--parchment)}
+  table.rune td:first-child{font-family:'Cinzel',serif; color:var(--teal); font-weight:700; text-align:center; width:70px}
+
+  .dialogue-line{padding:10px 14px; border-left:3px solid var(--teal); margin:10px 0;
+    background:rgba(45,212,191,.06); border-radius:0 8px 8px 0; font-size:1.1rem}
+  .dialogue-line b{color:var(--teal); font-family:'Cinzel',serif; font-size:.85rem; letter-spacing:.1em}
+  .dialogue-line strong{color:var(--gold)}
+
+  /* ===== Duelo Arcano ===== */
+  .duel-hud{display:flex; justify-content:space-between; align-items:center; gap:14px; margin-bottom:18px}
+  .combatant{flex:1; text-align:center}
+  .combatant .name{font-family:'Cinzel',serif; font-size:.8rem; letter-spacing:.12em; color:var(--gold)}
+  .hpbar{height:16px; border:2px solid var(--gold); border-radius:8px; overflow:hidden; background:#1a0f0f; margin-top:6px}
+  .hpbar .fill{height:100%; transition:width .5s ease}
+  .hpbar.player .fill{background:linear-gradient(90deg,#0f766e,#2dd4bf)}
+  .hpbar.enemy .fill{background:linear-gradient(90deg,#7a1d1d,#e05d5d)}
+  .vs{font-family:'Cinzel',serif; color:var(--teal); font-size:1.3rem; text-shadow:0 0 12px var(--teal)}
+
+  .quest-card{font-size:1.25rem; line-height:1.6; text-align:center; padding:10px 0 4px}
+  .quest-card .qtype{font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.2em; color:var(--teal); display:block; margin-bottom:10px}
+  .options{display:flex; flex-direction:column; gap:10px; margin-top:18px}
+  .opt{
+    font-family:'EB Garamond',serif; font-size:1.15rem; cursor:pointer; color:var(--parchment);
+    background:rgba(45,212,191,.08); border:1px solid rgba(45,212,191,.45); border-radius:10px; padding:12px 16px;
+    transition:all .15s; text-align:left;
+  }
+  .opt:hover{background:rgba(45,212,191,.2); border-color:var(--teal)}
+  .opt.correct{background:rgba(87,217,138,.25); border-color:var(--ok); color:#c9f5dd}
+  .opt.wrong{background:rgba(224,93,93,.25); border-color:var(--danger); color:#f5c9c9}
+  .spell-input{
+    width:100%; font-family:'EB Garamond',serif; font-size:1.2rem; color:var(--parchment);
+    background:rgba(11,16,32,.9); border:1px solid var(--teal); border-radius:10px; padding:12px 16px; margin-top:16px;
+  }
+  .spell-input:focus{outline:none; box-shadow:0 0 14px rgba(45,212,191,.4)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:16px}
+  .chip{
+    font-family:'EB Garamond',serif; font-size:1.1rem; cursor:pointer; color:var(--ink);
+    background:var(--parchment); border:2px solid var(--gold); border-radius:8px; padding:7px 14px;
+  }
+  .chip.used{opacity:.3; pointer-events:none}
+  .answer-line{min-height:44px; border-bottom:2px dashed rgba(232,194,106,.5); margin-top:14px;
+    font-size:1.25rem; color:var(--gold-soft); text-align:center; padding:6px}
+  .feedback{margin-top:16px; padding:12px 16px; border-radius:10px; font-size:1.1rem; display:none}
+  .feedback.show{display:block; animation:fadeIn .3s}
+  .feedback.good{background:rgba(87,217,138,.15); border:1px solid var(--ok); color:#c9f5dd}
+  .feedback.bad{background:rgba(224,93,93,.15); border:1px solid var(--danger); color:#f5c9c9}
+  .aurora-react{display:flex; gap:12px; align-items:center; margin-top:14px}
+  .aurora-react svg{flex:0 0 54px}
+  .aurora-react .bubble{background:rgba(19,78,74,.4); border:1px solid var(--teal); border-radius:10px;
+    padding:10px 14px; font-size:1.05rem; font-style:italic}
+
+  .xp-tag{font-family:'Cinzel',serif; color:var(--night); background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+    border-radius:20px; padding:6px 18px; display:inline-block; font-size:.9rem; letter-spacing:.1em}
+  .progress-dots{display:flex; gap:6px; justify-content:center; margin:14px 0}
+  .dot{width:10px; height:10px; border-radius:50%; border:1px solid var(--gold); background:transparent}
+  .dot.done{background:var(--teal); box-shadow:0 0 8px var(--teal)}
+  .boss-title{color:var(--danger); text-shadow:0 0 18px rgba(224,93,93,.6)}
+  .rank{font-family:'Cinzel',serif; font-size:1.6rem; color:var(--gold); text-shadow:0 0 20px rgba(232,194,106,.5)}
+  .note{font-size:.9rem; color:#8fa3b8; text-align:center; margin-top:30px; font-style:italic}
+</style>
+</head>
+<body>
+<div class="sky"></div><div class="aurora"></div><div class="stars" id="stars"></div>
+
+<div class="wrap">
+  <p class="brand">✦ ENGLISH <b>AURORA</b> ✦ &nbsp;·&nbsp; Academia Arcana del Inglés</p>
+
+  <!-- ============ PANTALLA 1: INTRO ============ -->
+  <section class="screen active" id="s-intro">
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="aurora-hero">
+        <svg viewBox="0 0 120 120" id="aurora-svg">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#b8fff4"/><stop offset="100%" stop-color="#2dd4bf"/>
+            </radialGradient>
+          </defs>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#e8c26a" stroke-width="1.5" stroke-dasharray="4 6" opacity=".7"/>
+          <circle cx="60" cy="60" r="44" fill="url(#glow)" opacity=".18"/>
+          <ellipse cx="60" cy="52" rx="20" ry="24" fill="#f5ecd7"/>
+          <path d="M38 46 Q40 22 60 20 Q80 22 82 46 Q84 62 78 70 Q82 40 60 38 Q38 40 42 70 Q36 62 38 46Z" fill="#0f766e"/>
+          <circle cx="52" cy="52" r="2.6" fill="#134e4a"/><circle cx="68" cy="52" r="2.6" fill="#134e4a"/>
+          <path d="M54 62 Q60 67 66 62" stroke="#134e4a" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M60 78 l4 8 8 2 -8 4 -4 8 -4-8 -8-4 8-2Z" fill="#e8c26a"/>
+          <circle cx="30" cy="30" r="2" fill="#2dd4bf"/><circle cx="92" cy="38" r="1.6" fill="#2dd4bf"/><circle cx="88" cy="86" r="2" fill="#e8c26a"/>
+        </svg>
+        <div class="dialog">
+          <span class="who">✦ AURORA — Guardiana de la Academia</span>
+          Bienvenido, aprendiz. Bajo esta aurora boreal se alza la academia donde el inglés se domina como un arte arcano.
+          Hoy te entrego tres runas pequeñas pero <em>poderosas</em>: <em>a</em>, <em>an</em> y <em>the</em>.
+          Sin ellas, tus hechizos en inglés se desarman. ¿Aceptas la senda?
+        </div>
+      </div>
+      <h2 style="text-align:center; color:var(--gold); margin-top:10px">SENDA A1 · Las Runas de los Artículos</h2>
+      <p style="text-align:center; margin-top:8px; font-size:1.1rem">Lección → Quests del Grimorio → <b style="color:var(--danger)">Duelo Final</b> · Recompensa: <span class="xp-tag">✦ ESENCIA AURORA</span></p>
+      <div class="center"><button class="btn" onclick="go('s-lesson')">⚔ Aceptar la Senda</button></div>
+    </div>
+    <p class="note">SHOWCASE — propuesta de experiencia RPG para English Aurora (lección real: a1-articles-01)</p>
+  </section>
+
+  <!-- ============ PANTALLA 2: LECCIÓN ============ -->
+  <section class="screen" id="s-lesson">
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="color:var(--gold)">📜 Capítulo I — El Consejo de los Viajeros</h2>
+      <p style="margin:8px 0 14px; font-style:italic; color:#b8c7d9">Los aventureros de la academia conversan. Escucha cómo usan las runas:</p>
+      <div class="dialogue-line"><b>SOFÍA:</b> I am <strong>a</strong> designer. Ben is <strong>a</strong> photographer... <strong>an</strong> unlucky photographer.</div>
+      <div class="dialogue-line"><b>BEN:</b> Hey! I saw <strong>an</strong> iguana this morning. It was in <strong>the</strong> garden, next to <strong>the</strong> mango tree.</div>
+      <div class="dialogue-line"><b>KENJI:</b> <strong>The</strong> sun is strong today. I need <strong>a</strong> hat and <strong>an</strong> umbrella.</div>
+      <div class="dialogue-line"><b>ABUELA CARMEN:</b> In this house there is <strong>a</strong> rule: <strong>the</strong> last arepa is for <strong>the</strong> grandmother.</div>
+
+      <div class="aurora-react" style="margin-top:20px">
+        <svg viewBox="0 0 120 120"><use href="#aurora-svg"/></svg>
+        <div class="bubble">¿Viste el patrón? Las runas presentan al sustantivo: <b>a/an</b> para una cosa entre muchas; <b>the</b> para aquella que todos conocen. Y el inglés las exige incluso donde el español no: <b>She is A teacher</b>, nunca "She is teacher".</div>
+      </div>
+
+      <h3 style="color:var(--gold); margin-top:24px">✦ Tabla Rúnica: a / an / the</h3>
+      <table class="rune">
+        <tr><th>Runa</th><th>Se usa para...</th><th>Ejemplo</th></tr>
+        <tr><td>a</td><td>una cosa — antes de SONIDO consonante</td><td>a banana, a hat, a university</td></tr>
+        <tr><td>an</td><td>una cosa — antes de SONIDO vocal</td><td>an apple, an iguana, an hour</td></tr>
+        <tr><td>the</td><td>el/la específico o único</td><td>the sun, the last arepa, the garden</td></tr>
+        <tr><td>a + oficio</td><td>el inglés lo exige: She is A teacher</td><td>He is an engineer</td></tr>
+        <tr><td>—</td><td>generalizaciones en plural</td><td>I like apples (no "the apples")</td></tr>
+      </table>
+      <div class="center"><button class="btn" onclick="startQuests()">⚔ Comenzar las Quests</button></div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 3: QUESTS (DUELO ARCANO) ============ -->
+  <section class="screen" id="s-quest">
+    <div class="duel-hud">
+      <div class="combatant"><div class="name">✦ TÚ — APRENDIZ</div><div class="hpbar player"><div class="fill" id="hp-player" style="width:100%"></div></div></div>
+      <div class="vs">VS</div>
+      <div class="combatant"><div class="name">GOBLIN DE LOS ARTÍCULOS PERDIDOS</div><div class="hpbar enemy"><div class="fill" id="hp-enemy" style="width:100%"></div></div></div>
+    </div>
+    <div class="progress-dots" id="dots"></div>
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="quest-card" id="q-card"></div>
+      <div id="q-input"></div>
+      <div class="feedback" id="q-feedback"></div>
+      <div class="aurora-react" id="q-aurora" style="display:none">
+        <svg viewBox="0 0 120 120"><use href="#aurora-svg"/></svg>
+        <div class="bubble" id="q-aurora-text"></div>
+      </div>
+      <div class="center"><button class="btn" id="q-next" style="display:none" onclick="nextQuest()">Continuar →</button></div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 4: EVALUACIÓN (BOSS) ============ -->
+  <section class="screen" id="s-boss">
+    <h2 class="boss-title" style="text-align:center; margin-bottom:6px">☠ DUELO FINAL — EVALUACIÓN ☠</h2>
+    <p style="text-align:center; color:#b8c7d9; margin-bottom:16px">El Espectro del Artículo Ausente bloquea el portal. Domina las runas o repite la senda.</p>
+    <div class="duel-hud">
+      <div class="combatant"><div class="name">✦ TÚ</div><div class="hpbar player"><div class="fill" id="hp-player-b" style="width:100%"></div></div></div>
+      <div class="vs">VS</div>
+      <div class="combatant"><div class="name">EL ESPECTRO DEL ARTÍCULO AUSENTE</div><div class="hpbar enemy"><div class="fill" id="hp-enemy-b" style="width:100%"></div></div></div>
+    </div>
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="quest-card" id="b-card"></div>
+      <div id="b-input"></div>
+      <div class="feedback" id="b-feedback"></div>
+      <div class="center"><button class="btn" id="b-next" style="display:none" onclick="nextBoss()">Continuar →</button></div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 5: RESULTADO ============ -->
+  <section class="screen" id="s-result">
+    <div class="rpg-frame" style="text-align:center">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="color:var(--gold)">✦ SENDA COMPLETADA ✦</h2>
+      <div style="margin:18px auto; width:130px"><svg viewBox="0 0 120 120"><use href="#aurora-svg"/></svg></div>
+      <div class="dialog" style="text-align:left; max-width:560px; margin:0 auto">
+        <span class="who">✦ AURORA</span>
+        <span id="result-msg"></span>
+      </div>
+      <p style="margin-top:22px">Esencia Aurora ganada en esta senda:</p>
+      <p class="rank" id="xp-earned"></p>
+      <p style="margin-top:10px; color:#b8c7d9">Esencia total acumulada: <b id="xp-total" style="color:var(--teal)"></b> ✦</p>
+      <p style="margin-top:16px">Rango alcanzado: <span class="rank" id="rank"></span></p>
+      <div class="center">
+        <button class="btn" onclick="location.reload()">↻ Repetir la Senda</button>
+      </div>
+    </div>
+    <p class="note">En la versión completa: audio de cada oración (motor de audio actual, sin cambios), grimorio de vocabulario coleccionable y siguiente senda desbloqueada.</p>
+  </section>
+</div>
+
+<script>
+/* ===== Estrellas ===== */
+const stars=document.getElementById('stars');
+for(let i=0;i<70;i++){const s=document.createElement('div');s.className='star';
+  s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=(Math.random()*3)+'s';s.style.opacity=Math.random()*.7+.2;
+  stars.appendChild(s);}
+
+/* ===== Datos reales de la lección a1-articles-01 ===== */
+const QUESTS=[
+  {type:'mc', label:'QUEST I · ELIGE LA RUNA', q:'I have ___ apple.', opts:['an','a','the'], a:'an'},
+  {type:'mc', label:'QUEST II · ELIGE LA RUNA', q:'She is ___ teacher.', opts:['the','a','—'], a:'a'},
+  {type:'mc', label:'QUEST III · ELIGE LA RUNA', q:'___ sun is strong today.', opts:['A','An','The'], a:'The'},
+  {type:'tf', label:'QUEST IV · SABIDURÍA ARCANA', q:"We choose 'an' by the SOUND, not the letter: an apple, an hour.", a:true},
+  {type:'tf', label:'QUEST V · SABIDURÍA ARCANA', q:"In English, jobs don't need an article: 'She is doctor' is correct.", a:false},
+  {type:'gap', label:'QUEST VI · COMPLETA EL HECHIZO', q:'There is ___ iguana in the garden.', a:'an'},
+  {type:'gap', label:'QUEST VII · COMPLETA EL HECHIZO', q:'___ last arepa is for the grandmother.', a:'The'},
+  {type:'unscramble', label:'QUEST VIII · RECONSTRUYE EL PERGAMINO', words:['she','is','a','teacher','at','the','school'], a:'she is a teacher at the school'},
+  {type:'fix', label:'QUEST IX · REPARA EL HECHIZO ROTO', q:'I have a apple.', a:'I have an apple'},
+];
+const BOSS=[
+  {type:'gap', label:'PRUEBA DEL ESPECTRO I', q:'Kenji needs ___ umbrella and ___ hat. (dos runas, separadas por espacio)', a:'an a'},
+  {type:'fix', label:'PRUEBA DEL ESPECTRO II', q:'Corrige: "She is teacher."', a:'She is a teacher'},
+  {type:'fix', label:'PRUEBA DEL ESPECTRO III', q:'Escribe la forma negativa: "I have a car."', a:"I don't have a car"},
+  {type:'fix', label:'PRUEBA DEL ESPECTRO IV', q:'Escribe la pregunta: "There is an iguana in the garden."', a:'Is there an iguana in the garden'},
+  {type:'gap', label:'PRUEBA DEL ESPECTRO V', q:'Respuesta corta (Yes): "Is she a teacher?"', a:'Yes, she is'},
+];
+const AURORA_GOOD=['¡Hechizo acertado! La runa brilla con tu luz.','El Goblin retrocede. Tu magia crece.','¡Así se canaliza la Esencia Aurora!','Un acierto digno de los archivos de la academia.'];
+const AURORA_BAD=['El hechizo falló... pero los grandes magos fallan mil veces. Lee la pista y sigue.','El Goblin ríe. Respira. Recuerda: ¿sonido de vocal o consonante? ¿una cosa o LA cosa?','La runa se apagó un instante. Nada grave: vuelve a la tabla rúnica en tu memoria.'];
+
+/* ===== Estado ===== */
+let qi=0, bi=0, xp=0, playerHP=3, enemyHP=QUESTS.length, bossHP=BOSS.length;
+const norm=s=>s.toLowerCase().trim().replace(/[.!?]+$/,'').replace(/\s+/g,' ');
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function auroraSay(el,txt){const box=document.getElementById(el);box.style.display='flex';
+  document.getElementById(el+'-text').textContent=txt;}
+
+/* ===== QUESTS ===== */
+function startQuests(){
+  const dots=document.getElementById('dots');
+  QUESTS.forEach(()=>{const d=document.createElement('div');d.className='dot';dots.appendChild(d);});
+  go('s-quest'); renderQuest();
+}
+function renderQuest(){
+  const q=QUESTS[qi];
+  document.getElementById('q-feedback').className='feedback';
+  document.getElementById('q-aurora').style.display='none';
+  document.getElementById('q-next').style.display='none';
+  const card=document.getElementById('q-card'), inp=document.getElementById('q-input');
+  card.innerHTML=`<span class="qtype">${q.label}</span>${q.q||'Ordena las palabras del pergamino:'}`;
+  inp.innerHTML='';
+  if(q.type==='mc'){
+    const box=document.createElement('div');box.className='options';
+    q.opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o;
+      b.onclick=()=>{[...box.children].forEach(c=>c.disabled=true);
+        const ok=o===q.a; b.classList.add(ok?'correct':'wrong');
+        if(!ok)[...box.children].find(c=>c.textContent===q.a)?.classList.add('correct');
+        resolveQuest(ok);};box.appendChild(b);});
+    inp.appendChild(box);
+  }else if(q.type==='tf'){
+    const box=document.createElement('div');box.className='options';
+    [['✦ Verdadero',true],['✦ Falso',false]].forEach(([t,v])=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
+      b.onclick=()=>{[...box.children].forEach(c=>c.disabled=true);
+        const ok=v===q.a;b.classList.add(ok?'correct':'wrong');resolveQuest(ok);};box.appendChild(b);});
+    inp.appendChild(box);
+  }else if(q.type==='gap'||q.type==='fix'){
+    const i=document.createElement('input');i.className='spell-input';i.placeholder='Escribe tu hechizo aquí...';
+    const c=document.createElement('div');c.className='center';
+    const b=document.createElement('button');b.className='btn';b.textContent='✦ Lanzar hechizo';
+    b.onclick=()=>resolveQuest(norm(i.value)===norm(q.a),q.a);
+    i.onkeydown=e=>{if(e.key==='Enter')b.click();};
+    c.appendChild(b);inp.appendChild(i);inp.appendChild(c);i.focus();
+  }else if(q.type==='unscramble'){
+    const line=document.createElement('div');line.className='answer-line';line.textContent='...';
+    const chips=document.createElement('div');chips.className='chips';let picked=[];
+    q.words.forEach(w=>{const c=document.createElement('button');c.className='chip';c.textContent=w;
+      c.onclick=()=>{c.classList.add('used');picked.push(w);line.textContent=picked.join(' ');
+        if(picked.length===q.words.length)resolveQuest(norm(picked.join(' '))===norm(q.a),q.a);};
+      chips.appendChild(c);});
+    inp.appendChild(line);inp.appendChild(chips);
+  }
+}
+function resolveQuest(ok,expected){
+  const fb=document.getElementById('q-feedback');
+  if(ok){xp+=10;enemyHP--;fb.className='feedback show good';fb.textContent='✦ +10 Esencia Aurora — golpe directo al Goblin.';
+    auroraSay('q-aurora',AURORA_GOOD[Math.floor(Math.random()*AURORA_GOOD.length)]);}
+  else{playerHP--;fb.className='feedback show bad';
+    fb.textContent=expected?`El hechizo correcto era: "${expected}".`:'No era esa runa. El Goblin contraataca.';
+    auroraSay('q-aurora',AURORA_BAD[Math.floor(Math.random()*AURORA_BAD.length)]);
+    if(playerHP<=0){playerHP=1;auroraSay('q-aurora','La magia de Aurora te levanta: +1 corazón. ¡No te rindas, aprendiz!');}}
+  document.getElementById('hp-player').style.width=(playerHP/3*100)+'%';
+  document.getElementById('hp-enemy').style.width=(enemyHP/QUESTS.length*100)+'%';
+  document.getElementById('dots').children[qi].classList.add('done');
+  document.getElementById('q-next').style.display='inline-block';
+}
+function nextQuest(){qi++; qi<QUESTS.length?renderQuest():(go('s-boss'),renderBoss());}
+
+/* ===== BOSS ===== */
+function renderBoss(){
+  const q=BOSS[bi];
+  document.getElementById('b-feedback').className='feedback';
+  document.getElementById('b-next').style.display='none';
+  document.getElementById('b-card').innerHTML=`<span class="qtype">${q.label}</span>${q.q}`;
+  const inp=document.getElementById('b-input');inp.innerHTML='';
+  const i=document.createElement('input');i.className='spell-input';i.placeholder='Tu conjuro final...';
+  const c=document.createElement('div');c.className='center';
+  const b=document.createElement('button');b.className='btn';b.textContent='☠ Lanzar contra el Espectro';
+  b.onclick=()=>{const ok=norm(i.value)===norm(q.a);const fb=document.getElementById('b-feedback');
+    if(ok){xp+=20;bossHP--;fb.className='feedback show good';fb.textContent='✦ +20 Esencia Aurora — el Espectro se desvanece un poco más.';}
+    else{playerHP=Math.max(1,playerHP-1);fb.className='feedback show bad';fb.textContent=`El Espectro susurra la respuesta: "${q.a}".`;}
+    document.getElementById('hp-player-b').style.width=(playerHP/3*100)+'%';
+    document.getElementById('hp-enemy-b').style.width=(bossHP/BOSS.length*100)+'%';
+    document.getElementById('b-next').style.display='inline-block';};
+  i.onkeydown=e=>{if(e.key==='Enter')b.click();};
+  c.appendChild(b);inp.appendChild(i);inp.appendChild(c);i.focus();
+}
+function nextBoss(){bi++; bi<BOSS.length?renderBoss():showResult();}
+
+/* ===== RESULTADO ===== */
+function showResult(){
+  go('s-result');
+  const max=QUESTS.length*10+BOSS.length*20;
+  const prev=parseInt(localStorage.getItem('esenciaAurora')||'0');
+  localStorage.setItem('esenciaAurora',prev+xp);
+  document.getElementById('xp-earned').textContent=`+${xp} ✦ (de ${max} posibles)`;
+  document.getElementById('xp-total').textContent=prev+xp;
+  const pct=xp/max;
+  document.getElementById('rank').textContent=pct>=0.9?'🌟 MAGO DE LAS RUNAS':pct>=0.7?'✦ HECHICERO AVENTURERO':pct>=0.5?'📜 APRENDIZ PROMETEDOR':'🕯 INICIADO — repite la senda';
+  document.getElementById('result-msg').textContent=
+    pct>=0.7?'El Espectro se disipa en polvo de estrellas. Las tres runas son tuyas, aprendiz. La próxima senda te espera bajo la aurora.':
+    'La senda no se ha sellado del todo. No es una derrota: es el ensayo antes del gran hechizo. Repite la senda y las runas te obedecerán.';
+}
+</script>
+</body>
+</html>

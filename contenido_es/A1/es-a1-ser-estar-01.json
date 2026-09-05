@@ -1,0 +1,141 @@
+{
+  "id": "es-a1-ser-estar-01",
+  "nivel": "A1",
+  "tema": "Ser vs Estar (Fundamentos)",
+  "arquetipo": "tiempo_verbal",
+  "habilidades": ["grammar", "listening", "reading", "writing"],
+  "vocabulario": [
+    { "palabra": "feliz", "traduccion": "happy", "bandera": "✨" },
+    { "palabra": "cansado", "traduccion": "tired", "bandera": "😴" },
+    { "palabra": "médico", "traduccion": "doctor", "bandera": "🩺" },
+    { "palabra": "profesor", "traduccion": "teacher", "bandera": "📚" },
+    { "palabra": "enfermo", "traduccion": "sick", "bandera": "🤒" },
+    { "palabra": "ocupado", "traduccion": "busy", "bandera": "⏳" },
+    { "palabra": "español", "traduccion": "Spanish", "bandera": "🇪🇸" },
+    { "palabra": "mexicano", "traduccion": "Mexican", "bandera": "🇲🇽" },
+    { "palabra": "colombiano", "traduccion": "Colombian", "bandera": "🇨🇴" },
+    { "palabra": "listo (ser)", "traduccion": "clever / smart", "bandera": "🧠" },
+    { "palabra": "listo (estar)", "traduccion": "ready", "bandera": "✅" },
+    { "palabra": "aburrido", "traduccion": "bored / boring", "bandera": "🥱" }
+  ],
+  "banco_oraciones": [
+    { "id": "s1", "forma": "afirmativo", "oracion": "Elena es médica en el hospital central." },
+    { "id": "s2", "forma": "afirmativo", "oracion": "Mateo está muy cansado después del viaje." },
+    { "id": "s3", "forma": "negativo", "oracion": "Nosotros no somos de Madrid, somos de Valencia." },
+    { "id": "s4", "forma": "negativo", "oracion": "La biblioteca no está abierta los domingos." },
+    { "id": "s5", "forma": "interrogativo", "oracion": "¿Tú eres estudiante de español o de francés?" },
+    { "id": "s6", "forma": "interrogativo", "oracion": "¿Dónde está la estación de tren más cercana?" },
+    { "id": "s7", "forma": "short_answer", "oracion": "¿Estás listo para el examen? Sí, estoy listo." },
+    { "id": "s8", "forma": "short_answer", "oracion": "¿Es este tu libro? Sí, es mío." }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡Bienvenido a la senda de la Esencia y el Estado!",
+        "Mateo: Aurora, ¿por qué en español decimos 'soy feliz' pero 'estoy cansado'?",
+        "Aurora: Porque **ser** define tu identidad y características esenciales, mientras que **estar** describe tus estados temporales y tu ubicación."
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Mi hermano está profesor de historia.",
+        "opcion_b": "Mi hermano es profesor de historia.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Usa SER para identidad, origen, profesión y tiempo. Usa ESTAR para estados físicos/emocionales temporales y ubicación en el espacio.",
+      "tabla": {
+        "titulo": "Contraste Fundamental: Ser vs Estar",
+        "encabezados": ["Pronombre", "SER (Esencia / Identidad)", "ESTAR (Estado / Ubicación)"],
+        "filas": [
+          ["yo", "soy (médico / de México)", "estoy (cansado / en casa)"],
+          ["tú", "eres (inteligente / estudiante)", "estás (feliz / en clase)"],
+          ["él / ella / usted", "es (alto / profesor)", "está (enfermo / en Madrid)"],
+          ["nosotros / nosotras", "somos (amigos / españoles)", "estamos" , "listos / aquí"],
+          ["vosotros / vosotras", "sois (creativos / jóvenes)", "estáis (ocupados / allá)"],
+          ["ellos / ellas / ustedes", "son (abogados / amables)", "están (en la biblioteca)"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "ser_estar_haber",
+          "etapa": "Recognize",
+          "instruccion": "Elige la forma correcta entre ser y estar:",
+          "oracion": "Valeria ___ colombiana y hoy ___ muy contenta en su primer día de clases.",
+          "huecos": [
+            { "id": "seh_1", "opciones": ["es", "está"], "respuesta": "es" },
+            { "id": "seh_2", "opciones": ["es", "está"], "respuesta": "está" }
+          ]
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Dónde ___ la catedral de Toledo?",
+          "opciones": ["es", "está", "hay", "son"],
+          "respuesta": "está"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En la frase 'El café está frío', usamos 'estar' porque es una condición temporal y no la naturaleza eterna del café.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Mis abuelos ___ (ser) de Sevilla, pero ahora ___ (estar) de vacaciones en México.",
+          "respuesta": "son están"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Hoy yo soy muy enfermo y no puedo ir a trabajar.",
+          "respuesta": "Hoy yo estoy muy enfermo y no puedo ir a trabajar."
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": ["Nosotros", "estamos", "muy", "felices", "en", "esta", "ciudad"],
+          "respuesta": "Nosotros estamos muy felices en esta ciudad"
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Cambia la oración a forma negativa:",
+          "oracion_base": "Diego es profesor en la universidad.",
+          "respuesta": "Diego no es profesor en la universidad."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Cómo estás hoy y de dónde eres? (Responde en una frase completa con estar y ser)",
+          "respuesta": "Estoy bien y soy de Colombia."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Aurora: ¡Hola Mateo! ¿Cómo estás hoy?",
+        "Mateo: ¡Hola Aurora! Estoy un poco cansado, pero muy contento.",
+        "Aurora: ¿De dónde es tu nueva compañera de clase?",
+        "Mateo: Valeria es de Bogotá. Es una persona muy simpática."
+      ],
+      "gaps": ["cansado", "Bogotá"],
+      "comprension": [
+        {
+          "pregunta": "¿Cómo se siente Mateo?",
+          "opciones": ["Está cansado pero contento", "Está enfermo en casa", "Está aburrido"],
+          "respuesta": "Está cansado pero contento"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Carlos es un arquitecto español que vive en Medellín. Es una persona muy trabajadora y creativa. Hoy Carlos está en su oficina diseñando un nuevo parque público. Aunque está cansado por el trabajo, está entusiasmado con el proyecto porque la ciudad es maravillosa.",
+      "preguntas": [
+        { "afirmacion": "Carlos es arquitecto de profesión.", "respuesta": "true" },
+        { "afirmacion": "Carlos está en el parque en este momento.", "respuesta": "false" },
+        { "afirmacion": "Carlos está entusiasmado con el diseño del nuevo parque.", "respuesta": "true" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juegos para Aprender Inglés Gratis — La Ludoteca Arcade · English Aurora</title>
+
+<!-- REGLA 1 & 5 SEO: META DESCRIPTION, CANONICAL & OPEN GRAPH -->
+<meta name="description" content="Juega y domina el inglés por niveles CEFR (A1 a C1). 17 juegos interactivos de vocabulario, listening y gramática con Aurora, tu mentora cósmica de voz neural. 100% gratis.">
+<link rel="canonical" href="https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html">
+<meta property="og:title" content="Juegos para Aprender Inglés Gratis — La Ludoteca Arcade · English Aurora">
+<meta property="og:description" content="Juega y domina el inglés por niveles CEFR (A1 a C1). 17 juegos interactivos de vocabulario, listening y gramática con Aurora, tu mentora cósmica de voz neural.">
+<meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/assets/aurora.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- REGLA 3 SEO: DATOS ESTRUCTURADOS JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html#webpage",
+      "name": "Juegos para Aprender Inglés Gratis — La Ludoteca Arcade · English Aurora",
+      "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html",
+      "description": "Juega y domina el inglés por niveles CEFR (A1 a C1). 17 juegos interactivos de vocabulario, listening y gramática con Aurora, tu mentora cósmica de voz neural.",
+      "inLanguage": ["es", "en"],
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "English Aurora",
+        "url": "https://pipefleurs87-sudo.github.io/EnglishAurora"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ludoteca"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #070B18;
+  --night: #0A101C;
+  --night-card: rgba(13, 22, 38, 0.88);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45, 212, 191, 0.35);
+  --teal-glow: rgba(45, 212, 191, 0.6);
+  --gold: #F2C14E;
+  --gold-dim: rgba(242, 193, 78, 0.3);
+  --gold-glow: rgba(242, 193, 78, 0.65);
+  --purple: #815CD8;
+  --purple-glow: rgba(129, 92, 216, 0.5);
+  --ruby: #F43F5E;
+  --sky: #38BDF8;
+  --paper: #F2F5F7;
+  --muted: #8B99AE;
+  --dim-star: #4A5568;
+
+  --serif: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --hand: 'Caveat', cursive;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100%;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; overflow-x: hidden;
+}
+
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.aurora-layer {
+  position: fixed; inset: -10% -10% auto -10%; height: 90%;
+  z-index: 1; pointer-events: none; opacity: 0.45;
+  background: radial-gradient(ellipse 65% 45% at 20% 25%, rgba(45, 212, 191, 0.35), transparent 60%),
+              radial-gradient(ellipse 55% 40% at 80% 20%, rgba(129, 92, 216, 0.32), transparent 60%),
+              radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242, 193, 78, 0.2), transparent 65%);
+  filter: blur(50px);
+  animation: auroraDrift 22s ease-in-out infinite alternate;
+}
+@keyframes auroraDrift {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(3vw, 4vh, 0); }
+}
+
+.app-viewport {
+  position: relative; z-index: 10;
+  width: 100%; max-width: 1200px; margin: 0 auto;
+  min-height: 100vh; display: flex; flex-direction: column;
+  padding: 16px 24px 60px;
+}
+
+/* HUD */
+.aurora-hud-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; border-radius: 16px;
+  background: rgba(13, 22, 38, 0.82); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+}
+.aurora-brand-group { display: flex; align-items: center; gap: 14px; }
+.aurora-brand-title {
+  font-family: var(--serif); font-size: 16px; font-weight: 900;
+  letter-spacing: 0.12em; color: var(--gold);
+  text-shadow: 0 0 16px var(--gold-glow);
+}
+.aurora-level-pill {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(45, 212, 191, 0.12); color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.aurora-stats-group { display: flex; align-items: center; gap: 18px; }
+.aurora-stat-box { display: flex; flex-direction: column; align-items: flex-end; }
+.aurora-stat-label { font-family: var(--mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.aurora-stat-val { font-family: var(--mono); font-size: 14px; font-weight: 700; }
+.aurora-stat-val.gold { color: var(--gold); text-shadow: 0 0 10px var(--gold-glow); }
+.aurora-stat-val.teal { color: var(--teal); }
+.aurora-streak-pill {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 6px;
+  background: rgba(242, 193, 78, 0.18); color: var(--gold);
+  border: 1px solid var(--gold-dim);
+}
+.aurora-btn-save {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(242, 193, 78, 0.2), rgba(45, 212, 191, 0.2));
+  color: var(--paper); border: 1px solid var(--gold-dim);
+  border-radius: 10px; padding: 7px 14px; cursor: pointer;
+  display: flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.aurora-btn-save:hover {
+  background: var(--gold); color: var(--ink);
+  box-shadow: 0 0 20px var(--gold-glow); transform: translateY(-1px);
+}
+
+.aurora-shadow-drawer {
+  background: rgba(13, 22, 38, 0.95); border: 1px solid var(--teal-dim);
+  border-radius: 14px; padding: 14px 18px; margin-bottom: 20px;
+  display: none; flex-direction: column; gap: 10px;
+}
+.aurora-shadow-drawer.open { display: flex; }
+.aurora-drawer-title {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 12px; color: var(--teal); font-weight: 700;
+}
+
+/* Hero Section */
+.aurora-hero-card {
+  display: flex; align-items: center; justify-content: space-between;
+  background: radial-gradient(circle at 80% 30%, rgba(129, 92, 216, 0.25) 0%, rgba(13, 22, 38, 0.9) 70%);
+  border: 1px solid rgba(242, 193, 78, 0.25);
+  border-radius: 20px; padding: 26px 32px; margin-bottom: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(242, 193, 78, 0.1);
+  flex-wrap: wrap; gap: 20px;
+}
+.hero-character-wrap { display: flex; align-items: center; gap: 24px; }
+.hero-aurora-img {
+  width: 90px; height: 90px; border-radius: 50%;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 25px var(--gold-glow), 0 0 40px var(--teal-glow);
+  object-fit: cover; background: rgba(7, 11, 24, 0.9); flex-shrink: 0;
+}
+.hero-content { display: flex; flex-direction: column; gap: 6px; }
+.hero-badge {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal);
+  display: flex; align-items: center; gap: 6px;
+}
+.hero-title { font-family: var(--serif); font-size: 28px; font-weight: 900; color: var(--paper); line-height: 1.15; }
+.hero-quote { font-family: var(--hand); font-size: 20px; color: var(--gold); line-height: 1.25; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+.btn-primary {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  border-radius: 10px; padding: 12px 22px; cursor: pointer;
+  box-shadow: 0 0 20px var(--gold-glow); transition: all 0.25s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-primary:hover { background: #FFE28A; transform: translateY(-2px); box-shadow: 0 0 30px var(--gold-glow); }
+.btn-secondary {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+  background: rgba(255, 255, 255, 0.06); color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 10px;
+  padding: 11px 18px; cursor: pointer; transition: all 0.2s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); background: rgba(45, 212, 191, 0.1); }
+
+/* Filter & Search Bar */
+.filter-bar {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 28px; background: rgba(13, 22, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px;
+  padding: 16px 20px;
+}
+.filter-top-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.filter-chips-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-chip {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  background: rgba(20, 32, 54, 0.8); border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--paper); border-radius: 8px; padding: 7px 14px;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.filter-chip:hover { border-color: var(--teal); color: var(--teal); }
+.filter-chip.active {
+  background: rgba(45, 212, 191, 0.15); border-color: var(--teal);
+  color: var(--teal); box-shadow: 0 0 14px var(--teal-dim);
+}
+.search-box { position: relative; width: 100%; max-width: 280px; }
+.search-input {
+  width: 100%; background: rgba(7, 11, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px;
+  padding: 8px 12px 8px 34px; color: var(--paper); font-family: var(--sans);
+  font-size: 13px; outline: none; transition: border-color 0.2s ease;
+}
+.search-input:focus { border-color: var(--gold); }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--muted); pointer-events: none; }
+
+/* Grid & Cards */
+.section-title-wrap {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin: 32px 0 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 8px;
+}
+.section-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--gold); display: flex; align-items: center; gap: 10px; }
+.section-count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; margin-bottom: 24px; }
+.game-card {
+  background: var(--night-card); border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px; padding: 20px; display: flex; flex-direction: column;
+  justify-content: space-between; gap: 14px; position: relative; overflow: hidden;
+  transition: all 0.3s var(--e-out); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.game-card:hover {
+  transform: translateY(-4px); border-color: rgba(242, 193, 78, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(242, 193, 78, 0.15);
+}
+.game-card.featured {
+  border-color: rgba(45, 212, 191, 0.3);
+  background: radial-gradient(circle at 90% 10%, rgba(45, 212, 191, 0.1) 0%, rgba(13, 22, 38, 0.95) 70%);
+}
+
+.card-top-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+.game-icon-orb {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: rgba(20, 32, 54, 0.85); border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.badge-group { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+
+.cefr-pill {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px;
+}
+.cefr-pill.a1 { background: rgba(242, 193, 78, 0.15); color: #F2C14E; border: 1px solid rgba(242, 193, 78, 0.35); }
+.cefr-pill.a2 { background: rgba(45, 212, 191, 0.15); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.35); }
+.cefr-pill.b1 { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.35); }
+.cefr-pill.b2 { background: rgba(167, 139, 250, 0.15); color: #A78BFA; border: 1px solid rgba(167, 139, 250, 0.35); }
+.cefr-pill.c1 { background: rgba(244, 63, 94, 0.18); color: #F43F5E; border: 1px solid rgba(244, 63, 94, 0.4); }
+
+.skill-tag { font-family: var(--mono); font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.skill-tag.gold { color: var(--gold); }
+.skill-tag.purple { color: #C084FC; }
+
+.game-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--paper); margin-bottom: 6px; line-height: 1.25; }
+.game-desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; margin-bottom: 14px; }
+
+.btn-play-game {
+  width: 100%; font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(45, 212, 191, 0.12); color: var(--teal);
+  border: 1px solid var(--teal-dim); border-radius: 8px;
+  padding: 9px 0; text-align: center; text-decoration: none;
+  transition: all 0.2s ease; display: inline-block;
+}
+.btn-play-game:hover { background: var(--teal); color: var(--ink); box-shadow: 0 0 16px var(--teal-glow); }
+.btn-play-game.secondary { background: rgba(255, 255, 255, 0.05); color: var(--paper); border-color: rgba(255, 255, 255, 0.15); }
+.btn-play-game.secondary:hover { background: rgba(242, 193, 78, 0.15); border-color: var(--gold); color: var(--gold); }
+
+/* SEO Prerender */
+.seo-prerender-layer { position: relative; z-index: 5; max-width: 100%; margin: 30px auto 10px; color: var(--paper); font-family: var(--sans); }
+.seo-prerender-card { background: rgba(13, 22, 38, 0.92); border: 1px solid rgba(45, 212, 191, 0.25); border-radius: 14px; padding: 20px 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+.seo-game-title { font-family: var(--serif); font-size: 18px; color: var(--gold); margin-bottom: 6px; }
+.seo-lead { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+.seo-section-title { font-family: var(--serif); font-size: 14px; color: var(--teal); margin-bottom: 8px; }
+.seo-items-list { list-style: square; padding-left: 20px; font-size: 12.5px; color: var(--paper); line-height: 1.6; margin-bottom: 16px; }
+.seo-triad-nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+.seo-triad-label { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.seo-nav-link { font-family: var(--mono); font-size: 11.5px; color: var(--teal); text-decoration: none; padding: 4px 10px; background: rgba(45,212,191,0.08); border-radius: 6px; border: 1px solid var(--teal-dim); transition: all 0.2s ease; }
+.seo-nav-link:hover { background: rgba(242,193,78,0.15); border-color: var(--gold); color: var(--gold); }
+
+/* Modal */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(7, 11, 24, 0.88); backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-card {
+  width: 90%; max-width: 500px; background: var(--night-card);
+  border: 1px solid var(--gold); border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(242, 193, 78, 0.25);
+  padding: 28px 24px; text-align: center; position: relative;
+  transform: translateY(20px); transition: transform 0.35s var(--e-spring);
+}
+.modal-overlay.active .modal-card { transform: translateY(0); }
+.modal-close { position: absolute; top: 16px; right: 18px; background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; }
+.modal-close:hover { color: var(--paper); }
+.modal-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.modal-sub { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 20px; }
+.galaxy-preview-box {
+  width: 100%; height: 150px; border-radius: 12px;
+  background: rgba(10, 16, 28, 0.85); border: 1px solid rgba(45, 212, 191, 0.3);
+  margin-bottom: 18px; position: relative; overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="aurora-layer"></div>
+
+<div class="app-viewport">
+  <!-- HUD (Synced with Aurora Companion) -->
+  <header class="aurora-hud-bar" lang="en">
+    <div class="aurora-brand-group">
+      <div class="aurora-brand-title">ENGLISH AURORA · LUDOTECA</div>
+      <div class="aurora-level-pill" id="aurora-level-tag">SPARK · LV 1</div>
+    </div>
+
+    <div class="aurora-stats-group">
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Galaxy XP</div>
+        <div class="aurora-stat-val gold" id="aurora-xp-val">⭐ 0</div>
+      </div>
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Streak</div>
+        <div class="aurora-streak-pill" id="aurora-streak-pill">🔥 ×1</div>
+      </div>
+      <div class="aurora-stat-box clickable" id="aurora-shadow-box" title="Click to view dim stars">
+        <div class="aurora-stat-label">Shadow Words</div>
+        <div class="aurora-stat-val teal" id="aurora-shadow-val">🌘 0</div>
+      </div>
+      <button class="aurora-btn-save" id="aurora-btn-save">
+        <span>✨</span><span id="aurora-save-text">Save Galaxy</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SHADOW WORDS DRAWER -->
+  <div class="aurora-shadow-drawer" id="aurora-shadow-drawer" lang="en">
+    <div class="aurora-drawer-title">
+      <span>🌘 Dim Stars (Shadow Words)</span>
+      <span id="aurora-shadow-count">0 waiting</span>
+    </div>
+    <div id="aurora-shadow-list">
+      <div style="color:#8B99AE; font-size:12px; font-style:italic;">No shadow stars yet. Missed words will be collected here for redemption.</div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION WITH AURORA GUARDIAN -->
+  <section class="aurora-hero-card">
+    <div class="hero-character-wrap">
+      <img class="hero-aurora-img" src="assets/aurora.png" alt="Aurora, Guardian of Light">
+      <div class="hero-content">
+        <div class="hero-badge"><span>✨</span> The Celestial Arcade</div>
+        <h1 class="hero-title">Every Game Lights a Star.</h1>
+        <div class="hero-quote">"Choose your constellation, trust your ear, and let the English flow." ✨</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="juegos/meteor-words-pilot.html">🚀 Quick Play: Meteor Words</a>
+      <a class="btn-secondary" href="showcase/a1-articles-aurora-rpg.html">🗺️ Explore Master Sky</a>
+    </div>
+  </section>
+
+  <!-- FILTER & SEARCH BAR -->
+  <div class="filter-bar">
+    <div class="filter-top-row">
+      <div class="filter-chips-group" id="filter-chips">
+        <button class="filter-chip active" data-filter="all">🌌 All Games (17)</button>
+        <button class="filter-chip" data-filter="vocab">🦒 Vocabulary & Words (8)</button>
+        <button class="filter-chip" data-filter="listening">🎧 Listening & Sound (4)</button>
+        <button class="filter-chip" data-filter="grammar">⚡ Grammar & Syntax (5)</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search arcade games..." autocomplete="off">
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PILLAR 1: VOCABULARY & WORD GAMES -->
+  <!-- ========================================================================= -->
+  <div class="section-title-wrap" data-section="vocab">
+    <div class="section-title"><span>🦒</span> Vocabulary, Spelling & Word Games</div>
+    <div class="section-count">8 Cosmic Arcades · Zero-L1</div>
+  </div>
+
+  <div class="games-grid" data-section="vocab">
+    <!-- Game 1: Meteor Words (A1) -->
+    <div class="game-card featured" data-skill="vocab" data-level="a1" data-name="Meteor Words">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">☄️</div>
+          <div class="badge-group">
+            <span class="cefr-pill a1">A1 · SPARK</span>
+            <span class="skill-tag gold">Active Pilot</span>
+          </div>
+        </div>
+        <h3 class="game-title">Meteor Words</h3>
+        <p class="game-desc">Neural spoken words descend as meteors. Discriminate pure sensory concepts at high speed before the atmosphere breaches.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/meteor-words-pilot.html">🚀 Play Meteor Words</a>
+    </div>
+
+    <!-- Game 2: Constellation Match (A1) -->
+    <div class="game-card featured" data-skill="vocab" data-level="a1" data-name="Constellation Match">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">⭐</div>
+          <div class="badge-group">
+            <span class="cefr-pill a1">A1 · SPARK</span>
+            <span class="skill-tag gold">Audio Pairs</span>
+          </div>
+        </div>
+        <h3 class="game-title">Constellation Match</h3>
+        <p class="game-desc">Align astral crystal pairs (Audio ↔ Concept Portal). Form golden starlight beams and awaken the ancient constellations.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/constellation-match.html">⭐ Play Constellations</a>
+    </div>
+
+    <!-- Game 3: Cosmic Word Search (A1) -->
+    <div class="game-card featured" data-skill="vocab" data-level="a1" data-name="Cosmic Word Search">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🔍</div>
+          <div class="badge-group">
+            <span class="cefr-pill a1">A1 · SPARK</span>
+            <span class="skill-tag gold">Top 3 Searched</span>
+          </div>
+        </div>
+        <h3 class="game-title">Cosmic Word Search</h3>
+        <p class="game-desc">Classic starlight letter grid puzzle: locate hidden celestial vocabulary words with instant audio pronunciation upon discovery.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/cosmic-wordsearch.html">🔍 Play Word Search</a>
+    </div>
+
+    <!-- Game 4: Gravity Sort (A2) -->
+    <div class="game-card" data-skill="vocab" data-level="a2" data-name="Gravity Sort">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🪐</div>
+          <div class="badge-group">
+            <span class="cefr-pill a2">A2 · VERDANT</span>
+            <span class="skill-tag">Categorize</span>
+          </div>
+        </div>
+        <h3 class="game-title">Gravity Sort</h3>
+        <p class="game-desc">Categorize falling semantic matter into orbiting planets (Animals, Tools, Places, Adjectives) using gravitation physics.</p>
+      </div>
+      <a class="btn-play-game secondary" href="juegos/gravity-sort.html">🪐 Launch Gravity Sort</a>
+    </div>
+
+    <!-- Game 5: Rapid Eclipse (A2) -->
+    <div class="game-card" data-skill="vocab" data-level="a2" data-name="Rapid Eclipse">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🌒</div>
+          <div class="badge-group">
+            <span class="cefr-pill a2">A2 · VERDANT</span>
+            <span class="skill-tag">Blitz 60s</span>
+          </div>
+        </div>
+        <h3 class="game-title">Rapid Eclipse</h3>
+        <p class="game-desc">60-second lightning blitz: an astronomical concept emerges from shadow — strike the matching word before the eclipse ends.</p>
+      </div>
+      <a class="btn-play-game secondary" href="juegos/rapid-eclipse.html">🌒 Play Rapid Eclipse</a>
+    </div>
+
+    <!-- Game 6: Star Saver / Hangman (A2) -->
+    <div class="game-card featured" data-skill="vocab" data-level="a2" data-name="Star Saver Hangman">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🚀</div>
+          <div class="badge-group">
+            <span class="cefr-pill a2">A2 · VERDANT</span>
+            <span class="skill-tag gold">Top 2 Searched</span>
+          </div>
+        </div>
+        <h3 class="game-title">Star Saver (Hangman)</h3>
+        <p class="game-desc">Cosmic Hangman rescue: guess English letters to recharge spaceship energy shields and rescue the stranded astronaut.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/star-hangman.html">🚀 Play Star Saver</a>
+    </div>
+
+    <!-- Game 7: Astral Wordle (B1) -->
+    <div class="game-card featured" data-skill="vocab" data-level="b1" data-name="Astral Wordle">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🟩</div>
+          <div class="badge-group">
+            <span class="cefr-pill b1">B1 · SAPPHIRE</span>
+            <span class="skill-tag gold">Top 1 Searched</span>
+          </div>
+        </div>
+        <h3 class="game-title">Astral Wordle</h3>
+        <p class="game-desc">The viral 5-letter word deduction game in space. Deduce the mystery English word in 6 attempts with color feedback and spoken clues.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/astral-wordle.html">🟩 Play Astral Wordle</a>
+    </div>
+
+    <!-- Game 8: Celestial Riddles (B1) -->
+    <div class="game-card featured" data-skill="vocab" data-level="b1" data-name="Celestial Riddles">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">📜</div>
+          <div class="badge-group">
+            <span class="cefr-pill b1">B1 · SAPPHIRE</span>
+            <span class="skill-tag gold">Neural Enigmas</span>
+          </div>
+        </div>
+        <h3 class="game-title">Celestial Riddles</h3>
+        <p class="game-desc">Listen to Aurora speak ancient cosmic riddles in neural voice. Unlock celestial locks using pure sensory keys without word spoilers.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/riddles.html">📜 Solve Riddles</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PILLAR 2: LISTENING & SOUND -->
+  <!-- ========================================================================= -->
+  <div class="section-title-wrap" data-section="listening">
+    <div class="section-title"><span>🎧</span> Listening & Phonemic Mastery</div>
+    <div class="section-count">4 Sound Chambers · Zero-L1</div>
+  </div>
+
+  <div class="games-grid" data-section="listening">
+    <!-- Game 9: Signal Hunter (A2) -->
+    <div class="game-card featured" data-skill="listening" data-level="a2" data-name="Signal Hunter">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">📡</div>
+          <div class="badge-group">
+            <span class="cefr-pill a2">A2 · VERDANT</span>
+            <span class="skill-tag purple">Radar Navigation</span>
+          </div>
+        </div>
+        <h3 class="game-title">Signal Hunter</h3>
+        <p class="game-desc">Intercept spoken transmissions from deep space and navigate your craft to the designated cosmic coordinates on radar.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/signal-hunter.html">📡 Scan Radar</a>
+    </div>
+
+    <!-- Game 10: Sound Catch (B1) -->
+    <div class="game-card featured" data-skill="listening" data-level="b1" data-name="Sound Catch">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">👂</div>
+          <div class="badge-group">
+            <span class="cefr-pill b1">B1 · SAPPHIRE</span>
+            <span class="skill-tag purple">Minimal Pairs</span>
+          </div>
+        </div>
+        <h3 class="game-title">Sound Catch</h3>
+        <p class="game-desc">Phonetic training for tricky English minimal pairs (ship/sheep, tree/three). Catch the twin sound crystals on the oscilloscope.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/sound-catch.html">👂 Catch Sounds</a>
+    </div>
+
+    <!-- Game 11: Echo Chamber (B2) -->
+    <div class="game-card" data-skill="listening" data-level="b2" data-name="Echo Chamber">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🌊</div>
+          <div class="badge-group">
+            <span class="cefr-pill b2">B2 · VIOLET</span>
+            <span class="skill-tag purple">Intonation</span>
+          </div>
+        </div>
+        <h3 class="game-title">Echo Chamber</h3>
+        <p class="game-desc">Detect rising and falling intonation curves, rhythm patterns, and connected speech melody in native English sentences.</p>
+      </div>
+      <a class="btn-play-game secondary" href="juegos/echo-chamber.html">🌊 Enter Chamber</a>
+    </div>
+
+    <!-- Game 12: Pilot's Cabin (C1) -->
+    <div class="game-card featured" data-skill="listening" data-level="c1" data-name="Pilots Cabin">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🧭</div>
+          <div class="badge-group">
+            <span class="cefr-pill c1">C1 · RUBY</span>
+            <span class="skill-tag purple">Advanced 3D</span>
+          </div>
+        </div>
+        <h3 class="game-title">Pilot's Cabin</h3>
+        <p class="game-desc">Advanced spatial listening comprehension: follow multi-clause spoken flight directives on the 3D gyroscope compass.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/pilots-cabin.html">🧭 Steer Compass</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PILLAR 3: GRAMMAR & SYNTAX -->
+  <!-- ========================================================================= -->
+  <div class="section-title-wrap" data-section="grammar">
+    <div class="section-title"><span>⚡</span> Grammar & Syntactic Trajectory</div>
+    <div class="section-count">5 Logic Matrixes · Zero-L1</div>
+  </div>
+
+  <div class="games-grid" data-section="grammar">
+    <!-- Game 13: Unscramble the Sentence (A2) -->
+    <div class="game-card featured" data-skill="grammar" data-level="a2" data-name="Unscramble Sentence">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🚀</div>
+          <div class="badge-group">
+            <span class="cefr-pill a2">A2 · VERDANT</span>
+            <span class="skill-tag gold">Syntax</span>
+          </div>
+        </div>
+        <h3 class="game-title">Unscramble the Sentence</h3>
+        <p class="game-desc">Reassemble drifting word asteroids into correct English syntactic trajectory with Jenny neural confirmation audio.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/unscramble-sentence.html">🚀 Build Orbit</a>
+    </div>
+
+    <!-- Game 14: Arcane Duel (A1) -->
+    <div class="game-card featured" data-skill="grammar" data-level="a1" data-name="Arcane Duel">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🛡️</div>
+          <div class="badge-group">
+            <span class="cefr-pill a1">A1 · SPARK</span>
+            <span class="skill-tag gold">Boss Battle</span>
+          </div>
+        </div>
+        <h3 class="game-title">Arcane Duel</h3>
+        <p class="game-desc">Boss combat RPG against the Goblin of Lost Articles (a / an / the / zero). Cast grammatically precise spells to deplete boss HP.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/arcane-duel.html">⚔️ Fight Boss</a>
+    </div>
+
+    <!-- Game 15: Rune Shifter (B1) -->
+    <div class="game-card" data-skill="grammar" data-level="b1" data-name="Rune Shifter">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🔮</div>
+          <div class="badge-group">
+            <span class="cefr-pill b1">B1 · SAPPHIRE</span>
+            <span class="skill-tag">Determiners</span>
+          </div>
+        </div>
+        <h3 class="game-title">Rune Shifter</h3>
+        <p class="game-desc">Socket determiners, quantifiers and article runes into ancient celestial tablets before the portal locks down.</p>
+      </div>
+      <a class="btn-play-game secondary" href="juegos/rune-shifter.html">🔮 Shift Runes</a>
+    </div>
+
+    <!-- Game 16: Void Breaker (B2) -->
+    <div class="game-card" data-skill="grammar" data-level="b2" data-name="Void Breaker">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">🌌</div>
+          <div class="badge-group">
+            <span class="cefr-pill b2">B2 · VIOLET</span>
+            <span class="skill-tag">Auxiliaries</span>
+          </div>
+        </div>
+        <h3 class="game-title">Void Breaker</h3>
+        <p class="game-desc">Seal dimensional ruptures by selecting the precise auxiliary verb or irregular past tense under cosmic high-pressure speed.</p>
+      </div>
+      <a class="btn-play-game secondary" href="juegos/void-breaker.html">🌌 Seal Ruptures</a>
+    </div>
+
+    <!-- Game 17: Time Portal (C1) -->
+    <div class="game-card featured" data-skill="grammar" data-level="c1" data-name="Time Portal">
+      <div>
+        <div class="card-top-row">
+          <div class="game-icon-orb">⏳</div>
+          <div class="badge-group">
+            <span class="cefr-pill c1">C1 · RUBY</span>
+            <span class="skill-tag gold">Spacetime Shift</span>
+          </div>
+        </div>
+        <h3 class="game-title">Time Portal</h3>
+        <p class="game-desc">Shift entire complex sentences through chronological spacetime gates across past, present, future, and conditional realms.</p>
+      </div>
+      <a class="btn-play-game" href="juegos/time-portal.html">⏳ Shift Timeline</a>
+    </div>
+  </div>
+
+  <!-- PRERENDER SEO LAYER -->
+  <section class="seo-prerender-layer" lang="es" aria-label="Contenido pedagógico de la Ludoteca">
+    <div class="seo-prerender-card">
+      <header class="seo-header">
+        <h2 class="seo-game-title">La Ludoteca Arcade de English Aurora — Juegos Educativos para Aprender Inglés</h2>
+        <p class="seo-lead">Suite interactiva de 17 juegos diseñada bajo el principio Zero-L1 y el Marco Común Europeo de Referencia (MCER / CEFR de A1 a C1). Aprende vocabulario, entrena el oído y domina la gramática inglesa jugando gratis.</p>
+      </header>
+
+      <div class="seo-content-block">
+        <h3 class="seo-section-title">Habilidades y Niveles Cubiertos:</h3>
+        <ul class="seo-items-list">
+          <li><strong>Vocabulario y Ortografía (A1-B1):</strong> Reconocimiento de palabras (Meteor Words), deducción de 5 letras (Astral Wordle), rescate de letras (Star Saver), sopa de letras (Cosmic Word Search), discriminación de constelaciones (Constellation Match) y acertijos (Celestial Riddles).</li>
+          <li><strong>Comprensión Auditiva y Fonética (A2-C1):</strong> Direcciones y radar espacial (Signal Hunter), pares mínimos de vocales y consonantes (Sound Catch), curvas de entonación y habla conectada (Echo Chamber) y navegación espacial avanzada (Pilot's Cabin).</li>
+          <li><strong>Gramática y Sintaxis (A1-C1):</strong> Combate de artículos determinantes (Arcane Duel), orden sintáctico de oraciones (Unscramble the Sentence), determinantes arcanos (Rune Shifter), tiempos pasados y auxiliares (Void Breaker) y transformación temporal (Time Portal).</li>
+        </ul>
+      </div>
+
+      <nav class="seo-triad-nav" aria-label="Navegación general">
+        <span class="seo-triad-label">Explorar el Universo Aurora:</span>
+        <a class="seo-nav-link" href="index.html">🏠 Portada Estelar</a>
+        <a class="seo-nav-link" href="showcase/a1-articles-aurora-rpg.html">⚔️ Galaxia Master RPG</a>
+        <a class="seo-nav-link" href="pronunciacion.html">🗣️ Laboratorio de Fonética</a>
+        <a class="seo-nav-link" href="herramientas/generador-ejercicios.html">🎲 Generador de Ejercicios</a>
+      </nav>
+    </div>
+  </section>
+</div>
+
+<!-- SAVE GALAXY MODAL -->
+<div class="modal-overlay" id="save-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-title">Preserve Your Galaxy</div>
+    <div class="modal-sub">
+      "Don't let your light fade into the void. Anchor your ignited stars and keep your Shadow Words burning."
+    </div>
+    <div class="galaxy-preview-box">
+      <canvas id="modal-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <button class="btn-primary" id="btn-save-google">✨ Save with Google (1-Click)</button>
+      <button class="btn-secondary" id="btn-save-email">📧 Save with Email</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS: CURRICULUM ENGINE & AURORA COMPANION -->
+<script src="js/aurora-curriculum.js"></script>
+<script src="js/aurora-companion.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- BACKGROUND GALAXY CANVAS ---
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgCtx = bgCanvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    bgCanvas.width = window.innerWidth;
+    bgCanvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 120; i++) {
+      stars.push({
+        x: Math.random() * bgCanvas.width,
+        y: Math.random() * bgCanvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        alpha: Math.random() * 0.7 + 0.2,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function renderGalaxy() {
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      bgCtx.fillStyle = 'rgba(242, 193, 78, ' + a + ')';
+      bgCtx.beginPath();
+      bgCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      bgCtx.fill();
+    });
+    requestAnimationFrame(renderGalaxy);
+  }
+  renderGalaxy();
+
+  // --- INITIALIZE AURORA COMPANION ---
+  Aurora.init({
+    onOpenSave: () => drawGalaxyConstellation('modal-galaxy-canvas')
+  });
+
+  function drawGalaxyConstellation(canvasId) {
+    const cvs = document.getElementById(canvasId);
+    if (!cvs) return;
+    const ctx = cvs.getContext('2d');
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+    const state = Aurora.getState();
+    const totalStars = Math.min(state.starsIgnited + 6, 24);
+    const starCoords = [];
+    for (let i = 0; i < totalStars; i++) {
+      const x = 30 + Math.random() * (cvs.width - 60);
+      const y = 20 + Math.random() * (cvs.height - 40);
+      starCoords.push({ x, y });
+
+      ctx.fillStyle = '#F2C14E';
+      ctx.shadowColor = '#F2C14E';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.strokeStyle = 'rgba(45, 212, 191, 0.35)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    for (let i = 0; i < starCoords.length - 1; i++) {
+      if (Math.random() > 0.3) {
+        ctx.moveTo(starCoords[i].x, starCoords[i].y);
+        ctx.lineTo(starCoords[i+1].x, starCoords[i+1].y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  // --- FILTERING & SEARCH CONTROLLER ---
+  const filterChips = document.querySelectorAll('.filter-chip');
+  const searchInput = document.getElementById('search-input');
+  const gameCards = document.querySelectorAll('.game-card');
+  const sectionTitleWraps = document.querySelectorAll('.section-title-wrap');
+  const gamesGrids = document.querySelectorAll('.games-grid');
+
+  let currentFilter = 'all';
+  let currentSearchQuery = '';
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.dataset.filter;
+      applyFilters();
+      Aurora.sfx.select();
+    });
+  });
+
+  searchInput.addEventListener('input', (e) => {
+    currentSearchQuery = e.target.value.toLowerCase().trim();
+    applyFilters();
+  });
+
+  function applyFilters() {
+    gameCards.forEach(card => {
+      const skill = card.dataset.skill || '';
+      const name = (card.dataset.name || '').toLowerCase();
+      const desc = card.querySelector('.game-desc')?.textContent.toLowerCase() || '';
+
+      const matchesFilter = (currentFilter === 'all') || (skill === currentFilter);
+      const matchesSearch = !currentSearchQuery || name.includes(currentSearchQuery) || desc.includes(currentSearchQuery);
+
+      if (matchesFilter && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Check visibility of section headers
+    gamesGrids.forEach(grid => {
+      const sectionKey = grid.dataset.section;
+      const visibleCards = grid.querySelectorAll('.game-card:not([style*="display: none"])');
+      const titleWrap = document.querySelector(`.section-title-wrap[data-section="${sectionKey}"]`);
+
+      if (visibleCards.length === 0) {
+        grid.style.display = 'none';
+        if (titleWrap) titleWrap.style.display = 'none';
+      } else {
+        grid.style.display = 'grid';
+        if (titleWrap) titleWrap.style.display = 'flex';
+      }
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

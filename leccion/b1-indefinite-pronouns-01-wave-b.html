@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Indefinite Pronouns — Someone, Anyone, No One, Everyone · Wave B Master Session | English Aurora</title>
+<meta name="description" content="Wave B 1-Hour Masterclass on Indefinite Pronouns — Someone, Anyone, No One, Everyone (B1). Featuring Aurora AI Host, recurrent character dialogues, 4 grammatical forms, 3 cognitive stages, reading comprehension and printable PDF worksheet.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-main: #EAEFF2; --bg-card: #FFFFFF; --bg-card-subtle: #F4F8FA; --bg-card-darker: #E2EAEF;
+  --ink: #162831; --ink-secondary: #3B535E; --muted: #647B87; --line: #CCD7DE; --line-strong: #A6B8C2;
+  --teal: #0D7C74; --teal-dark: #08524D; --teal-light: #E0F2F1; --teal-border: #2DBAAE; --teal-glow: rgba(13, 124, 116, 0.22);
+  --gold: #B8860B; --ruby: #C53030; --ruby-light: #FFF5F5; --green: #23824A; --green-light: #EDF7F1;
+  --serif: 'Source Serif 4', Georgia, serif; --title-font: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif; --mono: 'IBM Plex Mono', monospace;
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: var(--ink); font-family: var(--sans); user-select: none; overflow-x: hidden; }
+#ambient-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.subtle-mist-layer {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.55;
+  background: radial-gradient(circle at 15% 15%, rgba(45, 212, 191, 0.12), transparent 50%),
+              radial-gradient(circle at 85% 20%, rgba(212, 160, 23, 0.09), transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(13, 124, 116, 0.08), transparent 60%);
+}
+.lesson-layout-wrap { position: relative; z-index: 10; max-width: 1300px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; padding: 18px 24px 80px; gap: 18px; }
+
+.rpg-hud-panel {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); border: 1.5px solid var(--line-strong); border-radius: 16px;
+  padding: 12px 24px; box-shadow: 0 4px 20px rgba(22, 40, 49, 0.06); flex-wrap: wrap; gap: 14px; position: relative;
+}
+.rpg-brand-zone { display: flex; align-items: center; gap: 14px; }
+.rpg-emblem { width: 44px; height: 44px; border-radius: 12px; background: var(--teal-light); border: 1.5px solid var(--teal); display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.rpg-title-group { display: flex; flex-direction: column; }
+.rpg-main-heading { font-family: var(--title-font); font-size: 16.5px; font-weight: 900; color: var(--teal-dark); letter-spacing: 0.06em; }
+.rpg-sub-kicker { font-family: var(--mono); font-size: 10.5px; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.phase-ribbon-nav { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+.phase-tab-btn {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; background: var(--bg-card-subtle);
+  border: 1px solid var(--line); color: var(--ink-secondary); border-radius: 8px; padding: 6px 12px; cursor: pointer; transition: all 0.2s ease;
+}
+.phase-tab-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+.phase-tab-btn.active { background: var(--teal); border-color: var(--teal-dark); color: #FFFFFF; box-shadow: 0 3px 12px var(--teal-glow); }
+
+.hud-actions-box { display: flex; gap: 10px; align-items: center; }
+.btn-hud-control {
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--bg-card); color: var(--teal-dark); border: 1px solid var(--teal-border); border-radius: 8px;
+  padding: 7px 14px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.btn-hud-control:hover { background: var(--teal); color: #FFFFFF; box-shadow: 0 4px 14px var(--teal-glow); }
+
+.master-stage-frame { display: grid; grid-template-columns: 330px 1fr; gap: 20px; align-items: stretch; }
+@media (max-width: 980px) { .master-stage-frame { grid-template-columns: 1fr; } }
+
+.aurora-hero-stage-card {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong); border-radius: 20px; padding: 22px;
+  box-shadow: 0 8px 24px rgba(22, 40, 49, 0.07); display: flex; flex-direction: column; justify-content: space-between; gap: 16px; position: relative;
+}
+.aurora-portrait-container { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+.aurora-large-portrait {
+  width: 220px; height: 220px; border-radius: 24px; border: 2.5px solid var(--teal); box-shadow: 0 10px 30px var(--teal-glow);
+  object-fit: cover; background: #E6FAF8; transition: all 0.3s var(--e-spring);
+}
+.aurora-large-portrait.speaking { animation: portraitAura 1.4s ease-in-out infinite alternate; }
+@keyframes portraitAura { 0% { transform: scale(1); } 100% { transform: scale(1.04); } }
+
+.aurora-nameplate { font-family: var(--title-font); font-size: 18px; font-weight: 700; color: var(--teal-dark); }
+.aurora-role-pill { font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: var(--teal-light); color: var(--teal); }
+
+.reaction-pills-row { display: flex; gap: 6px; width: 100%; justify-content: center; }
+.mood-chip-btn {
+  font-family: var(--mono); font-size: 10px; font-weight: 600; background: var(--bg-card-subtle); border: 1px solid var(--line);
+  color: var(--ink-secondary); border-radius: 6px; padding: 4px 8px; cursor: pointer; transition: all 0.15s ease;
+}
+.mood-chip-btn.active { background: var(--teal-light); border-color: var(--teal); color: var(--teal-dark); font-weight: 700; }
+
+.aurora-live-speech-card {
+  background: var(--bg-card-subtle); border: 1.5px solid var(--teal-border); border-radius: 14px; padding: 14px 16px; position: relative;
+  font-family: var(--serif); font-size: 14.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 4px 14px rgba(13, 124, 116, 0.08); min-height: 85px;
+}
+.aurora-live-speech-card::before {
+  content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); border-width: 0 8px 8px 8px; border-style: solid;
+  border-color: transparent transparent var(--teal-border) transparent;
+}
+
+.aurora-voice-controller {
+  display: flex; align-items: center; justify-content: space-between; background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 8px 12px; gap: 10px;
+}
+.btn-aurora-play {
+  font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; background: var(--teal); color: #FFFFFF;
+  border: none; border-radius: 8px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-aurora-play:hover { background: var(--teal-dark); }
+
+.audio-equalizer-bars { display: flex; align-items: center; gap: 3px; height: 18px; }
+.equalizer-bar { width: 3px; background: var(--teal); border-radius: 2px; height: 4px; }
+.audio-equalizer-bars.active .equalizer-bar { animation: eqPulse 0.7s ease-in-out infinite alternate; }
+@keyframes eqPulse { 0% { height: 4px; } 100% { height: 18px; } }
+
+.cinematic-lesson-screen {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong); border-radius: 20px; padding: 28px 34px;
+  box-shadow: 0 8px 24px rgba(22, 40, 49, 0.07); display: flex; flex-direction: column; justify-content: space-between; gap: 18px; position: relative; min-height: 560px;
+}
+.stage-kicker-line { font-family: var(--mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
+.stage-main-title { font-family: var(--serif); font-size: clamp(24px, 3.2vw, 34px); font-weight: 700; color: var(--ink); line-height: 1.2; margin-top: 4px; }
+.stage-content-scroll { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px; margin: 8px 0; }
+
+.cinema-subtitle-overlay {
+  position: absolute; bottom: 74px; left: 34px; right: 34px; z-index: 50;
+  display: flex; justify-content: center; pointer-events: none; transition: all 0.25s ease; opacity: 0; transform: translateY(6px);
+}
+.cinema-subtitle-overlay.visible { opacity: 1; transform: translateY(0); }
+.subtitle-pill-box {
+  background: rgba(16, 32, 40, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--teal-border); border-radius: 12px; padding: 10px 22px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  display: flex; align-items: center; gap: 12px; max-width: 90%;
+}
+.subtitle-speaker-badge { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--teal-dark); color: #4EFAF0; border-radius: 6px; padding: 4px 8px; flex-shrink: 0; }
+.subtitle-text-content { font-family: var(--sans); font-size: 15px; font-weight: 500; color: #FFFFFF; line-height: 1.4; }
+
+.characters-dialogue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.character-speech-bubble { background: var(--bg-card-subtle); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.character-header-row { display: flex; justify-content: space-between; align-items: center; }
+.character-badge-name { font-family: var(--title-font); font-size: 12.5px; font-weight: 700; color: var(--teal-dark); }
+.btn-char-audio { font-family: var(--mono); font-size: 10px; font-weight: 600; background: #FFFFFF; border: 1px solid var(--teal-border); color: var(--teal-dark); border-radius: 6px; padding: 3px 8px; cursor: pointer; }
+.character-quote-line { font-family: var(--serif); font-size: 14px; color: var(--ink); line-height: 1.4; }
+
+.forms-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.form-quad-card { background: var(--bg-card-subtle); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.form-quad-badge { font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--teal-dark); }
+.form-quad-sentence { font-family: var(--serif); font-size: 15.5px; color: var(--ink); font-weight: 600; }
+
+.exercise-clean-card { background: var(--bg-card-subtle); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+.exercise-kicker-tag { font-family: var(--mono); font-size: 10.5px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; }
+.exercise-prompt-heading { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.exercise-options-deck { display: flex; gap: 10px; flex-wrap: wrap; }
+.choice-pill-btn {
+  font-family: var(--mono); font-size: 13px; font-weight: 600; background: #FFFFFF; border: 1px solid var(--line-strong);
+  color: var(--ink); border-radius: 8px; padding: 9px 18px; cursor: pointer; transition: all 0.15s ease;
+}
+.choice-pill-btn:hover { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+.choice-pill-btn.correct { background: var(--green-light); border-color: var(--green); color: var(--green); font-weight: 700; }
+.choice-pill-btn.wrong { background: var(--ruby-light); border-color: var(--ruby); color: var(--ruby); font-weight: 700; }
+.exercise-feedback-text { font-size: 13.5px; font-weight: 600; min-height: 20px; line-height: 1.4; }
+
+.reading-passage-box { background: var(--bg-card-darker); border: 1.5px solid var(--line-strong); border-radius: 12px; padding: 18px 22px; font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink); }
+
+.printable-sheet-view { background: #FFFFFF; border: 1.5px solid #162831; border-radius: 14px; padding: 24px 28px; display: flex; flex-direction: column; gap: 12px; }
+.sheet-top-header { display: flex; justify-content: space-between; border-bottom: 2px solid #162831; padding-bottom: 8px; }
+.sheet-title-txt { font-family: var(--serif); font-size: 17px; font-weight: 700; }
+.sheet-meta-fields { display: flex; gap: 20px; font-family: var(--mono); font-size: 11px; color: #3D5560; }
+
+.stage-footer-controls { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 14px; }
+.step-index-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.footer-buttons-group { display: flex; gap: 10px; }
+.btn-screen-nav {
+  font-family: var(--mono); font-size: 12px; font-weight: 700; background: var(--bg-card-subtle); border: 1px solid var(--line-strong);
+  color: var(--ink); border-radius: 8px; padding: 8px 18px; cursor: pointer; transition: all 0.15s ease;
+}
+.btn-screen-nav.primary { background: var(--teal); color: #FFFFFF; border-color: var(--teal-dark); }
+
+.toast-bar {
+  position: fixed; bottom: 24px; right: 24px; z-index: 3000; background: var(--ink); border: 1px solid var(--teal);
+  border-radius: 10px; padding: 10px 18px; color: #FFFFFF; font-family: var(--mono); font-size: 12px; display: none; align-items: center; gap: 8px;
+}
+.toast-bar.show { display: flex; }
+</style>
+</head>
+<body>
+
+<canvas id="ambient-canvas"></canvas>
+<div class="subtle-mist-layer"></div>
+
+<div class="lesson-layout-wrap">
+  <header class="rpg-hud-panel">
+    <div class="rpg-brand-zone">
+      <div class="rpg-emblem">✨</div>
+      <div class="rpg-title-group">
+        <div class="rpg-main-heading">INDEFINITE PRONOUNS — SOMEONE, ANYONE, NO ONE, EVERYONE</div>
+        <div class="rpg-sub-kicker">Wave B Masterclass · B1</div>
+      </div>
+    </div>
+
+    <nav class="phase-ribbon-nav" id="phase-ribbon">
+      <button class="phase-tab-btn active" data-scene="0">1. Dialogue</button>
+      <button class="phase-tab-btn" data-scene="1">2. 4 Forms</button>
+      <button class="phase-tab-btn" data-scene="2">3. Recognize</button>
+      <button class="phase-tab-btn" data-scene="3">4. Manipulate</button>
+      <button class="phase-tab-btn" data-scene="4">5. Transform</button>
+      <button class="phase-tab-btn" data-scene="5">6. Reading</button>
+      <button class="phase-tab-btn" data-scene="6">7. Mastery & PDF</button>
+    </nav>
+
+    <div class="hud-actions-box">
+      <button class="btn-hud-control" id="btn-toggle-cc" title="Toggle Subtitles [C]">
+        <span>💬</span> <span id="cc-status-label">CC: ON</span>
+      </button>
+      <button class="btn-hud-control" id="btn-fullscreen" title="Clean Screen Recording Mode [F]">
+        <span>📺</span> Fullscreen
+      </button>
+      <a class="btn-hud-control" href="../herramientas/teacher-hub.html">
+        <span>🧙‍♂️</span> Teacher's Hub
+      </a>
+    </div>
+  </header>
+
+  <div class="master-stage-frame">
+    <aside class="aurora-hero-stage-card">
+      <div class="aurora-portrait-container">
+        <img class="aurora-large-portrait" id="aurora-hero-img" src="../assets/aurora-explicando.png" alt="Aurora Mentor">
+        <div class="aurora-identity-tag">
+          <div class="aurora-nameplate">AURORA</div>
+          <div class="aurora-role-pill">Lead YouTube Instructor</div>
+        </div>
+        <div class="reaction-pills-row">
+          <button class="mood-chip-btn active" onclick="setAuroraMood('explicando', this)">Explaining</button>
+          <button class="mood-chip-btn" onclick="setAuroraMood('celebrando', this)">Celebrating</button>
+          <button class="mood-chip-btn" onclick="setAuroraMood('corrigiendo', this)">Coaching</button>
+        </div>
+      </div>
+
+      <div class="aurora-live-speech-card" id="aurora-speech-box">
+        "Welcome! Today we explore Indefinite Pronouns — Someone, Anyone, No One, Everyone in real-life English with our friends."
+      </div>
+
+      <div class="aurora-voice-controller">
+        <button class="btn-aurora-play" id="btn-aurora-voice">
+          <span>🔊</span> <span id="aurora-voice-btn-label">Listen to Aurora</span>
+        </button>
+        <div class="audio-equalizer-bars" id="audio-eq-bars">
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="cinematic-lesson-screen" id="cinematic-lesson-screen">
+      <div>
+        <div class="stage-kicker-line" id="stage-kicker-tag">SCENE 1 · CAST DIALOGUE</div>
+        <h1 class="stage-main-title" id="stage-heading-title">Indefinite Pronouns — Someone, Anyone, No One, Everyone</h1>
+      </div>
+
+      <div class="stage-content-scroll" id="stage-content-area"></div>
+
+      <div class="cinema-subtitle-overlay" id="cinema-subtitle-overlay">
+        <div class="subtitle-pill-box">
+          <span class="subtitle-speaker-badge" id="subtitle-speaker-tag">AURORA</span>
+          <span class="subtitle-text-content" id="subtitle-text-content">"Welcome to this master session!"</span>
+        </div>
+      </div>
+
+      <div class="stage-footer-controls">
+        <div class="step-index-tag" id="stage-progress-tag">Scene 1 of 7 · Use [Space] or [Arrow Keys] to advance</div>
+        <div class="footer-buttons-group">
+          <button class="btn-screen-nav" id="btn-prev-scene">◀ Previous</button>
+          <button class="btn-screen-nav primary" id="btn-next-scene">Next Scene ▶</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<audio id="main-audio-player" preload="auto"></audio>
+<div class="toast-bar" id="toast-bar"><span>✨</span> <span id="toast-text">Audio Ready</span></div>
+
+<script>
+(function() {
+  'use strict';
+
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const RPG_SFX = {
+    chime: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      [528, 660, 792, 1056].forEach((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.06);
+        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + i * 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.06, audioCtx.currentTime + i * 0.06 + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + i * 0.06 + 0.6);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(audioCtx.currentTime + i * 0.06);
+        osc.stop(audioCtx.currentTime + i * 0.06 + 0.7);
+      });
+    },
+    crystal: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1760, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.45);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.48);
+    },
+    coach: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.4);
+      gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.52);
+    },
+    click: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(700, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.06);
+    }
+  };
+
+  const cvs = document.getElementById('ambient-canvas');
+  const ctx = cvs.getContext('2d');
+  let stars = [];
+  function resize() {
+    cvs.width = window.innerWidth; cvs.height = window.innerHeight; stars = [];
+    for (let i = 0; i < 60; i++) {
+      stars.push({ x: Math.random() * cvs.width, y: Math.random() * cvs.height, r: Math.random() * 1.5 + 0.4, alpha: Math.random() * 0.45 + 0.15, speed: Math.random() * 0.02 + 0.005, twinkle: Math.random() * Math.PI });
+    }
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  function animate() {
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      ctx.fillStyle = 'rgba(13, 124, 116, ' + ((Math.sin(s.twinkle) + 1) / 2 * s.alpha) + ')';
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  const SCENES = [
+    {
+      kicker: 'SCENE 1 · CAST DIALOGUE',
+      title: 'Indefinite Pronouns — Someone, Anyone, No One, Everyone: Cast Dialogue',
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_intro.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Welcome! Listen to how our cast members use Indefinite Pronouns — Someone, Anyone, No One, Everyone in everyday conversation."',
+      render: () => `<div class="characters-dialogue-grid">
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">🎭 Sofía</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_0_sofía')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">"Somebody left their notebook on my desk!"</div>
+          </div>
+        
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">🎭 Ben</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_1_ben')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">"Is there anything written inside it?"</div>
+          </div>
+        
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">🎭 Kenji</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_2_kenji')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">"Nobody touched it. I think everyone was at the library."</div>
+          </div>
+        
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">🎭 Abuela Carmen</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_3_abuela_carmen')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">"Look closely! If there is nothing inside, it belongs to the future."</div>
+          </div>
+        </div>`
+    },
+    {
+      kicker: 'SCENE 2 · THE 4 ESSENTIAL FORMS',
+      title: 'Affirmative, Negative, Question & Short Answer',
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_forms.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Observe how the four grammatical forms function together seamlessly."',
+      render: () => `<div class="forms-card-grid">
+          <div class="form-quad-card">
+            <span class="form-quad-badge">1. Affirmative Form</span>
+            <div class="form-quad-sentence">"Somebody left a mysterious book in the classroom."</div>
+          </div>
+        
+          <div class="form-quad-card">
+            <span class="form-quad-badge">1. Affirmative Form</span>
+            <div class="form-quad-sentence">"Everyone loves the new music festival."</div>
+          </div>
+        
+          <div class="form-quad-card">
+            <span class="form-quad-badge">1. Affirmative Form</span>
+            <div class="form-quad-sentence">"There is something magical about the aurora."</div>
+          </div>
+        
+          <div class="form-quad-card">
+            <span class="form-quad-badge">1. Affirmative Form</span>
+            <div class="form-quad-sentence">"I want to travel somewhere warm this winter."</div>
+          </div>
+        </div>`
+    },
+    {
+      kicker: 'SCENE 3 · COGNITIVE STAGE 1: RECOGNIZE',
+      title: 'Multiple Choice & Rule Verification',
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_rule.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Stage 1: Recognize the target pattern. Choose the correct form below!"',
+      render: () => `
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Exercise 1 · Pattern Discrimination</span>
+          <div class="exercise-prompt-heading">"Everybody ___ ready to begin the lesson."</div>
+          <div class="exercise-options-deck"><button class="choice-pill-btn" onclick="checkStage1('is', this, true)">is</button> <button class="choice-pill-btn" onclick="checkStage1('are', this, false)">are</button> <button class="choice-pill-btn" onclick="checkStage1('were', this, false)">were</button> </div>
+          <div class="exercise-feedback-text" id="stage1-feedback"></div>
+        </div>
+      `
+    },
+    {
+      kicker: 'SCENE 4 · COGNITIVE STAGE 2: MANIPULATE',
+      title: 'Gap Fill & Syntactic Assembly',
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_rule.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Stage 2: Manipulate the sentence structure with precision."',
+      render: () => `
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Exercise 2 · Structural Assembly</span>
+          <div class="exercise-prompt-heading">"Complete the sentence."</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkStage2('nothing', this, true)">A) nothing</button>
+            <button class="choice-pill-btn" onclick="checkStage2('wrong_opt', this, false)">B) Other form</button>
+          </div>
+          <div class="exercise-feedback-text" id="stage2-feedback"></div>
+        </div>
+      `
+    },
+    {
+      kicker: 'SCENE 5 · COGNITIVE STAGE 3: TRANSFORM',
+      title: 'Sentence Inversion & Production',
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_forms.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Stage 3: Transform statements into questions and production short answers!"',
+      render: () => `
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Exercise 3 · Syntactic Transformation</span>
+          <div class="exercise-prompt-heading">""</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkStage3('false', this, true)">A) "false"</button>
+            <button class="choice-pill-btn" onclick="checkStage3('wrong_tr', this, false)">B) Inverted error</button>
+          </div>
+          <div class="exercise-feedback-text" id="stage3-feedback"></div>
+        </div>
+      `
+    },
+    {
+      kicker: 'SCENE 6 · READING COMPREHENSION PASSAGE',
+      title: "Contextual Story & Verification",
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_reading.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Listen and read the contextual passage. Then verify the comprehension statement below!"',
+      render: () => `
+        <div class="reading-passage-box">"In the whispering forest of Whispering Pines, everyone knows the legend of the Star Stone. The tale says that someone placed a glowing gem inside an ancient oak tree three hundred years ago. Many adventurers have searched everywhere across the valley, but nobody has ever discovered its hiding place. Some believe there is nothing true in the old story, while others say that anyone with a pure heart can hear the stone humming in the twilight."</div>
+        <div class="exercise-clean-card" style="margin-top:12px;">
+          <span class="exercise-kicker-tag">Reading True / False Check</span>
+          <div class="exercise-prompt-heading">"Everyone in Whispering Pines knows the legend of the Star Stone."</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkReading(true, this, true)">True</button>
+            <button class="choice-pill-btn" onclick="checkReading(false, this, false)">False</button>
+          </div>
+          <div class="exercise-feedback-text" id="reading-feedback"></div>
+        </div>
+      `
+    },
+    {
+      kicker: 'SCENE 7 · MASTERY CONSOLIDATION & PDF SUITE',
+      title: 'Mastery Complete & Printable Worksheet',
+      audioFile: '../audio/b1-indefinite-pronouns/aurora_conclusion.mp3',
+      auroraMood: 'celebrando',
+      auroraDialogue: '"Masterclass complete! You conquered Indefinite Pronouns — Someone, Anyone, No One, Everyone. Download your 10-exercise worksheet below!"',
+      render: () => `
+        <div class="printable-sheet-view">
+          <div class="sheet-top-header">
+            <div>
+              <div class="sheet-title-txt">Indefinite Pronouns — Someone, Anyone, No One, Everyone · Master Worksheet (10 Exercises)</div>
+              <div style="font-family:var(--mono); font-size:11px; color:#6B7079;">English Aurora · Wave B Masterclass Collection</div>
+            </div>
+            <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+          </div>
+          <div class="sheet-meta-fields">
+            <span>Student Name: _________________________________</span>
+            <span>Date: __________________</span>
+            <span>Final Score: ____ / 10 ⭐</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:12.5px; line-height:1.55; color:#162831;">
+            <div>
+              <p style="font-family:var(--mono); font-weight:700; color:var(--teal-dark); text-transform:uppercase; margin-bottom:4px; font-size:11px;">Part 1 · Structural Completion:</p>
+              <p>1. Complete the core sentences with the target structure.</p>
+              <p style="font-family:var(--mono); font-weight:700; color:var(--teal-dark); text-transform:uppercase; margin-top:8px; margin-bottom:4px; font-size:11px;">Part 2 · Auxiliary Selection:</p>
+              <p>5. Write the negative and question forms.</p>
+            </div>
+            <div>
+              <p style="font-family:var(--mono); font-weight:700; color:var(--teal-dark); text-transform:uppercase; margin-bottom:4px; font-size:11px;">Part 3 · Transformation & Production:</p>
+              <p>8. Transform the sentences and write short answers.</p>
+              <div style="margin-top:10px; padding:8px 10px; background:#F4F8FA; border:1px dashed var(--line-strong); border-radius:8px; font-family:var(--mono); font-size:10px; color:#556B77;">
+                <strong>Quick Answer Key:</strong> 
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    }
+  ];
+
+  let currentSceneIndex = 0;
+  const auroraHeroImg = document.getElementById('aurora-hero-img');
+  const auroraSpeechBox = document.getElementById('aurora-speech-box');
+  const stageKickerTag = document.getElementById('stage-kicker-tag');
+  const stageHeadingTitle = document.getElementById('stage-heading-title');
+  const stageContentArea = document.getElementById('stage-content-area');
+  const stageProgressTag = document.getElementById('stage-progress-tag');
+  const phaseTabs = document.querySelectorAll('.phase-tab-btn');
+
+  const mainAudio = document.getElementById('main-audio-player');
+  const btnAuroraVoice = document.getElementById('btn-aurora-voice');
+  const voiceBtnLabel = document.getElementById('aurora-voice-btn-label');
+  const audioEqBars = document.getElementById('audio-eq-bars');
+
+  const MOOD_IMAGES = {
+    explicando: '../assets/aurora-explicando.png',
+    celebrando: '../assets/aurora-celebrando.png',
+    corrigiendo: '../assets/aurora-corrigiendo.png'
+  };
+
+  window.setAuroraMood = function(moodKey, btnEl) {
+    if (MOOD_IMAGES[moodKey]) {
+      auroraHeroImg.src = MOOD_IMAGES[moodKey];
+      document.querySelectorAll('.mood-chip-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+    }
+  };
+
+  function renderScene(idx) {
+    currentSceneIndex = idx;
+    const scene = SCENES[idx];
+
+    stageKickerTag.textContent = scene.kicker;
+    stageHeadingTitle.textContent = scene.title;
+    stageContentArea.innerHTML = scene.render();
+    auroraSpeechBox.innerHTML = scene.auroraDialogue;
+    stageProgressTag.textContent = `Scene ${idx + 1} of ${SCENES.length} · Use [Space] or [Arrow Keys] to advance`;
+
+    phaseTabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
+
+    setAuroraMood(scene.auroraMood);
+    const activeMoodBtn = document.querySelector(`.mood-chip-btn[onclick*="${scene.auroraMood}"]`);
+    if (activeMoodBtn) {
+      document.querySelectorAll('.mood-chip-btn').forEach(b => b.classList.remove('active'));
+      activeMoodBtn.classList.add('active');
+    }
+
+    mainAudio.pause();
+    mainAudio.src = scene.audioFile;
+    setPlayingState(false);
+    RPG_SFX.chime();
+  }
+
+  let ccEnabled = true;
+  const subtitleOverlay = document.getElementById('cinema-subtitle-overlay');
+  const subtitleSpeakerTag = document.getElementById('subtitle-speaker-tag');
+  const subtitleTextContent = document.getElementById('subtitle-text-content');
+  const ccStatusLabel = document.getElementById('cc-status-label');
+  const btnToggleCc = document.getElementById('btn-toggle-cc');
+
+  function toggleCC() {
+    ccEnabled = !ccEnabled;
+    ccStatusLabel.textContent = ccEnabled ? 'CC: ON' : 'CC: OFF';
+    btnToggleCc.style.borderColor = ccEnabled ? 'var(--teal-border)' : 'var(--line)';
+    if (!ccEnabled) subtitleOverlay.classList.remove('visible');
+    showToast(`Closed Captions: ${ccEnabled ? 'ON' : 'OFF'}`);
+  }
+  btnToggleCc.onclick = () => { RPG_SFX.click(); toggleCC(); };
+
+  function showSubtitle(speaker, text) {
+    if (!ccEnabled) return;
+    subtitleSpeakerTag.textContent = speaker.toUpperCase();
+    subtitleTextContent.textContent = text;
+    subtitleOverlay.classList.add('visible');
+  }
+
+  function hideSubtitle() { subtitleOverlay.classList.remove('visible'); }
+
+  function setPlayingState(isPlaying) {
+    if (isPlaying) {
+      voiceBtnLabel.textContent = 'Pause Voice';
+      audioEqBars.classList.add('active');
+      auroraHeroImg.classList.add('speaking');
+      const curScene = SCENES[currentSceneIndex];
+      showSubtitle('AURORA', curScene.auroraDialogue.replace(/^"|"$/g, ''));
+    } else {
+      voiceBtnLabel.textContent = 'Listen to Aurora';
+      audioEqBars.classList.remove('active');
+      auroraHeroImg.classList.remove('speaking');
+      hideSubtitle();
+    }
+  }
+
+  btnAuroraVoice.onclick = () => {
+    RPG_SFX.click();
+    if (mainAudio.paused) {
+      mainAudio.play().then(() => setPlayingState(true)).catch(() => showToast('Click to play'));
+    } else {
+      mainAudio.pause();
+      setPlayingState(false);
+    }
+  };
+  mainAudio.onended = () => setPlayingState(false);
+
+  document.getElementById('btn-next-scene').onclick = () => {
+    if (currentSceneIndex < SCENES.length - 1) renderScene(currentSceneIndex + 1);
+    else { RPG_SFX.crystal(); showToast('Master session completed!'); }
+  };
+
+  document.getElementById('btn-prev-scene').onclick = () => {
+    if (currentSceneIndex > 0) renderScene(currentSceneIndex - 1);
+  };
+
+  phaseTabs.forEach(tab => {
+    tab.onclick = () => { RPG_SFX.click(); renderScene(parseInt(tab.dataset.scene, 10)); };
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); document.getElementById('btn-next-scene').click(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); document.getElementById('btn-prev-scene').click(); }
+    else if (e.key.toLowerCase() === 'p') btnAuroraVoice.click();
+    else if (e.key.toLowerCase() === 'c') toggleCC();
+    else if (e.key.toLowerCase() === 'f') document.getElementById('btn-fullscreen').click();
+  });
+
+  document.getElementById('btn-fullscreen').onclick = () => {
+    RPG_SFX.click();
+    const el = document.getElementById('cinematic-lesson-screen');
+    if (!document.fullscreenElement) el.requestFullscreen().catch(() => {});
+    else document.exitFullscreen().catch(() => {});
+  };
+
+  window.playRoutineAudio = function(clipSlug) {
+    RPG_SFX.click();
+    const a = new Audio(`../audio/b1-indefinite-pronouns/${clipSlug}.mp3`);
+    a.play().catch(() => {});
+    showToast(`Playing dialogue`);
+  };
+
+  window.checkStage1 = function(choice, btnEl, isCorrect) {
+    const fb = document.getElementById('stage1-feedback');
+    btnEl.parentElement.querySelectorAll('.choice-pill-btn').forEach(b => b.className = 'choice-pill-btn');
+    if (isCorrect) {
+      RPG_SFX.crystal(); btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)'; fb.textContent = '✓ Correct! Perfectly applied.';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Brilliant deduction! You caught the target form correctly!"';
+      showToast('Stage 1 Cleared! +25 XP');
+    } else {
+      RPG_SFX.coach(); btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)'; fb.textContent = '✗ Notice the grammatical subject and agreement.';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Look closely at the subject agreement rule! Try once more."';
+    }
+  };
+
+  window.checkStage2 = function(choice, btnEl, isCorrect) {
+    const fb = document.getElementById('stage2-feedback');
+    btnEl.parentElement.querySelectorAll('.choice-pill-btn').forEach(b => b.className = 'choice-pill-btn');
+    if (isCorrect) {
+      RPG_SFX.crystal(); btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)'; fb.textContent = '✓ Correct! Structural assembly complete.';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Spot on! That is clean syntactic precision!"';
+      showToast('Stage 2 Cleared! +25 XP');
+    } else {
+      RPG_SFX.coach(); btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)'; fb.textContent = '✗ Check the auxiliary form required.';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Remember the auxiliary pattern in this structure!"';
+    }
+  };
+
+  window.checkStage3 = function(choice, btnEl, isCorrect) {
+    const fb = document.getElementById('stage3-feedback');
+    btnEl.parentElement.querySelectorAll('.choice-pill-btn').forEach(b => b.className = 'choice-pill-btn');
+    if (isCorrect) {
+      RPG_SFX.crystal(); btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)'; fb.textContent = '✓ Correct! Transformation verified.';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Flawless transformation! You have mastered this pattern."';
+      showToast('Stage 3 Cleared! +25 XP');
+    } else {
+      RPG_SFX.coach(); btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)'; fb.textContent = '✗ In English, echo the auxiliary without repeating the main verb.';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Echo the auxiliary pattern cleanly!"';
+    }
+  };
+
+  window.checkReading = function(userAns, btnEl, isCorrect) {
+    const fb = document.getElementById('reading-feedback');
+    btnEl.parentElement.querySelectorAll('.choice-pill-btn').forEach(b => b.className = 'choice-pill-btn');
+    if (isCorrect) {
+      RPG_SFX.crystal(); btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)'; fb.textContent = '✓ Correct reading deduction!';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Great reading precision! You caught the exact detail."';
+      showToast('Reading Cleared! +50 XP');
+    } else {
+      RPG_SFX.coach(); btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)'; fb.textContent = '✗ Look back at the passage details.';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Re-check the passage text carefully!"';
+    }
+  };
+
+  function showToast(msg) {
+    const t = document.getElementById('toast-bar');
+    document.getElementById('toast-text').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  renderScene(0);
+})();
+</script>
+</body>
+</html>

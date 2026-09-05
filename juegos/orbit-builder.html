@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orbit Builder 🚀 — Word Order & Syntactic Assembly | English Aurora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #070B18;
+  --night: #0A101C;
+  --night-card: rgba(13, 22, 38, 0.88);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45, 212, 191, 0.35);
+  --teal-glow: rgba(45, 212, 191, 0.6);
+  --gold: #F2C14E;
+  --gold-dim: rgba(242, 193, 78, 0.3);
+  --gold-glow: rgba(242, 193, 78, 0.65);
+  --purple: #815CD8;
+  --paper: #F2F5F7;
+  --muted: #8B99AE;
+
+  --serif: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --hand: 'Caveat', cursive;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; touch-action: manipulation;
+}
+
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.aurora-layer {
+  position: fixed; inset: -10% -10% auto -10%; height: 80%;
+  z-index: 1; pointer-events: none; opacity: 0.45;
+  background: radial-gradient(ellipse 65% 45% at 25% 30%, rgba(45, 212, 191, 0.3), transparent 60%),
+              radial-gradient(ellipse 55% 40% at 75% 25%, rgba(129, 92, 216, 0.28), transparent 60%),
+              radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242, 193, 78, 0.15), transparent 65%);
+  filter: blur(40px);
+  animation: auroraDrift 20s ease-in-out infinite alternate;
+}
+@keyframes auroraDrift {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(3vw, 4vh, 0); }
+}
+
+.app-viewport {
+  position: relative; z-index: 10;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  padding: 12px 20px;
+}
+
+/* Orbit Arena */
+.orbit-arena {
+  position: relative; flex: 1;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 50% 50%, rgba(13, 22, 38, 0.6) 0%, rgba(7, 11, 24, 0.5) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 24px; overflow: hidden;
+}
+
+/* Orbital Sentence Trajectory Track */
+.orbit-track-box {
+  width: 100%; max-width: 680px; min-height: 90px;
+  background: rgba(10, 16, 28, 0.85); border: 2px dashed rgba(45, 212, 191, 0.4);
+  border-radius: 18px; padding: 14px 18px;
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(45, 212, 191, 0.1);
+  transition: all 0.3s ease;
+}
+.orbit-track-box.orbit-locked {
+  border: 2px solid #57D98A; box-shadow: 0 0 40px rgba(87, 217, 138, 0.7);
+}
+
+/* Asteroid Word Chips */
+.word-asteroid {
+  font-family: var(--serif); font-size: 16px; font-weight: 700;
+  color: var(--paper); background: linear-gradient(145deg, rgba(28, 44, 72, 0.95), rgba(14, 22, 38, 0.98));
+  border: 1.5px solid var(--teal-dim); border-radius: 12px;
+  padding: 10px 18px; cursor: pointer; transition: all 0.2s var(--e-out);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+.word-asteroid:hover {
+  border-color: var(--gold); background: rgba(242, 193, 78, 0.15);
+  transform: translateY(-2px); box-shadow: 0 8px 20px var(--gold-dim);
+}
+.word-asteroid.in-orbit {
+  background: rgba(45, 212, 191, 0.15); border-color: var(--teal);
+  color: var(--gold); text-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* Pool Stage */
+.asteroid-pool-wrap {
+  display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+  max-width: 680px; margin-top: 10px;
+}
+
+/* Launch Controls */
+.orbit-controls-row {
+  display: flex; gap: 14px;
+}
+.btn-orbit-action {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 10px 22px; border-radius: 10px; cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-orbit-action.launch {
+  background: var(--gold); color: var(--ink); border: none;
+  box-shadow: 0 0 20px var(--gold-dim);
+}
+.btn-orbit-action.launch:hover {
+  background: #FFE28A; transform: translateY(-2px); box-shadow: 0 0 30px var(--gold-glow);
+}
+.btn-orbit-action.reset {
+  background: rgba(255, 255, 255, 0.05); color: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-orbit-action.reset:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Modals */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(7, 11, 24, 0.88); backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-card {
+  width: 90%; max-width: 500px;
+  background: var(--night-card);
+  border: 1px solid var(--gold); border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(242, 193, 78, 0.25);
+  padding: 28px 24px; text-align: center; position: relative;
+  transform: translateY(20px); transition: transform 0.35s var(--e-spring);
+}
+.modal-overlay.active .modal-card { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer;
+}
+.modal-close:hover { color: var(--paper); }
+.modal-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 8px;
+}
+.modal-sub {
+  font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 20px;
+}
+.galaxy-preview-box {
+  width: 100%; height: 150px; border-radius: 12px;
+  background: rgba(10, 16, 28, 0.85); border: 1px solid rgba(45, 212, 191, 0.3);
+  margin-bottom: 18px; position: relative; overflow: hidden;
+}
+.btn-primary {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  border-radius: 10px; padding: 11px 20px; cursor: pointer;
+  box-shadow: 0 0 20px var(--gold-glow); transition: all 0.25s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-primary:hover {
+  background: #FFE28A; transform: translateY(-2px); box-shadow: 0 0 30px var(--gold-glow);
+}
+.btn-secondary {
+  font-family: var(--mono); font-size: 11px;
+  background: rgba(255, 255, 255, 0.05); color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px;
+  padding: 10px 16px; cursor: pointer; transition: all 0.2s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="aurora-layer"></div>
+
+<div class="app-viewport">
+  <!-- HUD (Synced with Aurora Companion) -->
+  <header class="aurora-hud-bar">
+    <div class="aurora-brand-group">
+      <div class="aurora-brand-title">ENGLISH AURORA</div>
+      <div class="aurora-level-pill" id="aurora-level-tag">SPARK · LV 1</div>
+    </div>
+
+    <div class="aurora-stats-group">
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Galaxy XP</div>
+        <div class="aurora-stat-val gold" id="aurora-xp-val">⭐ 0</div>
+      </div>
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Streak</div>
+        <div class="aurora-streak-pill" id="aurora-streak-pill">🔥 ×1</div>
+      </div>
+      <div class="aurora-stat-box clickable" id="aurora-shadow-box" title="Click to view dim stars">
+        <div class="aurora-stat-label">Shadow Words</div>
+        <div class="aurora-stat-val teal" id="aurora-shadow-val">🌘 0</div>
+      </div>
+      <button class="aurora-btn-save" id="aurora-btn-save">
+        <span>✨</span><span id="aurora-save-text">Save Galaxy</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SHADOW WORDS DRAWER -->
+  <div class="aurora-shadow-drawer" id="aurora-shadow-drawer">
+    <div class="aurora-drawer-title">
+      <span>🌘 Dim Stars (Shadow Words)</span>
+      <span id="aurora-shadow-count">0 waiting</span>
+    </div>
+    <div id="aurora-shadow-list">
+      <div style="color:#8B99AE; font-size:12px; font-style:italic;">No shadow stars yet. Missed words will be collected here for redemption.</div>
+    </div>
+  </div>
+
+  <!-- ARENA -->
+  <main class="orbit-arena" id="arena">
+    <div style="font-family:var(--mono); font-size:12px; color:var(--teal); letter-spacing:0.1em;">
+      SYNTACTIC TRAJECTORY: ASSEMBLE WORDS IN GRAMMATICAL ORDER
+    </div>
+
+    <!-- Active Orbit Track -->
+    <div class="orbit-track-box" id="orbit-track">
+      <div style="color:var(--muted); font-size:13px; font-style:italic;" id="empty-track-hint">Click words below to place in orbit...</div>
+    </div>
+
+    <!-- Scrambled Words Pool -->
+    <div class="asteroid-pool-wrap" id="asteroid-pool"></div>
+
+    <!-- Action Buttons -->
+    <div class="orbit-controls-row">
+      <button class="btn-orbit-action reset" id="btn-reset-orbit">↩ Reset Orbit</button>
+      <button class="btn-orbit-action launch" id="btn-launch-orbit">🚀 Launch Sentence</button>
+    </div>
+  </main>
+
+  <!-- GUIDANCE FOOTER (Aurora Avatar Companion) -->
+  <footer class="aurora-guidance-panel">
+    <div class="aurora-character-wrap">
+      <img id="aurora-avatar-img" class="aurora-character-img" src="../assets/aurora.png" alt="Aurora · Guardian of Light">
+      <div class="aurora-dialogue-bubble">
+        <div class="aurora-name">Aurora · Guardian of Light</div>
+        <div class="aurora-quote" id="aurora-quote">"Arrange the word asteroids into perfect syntactic orbit." 🚀</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- SAVE MODAL -->
+<div class="modal-overlay" id="save-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-title">Preserve Your Galaxy</div>
+    <div class="modal-sub">
+      "Don't let your light fade into the void. Anchor your ignited stars and keep your Shadow Words burning."
+    </div>
+    
+    <div class="galaxy-preview-box">
+      <canvas id="modal-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <button class="btn-primary" id="btn-save-google">✨ Save with Google (1-Click)</button>
+      <button class="btn-secondary" id="btn-save-email">📧 Save with Email</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS MODAL -->
+<div class="modal-overlay" id="results-modal">
+  <div class="modal-card">
+    <div class="modal-title" id="results-title">Orbits Syntactically Stable! 🚀</div>
+    <div class="modal-sub" id="results-sub">All sentence asteroids assembled into flawless grammatical flight paths.</div>
+
+    <div class="galaxy-preview-box">
+      <canvas id="results-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+      <button class="btn-primary" id="btn-restart-orbit">🚀 Assemble Next Orbit</button>
+      <a class="btn-secondary" href="../ludoteca.html">🌌 Return to Ludoteca</a>
+      <button class="btn-secondary" id="btn-results-save">✨ Save My Galaxy</button>
+    </div>
+  </div>
+</div>
+
+<!-- AURORA COMPANION ENGINE -->
+<script src="../js/aurora-curriculum.js"></script>
+<script src="../js/aurora-companion.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  const SENTENCES = [
+    { target: ['She', 'reads', 'a', 'book', 'every', 'night'], full: 'She reads a book every night.' },
+    { target: ['They', 'are', 'flying', 'to', 'London', 'tomorrow'], full: 'They are flying to London tomorrow.' },
+    { target: ['The', 'doctor', 'helped', 'the', 'patient', 'yesterday'], full: 'The doctor helped the patient yesterday.' },
+    { target: ['We', 'have', 'already', 'visited', 'the', 'museum'], full: 'We have already visited the museum.' },
+    { target: ['He', 'is', 'a', 'very', 'smart', 'architect'], full: 'He is a very smart architect.' }
+  ];
+
+  // --- BACKGROUND CANVAS ---
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgCtx = bgCanvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    bgCanvas.width = window.innerWidth;
+    bgCanvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 110; i++) {
+      stars.push({
+        x: Math.random() * bgCanvas.width,
+        y: Math.random() * bgCanvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        alpha: Math.random() * 0.7 + 0.2,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function renderGalaxy() {
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      bgCtx.fillStyle = 'rgba(242, 193, 78, ' + a + ')';
+      bgCtx.beginPath();
+      bgCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      bgCtx.fill();
+    });
+    requestAnimationFrame(renderGalaxy);
+  }
+  renderGalaxy();
+
+  Aurora.init({
+    onOpenSave: () => drawGalaxyConstellation('modal-galaxy-canvas')
+  });
+
+  // --- SPEECH ENGINE ---
+  function speakSentence(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.88;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  // --- GAMEPLAY CONTROLLER ---
+  const trackBox = document.getElementById('orbit-track');
+  const poolWrap = document.getElementById('asteroid-pool');
+  const emptyHint = document.getElementById('empty-track-hint');
+  const btnLaunch = document.getElementById('btn-launch-orbit');
+  const btnReset = document.getElementById('btn-reset-orbit');
+
+  let currentTarget = null;
+  let inOrbitWords = [];
+  let availableWords = [];
+  let roundCount = 0;
+  const ROUND_TOTAL = 5;
+  let isTransitioning = false;
+
+  function startNextSentence() {
+    roundCount++;
+    isTransitioning = false;
+
+    if (roundCount > ROUND_TOTAL) {
+      finishWave();
+      return;
+    }
+
+    const item = SENTENCES[(roundCount - 1) % SENTENCES.length];
+    currentTarget = item;
+
+    inOrbitWords = [];
+    availableWords = [...item.target].sort(() => Math.random() - 0.5);
+
+    renderTrackAndPool();
+  }
+
+  function renderTrackAndPool() {
+    trackBox.classList.remove('orbit-locked');
+    trackBox.innerHTML = '';
+    if (inOrbitWords.length === 0) {
+      trackBox.appendChild(emptyHint);
+    } else {
+      inOrbitWords.forEach((word, idx) => {
+        const chip = document.createElement('div');
+        chip.className = 'word-asteroid in-orbit';
+        chip.textContent = word;
+        chip.onclick = () => {
+          if (isTransitioning) return;
+          inOrbitWords.splice(idx, 1);
+          availableWords.push(word);
+          renderTrackAndPool();
+        };
+        trackBox.appendChild(chip);
+      });
+    }
+
+    poolWrap.innerHTML = '';
+    availableWords.forEach((word, idx) => {
+      const chip = document.createElement('div');
+      chip.className = 'word-asteroid';
+      chip.textContent = word;
+      chip.onclick = () => {
+        if (isTransitioning) return;
+        availableWords.splice(idx, 1);
+        inOrbitWords.push(word);
+        renderTrackAndPool();
+      };
+      poolWrap.appendChild(chip);
+    });
+  }
+
+  btnReset.onclick = () => {
+    if (isTransitioning || !currentTarget) return;
+    inOrbitWords = [];
+    availableWords = [...currentTarget.target].sort(() => Math.random() - 0.5);
+    renderTrackAndPool();
+  };
+
+  btnLaunch.onclick = (e) => {
+    if (isTransitioning || !currentTarget) return;
+    const clickX = e.clientX;
+    const clickY = e.clientY;
+
+    const isMatch = inOrbitWords.join(' ') === currentTarget.target.join(' ');
+    if (isMatch) {
+      isTransitioning = true;
+      trackBox.classList.add('orbit-locked');
+      speakSentence(currentTarget.full);
+      Aurora.celebrate({ xp: 15, x: clickX, y: clickY, message: 'Stable Sentence Orbit! 🚀' });
+      setTimeout(startNextSentence, 1800);
+    } else {
+      isTransitioning = true;
+      Aurora.comfortMistake({
+        word: 'Sentence Order',
+        icon: '🚀',
+        slug: 'syntax',
+        clue: currentTarget.full,
+        x: clickX,
+        y: clickY,
+        mountSelector: '#arena'
+      });
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 2600);
+    }
+  };
+
+  function finishWave() {
+    Aurora.sfx.waveComplete();
+    const resultsModal = document.getElementById('results-modal');
+    resultsModal.classList.add('active');
+    drawGalaxyConstellation('results-galaxy-canvas');
+  }
+
+  function drawGalaxyConstellation(canvasId) {
+    const cvs = document.getElementById(canvasId);
+    if (!cvs) return;
+    const ctx = cvs.getContext('2d');
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+    const state = Aurora.getState();
+    const totalStars = Math.min(state.starsIgnited + 6, 24);
+    const starCoords = [];
+    for (let i = 0; i < totalStars; i++) {
+      const x = 30 + Math.random() * (cvs.width - 60);
+      const y = 20 + Math.random() * (cvs.height - 40);
+      starCoords.push({ x, y });
+
+      ctx.fillStyle = '#F2C14E';
+      ctx.shadowColor = '#F2C14E';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.strokeStyle = 'rgba(45, 212, 191, 0.35)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    for (let i = 0; i < starCoords.length - 1; i++) {
+      if (Math.random() > 0.3) {
+        ctx.moveTo(starCoords[i].x, starCoords[i].y);
+        ctx.lineTo(starCoords[i+1].x, starCoords[i+1].y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  document.getElementById('btn-restart-orbit').onclick = () => {
+    document.getElementById('results-modal').classList.remove('active');
+    roundCount = 0;
+    startNextSentence();
+  };
+
+  startNextSentence();
+
+})();
+</script>
+</body>
+</html>

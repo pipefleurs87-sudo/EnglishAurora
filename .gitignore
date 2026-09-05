@@ -1,0 +1,14 @@
+﻿# Archivos temporales
+*.zip
+*.pyc
+__pycache__/
+/tmp/
+/backup/
+
+# Archivos de entorno
+.env
+*.local
+
+# IDE/Editor
+.vscode/
+.idea/

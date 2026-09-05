@@ -1,0 +1,13 @@
+// ⚠️ NO PUBLICAR ESTE ARCHIVO.
+//
+// Tu proyecto Firebase (sanguine-fusion-403621) YA tiene reglas de seguridad
+// propias y bien hechas para tu plataforma de profesor:
+//   - /estudiantes/{token}: get público (para que el alumno vea su perfil por token),
+//     y list/create/update/delete solo con sesión iniciada (tú).
+//   - subcolecciones /tareas, /resultados, /comentarios con permisos finos.
+//
+// El aula (herramientas/aula.html) FUNCIONA con esas reglas tal cual, porque
+// entras con Google (request.auth != null) y eso ya te da lectura/escritura.
+//
+// Publicar reglas nuevas aquí SOBRESCRIBIRÍA y ROMPERÍA tu plataforma.
+// Este archivo queda solo como recordatorio, NO para desplegar.

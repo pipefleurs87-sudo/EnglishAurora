@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meteor Words — Vocabulario A1 | Juegos para aprender inglés · English Aurora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #070B18;
+  --night: #0A101C;
+  --night-card: rgba(13, 22, 38, 0.88);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45, 212, 191, 0.35);
+  --teal-glow: rgba(45, 212, 191, 0.6);
+  --gold: #F2C14E;
+  --gold-dim: rgba(242, 193, 78, 0.3);
+  --gold-glow: rgba(242, 193, 78, 0.65);
+  --purple: #815CD8;
+  --paper: #F2F5F7;
+  --muted: #8B99AE;
+  --dim-star: #4A5568;
+
+  --serif: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --hand: 'Caveat', cursive;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; touch-action: manipulation;
+}
+
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.aurora-layer {
+  position: fixed; inset: -10% -10% auto -10%; height: 80%;
+  z-index: 1; pointer-events: none; opacity: 0.45;
+  background: radial-gradient(ellipse 65% 45% at 25% 30%, rgba(45, 212, 191, 0.3), transparent 60%),
+              radial-gradient(ellipse 55% 40% at 75% 25%, rgba(129, 92, 216, 0.28), transparent 60%),
+              radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242, 193, 78, 0.15), transparent 65%);
+  filter: blur(40px);
+  animation: auroraDrift 20s ease-in-out infinite alternate;
+  transition: opacity 1s ease, filter 1s ease;
+}
+@keyframes auroraDrift {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(3vw, 4vh, 0); }
+}
+body.streak-active .aurora-layer {
+  opacity: 0.85; filter: blur(30px) saturate(1.6);
+}
+
+.app-viewport {
+  position: relative; z-index: 10;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  padding: 12px 20px;
+}
+
+/* Constellation Bar */
+.constellation-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 10px; z-index: 40;
+}
+.constellation-select-wrap {
+  display: flex; align-items: center; gap: 8px; flex: 1; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.constellation-select-wrap::-webkit-scrollbar { display: none; }
+.constellation-chip {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.05em; color: var(--muted);
+  background: rgba(13, 22, 38, 0.7); border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px; padding: 5px 12px; cursor: pointer; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px; transition: all 0.2s var(--e-out);
+}
+.constellation-chip:hover {
+  color: var(--paper); border-color: var(--teal-dim); transform: translateY(-1px);
+}
+.constellation-chip.active {
+  color: var(--gold); background: rgba(242, 193, 78, 0.15);
+  border-color: var(--gold); font-weight: 600;
+  box-shadow: 0 0 14px var(--gold-dim);
+}
+
+/* Topic Modebar */
+.topic-modebar { display: flex; align-items: center; gap: 6px; }
+.mode-link {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: var(--muted); background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px;
+  padding: 5px 10px; transition: all 0.2s ease;
+  display: flex; align-items: center; gap: 4px;
+}
+.mode-link:hover {
+  color: var(--teal); border-color: var(--teal); background: rgba(45, 212, 191, 0.1);
+}
+
+/* Game Arena */
+.game-arena {
+  position: relative; flex: 1;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 50% 100%, rgba(13, 22, 38, 0.7) 0%, rgba(7, 11, 24, 0.4) 100%);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.stage-area { position: relative; flex: 1; width: 100%; overflow: hidden; }
+
+.meteor-card {
+  position: absolute; width: 108px; height: 118px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(26, 38, 62, 0.92), rgba(12, 19, 33, 0.96));
+  border: 2px solid var(--teal-dim);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(45, 212, 191, 0.2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer; transition: transform 0.15s ease, border-color 0.2s, box-shadow 0.2s;
+  will-change: transform, top;
+}
+.meteor-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 0 26px var(--teal-glow);
+  transform: scale(1.06);
+}
+.meteor-card:active { transform: scale(0.96); }
+
+.meteor-card.is-shadow {
+  border-color: var(--purple);
+  background: linear-gradient(145deg, rgba(38, 22, 62, 0.94), rgba(16, 10, 32, 0.98));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 24px rgba(129, 92, 216, 0.45);
+}
+.meteor-card.is-shadow:hover {
+  border-color: #A78BFA;
+  box-shadow: 0 0 32px rgba(167, 139, 250, 0.7);
+}
+.meteor-card.is-shadow .meteor-trail {
+  background: linear-gradient(to top, var(--purple), transparent);
+}
+.shadow-badge {
+  position: absolute; top: 6px; right: 8px;
+  font-size: 13px; filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.8));
+}
+.meteor-icon {
+  font-size: 44px; line-height: 1; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+.meteor-trail {
+  position: absolute; top: -24px; width: 3px; height: 28px;
+  background: linear-gradient(to top, var(--teal), transparent);
+  border-radius: 2px; filter: blur(1px); opacity: 0.7;
+}
+.atmosphere-shield {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, transparent 0%, var(--teal) 50%, transparent 100%);
+  box-shadow: 0 0 20px var(--teal-glow); opacity: 0.75;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(7, 11, 24, 0.88); backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-card {
+  width: 90%; max-width: 520px;
+  background: var(--night-card);
+  border: 1px solid var(--gold); border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(242, 193, 78, 0.25);
+  padding: 30px 26px; text-align: center; position: relative;
+  transform: translateY(20px); transition: transform 0.35s var(--e-spring);
+}
+.modal-overlay.active .modal-card { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer;
+}
+.modal-close:hover { color: var(--paper); }
+.modal-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--gold); margin-bottom: 8px;
+}
+.modal-sub {
+  font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 20px;
+}
+.galaxy-preview-box {
+  width: 100%; height: 150px; border-radius: 12px;
+  background: rgba(10, 16, 28, 0.85); border: 1px solid rgba(45, 212, 191, 0.3);
+  margin-bottom: 18px; position: relative; overflow: hidden;
+}
+.btn-primary {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  border-radius: 10px; padding: 11px 20px; cursor: pointer;
+  box-shadow: 0 0 20px var(--gold-glow); transition: all 0.25s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-primary:hover {
+  background: #FFE28A; transform: translateY(-2px); box-shadow: 0 0 30px var(--gold-glow);
+}
+.btn-secondary {
+  font-family: var(--mono); font-size: 11px;
+  background: rgba(255, 255, 255, 0.05); color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px;
+  padding: 10px 16px; cursor: pointer; transition: all 0.2s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+/* SEO Prerender Accessible Styling (Visible to Crawlers & Collapsible) */
+.seo-prerender-layer {
+  position: relative; z-index: 5; max-width: 860px; margin: 20px auto 40px;
+  padding: 0 16px; color: var(--paper); font-family: var(--sans);
+}
+.seo-prerender-card {
+  background: rgba(13, 22, 38, 0.92); border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 14px; padding: 20px 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.seo-game-title { font-family: var(--serif); font-size: 18px; color: var(--gold); margin-bottom: 6px; }
+.seo-lead { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+.seo-section-title { font-family: var(--serif); font-size: 14px; color: var(--teal); margin-bottom: 8px; }
+.seo-items-list { list-style: square; padding-left: 20px; font-size: 12.5px; color: var(--paper); line-height: 1.6; margin-bottom: 16px; }
+.seo-ipa { font-family: var(--mono); color: var(--gold); font-size: 11.5px; }
+.seo-clue { color: var(--muted); }
+.seo-triad-nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+.seo-triad-label { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.seo-nav-link { font-family: var(--mono); font-size: 11.5px; color: var(--teal); text-decoration: none; padding: 4px 10px; background: rgba(45,212,191,0.08); border-radius: 6px; border: 1px solid var(--teal-dim); transition: all 0.2s ease; }
+.seo-nav-link:hover { background: rgba(242,193,78,0.15); border-color: var(--gold); color: var(--gold); }
+.seo-nav-link.hub { color: var(--gold); border-color: var(--gold-dim); background: rgba(242,193,78,0.1); }
+
+</style>
+
+<!-- REGLA 1 & 5 SEO: META DESCRIPTION, CANONICAL & OPEN GRAPH -->
+<meta name="description" content="Juego interactivo gratis de vocabulario en inglés (CEFR A1). Escucha la pronunciación neural de Aurora y asocia palabras con conceptos antes del impacto de meteoros.">
+<link rel="canonical" href="https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/meteor-words-pilot.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/meteor-words-pilot.html">
+<meta property="og:title" content="Meteor Words — Vocabulario A1 | Juegos para aprender inglés · English Aurora">
+<meta property="og:description" content="Juego interactivo gratis de vocabulario en inglés (CEFR A1). Escucha la pronunciación neural de Aurora y asocia palabras con conceptos antes del impacto de meteoros.">
+<meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/assets/aurora.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- REGLA 3 SEO: DATOS ESTRUCTURADOS JSON-LD (WebApplication & Breadcrumbs) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/meteor-words-pilot.html#app",
+      "name": "Meteor Words — Vocabulario A1 | Juegos para aprender inglés · English Aurora",
+      "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/meteor-words-pilot.html",
+      "description": "Juego interactivo gratis de vocabulario en inglés (CEFR A1). Escucha la pronunciación neural de Aurora y asocia palabras con conceptos antes del impacto de meteoros.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All modern web browsers",
+      "isAccessibleForFree": true,
+      "inLanguage": [
+        "en",
+        "es"
+      ],
+      "educationalLevel": "CEFR A1",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "English Aurora",
+        "url": "https://pipefleurs87-sudo.github.io/EnglishAurora"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/meteor-words-pilot.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ludoteca",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Nivel A1",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html?level=a1"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Meteor Words ☄️"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="aurora-layer"></div>
+
+<div class="app-viewport">
+  <!-- HUD (Synced with Aurora Companion) -->
+  <header class="aurora-hud-bar">
+    <div class="aurora-brand-group">
+      <div class="aurora-brand-title">ENGLISH AURORA</div>
+      <div class="aurora-level-pill" id="aurora-level-tag">SPARK · LV 1</div>
+    </div>
+
+    <div class="aurora-stats-group">
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Galaxy XP</div>
+        <div class="aurora-stat-val gold" id="aurora-xp-val">⭐ 0</div>
+      </div>
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Streak</div>
+        <div class="aurora-streak-pill" id="aurora-streak-pill">🔥 ×1</div>
+      </div>
+      <div class="aurora-stat-box clickable" id="aurora-shadow-box" title="Click to view dim stars">
+        <div class="aurora-stat-label">Shadow Words</div>
+        <div class="aurora-stat-val teal" id="aurora-shadow-val">🌘 0</div>
+      </div>
+      <button class="aurora-btn-save" id="aurora-btn-save">
+        <span>✨</span><span id="aurora-save-text">Save Galaxy</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SHADOW WORDS DRAWER -->
+  <div class="aurora-shadow-drawer" id="aurora-shadow-drawer">
+    <div class="aurora-drawer-title">
+      <span>🌘 Dim Stars (Shadow Words)</span>
+      <span id="aurora-shadow-count">0 waiting</span>
+    </div>
+    <div id="aurora-shadow-list">
+      <div style="color:#8B99AE; font-size:12px; font-style:italic;">No shadow stars yet. Missed words will be collected here for redemption.</div>
+    </div>
+  </div>
+
+  <!-- CONSTELLATION SELECTOR & TOPIC LINKS -->
+  <div class="constellation-bar">
+    <div class="constellation-select-wrap" id="constellation-chips"></div>
+    <div class="topic-modebar" id="topic-links">
+      <a class="mode-link" id="link-lesson" href="#" target="_blank">📖 Lesson</a>
+      <a class="mode-link" id="link-practice" href="#" target="_blank">✏️ Practice</a>
+      <a class="mode-link" id="link-test" href="#" target="_blank">✓ Test</a>
+    </div>
+  </div>
+
+  <!-- GAME ARENA -->
+  <main class="game-arena" id="arena">
+    <div class="stage-area" id="stage"></div>
+    <div class="atmosphere-shield"></div>
+  </main>
+
+  <!-- GUIDANCE FOOTER (Aurora Avatar Companion) -->
+  <footer class="aurora-guidance-panel">
+    <div class="aurora-character-wrap">
+      <img id="aurora-avatar-img" class="aurora-character-img" src="../assets/aurora.png" alt="Aurora · Guardian of Light">
+      <div class="aurora-dialogue-bubble">
+        <div class="aurora-name">Aurora · Guardian of Light</div>
+        <div class="aurora-quote" id="aurora-quote">"We can light up the galaxy together." ✨</div>
+      </div>
+    </div>
+
+    <div class="aurora-audio-widget">
+      <button class="aurora-btn-speaker" id="btn-replay-audio" title="Replay Word">🔊</button>
+      <div class="aurora-wave-bars" id="aurora-wave-bars">
+        <div class="aurora-wave-bar"></div>
+        <div class="aurora-wave-bar"></div>
+        <div class="aurora-wave-bar"></div>
+        <div class="aurora-wave-bar"></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- SAVE MODAL -->
+<div class="modal-overlay" id="save-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-title">Preserve Your Galaxy</div>
+    <div class="modal-sub">
+      "Don't let your light fade into the void. Anchor your ignited stars and keep your Shadow Words burning."
+    </div>
+    
+    <div class="galaxy-preview-box">
+      <canvas id="modal-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <button class="btn-primary" id="btn-save-google">✨ Save with Google (1-Click)</button>
+      <button class="btn-secondary" id="btn-save-email">📧 Save with Email</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS MODAL -->
+<div class="modal-overlay" id="results-modal">
+  <div class="modal-card">
+    <div class="modal-title" id="results-title">Constellation Complete! ✨</div>
+    <div class="modal-sub" id="results-sub">8 stars encountered in this orbit.</div>
+
+    <div class="galaxy-preview-box">
+      <canvas id="results-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+      <button class="btn-primary" id="btn-next-round">🚀 Next Cosmic Wave</button>
+      <a class="btn-secondary" id="btn-results-lesson" href="#" target="_blank">📖 Review Lesson</a>
+      <a class="btn-secondary" id="btn-results-test" href="#" target="_blank">✓ Take Topic Test</a>
+      <button class="btn-secondary" id="btn-results-save">✨ Save My Galaxy</button>
+    </div>
+  </div>
+</div>
+
+<!-- AURORA COMPANION ENGINE -->
+<script src="../js/aurora-curriculum.js"></script>
+<script src="../js/aurora-companion.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- CONSTELLATIONS DATA ---
+  const CONSTELLATIONS = {
+    adjectives: {
+      id: 'a1-adjectives-people-things-01',
+      name: 'Adjectives',
+      icon: '🦒',
+      items: [
+        { word: 'tall', slug: 'tall', icon: '🦒', clue: 'High in height, reaching upward' },
+        { word: 'short', slug: 'short', icon: '📏', clue: 'Small in height or length' },
+        { word: 'friendly', slug: 'friendly', icon: '🤝', clue: 'Kind, warm and welcoming to others' },
+        { word: 'funny', slug: 'funny', icon: '😄', clue: 'Makes you smile and laugh' },
+        { word: 'smart', slug: 'smart', icon: '🧠', clue: 'Quick to learn and understand' },
+        { word: 'beautiful', slug: 'beautiful', icon: '🌸', clue: 'Very pleasing to see' },
+        { word: 'old', slug: 'old', icon: '👴', clue: 'Having lived or existed for a long time' },
+        { word: 'young', slug: 'young', icon: '👶', clue: 'In the early stage of life' },
+        { word: 'big', slug: 'big', icon: '🐘', clue: 'Large in size and weight' },
+        { word: 'small', slug: 'small', icon: '🐜', clue: 'Little in size and volume' },
+        { word: 'fast', slug: 'fast', icon: '⚡', clue: 'Moving with great speed' },
+        { word: 'strong', slug: 'strong', icon: '💪', clue: 'Having great physical power' }
+      ]
+    },
+    professions: {
+      id: 'a1-relative-clauses-professions-01',
+      name: 'Professions',
+      icon: '🧑‍🍳',
+      items: [
+        { word: 'doctor', slug: 'doctor', icon: '👨‍⚕️', clue: 'A person who heals sick people' },
+        { word: 'chef', slug: 'chef', icon: '👨‍🍳', clue: 'A person who cooks delicious food' },
+        { word: 'pilot', slug: 'pilot', icon: '🧑‍✈️', clue: 'A person who flies airplanes' },
+        { word: 'architect', slug: 'architect', icon: '📐', clue: 'A person who designs buildings' },
+        { word: 'nurse', slug: 'nurse', icon: '👩‍⚕️', clue: 'A person who cares for patients in a hospital' },
+        { word: 'teacher', slug: 'teacher', icon: '👩‍🏫', clue: 'A person who teaches students' },
+        { word: 'journalist', slug: 'journalist', icon: '📰', clue: 'A person who writes news stories' },
+        { word: 'engineer', slug: 'engineer', icon: '⚙️', clue: 'A person who builds machines and systems' },
+        { word: 'photographer', slug: 'photographer', icon: '📷', clue: 'A person who takes photos' },
+        { word: 'singer', slug: 'singer', icon: '🎤', clue: 'A person who sings songs' },
+        { word: 'actor', slug: 'actor', icon: '🎭', clue: 'A person who performs in movies or plays' },
+        { word: 'police officer', slug: 'police_officer', icon: '👮', clue: 'A person who protects the community' }
+      ]
+    },
+    places: {
+      id: 'a1-relative-clauses-places-01',
+      name: 'City Places',
+      icon: '🏙️',
+      items: [
+        { word: 'bakery', slug: 'bakery', icon: '🥖', clue: 'A place where fresh bread is baked' },
+        { word: 'library', slug: 'library', icon: '📚', clue: 'A quiet place where you read books' },
+        { word: 'museum', slug: 'museum', icon: '🏛️', clue: 'A place where art and history are shown' },
+        { word: 'hospital', slug: 'hospital', icon: '🏥', clue: 'A place where doctors care for the sick' },
+        { word: 'airport', slug: 'airport', icon: '✈️', clue: 'A place where airplanes land and take off' },
+        { word: 'pharmacy', slug: 'pharmacy', icon: '💊', clue: 'A place where you buy medicine' },
+        { word: 'supermarket', slug: 'supermarket', icon: '🛒', clue: 'A large shop selling food and goods' },
+        { word: 'cinema', slug: 'cinema', icon: '🍿', clue: 'A place where you watch movies' },
+        { word: 'gym', slug: 'gym', icon: '🏋️', clue: 'A place where people exercise and train' },
+        { word: 'restaurant', slug: 'restaurant', icon: '🍽️', clue: 'A place where you order and eat meals' },
+        { word: 'bank', slug: 'bank', icon: '🏦', clue: 'A place where you keep your money safe' },
+        { word: 'park', slug: 'park', icon: '🌳', clue: 'A green public space with trees and grass' }
+      ]
+    },
+    objects: {
+      id: 'a1-relative-clauses-objects-01',
+      name: 'Objects & Tools',
+      icon: '🔧',
+      items: [
+        { word: 'keyboard', slug: 'keyboard', icon: '⌨️', clue: 'A set of keys for typing on a computer' },
+        { word: 'backpack', slug: 'backpack', icon: '🎒', clue: 'A bag carried on your back for books' },
+        { word: 'hammer', slug: 'hammer', icon: '🔨', clue: 'A tool used for hitting nails into wood' },
+        { word: 'scissors', slug: 'scissors', icon: '✂️', clue: 'A tool with two blades for cutting paper' },
+        { word: 'umbrella', slug: 'umbrella', icon: '☂️', clue: 'Protects you from falling rain' },
+        { word: 'microscope', slug: 'microscope', icon: '🔬', clue: 'An instrument to look at tiny cells' },
+        { word: 'camera', slug: 'camera', icon: '📷', clue: 'A device for capturing photos' },
+        { word: 'guitar', slug: 'guitar', icon: '🎸', clue: 'A musical instrument with six strings' },
+        { word: 'key', slug: 'key', icon: '🔑', clue: 'A metal object that unlocks doors' },
+        { word: 'mirror', slug: 'mirror', icon: '🪞', clue: 'A glass surface reflecting your face' }
+      ]
+    },
+    food: {
+      id: 'a2-countables-some-any-01',
+      name: 'Food & Drinks',
+      icon: '🍳',
+      items: [
+        { word: 'cheese', slug: 'cheese', icon: '🧀', clue: 'A dairy food made from milk' },
+        { word: 'rice', slug: 'rice', icon: '🍚', clue: 'Small white grains cooked in water' },
+        { word: 'coffee', slug: 'coffee', icon: '☕', clue: 'A hot dark morning drink' },
+        { word: 'water', slug: 'water', icon: '💧', clue: 'Clear liquid essential for all life' },
+        { word: 'apple', slug: 'apple', icon: '🍎', clue: 'A round red or green fruit' },
+        { word: 'egg', slug: 'egg', icon: '🥚', clue: 'An oval food laid by chickens' },
+        { word: 'bread', slug: 'bread', icon: '🍞', clue: 'Baked flour food eaten daily' },
+        { word: 'potato', slug: 'potato', icon: '🥔', clue: 'A root vegetable cooked in many ways' },
+        { word: 'milk', slug: 'milk', icon: '🥛', clue: 'A white liquid food produced by cows' },
+        { word: 'tea', slug: 'tea', icon: '🍵', clue: 'A hot beverage made with dried leaves' },
+        { word: 'banana', slug: 'banana', icon: '🍌', clue: 'A sweet curved yellow tropical fruit' },
+        { word: 'meat', slug: 'meat', icon: '🥩', clue: 'Animal tissue used as nutritious food' }
+      ]
+    },
+    routines: {
+      id: 'a1-present-simple-routines-01',
+      name: 'Routines',
+      icon: '⏰',
+      items: [
+        { word: 'wake up', slug: 'wake_up', icon: '⏰', clue: 'To stop sleeping in the morning' },
+        { word: 'brush teeth', slug: 'brush_teeth', icon: '🪥', clue: 'To clean your teeth with a toothbrush' },
+        { word: 'have breakfast', slug: 'have_breakfast', icon: '🥞', clue: 'To eat your first morning meal' },
+        { word: 'take shower', slug: 'take_shower', icon: '🚿', clue: 'To wash your body with warm water' },
+        { word: 'go to work', slug: 'go_to_work', icon: '💼', clue: 'To travel to your workplace' },
+        { word: 'cook dinner', slug: 'cook_dinner', icon: '🍲', clue: 'To prepare evening food' },
+        { word: 'read book', slug: 'read_book', icon: '📖', clue: 'To read pages of literature' },
+        { word: 'go to bed', slug: 'go_to_bed', icon: '🛏️', clue: 'To lie down and sleep at night' }
+      ]
+    }
+  };
+
+  let activeConstellationKey = 'adjectives';
+
+  // --- BACKGROUND CANVAS ---
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgCtx = bgCanvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    bgCanvas.width = window.innerWidth;
+    bgCanvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 110; i++) {
+      stars.push({
+        x: Math.random() * bgCanvas.width,
+        y: Math.random() * bgCanvas.height,
+        r: Math.random() * 1.6 + 0.4,
+        alpha: Math.random() * 0.8 + 0.2,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function renderGalaxy() {
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      bgCtx.fillStyle = 'rgba(242, 193, 78, ' + a + ')';
+      bgCtx.beginPath();
+      bgCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      bgCtx.fill();
+    });
+    requestAnimationFrame(renderGalaxy);
+  }
+  renderGalaxy();
+
+  // --- DINAMIC FEED FROM LESSONS (AuroraCurriculum) ---
+  if (typeof AuroraCurriculum !== 'undefined') {
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedTopic = urlParams.get('topic');
+    if (requestedTopic) {
+      const topicData = AuroraCurriculum.getTopic(requestedTopic);
+      if (topicData && topicData.vocab && topicData.vocab.length) {
+        CONSTELLATIONS[requestedTopic] = {
+          id: topicData.id,
+          name: topicData.title.split('—')[0].trim(),
+          icon: topicData.vocab[0]?.bandera || '✨',
+          items: topicData.vocab.map(v => ({
+            word: v.palabra,
+            slug: v.palabra.toLowerCase().replace(/[^a-z0-9]/g, '_'),
+            icon: v.bandera || '✨',
+            clue: v.traduccion || v.palabra
+          }))
+        };
+        activeConstellationKey = requestedTopic;
+      }
+    }
+  }
+
+  // --- INITIALIZE AURORA COMPANION ---
+  Aurora.init({
+    onOpenSave: () => drawGalaxyConstellation('modal-galaxy-canvas')
+  });
+
+  // --- TOPIC LINKS & CHIPS ---
+  const constellationChips = document.getElementById('constellation-chips');
+  const linkLesson = document.getElementById('link-lesson');
+  const linkPractice = document.getElementById('link-practice');
+  const linkTest = document.getElementById('link-test');
+
+  function updateTopicLinks() {
+    const constel = CONSTELLATIONS[activeConstellationKey];
+    if (constel) {
+      linkLesson.href = '../leccion/' + constel.id + '.html';
+      linkPractice.href = '../preview/' + constel.id + '.html';
+      linkTest.href = '../evaluacion/' + constel.id + '.html';
+    }
+  }
+
+  function renderConstellationChips() {
+    constellationChips.innerHTML = '';
+    Object.keys(CONSTELLATIONS).forEach(key => {
+      const c = CONSTELLATIONS[key];
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'constellation-chip' + (key === activeConstellationKey ? ' active' : '');
+      chip.innerHTML = '<span>' + c.icon + '</span><span>' + c.name + '</span>';
+      chip.onclick = () => {
+        if (activeConstellationKey !== key) {
+          activeConstellationKey = key;
+          renderConstellationChips();
+          updateTopicLinks();
+          roundCount = 0;
+          startNextWave();
+        }
+      };
+      constellationChips.appendChild(chip);
+    });
+    updateTopicLinks();
+  }
+  renderConstellationChips();
+
+  // --- GAME ENGINE ---
+  const stage = document.getElementById('stage');
+  const btnReplay = document.getElementById('btn-replay-audio');
+  let currentTarget = null;
+  let activeMeteors = [];
+  let roundCount = 0;
+  const ROUND_TOTAL = 8;
+  let isTransitioning = false;
+  let isCurrentShadowTarget = false;
+
+  btnReplay.onclick = () => {
+    if (currentTarget) Aurora.speakWord(currentTarget);
+  };
+
+  function startNextWave() {
+    stage.innerHTML = '';
+    activeMeteors = [];
+    roundCount++;
+    isCurrentShadowTarget = false;
+
+    if (roundCount > ROUND_TOTAL) {
+      finishWave();
+      return;
+    }
+
+    const currentConstel = CONSTELLATIONS[activeConstellationKey];
+    const pool = currentConstel.items;
+    const shadowWords = Aurora.getShadowWords();
+
+    // Check if we can reintroduce a Shadow Word
+    let targetItem = null;
+    if (shadowWords.length > 0 && (roundCount % 3 === 0 || Math.random() < 0.35)) {
+      const matchInPool = shadowWords.filter(sw => pool.some(p => p.word === sw.word));
+      if (matchInPool.length > 0) {
+        const sw = matchInPool[Math.floor(Math.random() * matchInPool.length)];
+        targetItem = pool.find(p => p.word === sw.word);
+        if (targetItem) {
+          isCurrentShadowTarget = true;
+        }
+      }
+    }
+
+    if (!targetItem) {
+      const shuffled = pool.slice().sort(() => Math.random() - 0.5);
+      targetItem = shuffled[0];
+    }
+    currentTarget = targetItem;
+
+    // Pick 2 semantic distractors
+    const otherItems = pool.filter(p => p.word !== currentTarget.word).sort(() => Math.random() - 0.5);
+    const candidateSet = [currentTarget, otherItems[0], otherItems[1]].sort(() => Math.random() - 0.5);
+
+    // Speak target word
+    setTimeout(() => Aurora.speakWord(currentTarget), 300);
+    Aurora.setQuote(isCurrentShadowTarget ? '"A shadow star appears! Ignite it for +25 XP." 🌘' : '"Listen to the cosmic echo and strike with confidence." ✨');
+
+    // Spawn 3 falling meteors
+    const stageWidth = stage.clientWidth || window.innerWidth - 60;
+    const colWidth = stageWidth / 3;
+
+    candidateSet.forEach((item, index) => {
+      const isThisShadow = isCurrentShadowTarget && item.word === currentTarget.word;
+      const card = document.createElement('div');
+      card.className = 'meteor-card' + (isThisShadow ? ' is-shadow' : '');
+      const startX = colWidth * index + (colWidth - 108) / 2 + (Math.random() * 16 - 8);
+      card.style.left = Math.max(10, Math.min(stageWidth - 118, startX)) + 'px';
+      card.style.top = '-120px';
+
+      let inner = '<div class="meteor-trail"></div><div class="meteor-icon">' + item.icon + '</div>';
+      if (isThisShadow) {
+        inner += '<div class="shadow-badge">🌘</div>';
+      }
+      card.innerHTML = inner;
+
+      const meteorObj = {
+        element: card,
+        item: item,
+        y: -120,
+        speed: 0.95 + Math.random() * 0.35,
+        solved: false,
+        isShadow: isThisShadow
+      };
+
+      card.onclick = (e) => handleMeteorClick(meteorObj, e);
+      stage.appendChild(card);
+      activeMeteors.push(meteorObj);
+    });
+
+    isTransitioning = false;
+  }
+
+  // Physics Loop
+  function updateMeteors() {
+    if (!isTransitioning) {
+      const stageHeight = stage.clientHeight || 400;
+      activeMeteors.forEach(m => {
+        if (!m.solved) {
+          m.y += m.speed;
+          m.element.style.top = m.y + 'px';
+
+          if (m.y >= stageHeight - 118) {
+            m.solved = true;
+            if (m.item.word === currentTarget.word) {
+              handleTimeOutMistake(m);
+            }
+          }
+        }
+      });
+    }
+    requestAnimationFrame(updateMeteors);
+  }
+  requestAnimationFrame(updateMeteors);
+
+  // Click Handler
+  function handleMeteorClick(meteor, event) {
+    if (isTransitioning || meteor.solved) return;
+    const rect = meteor.element.getBoundingClientRect();
+    const clickX = rect.left + rect.width / 2;
+    const clickY = rect.top;
+
+    if (meteor.item.word === currentTarget.word) {
+      meteor.solved = true;
+      isTransitioning = true;
+
+      if (meteor.isShadow) {
+        Aurora.reigniteShadow({ word: meteor.item.word, x: clickX, y: clickY });
+        meteor.element.style.borderColor = 'var(--gold)';
+        meteor.element.style.boxShadow = '0 0 50px var(--gold-glow), inset 0 0 20px var(--gold)';
+        meteor.element.style.transform = 'scale(1.35)';
+      } else {
+        Aurora.celebrate({ xp: 10, x: clickX, y: clickY });
+        meteor.element.style.borderColor = 'var(--gold)';
+        meteor.element.style.boxShadow = '0 0 35px var(--gold-glow)';
+        meteor.element.style.transform = 'scale(1.22)';
+      }
+
+      setTimeout(startNextWave, 950);
+    } else {
+      meteor.solved = true;
+      isTransitioning = true;
+      meteor.element.style.opacity = '0.45';
+      meteor.element.style.borderColor = 'var(--dim-star)';
+
+      Aurora.comfortMistake({
+        word: currentTarget.word,
+        icon: currentTarget.icon,
+        slug: currentTarget.slug,
+        clue: currentTarget.clue,
+        x: clickX,
+        y: clickY,
+        mountSelector: '#stage'
+      });
+
+      setTimeout(startNextWave, 2600);
+    }
+  }
+
+  function handleTimeOutMistake(meteor) {
+    isTransitioning = true;
+    Aurora.sfx.mistake();
+    Aurora.setQuote('"A dim star passed… come back for it. +3 XP"');
+    setTimeout(startNextWave, 1200);
+  }
+
+  function finishWave() {
+    Aurora.sfx.waveComplete();
+    const currentConstel = CONSTELLATIONS[activeConstellationKey];
+    const resultsModal = document.getElementById('results-modal');
+    const resultsSub = document.getElementById('results-sub');
+    resultsSub.innerHTML = '<b>' + ROUND_TOTAL + ' stars ignited in ' + currentConstel.name + '.</b><br>You hold <b>' + Aurora.getShadowWords().length + ' shadow words</b> in your galaxy.<br>"Step into the light of the constellation." ✨';
+
+    document.getElementById('btn-results-lesson').href = '../leccion/' + currentConstel.id + '.html';
+    document.getElementById('btn-results-test').href = '../evaluacion/' + currentConstel.id + '.html';
+
+    resultsModal.classList.add('active');
+    drawGalaxyConstellation('results-galaxy-canvas');
+  }
+
+  function drawGalaxyConstellation(canvasId) {
+    const cvs = document.getElementById(canvasId);
+    if (!cvs) return;
+    const ctx = cvs.getContext('2d');
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+    const state = Aurora.getState();
+    const totalStars = Math.min(state.starsIgnited + 6, 24);
+    const starCoords = [];
+    for (let i = 0; i < totalStars; i++) {
+      const x = 30 + Math.random() * (cvs.width - 60);
+      const y = 20 + Math.random() * (cvs.height - 40);
+      starCoords.push({ x, y });
+
+      ctx.fillStyle = '#F2C14E';
+      ctx.shadowColor = '#F2C14E';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.strokeStyle = 'rgba(45, 212, 191, 0.35)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    for (let i = 0; i < starCoords.length - 1; i++) {
+      if (Math.random() > 0.3) {
+        ctx.moveTo(starCoords[i].x, starCoords[i].y);
+        ctx.lineTo(starCoords[i+1].x, starCoords[i+1].y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  // --- MODALS FLOW ---
+  const saveModal = document.getElementById('save-modal');
+  const modalClose = document.getElementById('modal-close');
+  const btnSaveGoogle = document.getElementById('btn-save-google');
+  const btnSaveEmail = document.getElementById('btn-save-email');
+  const btnNextRound = document.getElementById('btn-next-round');
+  const btnResultsSave = document.getElementById('btn-results-save');
+
+  modalClose.onclick = () => saveModal.classList.remove('active');
+
+  function completeRegistrationMock(method) {
+    const state = Aurora.getState();
+    state.isRegistered = true;
+    state.userEmail = method === 'google' ? 'learner@aurora.galaxy' : 'starseeker@aurora.galaxy';
+    localStorage.setItem('EA_GALAXY_V2', JSON.stringify(state));
+    saveModal.classList.remove('active');
+    const resModal = document.getElementById('results-modal');
+    if (resModal) resModal.classList.remove('active');
+    Aurora.setQuote('"Now your light is forever. Let\'s make it brighter." ✨');
+    Aurora.sfx.cleanHit();
+    Aurora.init();
+  }
+
+  btnSaveGoogle.onclick = () => completeRegistrationMock('google');
+  btnSaveEmail.onclick = () => completeRegistrationMock('email');
+  btnResultsSave.onclick = () => {
+    document.getElementById('results-modal').classList.remove('active');
+    saveModal.classList.add('active');
+    drawGalaxyConstellation('modal-galaxy-canvas');
+  };
+
+  btnNextRound.onclick = () => {
+    document.getElementById('results-modal').classList.remove('active');
+    roundCount = 0;
+    startNextWave();
+  };
+
+  // Start First Wave
+  startNextWave();
+
+})();
+</script>
+
+  <!-- ========================================================================= -->
+  <!-- REGLA 2 SEO: PRERENDER RASTREABLE ESTÁTICO (DOM PLANO PARA GOOGLE CRAWLER) -->
+  <!-- ========================================================================= -->
+  <section class="seo-prerender-layer" aria-label="Contenido pedagógico y vocabulario de la lección">
+    <div class="seo-prerender-card">
+      <header class="seo-header">
+        <h1 class="seo-game-title">Meteor Words ☄️ — Vocabulario A1 y Constelaciones Semánticas</h1>
+        <p class="seo-lead">Juego educativo interactivo gratis para aprender inglés en nivel <strong>CEFR A1</strong> con el método sensorial de <strong>English Aurora</strong>.</p>
+      </header>
+
+      <div class="seo-content-block">
+        <h2 class="seo-section-title">Contenido pedagógico y banco léxico evaluado:</h2>
+        <ul class="seo-items-list">
+      <li class="seo-item"><strong>tall</strong> <span class="seo-ipa">/tɔːl/</span> — <em>Alto/a</em>: <span class="seo-clue">High in height, reaching upward into the sky</span></li>
+      <li class="seo-item"><strong>short</strong> <span class="seo-ipa">/ʃɔːrt/</span> — <em>Bajo/a o Corto/a</em>: <span class="seo-clue">Small in height or length</span></li>
+      <li class="seo-item"><strong>friendly</strong> <span class="seo-ipa">/ˈfrɛndli/</span> — <em>Amigable</em>: <span class="seo-clue">Kind, warm and welcoming to others</span></li>
+      <li class="seo-item"><strong>smart</strong> <span class="seo-ipa">/smɑːrt/</span> — <em>Inteligente</em>: <span class="seo-clue">Quick to learn and understand new ideas</span></li>
+      <li class="seo-item"><strong>fast</strong> <span class="seo-ipa">/fæst/</span> — <em>Rápido/a</em>: <span class="seo-clue">Moving with high velocity and speed</span></li>
+      <li class="seo-item"><strong>strong</strong> <span class="seo-ipa">/strɔːŋ/</span> — <em>Fuerte</em>: <span class="seo-clue">Having great physical strength and power</span></li>
+      <li class="seo-item"><strong>doctor</strong> <span class="seo-ipa">/ˈdɒktər/</span> — <em>Médico/a</em>: <span class="seo-clue">A professional who heals and treats patients</span></li>
+      <li class="seo-item"><strong>chef</strong> <span class="seo-ipa">/ʃɛf/</span> — <em>Cocinero/a</em>: <span class="seo-clue">A person who prepares delicious culinary meals</span></li>
+      <li class="seo-item"><strong>pilot</strong> <span class="seo-ipa">/ˈpaɪlət/</span> — <em>Piloto</em>: <span class="seo-clue">A person qualified to fly aircraft and airplanes</span></li>
+      <li class="seo-item"><strong>library</strong> <span class="seo-ipa">/ˈlaɪbrəri/</span> — <em>Biblioteca</em>: <span class="seo-clue">A building containing collections of books and records</span></li>
+      <li class="seo-item"><strong>hospital</strong> <span class="seo-ipa">/ˈhɒspɪtəl/</span> — <em>Hospital</em>: <span class="seo-clue">An institution providing medical treatment and nursing care</span></li>
+      <li class="seo-item"><strong>museum</strong> <span class="seo-ipa">/mjuːˈziːəm/</span> — <em>Museo</em>: <span class="seo-clue">A place where cultural and historical artifacts are preserved</span></li>
+        </ul>
+      </div>
+
+      <nav class="seo-triad-nav" aria-label="Tríada pedagógica del tema">
+        <span class="seo-triad-label">Tríada Pedagógica Completa:</span>
+        <a class="seo-nav-link" href="../leccion/a1-adjectives-people-things-01.html">📖 Ver Lección Teórica</a>
+        <a class="seo-nav-link" href="../preview/a1-adjectives-people-things-01.html">✏️ Práctica Cognitiva</a>
+        <a class="seo-nav-link" href="../evaluacion/a1-adjectives-people-things-01.html">✓ Evaluación del Tema</a>
+        <a class="seo-nav-link hub" href="../ludoteca.html">🌌 Hub Central de Juegos (Ludoteca)</a>
+      </nav>
+    </div>
+  </section>
+
+</body>
+</html>

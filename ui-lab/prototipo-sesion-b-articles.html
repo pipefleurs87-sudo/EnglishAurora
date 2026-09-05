@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Articles: A / An / The — Lesson Wave B Master Session | English Aurora</title>
+
+<!-- METADATA -->
+<meta name="description" content="Wave B 1-Hour Masterclass on English Articles (A / An / The). Featuring Aurora AI host, recurrent character dialogue, phonetics, cognitive practice, and mastery test.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   DESIGN TOKENS — PASTEL GRAY & TEAL / BLUE-GREEN (RPG FRAMING PALETTE)
+   ========================================================================== */
+:root {
+  --bg-main: #EAEFF2;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F3F7F9;
+  --bg-card-darker: #E1E8EC;
+  
+  --ink: #162831;
+  --ink-secondary: #3D5560;
+  --muted: #627984;
+  --line: #CCD6DC;
+  --line-strong: #A8B8C1;
+
+  --teal: #0D7C74;
+  --teal-dark: #08524D;
+  --teal-light: #E0F2F1;
+  --teal-border: #2DBAAE;
+  --teal-glow: rgba(13, 124, 116, 0.22);
+
+  --gold: #B8860B;
+  --gold-light: #FFF8E7;
+  --gold-border: #D4A017;
+  --gold-glow: rgba(184, 134, 11, 0.2);
+
+  --ruby: #C53030;
+  --ruby-light: #FFF5F5;
+  --green: #23824A;
+  --green-light: #EDF7F1;
+
+  --serif: 'Source Serif 4', Georgia, serif;
+  --title-font: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100%;
+  background: var(--bg-main); color: var(--ink);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; overflow-x: hidden;
+}
+
+/* Atmospheric Ambient Canvas */
+#ambient-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.subtle-mist-layer {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.6;
+  background: radial-gradient(circle at 15% 15%, rgba(45, 212, 191, 0.12), transparent 50%),
+              radial-gradient(circle at 85% 20%, rgba(212, 160, 23, 0.1), transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(13, 124, 116, 0.08), transparent 60%);
+}
+
+.lesson-layout-wrap {
+  position: relative; z-index: 10;
+  max-width: 1280px; margin: 0 auto;
+  min-height: 100vh; display: flex; flex-direction: column;
+  padding: 20px 24px 80px; gap: 20px;
+}
+
+/* ==========================================================================
+   TOP RPG HUD BAR
+   ========================================================================== */
+.rpg-hud-panel {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 16px; padding: 14px 24px; box-shadow: 0 4px 20px rgba(22, 40, 49, 0.07);
+  flex-wrap: wrap; gap: 14px; position: relative;
+}
+.rpg-hud-panel::before {
+  content: ''; position: absolute; inset: 2px;
+  border: 1px dashed rgba(13, 124, 116, 0.25); border-radius: 12px; pointer-events: none;
+}
+
+.rpg-brand-zone { display: flex; align-items: center; gap: 16px; position: relative; z-index: 2; }
+.rpg-emblem {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: var(--teal-light); border: 1.5px solid var(--teal);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+  box-shadow: 0 0 12px var(--teal-glow);
+}
+.rpg-title-group { display: flex; flex-direction: column; }
+.rpg-main-heading {
+  font-family: var(--title-font); font-size: 17px; font-weight: 900;
+  color: var(--teal-dark); letter-spacing: 0.06em;
+}
+.rpg-sub-kicker {
+  font-family: var(--mono); font-size: 11px; color: var(--gold);
+  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* Navigation Steps (Phases) */
+.phase-ribbon-nav { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; position: relative; z-index: 2; }
+.phase-tab-btn {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  color: var(--ink-secondary); border-radius: 8px; padding: 7px 14px;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.phase-tab-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+.phase-tab-btn.active {
+  background: var(--teal); border-color: var(--teal-dark);
+  color: #FFFFFF; box-shadow: 0 4px 14px var(--teal-glow);
+}
+
+.hud-actions-box { display: flex; gap: 10px; align-items: center; position: relative; z-index: 2; }
+.btn-hud-control {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--bg-card); color: var(--teal-dark);
+  border: 1px solid var(--teal-border); border-radius: 8px;
+  padding: 8px 16px; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.btn-hud-control:hover {
+  background: var(--teal); color: #FFFFFF; box-shadow: 0 4px 14px var(--teal-glow);
+}
+
+/* ==========================================================================
+   MAIN SCREEN: RPG DUAL-STAGE FRAME
+   ========================================================================== */
+.master-stage-frame {
+  display: grid; grid-template-columns: 330px 1fr;
+  gap: 22px; align-items: stretch;
+}
+@media (max-width: 960px) {
+  .master-stage-frame { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   LEFT STAGE: AURORA TEACHER PORTRAIT & REACTION HUB (3X PROMINENT)
+   -------------------------------------------------------------------------- */
+.aurora-hero-stage-card {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 20px; padding: 24px; box-shadow: 0 8px 24px rgba(22, 40, 49, 0.08);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+  position: relative; overflow: hidden;
+}
+.aurora-hero-stage-card::before {
+  content: ''; position: absolute; inset: 4px;
+  border: 1px solid rgba(13, 124, 116, 0.15); border-radius: 16px; pointer-events: none;
+}
+
+.aurora-portrait-container {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
+}
+.aurora-large-portrait {
+  width: 220px; height: 220px; border-radius: 24px;
+  border: 2.5px solid var(--teal); box-shadow: 0 10px 30px var(--teal-glow);
+  object-fit: cover; background: #E6FAF8; transition: all 0.3s var(--e-spring);
+}
+.aurora-large-portrait.speaking {
+  animation: portraitAura 1.4s ease-in-out infinite alternate;
+}
+@keyframes portraitAura {
+  0% { transform: scale(1); box-shadow: 0 10px 30px var(--teal-glow); }
+  100% { transform: scale(1.04); box-shadow: 0 14px 40px rgba(13, 124, 116, 0.45); }
+}
+
+.aurora-identity-tag {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.aurora-nameplate {
+  font-family: var(--title-font); font-size: 18px; font-weight: 700;
+  color: var(--teal-dark); letter-spacing: 0.05em;
+}
+.aurora-role-pill {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 3px 10px; border-radius: 999px; background: var(--teal-light); color: var(--teal);
+}
+
+/* 3 Reaction Mood Selector Buttons */
+.reaction-pills-row {
+  display: flex; gap: 6px; width: 100%; justify-content: center;
+}
+.mood-chip-btn {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  color: var(--ink-secondary); border-radius: 6px; padding: 5px 8px;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.mood-chip-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+.mood-chip-btn.active {
+  background: var(--teal-light); border-color: var(--teal); color: var(--teal-dark); font-weight: 700;
+}
+
+/* Live Speech Dialogue Box (High Contrast Transcript Bubble) */
+.aurora-live-speech-card {
+  background: var(--bg-card-subtle); border: 1.5px solid var(--teal-border);
+  border-radius: 14px; padding: 16px 18px; position: relative;
+  font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink);
+  box-shadow: 0 4px 14px rgba(13, 124, 116, 0.08); min-height: 90px;
+}
+.aurora-live-speech-card::before {
+  content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+  border-width: 0 8px 8px 8px; border-style: solid;
+  border-color: transparent transparent var(--teal-border) transparent;
+}
+.aurora-live-speech-card strong { color: var(--teal-dark); font-weight: 700; }
+
+/* Voice Audio Bar */
+.aurora-voice-controller {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 8px 12px; gap: 10px;
+}
+.btn-aurora-play {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--teal); color: #FFFFFF; border: none;
+  border-radius: 8px; padding: 8px 14px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.btn-aurora-play:hover { background: var(--teal-dark); box-shadow: 0 4px 12px var(--teal-glow); }
+
+.audio-equalizer-bars {
+  display: flex; align-items: center; gap: 3px; height: 18px;
+}
+.equalizer-bar {
+  width: 3px; background: var(--teal); border-radius: 2px; height: 4px;
+}
+.audio-equalizer-bars.active .equalizer-bar {
+  animation: eqPulse 0.7s ease-in-out infinite alternate;
+}
+.audio-equalizer-bars.active .equalizer-bar:nth-child(2) { animation-delay: 0.15s; }
+.audio-equalizer-bars.active .equalizer-bar:nth-child(3) { animation-delay: 0.3s; }
+.audio-equalizer-bars.active .equalizer-bar:nth-child(4) { animation-delay: 0.45s; }
+@keyframes eqPulse { 0% { height: 4px; } 100% { height: 18px; } }
+
+/* --------------------------------------------------------------------------
+   RIGHT STAGE: CINEMATIC TEACHING & PRACTICE VIEWPORT
+   -------------------------------------------------------------------------- */
+.cinematic-lesson-screen {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 20px; padding: 30px 36px; box-shadow: 0 8px 24px rgba(22, 40, 49, 0.08);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 20px;
+  position: relative; overflow: hidden; min-height: 580px;
+}
+.cinematic-lesson-screen::before {
+  content: ''; position: absolute; inset: 4px;
+  border: 1px solid rgba(13, 124, 116, 0.15); border-radius: 16px; pointer-events: none;
+}
+
+.stage-kicker-line {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal);
+}
+.stage-main-title {
+  font-family: var(--serif); font-size: clamp(26px, 3.4vw, 36px); font-weight: 700;
+  color: var(--ink); line-height: 1.2; margin-top: 4px;
+}
+
+.stage-content-scroll {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  gap: 16px; margin: 10px 0;
+}
+
+/* ==========================================================================
+   SCENE 1: RECURRENT CHARACTERS DIALOGUE (EL CAFÉ DE LAS RUNAS)
+   ========================================================================== */
+.characters-dialogue-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.character-speech-bubble {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column;
+  gap: 8px; transition: all 0.2s ease;
+}
+.character-speech-bubble:hover { border-color: var(--teal); box-shadow: 0 4px 14px rgba(13, 124, 116, 0.08); }
+.character-header-row { display: flex; justify-content: space-between; align-items: center; }
+.character-badge-name {
+  font-family: var(--title-font); font-size: 13px; font-weight: 700;
+  color: var(--teal-dark); display: flex; align-items: center; gap: 6px;
+}
+.btn-char-audio {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  background: #FFFFFF; border: 1px solid var(--teal-border);
+  color: var(--teal-dark); border-radius: 6px; padding: 3px 8px; cursor: pointer;
+}
+.btn-char-audio:hover { background: var(--teal); color: #FFFFFF; }
+.character-quote-line { font-family: var(--serif); font-size: 14.5px; color: var(--ink); line-height: 1.45; }
+.character-quote-line strong { color: var(--teal-dark); font-weight: 700; }
+
+/* ==========================================================================
+   SCENE 2: DEFINITION SPOTLIGHT & CONTRAST DECK
+   ========================================================================== */
+.definition-spotlight-box {
+  background: var(--bg-card-darker); border: 1.5px solid var(--teal-border);
+  border-radius: 14px; padding: 16px 20px; margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(13, 124, 116, 0.1);
+}
+.spotlight-active-title {
+  font-family: var(--title-font); font-size: 14px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px;
+}
+.spotlight-active-text {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); line-height: 1.5;
+}
+
+.rules-contrast-deck {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px;
+}
+@media (max-width: 720px) { .rules-contrast-deck { grid-template-columns: 1fr; } }
+
+.rule-spotlight-card {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 6px;
+  cursor: pointer; transition: all 0.25s ease;
+}
+.rule-spotlight-card:hover, .rule-spotlight-card.focused {
+  border-color: var(--teal); background: var(--teal-light);
+  transform: translateY(-2px); box-shadow: 0 6px 18px var(--teal-glow);
+}
+.rule-spotlight-card.dimmed {
+  opacity: 0.45; filter: grayscale(20%);
+}
+.rule-spotlight-card strong { font-family: var(--mono); font-size: 13px; color: var(--teal-dark); }
+.rule-spotlight-card span { font-size: 12px; color: var(--ink-secondary); line-height: 1.4; }
+
+.vocab-matrix-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px; max-height: 180px; overflow-y: auto; padding-right: 4px;
+}
+.vocab-matrix-chip {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; display: flex; justify-content: space-between;
+  align-items: center; font-size: 13px; cursor: pointer; transition: all 0.15s ease;
+}
+.vocab-matrix-chip:hover, .vocab-matrix-chip.focused {
+  border-color: var(--teal); background: var(--teal-light);
+}
+.vocab-matrix-chip.dimmed { opacity: 0.4; }
+.vocab-matrix-chip strong { color: var(--teal-dark); }
+.vocab-matrix-chip em { font-family: var(--mono); font-size: 10.5px; color: var(--muted); font-style: normal; }
+
+/* ==========================================================================
+   SCENE 3: COGNITIVE PRACTICE WITH DYNAMIC AURORA REACTIONS
+   ========================================================================== */
+.practice-exercise-stack { display: flex; flex-direction: column; gap: 12px; }
+.practice-item-card {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.practice-prompt-text { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); }
+.practice-options-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.practice-choice-pill {
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  background: #FFFFFF; border: 1px solid var(--line-strong);
+  color: var(--ink); border-radius: 8px; padding: 8px 16px; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.practice-choice-pill:hover { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+.practice-choice-pill.correct { background: var(--green-light); border-color: var(--green); color: var(--green); font-weight: 700; }
+.practice-choice-pill.wrong { background: var(--ruby-light); border-color: var(--ruby); color: var(--ruby); font-weight: 700; }
+.practice-feedback-alert { font-size: 13.5px; font-weight: 600; min-height: 20px; line-height: 1.4; }
+
+/* ==========================================================================
+   SCENE 4: MASTERY TEST
+   ========================================================================== */
+.quiz-question-box {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.quiz-options-stack { display: flex; flex-direction: column; gap: 8px; }
+.quiz-option-btn {
+  font-family: var(--sans); font-size: 14.5px; text-align: left;
+  background: #FFFFFF; border: 1px solid var(--line);
+  border-radius: 8px; padding: 10px 14px; cursor: pointer; transition: all 0.15s ease;
+}
+.quiz-option-btn:hover { border-color: var(--teal); background: var(--teal-light); }
+.quiz-option-btn.correct { background: var(--green-light); border-color: var(--green); color: var(--green); font-weight: 700; }
+.quiz-option-btn.wrong { background: var(--ruby-light); border-color: var(--ruby); color: var(--ruby); font-weight: 700; }
+
+/* ==========================================================================
+   SCENE 5: PRINTABLE WORKSHEET VIEW
+   ========================================================================== */
+.printable-worksheet-card {
+  background: #FFFFFF; border: 1.5px solid #162831;
+  border-radius: 14px; padding: 26px 30px; display: flex; flex-direction: column; gap: 14px;
+}
+.worksheet-header { display: flex; justify-content: space-between; border-bottom: 2px solid #162831; padding-bottom: 10px; }
+.worksheet-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: #162831; }
+.worksheet-fields { display: flex; gap: 24px; font-family: var(--mono); font-size: 11px; color: #3D5560; }
+
+/* Navigation Footer */
+.stage-footer-controls {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--line); padding-top: 16px;
+}
+.step-index-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 500; }
+.footer-buttons-group { display: flex; gap: 10px; }
+.btn-screen-nav {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  background: var(--bg-card-subtle); border: 1px solid var(--line-strong);
+  color: var(--ink); border-radius: 8px; padding: 9px 18px; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-screen-nav:hover { background: var(--teal); color: #FFFFFF; border-color: var(--teal-dark); }
+.btn-screen-nav.primary { background: var(--teal); color: #FFFFFF; border-color: var(--teal-dark); }
+.btn-screen-nav.primary:hover { background: var(--teal-dark); }
+
+/* Toast */
+.toast-bar {
+  position: fixed; bottom: 24px; right: 24px; z-index: 3000;
+  background: var(--ink); border: 1px solid var(--teal);
+  border-radius: 10px; padding: 10px 18px; color: #FFFFFF;
+  font-family: var(--mono); font-size: 12px; display: none; align-items: center; gap: 8px;
+}
+.toast-bar.show { display: flex; }
+</style>
+</head>
+<body>
+
+<canvas id="ambient-canvas"></canvas>
+<div class="subtle-mist-layer"></div>
+
+<div class="lesson-layout-wrap">
+  <!-- TOP RPG HUD BAR -->
+  <header class="rpg-hud-panel">
+    <div class="rpg-brand-zone">
+      <div class="rpg-emblem">☕</div>
+      <div class="rpg-title-group">
+        <div class="rpg-main-heading">ARTICLES: A / AN / THE · WAVE B</div>
+        <div class="rpg-sub-kicker">1-Hour Master Session · Real-Life Work & Café</div>
+      </div>
+    </div>
+
+    <!-- 5 SCENE PHASE TABS -->
+    <nav class="phase-ribbon-nav" id="phase-ribbon">
+      <button class="phase-tab-btn active" data-scene="0">1. Characters Dialogue</button>
+      <button class="phase-tab-btn" data-scene="1">2. Rules & Phonetics</button>
+      <button class="phase-tab-btn" data-scene="2">3. Cognitive Practice</button>
+      <button class="phase-tab-btn" data-scene="3">4. Mastery Test</button>
+      <button class="phase-tab-btn" data-scene="4">5. Printable Worksheet</button>
+    </nav>
+
+    <div class="hud-actions-box">
+      <button class="btn-hud-control" id="btn-fullscreen" title="Clean Screen Recording Mode">
+        <span>📺</span> Fullscreen Mode
+      </button>
+      <a class="btn-hud-control" href="../herramientas/teacher-hub.html">
+        <span>🧙‍♂️</span> Teacher's Hub
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN DUAL-STAGE FRAME -->
+  <div class="master-stage-frame">
+    <!-- ========================================================================= -->
+    <!-- LEFT: AURORA TEACHER PORTRAIT & REACTION HUB (3X PROMINENT) -->
+    <!-- ========================================================================= -->
+    <aside class="aurora-hero-stage-card">
+      <div class="aurora-portrait-container">
+        <!-- Aurora Reaction Image (Defaults to Explaining) -->
+        <img class="aurora-large-portrait" id="aurora-hero-img" src="../assets/aurora-explicando.png" alt="Aurora Mentor">
+        
+        <div class="aurora-identity-tag">
+          <div class="aurora-nameplate">AURORA</div>
+          <div class="aurora-role-pill" id="aurora-role-label">Lead YouTube Instructor</div>
+        </div>
+
+        <!-- 3 Mood Buttons -->
+        <div class="reaction-pills-row">
+          <button class="mood-chip-btn active" onclick="setAuroraMood('explicando', this)">Explaining</button>
+          <button class="mood-chip-btn" onclick="setAuroraMood('celebrando', this)">Celebrating</button>
+          <button class="mood-chip-btn" onclick="setAuroraMood('corrigiendo', this)">Coaching</button>
+        </div>
+      </div>
+
+      <!-- Live Speech Dialogue (Transcribed Speech Bubble for Active Reading) -->
+      <div class="aurora-live-speech-card" id="aurora-speech-box">
+        "Welcome! Observe how Ben, Sofia, Kenji and Carmen use articles naturally in the café scene."
+      </div>
+
+      <!-- Voice Audio Controller -->
+      <div class="aurora-voice-controller">
+        <button class="btn-aurora-play" id="btn-aurora-voice">
+          <span>🔊</span> <span id="aurora-voice-btn-label">Listen to Aurora</span>
+        </button>
+        <div class="audio-equalizer-bars" id="audio-eq-bars">
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========================================================================= -->
+    <!-- RIGHT: CINEMATIC TEACHING & PRACTICE VIEWPORT -->
+    <!-- ========================================================================= -->
+    <main class="cinematic-lesson-screen" id="cinematic-lesson-screen">
+      <div>
+        <div class="stage-kicker-line" id="stage-kicker-tag">SCENE 1 · RECURRENT CHARACTERS DIALOGUE</div>
+        <h1 class="stage-main-title" id="stage-heading-title">At the Rune Café: Ben, Kenji, Sofía & Carmen</h1>
+      </div>
+
+      <!-- DYNAMIC CONTENT VIEW -->
+      <div class="stage-content-scroll" id="stage-content-area">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- FOOTER CONTROLS -->
+      <div class="stage-footer-controls">
+        <div class="step-index-tag" id="stage-progress-tag">Scene 1 of 5 · Use [Space] or [Arrow Keys] to advance</div>
+        <div class="footer-buttons-group">
+          <button class="btn-screen-nav" id="btn-prev-scene">◀ Previous</button>
+          <button class="btn-screen-nav primary" id="btn-next-scene">Next Scene ▶</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- AUDIO ELEMENTS -->
+<audio id="main-audio-player" preload="auto"></audio>
+<audio id="sfx-audio-player" preload="auto"></audio>
+
+<!-- TOAST -->
+<div class="toast-bar" id="toast-bar">
+  <span>✨</span> <span id="toast-text">Audio Ready</span>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- AMBIENT STARS CANVAS ---
+  const cvs = document.getElementById('ambient-canvas');
+  const ctx = cvs.getContext('2d');
+  let stars = [];
+  function resize() {
+    cvs.width = window.innerWidth;
+    cvs.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 70; i++) {
+      stars.push({
+        x: Math.random() * cvs.width,
+        y: Math.random() * cvs.height,
+        r: Math.random() * 1.5 + 0.4,
+        alpha: Math.random() * 0.45 + 0.15,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function animateMist() {
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      ctx.fillStyle = 'rgba(13, 124, 116, ' + a + ')';
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(animateMist);
+  }
+  animateMist();
+
+  // --- DEFINITIONS DATABASE FOR SCENE 2 SPOTLIGHT ---
+  const SPOTLIGHT_DEFINITIONS = {
+    rule1: {
+      title: "Rule 1 · The Vowel Sound Flow (AN vs A)",
+      text: "We choose <strong>AN</strong> by the sound of the following word, not its spelling letter. Because 'hour' starts with a silent H (/ˈaʊər/), it sounds like a vowel: <em>'an hour'</em>, <em>'an honest review'</em>. But <em>'a university'</em> (/ˌjuːnɪˈvɜːrsəti/) starts with a consonant /j/ sound!"
+    },
+    rule2: {
+      title: "Rule 2 · Professions & Singular Roles",
+      text: "Unlike Spanish ('ella es diseñadora'), English <strong>ALWAYS requires an article</strong> before singular professions: <em>'She is <strong>a</strong> designer'</em>, <em>'Ben is <strong>a</strong> photographer'</em>, <em>'Kenji is <strong>a</strong> student'</em>."
+    },
+    rule3: {
+      title: "Rule 3 · Specific Things vs General Plurals",
+      text: "Use <strong>THE</strong> when both speaker and listener know the exact item in context (<em>'the menu on the wall'</em>, <em>'the bill'</em>). When speaking generally about plural items, use <strong>ZERO article (∅)</strong>: <em>'I love croissants'</em> (not 'the croissants')."
+    },
+    coffee: {
+      title: "Vocabulary · Coffee /ˈkɒfi/",
+      text: "A hot brewed beverage from roasted coffee beans. Countable in orders (<em>'a coffee'</em> = a cup of coffee), uncountable as matter (<em>'I drink coffee every morning'</em>)."
+    },
+    croissant: {
+      title: "Vocabulary · Croissant /ˈkrwɑːsɒ̃/",
+      text: "A flaky French pastry with a crescent shape. Takes the indefinite article: <em>'a croissant'</em>, <em>'an authentic croissant'</em>."
+    },
+    umbrella: {
+      title: "Vocabulary · Umbrella /ʌmˈbrɛlə/",
+      text: "A collapsible canopy protecting from rain. Starts with the vowel sound /ʌ/, so it requires <strong>AN</strong>: <em>'an umbrella'</em>."
+    },
+    waiter: {
+      title: "Vocabulary · Waiter /ˈweɪtər/",
+      text: "A restaurant professional who takes orders and serves food. Singular job requiring <strong>A</strong>: <em>'He is a waiter'</em>."
+    }
+  };
+
+  // --- SCENE DATABASE (100% IN ENGLISH) ---
+  const SCENES = [
+    // SCENE 0: RECURRENT CHARACTERS DIALOGUE
+    {
+      kicker: 'SCENE 1 · RECURRENT CHARACTERS DIALOGUE',
+      title: 'At the Rune Café: Ben, Kenji, Sofía & Carmen',
+      audioFile: '../audio/cast/aurora_explaining.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Listen to how our friends use articles in everyday conversation! Click any character to hear their authentic line."',
+      render: () => `
+        <div style="font-size:14px; color:var(--ink-secondary); margin-bottom:8px;">
+          Meet the cast at the local café. Notice every single <strong>A, AN</strong> and <strong>THE</strong> in their sentences:
+        </div>
+
+        <div class="characters-dialogue-grid">
+          <!-- Ben -->
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">📸 Ben (Photographer · London)</span>
+              <button class="btn-char-audio" onclick="playCastAudio('char_ben')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "I need <strong>a</strong> coffee. <strong>A</strong> big coffee. Today I am <strong>an</strong> exhausted photographer."
+            </div>
+          </div>
+
+          <!-- Kenji -->
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">🎨 Kenji (Student · Japan)</span>
+              <button class="btn-char-audio" onclick="playCastAudio('char_kenji')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "Look! There is <strong>an</strong> old piano in <strong>the</strong> corner, and <strong>a</strong> cat under <strong>the</strong> table!"
+            </div>
+          </div>
+
+          <!-- Sofía -->
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">💼 Sofía (Designer · Medellín)</span>
+              <button class="btn-char-audio" onclick="playCastAudio('char_sofia')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "<strong>The</strong> menu is on <strong>the</strong> wall. They have <strong>an</strong> excellent croissant and <strong>a</strong> fresh orange juice."
+            </div>
+          </div>
+
+          <!-- Carmen -->
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">👵 Abuela Carmen (Mentor)</span>
+              <button class="btn-char-audio" onclick="playCastAudio('char_carmen')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "In <strong>a</strong> café, <strong>the</strong> golden rule is simple: never rush <strong>the</strong> coffee, and always greet <strong>the</strong> waiter."
+            </div>
+          </div>
+        </div>
+      `
+    },
+
+    // SCENE 1: RULES & PHONETICS WITH DEFINITIONS SPOTLIGHT
+    {
+      kicker: 'SCENE 2 · RULES & ACOUSTIC DEFINITION SPOTLIGHT',
+      title: 'The 3 Golden Rules & Café Vocabulary Deck',
+      audioFile: '../audio/aurora/aurora_phonetics.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Click on any rule or vocabulary word below to spotlight its full definition in English while reading along with me!"',
+      render: () => `
+        <!-- High Contrast Spotlight Box -->
+        <div class="definition-spotlight-box" id="spotlight-display-box">
+          <div class="spotlight-active-title" id="spotlight-title">Rule 1 · The Vowel Sound Flow (AN vs A)</div>
+          <div class="spotlight-active-text" id="spotlight-text">
+            We choose <strong>AN</strong> by the sound of the following word, not its spelling letter: <em>'an hour'</em> (/ˈaʊər/), <em>'an honest review'</em>, but <em>'a university'</em> (/ˌjuːnɪˈvɜːrsəti/).
+          </div>
+        </div>
+
+        <div class="rules-contrast-deck" id="rules-deck">
+          <div class="rule-spotlight-card focused" id="card-rule1" onclick="selectSpotlight('rule1', this)">
+            <strong>1. Vowel SOUNDS (AN)</strong>
+            <span>Based on sound: <em>an hour</em>, <em>an umbrella</em>, <em>an apple</em>.</span>
+          </div>
+          <div class="rule-spotlight-card" id="card-rule2" onclick="selectSpotlight('rule2', this)">
+            <strong>2. Jobs & Professions (A/AN)</strong>
+            <span>Always required: <em>He is a waiter</em>, <em>She is an artist</em>.</span>
+          </div>
+          <div class="rule-spotlight-card" id="card-rule3" onclick="selectSpotlight('rule3', this)">
+            <strong>3. Specific vs General (THE/∅)</strong>
+            <span><em>The menu</em> (specific) vs <em>I like cafés</em> (general plural ∅).</span>
+          </div>
+        </div>
+
+        <div style="font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:uppercase; margin-bottom:6px;">
+          Vocabulary Matrix (Click any item to spotlight & listen):
+        </div>
+
+        <div class="vocab-matrix-grid" id="vocab-matrix">
+          <div class="vocab-matrix-chip" onclick="selectSpotlight('coffee', this)"><strong>coffee</strong> <em>/ˈkɒfi/</em></div>
+          <div class="vocab-matrix-chip" onclick="selectSpotlight('croissant', this)"><strong>croissant</strong> <em>/ˈkrwɑːsɒ̃/</em></div>
+          <div class="vocab-matrix-chip" onclick="selectSpotlight('umbrella', this)"><strong>umbrella</strong> <em>/ʌmˈbrɛlə/</em></div>
+          <div class="vocab-matrix-chip" onclick="selectSpotlight('waiter', this)"><strong>waiter</strong> <em>/ˈweɪtər/</em></div>
+          <div class="vocab-matrix-chip"><strong>menu</strong> <em>/ˈmɛnjuː/</em></div>
+          <div class="vocab-matrix-chip"><strong>window</strong> <em>/ˈwɪndoʊ/</em></div>
+          <div class="vocab-matrix-chip"><strong>piano</strong> <em>/piˈænoʊ/</em></div>
+          <div class="vocab-matrix-chip"><strong>bill</strong> <em>/bɪl/</em></div>
+          <div class="vocab-matrix-chip"><strong>table</strong> <em>/ˈteɪbəl/</em></div>
+          <div class="vocab-matrix-chip"><strong>corner</strong> <em>/ˈkɔːrnər/</em></div>
+        </div>
+      `
+    },
+
+    // SCENE 2: COGNITIVE PRACTICE WITH DYNAMIC AURORA REACTIONS
+    {
+      kicker: 'SCENE 3 · COGNITIVE PRACTICE LAB',
+      title: 'Sentence Manipulation & Precision Drill',
+      audioFile: '../audio/aurora/aurora_rule1.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Select the correct article for each sentence. I will react to your actions in real time!"',
+      render: () => `
+        <div class="practice-exercise-stack">
+          <!-- Exercise 1 -->
+          <div class="practice-item-card" id="practice-card-1">
+            <div class="practice-prompt-text">1. Sofia waited for ___ hour at the designer studio.</div>
+            <div class="practice-options-row">
+              <button class="practice-choice-pill" onclick="checkPractice(1, 'a', this)">A</button>
+              <button class="practice-choice-pill" onclick="checkPractice(1, 'an', this)">AN</button>
+              <button class="practice-choice-pill" onclick="checkPractice(1, 'the', this)">THE</button>
+              <button class="practice-choice-pill" onclick="checkPractice(1, 'zero', this)">∅ ZERO</button>
+            </div>
+            <div class="practice-feedback-alert" id="feedback-1"></div>
+          </div>
+
+          <!-- Exercise 2 -->
+          <div class="practice-item-card" id="practice-card-2">
+            <div class="practice-prompt-text">2. Ben is ___ professional photographer from London.</div>
+            <div class="practice-options-row">
+              <button class="practice-choice-pill" onclick="checkPractice(2, 'a', this)">A</button>
+              <button class="practice-choice-pill" onclick="checkPractice(2, 'an', this)">AN</button>
+              <button class="practice-choice-pill" onclick="checkPractice(2, 'the', this)">THE</button>
+              <button class="practice-choice-pill" onclick="checkPractice(2, 'zero', this)">∅ ZERO</button>
+            </div>
+            <div class="practice-feedback-alert" id="feedback-2"></div>
+          </div>
+
+          <!-- Exercise 3 -->
+          <div class="practice-item-card" id="practice-card-3">
+            <div class="practice-prompt-text">3. Kenji loves ___ cats, but ___ cat under the table is asleep.</div>
+            <div class="practice-options-row">
+              <button class="practice-choice-pill" onclick="checkPractice(3, 'zero_the', this)">∅ / THE</button>
+              <button class="practice-choice-pill" onclick="checkPractice(3, 'the_the', this)">THE / THE</button>
+              <button class="practice-choice-pill" onclick="checkPractice(3, 'a_a', this)">A / A</button>
+            </div>
+            <div class="practice-feedback-alert" id="feedback-3"></div>
+          </div>
+        </div>
+      `
+    },
+
+    // SCENE 3: MASTERY TEST
+    {
+      kicker: 'SCENE 4 · MASTERY ASSESSMENT TEST',
+      title: 'Wave B Evaluation & Knowledge Check',
+      audioFile: '../audio/cast/aurora_celebrating.mp3',
+      auroraMood: 'celebrando',
+      auroraDialogue: '"Take the final test! Score 100% to ignite your star and prove your article mastery."',
+      render: () => `
+        <div class="quiz-question-box" id="quiz-main-box">
+          <div style="font-family:var(--mono); font-size:11px; color:var(--teal); font-weight:700;">QUESTION 1 OF 2</div>
+          <div style="font-family:var(--serif); font-size:18px; font-weight:600;">
+            Which of the following sentences is 100% grammatically correct in English?
+          </div>
+
+          <div class="quiz-options-stack">
+            <button class="quiz-option-btn" onclick="submitQuizAnswer(1, false, this)">
+              A) "She is doctor at the city hospital."
+            </button>
+            <button class="quiz-option-btn" onclick="submitQuizAnswer(1, true, this)">
+              B) "She is a doctor at the city hospital."
+            </button>
+            <button class="quiz-option-btn" onclick="submitQuizAnswer(1, false, this)">
+              C) "She is an doctor at the city hospital."
+            </button>
+          </div>
+          <div id="quiz-feedback-box" style="font-size:13.5px; font-weight:600; min-height:20px; margin-top:6px;"></div>
+        </div>
+      `
+    },
+
+    // SCENE 4: PRINTABLE WORKSHEET VIEW
+    {
+      kicker: 'SCENE 5 · CLASSROOM PRINTABLE SUITE',
+      title: 'Consolidation Worksheet & PDF Export',
+      audioFile: '../audio/aurora/aurora_conclusion.mp3',
+      auroraMood: 'celebrando',
+      auroraDialogue: '"Outstanding performance! You can print this clean worksheet for offline classroom practice."',
+      render: () => `
+        <div class="printable-worksheet-card">
+          <div class="worksheet-header">
+            <div>
+              <div class="worksheet-title">Articles: A / An / The — Student Worksheet</div>
+              <div style="font-family:var(--mono); font-size:11px; color:var(--muted);">English Aurora · Wave B Masterclass Collection</div>
+            </div>
+            <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+          </div>
+
+          <div class="worksheet-fields">
+            <span>Student: ____________________</span>
+            <span>Date: __________________</span>
+            <span>Score: ____ / 10 ⭐</span>
+          </div>
+
+          <div style="font-size:13.5px; line-height:1.65; color:#162831;">
+            <p><strong>Part 1: Complete with A, AN, THE or ∅ (Zero Article):</strong></p>
+            <p>1. Ben ordered ___ black coffee and ___ warm croissant.</p>
+            <p>2. Is there ___ university in this district?</p>
+            <p>3. ___ sun is shining bright over ___ mountains today.</p>
+            <p>4. Sofía is ___ talented graphic designer.</p>
+            <p>5. Kenji left his notebook on ___ table near ___ window.</p>
+          </div>
+        </div>
+      `
+    }
+  ];
+
+  let currentSceneIndex = 0;
+  const auroraHeroImg = document.getElementById('aurora-hero-img');
+  const auroraSpeechBox = document.getElementById('aurora-speech-box');
+  const stageKickerTag = document.getElementById('stage-kicker-tag');
+  const stageHeadingTitle = document.getElementById('stage-heading-title');
+  const stageContentArea = document.getElementById('stage-content-area');
+  const stageProgressTag = document.getElementById('stage-progress-tag');
+  const phaseTabs = document.querySelectorAll('.phase-tab-btn');
+
+  const mainAudio = document.getElementById('main-audio-player');
+  const btnAuroraVoice = document.getElementById('btn-aurora-voice');
+  const voiceBtnLabel = document.getElementById('aurora-voice-btn-label');
+  const audioEqBars = document.getElementById('audio-eq-bars');
+
+  const MOOD_IMAGES = {
+    explicando: '../assets/aurora-explicando.png',
+    celebrando: '../assets/aurora-celebrando.png',
+    corrigiendo: '../assets/aurora-corrigiendo.png'
+  };
+
+  window.setAuroraMood = function(moodKey, btnEl) {
+    if (MOOD_IMAGES[moodKey]) {
+      auroraHeroImg.src = MOOD_IMAGES[moodKey];
+      document.querySelectorAll('.mood-chip-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+    }
+  };
+
+  function renderScene(idx) {
+    currentSceneIndex = idx;
+    const scene = SCENES[idx];
+
+    stageKickerTag.textContent = scene.kicker;
+    stageHeadingTitle.textContent = scene.title;
+    stageContentArea.innerHTML = scene.render();
+    auroraSpeechBox.innerHTML = scene.auroraDialogue;
+    stageProgressTag.textContent = `Scene ${idx + 1} of ${SCENES.length} · Use [Space] or [Arrow Keys] to advance`;
+
+    phaseTabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
+
+    // Update Aurora mood
+    setAuroraMood(scene.auroraMood);
+    const activeMoodBtn = document.querySelector(`.mood-chip-btn[onclick*="${scene.auroraMood}"]`);
+    if (activeMoodBtn) {
+      document.querySelectorAll('.mood-chip-btn').forEach(b => b.classList.remove('active'));
+      activeMoodBtn.classList.add('active');
+    }
+
+    // Audio setup
+    mainAudio.pause();
+    mainAudio.src = scene.audioFile;
+    setPlayingState(false);
+  }
+
+  function setPlayingState(isPlaying) {
+    if (isPlaying) {
+      voiceBtnLabel.textContent = 'Pause Voice';
+      audioEqBars.classList.add('active');
+      auroraHeroImg.classList.add('speaking');
+    } else {
+      voiceBtnLabel.textContent = 'Listen to Aurora';
+      audioEqBars.classList.remove('active');
+      auroraHeroImg.classList.remove('speaking');
+    }
+  }
+
+  btnAuroraVoice.onclick = () => {
+    if (mainAudio.paused) {
+      mainAudio.play().then(() => setPlayingState(true)).catch(() => showToast('Click to start audio'));
+    } else {
+      mainAudio.pause();
+      setPlayingState(false);
+    }
+  };
+  mainAudio.onended = () => setPlayingState(false);
+
+  // --- SCENE 2 SPOTLIGHT CONTROLLER ---
+  window.selectSpotlight = function(itemKey, el) {
+    const data = SPOTLIGHT_DEFINITIONS[itemKey];
+    if (!data) return;
+
+    // Update Spotlight box
+    document.getElementById('spotlight-title').innerHTML = data.title;
+    document.getElementById('spotlight-text').innerHTML = data.text;
+
+    // Transcribe to Aurora's Speech Box as well so student reads along!
+    auroraSpeechBox.innerHTML = `"${data.text}"`;
+
+    // Apply Dimming & Contrast
+    const allCards = document.querySelectorAll('.rule-spotlight-card, .vocab-matrix-chip');
+    allCards.forEach(c => {
+      c.classList.remove('focused');
+      c.classList.add('dimmed');
+    });
+
+    if (el) {
+      el.classList.remove('dimmed');
+      el.classList.add('focused');
+    }
+
+    // If vocab word, play pronunciation
+    if (['coffee', 'croissant', 'umbrella', 'waiter'].includes(itemKey)) {
+      const a = new Audio(`../audio/aurora/${itemKey}.mp3`);
+      a.play().catch(() => {});
+    }
+
+    showToast(`Spotlight on: ${data.title}`);
+  };
+
+  // Next & Prev Buttons
+  document.getElementById('btn-next-scene').onclick = () => {
+    if (currentSceneIndex < SCENES.length - 1) {
+      renderScene(currentSceneIndex + 1);
+    } else {
+      showToast('Master session completed!');
+    }
+  };
+
+  document.getElementById('btn-prev-scene').onclick = () => {
+    if (currentSceneIndex > 0) {
+      renderScene(currentSceneIndex - 1);
+    }
+  };
+
+  phaseTabs.forEach(tab => {
+    tab.onclick = () => renderScene(parseInt(tab.dataset.scene, 10));
+  });
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      document.getElementById('btn-next-scene').click();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      document.getElementById('btn-prev-scene').click();
+    } else if (e.key.toLowerCase() === 'p') {
+      btnAuroraVoice.click();
+    } else if (e.key.toLowerCase() === 'f') {
+      document.getElementById('btn-fullscreen').click();
+    }
+  });
+
+  // Fullscreen
+  document.getElementById('btn-fullscreen').onclick = () => {
+    const el = document.getElementById('cinematic-lesson-screen');
+    if (!document.fullscreenElement) {
+      el.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
+
+  // Cast Audio Player
+  window.playCastAudio = function(castSlug) {
+    const a = new Audio(`../audio/cast/${castSlug}.mp3`);
+    a.play().catch(() => {});
+    showToast(`Playing dialogue: ${castSlug.replace('char_', '')}`);
+  };
+
+  // Vocab Item Player
+  window.playVocabItem = function(vocabSlug) {
+    const a = new Audio(`../audio/aurora/${vocabSlug}.mp3`);
+    a.play().catch(() => {});
+    showToast(`Word: ${vocabSlug}`);
+  };
+
+  // --- SCENE 3: COGNITIVE PRACTICE DYNAMIC REACTIONS ---
+  window.checkPractice = function(itemNum, choice, btnEl) {
+    const feedback = document.getElementById(`feedback-${itemNum}`);
+    const parentCard = document.getElementById(`practice-card-${itemNum}`);
+    const allBtns = parentCard.querySelectorAll('.practice-choice-pill');
+    allBtns.forEach(b => b.className = 'practice-choice-pill');
+
+    if (itemNum === 1) {
+      if (choice === 'an') {
+        btnEl.classList.add('correct');
+        feedback.style.color = 'var(--green)';
+        feedback.textContent = '✓ Correct! "an hour" (/ˈaʊər/ starts with a vowel sound).';
+        setAuroraMood('celebrando');
+        auroraSpeechBox.innerHTML = '"✨ Brilliant deduction! You caught the silent \'H\' in \'hour\' and used \'AN\' for smooth sound flow!"';
+        showToast('Correct! +25 XP');
+      } else {
+        btnEl.classList.add('wrong');
+        feedback.style.color = 'var(--ruby)';
+        feedback.textContent = '✗ Notice the vowel sound flow. "Hour" has a silent H!';
+        setAuroraMood('corrigiendo');
+        auroraSpeechBox.innerHTML = '"🎯 Take note: The \'H\' in \'hour\' is completely silent (/ˈaʊər/). We always say \'an hour\', never \'a hour\'."';
+      }
+    } else if (itemNum === 2) {
+      if (choice === 'a') {
+        btnEl.classList.add('correct');
+        feedback.style.color = 'var(--green)';
+        feedback.textContent = '✓ Correct! "a professional photographer" (job + consonant sound).';
+        setAuroraMood('celebrando');
+        auroraSpeechBox.innerHTML = '"✨ Spot on! In English, jobs and professions ALWAYS take \'A\' or \'AN\'. You avoided the Spanish omission habit!"';
+        showToast('Correct! +25 XP');
+      } else {
+        btnEl.classList.add('wrong');
+        feedback.style.color = 'var(--ruby)';
+        feedback.textContent = '✗ Remember: English requires an article before professions!';
+        setAuroraMood('corrigiendo');
+        auroraSpeechBox.innerHTML = '"🎯 Watch out! Unlike Spanish (\'es fotógrafo\'), English grammatically requires \'a photographer\'."';
+      }
+    } else if (itemNum === 3) {
+      if (choice === 'zero_the') {
+        btnEl.classList.add('correct');
+        feedback.style.color = 'var(--green)';
+        feedback.textContent = '✓ Correct! ∅ cats in general, but THE cat under the table is specific.';
+        setAuroraMood('celebrando');
+        auroraSpeechBox.innerHTML = '"✨ Outstanding mastery! \'Cats\' in general takes zero article, but \'the cat under the table\' is a specific animal in the room!"';
+        showToast('Correct! +25 XP');
+      } else {
+        btnEl.classList.add('wrong');
+        feedback.style.color = 'var(--ruby)';
+        feedback.textContent = '✗ Notice: general plural concepts take NO article, specific items take THE.';
+        setAuroraMood('corrigiendo');
+        auroraSpeechBox.innerHTML = '"🎯 Notice the contrast: General concepts use ZERO article (\'I like cats\'), but the specific cat in the scene takes \'THE\'."';
+      }
+    }
+  };
+
+  // --- SCENE 4: QUIZ INTERACTIVE CHECKER ---
+  window.submitQuizAnswer = function(qNum, isCorrect, btnEl) {
+    const feedback = document.getElementById('quiz-feedback-box');
+    const allBtns = document.querySelectorAll('.quiz-option-btn');
+    allBtns.forEach(b => b.className = 'quiz-option-btn');
+
+    if (isCorrect) {
+      btnEl.classList.add('correct');
+      feedback.style.color = 'var(--green)';
+      feedback.textContent = '✓ 100% Accurate! English requires an article before professions (a doctor).';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"Flawless! You have fully mastered the profession rule in English!" ⭐';
+      showToast('Mastery Star Ignited! +50 XP');
+    } else {
+      btnEl.classList.add('wrong');
+      feedback.style.color = 'var(--ruby)';
+      feedback.textContent = '✗ Remember: Spanish omits the article ("ella es doctora"), but English NEVER does ("she is a doctor").';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"Watch out for Spanish interference! English demands the article before any job." 💡';
+    }
+  };
+
+  // Toast Helper
+  function showToast(msg) {
+    const t = document.getElementById('toast-bar');
+    document.getElementById('toast-text').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // Initial Scene Render
+  renderScene(0);
+
+})();
+</script>
+</body>
+</html>

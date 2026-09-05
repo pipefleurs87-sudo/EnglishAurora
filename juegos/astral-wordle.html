@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Astral Wordle — Deducción de Palabras B1 | Juegos para aprender inglés · English Aurora</title>
+
+<!-- REGLA 1 & 5 SEO: META DESCRIPTION, CANONICAL & OPEN GRAPH -->
+<meta name="description" content="Juego interactivo gratis de adivinar palabras en inglés de 5 letras estilo Wordle (CEFR B1). Deduce la palabra cósmica en 6 intentos con pistas de voz de Aurora.">
+<link rel="canonical" href="https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/astral-wordle.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/astral-wordle.html">
+<meta property="og:title" content="Astral Wordle — Deducción de Palabras B1 | Juegos para aprender inglés · English Aurora">
+<meta property="og:description" content="Juego interactivo gratis de adivinar palabras en inglés de 5 letras estilo Wordle (CEFR B1). Deduce la palabra cósmica en 6 intentos con pistas de voz de Aurora.">
+<meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/assets/aurora.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- REGLA 3 SEO: DATOS ESTRUCTURADOS JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/astral-wordle.html#app",
+      "name": "Astral Wordle — English Aurora",
+      "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/astral-wordle.html",
+      "description": "Juego interactivo gratis de adivinar palabras en inglés de 5 letras estilo Wordle (CEFR B1). Deduce la palabra cósmica en 6 intentos con pistas de voz de Aurora.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All modern web browsers",
+      "isAccessibleForFree": true,
+      "inLanguage": ["en", "es"],
+      "educationalLevel": "CEFR B1",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "English Aurora",
+        "url": "https://pipefleurs87-sudo.github.io/EnglishAurora"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/astral-wordle.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ludoteca",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Nivel B1",
+          "item": "https://pipefleurs87-sudo.github.io/EnglishAurora/ludoteca.html?level=b1"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Astral Wordle 🟩"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #070B18;
+  --night: #0A101C;
+  --night-card: rgba(13, 22, 38, 0.88);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45, 212, 191, 0.35);
+  --teal-glow: rgba(45, 212, 191, 0.6);
+  --gold: #F2C14E;
+  --gold-dim: rgba(242, 193, 78, 0.3);
+  --gold-glow: rgba(242, 193, 78, 0.65);
+  --purple: #815CD8;
+  --paper: #F2F5F7;
+  --muted: #8B99AE;
+
+  --wordle-green: #22C55E;
+  --wordle-gold: #EAB308;
+  --wordle-gray: #334155;
+
+  --serif: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --hand: 'Caveat', cursive;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%; overflow-x: hidden;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; touch-action: manipulation;
+}
+
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.aurora-layer {
+  position: fixed; inset: -10% -10% auto -10%; height: 80%;
+  z-index: 1; pointer-events: none; opacity: 0.45;
+  background: radial-gradient(ellipse 65% 45% at 25% 30%, rgba(45, 212, 191, 0.3), transparent 60%),
+              radial-gradient(ellipse 55% 40% at 75% 25%, rgba(129, 92, 216, 0.28), transparent 60%),
+              radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242, 193, 78, 0.15), transparent 65%);
+  filter: blur(40px);
+  animation: auroraDrift 20s ease-in-out infinite alternate;
+}
+@keyframes auroraDrift {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(3vw, 4vh, 0); }
+}
+
+.app-viewport {
+  position: relative; z-index: 10;
+  width: 100%; min-height: 100%;
+  display: flex; flex-direction: column;
+  padding: 12px 20px;
+}
+
+/* Wordle Arena */
+.wordle-arena {
+  position: relative; flex: 1;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 50% 50%, rgba(13, 22, 38, 0.65) 0%, rgba(7, 11, 24, 0.6) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 16px; gap: 14px;
+}
+
+/* Clue Banner */
+.clue-banner {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(20, 32, 54, 0.9); border: 1px solid var(--teal-dim);
+  border-radius: 12px; padding: 10px 18px; max-width: 520px; width: 100%;
+}
+.clue-speaker-btn {
+  background: rgba(45, 212, 191, 0.15); border: 1px solid var(--teal);
+  color: var(--teal); border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  font-size: 16px; transition: all 0.2s ease; flex-shrink: 0;
+}
+.clue-speaker-btn:hover { background: var(--teal); color: var(--ink); transform: scale(1.08); }
+.clue-txt { font-family: var(--serif); font-size: 13.5px; color: var(--paper); line-height: 1.35; }
+
+/* 6x5 Letter Grid */
+.wordle-grid {
+  display: grid; grid-template-rows: repeat(6, 1fr);
+  gap: 6px; width: 100%; max-width: 320px;
+}
+.wordle-row {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.wordle-tile {
+  aspect-ratio: 1; border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px; background: rgba(10, 16, 28, 0.7);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--paper); text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.wordle-tile.filled { border-color: rgba(255, 255, 255, 0.4); }
+.wordle-tile.correct { background: var(--wordle-green); border-color: var(--wordle-green); color: #fff; text-shadow: 0 0 8px rgba(0,0,0,0.5); }
+.wordle-tile.present { background: var(--wordle-gold); border-color: var(--wordle-gold); color: #fff; text-shadow: 0 0 8px rgba(0,0,0,0.5); }
+.wordle-tile.absent { background: var(--wordle-gray); border-color: var(--wordle-gray); color: var(--muted); }
+
+/* Virtual Keyboard */
+.keyboard-wrap {
+  display: flex; flex-direction: column; gap: 6px;
+  width: 100%; max-width: 480px;
+}
+.keyboard-row {
+  display: flex; justify-content: center; gap: 4px;
+}
+.key-btn {
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  background: rgba(28, 44, 70, 0.9); border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--paper); border-radius: 6px; padding: 10px 0;
+  flex: 1; max-width: 42px; text-align: center; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.key-btn:hover { background: rgba(45, 212, 191, 0.2); border-color: var(--teal); }
+.key-btn.wide { max-width: 60px; font-size: 11px; }
+.key-btn.correct { background: var(--wordle-green); border-color: var(--wordle-green); }
+.key-btn.present { background: var(--wordle-gold); border-color: var(--wordle-gold); }
+.key-btn.absent { background: var(--wordle-gray); opacity: 0.45; }
+
+/* SEO Prerender Layer */
+.seo-prerender-layer {
+  position: relative; z-index: 5; max-width: 860px; margin: 20px auto 40px;
+  padding: 0 16px; color: var(--paper); font-family: var(--sans);
+}
+.seo-prerender-card {
+  background: rgba(13, 22, 38, 0.92); border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 14px; padding: 20px 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.seo-game-title { font-family: var(--serif); font-size: 18px; color: var(--gold); margin-bottom: 6px; }
+.seo-lead { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+.seo-section-title { font-family: var(--serif); font-size: 14px; color: var(--teal); margin-bottom: 8px; }
+.seo-items-list { list-style: square; padding-left: 20px; font-size: 12.5px; color: var(--paper); line-height: 1.6; margin-bottom: 16px; }
+.seo-ipa { font-family: var(--mono); color: var(--gold); font-size: 11.5px; }
+.seo-clue { color: var(--muted); }
+.seo-triad-nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+.seo-triad-label { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.seo-nav-link { font-family: var(--mono); font-size: 11.5px; color: var(--teal); text-decoration: none; padding: 4px 10px; background: rgba(45,212,191,0.08); border-radius: 6px; border: 1px solid var(--teal-dim); transition: all 0.2s ease; }
+.seo-nav-link:hover { background: rgba(242,193,78,0.15); border-color: var(--gold); color: var(--gold); }
+.seo-nav-link.hub { color: var(--gold); border-color: var(--gold-dim); background: rgba(242,193,78,0.1); }
+
+/* Modals */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(7, 11, 24, 0.88); backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-card {
+  width: 90%; max-width: 500px;
+  background: var(--night-card);
+  border: 1px solid var(--gold); border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(242, 193, 78, 0.25);
+  padding: 28px 24px; text-align: center; position: relative;
+  transform: translateY(20px); transition: transform 0.35s var(--e-spring);
+}
+.modal-overlay.active .modal-card { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer;
+}
+.modal-close:hover { color: var(--paper); }
+.modal-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.modal-sub { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 20px; }
+.galaxy-preview-box {
+  width: 100%; height: 150px; border-radius: 12px;
+  background: rgba(10, 16, 28, 0.85); border: 1px solid rgba(45, 212, 191, 0.3);
+  margin-bottom: 18px; position: relative; overflow: hidden;
+}
+.btn-primary {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  border-radius: 10px; padding: 11px 20px; cursor: pointer;
+  box-shadow: 0 0 20px var(--gold-glow); transition: all 0.25s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-primary:hover { background: #FFE28A; transform: translateY(-2px); box-shadow: 0 0 30px var(--gold-glow); }
+.btn-secondary {
+  font-family: var(--mono); font-size: 11px;
+  background: rgba(255, 255, 255, 0.05); color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px;
+  padding: 10px 16px; cursor: pointer; transition: all 0.2s ease;
+  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="aurora-layer"></div>
+
+<div class="app-viewport" lang="en">
+  <!-- HUD -->
+  <header class="aurora-hud-bar">
+    <div class="aurora-brand-group">
+      <div class="aurora-brand-title">ENGLISH AURORA</div>
+      <div class="aurora-level-pill" id="aurora-level-tag" style="border-color:#38BDF8; color:#38BDF8;">B1 · SAPPHIRE</div>
+    </div>
+
+    <div class="aurora-stats-group">
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Galaxy XP</div>
+        <div class="aurora-stat-val gold" id="aurora-xp-val">⭐ 0</div>
+      </div>
+      <div class="aurora-stat-box">
+        <div class="aurora-stat-label">Streak</div>
+        <div class="aurora-streak-pill" id="aurora-streak-pill">🔥 ×1</div>
+      </div>
+      <div class="aurora-stat-box clickable" id="aurora-shadow-box" title="Click to view dim stars">
+        <div class="aurora-stat-label">Shadow Words</div>
+        <div class="aurora-stat-val teal" id="aurora-shadow-val">🌘 0</div>
+      </div>
+      <button class="aurora-btn-save" id="aurora-btn-save">
+        <span>✨</span><span id="aurora-save-text">Save Galaxy</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SHADOW WORDS DRAWER -->
+  <div class="aurora-shadow-drawer" id="aurora-shadow-drawer">
+    <div class="aurora-drawer-title">
+      <span>🌘 Dim Stars (Shadow Words)</span>
+      <span id="aurora-shadow-count">0 waiting</span>
+    </div>
+    <div id="aurora-shadow-list">
+      <div style="color:#8B99AE; font-size:12px; font-style:italic;">No shadow stars yet. Missed words will be collected here for redemption.</div>
+    </div>
+  </div>
+
+  <!-- ARENA -->
+  <main class="wordle-arena" id="arena">
+    <div class="clue-banner">
+      <button class="clue-speaker-btn" id="btn-play-clue" title="Listen to Aurora's definition">🔊</button>
+      <div class="clue-txt" id="clue-txt">"Deduce the 5-letter cosmic English word in 6 attempts."</div>
+    </div>
+
+    <div class="wordle-grid" id="wordle-grid"></div>
+
+    <div class="keyboard-wrap" id="keyboard-wrap"></div>
+  </main>
+
+  <!-- GUIDANCE FOOTER -->
+  <footer class="aurora-guidance-panel">
+    <div class="aurora-character-wrap">
+      <img id="aurora-avatar-img" class="aurora-character-img" src="../assets/aurora.png" alt="Aurora · Guardian of Light">
+      <div class="aurora-dialogue-bubble">
+        <div class="aurora-name">Aurora · Guardian of Light</div>
+        <div class="aurora-quote" id="aurora-quote">"Green means correct spot. Gold means letter is in the word. Deduce the mystery!" 🟩</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- SAVE MODAL -->
+<div class="modal-overlay" id="save-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-title">Preserve Your Galaxy</div>
+    <div class="modal-sub">
+      "Don't let your light fade into the void. Anchor your ignited stars and keep your Shadow Words burning."
+    </div>
+    <div class="galaxy-preview-box">
+      <canvas id="modal-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <button class="btn-primary" id="btn-save-google">✨ Save with Google (1-Click)</button>
+      <button class="btn-secondary" id="btn-save-email">📧 Save with Email</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS MODAL -->
+<div class="modal-overlay" id="results-modal">
+  <div class="modal-card">
+    <div class="modal-title" id="results-title">Word Solved! 🟩</div>
+    <div class="modal-sub" id="results-sub">You successfully deduced the cosmic 5-letter English word.</div>
+
+    <div class="galaxy-preview-box">
+      <canvas id="results-galaxy-canvas" width="460" height="150"></canvas>
+    </div>
+
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+      <button class="btn-primary" id="btn-restart-wordle">🚀 Play Next Wordle</button>
+      <a class="btn-secondary" href="../ludoteca.html">🌌 Return to Ludoteca</a>
+      <button class="btn-secondary" id="btn-results-save">✨ Save My Galaxy</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRERENDER SEO LAYER -->
+<section class="seo-prerender-layer" lang="es" aria-label="Contenido pedagógico y vocabulario de la lección">
+  <div class="seo-prerender-card">
+    <header class="seo-header">
+      <h1 class="seo-game-title">Astral Wordle 🟩 — Deducción de Palabras B1</h1>
+      <p class="seo-lead">Juego educativo interactivo gratis para aprender vocabulario y ortografía en inglés en nivel <strong>CEFR B1</strong> con el método sensorial de <strong>English Aurora</strong>.</p>
+    </header>
+
+    <div class="seo-content-block">
+      <h2 class="seo-section-title">Palabras cósmicas evaluadas en el juego:</h2>
+      <ul class="seo-items-list">
+        <li class="seo-item"><strong>LIGHT</strong> <span class="seo-ipa">/laɪt/</span> — <em>Luz</em>: <span class="seo-clue">The natural agent that stimulates sight and illuminates dark space</span></li>
+        <li class="seo-item"><strong>STARS</strong> <span class="seo-ipa">/stɑːrz/</span> — <em>Estrellas</em>: <span class="seo-clue">Luminous spheres of plasma held together by gravity</span></li>
+        <li class="seo-item"><strong>EARTH</strong> <span class="seo-ipa">/ɜːrθ/</span> — <em>Tierra</em>: <span class="seo-clue">Our home planet, rich with oceans, atmosphere and life</span></li>
+        <li class="seo-item"><strong>NIGHT</strong> <span class="seo-ipa">/naɪt/</span> — <em>Noche</em>: <span class="seo-clue">The period of darkness between sunset and sunrise</span></li>
+        <li class="seo-item"><strong>PILOT</strong> <span class="seo-ipa">/ˈpaɪlət/</span> — <em>Piloto</em>: <span class="seo-clue">A person qualified to steer cosmic vessels</span></li>
+        <li class="seo-item"><strong>OCEAN</strong> <span class="seo-ipa">/ˈoʊʃən/</span> — <em>Océano</em>: <span class="seo-clue">A vast body of saltwater covering most of the planet</span></li>
+        <li class="seo-item"><strong>DREAM</strong> <span class="seo-ipa">/driːm/</span> — <em>Sueño</em>: <span class="seo-clue">A sequence of images and thoughts occurring in sleep</span></li>
+      </ul>
+    </div>
+
+    <nav class="seo-triad-nav" aria-label="Tríada pedagógica del tema">
+      <span class="seo-triad-label">Tríada Pedagógica Completa:</span>
+      <a class="seo-nav-link" href="../leccion/b1-indefinite-pronouns-01.html">📖 Ver Lección Teórica</a>
+      <a class="seo-nav-link" href="../preview/b1-indefinite-pronouns-01.html">✏️ Práctica Cognitiva</a>
+      <a class="seo-nav-link" href="../evaluacion/b1-indefinite-pronouns-01.html">✓ Evaluación del Tema</a>
+      <a class="seo-nav-link hub" href="../ludoteca.html">🌌 Hub Central de Juegos (Ludoteca)</a>
+    </nav>
+  </div>
+</section>
+
+<!-- AURORA COMPANION ENGINE -->
+<script src="../js/aurora-curriculum.js"></script>
+<script src="../js/aurora-companion.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  const WORD_POOL = [
+    { word: 'LIGHT', clue: 'The natural agent that stimulates sight and makes things visible.' },
+    { word: 'STARS', clue: 'Luminous astronomical spheres of plasma in the night sky.' },
+    { word: 'EARTH', clue: 'Our home planet, rich with oceans, atmosphere and living nature.' },
+    { word: 'NIGHT', clue: 'The ambient period of darkness between sunset and morning sunrise.' },
+    { word: 'PILOT', clue: 'A person qualified to fly aircraft and steer navigation vessels.' },
+    { word: 'OCEAN', clue: 'A vast expanse of saltwater covering most of the planetary surface.' },
+    { word: 'DREAM', clue: 'A series of thoughts, images, and sensations occurring in a mind.' }
+  ];
+
+  let activeWordPool = WORD_POOL;
+  if (typeof AuroraCurriculum !== 'undefined') {
+    const fiveLetterWords = AuroraCurriculum.getWordsOfLength(5);
+    if (fiveLetterWords && fiveLetterWords.length) {
+      const curriculumEntries = fiveLetterWords.map(w => ({
+        word: w.word.toUpperCase().replace(/[^A-Z]/g, ''),
+        clue: `${w.icon || '✨'} ${w.topic_title || 'Vocabulary'}: ${w.es || w.word}`
+      }));
+      activeWordPool = [...WORD_POOL, ...curriculumEntries];
+    }
+  }
+
+  // --- BACKGROUND CANVAS ---
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgCtx = bgCanvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    bgCanvas.width = window.innerWidth;
+    bgCanvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 110; i++) {
+      stars.push({
+        x: Math.random() * bgCanvas.width,
+        y: Math.random() * bgCanvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        alpha: Math.random() * 0.7 + 0.2,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function renderGalaxy() {
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      bgCtx.fillStyle = 'rgba(242, 193, 78, ' + a + ')';
+      bgCtx.beginPath();
+      bgCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      bgCtx.fill();
+    });
+    requestAnimationFrame(renderGalaxy);
+  }
+  renderGalaxy();
+
+  Aurora.init({
+    onOpenSave: () => drawGalaxyConstellation('modal-galaxy-canvas')
+  });
+
+  // --- STUDIO NEURAL AUDIO ---
+  let currentAudio = null;
+  function speakWordAudio(slug, fallbackText) {
+    if (currentAudio) {
+      try { currentAudio.pause(); currentAudio.currentTime = 0; } catch(e) {}
+    }
+    const audioPath = '../audio/ludoteca/' + slug.toLowerCase() + '.mp3';
+    const audio = new Audio(audioPath);
+    currentAudio = audio;
+    audio.play().catch(() => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(fallbackText);
+        u.lang = 'en-US';
+        u.rate = 0.86;
+        window.speechSynthesis.speak(u);
+      }
+    });
+  }
+
+  // --- GAMEPLAY CONTROLLER ---
+  const gridEl = document.getElementById('wordle-grid');
+  const keyboardEl = document.getElementById('keyboard-wrap');
+  const clueTxt = document.getElementById('clue-txt');
+  const btnPlayClue = document.getElementById('btn-play-clue');
+
+  let currentTarget = null;
+  let currentRow = 0;
+  let currentCol = 0;
+  let currentGuess = '';
+  let isGameOver = false;
+
+  const KEYBOARD_LAYOUT = [
+    ['Q','W','E','R','T','Y','U','I','O','P'],
+    ['A','S','D','F','G','H','J','K','L'],
+    ['ENTER','Z','X','C','V','B','N','M','⌫']
+  ];
+
+  function startWordle() {
+    currentTarget = activeWordPool[Math.floor(Math.random() * activeWordPool.length)];
+    currentRow = 0;
+    currentCol = 0;
+    currentGuess = '';
+    isGameOver = false;
+
+    clueTxt.textContent = '"' + currentTarget.clue + '"';
+
+    gridEl.innerHTML = '';
+    for (let r = 0; r < 6; r++) {
+      const row = document.createElement('div');
+      row.className = 'wordle-row';
+      row.id = 'row-' + r;
+      for (let c = 0; c < 5; c++) {
+        const tile = document.createElement('div');
+        tile.className = 'wordle-tile';
+        tile.id = `tile-${r}-${c}`;
+        row.appendChild(tile);
+      }
+      gridEl.appendChild(row);
+    }
+
+    renderKeyboard();
+  }
+
+  btnPlayClue.onclick = () => {
+    if (currentTarget) speakWordAudio(currentTarget.word, currentTarget.clue);
+  };
+
+  function renderKeyboard() {
+    keyboardEl.innerHTML = '';
+    KEYBOARD_LAYOUT.forEach(rowKeys => {
+      const row = document.createElement('div');
+      row.className = 'keyboard-row';
+      rowKeys.forEach(k => {
+        const btn = document.createElement('button');
+        btn.className = 'key-btn' + (k === 'ENTER' || k === '⌫' ? ' wide' : '');
+        btn.textContent = k;
+        btn.id = 'key-' + k;
+        btn.onclick = () => handleKeyInput(k);
+        row.appendChild(btn);
+      });
+      keyboardEl.appendChild(row);
+    });
+  }
+
+  function handleKeyInput(k) {
+    if (isGameOver) return;
+
+    if (k === '⌫' || k === 'BACKSPACE') {
+      if (currentCol > 0) {
+        currentCol--;
+        currentGuess = currentGuess.slice(0, -1);
+        const tile = document.getElementById(`tile-${currentRow}-${currentCol}`);
+        tile.textContent = '';
+        tile.classList.remove('filled');
+      }
+    } else if (k === 'ENTER') {
+      if (currentGuess.length === 5) {
+        evaluateGuess();
+      } else {
+        Aurora.sfx.select();
+      }
+    } else if (/^[A-Z]$/i.test(k) && currentCol < 5) {
+      const letter = k.toUpperCase();
+      currentGuess += letter;
+      const tile = document.getElementById(`tile-${currentRow}-${currentCol}`);
+      tile.textContent = letter;
+      tile.classList.add('filled');
+      currentCol++;
+    }
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace') handleKeyInput('⌫');
+    else if (e.key === 'Enter') handleKeyInput('ENTER');
+    else if (/^[a-zA-Z]$/.test(e.key)) handleKeyInput(e.key.toUpperCase());
+  });
+
+  function evaluateGuess() {
+    const targetLetters = currentTarget.word.split('');
+    const guessLetters = currentGuess.split('');
+    const rowEl = document.getElementById('row-' + currentRow);
+
+    const matches = Array(5).fill('absent');
+    const targetLetterCount = {};
+
+    targetLetters.forEach(l => {
+      targetLetterCount[l] = (targetLetterCount[l] || 0) + 1;
+    });
+
+    // 1st pass: greens (exact spots)
+    for (let i = 0; i < 5; i++) {
+      if (guessLetters[i] === targetLetters[i]) {
+        matches[i] = 'correct';
+        targetLetterCount[guessLetters[i]]--;
+      }
+    }
+
+    // 2nd pass: golds (present in word)
+    for (let i = 0; i < 5; i++) {
+      if (matches[i] === 'correct') continue;
+      const l = guessLetters[i];
+      if (targetLetterCount[l] > 0) {
+        matches[i] = 'present';
+        targetLetterCount[l]--;
+      }
+    }
+
+    // Color tiles
+    for (let i = 0; i < 5; i++) {
+      const tile = document.getElementById(`tile-${currentRow}-${i}`);
+      tile.classList.add(matches[i]);
+
+      const keyBtn = document.getElementById('key-' + guessLetters[i]);
+      if (keyBtn) {
+        if (matches[i] === 'correct') {
+          keyBtn.className = 'key-btn correct';
+        } else if (matches[i] === 'present' && !keyBtn.classList.contains('correct')) {
+          keyBtn.className = 'key-btn present';
+        } else if (!keyBtn.classList.contains('correct') && !keyBtn.classList.contains('present')) {
+          keyBtn.className = 'key-btn absent';
+        }
+      }
+    }
+
+    if (currentGuess === currentTarget.word) {
+      isGameOver = true;
+      speakWordAudio(currentTarget.word, currentTarget.clue);
+      Aurora.celebrate({ xp: 25, x: window.innerWidth / 2, y: window.innerHeight / 2, message: 'Wordle Solved! 🟩 +25 XP' });
+      setTimeout(finishWave, 1800);
+    } else {
+      currentRow++;
+      currentCol = 0;
+      currentGuess = '';
+      if (currentRow >= 6) {
+        isGameOver = true;
+        Aurora.comfortMistake({
+          word: currentTarget.word,
+          icon: '🟩',
+          slug: currentTarget.word.toLowerCase(),
+          clue: currentTarget.clue,
+          x: window.innerWidth / 2,
+          y: window.innerHeight / 2,
+          mountSelector: '#arena'
+        });
+        setTimeout(finishWave, 2600);
+      }
+    }
+  }
+
+  function finishWave() {
+    Aurora.sfx.waveComplete();
+    const resultsModal = document.getElementById('results-modal');
+    resultsModal.classList.add('active');
+    drawGalaxyConstellation('results-galaxy-canvas');
+  }
+
+  function drawGalaxyConstellation(canvasId) {
+    const cvs = document.getElementById(canvasId);
+    if (!cvs) return;
+    const ctx = cvs.getContext('2d');
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+    const state = Aurora.getState();
+    const totalStars = Math.min(state.starsIgnited + 6, 24);
+    const starCoords = [];
+    for (let i = 0; i < totalStars; i++) {
+      const x = 30 + Math.random() * (cvs.width - 60);
+      const y = 20 + Math.random() * (cvs.height - 40);
+      starCoords.push({ x, y });
+
+      ctx.fillStyle = '#F2C14E';
+      ctx.shadowColor = '#F2C14E';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.strokeStyle = 'rgba(45, 212, 191, 0.35)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    for (let i = 0; i < starCoords.length - 1; i++) {
+      if (Math.random() > 0.3) {
+        ctx.moveTo(starCoords[i].x, starCoords[i].y);
+        ctx.lineTo(starCoords[i+1].x, starCoords[i+1].y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  document.getElementById('btn-restart-wordle').onclick = () => {
+    document.getElementById('results-modal').classList.remove('active');
+    startWordle();
+  };
+
+  startWordle();
+
+})();
+</script>
+</body>
+</html>

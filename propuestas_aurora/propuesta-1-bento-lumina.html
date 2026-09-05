@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Aurora — Propuesta 1: Lumina & Bento Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #060913;
+      --bg-surface: rgba(14, 22, 41, 0.65);
+      --bg-surface-hover: rgba(22, 35, 64, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(0, 242, 254, 0.4);
+      
+      --aurora-cyan: #00f2fe;
+      --aurora-teal: #00ffc3;
+      --aurora-violet: #9d4edd;
+      --aurora-emerald: #10b981;
+      --aurora-gold: #fbbf24;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* Living Aurora Canvas / CSS Mesh */
+    .aurora-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .aurora-mesh {
+      position: absolute;
+      width: 140vw;
+      height: 120vh;
+      top: -30vh;
+      left: -20vw;
+      filter: blur(80px);
+      opacity: 0.55;
+      background: radial-gradient(circle at 20% 30%, rgba(0, 242, 254, 0.45) 0%, transparent 45%),
+                  radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.4) 0%, transparent 50%),
+                  radial-gradient(circle at 50% 60%, rgba(0, 255, 195, 0.35) 0%, transparent 55%),
+                  radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.3) 0%, transparent 40%);
+      animation: auroraFlow 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes auroraFlow {
+      0% {
+        transform: rotate(0deg) scale(1) translate(0, 0);
+      }
+      50% {
+        transform: rotate(4deg) scale(1.1) translate(3vw, -2vh);
+      }
+      100% {
+        transform: rotate(-3deg) scale(1.05) translate(-4vw, 3vh);
+      }
+    }
+
+    /* Grid Overlay */
+    .grid-lines {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 85%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Header Nav */
+    header {
+      position: sticky;
+      top: 20px;
+      z-index: 50;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-pill {
+      background: rgba(10, 16, 31, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: border-color 0.3s;
+    }
+
+    .nav-pill:hover {
+      border-color: rgba(0, 242, 254, 0.3);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-violet));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    }
+
+    .brand-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .brand-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--aurora-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a.active {
+      color: var(--aurora-cyan);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .streak-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      color: var(--aurora-gold);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .btn-lumina {
+      background: linear-gradient(135deg, var(--aurora-cyan), #00b4d8);
+      color: #060913;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.35);
+      text-decoration: none;
+    }
+
+    .btn-lumina:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.6);
+    }
+
+    /* Main Container */
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 70px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      color: var(--aurora-cyan);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      animation: pulseGlow 3s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.15); }
+      50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.35); }
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--aurora-cyan);
+      box-shadow: 0 0 8px var(--aurora-cyan);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span.glow {
+      background: linear-gradient(135deg, #00f2fe 0%, #00ffc3 50%, #9d4edd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 30px rgba(0, 242, 254, 0.3));
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    /* Spotlight Card Engine */
+    .bento-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 242, 254, 0.12),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .bento-card:hover {
+      border-color: rgba(0, 242, 254, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    .bento-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Specific Card Grid Spans */
+    .card-sendas {
+      grid-column: span 8;
+    }
+
+    .card-essence {
+      grid-column: span 4;
+    }
+
+    .card-disector {
+      grid-column: span 5;
+    }
+
+    .card-grimorio {
+      grid-column: span 4;
+    }
+
+    .card-duelo {
+      grid-column: span 3;
+    }
+
+    @media (max-width: 1024px) {
+      .card-sendas { grid-column: span 12; }
+      .card-essence { grid-column: span 12; }
+      .card-disector { grid-column: span 12; }
+      .card-grimorio { grid-column: span 6; }
+      .card-duelo { grid-column: span 6; }
+    }
+
+    @media (max-width: 768px) {
+      .card-grimorio, .card-duelo { grid-column: span 12; }
+      .nav-links { display: none; }
+    }
+
+    /* Card Content Styling */
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--aurora-cyan);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-top: 4px;
+    }
+
+    /* Interactive Senda Selector inside Card 1 */
+    .senda-tabs {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 24px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      overflow-x: auto;
+    }
+
+    .senda-tab {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .senda-tab.active {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(157, 78, 221, 0.2));
+      color: #fff;
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+    }
+
+    .senda-preview {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .senda-preview { grid-template-columns: 1fr; }
+    }
+
+    .quest-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .quest-item:hover {
+      background: rgba(0, 242, 254, 0.08);
+      border-color: rgba(0, 242, 254, 0.3);
+      transform: translateX(4px);
+    }
+
+    .quest-info h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .quest-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .quest-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(0, 255, 195, 0.15);
+      color: var(--aurora-teal);
+      border: 1px solid rgba(0, 255, 195, 0.3);
+    }
+
+    /* Card Essence (XP / Gauge) */
+    .essence-meter {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .gauge-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      background: conic-gradient(var(--aurora-cyan) 0deg, var(--aurora-teal) 220deg, rgba(255, 255, 255, 0.05) 220deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+    }
+
+    .gauge-inner {
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      background: #080d1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gauge-inner .val {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .gauge-inner .lbl {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Disector de Frases */
+    .interactive-sentence {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-top: 14px;
+    }
+
+    .word-tokens {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .token {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .token:hover, .token.active {
+      background: rgba(0, 242, 254, 0.2);
+      border-color: var(--aurora-cyan);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    }
+
+    .token-analysis {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--aurora-cyan);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .audio-btn {
+      background: rgba(0, 242, 254, 0.15);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--aurora-cyan);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .audio-btn:hover {
+      background: var(--aurora-cyan);
+      color: #060913;
+      transform: scale(1.1);
+    }
+
+    /* Grimorio Card */
+    .grimorio-card-inner {
+      background: linear-gradient(145deg, rgba(157, 78, 221, 0.15), rgba(0, 0, 0, 0.4));
+      border: 1px solid rgba(157, 78, 221, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .grimorio-idiom {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .grimorio-meaning {
+      font-size: 0.88rem;
+      color: #c4b5fd;
+      margin-bottom: 12px;
+    }
+
+    .rarity-stars {
+      color: var(--aurora-gold);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    /* Duelo Widget */
+    .duelo-box {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .monster-icon {
+      font-size: 3rem;
+      margin-bottom: 8px;
+      animation: floatMonster 3s ease-in-out infinite alternate;
+      display: inline-block;
+    }
+
+    @keyframes floatMonster {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px) rotate(3deg); }
+    }
+
+    /* Footer Note */
+    .footer-note {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Living Aurora Mesh -->
+  <div class="aurora-container">
+    <div class="aurora-mesh"></div>
+  </div>
+  <div class="grid-lines"></div>
+
+  <!-- Header Pill -->
+  <header>
+    <nav class="nav-pill">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+        </div>
+        <span class="brand-text">English Aurora</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">Sendas</a></li>
+        <li><a href="#">Grimorio</a></li>
+        <li><a href="#">Duelos</a></li>
+        <li><a href="#">Ludoteca</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="streak-badge" title="Racha de Esencia Boreal">
+          <span>🔥</span>
+          <span>7 DÍAS</span>
+        </div>
+        <a href="#explorar" class="btn-lumina" onclick="playChime()">
+          <span>Comenzar</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="explorar">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="status-pill">
+        <span class="pulse-dot"></span>
+        <span>ACADEMIA ARCANA • TEMPORADA BOREAL 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        Domina el inglés con la claridad de una <br>
+        <span class="glow">Aurora Boreal</span>
+      </h1>
+
+      <p class="hero-desc">
+        Aprende con rutas progresivas de A1 a C1, disectores fonéticos en tiempo real y misiones inmersivas de alta retención sin rodeos.
+      </p>
+
+      <div class="hero-cta-group">
+        <button class="btn-lumina" style="padding: 14px 32px; font-size: 1rem;" onclick="speakPhrase('Welcome to English Aurora. Let the journey begin!'); playChime();">
+          <span>🎙️ Probar Voz Aurora</span>
+        </button>
+        <button class="btn-secondary" onclick="playChime()">
+          <span>Explorar Sendas</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Bento Grid Section -->
+    <section class="bento-grid">
+
+      <!-- Card 1: Sendas de Aprendizaje (Large) -->
+      <article class="bento-card card-sendas">
+        <div>
+          <div class="card-header">
+            <div>
+              <span class="card-tag">⚡ MAPA CURRICULAR</span>
+              <h2 class="card-title">Sendas de Maestría</h2>
+            </div>
+            <span class="quest-badge">88 LECCIONES LISTAS</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.92rem;">
+            Currículo estructurado bajo estándares internacionales CEFR adaptado a la velocidad moderna.
+          </p>
+
+          <div class="senda-tabs">
+            <button class="senda-tab active" onclick="switchSenda('A1', this)">A1 • Inicial</button>
+            <button class="senda-tab" onclick="switchSenda('A2', this)">A2 • Elemental</button>
+            <button class="senda-tab" onclick="switchSenda('B1', this)">B1 • Intermedio</button>
+            <button class="senda-tab" onclick="switchSenda('B2', this)">B2 • Fluidez</button>
+            <button class="senda-tab" onclick="switchSenda('C1', this)">C1 • Maestría</button>
+          </div>
+
+          <div class="senda-preview" id="sendaContainer">
+            <div class="quest-item" onclick="speakPhrase('Present Simple routines'); playChime();">
+              <div class="quest-info">
+                <h4>Present Simple & Routines</h4>
+                <p>Hábitos, frecuencias y estructuras afirmativas</p>
+              </div>
+              <span class="quest-badge">4 Formas</span>
+            </div>
+
+            <div class="quest-item" onclick="speakPhrase('Modal verbs and advice'); playChime();">
+              <div class="quest-info">
+                <h4>Modals: Can, Must & Should</h4>
+                <p>Habilidades, deberes y recomendaciones</p>
+              </div>
+              <span class="quest-badge">Interactivo</span>
+            </div>
+
+            <div class="quest-item" onclick="speakPhrase('Relative Clauses for places and objects'); playChime();">
+              <div class="quest-info">
+                <h4>Relative Clauses</h4>
+                <p>Conexión fluida de oraciones complejas</p>
+              </div>
+              <span class="quest-badge">Senda Arcana</span>
+            </div>
+
+            <div class="quest-item" onclick="speakPhrase('Past Simple narrative and irregular verbs'); playChime();">
+              <div class="quest-info">
+                <h4>Past Simple & Irregulars</h4>
+                <p>Narrativa histórica y desbloqueo de tiempos</p>
+              </div>
+              <span class="quest-badge">Duelo Listo</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Esencia Aurora (XP & Streak) -->
+      <article class="bento-card card-essence">
+        <div>
+          <div class="card-header">
+            <span class="card-tag">💎 PROGRESO REAL</span>
+            <span style="font-size: 1.2rem;">✨</span>
+          </div>
+          <h3 class="card-title" style="font-size: 1.25rem;">Esencia Aurora</h3>
+          
+          <div class="essence-meter">
+            <div class="gauge-circle">
+              <div class="gauge-inner">
+                <span class="val">850</span>
+                <span class="lbl">XP TOTAL</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Nivel 4: <strong>Iniciado Boreal</strong></p>
+          </div>
+        </div>
+
+        <button class="btn-secondary" style="width: 100%; justify-content: center; font-size: 0.85rem;" onclick="addXP()">
+          ⚡ Reclamar Esencia Diaria (+50 XP)
+        </button>
+      </article>
+
+      <!-- Card 3: Disector Fonético y Gramatical -->
+      <article class="bento-card card-disector">
+        <div>
+          <div class="card-header">
+            <span class="card-tag">🔬 FONÉTICA & SINTAXIS</span>
+            <button class="audio-btn" onclick="speakPhrase('She has been living here since 2020'); playChime();" title="Escuchar frase completa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </button>
+          </div>
+          <h3 class="card-title">Disector de Frases</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">Toca cualquier palabra para desglosar su fonética y función.</p>
+
+          <div class="interactive-sentence">
+            <div class="word-tokens">
+              <span class="token active" onclick="inspectWord('She', 'Pronombre Sujeto 3ª pers.', '/ʃiː/', this)">She</span>
+              <span class="token" onclick="inspectWord('has been', 'Auxiliar Present Perfect Continuous', '/hæz bɪn/', this)">has been</span>
+              <span class="token" onclick="inspectWord('living', 'Gerundio (acción continua)', '/ˈlɪv.ɪŋ/', this)">living</span>
+              <span class="token" onclick="inspectWord('here', 'Adverbio de lugar', '/hɪər/', this)">here</span>
+              <span class="token" onclick="inspectWord('since', 'Preposición de tiempo de inicio', '/sɪns/', this)">since</span>
+              <span class="token" onclick="inspectWord('2020', 'Año cardinal', '/ˈtwɛnti ˈtwɛnti/', this)">2020</span>
+            </div>
+
+            <div class="token-analysis" id="tokenOutput">
+              <strong>She</strong> (/ʃiː/) — <em>Pronombre Sujeto 3ª pers. singular</em>.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Grimorio de Modismos -->
+      <article class="bento-card card-grimorio">
+        <div>
+          <div class="card-header">
+            <span class="card-tag">📜 GRIMORIO VIVO</span>
+            <span class="rarity-stars">★★★★☆</span>
+          </div>
+          <h3 class="card-title">Modismo del Día</h3>
+          
+          <div class="grimorio-card-inner">
+            <div class="grimorio-idiom">"Once in a blue moon"</div>
+            <div class="grimorio-meaning">Rara vez / En ocasiones muy excepcionales</div>
+            <p style="font-size: 0.78rem; color: var(--text-dim);">Ejemplo: I only see him once in a blue moon.</p>
+          </div>
+        </div>
+
+        <button class="btn-secondary" style="width: 100%; justify-content: center; margin-top: 14px;" onclick="speakPhrase('I only see him once in a blue moon'); playChime();">
+          🔊 Escuchar Modismo
+        </button>
+      </article>
+
+      <!-- Card 5: Duelos Arcanos & Minijuego -->
+      <article class="bento-card card-duelo">
+        <div>
+          <div class="card-header">
+            <span class="card-tag">⚔️ DUELOS</span>
+            <span style="font-size: 0.75rem; color: #ef4444; font-weight: 700;">EN VIVO</span>
+          </div>
+          <h3 class="card-title">Bestiario</h3>
+
+          <div class="duelo-box">
+            <div class="monster-icon">👾</div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 4px;">Espectro del Past Perfect</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Confusión clásica entre 'had gone' y 'went'.</p>
+          </div>
+        </div>
+
+        <button class="btn-lumina" style="width: 100%; justify-content: center; font-size: 0.85rem;" onclick="alert('¡Desafío iniciado! Supera 5 preguntas consecutivas para purificar al espectro.'); playChime();">
+          Iniciar Duelo
+        </button>
+      </article>
+
+    </section>
+
+    <footer class="footer-note">
+      <p>English Aurora © 2026 • Academia Arcana de Idiomas • Hosting 100% Estático & Ágil</p>
+    </footer>
+  </main>
+
+  <script>
+    // Specular Spotlight tracking
+    const cards = document.querySelectorAll('.bento-card');
+    window.addEventListener('mousemove', (e) => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // Web Audio API Synthesizer (Zero asset chime)
+    let audioCtx = null;
+    function playChime() {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.15); // A5
+        
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+        
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.35);
+      } catch (e) {}
+    }
+
+    // Native Web Speech API
+    function speakPhrase(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.92;
+        utterance.pitch = 1.05;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    // Interactive Senda Switcher
+    const sendasData = {
+      'A1': [
+        { title: 'Present Simple & Routines', desc: 'Estructuras cotidianas y hábitos', badge: '4 Formas' },
+        { title: 'Modals: Can, Must & Should', desc: 'Habilidades, deberes y consejos', badge: 'Interactivo' },
+        { title: 'Demonstratives & Articles', desc: 'Precisión con this, that, these, those', badge: 'Práctica' },
+        { title: 'To Be & Personal Identity', desc: 'Nacionalidades y profesiones', badge: 'Básico' }
+      ],
+      'A2': [
+        { title: 'Past Simple Irregulars', desc: 'Narrativa fluida y formas pasadas', badge: 'Clave' },
+        { title: 'Comparatives & Superlatives', desc: 'Descripciones dinámicas de objetos', badge: 'Interactivo' },
+        { title: 'There is / There are', desc: 'Existencia de objetos y lugares', badge: 'Vocabulario' },
+        { title: 'Going to vs Will', desc: 'Planes e intenciones futuras', badge: 'Senda' }
+      ],
+      'B1': [
+        { title: 'Present Perfect Continuous', desc: 'Duración de acciones pasadas presentes', badge: 'Avanzado' },
+        { title: 'Passive Voice Fundamentals', desc: 'Foco en el objeto y la acción', badge: 'Estructura' },
+        { title: 'Conditionals 0, 1 & 2', desc: 'Causa y efecto hipotético', badge: 'Lógica' },
+        { title: 'Used to & Past Habits', desc: 'Diferenciación con hábitos actuales', badge: 'Narrativa' }
+      ],
+      'B2': [
+        { title: 'Third Conditional & Regrets', desc: 'Escenarios pasados imposibles', badge: 'Arcano' },
+        { title: 'Phrasal Verbs Mastery (Get, Up, Out)', desc: 'Desbloqueo idiomático natural', badge: 'Fluidez' },
+        { title: 'Modals of Deduction Past', desc: 'Must have, could have, can\'t have', badge: 'Deducción' },
+        { title: 'Reported Speech & Indirect Qs', desc: 'Comunicación profesional formal', badge: 'Oratoria' }
+      ],
+      'C1': [
+        { title: 'Inversion for Emphasis', desc: 'Never have I seen, Seldom do we...', badge: 'Élite' },
+        { title: 'Cleft Sentences & Nuance', desc: 'It was the moment that changed...', badge: 'Maestría' },
+        { title: 'Subjunctive & Hypotheticals', desc: 'I insist that he be present', badge: 'Académico' },
+        { title: 'Register & Stylistic Nuance', desc: 'Dominio de tonos formales y poéticos', badge: 'Zenith' }
+      ]
+    };
+
+    function switchSenda(level, btn) {
+      document.querySelectorAll('.senda-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      playChime();
+
+      const container = document.getElementById('sendaContainer');
+      const items = sendasData[level] || [];
+      container.innerHTML = items.map(item => `
+        <div class="quest-item" onclick="speakPhrase('${item.title}'); playChime();">
+          <div class="quest-info">
+            <h4>${item.title}</h4>
+            <p>${item.desc}</p>
+          </div>
+          <span class="quest-badge">${item.badge}</span>
+        </div>
+      `).join('');
+    }
+
+    // Word Inspector
+    function inspectWord(word, func, ipa, el) {
+      document.querySelectorAll('.token').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      playChime();
+      speakPhrase(word);
+      document.getElementById('tokenOutput').innerHTML = `
+        <strong>${word}</strong> (${ipa}) — <em>${func}</em>.
+      `;
+    }
+
+    // XP Incrementor
+    let xp = 850;
+    function addXP() {
+      xp += 50;
+      document.querySelector('.gauge-inner .val').innerText = xp;
+      playChime();
+      alert(`✨ ¡Has absorbido 50 de Esencia Aurora! Tu XP actual es ${xp}.`);
+    }
+  </script>
+</body>
+</html>

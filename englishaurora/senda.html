@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Aurora — Senda</title>
+<!-- ENGLISH AURORA · motor RPG de sendas (prototipo nativo)
+     Mismo contenido de Dummy_alfa (contenido/*.json embebido en js/data.js),
+     nueva piel: paleta verdeazulada + Aurora guía + quests animados.
+     Fixes del "error silencioso": datos embebidos (sin fetch file://),
+     gap-fill de N huecos, apóstrofos tipográficos antes de contracciones,
+     audio encadenado con onended/utterance.onend (nunca setTimeout). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#2dd4bf; --teal-deep:#0f766e; --teal-dark:#134e4a;
+  --night:#0b1020; --night2:#101a33; --gold:#e8c26a; --gold-soft:#f3dd9d;
+  --parchment:#f5ecd7; --ink:#2a2118; --danger:#e05d5d; --ok:#57d98a;
+  --muted:#8fa3b8;
+  --e-fluid:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'EB Garamond', serif; color:var(--parchment);
+  background:var(--night); min-height:100vh; overflow-x:hidden;
+}
+/* ===== Fondo: galaxia + aurora boreal ===== */
+.sky{position:fixed; inset:0; z-index:-2;
+  background:linear-gradient(180deg,#070b18 0%, #0b1020 40%, #0d2233 100%);}
+.aurora-boreal{position:fixed; inset:-20% -10% auto -10%; height:70%; z-index:-1; opacity:.55;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(45,212,191,.35), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 70% 20%, rgba(129,92,216,.28), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 45% 45%, rgba(87,217,138,.22), transparent 65%);
+  filter:blur(30px); animation:auroraMove 14s ease-in-out infinite alternate;}
+@keyframes auroraMove{from{transform:translateX(-3%) skewX(-4deg)} to{transform:translateX(3%) skewX(4deg)}}
+.stars{position:fixed; inset:0; z-index:-1; pointer-events:none}
+.star{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%;
+  animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2} 50%{opacity:.9}}
+
+.wrap{max-width:880px; margin:0 auto; padding:22px 16px 90px}
+.screen{display:none}
+.screen.active{display:block; animation:screenIn .55s var(--e-fluid)}
+@keyframes screenIn{from{opacity:0; transform:translateY(16px) scale(.99)} to{opacity:1; transform:none}}
+
+h1,h2,h3,.font-title{font-family:'Cinzel', serif}
+.brand{text-align:center; letter-spacing:.35em; font-size:.78rem; color:var(--teal); text-transform:uppercase}
+.brand b{color:var(--gold)}
+.topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; gap:10px; flex-wrap:wrap}
+.backlink{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.14em; color:var(--muted);
+  text-decoration:none; text-transform:uppercase; transition:color .3s}
+.backlink:hover{color:var(--teal)}
+.esencia-chip{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.12em; color:var(--gold);
+  border:1px solid rgba(232,194,106,.4); border-radius:4px; padding:6px 12px; background:rgba(232,194,106,.06)}
+
+/* ===== Marco RPG ===== */
+.rpg-frame{
+  background:linear-gradient(180deg, rgba(19,78,74,.35), rgba(11,16,32,.85));
+  border:2px solid var(--gold); border-radius:14px; padding:22px;
+  box-shadow:0 0 0 4px rgba(232,194,106,.12), 0 0 30px rgba(45,212,191,.15), inset 0 0 40px rgba(0,0,0,.45);
+  position:relative;
+}
+.rpg-frame::before{content:""; position:absolute; inset:6px; border:1px solid rgba(232,194,106,.35);
+  border-radius:9px; pointer-events:none}
+.corner{position:absolute; width:14px; height:14px; border:2px solid var(--gold)}
+.corner.tl{top:-4px; left:-4px; border-right:none; border-bottom:none; border-radius:6px 0 0 0}
+.corner.tr{top:-4px; right:-4px; border-left:none; border-bottom:none; border-radius:0 6px 0 0}
+.corner.bl{bottom:-4px; left:-4px; border-right:none; border-top:none; border-radius:0 0 0 6px}
+.corner.br{bottom:-4px; right:-4px; border-left:none; border-top:none; border-radius:0 0 6px 0}
+
+/* ===== Aurora ===== */
+.aurora-hero{display:flex; align-items:center; gap:20px; margin:18px 0}
+.aurora-hero img{flex:0 0 132px; height:180px; object-fit:contain;
+  filter:drop-shadow(0 0 18px rgba(45,212,191,.5)); animation:floaty 5.5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.dialog{
+  background:rgba(11,16,32,.9); border:1px solid var(--teal); border-radius:12px;
+  padding:16px 18px; font-size:1.15rem; line-height:1.55; position:relative; min-height:96px; flex:1;
+}
+.dialog .who{font-family:'Cinzel',serif; color:var(--teal); font-size:.85rem; letter-spacing:.15em; display:block; margin-bottom:6px}
+.dialog em{color:var(--gold-soft)}
+.dialog .caret{display:inline-block; width:2px; background:var(--teal); animation:caret .8s steps(1) infinite; height:1em; vertical-align:-2px}
+@keyframes caret{50%{opacity:0}}
+
+.btn{
+  font-family:'Cinzel',serif; font-weight:700; letter-spacing:.08em; cursor:pointer;
+  background:linear-gradient(180deg,#1d7a6e,#0f4f47); color:var(--gold-soft);
+  border:2px solid var(--gold); border-radius:10px; padding:13px 30px; font-size:1rem;
+  box-shadow:0 4px 0 #082a26, 0 0 16px rgba(45,212,191,.25); transition:all .15s;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 6px 0 #082a26, 0 0 24px rgba(45,212,191,.45)}
+.btn:active{transform:translateY(2px); box-shadow:0 2px 0 #082a26}
+.btn:disabled{opacity:.45; cursor:not-allowed; transform:none}
+.btn.ghost{background:rgba(45,212,191,.08); box-shadow:none; border-color:rgba(45,212,191,.5); color:var(--teal)}
+.center{text-align:center; margin-top:26px}
+
+/* ===== Olas A/B/C ===== */
+.wave-pills{display:flex; gap:8px; justify-content:center; margin:16px 0 4px; flex-wrap:wrap}
+.wave-pill{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); border:1px solid rgba(143,163,184,.35); border-radius:999px; padding:7px 16px;
+  text-decoration:none; transition:all .3s var(--e-fluid)}
+.wave-pill:hover{color:var(--teal); border-color:var(--teal)}
+.wave-pill.on{color:var(--night); background:linear-gradient(90deg,var(--teal),#7ef0dd); border-color:transparent;
+  box-shadow:0 0 18px rgba(45,212,191,.45)}
+.wave-pill.locked{opacity:.4; pointer-events:none}
+.wave-badge{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.22em; color:var(--gold);
+  text-transform:uppercase}
+
+/* ===== Diálogo de personajes ===== */
+.dialogue-line{padding:10px 14px; border-left:3px solid var(--teal); margin:10px 0;
+  background:rgba(45,212,191,.06); border-radius:0 8px 8px 0; font-size:1.12rem;
+  opacity:0; transform:translateX(-14px); animation:lineIn .5s var(--e-fluid) forwards}
+@keyframes lineIn{to{opacity:1; transform:none}}
+.dialogue-line b{color:var(--teal); font-family:'Cinzel',serif; font-size:.85rem; letter-spacing:.1em}
+.dialogue-line strong, .hl{background:rgba(232,194,106,.22); color:var(--gold-soft); border-radius:4px; padding:0 4px}
+
+/* ===== Diagnóstico ===== */
+.diag-opt{display:block; width:100%; text-align:left; cursor:pointer; margin:10px 0;
+  font-family:'EB Garamond',serif; font-size:1.2rem; color:var(--parchment);
+  background:rgba(45,212,191,.07); border:1px solid rgba(45,212,191,.4); border-radius:10px; padding:14px 18px;
+  transition:all .2s var(--e-fluid)}
+.diag-opt:hover{background:rgba(45,212,191,.18); border-color:var(--teal); transform:translateX(4px)}
+.diag-opt.correct{background:rgba(87,217,138,.22); border-color:var(--ok); color:#c9f5dd; animation:pulseOk .6s}
+.diag-opt.wrong{background:rgba(224,93,93,.22); border-color:var(--danger); color:#f5c9c9; animation:shake .45s}
+@keyframes pulseOk{0%{box-shadow:0 0 0 0 rgba(87,217,138,.7)}100%{box-shadow:0 0 0 18px rgba(87,217,138,0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+
+/* ===== Tabla rúnica ===== */
+table.rune{width:100%; border-collapse:collapse; margin-top:14px; font-size:1.05rem}
+table.rune th{font-family:'Cinzel',serif; color:var(--gold); background:rgba(15,118,110,.35);
+  padding:10px; border:1px solid rgba(232,194,106,.4); font-size:.9rem; letter-spacing:.05em}
+table.rune td{padding:10px; border:1px solid rgba(232,194,106,.25); color:var(--parchment)}
+table.rune td:first-child{font-family:'Cinzel',serif; color:var(--teal); font-weight:700}
+
+/* ===== Grimorio ===== */
+.grimorio{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; margin-top:16px}
+.gema{background:linear-gradient(160deg, rgba(15,118,110,.4), rgba(11,16,32,.9));
+  border:1px solid rgba(45,212,191,.4); border-radius:12px; padding:14px; text-align:center;
+  opacity:0; transform:translateY(14px) scale(.96); animation:gemaIn .5s var(--e-fluid) forwards;
+  transition:box-shadow .3s, transform .3s}
+.gema:hover{box-shadow:0 0 22px rgba(45,212,191,.35); transform:translateY(-3px)}
+@keyframes gemaIn{to{opacity:1; transform:none}}
+.gema .bandera{font-size:1.5rem; display:block; margin-bottom:6px}
+.gema .palabra{font-family:'Cinzel',serif; color:var(--gold-soft); font-size:1.02rem}
+.gema .trad{font-size:.95rem; color:var(--muted); font-style:italic; margin-top:3px}
+
+/* ===== Duelo Arcano ===== */
+.duel-hud{display:flex; justify-content:space-between; align-items:center; gap:14px; margin-bottom:14px}
+.combatant{flex:1; text-align:center}
+.combatant .name{font-family:'Cinzel',serif; font-size:.78rem; letter-spacing:.12em; color:var(--gold)}
+.hpbar{height:16px; border:2px solid var(--gold); border-radius:8px; overflow:hidden; background:#1a0f0f; margin-top:6px}
+.hpbar .fill{height:100%; transition:width .6s var(--e-fluid)}
+.hpbar.player .fill{background:linear-gradient(90deg,#0f766e,#2dd4bf)}
+.hpbar.enemy .fill{background:linear-gradient(90deg,#7a1d1d,#e05d5d)}
+.hpbar.hit{animation:shake .45s}
+.vs{font-family:'Cinzel',serif; color:var(--teal); font-size:1.3rem; text-shadow:0 0 12px var(--teal)}
+
+.progress-dots{display:flex; gap:6px; justify-content:center; margin:12px 0; flex-wrap:wrap}
+.dot{width:10px; height:10px; border-radius:50%; border:1px solid var(--gold); background:transparent; transition:all .3s}
+.dot.done{background:var(--teal); box-shadow:0 0 8px var(--teal)}
+.dot.fail{background:var(--danger); border-color:var(--danger); box-shadow:0 0 8px var(--danger)}
+
+.quest-card{font-size:1.28rem; line-height:1.65; text-align:center; padding:8px 0 4px;
+  animation:questIn .45s var(--e-fluid)}
+@keyframes questIn{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+.quest-card .qtype{font-family:'Cinzel',serif; font-size:.74rem; letter-spacing:.2em; color:var(--teal); display:block; margin-bottom:10px}
+.quest-card .combina{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.1em;
+  color:var(--gold); border:1px solid rgba(232,194,106,.45); border-radius:999px; padding:3px 12px; margin-bottom:8px}
+.quest-card .instr{display:block; font-size:.95rem; color:var(--muted); font-style:italic; margin-top:8px}
+.quest-card .base{color:var(--gold-soft)}
+
+.options{display:flex; flex-direction:column; gap:10px; margin-top:18px}
+.opt{
+  font-family:'EB Garamond',serif; font-size:1.15rem; cursor:pointer; color:var(--parchment);
+  background:rgba(45,212,191,.08); border:1px solid rgba(45,212,191,.45); border-radius:10px; padding:12px 16px;
+  transition:all .18s var(--e-fluid); text-align:left;
+  opacity:0; transform:translateY(10px); animation:optIn .4s var(--e-fluid) forwards;
+}
+@keyframes optIn{to{opacity:1; transform:none}}
+.opt:hover{background:rgba(45,212,191,.2); border-color:var(--teal); transform:translateX(4px)}
+.opt.correct{background:rgba(87,217,138,.25); border-color:var(--ok); color:#c9f5dd; animation:pulseOk .6s}
+.opt.wrong{background:rgba(224,93,93,.25); border-color:var(--danger); color:#f5c9c9; animation:shake .45s}
+.opt:disabled{cursor:default}
+
+/* gap-fill inline (las 3 reglas no cosméticas del HANDOFF) */
+.gapfill{font-size:1.28rem; line-height:2.1; text-align:center}
+.gap{white-space:nowrap}
+.gap input{
+  font-family:'EB Garamond',serif; font-size:1.15rem; color:var(--gold-soft); text-align:center;
+  background:transparent; border:none; border-bottom:2px solid var(--teal);
+  vertical-align:baseline; padding:0 4px; margin:0 2px;
+}
+.gap input:focus{outline:none; border-bottom-color:var(--gold); box-shadow:0 8px 14px -8px rgba(45,212,191,.6)}
+.gap .hint{color:var(--muted); font-size:.95rem; font-style:italic}
+.spell-input{
+  width:100%; font-family:'EB Garamond',serif; font-size:1.2rem; color:var(--parchment);
+  background:rgba(11,16,32,.9); border:1px solid var(--teal); border-radius:10px; padding:12px 16px; margin-top:16px;
+}
+.spell-input:focus{outline:none; box-shadow:0 0 14px rgba(45,212,191,.4)}
+
+.chips{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:16px}
+.chip{
+  font-family:'EB Garamond',serif; font-size:1.1rem; cursor:pointer; color:var(--ink);
+  background:var(--parchment); border:2px solid var(--gold); border-radius:8px; padding:7px 14px;
+  transition:all .15s;
+}
+.chip:hover{transform:translateY(-2px)}
+.chip.used{opacity:.3; pointer-events:none}
+.answer-line{min-height:44px; border-bottom:2px dashed rgba(232,194,106,.5); margin-top:14px;
+  font-size:1.25rem; color:var(--gold-soft); text-align:center; padding:6px; cursor:pointer}
+
+/* banked_choice */
+.bank{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:14px 0; padding:12px;
+  border:1px dashed rgba(45,212,191,.4); border-radius:10px}
+.bank-item{font-family:'IBM Plex Mono',monospace; font-size:.85rem; color:var(--parchment);
+  background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.4); border-radius:8px; padding:8px 12px}
+.bank-item.taken{opacity:.45}
+.bank-item b{color:var(--gold); margin-right:6px}
+.banked-q{display:flex; align-items:center; gap:10px; margin:10px 0; flex-wrap:wrap; font-size:1.1rem}
+.banked-q .bopts{display:flex; gap:6px}
+.bopt{min-width:44px; min-height:44px; font-family:'IBM Plex Mono',monospace; cursor:pointer;
+  background:rgba(45,212,191,.08); color:var(--teal); border:1px solid rgba(45,212,191,.45); border-radius:8px;
+  transition:all .15s}
+.bopt[aria-checked="true"]{background:var(--teal); color:var(--night); box-shadow:0 0 12px rgba(45,212,191,.5)}
+.bopt.correct{background:var(--ok); color:#08251a; border-color:var(--ok)}
+.bopt.wrong{background:var(--danger); color:#2a0d0d; border-color:var(--danger)}
+
+.feedback{margin-top:16px; padding:12px 16px; border-radius:10px; font-size:1.1rem; display:none}
+.feedback.show{display:block; animation:screenIn .3s}
+.feedback.good{background:rgba(87,217,138,.15); border:1px solid var(--ok); color:#c9f5dd}
+.feedback.bad{background:rgba(224,93,93,.15); border:1px solid var(--danger); color:#f5c9c9}
+
+.aurora-react{display:flex; gap:12px; align-items:center; margin-top:16px}
+.aurora-react img{flex:0 0 58px; height:74px; object-fit:contain; filter:drop-shadow(0 0 10px rgba(45,212,191,.4))}
+.aurora-react .bubble{background:rgba(19,78,74,.4); border:1px solid var(--teal); border-radius:10px;
+  padding:10px 14px; font-size:1.05rem; font-style:italic; animation:screenIn .4s}
+
+/* ===== Listening ===== */
+.transcript{margin-top:14px}
+.tline{padding:9px 14px; border-left:3px solid rgba(45,212,191,.35); margin:8px 0; font-size:1.12rem;
+  border-radius:0 8px 8px 0; transition:all .3s; color:var(--muted)}
+.tline.speaking{border-left-color:var(--gold); background:rgba(232,194,106,.08); color:var(--parchment);
+  box-shadow:0 0 18px rgba(232,194,106,.12)}
+.tline b{color:var(--teal); font-family:'Cinzel',serif; font-size:.82rem; letter-spacing:.1em}
+.tline input{font-family:'EB Garamond',serif; font-size:1.05rem; color:var(--gold-soft); text-align:center;
+  background:transparent; border:none; border-bottom:2px solid var(--teal); vertical-align:baseline; padding:0 4px; width:9ch}
+.tline input:focus{outline:none; border-bottom-color:var(--gold)}
+.tline input.ok{border-bottom-color:var(--ok); color:var(--ok)}
+.tline input.ko{border-bottom-color:var(--danger); color:var(--danger)}
+.playbtn{font-size:1.4rem}
+
+/* ===== Reading ===== */
+.pergamino{background:linear-gradient(180deg, rgba(245,236,215,.08), rgba(245,236,215,.04));
+  border:1px solid rgba(232,194,106,.4); border-radius:12px; padding:20px 22px; margin-top:14px;
+  font-size:1.15rem; line-height:1.75; color:var(--parchment)}
+.tf-row{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:12px 0; flex-wrap:wrap;
+  font-size:1.12rem; padding:10px 14px; background:rgba(45,212,191,.05); border-radius:10px; border:1px solid rgba(45,212,191,.2)}
+.tf-row .tf-btns{display:flex; gap:8px}
+.tf-btn{font-family:'Cinzel',serif; font-size:.8rem; letter-spacing:.1em; cursor:pointer; padding:8px 16px;
+  background:rgba(45,212,191,.08); color:var(--teal); border:1px solid rgba(45,212,191,.45); border-radius:8px; transition:all .15s}
+.tf-btn.sel{background:var(--teal); color:var(--night)}
+.tf-btn.correct{background:var(--ok); color:#08251a; border-color:var(--ok)}
+.tf-btn.wrong{background:var(--danger); color:#2a0d0d; border-color:var(--danger)}
+
+/* ===== Resultado ===== */
+.xp-tag{font-family:'Cinzel',serif; color:var(--night); background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  border-radius:20px; padding:6px 18px; display:inline-block; font-size:.9rem; letter-spacing:.1em}
+.boss-title{color:var(--danger); text-shadow:0 0 18px rgba(224,93,93,.6)}
+.rank{font-family:'Cinzel',serif; font-size:1.6rem; color:var(--gold); text-shadow:0 0 20px rgba(232,194,106,.5)}
+.note{font-size:.9rem; color:var(--muted); text-align:center; margin-top:30px; font-style:italic}
+
+/* partículas de acierto */
+.spark{position:fixed; width:8px; height:8px; border-radius:50%; pointer-events:none; z-index:60;
+  animation:spark .8s var(--e-fluid) forwards}
+@keyframes spark{from{opacity:1; transform:translate(0,0) scale(1)} to{opacity:0; transform:translate(var(--dx),var(--dy)) scale(.2)}}
+
+@media (max-width:640px){
+  .aurora-hero{flex-direction:column; text-align:center}
+  .aurora-hero img{height:130px}
+  .duel-hud{flex-direction:column}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="sky"></div><div class="aurora-boreal"></div><div class="stars" id="stars"></div>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="backlink" href="index.html">← Volver a la galaxia</a>
+    <p class="brand" style="margin:0">✦ ENGLISH <b>AURORA</b> ✦</p>
+    <div class="esencia-chip" id="esencia-chip">✦ 0</div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="screen active" id="s-intro">
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="aurora-hero">
+        <img id="intro-aurora" src="assets/aurora.png" alt="Aurora">
+        <div class="dialog">
+          <span class="who">✦ AURORA — Guardiana de la Academia</span>
+          <span id="intro-text"></span><span class="caret" id="intro-caret"></span>
+        </div>
+      </div>
+      <h2 style="text-align:center; color:var(--gold); margin-top:10px" id="intro-title"></h2>
+      <p style="text-align:center; margin-top:8px" class="wave-badge" id="intro-wave"></p>
+      <div class="wave-pills" id="wave-pills"></div>
+      <p style="text-align:center; margin-top:10px; font-size:1.05rem" id="intro-plan"></p>
+      <div class="center"><button class="btn" id="btn-start">⚔ Aceptar la Senda</button></div>
+    </div>
+    <p class="note">Prototipo English Aurora · mismo contenido de la secuencia, nueva piel arcana</p>
+  </section>
+
+  <!-- LECCIÓN -->
+  <section class="screen" id="s-lesson">
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="color:var(--gold)" id="lesson-title"></h2>
+      <div id="lesson-body"></div>
+      <div class="center"><button class="btn" id="btn-quests">⚔ Comenzar las Quests</button></div>
+    </div>
+  </section>
+
+  <!-- QUESTS -->
+  <section class="screen" id="s-quest">
+    <div class="duel-hud">
+      <div class="combatant"><div class="name">✦ TÚ — APRENDIZ</div><div class="hpbar player" id="hpbar-p"><div class="fill" id="hp-player" style="width:100%"></div></div></div>
+      <div class="vs">VS</div>
+      <div class="combatant"><div class="name" id="enemy-name"></div><div class="hpbar enemy" id="hpbar-e"><div class="fill" id="hp-enemy" style="width:100%"></div></div></div>
+    </div>
+    <div class="progress-dots" id="dots"></div>
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="quest-card" id="q-card"></div>
+      <div id="q-input"></div>
+      <div class="feedback" id="q-feedback"></div>
+      <div class="aurora-react" id="q-aurora" style="display:none">
+        <img id="q-aurora-img" src="assets/aurora-celebrando.png" alt="Aurora">
+        <div class="bubble" id="q-aurora-text"></div>
+      </div>
+      <div class="center"><button class="btn" id="q-next" style="display:none">Continuar →</button></div>
+    </div>
+  </section>
+
+  <!-- LISTENING -->
+  <section class="screen" id="s-listening">
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="color:var(--gold)">🎧 El Consejo de Voces</h2>
+      <p style="margin:8px 0 4px; font-style:italic; color:var(--muted)">Escucha el consejo de los aventureros y completa las palabras que el viento se llevó.</p>
+      <div class="center" style="margin-top:14px"><button class="btn playbtn" id="btn-play">▶ Invocar las voces</button></div>
+      <div class="transcript" id="transcript"></div>
+      <div id="listen-comp"></div>
+      <div class="feedback" id="l-feedback"></div>
+      <div class="aurora-react" id="l-aurora" style="display:none">
+        <img id="l-aurora-img" src="assets/aurora-celebrando.png" alt="Aurora">
+        <div class="bubble" id="l-aurora-text"></div>
+      </div>
+      <div class="center">
+        <button class="btn ghost" id="btn-listen-check">✦ Sellar el oído</button>
+        <button class="btn" id="l-next" style="display:none">Continuar →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- READING -->
+  <section class="screen" id="s-reading">
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="color:var(--gold)">📜 El Pergamino</h2>
+      <div class="pergamino" id="reading-text"></div>
+      <div id="reading-qs" style="margin-top:16px"></div>
+      <div class="feedback" id="r-feedback"></div>
+      <div class="center">
+        <button class="btn ghost" id="btn-read-check">✦ Sellar la lectura</button>
+        <button class="btn" id="r-next" style="display:none">Continuar →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOSS -->
+  <section class="screen" id="s-boss">
+    <h2 class="boss-title" style="text-align:center; margin-bottom:6px">☠ DUELO FINAL — EVALUACIÓN ☠</h2>
+    <p style="text-align:center; color:var(--muted); margin-bottom:16px" id="boss-sub"></p>
+    <div class="duel-hud">
+      <div class="combatant"><div class="name">✦ TÚ</div><div class="hpbar player"><div class="fill" id="hp-player-b" style="width:100%"></div></div></div>
+      <div class="vs">VS</div>
+      <div class="combatant"><div class="name" id="boss-name"></div><div class="hpbar enemy"><div class="fill" id="hp-enemy-b" style="width:100%"></div></div></div>
+    </div>
+    <div class="rpg-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="quest-card" id="b-card"></div>
+      <div id="b-input"></div>
+      <div class="feedback" id="b-feedback"></div>
+      <div class="center"><button class="btn" id="b-next" style="display:none">Continuar →</button></div>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section class="screen" id="s-result">
+    <div class="rpg-frame" style="text-align:center">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="color:var(--gold)">✦ SENDA COMPLETADA ✦</h2>
+      <div style="margin:14px auto; width:150px"><img src="assets/aurora-celebrando.png" alt="Aurora" style="width:100%; filter:drop-shadow(0 0 24px rgba(45,212,191,.5))"></div>
+      <div class="dialog" style="text-align:left; max-width:560px; margin:0 auto">
+        <span class="who">✦ AURORA</span>
+        <span id="result-msg"></span>
+      </div>
+      <p style="margin-top:22px">Esencia Aurora ganada en esta senda:</p>
+      <p class="rank" id="xp-earned"></p>
+      <p style="margin-top:10px; color:var(--muted)">Esencia total acumulada: <b id="xp-total" style="color:var(--teal)"></b> ✦</p>
+      <p style="margin-top:16px">Rango alcanzado: <span class="rank" id="rank"></span></p>
+      <div class="wave-pills" id="result-waves" style="margin-top:22px"></div>
+      <div class="center">
+        <button class="btn ghost" id="btn-retry">↻ Repetir la Senda</button>
+        <a class="btn" href="index.html" style="text-decoration:none; display:inline-block">🌌 Volver a la galaxia</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+</body>
+</html>

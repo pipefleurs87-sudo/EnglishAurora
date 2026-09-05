@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Lab · Variante B — Brasa | EnglishAngel</title>
+<!-- CONCEPTO: BRASA / ENERGÍA
+     Paleta rojo-naranja sobre crema caliente. Efecto buscado: ACCIÓN Y MOMENTUM.
+     El usuario siente "quiero empezar YA". Gamificación visible: racha,
+     progreso, botones que saltan. Todo rebota con spring; nada es tibio. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700;8..60,900&family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2B1208;
+  --cream:#FBF2E6;
+  --cream-lo:#F6E7D3;
+  --ember:#E4572E;
+  --ember-deep:#B23A2E;
+  --orange:#F59E4C;
+  --gold:#D98E1F;
+  --muted:#8A6A55;
+  --line:rgba(178,58,46,.18);
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --hand:'Caveat',cursive;
+  --lift:0 2px 3px rgba(178,58,46,.08),0 18px 44px rgba(178,58,46,.14);
+  --e-spring:cubic-bezier(.34,1.8,.5,1);
+  --e-out:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);color:var(--ink);min-height:100vh;overflow-x:hidden;
+  background:linear-gradient(160deg,#FDF8EF 0%,var(--cream) 40%,var(--cream-lo) 100%)}
+
+/* --- banda de brasa animada arriba --- */
+.emberbar{position:fixed;top:0;left:0;right:0;height:5px;z-index:20;
+  background:linear-gradient(90deg,var(--ember-deep),var(--ember),var(--orange),var(--gold),var(--ember));
+  background-size:300% 100%;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+
+.wrap{position:relative;max-width:1060px;margin:0 auto;padding:44px 22px 70px}
+
+/* --- entrada con salto (pop) --- */
+@keyframes pop{0%{opacity:0;transform:translateY(26px) scale(.96)}70%{transform:translateY(-4px) scale(1.01)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.pop{opacity:0;animation:pop .65s var(--e-spring) forwards}
+.d1{animation-delay:.04s}.d2{animation-delay:.13s}.d3{animation-delay:.22s}
+.d4{animation-delay:.34s}.d5{animation-delay:.44s}.d6{animation-delay:.54s}.d7{animation-delay:.64s}
+
+.topline{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--hand);font-size:32px;color:var(--ember-deep);transform:rotate(-1.5deg)}
+.streak{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;font-weight:500;
+  background:var(--ink);color:#FFD9A8;padding:9px 16px;border-radius:999px;box-shadow:var(--lift)}
+.streak .flame{display:inline-block;animation:flick 1.1s ease-in-out infinite alternate}
+@keyframes flick{from{transform:scale(1) rotate(-4deg)}to{transform:scale(1.18) rotate(5deg)}}
+
+.hero{margin:36px 0 30px;max-width:820px}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1.04;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;color:var(--ember);
+  text-shadow:3px 3px 0 rgba(245,158,76,.35)}
+.sub{font-family:var(--serif);font-size:17.5px;color:var(--muted);margin-top:16px;line-height:1.55}
+.sub b{color:var(--ink)}
+.kicker{display:inline-block;font-family:var(--hand);font-size:24px;font-weight:700;color:var(--ember-deep);margin-top:14px;transform:rotate(-1.6deg)}
+
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:16px 30px;border-radius:14px;
+  font-weight:700;font-size:16px;color:#fff;text-decoration:none;cursor:pointer;letter-spacing:.01em;
+  background:linear-gradient(180deg,var(--orange),var(--ember) 55%,var(--ember-deep));
+  box-shadow:0 3px 0 #7E2718,0 16px 38px rgba(228,87,46,.45);
+  transition:transform .22s var(--e-spring),box-shadow .22s var(--e-out)}
+.cta:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 6px 0 #7E2718,0 26px 54px rgba(228,87,46,.55)}
+.cta:active{transform:translateY(2px) scale(.99);box-shadow:0 1px 0 #7E2718,0 8px 18px rgba(228,87,46,.4)}
+
+/* --- chips filtro con actitud --- */
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:36px 0 26px}
+.search{flex:1;min-width:200px;display:flex;align-items:center;gap:9px;padding:12px 16px;border-radius:12px;
+  background:#fff;border:2px solid var(--line);color:var(--muted);font-size:13.5px;font-family:var(--mono)}
+.chip-f{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;padding:9px 16px;border-radius:999px;
+  border:2px solid var(--line);color:var(--ember-deep);background:#fff;cursor:pointer;
+  transition:all .2s var(--e-spring)}
+.chip-f:hover{border-color:var(--ember);transform:translateY(-3px) rotate(-1deg)}
+.chip-f.on{background:var(--ember);color:#fff;border-color:var(--ember);box-shadow:0 3px 0 #7E2718;transform:translateY(-1px)}
+
+/* --- tarjetas: papel caliente, borde quemado, salto al hover --- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{position:relative;border-radius:16px;padding:20px;display:flex;flex-direction:column;
+  background:#FFFDF9;border:2px solid rgba(178,58,46,.12);box-shadow:var(--lift);
+  transition:transform .3s var(--e-spring),box-shadow .3s var(--e-out),border-color .25s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--ember);
+  box-shadow:0 3px 5px rgba(178,58,46,.1),0 30px 60px rgba(178,58,46,.24)}
+.card-area{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);margin-bottom:6px;font-weight:500}
+.card-tema{font-family:var(--serif);font-weight:700;font-size:19.5px;line-height:1.2}
+.card-meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin:8px 0 13px;letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+  border:1.5px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted);background:var(--cream)}
+.actions{margin-top:auto;display:flex;gap:7px;flex-wrap:wrap}
+.act{font-weight:700;font-size:12.5px;text-decoration:none;border-radius:9px;padding:9px 13px;
+  transition:transform .18s var(--e-spring)}
+.act.primary{background:linear-gradient(180deg,var(--ember),var(--ember-deep));color:#fff;box-shadow:0 2.5px 0 #7E2718}
+.act.primary:hover{transform:translateY(-2px) scale(1.04)}
+.act.primary:active{transform:translateY(1px);box-shadow:none}
+.act:not(.primary){color:var(--ember-deep);border:2px solid var(--line);background:#fff}
+.act:not(.primary):hover{border-color:var(--ember);transform:translateY(-2px)}
+
+footer{margin-top:56px;border-top:2px solid var(--line);padding-top:20px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lab{position:fixed;bottom:16px;right:16px;z-index:10;font-family:var(--mono);font-size:11px;
+  background:rgba(43,18,8,.92);color:#FFD9A8;padding:9px 14px;border-radius:999px;letter-spacing:.05em;
+  box-shadow:0 8px 24px rgba(43,18,8,.4)}
+.lab a{color:#FFB066;margin:0 4px}
+</style>
+</head>
+<body>
+<div class="emberbar"></div>
+<div class="wrap">
+  <div class="topline pop d1">
+    <div class="brand">EnglishAngel</div>
+    <div class="streak"><span class="flame">🔥</span> racha: 6 días · ¡no la pierdas!</div>
+  </div>
+  <header class="hero">
+    <h1 class="pop d2">Stop scrolling.<br>Start <em>actually learning</em> English.</h1>
+    <p class="sub pop d3">Every topic is a full mini-lesson: <b>diagnosis → rule → practice → listening → reading</b>, plus a video lesson and a test. Made by a teacher, with recurring characters.</p>
+    <p class="kicker pop d4">tu primer reto te espera ↓</p>
+    <br><a class="cta pop d5" href="#">🔥 Empezar ahora — es gratis</a>
+  </header>
+
+  <div class="toolbar pop d5">
+    <div class="search">🔍 present simple, articles, have got…</div>
+    <button class="chip-f on">A1</button><button class="chip-f">A2</button><button class="chip-f">B1</button>
+  </div>
+
+  <div class="grid">
+    <div class="card pop d4">
+      <div class="card-area">Adjectives · A1</div>
+      <div class="card-tema">Adjectives — Describing People &amp; Things</div>
+      <div class="card-meta">20 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">vocabulary</span><span class="chip">listening</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+    <div class="card pop d5">
+      <div class="card-area">Articles · A1</div>
+      <div class="card-tema">Articles — a / an / the</div>
+      <div class="card-meta">20 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">listening</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+    <div class="card pop d6">
+      <div class="card-area">Determiners · A1</div>
+      <div class="card-tema">This / That / These / Those</div>
+      <div class="card-meta">10 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+    <div class="card pop d7">
+      <div class="card-area">Have Got · A1</div>
+      <div class="card-tema">Have got — Possessions</div>
+      <div class="card-meta">20 exercises · sequence + video + test</div>
+      <div class="chips"><span class="chip">grammar</span><span class="chip">vocabulary</span><span class="chip">listening</span><span class="chip">reading</span><span class="chip">writing</span></div>
+      <div class="actions"><a class="act primary" href="#">Exercises</a><a class="act" href="#">▶ Lesson</a><a class="act" href="#">✎ Test</a></div>
+    </div>
+  </div>
+
+  <footer><span>EnglishAngel — made by a teacher</span><span>A1 · A2 · B1 — 81 temas</span></footer>
+</div>
+<div class="lab">UI LAB · B — BRASA 🔥 | <a href="variante-a-mar.html">← A</a><a href="variante-c-aurora.html">C →</a></div>
+</body>
+</html>

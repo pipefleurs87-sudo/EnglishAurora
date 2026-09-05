@@ -1,0 +1,56 @@
+{
+  "lang": "en",
+  "name": "English Aurora",
+  "brand": "English Aurora · Exercise bank",
+  "locale": "en-US",
+  "tts": {
+    "default_voice": "en-US",
+    "rate": 0.95,
+    "cast": {
+      "aurora": "en-US-AriaNeural",
+      "abuela": "en-GB-SoniaNeural",
+      "ben": "en-GB-RyanNeural",
+      "kenji": "en-US-GuyNeural",
+      "sofia": "en-US-AvaNeural"
+    }
+  },
+  "normalization": {
+    "strip_accents": true,
+    "strip_final_punctuation": true,
+    "punctuation_openers_optional": false,
+    "accent_policy": "strip",
+    "contractions": {
+      "i'm": "i am", "you're": "you are", "he's": "he is", "she's": "she is",
+      "it's": "it is", "we're": "we are", "they're": "they are",
+      "isn't": "is not", "aren't": "are not", "don't": "do not",
+      "doesn't": "does not", "didn't": "did not", "can't": "cannot",
+      "won't": "will not", "that's": "that is", "what's": "what is"
+    },
+    "synonyms": {}
+  },
+  "ui": {
+    "lesson": "📖 Lesson",
+    "practice": "✏️ Practice",
+    "test": "✓ Test",
+    "generator": "🎲 Exercise Generator",
+    "games": "🎮 Games",
+    "galaxy": "🌌 Galaxy",
+    "check_answers": "Check answers",
+    "reset": "Reset",
+    "score_answered": "Score: <b>{ok}/{ans}</b> answered",
+    "score_total": "· {total} total",
+    "nothing_answered": "Nothing answered yet — try a few first.",
+    "correct": "✓ Correct!",
+    "wrong": "✗ Not quite",
+    "answer_label": "Answer: ",
+    "also_correct": "Also correct: ",
+    "play_dialogue": "▶ Play dialogue",
+    "play_again": "▶ Play again",
+    "listen_hint": "Listen first. The transcript has gaps: fill them by listening.",
+    "print_reference": "🖨 Print reference table",
+    "choose_correct": "Choose the correct option:",
+    "unsupported_type": "[Unsupported type: {type}]",
+    "aurora_win": "✨ <b>Aurora:</b> \"Extraordinary mastery! Your Aurora Essence shines brightly. All incantations were successful!\"",
+    "aurora_trial": "🛡️ <b>Aurora:</b> \"Beware! The Mistake Goblins have intercepted some of your spells. Take heart, review the red marks, and try again!\""
+  }
+}

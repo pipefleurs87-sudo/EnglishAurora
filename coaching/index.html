@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Angel Coaching | Mentoría & Coaching Ejecutivo de Inglés</title>
+  <meta name="description" content="Coaching personalizado de inglés para profesionales, ejecutivos y líderes. Desbloquea tu fluidez con cercanía, naturalidad y autoridad global.">
+
+  <!-- Google Fonts: Cormorant Garamond (Elegante y delgada) + Plus Jakarta Sans (Moderna y limpia) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       PALETA DE COLOR: CREMA, PASTEL Y ROJO ELEGANTE
+       ========================================================================== */
+    :root {
+      --bg-cream: #FAF7F2;
+      --bg-cream-soft: #F4EFEA;
+      --bg-cream-card: #FFFFFF;
+      --bg-pastel-sand: #EFE8DE;
+      --bg-pastel-blush: #FDF2F0;
+
+      --red-primary: #A82020;
+      --red-hover: #8B1818;
+      --red-deep: #6E1212;
+      --red-light: #FDE8E8;
+      --red-subtle: rgba(168, 32, 32, 0.08);
+
+      --text-main: #24201D;
+      --text-muted: #6B6560;
+      --text-light: #948E88;
+
+      --border-subtle: rgba(168, 32, 32, 0.12);
+      --border-card: rgba(0, 0, 0, 0.06);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --shadow-subtle: 0 4px 20px -2px rgba(90, 70, 60, 0.06);
+      --shadow-elevated: 0 20px 40px -10px rgba(90, 70, 60, 0.1);
+      --container: 1180px;
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    body {
+      line-height: 1.7;
+      background-color: var(--bg-cream);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(168, 32, 32, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 40%, rgba(239, 232, 222, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(168, 32, 32, 0.02) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Typography Helpers */
+    .font-serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .text-red {
+      color: var(--red-primary);
+    }
+
+    .italic-serif {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--red-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(168, 32, 32, 0.25);
+    }
+
+    .brand-text {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      color: var(--red-primary);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: -3px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-link:hover {
+      color: var(--red-primary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.75rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-sans);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-red {
+      background: var(--red-primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(168, 32, 32, 0.25);
+    }
+
+    .btn-red:hover {
+      background: var(--red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(168, 32, 32, 0.35);
+      color: #FFFFFF;
+    }
+
+    .btn-outline-red {
+      background: transparent;
+      color: var(--red-primary);
+      border: 1px solid var(--red-primary);
+    }
+
+    .btn-outline-red:hover {
+      background: var(--red-subtle);
+      transform: translateY(-2px);
+    }
+
+    .btn-cream {
+      background: var(--bg-cream-soft);
+      color: var(--text-main);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-cream:hover {
+      background: #FFFFFF;
+      border-color: var(--red-primary);
+      color: var(--red-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 9.5rem 0 5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 1rem;
+      background: var(--red-light);
+      border: 1px solid rgba(168, 32, 32, 0.18);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--red-primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red-primary);
+    }
+
+    .hero-title {
+      font-size: 3.6rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 2.25rem;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .metric-item .metric-number {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--red-primary);
+      line-height: 1;
+    }
+
+    .metric-item .metric-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 0.4rem;
+    }
+
+    /* Hero Visual with Warm Cream Frame */
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-elevated);
+      background: #FFFFFF;
+      padding: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: auto;
+      border-radius: calc(var(--radius-lg) - 8px);
+      object-fit: cover;
+    }
+
+    /* Floating Trust Cards */
+    .floating-pill {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      box-shadow: 0 12px 30px rgba(90, 70, 60, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      animation: gentleFloat 5s ease-in-out infinite;
+    }
+
+    .pill-top-right {
+      top: -15px;
+      right: -20px;
+      animation-delay: 0s;
+    }
+
+    .pill-bottom-left {
+      bottom: 25px;
+      left: -25px;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .pill-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--red-light);
+      color: var(--red-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .pill-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .pill-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       TRUST RIBBON
+       ========================================================================== */
+    .trust-ribbon {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+      background: var(--bg-cream-soft);
+    }
+
+    .trust-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .trust-badge {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       METHODOLOGY / FILOSOFÍA
+       ========================================================================== */
+    .section {
+      padding: 6.5rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--red-primary);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .section-heading {
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+
+    .section-subheading {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .card-clean {
+      background: var(--bg-cream-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .card-clean:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(168, 32, 32, 0.25);
+    }
+
+    .card-number {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--red-primary);
+      margin-bottom: 1rem;
+      line-height: 1;
+      opacity: 0.8;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Comparison Table: Traditional vs English Angel */
+    .comparison-box {
+      margin-top: 4rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .comp-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .comp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .bullet-red {
+      color: #D9534F;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .bullet-green {
+      color: var(--red-primary);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ==========================================================================
+       ABOUT THE COACH
+       ========================================================================== */
+    .about-section {
+      background: var(--bg-cream-soft);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .about-photo-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #FFFFFF;
+      padding: 10px;
+      box-shadow: var(--shadow-elevated);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .about-photo-card img {
+      border-radius: calc(var(--radius-lg) - 8px);
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .about-quote {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--text-main);
+      margin-bottom: 1.75rem;
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .about-credentials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      font-weight: 400;
+    }
+
+    .check-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--red-light);
+      color: var(--red-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE LEVEL & GOAL TEST WIDGET
+       ========================================================================== */
+    .quiz-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 3rem;
+      box-shadow: var(--shadow-elevated);
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .quiz-progress-track {
+      height: 4px;
+      background: var(--bg-cream-soft);
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      background: var(--red-primary);
+      width: 33.33%;
+      transition: width 0.4s ease;
+    }
+
+    .quiz-stage {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .quiz-stage.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-question-title {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .quiz-question-desc {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .quiz-grid-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-option {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-option:hover, .quiz-option.selected {
+      background: var(--red-light);
+      border-color: var(--red-primary);
+      transform: translateY(-2px);
+    }
+
+    .opt-head {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .opt-detail {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .quiz-result-area {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .result-tag {
+      display: inline-block;
+      padding: 0.35rem 1.1rem;
+      background: var(--red-light);
+      color: var(--red-primary);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       PROGRAMS & MENTORSHIP FORMATS
+       ========================================================================== */
+    .program-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .program-card.featured {
+      border: 2px solid var(--red-primary);
+      box-shadow: 0 16px 40px -10px rgba(168, 32, 32, 0.15);
+      background: #FFFFFF;
+    }
+
+    .ribbon-featured {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red-primary);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.3rem 1.2rem;
+      border-radius: var(--radius-full);
+    }
+
+    .prog-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .prog-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      min-height: 48px;
+    }
+
+    .prog-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .prog-points li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .prog-points li svg {
+      color: var(--red-primary);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       SHOWCASE BANNER (EDITORIAL)
+       ========================================================================== */
+    .banner-showcase {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 5rem 0;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-elevated);
+      background: #FFFFFF;
+    }
+
+    .banner-img-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .banner-img-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .banner-gradient-mask {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(250, 247, 242, 0.96) 0%, rgba(250, 247, 242, 0.88) 50%, rgba(250, 247, 242, 0.35) 100%);
+      z-index: 2;
+    }
+
+    .banner-text-box {
+      position: relative;
+      z-index: 3;
+      padding: 5rem 4rem;
+      max-width: 620px;
+    }
+
+    .banner-headline {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+
+    .banner-paragraph {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    /* ==========================================================================
+       TESTIMONIALS
+       ========================================================================== */
+    .testimonial-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+    }
+
+    .test-stars {
+      color: var(--red-primary);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    .test-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .test-author-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .test-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-cream-soft);
+      border: 1px solid var(--border-subtle);
+      color: var(--red-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .test-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .test-role {
+      font-size: 0.8rem;
+      color: var(--red-primary);
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       FAQ ACCORDION
+       ========================================================================== */
+    .faq-container {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .faq-card.open {
+      border-color: var(--red-primary);
+    }
+
+    .faq-trigger {
+      padding: 1.35rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .faq-symbol {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      color: var(--red-primary);
+      transition: transform 0.3s ease;
+      font-weight: 300;
+    }
+
+    .faq-card.open .faq-symbol {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      padding: 0 1.75rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+      display: none;
+    }
+
+    .faq-card.open .faq-content {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer {
+      background: var(--bg-cream-soft);
+      border-top: 1px solid var(--border-card);
+      padding: 4.5rem 0 2.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 1rem;
+      max-width: 340px;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-nav a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--red-primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-card);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* Floating WhatsApp Button (Elegante y cálido) */
+    .wa-float-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25D366;
+      color: #FFFFFF;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+      z-index: 999;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .wa-float-btn:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Modal System */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(36, 32, 29, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-sheet {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      box-shadow: var(--shadow-elevated);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .modal-dismiss {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid, .about-layout, .comparison-box { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-title { font-size: 2.8rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .pill-top-right, .pill-bottom-left { display: none; }
+      .banner-text-box { padding: 3rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .hero-title { font-size: 2.4rem; }
+      .quiz-grid-options { grid-template-columns: 1fr; }
+      .hero-metrics { grid-template-columns: 1fr; gap: 1.25rem; }
+      .about-credentials { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">A</div>
+        <div>
+          <span class="brand-text">English Angel</span>
+          <span class="brand-sub">Executive Coaching</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#metodo" class="nav-link">Metodología</a></li>
+        <li><a href="#sobre-mi" class="nav-link">Sobre el Coach</a></li>
+        <li><a href="#evaluacion" class="nav-link">Diagnóstico (30s)</a></li>
+        <li><a href="#programas" class="nav-link">Mentorías</a></li>
+        <li><a href="#testimonios" class="nav-link">Resultados</a></li>
+        <li><a href="#faq" class="nav-link">Preguntas</a></li>
+      </ul>
+
+      <div>
+        <button class="btn btn-red" onclick="openBookingModal()">
+          <span>Sesión Diagnóstica</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Content -->
+        <div>
+          <div class="hero-pill">
+            <div class="hero-pill-dot"></div>
+            <span>Mentoría 1-a-1 de Alto Rendimiento</span>
+          </div>
+
+          <h1 class="hero-title font-serif">
+            Habla inglés con la misma <span class="text-red italic-serif">claridad y confianza</span> con la que lideras tu vida profesional.
+          </h1>
+
+          <p class="hero-desc">
+            Olvídate de la rigidez y de traducir en tu mente. Un espacio seguro, empático y personalizado para ejecutivos, desarrolladores y líderes que desean comunicarse con soltura natural en reuniones globales y entrevistas internacionales.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-red" onclick="openBookingModal()">
+              <span>Agendar Sesión de Diagnóstico</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="#evaluacion" class="btn btn-cream">
+              <span>Hacer Test Diagnóstico (30s)</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <div class="metric-number">98%</div>
+              <div class="metric-label">Desbloqueo de Fluidez</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-number">+500</div>
+              <div class="metric-label">Profesionales Guiados</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-number">1-a-1</div>
+              <div class="metric-label">Atención Exclusiva</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual (Retrato con su sonrisa natural) -->
+        <div class="hero-image-wrapper">
+          <div class="hero-frame">
+            <img src="img/hero-coach.jpg" alt="Coach de Inglés Sonriente y Profesional" width="600" height="750">
+          </div>
+
+          <!-- Floating Pills -->
+          <div class="floating-pill pill-top-right">
+            <div class="pill-icon">★</div>
+            <div>
+              <div class="pill-title">4.9 / 5.0 en Confianza</div>
+              <div class="pill-sub">Alumnos de más de 12 países</div>
+            </div>
+          </div>
+
+          <div class="floating-pill pill-bottom-left">
+            <div class="pill-icon">💼</div>
+            <div>
+              <div class="pill-title">Enfoque Ejecutivo & Tech</div>
+              <div class="pill-sub">Entrevistas, demos y reuniones</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRUST RIBBON
+       ========================================================================== -->
+  <section class="trust-ribbon">
+    <div class="container">
+      <div class="trust-caption">Acompañando a líderes en sectores de alta exigencia</div>
+      <div class="trust-items">
+        <div class="trust-badge">✦ Software Engineering</div>
+        <div class="trust-badge">✦ Product & Project Leaders</div>
+        <div class="trust-badge">✦ Finanzas & Consultoría</div>
+        <div class="trust-badge">✦ C-Level Executives</div>
+        <div class="trust-badge">✦ Startups & Negocios Globales</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       METHODOLOGY
+       ========================================================================== -->
+  <section class="section" id="metodo">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-eyebrow">Nuestra Filosofía</span>
+        <h2 class="section-heading font-serif">Menos reglas gramaticales. <br><span class="text-red italic-serif">Más comunicación real y humana</span>.</h2>
+        <p class="section-subheading">
+          El inglés no se aprende memorizando listas interminables; se domina conectando ideas con seguridad emocional y practicando escenarios reales de tu día a día.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        
+        <div class="card-clean">
+          <div class="card-number">01</div>
+          <h3 class="card-title">Neuro-Fluidez sin Juicios</h3>
+          <p class="card-body">
+            Desarmamos el miedo al error. Entrenamos tu mente para pensar de forma directa en inglés, desactivando el interruptor del perfeccionismo que te hace dudar.
+          </p>
+        </div>
+
+        <div class="card-clean">
+          <div class="card-number">02</div>
+          <h3 class="card-title">Simulación de tu Realidad</h3>
+          <p class="card-body">
+            Preparamos tus presentaciones reales, entrevistas en dólares, demos con clientes de EE.UU. o Europa y negociaciones de equipo en un entorno 100% confidencial.
+          </p>
+        </div>
+
+        <div class="card-clean">
+          <div class="card-number">03</div>
+          <h3 class="card-title">Fonética & Calidez Ejecutiva</h3>
+          <p class="card-body">
+            Ajustamos los sonidos clave que marcan la diferencia entre dudar y sonar convincente, preservando tu personalidad y autenticidad en cada palabra.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Comparison Box -->
+      <div class="comparison-box">
+        <div>
+          <h4 class="comp-title text-red">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Las Academias Tradicionales
+          </h4>
+          <ul class="comp-list">
+            <li><span class="bullet-red">✕</span> Grupos de 12 a 20 personas donde casi no tienes oportunidad de hablar.</li>
+            <li><span class="bullet-red">✕</span> Enfoque rígido en exámenes y gramática teórica desconectada de tu trabajo.</li>
+            <li><span class="bullet-red">✕</span> Ambiente frío que genera miedo a cometer errores frente a otros.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="comp-title" style="color: var(--text-main);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--red-primary)" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Coaching 1-a-1 English Angel
+          </h4>
+          <ul class="comp-list">
+            <li><span class="bullet-green">✓</span> 100% de la sesión enfocado en tu voz, tus proyectos y tus necesidades.</li>
+            <li><span class="bullet-green">✓</span> Práctica sobre tus propios correos, diapositivas y discursos de trabajo.</li>
+            <li><span class="bullet-green">✓</span> Acompañamiento cálido, humano y motivador que construye verdadera seguridad.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ABOUT THE COACH SECTION
+       ========================================================================== -->
+  <section class="section about-section" id="sobre-mi">
+    <div class="container">
+      <div class="about-layout">
+        
+        <div class="about-photo-card">
+          <img src="img/about-coach.jpg" alt="Coach en sesión cálida y cercana" width="600" height="600">
+        </div>
+
+        <div>
+          <span class="section-eyebrow">Tu Mentor y Aliado</span>
+          <h2 class="about-quote font-serif">
+            "El idioma no es una barrera para tu inteligencia; es solo un puente que vamos a cruzar juntos con confianza y alegría."
+          </h2>
+
+          <p class="about-text">
+            Comprendo a fondo la frustración de tener años de maestría técnica en tu campo, pero sentir que tu voz se apaga al cambiar de idioma. 
+          </p>
+          <p class="about-text">
+            Mi enfoque une el rigor del inglés ejecutivo con la cercanía humana y la psicología del rendimiento: transformamos la tensión en soltura, para que disfrutes cada conversación internacional y alcances las metas que mereces.
+          </p>
+
+          <div class="about-credentials">
+            <div class="credential-item">
+              <div class="check-mark">✓</div>
+              <span>Sesiones privadas 1-a-1 en vivo</span>
+            </div>
+            <div class="credential-item">
+              <div class="check-mark">✓</div>
+              <span>Inglés para Entrevistas y Negociación</span>
+            </div>
+            <div class="credential-item">
+              <div class="check-mark">✓</div>
+              <span>Feedback inmediato y constructivo</span>
+            </div>
+            <div class="credential-item">
+              <div class="check-mark">✓</div>
+              <span>Horarios flexibles para profesionales</span>
+            </div>
+          </div>
+
+          <button class="btn btn-red" onclick="openBookingModal()">
+            <span>Conectar con el Coach</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE ASSESSMENT TEST
+       ========================================================================== -->
+  <section class="section" id="evaluacion">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-eyebrow">Evaluación Rápida</span>
+        <h2 class="section-heading font-serif">Descubre tu plan de coaching ideal en <span class="text-red italic-serif">30 segundos</span></h2>
+        <p class="section-subheading">Responde 3 preguntas sencillas para diseñar tu hoja de ruta personalizada.</p>
+      </div>
+
+      <div class="quiz-box">
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-bar" id="quizBar"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="quiz-stage active" id="quizStage1">
+          <div class="quiz-question-title">¿Cuál es tu prioridad principal hoy?</div>
+          <p class="quiz-question-desc">Elige el reto que más deseas superar.</p>
+
+          <div class="quiz-grid-options">
+            <div class="quiz-option" onclick="chooseQuizOption(1, 'Superar Entrevistas Internacionales en Inglés', this)">
+              <div class="opt-head">🎯 Entrevistas de Trabajo</div>
+              <div class="opt-detail">Para empresas en EE.UU., Europa o vacantes remotas en dólares.</div>
+            </div>
+            <div class="quiz-option" onclick="chooseQuizOption(1, 'Liderar Reuniones y Presentaciones de Alto Impacto', this)">
+              <div class="opt-head">💼 Liderazgo en Reuniones</div>
+              <div class="opt-detail">Hablar con soltura y autoridad frente a clientes y directivos.</div>
+            </div>
+            <div class="quiz-option" onclick="chooseQuizOption(1, 'Desbloquear Fluidez y Dejar de Traducir Mentalmente', this)">
+              <div class="opt-head">🗣️ Desbloqueo de Fluidez</div>
+              <div class="opt-detail">Perder el miedo y comunicarte con soltura natural.</div>
+            </div>
+            <div class="quiz-option" onclick="chooseQuizOption(1, 'Pulir Pronunciación, Fonética y Confianza', this)">
+              <div class="opt-head">🎙️ Fonética & Pronunciación</div>
+              <div class="opt-detail">Ganar claridad, dicción y resonancia profesional.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-stage" id="quizStage2">
+          <div class="quiz-question-title">¿Cómo sientes tu nivel actual?</div>
+          <p class="quiz-question-desc">Identifica tu punto de partida con total tranquilidad.</p>
+
+          <div class="quiz-grid-options">
+            <div class="quiz-option" onclick="chooseQuizOption(2, 'Básico / Sé vocabulario pero me cuesta armar oraciones fluidas', this)">
+              <div class="opt-head">Básico Inicial (A1 - A2)</div>
+              <div class="opt-detail">Conozco palabras sueltas pero me freno al intentar conversar.</div>
+            </div>
+            <div class="quiz-option" onclick="chooseQuizOption(2, 'Intermedio Bloqueado / Entiendo bien pero dudo y me trabo al hablar', this)">
+              <div class="opt-head">Intermedio Bloqueado (B1 - B2)</div>
+              <div class="opt-detail">Entiendo el 80-90% de lo que escucho pero dudo mucho al hablar.</div>
+            </div>
+            <div class="quiz-option" onclick="chooseQuizOption(2, 'Avanzado / Busco sofisticación, autoridad y matices ejecutivos', this)">
+              <div class="opt-head">Avanzado Ejecutivo (B2+ - C1)</div>
+              <div class="opt-detail">Hablo con soltura pero busco precisión y elegancia en mis ideas.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-start;">
+            <button class="btn btn-cream" onclick="backQuizStage(1)">← Paso Anterior</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="quiz-stage" id="quizStage3">
+          <div class="quiz-question-title">¿Cuánto tiempo deseas dedicar?</div>
+          <p class="quiz-question-desc">Adaptamos las sesiones a tu ritmo de trabajo.</p>
+
+          <div class="quiz-grid-options">
+            <div class="quiz-option" onclick="completeQuiz('2 a 3 horas por semana (Acelerado)')">
+              <div class="opt-head">⚡ 2 a 3 horas por semana</div>
+              <div class="opt-detail">Progreso intensivo con resultados visibles en pocas semanas.</div>
+            </div>
+            <div class="quiz-option" onclick="completeQuiz('1 a 2 horas por semana (Constante y flexible)')">
+              <div class="opt-head">🌿 1 a 2 horas por semana</div>
+              <div class="opt-detail">Ritmo sostenible ideal para agendas ocupadas.</div>
+            </div>
+            <div class="quiz-option" onclick="completeQuiz('Plan de Choque Inmediato (Menos de 15 días)')">
+              <div class="opt-head">🔥 Plan de Choque Inmediato</div>
+              <div class="opt-detail">Tengo una entrevista o evento crucial muy pronto.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-start;">
+            <button class="btn btn-cream" onclick="backQuizStage(2)">← Paso Anterior</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-stage" id="quizStageResult">
+          <div class="quiz-result-area">
+            <span class="result-tag">✨ Diagnóstico Completado</span>
+            <h3 class="font-serif" style="font-size: 2.2rem; margin-bottom: 0.75rem;">¡Tu ruta personalizada está lista!</h3>
+            <p style="color: var(--text-muted); max-width: 540px; margin: 0 auto 2rem; font-weight: 300;" id="quizSummary">
+              Hemos preparado las recomendaciones ideales para tu objetivo y nivel. Conectemos por WhatsApp para coordinar tu sesión diagnóstica 1-a-1.
+            </p>
+
+            <button class="btn btn-red" id="btnSendWhatsApp" style="font-size: 1rem; padding: 1rem 2.25rem;">
+              <span>Recibir mi Plan por WhatsApp</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROGRAMS / FORMATOS DE MENTORÍA
+       ========================================================================== -->
+  <section class="section" id="programas" style="background: var(--bg-cream-soft); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-eyebrow">Programas de Mentoría</span>
+        <h2 class="section-heading font-serif">Diseñados para cada momento de tu carrera</h2>
+        <p class="section-subheading">Entrenamiento 100% individual en vivo con retroalimentación en tiempo real.</p>
+      </div>
+
+      <div class="cards-grid">
+        
+        <!-- Track 1 -->
+        <div class="program-card">
+          <div>
+            <h3 class="prog-title">Interview Mastery</h3>
+            <p class="prog-desc">Preparación intensiva para superar entrevistas técnicas y de liderazgo en inglés con reclutadores internacionales.</p>
+            
+            <ul class="prog-points">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Simulacros de entrevista con preguntas trampa
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Estructuración de respuestas método STAR
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Elevator pitch de alto impacto
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn btn-outline-red" style="width: 100%;" onclick="openBookingModal('Interview Mastery')">Consultar Disponibilidad</button>
+        </div>
+
+        <!-- Track 2 (Featured) -->
+        <div class="program-card featured">
+          <div class="ribbon-featured">Más Solicitado</div>
+          <div>
+            <h3 class="prog-title">Executive 1-on-1 Mentorship</h3>
+            <p class="prog-desc">Acompañamiento integral y continuo para directivos, ingenieros senior y líderes con proyección global.</p>
+            
+            <ul class="prog-points">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Sesiones privadas 100% sobre tus proyectos
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Simulación de reuniones C-Level y negociaciones
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Corrección fonética y presencia ejecutiva
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn btn-red" style="width: 100%;" onclick="openBookingModal('Executive Mentorship')">Agendar Sesión Diagnóstica</button>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="program-card">
+          <div>
+            <h3 class="prog-title">Fluency & Confidence</h3>
+            <p class="prog-desc">Enfocado en romper el bloqueo, dejar de traducir mentalmente y ganar agilidad en la conversación espontánea.</p>
+            
+            <ul class="prog-points">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Conversación activa sobre temas de actualidad
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Eliminación de pausas y muletillas
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Ambiente de confianza total sin estrés
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn btn-outline-red" style="width: 100%;" onclick="openBookingModal('Fluency & Confidence')">Consultar Disponibilidad</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHOWCASE BANNER (EDITORIAL)
+       ========================================================================== -->
+  <section class="container">
+    <div class="banner-showcase">
+      <div class="banner-img-bg">
+        <img src="img/masterclass-coach.jpg" alt="Sesión de Coaching Ejecutivo en ambiente luminoso" width="1200" height="600">
+      </div>
+      <div class="banner-gradient-mask"></div>
+
+      <div class="banner-text-box">
+        <span class="section-eyebrow">Acompañamiento Personalizado</span>
+        <h2 class="banner-headline font-serif">Tu siguiente oportunidad global te está esperando.</h2>
+        <p class="banner-paragraph">
+          Permítete hablar con la naturalidad y elocuencia que ya tienes en español. Reserva una sesión diagnóstica de 20 minutos sin compromiso y diseñemos juntos tu camino.
+        </p>
+        <button class="btn btn-red" onclick="openBookingModal()">
+          <span>Reservar mi espacio diagnóstico</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TESTIMONIALS
+       ========================================================================== -->
+  <section class="section" id="testimonios">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-eyebrow">Voces de Alumnos</span>
+        <h2 class="section-heading font-serif">Lo que dicen quienes ya dieron el salto</h2>
+        <p class="section-subheading">Historias reales de confianza, ascensos y logros profesionales.</p>
+      </div>
+
+      <div class="cards-grid">
+        
+        <div class="testimonial-card">
+          <div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">
+              "El coaching me quitó el miedo escénico. En 3 semanas preparé mi entrevista para una empresa en San Francisco y logré la oferta. ¡Su calidez y método hacen toda la diferencia!"
+            </p>
+          </div>
+          <div class="test-author-row">
+            <div class="test-avatar">CR</div>
+            <div>
+              <div class="test-name">Carlos Rodríguez</div>
+              <div class="test-role">Lead Software Architect</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">
+              "Trabajo con clientes de Londres todos los días. Antes me agotaba traducir mentalmente. Ahora fluyo con total naturalidad y mis reuniones son mucho más productivas."
+            </p>
+          </div>
+          <div class="test-author-row">
+            <div class="test-avatar">AM</div>
+            <div>
+              <div class="test-name">Andrea Morales</div>
+              <div class="test-role">Product Operations Manager</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">
+              "Un enfoque de nivel ejecutivo. El coach entiende el lenguaje corporativo y te da herramientas que aplicas inmediatamente en tus llamadas laborales."
+            </p>
+          </div>
+          <div class="test-author-row">
+            <div class="test-avatar">DV</div>
+            <div>
+              <div class="test-name">Diego Valencia</div>
+              <div class="test-role">Director Financiero</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ ACCORDION
+       ========================================================================== -->
+  <section class="section" id="faq" style="background: var(--bg-cream-soft); border-top: 1px solid var(--border-card);">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-eyebrow">Preguntas Frecuentes</span>
+        <h2 class="section-heading font-serif">Claridad en cada detalle</h2>
+        <p class="section-subheading">Todo lo que necesitas saber para comenzar con total tranquilidad.</p>
+      </div>
+
+      <div class="faq-container">
+        
+        <div class="faq-card open">
+          <div class="faq-trigger" onclick="toggleFaqCard(this)">
+            <span>¿En qué se diferencia este coaching de una escuela tradicional?</span>
+            <span class="faq-symbol">+</span>
+          </div>
+          <div class="faq-content">
+            Las academias enseñan gramática genérica en grupos grandes. En este coaching el 100% del tiempo es 1-a-1 contigo, practicando situaciones exactas de tu trabajo (presentaciones, correos, llamadas, entrevistas) con corrección en tiempo real y calidez humana.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-trigger" onclick="toggleFaqCard(this)">
+            <span>¿Qué nivel de inglés necesito para comenzar?</span>
+            <span class="faq-symbol">+</span>
+          </div>
+          <div class="faq-content">
+            Acompañamos desde niveles básicos con nociones previas (A2) hasta perfiles avanzados (B2/C1) que buscan sofisticación ejecutiva. En la sesión diagnóstica evaluamos tu punto de partida exacto.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-trigger" onclick="toggleFaqCard(this)">
+            <span>¿Cómo se coordinan los horarios de las sesiones?</span>
+            <span class="faq-symbol">+</span>
+          </div>
+          <div class="faq-content">
+            Ofrecemos horarios flexibles adaptados a la jornada de profesionales en activo (mañanas, tardes y fines de semana). Las sesiones se realizan vía Google Meet o Zoom.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-trigger" onclick="toggleFaqCard(this)">
+            <span>¿En cuánto tiempo comenzaré a ver resultados?</span>
+            <span class="faq-symbol">+</span>
+          </div>
+          <div class="faq-content">
+            Desde las primeras 3 sesiones notarás mayor soltura y menor tensión al hablar. La mayoría de los alumnos reportan un cambio radical en su confianza y fluidez en sus primeras 4 a 8 semanas de entrenamiento.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-trigger" onclick="toggleFaqCard(this)">
+            <span>¿Qué incluye la sesión diagnóstica inicial?</span>
+            <span class="faq-symbol">+</span>
+          </div>
+          <div class="faq-content">
+            Es una conversación breve de 20 minutos donde identificamos tus bloqueos al hablar, evaluamos tu nivel actual y trazamos una ruta personalizada con el tiempo y plan que necesitas.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div>
+          <div class="brand-logo">
+            <div class="brand-icon">A</div>
+            <div>
+              <span class="brand-text">English Angel</span>
+              <span class="brand-sub">Executive Coaching</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Mentoría y coaching de alto rendimiento en inglés. Desarrolla una comunicación ejecutiva, cálida y natural para liderar en el escenario global.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Navegación</h5>
+          <ul class="footer-nav">
+            <li><a href="#metodo">Metodología</a></li>
+            <li><a href="#sobre-mi">Sobre el Coach</a></li>
+            <li><a href="#evaluacion">Diagnóstico Rápido</a></li>
+            <li><a href="#programas">Programas de Mentoría</a></li>
+            <li><a href="#testimonios">Casos de Éxito</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Contacto Directo</h5>
+          <ul class="footer-nav">
+            <li><a href="javascript:void(0)" onclick="openBookingModal()">📅 Agendar Sesión Diagnóstica</a></li>
+            <li><a href="https://wa.me/?text=Hola%20Coach,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20el%20coaching%20de%20ingl%C3%A9s" target="_blank">💬 WhatsApp Directo</a></li>
+            <li><a href="mailto:contacto@englishangel.com">✉️ contacto@englishangel.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 English Angel Coaching. Todos los derechos reservados. Diseñado con calidez, elegancia y excelencia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP BUTTON
+       ========================================================================== -->
+  <a href="https://wa.me/?text=Hola%20Coach,%20estoy%20interesado%20en%20el%20coaching%20de%20ingl%C3%A9s%201-a-1.%20%C2%BFMe%20podr%C3%ADas%20dar%20informaci%C3%B3n?" 
+     target="_blank" 
+     class="wa-float-btn" 
+     aria-label="Contactar por WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.814 3.179 0 5.766-2.587 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.744 0-3.376-.454-4.799-1.248l-5.201 1.364 1.391-5.074c-.886-1.48-1.391-3.21-1.391-5.042 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/>
+    </svg>
+  </a>
+
+  <!-- ==========================================================================
+       BOOKING MODAL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-sheet">
+      <button class="modal-dismiss" onclick="closeBookingModal()">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <div class="brand-icon" style="margin: 0 auto 1rem; width: 44px; height: 44px; font-size: 1.4rem;">A</div>
+        <h3 class="font-serif" style="font-size: 1.8rem; margin-bottom: 0.4rem;">Sesión Diagnóstica 1-a-1</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 300;">Conversemos 20 minutos para conocer tus metas y armar tu plan a medida.</p>
+      </div>
+
+      <form onsubmit="handleBookingForm(event)">
+        <div style="margin-bottom: 1.15rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-main); margin-bottom: 0.35rem;">Nombre y Apellido</label>
+          <input type="text" id="leadName" required placeholder="Ej. Mariana López" style="width: 100%; padding: 0.85rem 1rem; border-radius: var(--radius-sm); background: var(--bg-cream); border: 1px solid var(--border-card); color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+        </div>
+
+        <div style="margin-bottom: 1.15rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-main); margin-bottom: 0.35rem;">Tu Profesión / Cargo actual</label>
+          <input type="text" id="leadRole" required placeholder="Ej. Tech Lead, Product Manager, etc." style="width: 100%; padding: 0.85rem 1rem; border-radius: var(--radius-sm); background: var(--bg-cream); border: 1px solid var(--border-card); color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+        </div>
+
+        <div style="margin-bottom: 1.75rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-main); margin-bottom: 0.35rem;">Programa de Interés</label>
+          <select id="leadTrack" style="width: 100%; padding: 0.85rem 1rem; border-radius: var(--radius-sm); background: var(--bg-cream); border: 1px solid var(--border-card); color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+            <option value="Executive Mentorship">Executive 1-on-1 Mentorship</option>
+            <option value="Interview Mastery">Interview Mastery Booster</option>
+            <option value="Fluency & Confidence">Fluency & Confidence</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-red" style="width: 100%; padding: 0.95rem; font-size: 0.98rem;">
+          <span>Continuar por WhatsApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // FAQ Accordion
+    function toggleFaqCard(elem) {
+      const card = elem.parentElement;
+      const isOpen = card.classList.contains('open');
+      
+      document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('open'));
+      
+      if (!isOpen) {
+        card.classList.add('open');
+      }
+    }
+
+    // Modal Control
+    function openBookingModal(trackName) {
+      if (trackName) {
+        const select = document.getElementById('leadTrack');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.includes(trackName) || select.options[i].value === trackName) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    function handleBookingForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('leadName').value;
+      const role = document.getElementById('leadRole').value;
+      const track = document.getElementById('leadTrack').value;
+
+      const message = `¡Hola Coach! Mi nombre es ${name}, soy ${role} y deseo agendar mi sesión diagnóstica para el programa: *${track}*.`;
+      const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+      closeBookingModal();
+    }
+
+    // Interactive Assessment Quiz
+    let quizAnswers = {
+      goal: '',
+      level: '',
+      time: ''
+    };
+
+    function chooseQuizOption(stage, answer, elem) {
+      elem.parentElement.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      elem.classList.add('selected');
+
+      setTimeout(() => {
+        if (stage === 1) {
+          quizAnswers.goal = answer;
+          document.getElementById('quizStage1').classList.remove('active');
+          document.getElementById('quizStage2').classList.add('active');
+          document.getElementById('quizBar').style.width = '66.66%';
+        } else if (stage === 2) {
+          quizAnswers.level = answer;
+          document.getElementById('quizStage2').classList.remove('active');
+          document.getElementById('quizStage3').classList.add('active');
+          document.getElementById('quizBar').style.width = '100%';
+        }
+      }, 250);
+    }
+
+    function backQuizStage(stage) {
+      document.querySelectorAll('.quiz-stage').forEach(s => s.classList.remove('active'));
+      if (stage === 1) {
+        document.getElementById('quizStage1').classList.add('active');
+        document.getElementById('quizBar').style.width = '33.33%';
+      } else if (stage === 2) {
+        document.getElementById('quizStage2').classList.add('active');
+        document.getElementById('quizBar').style.width = '66.66%';
+      }
+    }
+
+    function completeQuiz(timeVal) {
+      quizAnswers.time = timeVal;
+      document.getElementById('quizStage3').classList.remove('active');
+      document.getElementById('quizStageResult').classList.add('active');
+
+      const summary = `Objetivo: "${quizAnswers.goal}" | Nivel: "${quizAnswers.level}" | Dedicación: "${quizAnswers.time}".`;
+      document.getElementById('quizSummary').innerText = `${summary} Te recomendamos coordinar tu sesión diagnóstica inicial.`;
+
+      const waMsg = `¡Hola Coach! He realizado el test diagnóstico en tu web:\n\n🎯 *Objetivo:* ${quizAnswers.goal}\n📊 *Nivel estimado:* ${quizAnswers.level}\n⏱️ *Tiempo disponible:* ${quizAnswers.time}\n\n¿Podemos coordinar mi sesión diagnóstica?`;
+      document.getElementById('btnSendWhatsApp').onclick = () => {
+        window.open(`https://wa.me/?text=${encodeURIComponent(waMsg)}`, '_blank');
+      };
+    }
+  </script>
+</body>
+</html>

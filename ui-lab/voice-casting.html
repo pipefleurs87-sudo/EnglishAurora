@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurora Voice Casting Room · Character & Timbre Selector | English Aurora</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-main: #EAEFF2;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F4F8FA;
+  --ink: #162831;
+  --ink-secondary: #3B535E;
+  --muted: #647B87;
+  --line: #CCD7DE;
+  --line-strong: #A6B8C2;
+  --teal: #0D7C74;
+  --teal-dark: #08524D;
+  --teal-light: #E0F2F1;
+  --teal-border: #2DBAAE;
+  --teal-glow: rgba(13, 124, 116, 0.22);
+  --gold: #B8860B;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --title-font: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 100%; min-height: 100vh; background: var(--bg-main); color: var(--ink);
+  font-family: var(--sans); padding: 30px 20px 80px;
+}
+
+.casting-wrap {
+  max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;
+}
+
+.casting-header {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 18px; padding: 20px 28px; box-shadow: 0 4px 20px rgba(22, 40, 49, 0.06);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+}
+.header-titles h1 {
+  font-family: var(--title-font); font-size: 20px; font-weight: 900; color: var(--teal-dark);
+}
+.header-titles p {
+  font-family: var(--mono); font-size: 11.5px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+.casting-grid {
+  display: grid; grid-template-columns: 340px 1fr; gap: 24px; align-items: start;
+}
+@media (max-width: 860px) { .casting-grid { grid-template-columns: 1fr; } }
+
+/* Character Visual Card */
+.character-visual-card {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(22, 40, 49, 0.08);
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+}
+.character-photo {
+  width: 100%; max-height: 380px; object-fit: cover; border-radius: 16px;
+  border: 2px solid var(--teal); box-shadow: 0 8px 24px var(--teal-glow);
+}
+.character-meta-tag {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.character-name {
+  font-family: var(--title-font); font-size: 20px; font-weight: 700; color: var(--teal-dark);
+}
+.character-desc {
+  font-size: 13px; color: var(--ink-secondary); line-height: 1.4;
+}
+
+/* Voice Candidates Stack */
+.voices-list-deck {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.voice-candidate-card {
+  background: var(--bg-card); border: 1.5px solid var(--line);
+  border-radius: 16px; padding: 18px 22px; box-shadow: 0 4px 16px rgba(22, 40, 49, 0.05);
+  display: flex; flex-direction: column; gap: 10px; transition: all 0.2s ease;
+  cursor: pointer;
+}
+.voice-candidate-card:hover, .voice-candidate-card.active {
+  border-color: var(--teal); background: var(--bg-card-subtle);
+  transform: translateY(-2px); box-shadow: 0 6px 20px var(--teal-glow);
+}
+.voice-card-top {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.voice-title-group { display: flex; flex-direction: column; }
+.voice-name-txt {
+  font-family: var(--title-font); font-size: 16px; font-weight: 700; color: var(--teal-dark);
+}
+.voice-id-pill {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+.voice-desc-txt {
+  font-size: 13.5px; color: var(--ink); line-height: 1.4;
+}
+.voice-sample-quote {
+  font-family: var(--serif); font-size: 13px; color: var(--ink-secondary);
+  background: #FFFFFF; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px;
+}
+.btn-play-voice {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700; text-transform: uppercase;
+  background: var(--teal); color: #FFFFFF; border: none; border-radius: 8px;
+  padding: 8px 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  transition: all 0.15s ease;
+}
+.btn-play-voice:hover { background: var(--teal-dark); }
+
+.audio-equalizer-bars {
+  display: flex; align-items: center; gap: 3px; height: 16px;
+}
+.equalizer-bar {
+  width: 3px; background: var(--teal); border-radius: 2px; height: 4px;
+}
+.audio-equalizer-bars.playing .equalizer-bar {
+  animation: eqPulse 0.6s ease-in-out infinite alternate;
+}
+.audio-equalizer-bars.playing .equalizer-bar:nth-child(2) { animation-delay: 0.12s; }
+.audio-equalizer-bars.playing .equalizer-bar:nth-child(3) { animation-delay: 0.24s; }
+.audio-equalizer-bars.playing .equalizer-bar:nth-child(4) { animation-delay: 0.36s; }
+@keyframes eqPulse { 0% { height: 4px; } 100% { height: 16px; } }
+</style>
+</head>
+<body>
+
+<div class="casting-wrap">
+  <header class="casting-header">
+    <div class="header-titles">
+      <h1>🎙️ AURORA VOICE CASTING ROOM</h1>
+      <p>5 Thinner, Lighter & Youthful Voice Candidates · Interactive Audition</p>
+    </div>
+    <a href="../leccion/prototipo-sesion-b-routines.html" class="btn-play-voice" style="background:transparent; color:var(--teal-dark); border:1px solid var(--teal-border);">
+      ◀ Back to Lesson B
+    </a>
+  </header>
+
+  <div class="casting-grid">
+    <!-- Character Visual Profile -->
+    <aside class="character-visual-card">
+      <img class="character-photo" src="../../.gemini/antigravity/brain/46fd8fdc-fba6-4beb-b7da-05e71f13b4e6/.user_uploaded/media_1787867999628.jpg" alt="Aurora Reference">
+      <div class="character-meta-tag">
+        <div class="character-name">AURORA</div>
+        <div class="character-desc">
+          Warm, youthful, bright and approachable. Golden/copper-blonde, radiant smile and clear, friendly articulation.
+        </div>
+      </div>
+    </aside>
+
+    <!-- Voice Candidates List -->
+    <main class="voices-list-deck">
+      <!-- 1. AVA -->
+      <div class="voice-candidate-card active" onclick="playVoiceSample('ava', this)">
+        <div class="voice-card-top">
+          <div class="voice-title-group">
+            <div class="voice-name-txt">1. Ava · Airy & Youthful YouTube Creator ⭐ (Recommended)</div>
+            <div class="voice-id-pill">en-US-AvaNeural · Modern, Thinner Resonance</div>
+          </div>
+          <button class="btn-play-voice">🔊 Audition</button>
+        </div>
+        <div class="voice-desc-txt">
+          A lighter, airier, modern timbre. Sounds very natural, fresh, and energetic like a contemporary YouTube creator.
+        </div>
+        <div class="voice-sample-quote">
+          "Hi there! I'm Aurora. Welcome to our English masterclass. Let's look at the patterns together and master this step by step!"
+        </div>
+      </div>
+
+      <!-- 2. ANA -->
+      <div class="voice-candidate-card" onclick="playVoiceSample('ana', this)">
+        <div class="voice-card-top">
+          <div class="voice-title-group">
+            <div class="voice-name-txt">2. Ana · Bright & Delicate</div>
+            <div class="voice-id-pill">en-US-AnaNeural · High Clarity, Thinner Profile</div>
+          </div>
+          <button class="btn-play-voice">🔊 Audition</button>
+        </div>
+        <div class="voice-desc-txt">
+          A higher-pitched, sweet, very clear and thin acoustic profile.
+        </div>
+        <div class="voice-sample-quote">
+          "Hi there! I'm Aurora. Welcome to our English masterclass. Let's look at the patterns together and master this step by step!"
+        </div>
+      </div>
+
+      <!-- 3. EMMA -->
+      <div class="voice-candidate-card" onclick="playVoiceSample('emma', this)">
+        <div class="voice-card-top">
+          <div class="voice-title-group">
+            <div class="voice-name-txt">3. Emma · Soft & Conversational</div>
+            <div class="voice-id-pill">en-US-EmmaNeural · Gentle, Natural Tone</div>
+          </div>
+          <button class="btn-play-voice">🔊 Audition</button>
+        </div>
+        <div class="voice-desc-txt">
+          Soft, approachable, conversational and delicate. Less theatrical, very intimate.
+        </div>
+        <div class="voice-sample-quote">
+          "Hi there! I'm Aurora. Welcome to our English masterclass. Let's look at the patterns together and master this step by step!"
+        </div>
+      </div>
+
+      <!-- 4. ARIA BRIGHT -->
+      <div class="voice-candidate-card" onclick="playVoiceSample('aria_bright', this)">
+        <div class="voice-card-top">
+          <div class="voice-title-group">
+            <div class="voice-name-txt">4. Aria Bright · Expressive & Melodic</div>
+            <div class="voice-id-pill">en-US-AriaNeural · Tuned +5Hz</div>
+          </div>
+          <button class="btn-play-voice">🔊 Audition</button>
+        </div>
+        <div class="voice-desc-txt">
+          Highly articulate, expressive, dynamic intonation with bright presence.
+        </div>
+        <div class="voice-sample-quote">
+          "Hi there! I'm Aurora. Welcome to our English masterclass. Let's look at the patterns together and master this step by step!"
+        </div>
+      </div>
+
+      <!-- 5. JENNY LIGHT -->
+      <div class="voice-candidate-card" onclick="playVoiceSample('jenny_light', this)">
+        <div class="voice-card-top">
+          <div class="voice-title-group">
+            <div class="voice-name-txt">5. Jenny Tuned · Higher Pitch Contour</div>
+            <div class="voice-id-pill">en-US-JennyNeural · Tuned +12Hz</div>
+          </div>
+          <button class="btn-play-voice">🔊 Audition</button>
+        </div>
+        <div class="voice-desc-txt">
+          The current mentor voice, but shifted higher (+12Hz) to reduce low-frequency weight and make it lighter.
+        </div>
+        <div class="voice-sample-quote">
+          "Hi there! I'm Aurora. Welcome to our English masterclass. Let's look at the patterns together and master this step by step!"
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<audio id="casting-player" preload="auto"></audio>
+
+<script>
+const player = document.getElementById('casting-player');
+const cards = document.querySelectorAll('.voice-candidate-card');
+
+function playVoiceSample(slug, cardEl) {
+  cards.forEach(c => c.classList.remove('active'));
+  if (cardEl) cardEl.classList.add('active');
+
+  player.pause();
+  player.src = `../audio/voice_casting/sample_${slug}.mp3`;
+  player.play().catch(() => {});
+}
+</script>
+</body>
+</html>

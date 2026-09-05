@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EnglishAngel — Games</title>
+<!-- GAMES ENGINE. Reads window.SEQUENCE_DATA. Recombines fases.practica + banco_oraciones. No new schema. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1B2A41;--paper:#EFF1EC;--red:#B23A2E;--gold:#C9962F;--muted:#6B7079;--line:#D8DAD1;
+    --serif:'Source Serif 4',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',monospace;--hand:'Caveat',cursive;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+  a{color:var(--red)}
+  .masthead{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:26px}
+  .brand{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .tema{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,38px);line-height:1.1;margin:6px 0 10px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted);background:#fff}
+  .tag.lvl{border-color:var(--gold);color:var(--gold)}
+  .modebar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .modebar a{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:#fff}
+  .modebar a:hover{border-color:var(--ink);color:var(--ink)}
+  .modebar a.on{border-color:var(--red);color:var(--red);font-weight:600}
+  .sec-label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px;margin:10px 0 14px}
+  .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .picker{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+  .picker button{font-family:var(--sans);font-weight:600;font-size:14px;border:1px solid var(--line);border-radius:999px;padding:9px 18px;background:#fff;cursor:pointer;color:var(--ink)}
+  .picker button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .game{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+  .game h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 4px}
+  .game .lead{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
+  .hud{display:flex;gap:16px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+  .hud .pill{font-family:var(--mono);font-size:13px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
+  .hud .pill b{color:var(--red)}
+  .hud .time{font-size:22px;font-weight:600;font-family:var(--mono);color:var(--ink)}
+  .hud .time.low{color:var(--red)}
+  .btn{font-family:var(--sans);font-weight:600;font-size:15px;border:none;border-radius:8px;padding:12px 22px;cursor:pointer}
+  .btn.primary{background:var(--red);color:#fff}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .q-card .q{font-family:var(--serif);font-size:20px;margin:0 0 16px;min-height:28px}
+  .q-card .q b{background:rgba(201,150,47,.18);padding:0 4px;border-radius:3px}
+  .opts{display:grid;gap:10px}
+  .opt{text-align:left;font-family:var(--sans);font-size:16px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer;transition:.1s}
+  .opt:hover{border-color:var(--ink)}
+  .opt.ok{border-color:#2f7d4f;background:#eef7f0}
+  .opt.no{border-color:var(--red);background:#faeeec}
+  .final{text-align:center;padding:20px 0}
+  .final .big{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--red)}
+  .final .msg{font-family:var(--hand);font-size:26px;color:var(--ink);margin:6px 0 18px}
+  .match{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .match .col{display:flex;flex-direction:column;gap:10px}
+  .match .card{font-family:var(--serif);font-size:15px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:11px 13px;cursor:pointer;transition:.1s;line-height:1.35}
+  .match .card:hover{border-color:var(--ink)}
+  .match .card.sel{border-color:var(--gold);background:#fff;box-shadow:0 0 0 2px rgba(201,150,47,.3)}
+  .match .card.done{border-color:#2f7d4f;background:#eef7f0;color:#2f7d4f;cursor:default}
+  .match .card.wrong{border-color:var(--red);background:#faeeec;animation:sh .3s}
+  @keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .col-h{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .note{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:14px}
+  .cta-sp{margin-top:20px;padding:14px 16px;background:#fff;border:1px solid var(--gold);border-left:4px solid var(--gold);border-radius:8px;font-family:var(--sans);font-size:14px;line-height:1.5}
+  .cta-sp a{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  footer{margin-top:50px;border-top:1px solid var(--line);padding-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);text-align:center}
+  .empty{font-family:var(--serif);font-size:18px;color:var(--muted);text-align:center;padding:60px 0}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><div class="empty">No content loaded.</div></div>
+<script>
+(function(){
+  const D=window.SEQUENCE_DATA, app=document.getElementById('app');
+  if(!D){return;} app.innerHTML='';
+  function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+  function esc(s){return String(s==null?'':s).replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+  const F=D.fases||{};
+  const ejercicios=(F.practica&&F.practica.ejercicios)||[];
+  const banco=(D.banco_oraciones||[]).map(function(o){return o.oracion;}).filter(Boolean);
+
+  // ---- masthead + mode bar ----
+  const mh=el('div','masthead');
+  mh.appendChild(el('div','brand','EnglishAngel · Games'));
+  mh.appendChild(el('h1','tema',esc(D.tema)));
+  const tags=el('div','tags'); tags.appendChild(el('span','tag lvl',D.nivel));
+  tags.appendChild(el('span','tag','play to practice'));
+  mh.appendChild(tags);
+  if(D.id){const mb=el('div','modebar');
+    const modes=[['📖 Lesson','../leccion/'],['✏️ Practice','../preview/'],['✓ Test','../evaluacion/']];
+    if(F.fluency) modes.push(['🗣 Fluency','../fluency/']);
+    modes.push(['🎮 Games','../juegos/']);
+    modes.forEach(function(m){const a=el('a',m[1]==='../juegos/'?'on':null,m[0]);a.href=m[1]+D.id+'.html';mb.appendChild(a);});
+    mh.appendChild(mb);}
+  app.appendChild(mh);
+
+  // ---- available games ----
+  const quizPool=ejercicios.filter(function(e){return e.tipo==='multiple_choice'||e.tipo==='true_false';});
+  const matchPool=banco.filter(function(s){const w=s.split(/\s+/);return w.length>=4&&w.length<=12;});
+  const GAMES=[];
+  if(quizPool.length>=3) GAMES.push({id:'clock',label:'⏱ Beat the Clock',render:renderClock});
+  if(matchPool.length>=4) GAMES.push({id:'match',label:'🧩 Match-Up',render:renderMatch});
+
+  if(!GAMES.length){
+    app.appendChild(el('div','empty','This topic does not have enough material for games yet.'));
+    finish(); return;
+  }
+
+  app.appendChild(el('div','sec-label','Play · Choose a game'));
+  const picker=el('div','picker');
+  const stage=el('div');
+  GAMES.forEach(function(g,i){
+    const b=el('button',i===0?'on':null,g.label);
+    b.onclick=function(){picker.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');mount(g);};
+    picker.appendChild(b);
+  });
+  app.appendChild(picker); app.appendChild(stage);
+  mount(GAMES[0]);
+  finish();
+
+  function mount(g){ if(window.speechSynthesis)window.speechSynthesis.cancel(); if(window.__eaTimer)clearInterval(window.__eaTimer); stage.innerHTML=''; g.render(stage); }
+
+  // ---- Game 1: Beat the Clock ----
+  function renderClock(root){
+    const wrap=el('div','game');
+    wrap.appendChild(el('h3',null,'Beat the Clock'));
+    wrap.appendChild(el('div','lead','Answer as many as you can in 60 seconds.'));
+    const intro=el('div');
+    const start=el('button','btn primary','▶ Start');
+    intro.appendChild(start); wrap.appendChild(intro); root.appendChild(wrap);
+    start.onclick=function(){ intro.remove(); play(); };
+
+    function play(){
+      let time=60, correct=0, attempts=0, order=shuffle(quizPool), qi=0;
+      const hud=el('div','hud');
+      const timeEl=el('div','time','60');
+      const scoreEl=el('div','pill','Score: <b>0</b>');
+      hud.appendChild(timeEl); hud.appendChild(scoreEl); wrap.appendChild(hud);
+      const holder=el('div'); wrap.appendChild(holder);
+      window.__eaTimer=setInterval(function(){ time--; timeEl.textContent=time; if(time<=10)timeEl.classList.add('low'); if(time<=0){clearInterval(window.__eaTimer); end();} },1000);
+      next();
+      function next(){
+        if(qi>=order.length){order=shuffle(quizPool);qi=0;}
+        const ex=order[qi++]; holder.innerHTML='';
+        const card=el('div','q-card');
+        let opts, correctVal;
+        if(ex.tipo==='multiple_choice'){
+          card.appendChild(el('p','q',esc(ex.pregunta).replace(/___/g,'<b>_____</b>')));
+          opts=shuffle(ex.opciones||[]); correctVal=ex.respuesta;
+        } else {
+          card.appendChild(el('p','q',esc(ex.afirmacion)));
+          opts=['True','False']; correctVal=String(ex.respuesta)==='true'?'True':'False';
+        }
+        const ob=el('div','opts');
+        opts.forEach(function(o){
+          const btn=el('button','opt',esc(o));
+          btn.onclick=function(){
+            if(holder.dataset.locked)return; holder.dataset.locked='1';
+            attempts++;
+            const good=String(o).toLowerCase()===String(correctVal).toLowerCase();
+            if(good){correct++;btn.classList.add('ok');scoreEl.innerHTML='Score: <b>'+correct+'</b>';}
+            else{btn.classList.add('no');ob.querySelectorAll('.opt').forEach(function(x){if(x.textContent.toLowerCase()===String(correctVal).toLowerCase())x.classList.add('ok');});}
+            setTimeout(function(){holder.dataset.locked='';next();},good?280:650);
+          };
+          ob.appendChild(btn);
+        });
+        card.appendChild(ob); holder.appendChild(card);
+      }
+      function end(){
+        holder.innerHTML=''; hud.remove();
+        const f=el('div','final');
+        f.appendChild(el('div','big',correct+'/'+attempts));
+        f.appendChild(el('div','msg',msgFor(correct,attempts)));
+        const again=el('button','btn primary','↻ Play again');
+        again.onclick=function(){wrap.querySelectorAll('.final,.hud').forEach(function(x){x.remove();});holder.remove();mount(GAMES.find(function(g){return g.id==='clock';}));};
+        f.appendChild(again); wrap.appendChild(f);
+      }
+    }
+  }
+  function msgFor(c,a){ if(a===0)return 'No answers — try again!'; const r=c/a; if(r>=0.9)return 'Sharp! You know this.'; if(r>=0.7)return 'Solid — keep going.'; if(r>=0.4)return 'Getting there.'; return 'Review the lesson and retry.'; }
+
+  // ---- Game 2: Match-Up (join the two halves) ----
+  function renderMatch(root){
+    const wrap=el('div','game');
+    wrap.appendChild(el('h3',null,'Match-Up'));
+    wrap.appendChild(el('div','lead','Join each sentence start with its correct ending.'));
+    const pool=shuffle(matchPool).slice(0,Math.min(6,matchPool.length));
+    const pairs=pool.map(function(s,i){const w=s.split(/\s+/);const cut=Math.max(2,Math.round(w.length/2));return {i:i,a:w.slice(0,cut).join(' '),b:w.slice(cut).join(' ')};});
+    const hud=el('div','hud'); const scoreEl=el('div','pill','Matched: <b>0</b> / '+pairs.length); hud.appendChild(scoreEl); wrap.appendChild(hud);
+    const grid=el('div','match');
+    const colL=el('div','col'); const colR=el('div','col');
+    colL.appendChild(el('div','col-h','Starts')); colR.appendChild(el('div','col-h','Endings'));
+    let selL=null, matched=0;
+    pairs.forEach(function(p){ const c=el('div','card',esc(p.a)+' …'); c.dataset.i=p.i;
+      c.onclick=function(){ if(c.classList.contains('done'))return; colL.querySelectorAll('.card').forEach(function(x){x.classList.remove('sel');}); c.classList.add('sel'); selL=c; };
+      colL.appendChild(c); });
+    shuffle(pairs).forEach(function(p){ const c=el('div','card','… '+esc(p.b)); c.dataset.i=p.i;
+      c.onclick=function(){ if(c.classList.contains('done')||!selL)return;
+        if(selL.dataset.i===c.dataset.i){ selL.classList.remove('sel'); selL.classList.add('done'); c.classList.add('done'); selL=null; matched++; scoreEl.innerHTML='Matched: <b>'+matched+'</b> / '+pairs.length;
+          if(matched===pairs.length){ const f=el('div','final'); f.style.marginTop='18px'; f.appendChild(el('div','msg','All matched! 🎉')); const again=el('button','btn primary','↻ New round'); again.onclick=function(){mount(GAMES.find(function(g){return g.id==='match';}));}; f.appendChild(again); wrap.appendChild(f); } }
+        else { const bad=selL; c.classList.add('wrong'); bad.classList.add('wrong'); setTimeout(function(){c.classList.remove('wrong');bad.classList.remove('wrong');},350); selL.classList.remove('sel'); selL=null; }
+      };
+      colR.appendChild(c); });
+    grid.appendChild(colL); grid.appendChild(colR); wrap.appendChild(grid);
+    wrap.appendChild(el('div','note','Tip: read each start aloud before you choose — it trains your ear.'));
+    root.appendChild(wrap);
+  }
+
+  function finish(){
+    app.appendChild(el('div','cta-sp','Games warm you up — real fluency comes from talking. <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer">Book a class with Felipe on Superprof →</a>'));
+    app.appendChild(el('footer','','EnglishAngel — made by your teacher, not a random worksheet machine.'));
+  }
+})();
+</script>
+</body>
+</html>

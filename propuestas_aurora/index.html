@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Aurora — Showcase de las 3 Propuestas HTML</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050811;
+      --card-bg: rgba(13, 20, 36, 0.85);
+      --border: rgba(255, 255, 255, 0.1);
+      --cyan: #00f2fe;
+      --teal: #00ffc3;
+      --violet: #a855f7;
+      --gold: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Control Hub */
+    header {
+      background: rgba(10, 15, 28, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-hub {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-hub-badge {
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      color: #050811;
+      font-weight: 900;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+
+    .brand-hub-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .proposal-switcher {
+      display: flex;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      padding: 4px;
+      border-radius: 12px;
+      gap: 4px;
+    }
+
+    .switch-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .switch-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .switch-btn.active {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(168, 85, 247, 0.2));
+      color: #fff;
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+
+    .actions-hub {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      border-color: var(--cyan);
+      background: rgba(0, 242, 254, 0.1);
+    }
+
+    /* Main Viewport Container */
+    .viewport-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 72px);
+      border: none;
+      background: var(--bg);
+    }
+
+    /* Trend Briefing Drawer */
+    .trend-drawer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      max-width: 420px;
+      background: rgba(10, 17, 33, 0.92);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+    }
+
+    .trend-drawer.collapsed {
+      transform: translateY(calc(100% - 48px));
+    }
+
+    .trend-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .trend-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan);
+    }
+
+    .trend-content {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .trend-pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: #fff;
+      margin: 3px 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Hub Bar -->
+  <header>
+    <div class="brand-hub">
+      <span class="brand-hub-badge">2026 UI LAB</span>
+      <span class="brand-hub-title">English Aurora — Propuestas de Vanguardia</span>
+    </div>
+
+    <!-- Switcher -->
+    <nav class="proposal-switcher">
+      <button class="switch-btn active" onclick="loadProposal('propuesta-1-bento-lumina.html', 1, this)">
+        <span>🔮</span>
+        <span>1. Bento Lumina</span>
+      </button>
+      <button class="switch-btn" onclick="loadProposal('propuesta-2-arcane-editorial.html', 2, this)">
+        <span>🏛️</span>
+        <span>2. Arcane Editorial</span>
+      </button>
+      <button class="switch-btn" onclick="loadProposal('propuesta-3-spatial-rpg-hud.html', 3, this)">
+        <span>⚔️</span>
+        <span>3. Spatial Quest HUD</span>
+      </button>
+    </nav>
+
+    <!-- Actions -->
+    <div class="actions-hub">
+      <a href="propuesta-1-bento-lumina.html" target="_blank" class="btn-action" id="fullscreenLink">
+        <span>↗</span>
+        <span>Abrir en Pestaña Completa</span>
+      </a>
+      <button class="btn-action" onclick="toggleDrawer()">
+        <span>ℹ️</span>
+        <span>Justificación de Tendencias</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Live Frame -->
+  <div class="viewport-container">
+    <iframe id="previewFrame" src="propuesta-1-bento-lumina.html"></iframe>
+  </div>
+
+  <!-- Trends Drawer -->
+  <aside class="trend-drawer" id="trendDrawer">
+    <div class="trend-header" onclick="toggleDrawer()">
+      <h3>
+        <span id="drawerIcon">🔮</span>
+        <span id="drawerTitle">Propuesta 1: Bento Lumina 2026</span>
+      </h3>
+      <span id="toggleArrow" style="cursor: pointer; font-size: 0.8rem; color: var(--cyan);">▲</span>
+    </div>
+
+    <div class="trend-content" id="drawerBody">
+      <p style="margin-bottom: 10px;">
+        <strong>Concepto:</strong> Mallas vivas de aurora boreal, módulos Bento reactivos con specular spotlight que persigue el cursor, audio nativo y disector de palabras.
+      </p>
+      <div>
+        <span class="trend-pill">Bento Grid 2.0</span>
+        <span class="trend-pill">Mesh Aurora Gradient</span>
+        <span class="trend-pill">Specular Spotlight</span>
+        <span class="trend-pill">Web Speech API</span>
+        <span class="trend-pill">Web Audio API</span>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    const proposalsMeta = {
+      1: {
+        file: 'propuesta-1-bento-lumina.html',
+        icon: '🔮',
+        title: 'Propuesta 1: Bento Lumina 2026',
+        desc: 'Mallas vivas de aurora boreal sin imágenes externas. Layout Bento Grid reactivo con efecto spotlight de cursor, disector fonético/gramatical y síntesis de audio nativa con cero latencia.',
+        pills: ['Bento Grid 2.0', 'Living Aurora Mesh', 'Specular Spotlight', 'Web Speech API', 'Web Audio API', 'Zero-Asset Chimes']
+      },
+      2: {
+        file: 'propuesta-2-arcane-editorial.html',
+        icon: '🏛️',
+        title: 'Propuesta 2: Arcane Horizon / Editorial',
+        desc: 'Inspirada en el diseño editorial de lujo académico (Stripe Press / MasterClass). Tipografía monumental Cinzel + EB Garamond, modo estudio profundo con acorde binaural relajante y disector sintáctico formal.',
+        pills: ['Neo-Editorial Grid', 'Kinetic Serif Typography', 'Deep Focus Mode', 'Syntactic Inspector', 'Etymology Grimorio']
+      },
+      3: {
+        file: 'propuesta-3-spatial-rpg-hud.html',
+        icon: '⚔️',
+        title: 'Propuesta 3: Spatial Quest HUD & Arena',
+        desc: 'Interfaz espacial interactiva estilo VisionOS + RPG Gaming. Tarjetas 3D con inclinación reactiva al mouse, mapa de constelaciones y Arena de Duelos en vivo con combate gramatical contra criaturas.',
+        pills: ['Spatial 3D Tilt', 'Starfield Canvas Particles', 'Live Combat Quiz Arena', 'Sound Synthesis FX', 'Gamified CEFR Map']
+      }
+    };
+
+    function loadProposal(filename, id, btn) {
+      document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.getElementById('previewFrame').src = filename;
+      document.getElementById('fullscreenLink').href = filename;
+
+      const meta = proposalsMeta[id];
+      document.getElementById('drawerIcon').innerText = meta.icon;
+      document.getElementById('drawerTitle').innerText = meta.title;
+      document.getElementById('drawerBody').innerHTML = `
+        <p style="margin-bottom: 10px;"><strong>Concepto:</strong> ${meta.desc}</p>
+        <div>
+          ${meta.pills.map(p => `<span class="trend-pill">${p}</span>`).join('')}
+        </div>
+      `;
+    }
+
+    let isDrawerOpen = true;
+    function toggleDrawer() {
+      const drawer = document.getElementById('trendDrawer');
+      const arrow = document.getElementById('toggleArrow');
+      isDrawerOpen = !isDrawerOpen;
+      if (isDrawerOpen) {
+        drawer.classList.remove('collapsed');
+        arrow.innerText = '▼';
+      } else {
+        drawer.classList.add('collapsed');
+        arrow.innerText = '▲';
+      }
+    }
+  </script>
+</body>
+</html>

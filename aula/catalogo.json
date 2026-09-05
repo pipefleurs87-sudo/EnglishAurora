@@ -1,0 +1,488 @@
+[
+ {
+  "id": "a1-adjectives-people-things-01",
+  "nivel": "A1",
+  "area": "Adjectives",
+  "tema": "Adjectives — Describing People & Things"
+ },
+ {
+  "id": "a1-articles-01",
+  "nivel": "A1",
+  "area": "Articles",
+  "tema": "Articles — a / an / the"
+ },
+ {
+  "id": "a1-demonstratives-01",
+  "nivel": "A1",
+  "area": "Determiners",
+  "tema": "This / That / These / Those"
+ },
+ {
+  "id": "a1-family-possessive-s-01",
+  "nivel": "A1",
+  "area": "Possessives",
+  "tema": "Family & Possessive 's"
+ },
+ {
+  "id": "a1-have-got-01",
+  "nivel": "A1",
+  "area": "Have Got",
+  "tema": "Have got — Possessions"
+ },
+ {
+  "id": "a1-imperatives-01",
+  "nivel": "A1",
+  "area": "Imperatives",
+  "tema": "Imperatives — Instructions & Directions"
+ },
+ {
+  "id": "a1-modal-can-ability-01",
+  "nivel": "A1",
+  "area": "Modals",
+  "tema": "Modal Verb 'Can' — Ability & the Body"
+ },
+ {
+  "id": "a1-modal-have-to-01",
+  "nivel": "A1",
+  "area": "Modals",
+  "tema": "Modal 'Have to' — Obligations at Work & School"
+ },
+ {
+  "id": "a1-modal-must-duties-01",
+  "nivel": "A1",
+  "area": "Modals",
+  "tema": "Modal Verb 'Must' — Duties at Home"
+ },
+ {
+  "id": "a1-modal-should-advice-01",
+  "nivel": "A1",
+  "area": "Modals",
+  "tema": "Modal Verb 'Should' — Advice & Suggestions"
+ },
+ {
+  "id": "a1-modal-would-like-01",
+  "nivel": "A1",
+  "area": "Wishes & Regrets",
+  "tema": "Would like — Wishes & Polite Offers"
+ },
+ {
+  "id": "a1-object-pronouns-01",
+  "nivel": "A1",
+  "area": "Pronouns & Possessives",
+  "tema": "Object Pronouns (me, him, her, us, them)"
+ },
+ {
+  "id": "a1-plural-nouns-01",
+  "nivel": "A1",
+  "area": "Nouns",
+  "tema": "Plural Nouns — regular & irregular"
+ },
+ {
+  "id": "a1-prepositions-place-01",
+  "nivel": "A1",
+  "area": "Prepositions",
+  "tema": "Prepositions of Place (in, on, under, next to...)"
+ },
+ {
+  "id": "a1-prepositions-time-01",
+  "nivel": "A1",
+  "area": "Prepositions",
+  "tema": "Prepositions of Time (at, on, in)"
+ },
+ {
+  "id": "a1-present-continuous-01",
+  "nivel": "A1",
+  "area": "Present Simple",
+  "tema": "Present Continuous — Now (vs Present Simple)"
+ },
+ {
+  "id": "a1-present-simple-frequency-01",
+  "nivel": "A1",
+  "area": "Present Simple",
+  "tema": "Present Simple — Adverbs of Frequency"
+ },
+ {
+  "id": "a1-present-simple-likes-01",
+  "nivel": "A1",
+  "area": "Present Simple",
+  "tema": "Present Simple — Likes, Hobbies & Free Time"
+ },
+ {
+  "id": "a1-present-simple-neg-questions-01",
+  "nivel": "A1",
+  "area": "Present Simple",
+  "tema": "Present Simple — Negatives & Questions"
+ },
+ {
+  "id": "a1-present-simple-routines-01",
+  "nivel": "A1",
+  "area": "Present Simple",
+  "tema": "Present Simple — Daily Routines"
+ },
+ {
+  "id": "a1-present-simple-wh-questions-01",
+  "nivel": "A1",
+  "area": "Present Simple",
+  "tema": "Present Simple — Wh- Questions"
+ },
+ {
+  "id": "a1-pronouns-possessives-01",
+  "nivel": "A1",
+  "area": "Pronouns & Possessives",
+  "tema": "Subject Pronouns & Possessive Adjectives"
+ },
+ {
+  "id": "a1-relative-clauses-objects-01",
+  "nivel": "A1",
+  "area": "Relative Clauses",
+  "tema": "Relative Clauses — Objects to Work & Study (a thing that you use to...)"
+ },
+ {
+  "id": "a1-relative-clauses-places-01",
+  "nivel": "A1",
+  "area": "Relative Clauses",
+  "tema": "Relative Clauses — Places in the City (a place where...)"
+ },
+ {
+  "id": "a1-relative-clauses-professions-01",
+  "nivel": "A1",
+  "area": "Relative Clauses",
+  "tema": "Relative Clauses — Defining People (a person who...)"
+ },
+ {
+  "id": "a1-review-grand-01",
+  "nivel": "A1",
+  "area": "Review",
+  "tema": "A1 Grand Review — All Topics Together"
+ },
+ {
+  "id": "a1-review-identity-01",
+  "nivel": "A1",
+  "area": "Review",
+  "tema": "A1 Review — Identity: To Be, Pronouns & Demonstratives"
+ },
+ {
+  "id": "a1-review-modals-preps-01",
+  "nivel": "A1",
+  "area": "Review",
+  "tema": "A1 Review — Modals & Prepositions: Advice, Duties, Time & Place"
+ },
+ {
+  "id": "a1-review-present-simple-01",
+  "nivel": "A1",
+  "area": "Review",
+  "tema": "A1 Review — Present Simple: Routines, Frequency, Questions & Likes"
+ },
+ {
+  "id": "a1-to-be-nationalities-01",
+  "nivel": "A1",
+  "area": "Verb To Be",
+  "tema": "Verb To Be — Nationalities"
+ },
+ {
+  "id": "a1-to-be-neg-questions-01",
+  "nivel": "A1",
+  "area": "Verb To Be",
+  "tema": "Verb To Be — Negatives & Questions"
+ },
+ {
+  "id": "a1-wh-questions-bank-01",
+  "nivel": "A1",
+  "area": "Questions",
+  "tema": "Wh- Questions — Question Bank (you / he-she)"
+ },
+ {
+  "id": "a2-comparatives-superlatives-01",
+  "nivel": "A2",
+  "area": "Comparatives",
+  "tema": "Comparatives & Superlatives — The Great Dilemmas of Life"
+ },
+ {
+  "id": "a2-countables-some-any-01",
+  "nivel": "A2",
+  "area": "Countable & Uncountable",
+  "tema": "Countable & Uncountable — a / some / any / much / many (Food)"
+ },
+ {
+  "id": "a2-going-to-future-01",
+  "nivel": "A2",
+  "area": "Going To",
+  "tema": "Going to — Plans, Decisions & Predictions"
+ },
+ {
+  "id": "a2-past-continuous-vs-simple-01",
+  "nivel": "A2",
+  "area": "Past Simple",
+  "tema": "Past Continuous vs Past Simple — when / while"
+ },
+ {
+  "id": "a2-past-simple-irregular-01",
+  "nivel": "A2",
+  "area": "Past Simple",
+  "tema": "Past Simple — Irregular Verbs (patterns)"
+ },
+ {
+  "id": "a2-past-simple-narrative-01",
+  "nivel": "A2",
+  "area": "Past Simple",
+  "tema": "Past Simple — Telling a Story"
+ },
+ {
+  "id": "a2-past-simple-regular-01",
+  "nivel": "A2",
+  "area": "Past Simple",
+  "tema": "Past Simple — Regular Verbs (-ed) & Time Expressions"
+ },
+ {
+  "id": "a2-review-grand-01",
+  "nivel": "A2",
+  "area": "Review",
+  "tema": "A2 Grand Review — All Topics Together"
+ },
+ {
+  "id": "a2-there-is-there-are-01",
+  "nivel": "A2",
+  "area": "There is/are",
+  "tema": "There is / There are — Describing the House"
+ },
+ {
+  "id": "a2-verb-to-be-past-01",
+  "nivel": "A2",
+  "area": "Verb To Be",
+  "tema": "Verb To Be — Past (was / were)"
+ },
+ {
+  "id": "b1-adverbs-01",
+  "nivel": "B1",
+  "area": "Comparatives",
+  "tema": "Adverbs of Manner — quickly, carefully & comparatives"
+ },
+ {
+  "id": "b1-conditionals-0-1-2-01",
+  "nivel": "B1",
+  "area": "Conditionals",
+  "tema": "Conditionals 0, 1 & 2 — One Ice Cream, Three Realities"
+ },
+ {
+  "id": "b1-gerund-vs-infinitive-01",
+  "nivel": "B1",
+  "area": "Gerund vs Infinitive",
+  "tema": "Gerund vs Infinitive — enjoy reading, want to read"
+ },
+ {
+  "id": "b1-passive-voice-01",
+  "nivel": "B1",
+  "area": "Passive Voice",
+  "tema": "Passive Voice — Present, Past & Perfect"
+ },
+ {
+  "id": "b1-present-perfect-bucket-list-01",
+  "nivel": "B1",
+  "area": "Present Perfect",
+  "tema": "Present Perfect — The Bucket List (already / yet)"
+ },
+ {
+  "id": "b1-present-perfect-continuous-01",
+  "nivel": "B1",
+  "area": "Present Perfect Continuous",
+  "tema": "Present Perfect Continuous — for / since / just"
+ },
+ {
+  "id": "b1-present-perfect-ever-experiences-01",
+  "nivel": "B1",
+  "area": "Past Simple",
+  "tema": "Have You Ever...? — Experiences (details in past simple)"
+ },
+ {
+  "id": "b1-present-perfect-vs-past-simple-01",
+  "nivel": "B1",
+  "area": "Past Simple",
+  "tema": "Present Perfect vs Past Simple — Which One?"
+ },
+ {
+  "id": "b1-review-grand-01",
+  "nivel": "B1",
+  "area": "Review",
+  "tema": "B1 Grand Review — All Topics Together"
+ },
+ {
+  "id": "b1-used-to-01",
+  "nivel": "B1",
+  "area": "Used To",
+  "tema": "Used to — Past Habits That Are Gone"
+ },
+ {
+  "id": "b1-will-vs-going-to-01",
+  "nivel": "B1",
+  "area": "Will vs Going To",
+  "tema": "Will vs Going to — Plans, Decisions & Promises"
+ },
+ {
+  "id": "b2-causative-01",
+  "nivel": "B2",
+  "area": "Causative",
+  "tema": "Causative — Have / Get Something Done"
+ },
+ {
+  "id": "b2-idioms-money-01",
+  "nivel": "B2",
+  "area": "Idioms",
+  "tema": "Idioms — Money & Business (Abuela Carmen's Wisdom)"
+ },
+ {
+  "id": "b2-idioms-time-effort-01",
+  "nivel": "B2",
+  "area": "Idioms",
+  "tema": "Idioms — Time & Effort (Abuela Carmen's Wisdom)"
+ },
+ {
+  "id": "b2-linkers-01",
+  "nivel": "B2",
+  "area": "Linkers",
+  "tema": "Linking Words — Contrast, Addition, Cause, Result & More"
+ },
+ {
+  "id": "b2-mixed-conditionals-01",
+  "nivel": "B2",
+  "area": "Conditionals",
+  "tema": "Mixed Conditionals"
+ },
+ {
+  "id": "b2-modals-deduction-past-01",
+  "nivel": "B2",
+  "area": "Modals",
+  "tema": "Modals of Deduction — Past (must have / might have / can't have)"
+ },
+ {
+  "id": "b2-modals-deduction-present-01",
+  "nivel": "B2",
+  "area": "Modals",
+  "tema": "Modals of Deduction — Present (must / might / could / can't)"
+ },
+ {
+  "id": "b2-modals-obligation-past-01",
+  "nivel": "B2",
+  "area": "Modals",
+  "tema": "Modals of Obligation — Past (had to / didn't have to / needn't have)"
+ },
+ {
+  "id": "b2-phrasal-verbs-down-01",
+  "nivel": "B2",
+  "area": "Phrasal Verbs",
+  "tema": "Phrasal Verbs with DOWN"
+ },
+ {
+  "id": "b2-phrasal-verbs-get-01",
+  "nivel": "B2",
+  "area": "Phrasal Verbs",
+  "tema": "Phrasal Verbs — GET: One Verb, Many Meanings"
+ },
+ {
+  "id": "b2-phrasal-verbs-on-off-01",
+  "nivel": "B2",
+  "area": "Phrasal Verbs",
+  "tema": "Phrasal Verbs with ON vs OFF"
+ },
+ {
+  "id": "b2-phrasal-verbs-out-01",
+  "nivel": "B2",
+  "area": "Phrasal Verbs",
+  "tema": "Phrasal Verbs with OUT"
+ },
+ {
+  "id": "b2-phrasal-verbs-up-01",
+  "nivel": "B2",
+  "area": "Phrasal Verbs",
+  "tema": "Phrasal Verbs with UP"
+ },
+ {
+  "id": "b2-relative-clauses-01",
+  "nivel": "B2",
+  "area": "Relative Clauses",
+  "tema": "Relative Clauses — Non-Defining & Advanced Structures"
+ },
+ {
+  "id": "b2-reported-speech-01",
+  "nivel": "B2",
+  "area": "Reported Speech",
+  "tema": "Reported Speech — Statements, Questions & Commands"
+ },
+ {
+  "id": "b2-third-conditional-01",
+  "nivel": "B2",
+  "area": "Conditionals",
+  "tema": "Third Conditional — If I Had Known"
+ },
+ {
+  "id": "b2-wish-if-only-01",
+  "nivel": "B2",
+  "area": "Wishes & Regrets",
+  "tema": "Wish / If Only — Regrets & Change"
+ },
+ {
+  "id": "c1-advanced-passive-01",
+  "nivel": "C1",
+  "area": "Passive Voice",
+  "tema": "Advanced Passive — Reporting Verbs & Passive Infinitives"
+ },
+ {
+  "id": "c1-cleft-sentences-01",
+  "nivel": "C1",
+  "area": "Cleft Sentences",
+  "tema": "Cleft Sentences — It-Clefts & What-Clefts"
+ },
+ {
+  "id": "c1-ellipsis-substitution-01",
+  "nivel": "C1",
+  "area": "Ellipsis & Substitution",
+  "tema": "Ellipsis & Substitution"
+ },
+ {
+  "id": "c1-emphatic-structures-01",
+  "nivel": "C1",
+  "area": "Emphatic Structures",
+  "tema": "Emphatic Structures — do/does/did & so/such"
+ },
+ {
+  "id": "c1-future-in-the-past-01",
+  "nivel": "C1",
+  "area": "Future in the Past",
+  "tema": "Future in the Past"
+ },
+ {
+  "id": "c1-gerund-clauses-subject-01",
+  "nivel": "C1",
+  "area": "Gerund Clauses as Subject",
+  "tema": "Gerund Clauses as Subject"
+ },
+ {
+  "id": "c1-inversion-01",
+  "nivel": "C1",
+  "area": "Inversion",
+  "tema": "Inversion for Emphasis"
+ },
+ {
+  "id": "c1-participle-clauses-01",
+  "nivel": "C1",
+  "area": "Participle Clauses",
+  "tema": "Participle Clauses"
+ },
+ {
+  "id": "c1-register-style-01",
+  "nivel": "C1",
+  "area": "Register & Style",
+  "tema": "Register & Style — Formal vs Informal Rewriting (C1–C2, capstone)"
+ },
+ {
+  "id": "c1-subjunctive-01",
+  "nivel": "C1",
+  "area": "Subjunctive",
+  "tema": "Subjunctive — Formal & Literary Register (C1–C2)"
+ },
+ {
+  "id": "c1-would-rather-prefer-01",
+  "nivel": "C1",
+  "area": "Modals",
+  "tema": "Would Rather / Would Prefer"
+ }
+]

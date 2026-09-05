@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Present Simple — Daily Routines · Wave B Master Session | English Aurora</title>
+
+<!-- METADATA -->
+<meta name="description" content="Complete 1-Hour Wave B Masterclass on Present Simple and Daily Routines. Featuring Aurora AI Host, the 4 sentence forms, 3 cognitive stages (Recognize, Manipulate, Transform), reading comprehension and procedural RPG audio chimes.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   DESIGN TOKENS — PASTEL GRAY & TEAL WITH RPG REFINED FRAMING
+   ========================================================================== */
+:root {
+  --bg-main: #EAEFF2;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F4F8FA;
+  --bg-card-darker: #E2EAEF;
+  
+  --ink: #162831;
+  --ink-secondary: #3B535E;
+  --muted: #647B87;
+  --line: #CCD7DE;
+  --line-strong: #A6B8C2;
+
+  --teal: #0D7C74;
+  --teal-dark: #08524D;
+  --teal-light: #E0F2F1;
+  --teal-border: #2DBAAE;
+  --teal-glow: rgba(13, 124, 116, 0.22);
+
+  --gold: #B8860B;
+  --gold-light: #FFF8E7;
+  --gold-border: #D4A017;
+  --gold-glow: rgba(184, 134, 11, 0.2);
+
+  --ruby: #C53030;
+  --ruby-light: #FFF5F5;
+  --green: #23824A;
+  --green-light: #EDF7F1;
+
+  --serif: 'Source Serif 4', Georgia, serif;
+  --title-font: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100%;
+  background: var(--bg-main); color: var(--ink);
+  font-family: var(--sans); user-select: none;
+  -webkit-user-select: none; overflow-x: hidden;
+}
+
+/* Background Mist Canvas */
+#ambient-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.subtle-mist-layer {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.55;
+  background: radial-gradient(circle at 15% 15%, rgba(45, 212, 191, 0.12), transparent 50%),
+              radial-gradient(circle at 85% 20%, rgba(212, 160, 23, 0.09), transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(13, 124, 116, 0.08), transparent 60%);
+}
+
+.lesson-layout-wrap {
+  position: relative; z-index: 10;
+  max-width: 1300px; margin: 0 auto;
+  min-height: 100vh; display: flex; flex-direction: column;
+  padding: 18px 24px 80px; gap: 18px;
+}
+
+/* ==========================================================================
+   TOP RPG HUD BAR
+   ========================================================================== */
+.rpg-hud-panel {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 16px; padding: 12px 24px; box-shadow: 0 4px 20px rgba(22, 40, 49, 0.06);
+  flex-wrap: wrap; gap: 14px; position: relative;
+}
+.rpg-hud-panel::before {
+  content: ''; position: absolute; inset: 2px;
+  border: 1px dashed rgba(13, 124, 116, 0.22); border-radius: 12px; pointer-events: none;
+}
+
+.rpg-brand-zone { display: flex; align-items: center; gap: 14px; position: relative; z-index: 2; }
+.rpg-emblem {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--teal-light); border: 1.5px solid var(--teal);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+  box-shadow: 0 0 12px var(--teal-glow);
+}
+.rpg-title-group { display: flex; flex-direction: column; }
+.rpg-main-heading {
+  font-family: var(--title-font); font-size: 16.5px; font-weight: 900;
+  color: var(--teal-dark); letter-spacing: 0.06em;
+}
+.rpg-sub-kicker {
+  font-family: var(--mono); font-size: 10.5px; color: var(--gold);
+  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* Step Phase Navigation */
+.phase-ribbon-nav { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; position: relative; z-index: 2; }
+.phase-tab-btn {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  color: var(--ink-secondary); border-radius: 8px; padding: 6px 12px;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.phase-tab-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+.phase-tab-btn.active {
+  background: var(--teal); border-color: var(--teal-dark);
+  color: #FFFFFF; box-shadow: 0 3px 12px var(--teal-glow);
+}
+
+.hud-actions-box { display: flex; gap: 10px; align-items: center; position: relative; z-index: 2; }
+.btn-hud-control {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--bg-card); color: var(--teal-dark);
+  border: 1px solid var(--teal-border); border-radius: 8px;
+  padding: 7px 14px; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.btn-hud-control:hover {
+  background: var(--teal); color: #FFFFFF; box-shadow: 0 4px 14px var(--teal-glow);
+}
+
+/* ==========================================================================
+   MAIN DUAL-STAGE FRAME
+   ========================================================================== */
+.master-stage-frame {
+  display: grid; grid-template-columns: 330px 1fr;
+  gap: 20px; align-items: stretch;
+}
+@media (max-width: 980px) {
+  .master-stage-frame { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   LEFT STAGE: AURORA PROMINENT BUST (3X) & LIVE REACTION MENTOR
+   -------------------------------------------------------------------------- */
+.aurora-hero-stage-card {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 20px; padding: 22px; box-shadow: 0 8px 24px rgba(22, 40, 49, 0.07);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+  position: relative; overflow: hidden;
+}
+.aurora-hero-stage-card::before {
+  content: ''; position: absolute; inset: 4px;
+  border: 1px solid rgba(13, 124, 116, 0.15); border-radius: 16px; pointer-events: none;
+}
+
+.aurora-portrait-container {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+}
+.aurora-large-portrait {
+  width: 220px; height: 220px; border-radius: 24px;
+  border: 2.5px solid var(--teal); box-shadow: 0 10px 30px var(--teal-glow);
+  object-fit: cover; background: #E6FAF8; transition: all 0.3s var(--e-spring);
+}
+.aurora-large-portrait.speaking {
+  animation: portraitAura 1.4s ease-in-out infinite alternate;
+}
+@keyframes portraitAura {
+  0% { transform: scale(1); box-shadow: 0 10px 30px var(--teal-glow); }
+  100% { transform: scale(1.04); box-shadow: 0 14px 40px rgba(13, 124, 116, 0.45); }
+}
+
+.aurora-identity-tag {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.aurora-nameplate {
+  font-family: var(--title-font); font-size: 18px; font-weight: 700;
+  color: var(--teal-dark); letter-spacing: 0.05em;
+}
+.aurora-role-pill {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 3px 10px; border-radius: 999px; background: var(--teal-light); color: var(--teal);
+}
+
+/* 3 Reaction Mood Chips */
+.reaction-pills-row {
+  display: flex; gap: 6px; width: 100%; justify-content: center;
+}
+.mood-chip-btn {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  color: var(--ink-secondary); border-radius: 6px; padding: 4px 8px;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.mood-chip-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+.mood-chip-btn.active {
+  background: var(--teal-light); border-color: var(--teal); color: var(--teal-dark); font-weight: 700;
+}
+
+/* Live Speech Dialogue Card (High Contrast Transcript Bubble) */
+.aurora-live-speech-card {
+  background: var(--bg-card-subtle); border: 1.5px solid var(--teal-border);
+  border-radius: 14px; padding: 14px 16px; position: relative;
+  font-family: var(--serif); font-size: 14.5px; line-height: 1.45; color: var(--ink);
+  box-shadow: 0 4px 14px rgba(13, 124, 116, 0.08); min-height: 85px;
+}
+.aurora-live-speech-card::before {
+  content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+  border-width: 0 8px 8px 8px; border-style: solid;
+  border-color: transparent transparent var(--teal-border) transparent;
+}
+.aurora-live-speech-card strong { color: var(--teal-dark); font-weight: 700; }
+
+/* Voice Audio Bar */
+.aurora-voice-controller {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 8px 12px; gap: 10px;
+}
+.btn-aurora-play {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--teal); color: #FFFFFF; border: none;
+  border-radius: 8px; padding: 8px 14px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.btn-aurora-play:hover { background: var(--teal-dark); box-shadow: 0 4px 12px var(--teal-glow); }
+
+.audio-equalizer-bars {
+  display: flex; align-items: center; gap: 3px; height: 18px;
+}
+.equalizer-bar {
+  width: 3px; background: var(--teal); border-radius: 2px; height: 4px;
+}
+.audio-equalizer-bars.active .equalizer-bar {
+  animation: eqPulse 0.7s ease-in-out infinite alternate;
+}
+.audio-equalizer-bars.active .equalizer-bar:nth-child(2) { animation-delay: 0.15s; }
+.audio-equalizer-bars.active .equalizer-bar:nth-child(3) { animation-delay: 0.3s; }
+/* Subtitle CC Overlay Bar (Cinema-Grade YouTube Subtitles) */
+.cinema-subtitle-overlay {
+  position: absolute; bottom: 74px; left: 34px; right: 34px; z-index: 50;
+  display: flex; justify-content: center; pointer-events: none;
+  transition: all 0.25s ease; opacity: 0; transform: translateY(6px);
+}
+.cinema-subtitle-overlay.visible {
+  opacity: 1; transform: translateY(0);
+}
+.subtitle-pill-box {
+  background: rgba(16, 32, 40, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--teal-border); border-radius: 12px;
+  padding: 10px 22px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  display: flex; align-items: center; gap: 12px; max-width: 90%;
+}
+.subtitle-speaker-badge {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--teal-dark); color: #4EFAF0;
+  border-radius: 6px; padding: 4px 8px; flex-shrink: 0;
+}
+.subtitle-text-content {
+  font-family: var(--sans); font-size: 15px; font-weight: 500;
+  color: #FFFFFF; line-height: 1.4; text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT STAGE: CLEAN, UNCLUTTERED LESSON SLIDE VIEWPORT
+   -------------------------------------------------------------------------- */
+.cinematic-lesson-screen {
+  background: var(--bg-card); border: 1.5px solid var(--line-strong);
+  border-radius: 20px; padding: 28px 34px; box-shadow: 0 8px 24px rgba(22, 40, 49, 0.07);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+  position: relative; overflow: hidden; min-height: 560px;
+}
+.cinematic-lesson-screen::before {
+  content: ''; position: absolute; inset: 4px;
+  border: 1px solid rgba(13, 124, 116, 0.12); border-radius: 16px; pointer-events: none;
+}
+
+.stage-kicker-line {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal);
+}
+.stage-main-title {
+  font-family: var(--serif); font-size: clamp(24px, 3.2vw, 34px); font-weight: 700;
+  color: var(--ink); line-height: 1.2; margin-top: 4px;
+}
+
+.stage-content-scroll {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  gap: 16px; margin: 8px 0;
+}
+
+/* ==========================================================================
+   SCENE 1: RECURRENT CHARACTERS DIALOGUE
+   ========================================================================== */
+.characters-dialogue-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+.character-speech-bubble {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column;
+  gap: 6px; transition: all 0.2s ease;
+}
+.character-speech-bubble:hover { border-color: var(--teal); box-shadow: 0 4px 14px rgba(13, 124, 116, 0.08); }
+.character-header-row { display: flex; justify-content: space-between; align-items: center; }
+.character-badge-name {
+  font-family: var(--title-font); font-size: 12.5px; font-weight: 700;
+  color: var(--teal-dark); display: flex; align-items: center; gap: 6px;
+}
+.btn-char-audio {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  background: #FFFFFF; border: 1px solid var(--teal-border);
+  color: var(--teal-dark); border-radius: 6px; padding: 3px 8px; cursor: pointer;
+}
+.btn-char-audio:hover { background: var(--teal); color: #FFFFFF; }
+.character-quote-line { font-family: var(--serif); font-size: 14px; color: var(--ink); line-height: 1.4; }
+.character-quote-line strong { color: var(--teal-dark); font-weight: 700; }
+
+/* ==========================================================================
+   SCENE 2: THE 4 FORMS DECK (CLEAN & SPACIOUS)
+   ========================================================================== */
+.forms-card-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+}
+@media (max-width: 680px) { .forms-card-grid { grid-template-columns: 1fr; } }
+
+.form-quad-card {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.form-quad-card:hover, .form-quad-card.focused {
+  border-color: var(--teal); background: var(--teal-light); transform: translateY(-2px);
+  box-shadow: 0 4px 14px var(--teal-glow);
+}
+.form-quad-card.dimmed { opacity: 0.45; }
+.form-quad-badge {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark);
+}
+.form-quad-sentence { font-family: var(--serif); font-size: 15.5px; color: var(--ink); font-weight: 600; }
+.form-quad-note { font-size: 12px; color: var(--muted); line-height: 1.35; }
+
+/* ==========================================================================
+   COGNITIVE EXERCISE STACKS (RECOGNIZE / MANIPULATE / TRANSFORM)
+   ========================================================================== */
+.exercise-clean-card {
+  background: var(--bg-card-subtle); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;
+}
+.exercise-kicker-tag {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.exercise-prompt-heading {
+  font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.4;
+}
+.exercise-options-deck { display: flex; gap: 10px; flex-wrap: wrap; }
+.choice-pill-btn {
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  background: #FFFFFF; border: 1px solid var(--line-strong);
+  color: var(--ink); border-radius: 8px; padding: 9px 18px; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.choice-pill-btn:hover { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+.choice-pill-btn.correct { background: var(--green-light); border-color: var(--green); color: var(--green); font-weight: 700; }
+.choice-pill-btn.wrong { background: var(--ruby-light); border-color: var(--ruby); color: var(--ruby); font-weight: 700; }
+.exercise-feedback-text { font-size: 13.5px; font-weight: 600; min-height: 20px; line-height: 1.4; }
+
+/* ==========================================================================
+   READING COMPREHENSION CARD
+   ========================================================================== */
+.reading-passage-box {
+  background: var(--bg-card-darker); border: 1.5px solid var(--line-strong);
+  border-radius: 12px; padding: 18px 22px; font-family: var(--serif);
+  font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 12px;
+}
+.reading-passage-box strong { color: var(--teal-dark); }
+
+/* ==========================================================================
+   PRINTABLE WORKSHEET
+   ========================================================================== */
+.printable-sheet-view {
+  background: #FFFFFF; border: 1.5px solid #162831;
+  border-radius: 14px; padding: 24px 28px; display: flex; flex-direction: column; gap: 12px;
+}
+.sheet-top-header { display: flex; justify-content: space-between; border-bottom: 2px solid #162831; padding-bottom: 8px; }
+.sheet-title-txt { font-family: var(--serif); font-size: 17px; font-weight: 700; }
+.sheet-meta-fields { display: flex; gap: 20px; font-family: var(--mono); font-size: 11px; color: #3D5560; }
+
+/* Footer Controls */
+.stage-footer-controls {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--line); padding-top: 14px;
+}
+.step-index-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 500; }
+.footer-buttons-group { display: flex; gap: 10px; }
+.btn-screen-nav {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  background: var(--bg-card-subtle); border: 1px solid var(--line-strong);
+  color: var(--ink); border-radius: 8px; padding: 8px 18px; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-screen-nav:hover { background: var(--teal); color: #FFFFFF; border-color: var(--teal-dark); }
+.btn-screen-nav.primary { background: var(--teal); color: #FFFFFF; border-color: var(--teal-dark); }
+.btn-screen-nav.primary:hover { background: var(--teal-dark); }
+
+/* Toast */
+.toast-bar {
+  position: fixed; bottom: 24px; right: 24px; z-index: 3000;
+  background: var(--ink); border: 1px solid var(--teal);
+  border-radius: 10px; padding: 10px 18px; color: #FFFFFF;
+  font-family: var(--mono); font-size: 12px; display: none; align-items: center; gap: 8px;
+}
+.toast-bar.show { display: flex; }
+</style>
+</head>
+<body>
+
+<canvas id="ambient-canvas"></canvas>
+<div class="subtle-mist-layer"></div>
+
+<div class="lesson-layout-wrap">
+  <!-- TOP RPG HUD BAR -->
+  <header class="rpg-hud-panel">
+    <div class="rpg-brand-zone">
+      <div class="rpg-emblem">⏰</div>
+      <div class="rpg-title-group">
+        <div class="rpg-main-heading">PRESENT SIMPLE · DAILY ROUTINES</div>
+        <div class="rpg-sub-kicker">Wave B Masterclass · 1-Hour Session</div>
+      </div>
+    </div>
+
+    <!-- 7 SCENE PHASE TABS -->
+    <nav class="phase-ribbon-nav" id="phase-ribbon">
+      <button class="phase-tab-btn active" data-scene="0">1. Dialogue</button>
+      <button class="phase-tab-btn" data-scene="1">2. 4 Forms</button>
+      <button class="phase-tab-btn" data-scene="2">3. Recognize</button>
+      <button class="phase-tab-btn" data-scene="3">4. Manipulate</button>
+      <button class="phase-tab-btn" data-scene="4">5. Transform</button>
+      <button class="phase-tab-btn" data-scene="5">6. Reading</button>
+      <button class="phase-tab-btn" data-scene="6">7. Mastery & PDF</button>
+    </nav>
+
+    <div class="hud-actions-box">
+      <a class="btn-hud-control" href="../englishaurora/index.html" title="Mapa Estelar (Galaxia)">
+        <span>🌌</span> Galaxy Map
+      </a>
+      <a class="btn-hud-control" href="../ludoteca.html" title="La Ludoteca Arcade (17 Juegos)">
+        <span>🎮</span> Games
+      </a>
+      <button class="btn-hud-control" id="btn-toggle-cc" title="Toggle Subtitles [C]">
+        <span>💬</span> <span id="cc-status-label">CC: ON</span>
+      </button>
+      <button class="btn-hud-control" id="btn-fullscreen" title="Clean Screen Recording Mode [F]">
+        <span>📺</span> Fullscreen
+      </button>
+      <a class="btn-hud-control" href="../herramientas/teacher-hub.html">
+        <span>🧙‍♂️</span> Teacher's Hub
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN DUAL-STAGE FRAME -->
+  <div class="master-stage-frame">
+    <!-- ========================================================================= -->
+    <!-- LEFT: AURORA TEACHER PORTRAIT & REACTION HUB (3X PROMINENT) -->
+    <!-- ========================================================================= -->
+    <aside class="aurora-hero-stage-card">
+      <div class="aurora-portrait-container">
+        <!-- Aurora Reaction Image -->
+        <img class="aurora-large-portrait" id="aurora-hero-img" src="../assets/aurora-explicando.png" alt="Aurora Mentor">
+        
+        <div class="aurora-identity-tag">
+          <div class="aurora-nameplate">AURORA</div>
+          <div class="aurora-role-pill" id="aurora-role-label">Lead YouTube Instructor</div>
+        </div>
+
+        <!-- 3 Mood Buttons -->
+        <div class="reaction-pills-row">
+          <button class="mood-chip-btn active" onclick="setAuroraMood('explicando', this)">Explaining</button>
+          <button class="mood-chip-btn" onclick="setAuroraMood('celebrando', this)">Celebrating</button>
+          <button class="mood-chip-btn" onclick="setAuroraMood('corrigiendo', this)">Coaching</button>
+        </div>
+      </div>
+
+      <!-- Live Speech Dialogue (Transcribed Speech Bubble for Active Reading) -->
+      <div class="aurora-live-speech-card" id="aurora-speech-box">
+        "Welcome! Today we master the Present Simple and daily habits with Sofia, Ben, Kenji and Carmen."
+      </div>
+
+      <!-- Voice Audio Controller -->
+      <div class="aurora-voice-controller">
+        <button class="btn-aurora-play" id="btn-aurora-voice">
+          <span>🔊</span> <span id="aurora-voice-btn-label">Listen to Aurora</span>
+        </button>
+        <div class="audio-equalizer-bars" id="audio-eq-bars">
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+          <div class="equalizer-bar"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========================================================================= -->
+    <!-- RIGHT: CINEMATIC TEACHING & PRACTICE VIEWPORT -->
+    <!-- ========================================================================= -->
+    <main class="cinematic-lesson-screen" id="cinematic-lesson-screen">
+      <div>
+        <div class="stage-kicker-line" id="stage-kicker-tag">SCENE 1 · DAILY ROUTINES DIALOGUE</div>
+        <h1 class="stage-main-title" id="stage-heading-title">Daily Habits: Sofia, Ben, Kenji & Carmen</h1>
+      </div>
+
+      <!-- DYNAMIC CONTENT VIEW -->
+      <div class="stage-content-scroll" id="stage-content-area">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- CINEMA SUBTITLE OVERLAY (DYNAMIC CC) -->
+      <div class="cinema-subtitle-overlay" id="cinema-subtitle-overlay">
+        <div class="subtitle-pill-box">
+          <span class="subtitle-speaker-badge" id="subtitle-speaker-tag">AURORA</span>
+          <span class="subtitle-text-content" id="subtitle-text-content">"Welcome! Today we master the Present Simple and daily habits."</span>
+        </div>
+      </div>
+
+      <!-- FOOTER CONTROLS -->
+      <div class="stage-footer-controls">
+        <div class="step-index-tag" id="stage-progress-tag">Scene 1 of 7 · Use [Space] or [Arrow Keys] to advance</div>
+        <div class="footer-buttons-group">
+          <button class="btn-screen-nav" id="btn-prev-scene">◀ Previous</button>
+          <button class="btn-screen-nav primary" id="btn-next-scene">Next Scene ▶</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- AUDIO ELEMENT -->
+<audio id="main-audio-player" preload="auto"></audio>
+
+<!-- TOAST -->
+<div class="toast-bar" id="toast-bar">
+  <span>✨</span> <span id="toast-text">Audio Ready</span>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // =========================================================================
+  // RELAXING & SUBLIMINAL RPG PROCEDURAL SOUND SYNTHESIZER (WEB AUDIO API)
+  // =========================================================================
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  const RPG_SFX = {
+    // Solfeggio 528Hz pentatonic chime for slide transition
+    chime: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const notes = [528, 660, 792, 1056];
+      notes.forEach((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.06);
+        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + i * 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.06, audioCtx.currentTime + i * 0.06 + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + i * 0.06 + 0.6);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(audioCtx.currentTime + i * 0.06);
+        osc.stop(audioCtx.currentTime + i * 0.06 + 0.7);
+      });
+    },
+
+    // Magical crystal shimmer for correct answers
+    crystal: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1760, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.45);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.48);
+    },
+
+    // Warm, low-pass wooden bell for coaching / reflection
+    coach: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.4);
+      gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.52);
+    },
+
+    // Subtle clean UI click
+    click: function() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(700, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.06);
+    }
+  };
+
+  // --- AMBIENT CANVAS ---
+  const cvs = document.getElementById('ambient-canvas');
+  const ctx = cvs.getContext('2d');
+  let stars = [];
+  function resize() {
+    cvs.width = window.innerWidth;
+    cvs.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 60; i++) {
+      stars.push({
+        x: Math.random() * cvs.width,
+        y: Math.random() * cvs.height,
+        r: Math.random() * 1.5 + 0.4,
+        alpha: Math.random() * 0.45 + 0.15,
+        speed: Math.random() * 0.02 + 0.005,
+        twinkle: Math.random() * Math.PI
+      });
+    }
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function animateMist() {
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const a = (Math.sin(s.twinkle) + 1) / 2 * s.alpha;
+      ctx.fillStyle = 'rgba(13, 124, 116, ' + a + ')';
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(animateMist);
+  }
+  animateMist();
+
+  // --- 7 SCENES CURRICULUM DATABASE (100% IN ENGLISH) ---
+  const SCENES = [
+    // SCENE 0: RECURRENT CHARACTERS DIALOGUE
+    {
+      kicker: 'SCENE 1 · DAILY ROUTINES DIALOGUE',
+      title: 'Daily Habits: Sofia, Ben, Kenji & Carmen',
+      audioFile: '../audio/routines/aurora_intro.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Welcome! Listen to how Sofia, Ben, Kenji and Carmen describe their daily routines in natural English."',
+      render: () => `
+        <div style="font-size:14px; color:var(--ink-secondary); margin-bottom:8px;">
+          Click any character to hear their daily routine line:
+        </div>
+
+        <div class="characters-dialogue-grid">
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">💼 Sofia (Designer · Medellín)</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_sofia')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "I <strong>wake up</strong> at six, <strong>have</strong> coffee, and <strong>work</strong> as a designer in Medellín."
+            </div>
+          </div>
+
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">📸 Ben (Photographer · London)</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_ben')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "I <strong>start</strong> taking photos at eight, but I <strong>don't work</strong> on Sundays."
+            </div>
+          </div>
+
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">🎨 Kenji (Student · Japan)</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_kenji')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "<strong>Does</strong> Carmen cook dinner every evening? Yes, she <strong>does</strong>!"
+            </div>
+          </div>
+
+          <div class="character-speech-bubble">
+            <div class="character-header-row">
+              <span class="character-badge-name">👵 Abuela Carmen (Mentor)</span>
+              <button class="btn-char-audio" onclick="playRoutineAudio('char_carmen')">🔊 Listen</button>
+            </div>
+            <div class="character-quote-line">
+              "Every morning <strong>brings</strong> a new routine. We <strong>rest</strong>, we <strong>learn</strong>, and we <strong>enjoy</strong> good food."
+            </div>
+          </div>
+        </div>
+      `
+    },
+
+    // SCENE 1: THE 4 FORMS (AFFIRMATIVE, NEGATIVE, INTERROGATIVE, SHORT ANSWER)
+    {
+      kicker: 'SCENE 2 · THE 4 ESSENTIAL SENTENCE FORMS',
+      title: 'Affirmative, Negative, Question & Short Answer',
+      audioFile: '../audio/routines/aurora_forms.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Notice how the four forms function: Affirmative with -s, Negative with doesn\'t, Question with Does, and Short Answers: Yes, she does!"',
+      render: () => `
+        <div class="forms-card-grid">
+          <div class="form-quad-card focused">
+            <span class="form-quad-badge">1. Affirmative Form</span>
+            <div class="form-quad-sentence">"Sofia wakes up at six and works in Medellín."</div>
+            <div class="form-quad-note">Third person (He/She/It) adds <strong>-s</strong> to the base verb.</div>
+          </div>
+
+          <div class="form-quad-card">
+            <span class="form-quad-badge">2. Negative Form</span>
+            <div class="form-quad-sentence">"She doesn't watch TV in the morning."</div>
+            <div class="form-quad-note">Use <strong>doesn't + base verb</strong> (the -s shifts to 'does').</div>
+          </div>
+
+          <div class="form-quad-card">
+            <span class="form-quad-badge">3. Interrogative Form</span>
+            <div class="form-quad-sentence">"Does Sofia cook dinner every night?"</div>
+            <div class="form-quad-note">Invert with <strong>Does + Subject + base verb</strong>.</div>
+          </div>
+
+          <div class="form-quad-card">
+            <span class="form-quad-badge">4. Short Answer Form</span>
+            <div class="form-quad-sentence">"Yes, she does. / No, she doesn't."</div>
+            <div class="form-quad-note">Never repeat the main verb in short answers.</div>
+          </div>
+        </div>
+      `
+    },
+
+    // SCENE 2: COGNITIVE STAGE 1 — RECOGNIZE
+    {
+      kicker: 'SCENE 3 · COGNITIVE STAGE 1: RECOGNIZE',
+      title: 'Multiple Choice & Rule Verification',
+      audioFile: '../audio/routines/aurora_rule.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Stage 1: Recognize the third-person rule. Select the correct verb form below!"',
+      render: () => `
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Exercise 1 · Multiple Choice</span>
+          <div class="exercise-prompt-heading">"Sofia ___ up at six o'clock every morning."</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkStage1('wake', this, false)">A) wake</button>
+            <button class="choice-pill-btn" onclick="checkStage1('wakes', this, true)">B) wakes</button>
+            <button class="choice-pill-btn" onclick="checkStage1('waking', this, false)">C) waking</button>
+          </div>
+          <div class="exercise-feedback-text" id="stage1-feedback"></div>
+        </div>
+      `
+    },
+
+    // SCENE 3: COGNITIVE STAGE 2 — MANIPULATE
+    {
+      kicker: 'SCENE 4 · COGNITIVE STAGE 2: MANIPULATE',
+      title: 'Gap Fill & Syntactic Orbit Assembly',
+      audioFile: '../audio/routines/aurora_rule.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Stage 2: Manipulate the sentence structure. Choose the correct auxiliary for the negative routine."',
+      render: () => `
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Exercise 2 · Auxiliary Selection</span>
+          <div class="exercise-prompt-heading">"Sofia ___ not work on Sundays; she visits Carmen."</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkStage2('do', this, false)">A) do</button>
+            <button class="choice-pill-btn" onclick="checkStage2('does', this, true)">B) does</button>
+            <button class="choice-pill-btn" onclick="checkStage2('is', this, false)">C) is</button>
+          </div>
+          <div class="exercise-feedback-text" id="stage2-feedback"></div>
+        </div>
+      `
+    },
+
+    // SCENE 4: COGNITIVE STAGE 3 — TRANSFORM
+    {
+      kicker: 'SCENE 5 · COGNITIVE STAGE 3: TRANSFORM',
+      title: 'Sentence Inversion & Production',
+      audioFile: '../audio/routines/aurora_forms.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Stage 3: Transform affirmative statements into questions and short answers!"',
+      render: () => `
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Exercise 3 · Short Answer Transformation</span>
+          <div class="exercise-prompt-heading">"Does Sofia work in Medellín? (Affirmative Short Answer)"</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkStage3('yes_works', this, false)">A) "Yes, she works."</button>
+            <button class="choice-pill-btn" onclick="checkStage3('yes_does', this, true)">B) "Yes, she does."</button>
+            <button class="choice-pill-btn" onclick="checkStage3('yes_is', this, false)">C) "Yes, she is."</button>
+          </div>
+          <div class="exercise-feedback-text" id="stage3-feedback"></div>
+        </div>
+      `
+    },
+
+    // SCENE 5: READING COMPREHENSION
+    {
+      kicker: 'SCENE 6 · READING COMPREHENSION PASSAGE',
+      title: "Sofia's Daily Life in Medellín",
+      audioFile: '../audio/routines/aurora_reading.mp3',
+      auroraMood: 'explicando',
+      auroraDialogue: '"Listen and read Sofia\'s story. Then verify the comprehension statement below!"',
+      render: () => `
+        <div class="reading-passage-box">
+          "Sofia is a designer in Medellín. Every day she <strong>wakes up</strong> at six o'clock. She <strong>has</strong> breakfast, and then she <strong>goes to work</strong>. She <strong>starts</strong> at eight and <strong>finishes</strong> at five. In the evening, she <strong>cooks</strong> dinner and <strong>goes to bed</strong> early. She <strong>does not work</strong> on Sundays; she rests and visits Carmen."
+        </div>
+
+        <div class="exercise-clean-card">
+          <span class="exercise-kicker-tag">Reading True / False Check</span>
+          <div class="exercise-prompt-heading">"Sofia finishes work at eight o'clock in the evening."</div>
+          <div class="exercise-options-deck">
+            <button class="choice-pill-btn" onclick="checkReading(true, this, false)">True</button>
+            <button class="choice-pill-btn" onclick="checkReading(false, this, true)">False (She finishes at five)</button>
+          </div>
+          <div class="exercise-feedback-text" id="reading-feedback"></div>
+        </div>
+      `
+    },
+
+    // SCENE 6: MASTERY & PRINTABLE WORKSHEET
+    {
+      kicker: 'SCENE 7 · MASTERY CONSOLIDATION & PDF SUITE',
+      title: 'Mastery Complete & Printable Worksheet',
+      audioFile: '../audio/routines/aurora_conclusion.mp3',
+      auroraMood: 'celebrando',
+      auroraDialogue: '"Masterclass complete! You conquered all 4 forms and cognitive stages. Download your clean printable worksheet below!"',
+      render: () => `
+        <div class="printable-sheet-view">
+          <div class="sheet-top-header">
+            <div>
+              <div class="sheet-title-txt">Present Simple — Daily Routines · Master Worksheet (10 Exercises)</div>
+              <div style="font-family:var(--mono); font-size:11px; color:#6B7079;">English Aurora · Wave B Masterclass Collection</div>
+            </div>
+            <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+          </div>
+
+          <div class="sheet-meta-fields">
+            <span>Student Name: _________________________________</span>
+            <span>Date: __________________</span>
+            <span>Final Score: ____ / 10 ⭐</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:12.5px; line-height:1.55; color:#162831;">
+            <!-- Column 1: Part 1 & Part 2 -->
+            <div>
+              <p style="font-family:var(--mono); font-weight:700; color:var(--teal-dark); text-transform:uppercase; margin-bottom:4px; font-size:11px;">
+                Part 1 · 3rd-Person Singular (-s / -es / -ies):
+              </p>
+              <p>1. Sofia ______________ (wake up) at six o'clock every morning.</p>
+              <p>2. Ben ______________ (carry) his camera everywhere he travels.</p>
+              <p>3. Carmen ______________ (cook) a delicious breakfast for the team.</p>
+              <p>4. He ______________ (watch) educational videos in the evening.</p>
+
+              <p style="font-family:var(--mono); font-weight:700; color:var(--teal-dark); text-transform:uppercase; margin-top:8px; margin-bottom:4px; font-size:11px;">
+                Part 2 · Negative & Question Auxiliaries:
+              </p>
+              <p>5. Sofia ______________ (not work) on Sundays; she rests.</p>
+              <p>6. ______________ (you / drink) coffee before eight o'clock?</p>
+              <p>7. Ben and Kenji ______________ (not like) waking up late.</p>
+            </div>
+
+            <!-- Column 2: Part 3 & Answer Key -->
+            <div>
+              <p style="font-family:var(--mono); font-weight:700; color:var(--teal-dark); text-transform:uppercase; margin-bottom:4px; font-size:11px;">
+                Part 3 · Transformation & Short Answers:
+              </p>
+              <p>8. <em>Make negative:</em> "Carmen finishes dinner at seven."<br>
+                 ➔ __________________________________________________</p>
+              <p>9. <em>Write affirmative short answer:</em> "Does Sofia work in Medellín?"<br>
+                 ➔ __________________________________________________</p>
+              <p>10. <em>Correct the mistake:</em> "She go to work at eight every day."<br>
+                 ➔ __________________________________________________</p>
+
+              <div style="margin-top:10px; padding:8px 10px; background:#F4F8FA; border:1px dashed var(--line-strong); border-radius:8px; font-family:var(--mono); font-size:10px; color:#556B77;">
+                <strong>Quick Answer Key:</strong> 1. wakes up · 2. carries · 3. cooks · 4. watches · 5. does not work (doesn't work) · 6. Do you drink · 7. do not like (don't like) · 8. Carmen does not finish dinner at seven. · 9. Yes, she does. · 10. She goes to work at eight every day.
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    }
+  ];
+
+  let currentSceneIndex = 0;
+  const auroraHeroImg = document.getElementById('aurora-hero-img');
+  const auroraSpeechBox = document.getElementById('aurora-speech-box');
+  const stageKickerTag = document.getElementById('stage-kicker-tag');
+  const stageHeadingTitle = document.getElementById('stage-heading-title');
+  const stageContentArea = document.getElementById('stage-content-area');
+  const stageProgressTag = document.getElementById('stage-progress-tag');
+  const phaseTabs = document.querySelectorAll('.phase-tab-btn');
+
+  const mainAudio = document.getElementById('main-audio-player');
+  const btnAuroraVoice = document.getElementById('btn-aurora-voice');
+  const voiceBtnLabel = document.getElementById('aurora-voice-btn-label');
+  const audioEqBars = document.getElementById('audio-eq-bars');
+
+  const MOOD_IMAGES = {
+    explicando: '../assets/aurora-explicando.png',
+    celebrando: '../assets/aurora-celebrando.png',
+    corrigiendo: '../assets/aurora-corrigiendo.png'
+  };
+
+  window.setAuroraMood = function(moodKey, btnEl) {
+    if (MOOD_IMAGES[moodKey]) {
+      auroraHeroImg.src = MOOD_IMAGES[moodKey];
+      document.querySelectorAll('.mood-chip-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+    }
+  };
+
+  function renderScene(idx) {
+    currentSceneIndex = idx;
+    const scene = SCENES[idx];
+
+    stageKickerTag.textContent = scene.kicker;
+    stageHeadingTitle.textContent = scene.title;
+    stageContentArea.innerHTML = scene.render();
+    auroraSpeechBox.innerHTML = scene.auroraDialogue;
+    stageProgressTag.textContent = `Scene ${idx + 1} of ${SCENES.length} · Use [Space] or [Arrow Keys] to advance`;
+
+    phaseTabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
+
+    // Update mood & audio
+    setAuroraMood(scene.auroraMood);
+    const activeMoodBtn = document.querySelector(`.mood-chip-btn[onclick*="${scene.auroraMood}"]`);
+    if (activeMoodBtn) {
+      document.querySelectorAll('.mood-chip-btn').forEach(b => b.classList.remove('active'));
+      activeMoodBtn.classList.add('active');
+    }
+
+    mainAudio.pause();
+    mainAudio.src = scene.audioFile;
+    setPlayingState(false);
+
+    // Procedural RPG Chime on scene transition!
+    RPG_SFX.chime();
+  }
+
+  // --- SUBTITLE CC SYSTEM ---
+  let ccEnabled = true;
+  const subtitleOverlay = document.getElementById('cinema-subtitle-overlay');
+  const subtitleSpeakerTag = document.getElementById('subtitle-speaker-tag');
+  const subtitleTextContent = document.getElementById('subtitle-text-content');
+  const ccStatusLabel = document.getElementById('cc-status-label');
+  const btnToggleCc = document.getElementById('btn-toggle-cc');
+
+  function toggleCC() {
+    ccEnabled = !ccEnabled;
+    ccStatusLabel.textContent = ccEnabled ? 'CC: ON' : 'CC: OFF';
+    btnToggleCc.style.borderColor = ccEnabled ? 'var(--teal-border)' : 'var(--line)';
+    if (!ccEnabled) {
+      subtitleOverlay.classList.remove('visible');
+    }
+    showToast(`Closed Captions: ${ccEnabled ? 'ON' : 'OFF'}`);
+  }
+  btnToggleCc.onclick = () => { RPG_SFX.click(); toggleCC(); };
+
+  function showSubtitle(speaker, text) {
+    if (!ccEnabled) return;
+    subtitleSpeakerTag.textContent = speaker.toUpperCase();
+    subtitleTextContent.textContent = text;
+    subtitleOverlay.classList.add('visible');
+  }
+
+  function hideSubtitle() {
+    subtitleOverlay.classList.remove('visible');
+  }
+
+  function setPlayingState(isPlaying) {
+    if (isPlaying) {
+      voiceBtnLabel.textContent = 'Pause Voice';
+      audioEqBars.classList.add('active');
+      auroraHeroImg.classList.add('speaking');
+      const curScene = SCENES[currentSceneIndex];
+      showSubtitle('AURORA', curScene.auroraDialogue.replace(/^"|"$/g, ''));
+    } else {
+      voiceBtnLabel.textContent = 'Listen to Aurora';
+      audioEqBars.classList.remove('active');
+      auroraHeroImg.classList.remove('speaking');
+      hideSubtitle();
+    }
+  }
+
+  btnAuroraVoice.onclick = () => {
+    RPG_SFX.click();
+    if (mainAudio.paused) {
+      mainAudio.play().then(() => setPlayingState(true)).catch(() => showToast('Click to play'));
+    } else {
+      mainAudio.pause();
+      setPlayingState(false);
+    }
+  };
+  mainAudio.onended = () => setPlayingState(false);
+
+  // Navigation
+  document.getElementById('btn-next-scene').onclick = () => {
+    if (currentSceneIndex < SCENES.length - 1) {
+      renderScene(currentSceneIndex + 1);
+    } else {
+      RPG_SFX.crystal();
+      showToast('Master session completed!');
+    }
+  };
+
+  document.getElementById('btn-prev-scene').onclick = () => {
+    if (currentSceneIndex > 0) {
+      renderScene(currentSceneIndex - 1);
+    }
+  };
+
+  phaseTabs.forEach(tab => {
+    tab.onclick = () => {
+      RPG_SFX.click();
+      renderScene(parseInt(tab.dataset.scene, 10));
+    };
+  });
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      document.getElementById('btn-next-scene').click();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      document.getElementById('btn-prev-scene').click();
+    } else if (e.key.toLowerCase() === 'p') {
+      btnAuroraVoice.click();
+    } else if (e.key.toLowerCase() === 'c') {
+      toggleCC();
+    } else if (e.key.toLowerCase() === 'f') {
+      document.getElementById('btn-fullscreen').click();
+    }
+  });
+
+  // Fullscreen toggle
+  document.getElementById('btn-fullscreen').onclick = () => {
+    RPG_SFX.click();
+    const el = document.getElementById('cinematic-lesson-screen');
+    if (!document.fullscreenElement) {
+      el.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
+
+  const CAST_QUOTES = {
+    char_sofia: { name: 'SOFÍA', text: 'I wake up at six, have coffee, and work as a designer in Medellín.' },
+    char_ben: { name: 'BEN', text: 'I start taking photos at eight, but I don\'t work on Sundays.' },
+    char_kenji: { name: 'KENJI', text: 'Does Carmen cook dinner every evening? Yes, she does!' },
+    char_carmen: { name: 'CARMEN', text: 'Every morning brings a new routine. We rest, we learn, and we enjoy good food.' }
+  };
+
+  // Play Cast Audio with Live Subtitle Synchronization
+  window.playRoutineAudio = function(castSlug) {
+    RPG_SFX.click();
+    const data = CAST_QUOTES[castSlug];
+    if (data) showSubtitle(data.name, data.text);
+    const a = new Audio(`../audio/routines/${castSlug}.mp3`);
+    a.play().catch(() => {});
+    a.onended = () => hideSubtitle();
+    showToast(`Playing: ${data ? data.name : castSlug}`);
+  };
+
+  // --- COGNITIVE EXERCISE CHECKERS WITH REACTIVE AUDIO & AURORA MOODS ---
+  window.checkStage1 = function(choice, btnEl, isCorrect) {
+    const fb = document.getElementById('stage1-feedback');
+    const allBtns = btnEl.parentElement.querySelectorAll('.choice-pill-btn');
+    allBtns.forEach(b => b.className = 'choice-pill-btn');
+
+    if (isCorrect) {
+      RPG_SFX.crystal();
+      btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)';
+      fb.textContent = '✓ Correct! Sofia is third-person singular (she), so "wake" takes "-s" ➔ "wakes".';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Brilliant! With she, the verb always takes an -s ending: Sofia wakes up!"';
+      showToast('Stage 1 Cleared! +25 XP');
+    } else {
+      RPG_SFX.coach();
+      btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)';
+      fb.textContent = '✗ Remember: Sofia is "she", so the verb in the Present Simple requires the -s ending.';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Notice the subject: Sofia = she. In the Present Simple, third person singular always ends in -s!"';
+    }
+  };
+
+  window.checkStage2 = function(choice, btnEl, isCorrect) {
+    const fb = document.getElementById('stage2-feedback');
+    const allBtns = btnEl.parentElement.querySelectorAll('.choice-pill-btn');
+    allBtns.forEach(b => b.className = 'choice-pill-btn');
+
+    if (isCorrect) {
+      RPG_SFX.crystal();
+      btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)';
+      fb.textContent = '✓ Correct! For negative sentences with she, we use "does not" (doesn\'t).';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Perfect syntax! The auxiliary \'does\' carries the third-person marker!"';
+      showToast('Stage 2 Cleared! +25 XP');
+    } else {
+      RPG_SFX.coach();
+      btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)';
+      fb.textContent = '✗ In the negative form with he/she/it, we use "does not" (doesn\'t).';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Watch the auxiliary: with she, we use \'does not\', never \'do not\'."';
+    }
+  };
+
+  window.checkStage3 = function(choice, btnEl, isCorrect) {
+    const fb = document.getElementById('stage3-feedback');
+    const allBtns = btnEl.parentElement.querySelectorAll('.choice-pill-btn');
+    allBtns.forEach(b => b.className = 'choice-pill-btn');
+
+    if (isCorrect) {
+      RPG_SFX.crystal();
+      btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)';
+      fb.textContent = '✓ Correct! In short answers, we match the auxiliary: "Does she...? Yes, she does."';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Flawless short answer! You matched the auxiliary \'does\' without repeating the main verb!"';
+      showToast('Stage 3 Cleared! +25 XP');
+    } else {
+      RPG_SFX.coach();
+      btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)';
+      fb.textContent = '✗ In English short answers, we echo the auxiliary: "Yes, she does" (not "Yes, she works").';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Remember the short answer pattern: echo the auxiliary \'does\', not the main verb!"';
+    }
+  };
+
+  window.checkReading = function(userAnswer, btnEl, isCorrect) {
+    const fb = document.getElementById('reading-feedback');
+    const allBtns = btnEl.parentElement.querySelectorAll('.choice-pill-btn');
+    allBtns.forEach(b => b.className = 'choice-pill-btn');
+
+    if (isCorrect) {
+      RPG_SFX.crystal();
+      btnEl.classList.add('correct');
+      fb.style.color = 'var(--green)';
+      fb.textContent = '✓ Correct! Sofia starts at eight and finishes at five in the afternoon.';
+      setAuroraMood('celebrando');
+      auroraSpeechBox.innerHTML = '"✨ Great reading precision! Sofia finishes work at five, not eight."';
+      showToast('Reading Comprehension Cleared! +50 XP');
+    } else {
+      RPG_SFX.coach();
+      btnEl.classList.add('wrong');
+      fb.style.color = 'var(--ruby)';
+      fb.textContent = '✗ Re-read the passage: "She starts at eight and finishes at five."';
+      setAuroraMood('corrigiendo');
+      auroraSpeechBox.innerHTML = '"🎯 Look back at the story: Sofia starts at eight, but finishes at five!"';
+    }
+  };
+
+  // Toast Helper
+  function showToast(msg) {
+    const t = document.getElementById('toast-bar');
+    document.getElementById('toast-text').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // Initial Scene Render
+  renderScene(0);
+
+})();
+</script>
+</body>
+</html>

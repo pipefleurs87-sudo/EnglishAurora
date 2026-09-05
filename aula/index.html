@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel de profesor — EnglishAngel Aula</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- LOGIN -->
+  <div id="vLogin" class="hidden">
+    <div class="kicker">EnglishAngel · Aula</div>
+    <h1>Panel de profesor</h1>
+    <div class="card" style="max-width:420px;margin-top:18px">
+      <label>Correo</label><input type="email" id="loginEmail" autocomplete="username">
+      <label>Contraseña</label><input type="password" id="loginPass" autocomplete="current-password">
+      <div class="row" style="margin-top:14px;justify-content:space-between">
+        <button class="ghost" onclick="resetPassword()">¿Olvidaste tu contraseña?</button>
+        <button class="red" onclick="login()">Entrar</button>
+      </div>
+      <p class="muted hidden" id="loginErr" style="margin-top:8px;color:var(--red)">Correo o contraseña incorrectos.</p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="vDash" class="hidden">
+    <div class="row" style="justify-content:space-between">
+      <div>
+        <div class="kicker">EnglishAngel · Aula</div>
+        <h1>Mis estudiantes</h1>
+      </div>
+      <button class="ghost" onclick="logout()">Salir</button>
+    </div>
+
+    <div class="card">
+      <h3>➕ Nuevo estudiante</h3>
+      <div class="row" style="margin-top:8px">
+        <input class="grow" id="altaNombre" placeholder="Nombre completo">
+        <input class="grow" id="altaCorreo" placeholder="Correo" type="email">
+        <select id="altaNivel" style="width:90px"></select>
+        <button onclick="altaEstudiante()">Crear</button>
+      </div>
+      <p class="muted" style="margin-top:6px">Se genera un link privado único — compárteselo solo a esa persona.</p>
+    </div>
+
+    <div id="listaEst"><div class="empty">Cargando estudiantes…</div></div>
+  </div>
+
+  <!-- DETALLE -->
+  <div id="vDet" class="hidden">
+    <button class="ghost" onclick="volver()">← Volver</button>
+    <div class="row" style="justify-content:space-between;margin-top:10px">
+      <div>
+        <div class="kicker">Estudiante</div>
+        <h1 id="dNombre"></h1>
+        <p class="sub" id="dMeta"></p>
+      </div>
+      <div class="row" style="gap:8px">
+        <button class="sec" onclick="verGalaxia()">🌌 Ver galaxia</button>
+        <button class="sec" onclick="abrirRefuerzo()">🎯 Refuerzo automático</button>
+        <button class="sec" onclick="copiarLink()">Copiar link privado</button>
+        <button class="ghost" onclick="borrarEstudiante()">Eliminar</button>
+      </div>
+    </div>
+
+    <h2>🎯 Resumen por área</h2>
+    <div id="dAreas"><div class="empty">Cargando…</div></div>
+
+    <h2>📌 Asignar tarea</h2>
+    <div class="card">
+      <div class="row">
+        <select id="aTipo" style="width:150px" onchange="modoAsignar()">
+          <option value="practica">Práctica</option>
+          <option value="leccion">Lección</option>
+          <option value="examen">Examen</option>
+          <option value="custom">Link custom</option>
+        </select>
+        <select id="aNivel" style="width:90px" onchange="poblarTemasAsignar()"></select>
+        <select id="aTema" class="grow"></select>
+      </div>
+      <div class="row hidden" id="aCustomRow" style="margin-top:10px">
+        <input class="grow" id="aCustomTitulo" placeholder="Título (ej. Clase: Past Simple + Prepositions)">
+        <input class="grow" id="aCustomUrl" placeholder="URL (ej. link del Class/Exercise Generator)">
+      </div>
+      <div class="row" style="margin-top:10px;justify-content:flex-end">
+        <button class="red" onclick="asignarTarea()">Asignar</button>
+      </div>
+    </div>
+    <div id="dTareas"></div>
+
+    <h2>📈 Historial</h2>
+    <div id="dHistorial"><div class="empty">Cargando…</div></div>
+
+    <h2>💬 Comentarios</h2>
+    <div id="dComentarios"><div class="empty">Cargando…</div></div>
+    <div class="card">
+      <textarea id="dNuevoComentario" rows="2" placeholder="Escríbele algo…"></textarea>
+      <div class="row" style="margin-top:10px;justify-content:flex-end">
+        <button onclick="comentarProfesor()">Enviar como profesor</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
+<script src="comun.js"></script>
+<script>
+const NIVELES = ['A1','A2','B1','B2','C1','C2'];
+let detToken = null, detData = null;
+
+function show(id){ ['vLogin','vDash','vDet'].forEach(v => document.getElementById(v).classList.toggle('hidden', v!==id)); }
+function linkEstudiante(token){
+  return location.href.replace(/index\.html.*$/,'').replace(/\?.*$/,'').replace(/\/$/,'') + '/estudiante.html?t=' + token;
+}
+
+firebase.auth().onAuthStateChanged(async user => {
+  if(!user){ show('vLogin'); return; }
+  await cargarCatalogo();
+  poblarSelectsNivel();
+  show('vDash');
+  cargarEstudiantes();
+});
+async function login(){
+  document.getElementById('loginErr').classList.add('hidden');
+  try{
+    await firebase.auth().signInWithEmailAndPassword(
+      document.getElementById('loginEmail').value.trim(),
+      document.getElementById('loginPass').value);
+  }catch(e){ document.getElementById('loginErr').classList.remove('hidden'); }
+}
+function logout(){ firebase.auth().signOut(); }
+async function resetPassword(){
+  const email = document.getElementById('loginEmail').value.trim();
+  if(!email) return toast('Escribe tu correo arriba primero');
+  try{
+    await firebase.auth().sendPasswordResetEmail(email);
+    toast('Te enviamos un correo para restablecer tu contraseña');
+  }catch(e){
+    toast('No se pudo enviar — revisa que el correo esté bien escrito');
+  }
+}
+
+function poblarSelectsNivel(){
+  const ops = NIVELES.map(n => `<option>${n}</option>`).join('');
+  document.getElementById('altaNivel').innerHTML = ops;
+  document.getElementById('aNivel').innerHTML = ops;
+  poblarTemasAsignar();
+}
+
+// ---------- dashboard ----------
+async function cargarEstudiantes(){
+  const cont = document.getElementById('listaEst');
+  const q = await db.collection('estudiantes').orderBy('nombre').get();
+  if(q.empty){ cont.innerHTML = '<div class="empty">Aún no hay estudiantes. Crea el primero arriba.</div>'; return; }
+  cont.innerHTML = q.docs.map(d => `
+    <div class="card" style="cursor:pointer" onclick="abrirDetalle('${d.id}')">
+      <div class="row" style="justify-content:space-between">
+        <div>
+          <h3>${esc(d.data().nombre)}</h3>
+          <span class="tag lvl">${esc(d.data().nivel)}</span>
+          <span class="muted" id="st-${d.id}"> · cargando…</span>
+        </div>
+        <span class="score" id="sc-${d.id}"></span>
+      </div>
+    </div>`).join('');
+  q.docs.forEach(d => cargarStats(d.id));
+}
+async function cargarStats(token){
+  try{
+    const ref = db.collection('estudiantes').doc(token);
+    const [res, pend] = await Promise.all([
+      ref.collection('resultados').orderBy('fecha','desc').limit(100).get(),
+      ref.collection('tareas').where('estado','==','pendiente').get()
+    ]);
+    const stEl = document.getElementById('st-'+token), scEl = document.getElementById('sc-'+token);
+    if(!stEl) return;
+    if(res.empty){
+      stEl.textContent = ' · sin actividad todavía' + (pend.size?` · ${pend.size} tarea(s) pendiente(s)`:'');
+      return;
+    }
+    const rs = res.docs.map(x => x.data());
+    const prom = Math.round(rs.reduce((a,r) => a+r.score, 0) / rs.length);
+    const debil = areaDebil(rs);
+    stEl.textContent = ` · última: ${fmtFecha(rs[0].fecha)}` +
+      (pend.size?` · ${pend.size} pendiente(s)`:'') +
+      (debil?` · área débil: ${debil}`:'');
+    scEl.textContent = prom; scEl.className = 'score ' + scoreClass(prom);
+  }catch(e){ console.error(e); }
+}
+function areaDebil(rs){
+  const por = {};
+  rs.forEach(r => { if(!r.area) return; (por[r.area] = por[r.area]||[]).push(r.score); });
+  let peor = null, min = 101;
+  Object.entries(por).forEach(([a,ss]) => {
+    const avg = ss.reduce((x,y)=>x+y,0)/ss.length;
+    if(avg < min){ min = avg; peor = a; }
+  });
+  return peor ? `${peor} (${Math.round(min)}%)` : null;
+}
+
+async function altaEstudiante(){
+  const nombre = document.getElementById('altaNombre').value.trim();
+  const correo = document.getElementById('altaCorreo').value.trim();
+  const nivel = document.getElementById('altaNivel').value;
+  if(!nombre) return toast('Falta el nombre');
+  const token = nuevoToken();
+  await db.collection('estudiantes').doc(token).set({
+    nombre, correo, nivel, fecha_alta: FV.serverTimestamp()
+  });
+  document.getElementById('altaNombre').value = ''; document.getElementById('altaCorreo').value = '';
+  await navigator.clipboard.writeText(linkEstudiante(token)).catch(()=>{});
+  toast('Estudiante creado — link copiado al portapapeles');
+  cargarEstudiantes();
+}
+
+// ---------- detalle ----------
+async function abrirDetalle(token){
+  detToken = token;
+  const snap = await db.collection('estudiantes').doc(token).get();
+  detData = snap.data();
+  document.getElementById('dNombre').textContent = detData.nombre;
+  document.getElementById('dMeta').innerHTML =
+    `<span class="tag lvl">${esc(detData.nivel)}</span> · ${esc(detData.correo||'sin correo')} · alta: ${fmtFecha(detData.fecha_alta)}`;
+  document.getElementById('aNivel').value = NIVELES.includes(detData.nivel) ? detData.nivel : 'A1';
+  poblarTemasAsignar();
+  show('vDet');
+  detTareas(); detHistorial(); detComentarios();
+}
+function volver(){ show('vDash'); cargarEstudiantes(); }
+function copiarLink(){
+  navigator.clipboard.writeText(linkEstudiante(detToken))
+    .then(()=>toast('Link copiado')).catch(()=>prompt('Copia el link:', linkEstudiante(detToken)));
+}
+function verGalaxia(){ window.open('../englishaurora/index.html?t=' + encodeURIComponent(detToken), '_blank', 'noopener'); }
+function abrirRefuerzo(){ window.open('refuerzo-generar.html?t=' + encodeURIComponent(detToken), '_blank', 'noopener'); }
+async function borrarEstudiante(){
+  if(!confirm(`¿Eliminar a ${detData.nombre}? Su historial dejará de ser accesible.`)) return;
+  await db.collection('estudiantes').doc(detToken).delete();
+  toast('Estudiante eliminado'); volver();
+}
+
+function modoAsignar(){
+  const custom = document.getElementById('aTipo').value === 'custom';
+  document.getElementById('aCustomRow').classList.toggle('hidden', !custom);
+  document.getElementById('aNivel').disabled = custom;
+  document.getElementById('aTema').disabled = custom;
+}
+function poblarTemasAsignar(){
+  const n = document.getElementById('aNivel').value;
+  document.getElementById('aTema').innerHTML =
+    CATALOGO.filter(t => t.nivel === n).map(t => `<option value="${esc(t.id)}">${esc(t.tema)}</option>`).join('');
+}
+async function asignarTarea(){
+  const tipo = document.getElementById('aTipo').value;
+  let tarea;
+  if(tipo === 'custom'){
+    const titulo = document.getElementById('aCustomTitulo').value.trim();
+    const url = document.getElementById('aCustomUrl').value.trim();
+    if(!titulo || !url) return toast('Falta título o URL');
+    tarea = {titulo, url, tipo, temaId:'', area:'', nivel:detData.nivel};
+  }else{
+    const t = temaPorId(document.getElementById('aTema').value);
+    if(!t) return toast('Elige un tema');
+    tarea = {titulo: `${TIPO_LBL[tipo]}: ${t.tema}`, url: urlTema(t.id,tipo), tipo, temaId:t.id, area:t.area, nivel:t.nivel};
+  }
+  tarea.estado = 'pendiente'; tarea.fecha = FV.serverTimestamp();
+  await db.collection('estudiantes').doc(detToken).collection('tareas').add(tarea);
+  document.getElementById('aCustomTitulo').value=''; document.getElementById('aCustomUrl').value='';
+  toast('Tarea asignada'); detTareas();
+}
+async function detTareas(){
+  const q = await db.collection('estudiantes').doc(detToken).collection('tareas').orderBy('fecha','desc').get();
+  const cont = document.getElementById('dTareas');
+  if(q.empty){ cont.innerHTML = '<div class="empty">Sin tareas asignadas.</div>'; return; }
+  cont.innerHTML = q.docs.map(d => { const t = d.data(); return `
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <div>
+          <strong>${esc(t.titulo)}</strong>
+          <span class="tag ${t.estado==='hecha'?'ok':'pend'}">${t.estado==='hecha'?'✓ hecha':'pendiente'}</span>
+          <div class="muted">${fmtFecha(t.fecha)}</div>
+        </div>
+        <button class="ghost" onclick="borrarTarea('${d.id}')">Quitar</button>
+      </div>
+    </div>`; }).join('');
+}
+async function borrarTarea(id){
+  await db.collection('estudiantes').doc(detToken).collection('tareas').doc(id).delete();
+  detTareas();
+}
+async function detHistorial(){
+  const q = await db.collection('estudiantes').doc(detToken).collection('resultados').orderBy('fecha','desc').limit(100).get();
+  const contA = document.getElementById('dAreas'), contH = document.getElementById('dHistorial');
+  if(q.empty){
+    contA.innerHTML = '<div class="empty">Sin datos todavía.</div>';
+    contH.innerHTML = '<div class="empty">Sin resultados registrados.</div>'; return;
+  }
+  const rs = q.docs.map(d => d.data());
+  const por = {};
+  rs.forEach(r => { if(!r.area) return; (por[r.area] = por[r.area]||[]).push(r.score); });
+  contA.innerHTML = '<div class="card"><div class="row" style="gap:14px">' +
+    Object.entries(por).sort((a,b) =>
+      (a[1].reduce((x,y)=>x+y,0)/a[1].length) - (b[1].reduce((x,y)=>x+y,0)/b[1].length)
+    ).map(([a,ss]) => {
+      const avg = Math.round(ss.reduce((x,y)=>x+y,0)/ss.length);
+      return `<div><span class="score ${scoreClass(avg)}">${avg}</span> <span class="muted">${esc(a)} (${ss.length})</span></div>`;
+    }).join('') + '</div></div>';
+  contH.innerHTML = '<div class="card" style="padding:6px 10px;overflow-x:auto"><table><thead><tr><th>Fecha</th><th>Tema</th><th>Tipo</th><th>Score</th><th>Comentario</th></tr></thead><tbody>' +
+    rs.map(r => `<tr>
+      <td class="mono">${fmtFecha(r.fecha)}</td>
+      <td>${esc(r.tema)}</td>
+      <td><span class="tag">${esc(r.tipo)}</span></td>
+      <td><span class="score ${scoreClass(r.score)}">${r.score}</span></td>
+      <td class="muted">${esc(r.comentario||'')}</td>
+    </tr>`).join('') + '</tbody></table></div>';
+}
+async function detComentarios(){
+  const q = await db.collection('estudiantes').doc(detToken).collection('comentarios').orderBy('fecha','desc').limit(30).get();
+  const cont = document.getElementById('dComentarios');
+  if(q.empty){ cont.innerHTML = '<div class="empty">Sin comentarios.</div>'; return; }
+  cont.innerHTML = q.docs.map(d => { const c = d.data(); return `
+    <div class="comment ${c.autor==='profesor'?'prof':''}">
+      <div class="who">${c.autor==='profesor'?'Tú (profesor)':esc(detData.nombre)} · ${fmtFecha(c.fecha)}</div>
+      <div>${esc(c.texto)}</div>
+    </div>`; }).join('');
+}
+async function comentarProfesor(){
+  const ta = document.getElementById('dNuevoComentario');
+  const texto = ta.value.trim();
+  if(!texto) return;
+  await db.collection('estudiantes').doc(detToken).collection('comentarios').add({
+    texto, autor:'profesor', fecha: FV.serverTimestamp()
+  });
+  ta.value = ''; toast('Enviado'); detComentarios();
+}
+</script>
+</body>
+</html>

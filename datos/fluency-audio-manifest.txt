@@ -1,0 +1,158 @@
+MANIFIESTO DE AUDIO — Fluency Practice (piloto B1)
+Convencion: el motor busca  audio/{tema}/fluency/{n}.mp3  (voz humana). Si falta, cae a TTS robotico.
+Genera un mp3 por linea, con el numero indicado. Total: 66 clips en 11 temas.
+
+
+=== b1-adverbs-01 ===
+  audio/b1-adverbs-01/fluency/1.mp3  [shadowing]
+     "She finished it quickly and carefully."
+  audio/b1-adverbs-01/fluency/2.mp3  [shadowing]
+     "Kenji speaks Spanish really well."
+  audio/b1-adverbs-01/fluency/3.mp3  [shadowing]
+     "Sofía works faster than anyone in the office."
+  audio/b1-adverbs-01/fluency/4.mp3  [shadowing]
+     "Could you say that more slowly, please?"
+  audio/b1-adverbs-01/fluency/5.mp3  [shadowing]
+     "He drives dangerously when he's late."
+  audio/b1-adverbs-01/fluency/6.mp3  [retelling_model]
+     "Sofía works quickly but very carefully, so she rarely makes mistakes. Ben does everything faster than everyone else — and usually worse. Kenji speaks Spanish more slowly than Sofía, but he pronounces every word more clearly. In the end, the careful one always finishes first."
+
+=== b1-conditionals-0-1-2-01 ===
+  audio/b1-conditionals-0-1-2-01/fluency/1.mp3  [shadowing]
+     "If I study, I'll pass the exam."
+  audio/b1-conditionals-0-1-2-01/fluency/2.mp3  [shadowing]
+     "If it rains, we'll stay at home."
+  audio/b1-conditionals-0-1-2-01/fluency/3.mp3  [shadowing]
+     "If I had a million dollars, I'd travel the world."
+  audio/b1-conditionals-0-1-2-01/fluency/4.mp3  [shadowing]
+     "Water boils if you heat it to 100 degrees."
+  audio/b1-conditionals-0-1-2-01/fluency/5.mp3  [shadowing]
+     "If I were you, I would call her."
+  audio/b1-conditionals-0-1-2-01/fluency/6.mp3  [retelling_model]
+     "If the weather is nice this weekend, Sofía goes hiking — she always does. If it rains on Saturday, she will stay home and design instead. And if she had all the money in the world, she would build a studio up in the mountains. Three different 'ifs', three different realities."
+
+=== b1-gerund-vs-infinitive-01 ===
+  audio/b1-gerund-vs-infinitive-01/fluency/1.mp3  [shadowing]
+     "I enjoy reading before bed."
+  audio/b1-gerund-vs-infinitive-01/fluency/2.mp3  [shadowing]
+     "Kenji wants to visit every region of Colombia."
+  audio/b1-gerund-vs-infinitive-01/fluency/3.mp3  [shadowing]
+     "Sofía decided to open her own studio."
+  audio/b1-gerund-vs-infinitive-01/fluency/4.mp3  [shadowing]
+     "Ben keeps losing his phone."
+  audio/b1-gerund-vs-infinitive-01/fluency/5.mp3  [shadowing]
+     "I've stopped drinking coffee at night."
+  audio/b1-gerund-vs-infinitive-01/fluency/6.mp3  [retelling_model]
+     "Kenji enjoys travelling, so he has decided to visit every region of Colombia. He wants to try new food everywhere he goes, but he keeps forgetting to book hotels in advance. Last week he promised to plan better — and then forgot again."
+
+=== b1-passive-voice-01 ===
+  audio/b1-passive-voice-01/fluency/1.mp3  [shadowing]
+     "Coffee is grown in Colombia."
+  audio/b1-passive-voice-01/fluency/2.mp3  [shadowing]
+     "This house was built in 1980."
+  audio/b1-passive-voice-01/fluency/3.mp3  [shadowing]
+     "The logo is being changed by the client. Again."
+  audio/b1-passive-voice-01/fluency/4.mp3  [shadowing]
+     "Coffee has been grown here since 1900."
+  audio/b1-passive-voice-01/fluency/5.mp3  [shadowing]
+     "These shoes were made in Italy."
+  audio/b1-passive-voice-01/fluency/6.mp3  [retelling_model]
+     "Coffee is grown on the green hills near Medellín. The beans are picked by hand, and then they are dried in the sun for several days. Finally, the coffee is packed and exported all over the world. Nobody remembers exactly who did each step — and that is the point of the passive."
+
+=== b1-present-perfect-bucket-list-01 ===
+  audio/b1-present-perfect-bucket-list-01/fluency/1.mp3  [shadowing]
+     "I have already gotten a tattoo."
+  audio/b1-present-perfect-bucket-list-01/fluency/2.mp3  [shadowing]
+     "Sofía has already run half a marathon."
+  audio/b1-present-perfect-bucket-list-01/fluency/3.mp3  [shadowing]
+     "I haven't written a book yet."
+  audio/b1-present-perfect-bucket-list-01/fluency/4.mp3  [shadowing]
+     "Have you finished the course yet?"
+  audio/b1-present-perfect-bucket-list-01/fluency/5.mp3  [shadowing]
+     "We've already seen that film twice."
+  audio/b1-present-perfect-bucket-list-01/fluency/6.mp3  [retelling_model]
+     "Sofía has already run a half marathon, and she has already learned to swim in the sea. But she hasn't travelled to Asia yet, and she hasn't written her book yet. She says this is the year she finally does both of them."
+
+=== b1-present-perfect-continuous-01 ===
+  audio/b1-present-perfect-continuous-01/fluency/1.mp3  [shadowing]
+     "I have been working here since 2020."
+  audio/b1-present-perfect-continuous-01/fluency/2.mp3  [shadowing]
+     "Kenji has been studying Spanish for six months."
+  audio/b1-present-perfect-continuous-01/fluency/3.mp3  [shadowing]
+     "I haven't been sleeping well lately."
+  audio/b1-present-perfect-continuous-01/fluency/4.mp3  [shadowing]
+     "I've just been thinking about it."
+  audio/b1-present-perfect-continuous-01/fluency/5.mp3  [shadowing]
+     "She's been waiting for an hour."
+  audio/b1-present-perfect-continuous-01/fluency/6.mp3  [retelling_model]
+     "Kenji has been studying Spanish for six months, and he has been living in Medellín since January. He has been practising with strangers every single day, so he is getting better fast. He hasn't been sleeping much lately, though — the city never really stops."
+
+=== b1-present-perfect-ever-experiences-01 ===
+  audio/b1-present-perfect-ever-experiences-01/fluency/1.mp3  [shadowing]
+     "Have you ever been to Europe?"
+  audio/b1-present-perfect-ever-experiences-01/fluency/2.mp3  [shadowing]
+     "Yes, I have. I went to Madrid in 2020."
+  audio/b1-present-perfect-ever-experiences-01/fluency/3.mp3  [shadowing]
+     "I have never seen snow in my life."
+  audio/b1-present-perfect-ever-experiences-01/fluency/4.mp3  [shadowing]
+     "Has she ever won a prize?"
+  audio/b1-present-perfect-ever-experiences-01/fluency/5.mp3  [shadowing]
+     "No, I haven't. Never."
+  audio/b1-present-perfect-ever-experiences-01/fluency/6.mp3  [retelling_model]
+     "Abuela Carmen has done almost everything. She has met a famous writer — she met him at the market in 1982. She has won a cumbia competition too; she won it back in 1975. But she has never left Colombia, and she says she never will."
+
+=== b1-present-perfect-vs-past-simple-01 ===
+  audio/b1-present-perfect-vs-past-simple-01/fluency/1.mp3  [shadowing]
+     "I have been to Madrid twice."
+  audio/b1-present-perfect-vs-past-simple-01/fluency/2.mp3  [shadowing]
+     "I went there in 2020 and 2023."
+  audio/b1-present-perfect-vs-past-simple-01/fluency/3.mp3  [shadowing]
+     "Ben has broken his arm three times."
+  audio/b1-present-perfect-vs-past-simple-01/fluency/4.mp3  [shadowing]
+     "Ben broke his arm last year."
+  audio/b1-present-perfect-vs-past-simple-01/fluency/5.mp3  [shadowing]
+     "I haven't seen that movie yet."
+  audio/b1-present-perfect-vs-past-simple-01/fluency/6.mp3  [retelling_model]
+     "Ben has broken his arm three times in his life. He broke it the first time when he was ten, and he broke it again last year falling off a hammock. He has been to hospital more often than anyone Kenji knows — but he went there alone every single time."
+
+=== b1-review-grand-01 ===
+  audio/b1-review-grand-01/fluency/1.mp3  [shadowing]
+     "Carmen used to sell mangoes at the market every morning."
+  audio/b1-review-grand-01/fluency/2.mp3  [shadowing]
+     "She has never forgotten his kind smile."
+  audio/b1-review-grand-01/fluency/3.mp3  [shadowing]
+     "She's been living in Medellín since 1975."
+  audio/b1-review-grand-01/fluency/4.mp3  [shadowing]
+     "If she could travel back in time, she would dance again."
+  audio/b1-review-grand-01/fluency/5.mp3  [shadowing]
+     "She has done almost everything on her list."
+  audio/b1-review-grand-01/fluency/6.mp3  [retelling_model]
+     "Abuela Carmen used to sell mangoes at the market every morning. She has been living in Medellín since 1975, and she has never forgotten the day she met a famous writer. If she could go back in time, she would dance at the cumbia contest again — and this time, she says, she would win."
+
+=== b1-used-to-01 ===
+  audio/b1-used-to-01/fluency/1.mp3  [shadowing]
+     "Abuela Carmen used to live in the countryside."
+  audio/b1-used-to-01/fluency/2.mp3  [shadowing]
+     "I used to play soccer every Sunday."
+  audio/b1-used-to-01/fluency/3.mp3  [shadowing]
+     "Ben used to have long hair — there are photos."
+  audio/b1-used-to-01/fluency/4.mp3  [shadowing]
+     "She didn't use to like coffee."
+  audio/b1-used-to-01/fluency/5.mp3  [shadowing]
+     "Did you use to walk to school?"
+  audio/b1-used-to-01/fluency/6.mp3  [retelling_model]
+     "Ben used to have really long hair, and he used to play in a rock band on weekends. He didn't use to like coffee at all, and he used to sleep until noon every day. Now he is a completely different person — well, except for the coffee. Now he drinks five cups."
+
+=== b1-will-vs-going-to-01 ===
+  audio/b1-will-vs-going-to-01/fluency/1.mp3  [shadowing]
+     "I'm going to travel to Cartagena in December."
+  audio/b1-will-vs-going-to-01/fluency/2.mp3  [shadowing]
+     "You know what? I'll go with you!"
+  audio/b1-will-vs-going-to-01/fluency/3.mp3  [shadowing]
+     "I think Colombia will win tomorrow."
+  audio/b1-will-vs-going-to-01/fluency/4.mp3  [shadowing]
+     "Look at those clouds — it's going to rain."
+  audio/b1-will-vs-going-to-01/fluency/5.mp3  [shadowing]
+     "I'll always remember this trip."
+  audio/b1-will-vs-going-to-01/fluency/6.mp3  [retelling_model]
+     "Sofía is going to travel to Cartagena in December — she has already bought the tickets. She thinks it will be very hot, so she is going to pack light. 'I'll send you a postcard,' she promised Kenji. 'And I'll never forget this trip.'"

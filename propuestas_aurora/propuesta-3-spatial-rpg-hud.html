@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Aurora — Propuesta 3: Spatial Quest HUD & Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --space-void: #04060d;
+      --glass-hud: rgba(12, 20, 38, 0.7);
+      --glass-border: rgba(0, 242, 254, 0.25);
+      
+      --neon-cyan: #00f2fe;
+      --neon-teal: #00ffc3;
+      --neon-purple: #c084fc;
+      --neon-crimson: #f43f5e;
+      --neon-amber: #fbbf24;
+      
+      --text-glow: #ffffff;
+      --text-hud: #94a3b8;
+      
+      --font-hud: 'Orbitron', sans-serif;
+      --font-stat: 'Rajdhani', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--space-void);
+      color: #fff;
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      perspective: 1200px;
+    }
+
+    /* Starfield & Nebula Canvas */
+    #spaceCanvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* HUD Top Bar */
+    .hud-bar {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hud-bar-inner {
+      background: var(--glass-hud);
+      backdrop-filter: blur(20px) saturate(200%);
+      -webkit-backdrop-filter: blur(20px) saturate(200%);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.15), inset 0 0 15px rgba(0, 242, 254, 0.05);
+    }
+
+    .hud-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .core-reactor {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: conic-gradient(from 0deg, var(--neon-cyan), var(--neon-purple), var(--neon-teal), var(--neon-cyan));
+      animation: spinCore 6s linear infinite;
+      padding: 2px;
+    }
+
+    .core-inner {
+      width: 100%;
+      height: 100%;
+      background: var(--space-void);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    @keyframes spinCore {
+      to { transform: rotate(360deg); }
+    }
+
+    .hud-title {
+      font-family: var(--font-hud);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fff, var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Player HUD Stats */
+    .player-stats {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-stat);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .mana-bar-wrap {
+      width: 90px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mana-bar-fill {
+      width: 78%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-teal));
+      box-shadow: 0 0 10px var(--neon-cyan);
+      transition: width 0.3s ease;
+    }
+
+    /* Main Container */
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 50px 20px 100px;
+    }
+
+    /* Hero HUD Banner */
+    .hero-spatial {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .level-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid var(--neon-cyan);
+      font-family: var(--font-hud);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      color: var(--neon-cyan);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+    }
+
+    .hero-spatial-title {
+      font-family: var(--font-hud);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero-spatial-title span.neon {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 30px rgba(0, 242, 254, 0.6), 0 0 60px rgba(0, 242, 254, 0.3);
+    }
+
+    .hero-spatial-desc {
+      font-size: 1.15rem;
+      color: var(--text-hud);
+      max-width: 680px;
+      margin: 0 auto 30px;
+    }
+
+    /* 3D Tilt Spatial Cards Grid */
+    .spatial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 990px) {
+      .spatial-grid { grid-template-columns: 1fr; }
+    }
+
+    .spatial-card {
+      background: var(--glass-hud);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .spatial-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 25px 60px rgba(0, 242, 254, 0.25);
+    }
+
+    .card-top-tag {
+      font-family: var(--font-hud);
+      font-size: 0.75rem;
+      color: var(--neon-purple);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-h2 {
+      font-family: var(--font-hud);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    /* Live Duel Combat Arena Simulator */
+    .duel-arena {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .enemy-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .enemy-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .enemy-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid var(--neon-crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.3);
+      animation: bobble 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes bobble {
+      from { transform: translateY(0); }
+      to { transform: translateY(-4px) scale(1.05); }
+    }
+
+    .enemy-name {
+      font-family: var(--font-hud);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .enemy-hp-wrap {
+      width: 140px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .enemy-hp-bar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-crimson), #ff758c);
+      box-shadow: 0 0 10px var(--neon-crimson);
+      transition: width 0.4s ease-out;
+    }
+
+    .combat-question {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 18px 0;
+      color: #fff;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rune-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .rune-btn:hover {
+      background: rgba(0, 242, 254, 0.15);
+      border-color: var(--neon-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 242, 254, 0.25);
+    }
+
+    .rune-btn.correct {
+      background: rgba(0, 255, 195, 0.25) !important;
+      border-color: var(--neon-teal) !important;
+      box-shadow: 0 0 25px rgba(0, 255, 195, 0.5) !important;
+    }
+
+    .rune-btn.wrong {
+      background: rgba(244, 63, 94, 0.25) !important;
+      border-color: var(--neon-crimson) !important;
+      box-shadow: 0 0 25px rgba(244, 63, 94, 0.5) !important;
+    }
+
+    .combat-feedback {
+      margin-top: 14px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: none;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Star Map Node Chart */
+    .quest-tree {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .node-item {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .node-item:hover {
+      border-color: var(--neon-purple);
+      background: rgba(192, 132, 252, 0.08);
+      transform: translateX(6px);
+      box-shadow: 0 5px 25px rgba(192, 132, 252, 0.2);
+    }
+
+    .node-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .node-gem {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .node-gem.cyan { background: rgba(0, 242, 254, 0.15); border-color: var(--neon-cyan); }
+    .node-gem.purple { background: rgba(192, 132, 252, 0.15); border-color: var(--neon-purple); }
+    .node-gem.amber { background: rgba(251, 191, 36, 0.15); border-color: var(--neon-amber); }
+
+    .node-title {
+      font-family: var(--font-hud);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .node-sub {
+      font-size: 0.8rem;
+      color: var(--text-hud);
+    }
+
+    .node-status {
+      font-family: var(--font-hud);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+
+    .status-done { background: rgba(0, 255, 195, 0.15); color: var(--neon-teal); border: 1px solid var(--neon-teal); }
+    .status-active { background: rgba(0, 242, 254, 0.15); color: var(--neon-cyan); border: 1px solid var(--neon-cyan); animation: pulseStatus 2s infinite; }
+    .status-locked { background: rgba(255, 255, 255, 0.05); color: var(--text-hud); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+    @keyframes pulseStatus {
+      0%, 100% { box-shadow: 0 0 5px var(--neon-cyan); }
+      50% { box-shadow: 0 0 15px var(--neon-cyan); }
+    }
+
+    /* Action Buttons */
+    .btn-spatial {
+      background: linear-gradient(135deg, var(--neon-cyan), #00a8ff);
+      color: #04060d;
+      font-family: var(--font-hud);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-spatial:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 45px rgba(0, 242, 254, 0.7);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      font-family: var(--font-hud);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--text-hud);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Starfield Canvas -->
+  <canvas id="spaceCanvas"></canvas>
+
+  <!-- Top HUD Bar -->
+  <header class="hud-bar">
+    <div class="hud-bar-inner">
+      <a href="#" class="hud-brand">
+        <div class="core-reactor">
+          <div class="core-inner">⚡</div>
+        </div>
+        <span class="hud-title">ENGLISH AURORA HUD</span>
+      </a>
+
+      <div class="player-stats">
+        <div class="stat-pill" title="Maná de Práctica Diaria">
+          <span style="color: var(--neon-cyan);">MANÁ</span>
+          <div class="mana-bar-wrap">
+            <div class="mana-bar-fill" id="playerMana"></div>
+          </div>
+        </div>
+
+        <div class="stat-pill" style="color: var(--neon-amber);" title="Esencia Aurora / XP">
+          <span>💎</span>
+          <span id="playerXp">1,240 XP</span>
+        </div>
+
+        <button class="btn-spatial" onclick="speakText('Spatial battle simulation engaged. Ready for arcane quiz?'); playLaser();">
+          MISIÓN
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main HUD Layout -->
+  <main>
+    <!-- Hero Spatial HUD -->
+    <section class="hero-spatial">
+      <div class="level-indicator">
+        <span>✦ ESPACIO GAMIFICADO • CEFR A1 A C1 ✦</span>
+      </div>
+      <h1 class="hero-spatial-title">
+        Aprende inglés como un <br>
+        <span class="neon">Duelo Legendario</span>
+      </h1>
+      <p class="hero-spatial-desc">
+        Reemplaza lecciones aburridas con combates de gramática en tiempo real, mapas estelares de misiones y retroalimentación fonética instantánea.
+      </p>
+    </section>
+
+    <!-- 3D Spatial Grid -->
+    <section class="spatial-grid">
+
+      <!-- Spatial Card 1: Duelo Arcano en Vivo (Arena) -->
+      <article class="spatial-card" id="duelCard">
+        <div class="card-top-tag">⚔️ COMBATE ARCANO EN TIEMPO REAL</div>
+        <h2 class="card-h2">Arena de Duelos</h2>
+        <p style="color: var(--text-hud); font-size: 0.9rem;">
+          Derrota a la criatura gramatical seleccionando la estructura correcta.
+        </p>
+
+        <div class="duel-arena">
+          <div class="enemy-status">
+            <div class="enemy-info">
+              <div class="enemy-avatar">👾</div>
+              <div>
+                <div class="enemy-name">Espectro del Past Perfect</div>
+                <div class="enemy-hp-wrap">
+                  <div class="enemy-hp-bar" id="enemyHp"></div>
+                </div>
+              </div>
+            </div>
+            <span style="font-family: var(--font-hud); font-size: 0.8rem; color: var(--neon-crimson);" id="hpLabel">HP: 100/100</span>
+          </div>
+
+          <div class="combat-question" id="quizQuestion">
+            "By the time Aurora arrived at the station, the train _______."
+          </div>
+
+          <div class="options-grid">
+            <button class="rune-btn" onclick="answerDuel(this, false, 'has left')">
+              <span>ᚠ</span> has left
+            </button>
+            <button class="rune-btn" onclick="answerDuel(this, true, 'had already left')">
+              <span>ᚱ</span> had already left
+            </button>
+            <button class="rune-btn" onclick="answerDuel(this, false, 'was leaving')">
+              <span>ᚦ</span> was leaving
+            </button>
+            <button class="rune-btn" onclick="answerDuel(this, false, 'leaves')">
+              <span>ᚨ</span> leaves
+            </button>
+          </div>
+
+          <div class="combat-feedback" id="feedbackBox"></div>
+        </div>
+      </article>
+
+      <!-- Spatial Card 2: Mapa Estelar de Misiones (Star Chart) -->
+      <article class="spatial-card" id="questCard">
+        <div class="card-top-tag">🌌 MAPA DE EXPEDICIÓN ESTELAR</div>
+        <h2 class="card-h2">Constelación de Sendas</h2>
+        <p style="color: var(--text-hud); font-size: 0.9rem;">
+          Explora los nodos curriculares y desbloquea nuevas reliquias de fluidez.
+        </p>
+
+        <div class="quest-tree">
+          <div class="node-item" onclick="speakText('The Spark: A1 fundamentals cleared'); playChime();">
+            <div class="node-meta">
+              <div class="node-gem cyan">✨</div>
+              <div>
+                <div class="node-title">Senda 01: The Spark (A1)</div>
+                <div class="node-sub">Present Simple, Pronombres y Hábitos</div>
+              </div>
+            </div>
+            <span class="node-status status-done">COMPLETADO</span>
+          </div>
+
+          <div class="node-item" onclick="speakText('The Crucible: B1 Intermediate unlocked and active'); playLaser();">
+            <div class="node-meta">
+              <div class="node-gem purple">⚡</div>
+              <div>
+                <div class="node-title">Senda 02: The Crucible (B1)</div>
+                <div class="node-sub">Present Perfect & Condicionales Mixtos</div>
+              </div>
+            </div>
+            <span class="node-status status-active">EN CURSO</span>
+          </div>
+
+          <div class="node-item" onclick="speakText('The Spire: C1 High Rhetoric locked'); playBuzz();">
+            <div class="node-meta">
+              <div class="node-gem amber">🔒</div>
+              <div>
+                <div class="node-title">Senda 03: The Celestial Spire (C1)</div>
+                <div class="node-sub">Inversiones, Cleft Sentences y Oratoria</div>
+              </div>
+            </div>
+            <span class="node-status status-locked">NIVEL 10 REQUERIDO</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      ENGLISH AURORA • SPATIAL HUD SYSTEM • REAL-TIME WEB AUDIO & SYNTHESIS
+    </footer>
+  </main>
+
+  <script>
+    // Starfield Particle Canvas Engine
+    const canvas = document.getElementById('spaceCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+
+    function initCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      stars = [];
+      for (let i = 0; i < 140; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          alpha: Math.random() * 0.8 + 0.2,
+          speed: Math.random() * 0.3 + 0.1
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, width, height);
+      stars.forEach(star => {
+        ctx.fillStyle = `rgba(0, 242, 254, ${star.alpha})`;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.y -= star.speed;
+        if (star.y < 0) {
+          star.y = height;
+          star.x = Math.random() * width;
+        }
+      });
+      requestAnimationFrame(drawStars);
+    }
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+    drawStars();
+
+    // 3D Tilt Cards Reactivity
+    const cards = [document.getElementById('duelCard'), document.getElementById('questCard')];
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        card.style.transform = `rotateY(${x * 0.04}deg) rotateX(${-y * 0.04}deg) translateZ(10px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `rotateY(0deg) rotateX(0deg) translateZ(0px)`;
+      });
+    });
+
+    // Web Audio Synthesizer Effects
+    let audioCtx = null;
+    function getAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function playLaser() {
+      try {
+        const ctx = getAudio();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(880, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.25);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.25);
+      } catch (e) {}
+    }
+
+    function playChime() {
+      try {
+        const ctx = getAudio();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+        osc.frequency.exponentialRampToValueAtTime(1046.50, ctx.currentTime + 0.2); // C6
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.35);
+      } catch (e) {}
+    }
+
+    function playBuzz() {
+      try {
+        const ctx = getAudio();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(150, ctx.currentTime);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.2);
+      } catch (e) {}
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        utter.rate = 0.95;
+        window.speechSynthesis.speak(utter);
+      }
+    }
+
+    // Duel Arena Mechanics
+    let enemyCurrentHp = 100;
+    let xpPoints = 1240;
+
+    function answerDuel(btn, isCorrect, choice) {
+      const feedback = document.getElementById('feedbackBox');
+      const hpBar = document.getElementById('enemyHp');
+      const hpLabel = document.getElementById('hpLabel');
+      const xpDisp = document.getElementById('playerXp');
+
+      // Disable buttons temporarily
+      document.querySelectorAll('.rune-btn').forEach(b => b.disabled = true);
+
+      if (isCorrect) {
+        btn.classList.add('correct');
+        playLaser();
+        speakText('Critical hit! Past Perfect indicates the action occurred before another past event.');
+
+        enemyCurrentHp = Math.max(0, enemyCurrentHp - 50);
+        hpBar.style.width = enemyCurrentHp + '%';
+        hpLabel.innerText = `HP: ${enemyCurrentHp}/100`;
+
+        xpPoints += 75;
+        xpDisp.innerText = `${xpPoints} XP`;
+
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(0, 255, 195, 0.15)';
+        feedback.style.border = '1px solid var(--neon-teal)';
+        feedback.style.color = '#fff';
+        feedback.innerHTML = `⚔️ <strong>¡IMPACTO CRÍTICO!</strong> "${choice}" es correcto. La acción de partir ocurrió <em>antes</em> de que Aurora llegara. <strong>+75 XP</strong>.`;
+
+        if (enemyCurrentHp === 0) {
+          setTimeout(() => {
+            playChime();
+            alert('🏆 ¡VICTORIA! Has purificado al Espectro del Past Perfect. Misión completada.');
+          }, 600);
+        }
+      } else {
+        btn.classList.add('wrong');
+        playBuzz();
+        speakText('Shield deflected. Remember to use had plus past participle.');
+
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(244, 63, 94, 0.15)';
+        feedback.style.border = '1px solid var(--neon-crimson)';
+        feedback.style.color = '#fff';
+        feedback.innerHTML = `🛡️ <strong>DEFLEXIÓN:</strong> "${choice}" es incorrecto. Se requiere <em>had + past participle</em> (had already left) para indicar anterioridad en el pasado.`;
+      }
+    }
+  </script>
+</body>
+</html>

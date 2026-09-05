@@ -1,0 +1,119 @@
+{
+  "id": "b1-past-perfect-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Past Perfect — The Timeline Detective",
+  "habilidades": ["grammar", "reading", "listening", "writing"],
+  "vocabulario": [
+    {"bandera": "darse cuenta", "palabra": "realize", "traduccion": "darse cuenta"},
+    {"bandera": "reconocer", "palabra": "recognize", "traduccion": "reconocer"},
+    {"bandera": "descubrir", "palabra": "discover", "traduccion": "descubrir"},
+    {"bandera": "perder (transporte)", "palabra": "miss (the bus/train)", "traduccion": "perder (el bus/tren)"},
+    {"bandera": "olvidar", "palabra": "forget → forgot → forgotten", "traduccion": "olvidar"},
+    {"bandera": "cerrar con llave", "palabra": "lock", "traduccion": "cerrar con llave"},
+    {"bandera": "apagar", "palabra": "turn off", "traduccion": "apagar"},
+    {"bandera": "quedarse dormido", "palabra": "fall asleep", "traduccion": "quedarse dormido"},
+    {"bandera": "llegar", "palabra": "arrive", "traduccion": "llegar"},
+    {"bandera": "irse / partir", "palabra": "leave → left → left", "traduccion": "irse / partir"},
+    {"bandera": "terminar", "palabra": "finish", "traduccion": "terminar"},
+    {"bandera": "esconder", "palabra": "hide → hid → hidden", "traduccion": "esconder"},
+    {"bandera": "robar", "palabra": "steal → stole → stolen", "traduccion": "robar"},
+    {"bandera": "ya (afirmativo)", "palabra": "already", "traduccion": "ya"},
+    {"bandera": "recién / acabar de", "palabra": "just", "traduccion": "recién, acabar de"},
+    {"bandera": "nunca antes", "palabra": "never ... before", "traduccion": "nunca antes"},
+    {"bandera": "para cuando", "palabra": "by the time", "traduccion": "para cuando"},
+    {"bandera": "aún no (negativo)", "palabra": "yet", "traduccion": "aún (no)"},
+    {"bandera": "previamente", "palabra": "previously", "traduccion": "previamente"},
+    {"bandera": "esa misma mañana", "palabra": "earlier that day", "traduccion": "esa misma mañana / más temprano ese día"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "When Sofía arrived at the station, the train had already left."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Kenji realized that he had forgotten his keys at the studio."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "By the time we woke up, Ben had prepared breakfast."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She had locked the door before she went out."},
+    {"id": "s5", "forma": "negativo", "oracion": "She hadn't locked the studio door that morning."},
+    {"id": "s6", "forma": "negativo", "oracion": "They hadn't finished the assignment by midnight."},
+    {"id": "s7", "forma": "negativo", "oracion": "I hadn't seen the northern lights before my trip to Norway."},
+    {"id": "s8", "forma": "negativo", "oracion": "Ben hadn't turned off the oven before leaving."},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Had you ever seen the northern lights before you visited Norway?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Had the train already left when you arrived?"},
+    {"id": "s11", "forma": "interrogativo", "oracion": "Why had he hidden the old map under the floor?"},
+    {"id": "s12", "forma": "interrogativo", "oracion": "Had she locked the door before going to bed?"},
+    {"id": "s13", "forma": "short_answer", "oracion": "Had they finished by midnight? Yes, they had."},
+    {"id": "s14", "forma": "short_answer", "oracion": "Had you met him before? No, I hadn't."},
+    {"id": "s15", "forma": "short_answer", "oracion": "Had she locked the door? Yes, she had."}
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Sofía: When I arrived at the platform, the train **had already left**!",
+        "Ben: Did you run? Or had you fallen asleep at the cafe?",
+        "Kenji: I realized that she **had forgotten** to check the schedule earlier that morning.",
+        "Abuela Carmen: In my day, if you **had missed** the train, you simply walked under the stars!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "When I arrived, the film already started.",
+        "opcion_b": "When I arrived, the film had already started.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "The Past Perfect shows the 'past of the past' — the earlier of two completed actions in the timeline.",
+      "tabla": {
+        "titulo": "Timeline Detective: Which event happened first?",
+        "encabezados": ["Event 1 (Earlier - Past Perfect)", "Event 2 (Later - Past Simple)", "Time Marker"],
+        "filas": [
+          ["The train had already left", "when Sofía arrived at the station", "when / already"],
+          ["Kenji had forgotten his keys", "before he locked the front door", "before"],
+          ["By the time they called", "the storm had already passed", "by the time"],
+          ["She hadn't seen the painting", "until Kenji showed it to her", "until / before"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "pregunta": "When Sofía arrived at the station, the train ___", "opciones": ["had already left.", "has already left.", "already lefted."], "respuesta": "had already left."},
+        {"tipo": "multiple_choice", "pregunta": "Kenji realized that he ___ his keys at home.", "opciones": ["had forgotten", "has forgotten", "forgotting"], "respuesta": "had forgotten"},
+        {"tipo": "multiple_choice", "pregunta": "By the time the guests arrived, Abuela Carmen ___ dinner.", "opciones": ["had cooked", "has cooked", "was cooked"], "respuesta": "had cooked"},
+        {"tipo": "multiple_choice", "pregunta": "She couldn't buy the ticket because she ___ her wallet.", "opciones": ["had lost", "has lost", "losted"], "respuesta": "had lost"},
+        {"tipo": "multiple_choice", "pregunta": "Had you visited London before last summer? ___", "opciones": ["Yes, I had.", "Yes, I have.", "Yes, I did."], "respuesta": "Yes, I had."},
+        {"tipo": "true_false", "afirmacion": "The Past Perfect is formed with 'had' + the past participle (3rd column of irregular verbs).", "respuesta": "true"},
+        {"tipo": "true_false", "afirmacion": "In a narrative, the Past Perfect is used for the action that happened later.", "respuesta": "false"},
+        {"tipo": "gap_fill", "texto": "She ___ (not / lock) the studio door before leaving.", "respuesta": "hadn't locked"},
+        {"tipo": "gap_fill", "texto": "When we woke up, Ben ___ (already / prepare) breakfast.", "respuesta": "had already prepared"},
+        {"tipo": "gap_fill", "texto": "They ___ (never / see) the northern lights before that trip.", "respuesta": "had never seen"},
+        {"tipo": "unscramble", "palabras": ["the", "train", "had", "already", "left", "when", "we", "arrived"], "respuesta": "The train had already left when we arrived"},
+        {"tipo": "unscramble", "palabras": ["had", "you", "ever", "seen", "the", "northern", "lights", "before"], "respuesta": "Had you ever seen the northern lights before"},
+        {"tipo": "correct_mistake", "texto_con_error": "When I arrived, the film already started.", "respuesta": "When I arrived, the film had already started."},
+        {"tipo": "correct_mistake", "texto_con_error": "She had forgot her keys at the cafe.", "respuesta": "She had forgotten her keys at the cafe."},
+        {"tipo": "transformation", "oracion_base": "Sofía arrived. Before that, the train left.", "instruccion": "Join the sentences using 'when' and Past Perfect.", "respuesta": "When Sofía arrived, the train had left."},
+        {"tipo": "transformation", "oracion_base": "She finished her tea. Then she walked out into the snow.", "instruccion": "Join using 'before' and Past Perfect.", "respuesta": "She had finished her tea before she walked out into the snow."},
+        {"tipo": "write_opposite", "oracion_base": "They had finished the report by midnight.", "instruccion": "Write the sentence in negative.", "respuesta": "They hadn't finished the report by midnight."},
+        {"tipo": "short_answer_production", "pregunta": "Had you finished the task before 5 PM? (Short answer: Yes)", "respuesta": "Yes, I had."},
+        {"tipo": "short_answer_production", "pregunta": "Had they locked the front door before leaving? (Short answer: No)", "respuesta": "No, they hadn't."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Kenji, why did you arrive so late to the rehearsal?",
+        "Kenji: By the time my bus arrived, the road **had flooded** completely.",
+        "Ben: But had you checked the weather forecast before leaving?",
+        "Kenji: No, I hadn't. I **had assumed** it was going to be a sunny day.",
+        "Abuela Carmen: Next time, listen to the wind! I **had noticed** the storm clouds before sunrise."
+      ],
+      "gaps": ["flooded", "assumed", "clouds"],
+      "comprension": [
+        {"pregunta": "Why was Kenji late to the rehearsal?", "opciones": ["The road had flooded", "He had lost his ticket", "He fell asleep"], "respuesta": "The road had flooded"},
+        {"pregunta": "What had Abuela Carmen noticed before sunrise?", "opciones": ["The storm clouds", "The bus schedule", "The flooded river"], "respuesta": "The storm clouds"}
+      ]
+    },
+    "reading": {
+      "texto": "The old clock tower in the village square had stood silently for fifty years. But when the travelers reached the peak of the mountain at midnight, they noticed something extraordinary: the bells had begun to ring. Local legends claimed that ancient guardians had hidden a secret parchment inside the mechanical gears. Sofia and Ben ran towards the tower doors, only to discover that someone had already opened the bronze lock. The adventure had officially begun.",
+      "preguntas": [
+        {"afirmacion": "The clock tower had been silent for fifty years before that night.", "respuesta": "true"},
+        {"afirmacion": "The bells started ringing before the travelers reached the mountain peak.", "respuesta": "false"},
+        {"afirmacion": "Someone had already unlocked the bronze door before Sofia and Ben arrived.", "respuesta": "true"},
+        {"afirmacion": "The guardians had hidden a map under the village bridge.", "respuesta": "false"}
+      ]
+    }
+  }
+}

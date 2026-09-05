@@ -1,0 +1,60 @@
+{
+  "lang": "es",
+  "name": "Spanish Aurora",
+  "brand": "Spanish Aurora · Banco de ejercicios",
+  "locale": "es-ES",
+  "tts": {
+    "default_voice": "es-ES",
+    "rate": 0.95,
+    "cast": {
+      "aurora": "es-ES-ElviraNeural",
+      "abuela": "es-ES-AbrilNeural",
+      "mateo": "es-ES-AlvaroNeural",
+      "diego": "es-MX-CecilioNeural",
+      "lucia": "es-MX-MarinaNeural"
+    }
+  },
+  "normalization": {
+    "strip_accents": false,
+    "strip_final_punctuation": true,
+    "punctuation_openers_optional": true,
+    "accent_policy": "strict_on_accent_types",
+    "contractions": {
+      "al": "a el",
+      "del": "de el"
+    },
+    "synonyms": {
+      "ordenador": ["computadora", "computador"],
+      "coche": ["carro", "auto"],
+      "zumo": ["jugo"],
+      "patatas": ["papas"],
+      "apartamento": ["departamento", "piso"],
+      "gafas": ["lentes", "anteojos"]
+    }
+  },
+  "ui": {
+    "lesson": "📖 Lección",
+    "practice": "✏️ Práctica",
+    "test": "✓ Examen",
+    "generator": "🎲 Generador de Ejercicios",
+    "games": "🎮 Juegos",
+    "galaxy": "🌌 Galaxia",
+    "check_answers": "Comprobar respuestas",
+    "reset": "Reiniciar",
+    "score_answered": "Puntuación: <b>{ok}/{ans}</b> respondidas",
+    "score_total": "· {total} en total",
+    "nothing_answered": "Aún no has respondido — prueba con algunas primero.",
+    "correct": "✓ ¡Correcto!",
+    "wrong": "✗ Casi",
+    "answer_label": "Respuesta: ",
+    "also_correct": "También válido: ",
+    "play_dialogue": "▶ Reproducir diálogo",
+    "play_again": "▶ Escuchar de nuevo",
+    "listen_hint": "Escucha primero. El diálogo tiene huecos: complétalos escuchando.",
+    "print_reference": "🖨 Imprimir tabla de referencia",
+    "choose_correct": "Elige la opción correcta:",
+    "unsupported_type": "[Tipo no soportado: {type}]",
+    "aurora_win": "✨ <b>Aurora:</b> \"¡Maestría extraordinaria! Tu Esencia Aurora resplandece con fuerza. ¡Todos los conjuros fueron acertados!\"",
+    "aurora_trial": "🛡️ <b>Aurora:</b> \"¡Cuidado! Los Duendes del Error interceptaron algunos conjuros. ¡Ánimo, revisa las marcas rojas e inténtalo de nuevo!\""
+  }
+}

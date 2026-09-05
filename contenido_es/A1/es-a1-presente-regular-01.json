@@ -1,0 +1,149 @@
+{
+  "id": "es-a1-presente-regular-01",
+  "nivel": "A1",
+  "tema": "Presente de Indicativo (Regulares -ar, -er, -ir)",
+  "arquetipo": "tiempo_verbal",
+  "habilidades": ["grammar", "listening", "reading", "writing"],
+  "vocabulario": [
+    { "palabra": "hablar", "traduccion": "to speak", "bandera": "🗣️" },
+    { "palabra": "comer", "traduccion": "to eat", "bandera": "🍽️" },
+    { "palabra": "vivir", "traduccion": "to live", "bandera": "🏠" },
+    { "palabra": "estudiar", "traduccion": "to study", "bandera": "📖" },
+    { "palabra": "aprender", "traduccion": "to learn", "bandera": "💡" },
+    { "palabra": "escribir", "traduccion": "to write", "bandera": "✍️" },
+    { "palabra": "trabajar", "traduccion": "to work", "bandera": "💼" },
+    { "palabra": "beber", "traduccion": "to drink", "bandera": "☕" },
+    { "palabra": "abrir", "traduccion": "to open", "bandera": "🚪" },
+    { "palabra": "escuchar", "traduccion": "to listen", "bandera": "🎧" },
+    { "palabra": "comprender", "traduccion": "to understand", "bandera": "🧩" },
+    { "palabra": "viajar", "traduccion": "to travel", "bandera": "✈️" }
+  ],
+  "banco_oraciones": [
+    { "id": "s1", "forma": "afirmativo", "oracion": "Lucía habla tres idiomas con fluidez." },
+    { "id": "s2", "forma": "afirmativo", "oracion": "Nosotros comemos en el restaurante del centro." },
+    { "id": "s3", "forma": "negativo", "oracion": "Ellos no viven en esta calle." },
+    { "id": "s4", "forma": "negativo", "oracion": "Yo no bebo café por la noche." },
+    { "id": "s5", "forma": "interrogativo", "oracion": "¿Tú estudias español todos los días?" },
+    { "id": "s6", "forma": "interrogativo", "oracion": "¿Dónde trabajan tus padres?" },
+    { "id": "s7", "forma": "short_answer", "oracion": "¿Comprendes la lección de hoy? Sí, la comprendo bien." },
+    { "id": "s8", "forma": "short_answer", "oracion": "¿Escribes un correo a tu amigo? Sí, lo escribo ahora." }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡Los tres grandes pilares verbales del español son las terminaciones **-ar**, **-er** e **-ir**!",
+        "Lucía: ¿Cada persona gramatical tiene su propia desinencia?",
+        "Aurora: ¡Exactamente! En español la terminación del verbo te dice quién realiza la acción, por eso muchas veces no necesitamos decir el pronombre 'yo' o 'tú'."
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Nosotros comemos fruta por la mañana.",
+        "opcion_b": "Nosotros comamos fruta por la mañana.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "El presente de indicativo expresa hábitos cotidianos, verdades generales y acciones que ocurren en el momento actual.",
+      "tabla": {
+        "titulo": "Desinencias del Presente Regular (-ar, -er, -ir)",
+        "encabezados": ["Pronombre", "-AR (hablar)", "-ER (comer)", "-IR (vivir)"],
+        "filas": [
+          ["yo", "habl-o", "com-o", "viv-o"],
+          ["tú", "habl-as", "com-es", "viv-es"],
+          ["él / ella / usted", "habl-a", "com-e", "viv-e"],
+          ["nosotros / nosotras", "habl-amos", "com-emos", "viv-imos"],
+          ["vosotros / vosotras", "habl-áis", "com-éis", "viv-ís"],
+          ["ellos / ellas / ustedes", "habl-an", "com-en", "viv-en"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "conjugation_table",
+          "etapa": "Manipulate",
+          "verbo": "hablar",
+          "tiempo": "Presente Regular (-ar)",
+          "instruccion": "Completa el paradigma del verbo hablar:",
+          "filas": [
+            { "id": "f_hablo", "pronombre": "yo", "respuesta": "hablo" },
+            { "id": "f_hablas", "pronombre": "tú", "respuesta": "hablas" },
+            { "id": "f_habla", "pronombre": "él / ella / usted", "respuesta": "habla" },
+            { "id": "f_hablamos", "pronombre": "nosotros / nosotras", "respuesta": "hablamos" },
+            { "id": "f_hablais", "pronombre": "vosotros / vosotras", "respuesta": "habláis" },
+            { "id": "f_hablan", "pronombre": "ellos / ellas / ustedes", "respuesta": "hablan" }
+          ]
+        },
+        {
+          "tipo": "conjugation_table",
+          "etapa": "Manipulate",
+          "verbo": "vivir",
+          "tiempo": "Presente Regular (-ir)",
+          "instruccion": "Completa el paradigma del verbo vivir:",
+          "filas": [
+            { "id": "f_vivo", "pronombre": "yo", "respuesta": "vivo" },
+            { "id": "f_vives", "pronombre": "tú", "respuesta": "vives" },
+            { "id": "f_vive", "pronombre": "él / ella / usted", "respuesta": "vive" },
+            { "id": "f_vivimos", "pronombre": "nosotros / nosotras", "respuesta": "vivimos" },
+            { "id": "f_vivis", "pronombre": "vosotros / vosotras", "respuesta": "vivís" },
+            { "id": "f_viven", "pronombre": "ellos / ellas / ustedes", "respuesta": "viven" }
+          ]
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué terminación corresponde a 'nosotros' para los verbos en -er (como comer)?",
+          "opciones": ["-amos", "-emos", "-imos", "-en"],
+          "respuesta": "-emos"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Elena ___ (estudiar) medicina y sus hermanos ___ (trabajar) en una empresa.",
+          "respuesta": "estudia trabajan"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Nosotros vivo en un apartamento cerca del parque.",
+          "respuesta": "Nosotros vivimos en un apartamento cerca del parque."
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": ["Todos", "los", "días", "aprendemos", "palabras", "nuevas"],
+          "respuesta": "Todos los días aprendemos palabras nuevas"
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración cambiando el sujeto a 'Nosotros':",
+          "oracion_base": "Yo escribo cartas a mi familia.",
+          "respuesta": "Nosotros escribimos cartas a mi familia."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Aurora: Lucía, ¿qué haces los fines de semana?",
+        "Lucía: Los sábados estudio español por la mañana y cocino con mis amigos.",
+        "Aurora: ¿Y los domingos?",
+        "Lucía: Los domingos descanso y escribo en mi diario."
+      ],
+      "gaps": ["estudio", "escribo"],
+      "comprension": [
+        {
+          "pregunta": "¿Qué hace Lucía los sábados por la mañana?",
+          "opciones": ["Estudia español", "Trabaja en la oficina", "Viaja a otra ciudad"],
+          "respuesta": "Estudia español"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Daniel y Sofía viven en Madrid. Por las mañanas trabajan en una escuela de idiomas donde enseñan historia y arte. Al mediodía comen juntos en una pequeña cafetería y conversan sobre sus proyectos. Por las tardes leen libros y practican guitarra. Llevan una vida muy tranquila y activa.",
+      "preguntas": [
+        { "afirmacion": "Daniel y Sofía viven en Barcelona.", "respuesta": "false" },
+        { "afirmacion": "Ellos comen juntos al mediodía.", "respuesta": "true" },
+        { "afirmacion": "Por las tardes leen libros y tocan la guitarra.", "respuesta": "true" }
+      ]
+    }
+  }
+}

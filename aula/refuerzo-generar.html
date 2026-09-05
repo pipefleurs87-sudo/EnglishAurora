@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Refuerzo automático — EnglishAngel Aula</title>
+<link rel="stylesheet" href="app.css">
+<style>
+  .areaChk{width:18px;height:18px;margin-top:3px;accent-color:var(--red)}
+  #panel .card label{margin:0}
+  .rotchip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin-left:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <button class="ghost" onclick="location.href='index.html'">← Volver al panel</button>
+  <div class="kicker" style="margin-top:10px">EnglishAngel · Aula</div>
+  <h1>🎯 Refuerzo automático</h1>
+  <p class="sub" id="hNombre">Cargando…</p>
+  <p class="sub" id="hMeta"></p>
+  <div id="status"><div class="empty">Analizando el historial del estudiante…</div></div>
+  <div id="panel" class="hidden"></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
+<script src="comun.js"></script>
+<script>
+const NIVELES=['A1','A2','B1','B2','C1','C2'];
+const STAGE_ES={Recognize:'reconocer',Manipulate:'manipular',Transform:'transformar',Produce:'producir'};
+const SM_FALLBACK={multiple_choice:'Recognize',true_false:'Recognize',gap_fill:'Manipulate',unscramble:'Manipulate',correct_mistake:'Manipulate',transformation:'Transform',write_opposite:'Transform',short_answer_production:'Transform'};
+const P=new URLSearchParams(location.search);
+const token=P.get('t');
+let est=null, estRef=null, banco=[], temas=[], plan=null, modo='refuerzo';
+
+function tsMs(f){ if(!f) return 0; if(f&&f.toMillis) return f.toMillis(); if(f&&f.seconds) return f.seconds*1000; const d=new Date(f); return isNaN(d)?0:d.getTime(); }
+function shuffle(a){ a=(a||[]).slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i];a[i]=a[j];a[j]=t; } return a; }
+
+firebase.auth().onAuthStateChanged(async user=>{
+  const st=document.getElementById('status');
+  if(!user){ st.innerHTML='<div class="card">Primero inicia sesión en el <a href="index.html">panel de profesor</a>, luego vuelve a abrir el refuerzo desde el detalle del estudiante.</div>'; return; }
+  if(!token){ st.innerHTML='<div class="card">Falta el token del estudiante en el enlace.</div>'; return; }
+  try{ await init(); }
+  catch(e){ console.error(e); st.innerHTML='<div class="card">No se pudo cargar: '+esc(e&&e.message?e.message:e)+'</div>'; }
+});
+
+async function cargarTemas(){
+  if(temas.length) return temas;
+  try{ const r=await fetch(SITE_BASE+'/datos/temas-completos.json',{cache:'no-cache'}); if(!r.ok) throw new Error('http'); temas=await r.json(); return temas; }
+  catch(e){ try{ const r=await fetch('catalogo.json'); temas=await r.json(); }catch(e2){ temas=[]; } return temas; }
+}
+async function cargarBanco(){
+  try{ const r=await fetch(SITE_BASE+'/datos/banco-maestro.json',{cache:'no-cache'}); if(!r.ok) throw new Error('http');
+    const d=await r.json(); return d.filter(x=>x.etapa!=='Reading' && x.ejercicio); }
+  catch(e){
+    await cargarTemas(); const out=[];
+    temas.forEach(tm=>(tm.ejercicios||[]).forEach(ej=>{ if(!SM_FALLBACK[ej.tipo])return;
+      out.push({nivel:tm.nivel,tema:tm.tema,tema_id:tm.id,area:tm.area||'',arquetipo:tm.arquetipo,tipo:ej.tipo,etapa:SM_FALLBACK[ej.tipo],combina:ej.combina||[],ejercicio:ej}); }));
+    return out;
+  }
+}
+
+async function init(){
+  estRef=db.collection('estudiantes').doc(token);
+  const [snap,resQ]=await Promise.all([
+    estRef.get(),
+    estRef.collection('resultados').orderBy('fecha','desc').limit(300).get()
+  ]);
+  if(!snap.exists) throw new Error('estudiante no encontrado');
+  est=snap.data();
+  await cargarTemas();
+  banco=await cargarBanco();
+  document.getElementById('hNombre').textContent=est.nombre||'Estudiante';
+  document.getElementById('hMeta').innerHTML='<span class="tag lvl">'+esc(est.nivel||'?')+'</span>'+
+    (est.nivel_sugerido?(' · <span class="muted">diagnóstico sugiere</span> <b>'+esc(est.nivel_sugerido)+'</b>'):'');
+  const resultados=resQ.docs.map(d=>d.data());
+  const stats=computarAreas(resultados);
+  document.getElementById('status').innerHTML='';
+  if(Object.keys(stats).length===0){ modo='placement'; construirPlacement(); }
+  else{ modo='refuerzo'; await construirRefuerzo(stats); }
+}
+
+function computarAreas(rs){
+  const A={};
+  function bump(area,score,ms,por_etapa){
+    if(!area || /^Nivel /.test(area) || area==='(refuerzo)' || area==='(placement)') return;
+    const a=A[area]||(A[area]={scores:[],lastMs:0,stage:{},n:0});
+    if(typeof score==='number') a.scores.push(score);
+    a.n++;
+    if(ms>a.lastMs) a.lastMs=ms;
+    if(por_etapa) for(const k in por_etapa){ const s=a.stage[k]||(a.stage[k]={ok:0,total:0}); s.ok+=(por_etapa[k].ok||0); s.total+=(por_etapa[k].total||0); }
+  }
+  rs.forEach(r=>{
+    const ms=tsMs(r.fecha);
+    if(r.origen==='refuerzo' && r.por_area && Object.keys(r.por_area).length){
+      for(const ar in r.por_area){ const b=r.por_area[ar]; const sc=(b&&b.total)?Math.round(100*b.ok/b.total):null; bump(ar,sc,ms,null); }
+    }else if(r.area){ bump(r.area,r.score,ms,r.por_etapa); }
+  });
+  for(const k in A){ const a=A[k]; a.avg=a.scores.length?Math.round(a.scores.reduce((x,y)=>x+y,0)/a.scores.length):null; }
+  return A;
+}
+
+function elegirEjercicios(area,nivel,weak,cuantos){
+  cuantos=cuantos||4;
+  const seen=new Set();
+  const dedup=list=>{ const out=[]; shuffle(list).forEach(x=>{ const k=JSON.stringify(x.ejercicio); if(seen.has(k))return; seen.add(k); out.push(x); }); return out; };
+  let uniq=dedup(banco.filter(x=>x.area===area && x.nivel===nivel));
+  if(uniq.length<cuantos) uniq=uniq.concat(dedup(banco.filter(x=>x.area===area && x.nivel!==nivel)));
+  const weakPool = weak? uniq.filter(x=>x.etapa===weak):[];
+  const rest = uniq.filter(x=>!weak || x.etapa!==weak);
+  const nWeak = weak? Math.min(weakPool.length, Math.ceil(cuantos*0.6)):0;
+  return weakPool.slice(0,nWeak).concat(rest.slice(0,cuantos-nWeak)).slice(0,cuantos);
+}
+
+async function construirRefuerzo(stats){
+  const nivel=est.nivel||'A1';
+  const areasNivel=Array.from(new Set(banco.filter(x=>x.nivel===nivel).map(x=>x.area))).filter(Boolean);
+  const rotateOut=new Set();
+  const ult=est.ultimo_refuerzo;
+  if(ult && ult.tareaId){
+    try{ const ts=await estRef.collection('tareas').doc(ult.tareaId).get();
+      if(ts.exists && ts.data().estado!=='hecha') (ult.areas||[]).forEach(x=>rotateOut.add(x.area||x)); }catch(e){}
+  }
+  const now=Date.now();
+  const cand=areasNivel.map(area=>{
+    const s=stats[area]; let prioridad, motivo, weak='', avg=null;
+    if(!s){ prioridad=1000; motivo='nunca practicado'; }
+    else{
+      const days=s.lastMs?Math.round((now-s.lastMs)/86400000):999;
+      avg=(s.avg==null)?null:s.avg; const avgv=(avg==null)?100:avg;
+      let wr=1.1; ['Recognize','Manipulate','Transform','Produce'].forEach(k=>{ const st=s.stage[k]; if(st&&st.total>=2){ const rr=st.ok/st.total; if(rr<wr){wr=rr;weak=k;} } });
+      prioridad=(100-avgv) + Math.min(days,120)*0.25 + ((weak&&wr<0.75)?(1-wr)*15:0);
+      motivo=(avg==null?'practicado':avg+'% aciertos')+((days>30&&days<900)?(' · último hace '+days+' d'):'')+((weak&&wr<0.75)?(' · flojo en '+(STAGE_ES[weak]||weak)):'');
+    }
+    return {area, prioridad, motivo, weak, avg, practicado:!!s};
+  });
+  cand.sort((a,b)=>{ const ra=rotateOut.has(a.area)?1:0, rb=rotateOut.has(b.area)?1:0; if(ra!==rb) return ra-rb; return b.prioridad-a.prioridad; });
+  const topN=Math.min(3,cand.length);
+  const selSet=new Set(cand.slice(0,topN).map(c=>c.area));
+  renderRefuerzo(cand, rotateOut, selSet);
+}
+
+function renderRefuerzo(cand, rotateOut, selSet){
+  let html='<div class="card"><p>A partir del historial de <b>'+esc(est.nombre)+'</b>, estas son las áreas que más conviene reforzar (nunca practicada → precisión baja → hace mucho que no se toca). Revisa, ajusta y asigna — <b>nada se envía sin tu confirmación</b>.</p></div>';
+  html+='<div class="row" style="align-items:center;gap:10px;margin:12px 2px"><label style="margin:0">Ejercicios por área</label><input id="perArea" type="number" min="2" max="10" value="4" style="width:72px"></div>';
+  html+=cand.map(c=>{
+    const checked=selSet.has(c.area)?'checked':'';
+    const rot=rotateOut.has(c.area)?'<span class="rotchip">rotada · no la tocó</span>':'';
+    let badge;
+    if(!c.practicado) badge='<span class="rotchip" style="border-color:var(--red);color:var(--red)">nunca practicado</span>';
+    else if(c.avg!=null) badge='<span class="score '+scoreClass(c.avg)+'">'+c.avg+'</span>';
+    else badge='';
+    return '<div class="card"><label class="row" style="gap:12px;align-items:flex-start;cursor:pointer">'
+      +'<input type="checkbox" class="areaChk" data-area="'+esc(c.area)+'" data-weak="'+esc(c.weak||'')+'" '+checked+'>'
+      +'<div style="flex:1"><div class="row" style="gap:8px;align-items:center"><strong>'+esc(c.area)+'</strong> '+badge+' '+rot+'</div>'
+      +'<div class="muted" style="margin-top:2px">'+esc(c.motivo)+'</div></div></label></div>';
+  }).join('');
+  html+='<div class="row" style="justify-content:flex-end;gap:10px;margin-top:16px"><button class="ghost" onclick="location.href=\'index.html\'">Cancelar</button><button class="red" id="btnAsignar">🎯 Asignar refuerzo</button></div>';
+  const panel=document.getElementById('panel'); panel.innerHTML=html; panel.classList.remove('hidden');
+  document.getElementById('btnAsignar').onclick=asignarRefuerzo;
+}
+
+async function asignarRefuerzo(){
+  const per=Math.max(2,Math.min(10,parseInt(document.getElementById('perArea').value,10)||4));
+  const chks=Array.prototype.slice.call(document.querySelectorAll('.areaChk:checked'));
+  if(!chks.length) return toast('Elige al menos un área');
+  const nivel=est.nivel||'A1';
+  const areasSel=chks.map(c=>({area:c.getAttribute('data-area'), weak:c.getAttribute('data-weak')||''}));
+  const ejercicios=[]; const areasMeta=[];
+  areasSel.forEach(a=>{
+    const picks=elegirEjercicios(a.area,nivel,a.weak,per);
+    picks.forEach(p=>{ const ej=Object.assign({},p.ejercicio); ej._area=a.area; ejercicios.push(ej); });
+    areasMeta.push({area:a.area, n:picks.length, weak:a.weak});
+  });
+  if(!ejercicios.length) return toast('No encontré ejercicios para esas áreas');
+  const titulo='🎯 Refuerzo: '+areasSel.map(a=>a.area).join(' · ');
+  const btn=document.getElementById('btnAsignar'); btn.disabled=true; btn.textContent='Asignando…';
+  try{
+    const tarea={titulo:titulo, url:'', tipo:'custom', temaId:'', area:'(refuerzo)', nivel:nivel, estado:'pendiente',
+      fecha:FV.serverTimestamp(), refuerzo:{tipo:'refuerzo', areas:areasMeta, ejercicios:ejercicios}};
+    const ref=await estRef.collection('tareas').add(tarea);
+    await ref.update({url:'refuerzo.html?t='+encodeURIComponent(token)+'&tarea='+ref.id});
+    await estRef.update({ultimo_refuerzo:{areas:areasSel.map(a=>({area:a.area})), tareaId:ref.id, fecha:FV.serverTimestamp()}});
+    toast('✓ Refuerzo asignado — '+ejercicios.length+' ejercicios');
+    setTimeout(function(){ location.href='index.html'; },1300);
+  }catch(e){ console.error(e); btn.disabled=false; btn.textContent='🎯 Asignar refuerzo'; toast('Error al asignar: '+(e&&e.message?e.message:e)); }
+}
+
+function construirPlacement(){
+  const byLevel={};
+  temas.forEach(t=>{ if(t.banner_diagnostico&&t.banner_diagnostico.correcta){ (byLevel[t.nivel]=byLevel[t.nivel]||[]).push(t); } });
+  const orden=['A1','A2','B1','B2','C1']; const porNivel=3;
+  const ejercicios=[]; const meta=[];
+  orden.forEach(n=>{ const arr=shuffle(byLevel[n]||[]).slice(0,porNivel);
+    arr.forEach(t=>{ const b=t.banner_diagnostico; const correct=(b.correcta==='a')?b.opcion_a:b.opcion_b;
+      ejercicios.push({tipo:'multiple_choice', pregunta:'Choose the correct option:', opciones:[b.opcion_a,b.opcion_b], respuesta:correct, _area:'Nivel '+n}); });
+    if(arr.length) meta.push({area:'Nivel '+n, n:arr.length});
+  });
+  plan={ejercicios:ejercicios, meta:meta};
+  if(!ejercicios.length){ const p=document.getElementById('panel'); p.innerHTML='<div class="card">No pude cargar los diagnósticos (revisa la conexión al sitio público) e intenta de nuevo.</div>'; p.classList.remove('hidden'); return; }
+  let html='<div class="card"><p><b>'+esc(est.nombre)+'</b> aún no tiene historial. Te armé un <b>diagnóstico de nivel</b> con '+ejercicios.length+' preguntas de contraste (error típico vs. forma correcta), repartidas de A1 a C1. Al completarlo, el sistema sugiere un nivel automáticamente.</p></div>';
+  html+='<div class="card"><div class="row" style="gap:16px">'+meta.map(m=>'<div><b>'+m.n+'</b> <span class="muted">'+esc(m.area)+'</span></div>').join('')+'</div></div>';
+  html+='<div class="row" style="justify-content:flex-end;gap:10px;margin-top:16px"><button class="ghost" onclick="location.href=\'index.html\'">Cancelar</button><button class="red" id="btnAsignar">📋 Asignar diagnóstico</button></div>';
+  const panel=document.getElementById('panel'); panel.innerHTML=html; panel.classList.remove('hidden');
+  document.getElementById('btnAsignar').onclick=asignarPlacement;
+}
+
+async function asignarPlacement(){
+  const btn=document.getElementById('btnAsignar'); btn.disabled=true; btn.textContent='Asignando…';
+  try{
+    const tarea={titulo:'📋 Diagnóstico de nivel', url:'', tipo:'custom', temaId:'', area:'(placement)', nivel:est.nivel||'', estado:'pendiente',
+      fecha:FV.serverTimestamp(), refuerzo:{tipo:'placement', areas:plan.meta, ejercicios:plan.ejercicios}};
+    const ref=await estRef.collection('tareas').add(tarea);
+    await ref.update({url:'refuerzo.html?t='+encodeURIComponent(token)+'&tarea='+ref.id});
+    toast('✓ Diagnóstico asignado — '+plan.ejercicios.length+' preguntas');
+    setTimeout(function(){ location.href='index.html'; },1300);
+  }catch(e){ console.error(e); btn.disabled=false; btn.textContent='📋 Asignar diagnóstico'; toast('Error: '+(e&&e.message?e.message:e)); }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teacher's Hub · Versión Kimi | English Aurora</title>
+<meta name="description" content="Teacher's Hub — versión Kimi. Tres skins de Aurora: Estándar, High-Tech y Gótica. Perfil docente, bienvenida y tutorial interactivo.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TEACHER'S HUB — VERSIÓN KIMI
+   Filosofía: el ambiente CAMBIA con la skin. No es un tema de
+   colores; es el mismo observatorio visto por tres Auroras.
+   ============================================================ */
+:root {
+  --serif: 'Source Serif 4', Georgia, serif;
+  --title: 'Cinzel', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- SKIN 1: ESTÁNDAR · AURORA RUBIA (Pastel Etéreo) ---------- */
+body.skin-rubia {
+  --bg: #F0F5F8; --bg-card: #FFFFFF; --bg-sub: #EBF3F6;
+  --ink: #092B35; --ink-muted: #5A7B87;
+  --accent: #0D7377; --accent-glow: rgba(13,115,119,.28);
+  --gold: #B45309; --gold-glow: rgba(180,83,9,.3);
+  --line: rgba(13,115,119,.16);
+  --hero-grad: radial-gradient(ellipse 60% 45% at 18% 12%, rgba(13,115,119,.16), transparent 60%),
+               radial-gradient(ellipse 55% 45% at 85% 20%, rgba(180,83,9,.12), transparent 60%),
+               radial-gradient(ellipse 70% 55% at 50% 60%, rgba(2,132,199,.09), transparent 65%);
+  --card-radius: 18px;
+  --scanlines: none;
+}
+
+/* ---------- SKIN 2: AURORA ROJA · HIGH-TECH (Tecnología Perfecta) ---------- */
+body.skin-roja {
+  --bg: #05070F; --bg-card: rgba(13,20,38,.82); --bg-sub: rgba(21,32,56,.9);
+  --ink: #E2EAF6; --ink-muted: #7C8DB0;
+  --accent: #22D3EE; --accent-glow: rgba(34,211,238,.35);
+  --gold: #FB4D6D; --gold-glow: rgba(251,77,109,.4);
+  --line: rgba(34,211,238,.22);
+  --hero-grad: radial-gradient(ellipse 55% 40% at 15% 10%, rgba(34,211,238,.18), transparent 60%),
+               radial-gradient(ellipse 50% 45% at 88% 18%, rgba(251,77,109,.16), transparent 60%),
+               radial-gradient(ellipse 75% 60% at 50% 70%, rgba(56,89,199,.12), transparent 65%);
+  --card-radius: 10px;
+  --scanlines: repeating-linear-gradient(0deg, rgba(34,211,238,.03) 0 1px, transparent 1px 4px);
+}
+
+/* ---------- SKIN 3: AURORA AZUL · GÓTICA (Catedral Arcana) ---------- */
+body.skin-azul {
+  --bg: #07040D; --bg-card: rgba(19,9,31,.88); --bg-sub: rgba(30,15,48,.9);
+  --ink: #EFE6FF; --ink-muted: #9E8DB3;
+  --accent: #C084FC; --accent-glow: rgba(192,132,252,.4);
+  --gold: #F43F5E; --gold-glow: rgba(244,63,94,.45);
+  --line: rgba(192,132,252,.24);
+  --hero-grad: radial-gradient(ellipse 55% 42% at 18% 12%, rgba(192,132,252,.28), transparent 60%),
+               radial-gradient(ellipse 50% 45% at 85% 20%, rgba(244,63,94,.2), transparent 60%),
+               radial-gradient(ellipse 70% 55% at 50% 65%, rgba(88,28,135,.22), transparent 65%);
+  --card-radius: 22px;
+  --scanlines: none;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans);
+  transition: background .5s ease, color .5s ease;
+  overflow-x: hidden;
+}
+
+/* Capa de ambiente viva */
+.ambience {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: var(--hero-grad);
+  filter: blur(50px); opacity: .9;
+  animation: drift 26s ease-in-out infinite alternate;
+  transition: background .6s ease;
+}
+.ambience::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--scanlines);
+}
+@keyframes drift {
+  from { transform: scale(1) translate(0,0); }
+  to   { transform: scale(1.07) translate(2vw, 2.5vh); }
+}
+
+.app {
+  position: relative; z-index: 2;
+  max-width: 1240px; margin: 0 auto;
+  padding: 22px 26px 90px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+
+/* ============ HEADER ============ */
+.hub-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--card-radius); padding: 14px 22px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transition: all .5s ease;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-avatar {
+  width: 52px; height: 52px; border-radius: 14px; overflow: hidden;
+  border: 2px solid var(--gold); box-shadow: 0 0 16px var(--gold-glow);
+  background: var(--bg-sub); flex-shrink: 0;
+}
+.brand-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.brand h1 {
+  font-family: var(--title); font-size: 18px; font-weight: 900;
+  letter-spacing: .08em; color: var(--gold);
+}
+.brand small {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+
+/* Selector de skins */
+.skin-switcher { display: flex; align-items: center; gap: 8px; }
+.skin-switcher .tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; color: var(--ink-muted);
+}
+.skin-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-sub); border: 1.5px solid var(--line);
+  border-radius: 999px; padding: 5px 12px 5px 5px; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  color: var(--ink-muted); transition: all .25s var(--e-out);
+}
+.skin-btn img {
+  width: 26px; height: 26px; border-radius: 50%;
+  object-fit: cover; object-position: top; border: 1.5px solid var(--line);
+}
+.skin-btn:hover { color: var(--ink); border-color: var(--accent); transform: translateY(-1px); }
+.skin-btn.active {
+  color: var(--ink); border-color: var(--accent);
+  background: var(--bg-card); box-shadow: 0 0 16px var(--accent-glow);
+}
+
+/* ============ HERO: BIENVENIDA + PERFIL ============ */
+.hero-grid {
+  display: grid; grid-template-columns: 300px 1fr 330px;
+  gap: 20px; align-items: stretch;
+}
+@media (max-width: 1080px) { .hero-grid { grid-template-columns: 1fr; } }
+
+.aurora-stage {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--card-radius); padding: 18px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  backdrop-filter: blur(14px); box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transition: all .5s ease; overflow: hidden; position: relative;
+}
+.aurora-stage::before {
+  content: ''; position: absolute; inset: auto 0 0 0; height: 40%;
+  background: radial-gradient(ellipse 80% 100% at 50% 100%, var(--accent-glow), transparent 70%);
+  opacity: .5; pointer-events: none;
+}
+.aurora-img-wrap {
+  width: 100%; height: 300px; display: flex; align-items: flex-end; justify-content: center;
+}
+.aurora-img-wrap img {
+  height: 100%; max-width: 100%; object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,.25));
+  animation: breathe 5s ease-in-out infinite;
+  transition: opacity .3s ease;
+}
+@keyframes breathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.aurora-nameplate {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+.pose-bar { display: flex; gap: 6px; }
+.pose-btn {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  background: var(--bg-sub); border: 1px solid var(--line);
+  color: var(--ink-muted); border-radius: 8px; padding: 4px 10px; cursor: pointer;
+  transition: all .2s ease;
+}
+.pose-btn:hover { color: var(--ink); border-color: var(--accent); }
+.pose-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Burbuja de bienvenida */
+.welcome-panel {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--card-radius); padding: 26px 30px;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  backdrop-filter: blur(14px); box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transition: all .5s ease; position: relative;
+}
+.welcome-kicker {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
+}
+.welcome-title {
+  font-family: var(--title); font-size: clamp(22px, 3vw, 30px);
+  font-weight: 900; color: var(--ink); line-height: 1.15;
+}
+.welcome-title em { color: var(--accent); font-style: normal; }
+.welcome-text {
+  font-family: var(--serif); font-size: 16px; line-height: 1.65; color: var(--ink);
+}
+.welcome-text strong { color: var(--accent); }
+.welcome-text em { color: var(--gold); font-style: normal; font-weight: 700; }
+.welcome-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.btn-primary {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  background: var(--accent); color: #fff; border: 1.5px solid var(--accent);
+  border-radius: 10px; padding: 11px 20px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .25s ease;
+}
+.btn-primary:hover { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 18px var(--gold-glow); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  background: transparent; color: var(--ink-muted);
+  border: 1.5px solid var(--line); border-radius: 10px;
+  padding: 11px 20px; cursor: pointer; transition: all .25s ease;
+}
+.btn-ghost:hover { color: var(--ink); border-color: var(--accent); }
+
+/* Perfil del profesor */
+.profile-card {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--card-radius); padding: 22px;
+  display: flex; flex-direction: column; gap: 14px;
+  backdrop-filter: blur(14px); box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transition: all .5s ease;
+}
+.profile-head { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.profile-face {
+  width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--title); font-size: 22px; font-weight: 900; color: #fff;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+.profile-name { font-family: var(--title); font-size: 16px; font-weight: 700; color: var(--ink); }
+.profile-rank { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-top: 3px; }
+.profile-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pstat {
+  background: var(--bg-sub); border: 1px solid var(--line);
+  border-radius: 10px; padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.pstat b { font-family: var(--title); font-size: 19px; color: var(--accent); }
+.pstat span { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-muted); }
+.profile-aurora-note {
+  font-family: var(--serif); font-size: 12.5px; font-style: italic;
+  color: var(--ink-muted); border-left: 3px solid var(--accent);
+  padding-left: 12px; line-height: 1.5;
+}
+
+/* ============ MÓDULOS: LO QUE RESUELVE ============ */
+.section-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.section-title { font-family: var(--title); font-size: 20px; font-weight: 900; color: var(--ink); letter-spacing: .04em; }
+.section-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); letter-spacing: .1em; text-transform: uppercase; }
+
+.modules-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+.module-card {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--card-radius); padding: 22px;
+  display: flex; flex-direction: column; gap: 12px;
+  backdrop-filter: blur(14px); box-shadow: 0 8px 30px rgba(0,0,0,.07);
+  transition: all .3s var(--e-out); position: relative; overflow: hidden;
+}
+.module-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 14px 36px var(--accent-glow); }
+.module-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--bg-sub); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center; font-size: 21px;
+}
+.module-name { font-family: var(--title); font-size: 15.5px; font-weight: 700; color: var(--ink); }
+.module-solves { font-size: 13px; line-height: 1.55; color: var(--ink-muted); }
+.module-solves b { color: var(--accent); }
+.module-metric {
+  margin-top: auto; font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  color: var(--gold); letter-spacing: .06em; text-transform: uppercase;
+  border-top: 1px dashed var(--line); padding-top: 10px;
+}
+
+/* ============ TUTORIAL OVERLAY ============ */
+.tour-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(3,6,14,.72); backdrop-filter: blur(14px);
+  display: none; align-items: center; justify-content: center; padding: 20px;
+  animation: fadeIn .35s ease;
+}
+.tour-overlay.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.tour-card {
+  width: 100%; max-width: 660px; max-height: 92vh; overflow-y: auto;
+  background: var(--bg-card); border: 2px solid var(--gold);
+  border-radius: var(--card-radius); padding: 26px 30px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.4), 0 0 40px var(--gold-glow);
+  display: flex; flex-direction: column; gap: 16px; color: var(--ink);
+  animation: riseIn .4s var(--e-out);
+}
+@keyframes riseIn { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.tour-topbar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.tour-kicker { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.tour-skip {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+  background: transparent; border: 1px solid var(--line); border-radius: 8px;
+  padding: 5px 12px; cursor: pointer; transition: all .2s ease;
+}
+.tour-skip:hover { color: var(--ink); border-color: var(--gold); }
+
+.tour-stage { display: flex; gap: 20px; align-items: center; }
+@media (max-width: 560px) { .tour-stage { flex-direction: column; } }
+.tour-avatar {
+  width: 148px; height: 190px; flex-shrink: 0;
+  display: flex; align-items: flex-end; justify-content: center; overflow: hidden;
+  border-radius: 16px; background: var(--bg-sub); border: 1px solid var(--line);
+}
+.tour-avatar img {
+  height: 100%; object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.3));
+  animation: breathe 5s ease-in-out infinite;
+}
+.tour-body { display: flex; flex-direction: column; gap: 10px; }
+.tour-step-tag { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .16em; color: var(--accent); text-transform: uppercase; }
+.tour-title { font-family: var(--title); font-size: 19px; font-weight: 900; color: var(--ink); }
+.tour-text { font-family: var(--serif); font-size: 15px; line-height: 1.6; color: var(--ink); }
+.tour-text strong { color: var(--accent); }
+.tour-text em { color: var(--gold); font-style: normal; font-weight: 700; }
+
+.tour-dots { display: flex; justify-content: center; gap: 8px; }
+.tour-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: all .25s ease; }
+.tour-dot.active { background: var(--gold); transform: scale(1.4); box-shadow: 0 0 10px var(--gold-glow); }
+
+.tour-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.tour-nav {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  background: var(--bg-sub); border: 1.5px solid var(--line);
+  color: var(--ink); border-radius: 10px; padding: 10px 18px; cursor: pointer;
+  transition: all .2s ease;
+}
+.tour-nav:hover { border-color: var(--accent); }
+.tour-nav.next { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tour-nav.next:hover { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 16px var(--gold-glow); }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 1500;
+  background: var(--bg-card); border: 1.5px solid var(--accent);
+  color: var(--accent); border-radius: 12px; padding: 12px 20px;
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  box-shadow: 0 12px 40px rgba(0,0,0,.2);
+  display: none; align-items: center; gap: 8px; animation: fadeIn .3s ease;
+}
+.toast.show { display: flex; }
+
+footer.hub-footer {
+  text-align: center; font-family: var(--mono); font-size: 10.5px;
+  color: var(--ink-muted); letter-spacing: .1em; padding-top: 8px;
+}
+</style>
+</head>
+<body class="skin-rubia">
+
+<div class="ambience"></div>
+
+<div class="app">
+
+  <!-- ================= HEADER ================= -->
+  <header class="hub-header">
+    <div class="brand">
+      <div class="brand-avatar"><img id="brand-avatar" src="assets/aurora.png" alt="Aurora"></div>
+      <div>
+        <h1>TEACHER'S HUB</h1>
+        <small id="brand-subtitle">English Aurora · Observatorio Docente</small>
+      </div>
+    </div>
+
+    <div class="skin-switcher">
+      <span class="tag">SKIN</span>
+      <button class="skin-btn active" data-skin="rubia" onclick="setSkin('rubia')">
+        <img src="assets/aurora.png" alt="Rubia"> Estándar
+      </button>
+      <button class="skin-btn" data-skin="roja" onclick="setSkin('roja')">
+        <img src="assets/skins/aurora-photo-explicando.png" alt="Roja"> High-Tech
+      </button>
+      <button class="skin-btn" data-skin="azul" onclick="setSkin('azul')">
+        <img src="assets/skins/aurora-comic-corrigiendo.png" alt="Azul"> Gótica
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <div class="hero-grid">
+
+    <!-- Escenario de Aurora -->
+    <div class="aurora-stage">
+      <div class="aurora-img-wrap">
+        <img id="aurora-main" src="assets/aurora.png" alt="Aurora, tu mentora">
+      </div>
+      <div class="aurora-nameplate" id="aurora-nameplate">AURORA · MENTORA TITULAR</div>
+      <div class="pose-bar">
+        <button class="pose-btn active" data-pose="idle" onclick="setPose('idle', this)">Reposo</button>
+        <button class="pose-btn" data-pose="explicando" onclick="setPose('explicando', this)">Explicando</button>
+        <button class="pose-btn" data-pose="corrigiendo" onclick="setPose('corrigiendo', this)">Corrigiendo</button>
+        <button class="pose-btn" data-pose="celebrando" onclick="setPose('celebrando', this)">Celebrando</button>
+      </div>
+    </div>
+
+    <!-- Bienvenida -->
+    <div class="welcome-panel">
+      <span class="welcome-kicker" id="welcome-kicker">✨ Transmisión entrante · Aurora</span>
+      <h2 class="welcome-title">Bienvenido a tu centro de mando, <em>Profesor Felipe</em>.</h2>
+      <p class="welcome-text" id="welcome-text">
+        "Hola, profe. Soy <strong>Aurora</strong>, tu co-piloto pedagógica. Este Hub resuelve lo que
+        antes te robaba horas: saber <strong>exactamente cómo va cada alumno</strong>, preparar la
+        <em>siguiente clase en minutos</em>, despachar misiones de juego con un clic y llevar el
+        <strong>registro de horas</strong> sin hojas de cálculo. ¿Te doy el tour de 60 segundos?"
+      </p>
+      <div class="welcome-actions">
+        <button class="btn-primary" onclick="openTour()">✨ Iniciar tutorial con Aurora</button>
+        <button class="btn-ghost" onclick="showToast('Explora libremente — Aurora te acompaña en cada módulo.')">Explorar por mi cuenta</button>
+      </div>
+    </div>
+
+    <!-- Perfil del profesor -->
+    <aside class="profile-card">
+      <div class="profile-head">
+        <div class="profile-face">FM</div>
+        <div>
+          <div class="profile-name">Felipe Morales</div>
+          <div class="profile-rank">Educator Pro ⭐ · Titular</div>
+        </div>
+      </div>
+      <div class="profile-stats">
+        <div class="pstat"><b>4</b><span>Alumnos activos</span></div>
+        <div class="pstat"><b>85</b><span>Lecciones A1–C1</span></div>
+        <div class="pstat"><b>17</b><span>Juegos en Ludoteca</span></div>
+        <div class="pstat"><b>48h</b><span>Impartidas este ciclo</span></div>
+      </div>
+      <p class="profile-aurora-note" id="profile-note">
+        "Tu racha docente es de 12 semanas. Mateo agota su pack en 3 horas — conviene renovarle esta semana."
+      </p>
+    </aside>
+  </div>
+
+  <!-- ================= MÓDULOS ================= -->
+  <div class="section-head">
+    <h3 class="section-title">Lo que el Hub resuelve para ti</h3>
+    <span class="section-sub">6 módulos · 1 sola órbita</span>
+  </div>
+
+  <div class="modules-grid">
+    <div class="module-card">
+      <div class="module-icon">👥</div>
+      <div class="module-name">Cohortes & Alumnos</div>
+      <p class="module-solves">Cada alumno con su <b>nivel CEFR</b>, XP, racha y horas restantes de su pack. Las <b>shadow words</b> (palabras que falla) quedan marcadas para rescatarlas en clase.</p>
+      <div class="module-metric">Astrid · A1 · 3 shadow words pendientes</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon">📖</div>
+      <div class="module-name">Planificador de Clases</div>
+      <p class="module-solves">Las <b>85 lecciones</b> del currículo con vocabulario, banco de frases y estructura lista. Eliges tema y la clase se <b>prepara sola en minutos</b>.</p>
+      <div class="module-metric">Próxima: B1 · Adverbs RPG · lista para despachar</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon">🚀</div>
+      <div class="module-name">Despachador de Misiones</div>
+      <p class="module-solves">Los <b>17 juegos arcade</b> de la Ludoteca se convierten en tareas con enlace único por alumno. Copias el link, lo envías, <b>el progreso vuelve solo</b>.</p>
+      <div class="module-metric">2 misiones activas · 1 completada hoy</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon">👑</div>
+      <div class="module-name">Estudio de Olas B & C</div>
+      <p class="module-solves">Tu material premium: visor <b>cinemático de diapositivas</b>, laboratorio fonético y generador de imprimibles. Tu sello personal como maestro.</p>
+      <div class="module-metric">Privado · Solo Prof. Felipe</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon">⏱️</div>
+      <div class="module-name">Horas & Asistencia</div>
+      <p class="module-solves">Registro automático de cada sesión: completadas, agendadas y <b>horas restantes por pack</b>. Adiós a la hoja de cálculo.</p>
+      <div class="module-metric">Mateo: 3.0h restantes → renovar pack</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon">📊</div>
+      <div class="module-name">Radar de Diagnóstico CEFR</div>
+      <p class="module-solves">Radar visual del dominio de cada alumno por skill: grammar, vocab, listening, speaking. <b>Decides con datos</b>, no con intuición.</p>
+      <div class="module-metric">Elena subió a B1 Sapphire esta semana</div>
+    </div>
+  </div>
+
+  <footer class="hub-footer">
+    TEACHER'S HUB · VERSIÓN KIMI · ENGLISH AURORA © 2026
+  </footer>
+</div>
+
+<!-- ================= TUTORIAL ================= -->
+<div class="tour-overlay" id="tour-overlay">
+  <div class="tour-card">
+    <div class="tour-topbar">
+      <span class="tour-kicker">✨ Tutorial docente · con Aurora</span>
+      <button class="tour-skip" onclick="closeTour()">Saltar ✕</button>
+    </div>
+
+    <div class="tour-stage">
+      <div class="tour-avatar"><img id="tour-avatar" src="assets/aurora-celebrando.png" alt="Aurora"></div>
+      <div class="tour-body">
+        <span class="tour-step-tag" id="tour-step-tag">Paso 1 de 6</span>
+        <h3 class="tour-title" id="tour-title"></h3>
+        <p class="tour-text" id="tour-text"></p>
+      </div>
+    </div>
+
+    <div class="tour-dots" id="tour-dots"></div>
+
+    <div class="tour-footer">
+      <button class="tour-nav" id="tour-prev" onclick="tourNav(-1)">← Anterior</button>
+      <button class="tour-nav next" id="tour-next" onclick="tourNav(1)">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   SKINS — cada una define ambiente, imágenes y voz de Aurora
+   ============================================================ */
+const SKINS = {
+  rubia: {
+    label: 'AURORA · MENTORA TITULAR',
+    subtitle: 'English Aurora · Observatorio Docente',
+    note: '"Tu racha docente es de 12 semanas. Mateo agota su pack en 3 horas — conviene renovarle esta semana."',
+    poses: {
+      idle: 'assets/aurora.png',
+      explicando: 'assets/aurora-explicando.png',
+      corrigiendo: 'assets/aurora-corrigiendo.png',
+      celebrando: 'assets/aurora-celebrando.png'
+    }
+  },
+  roja: {
+    label: 'AURORA PRIME · SISTEMA PERFECTO',
+    subtitle: 'English Aurora · Laboratorio High-Tech',
+    note: '"Telemetría docente al 100%. Detecté que Mateo agota su pack en 3.0 horas: renovación recomendada. Eficiencia perfecta."',
+    poses: {
+      idle: 'assets/skins/aurora-photo-explicando.png',
+      explicando: 'assets/skins/aurora-photo-explicando.png',
+      corrigiendo: 'assets/skins/aurora-photo-corrigiendo.png',
+      celebrando: 'assets/skins/aurora-photo-celebrando.png'
+    }
+  },
+  azul: {
+    label: 'AURORA NOCTUA · GUARDIANA ARCANA',
+    subtitle: 'English Aurora · Catedral Gótica',
+    note: '"Doce semanas de racha... impresionante. Pero escucha: el pack de Mateo se extingue en 3 horas. No dejes que su llama se apague."',
+    poses: {
+      idle: 'assets/skins/aurora-comic-corrigiendo.png',
+      explicando: 'assets/skins/aurora-comic-explicando.png',
+      corrigiendo: 'assets/skins/aurora-comic-corrigiendo.png',
+      celebrando: 'assets/skins/aurora-comic-celebrando.png'
+    }
+  }
+};
+
+let currentSkin = 'rubia';
+let currentPose = 'idle';
+
+function setSkin(name) {
+  currentSkin = name;
+  document.body.className = 'skin-' + name;
+  document.querySelectorAll('.skin-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.skin === name));
+
+  const s = SKINS[name];
+  document.getElementById('aurora-nameplate').textContent = s.label;
+  document.getElementById('brand-subtitle').textContent = s.subtitle;
+  document.getElementById('profile-note').textContent = s.note;
+  document.getElementById('brand-avatar').src = s.poses.idle;
+
+  // Mantener la pose actual pero con la nueva skin
+  applyPose(currentPose);
+
+  const names = { rubia: 'Estándar', roja: 'High-Tech', azul: 'Gótica' };
+  showToast('Skin equipada: Aurora ' + names[name]);
+}
+
+function setPose(pose, btn) {
+  currentPose = pose;
+  document.querySelectorAll('.pose-btn').forEach(b => b.classList.toggle('active', b === btn));
+  applyPose(pose);
+}
+
+function applyPose(pose) {
+  const img = document.getElementById('aurora-main');
+  img.style.opacity = 0;
+  setTimeout(() => {
+    img.src = SKINS[currentSkin].poses[pose];
+    img.style.opacity = 1;
+  }, 180);
+}
+
+/* ============================================================
+   TUTORIAL — Aurora explica lo que el Hub resuelve
+   (pose de Aurora cambia con cada paso)
+   ============================================================ */
+const TOUR = [
+  {
+    pose: 'celebrando',
+    title: '¡Bienvenido, Profesor Felipe! ✨',
+    text: '"Soy <strong>Aurora</strong> y este es tu centro de mando. En los próximos 6 pasos te muestro <em>exactamente</em> lo que este Hub resuelve por ti cada semana. Prometo: menos de un minuto."'
+  },
+  {
+    pose: 'explicando',
+    title: '👥 Cohortes & Alumnos',
+    text: '"Aquí vive cada alumno: su <strong>nivel CEFR</strong>, XP, racha y las horas que le quedan de su pack. Y lo mejor: las <em>shadow words</em> — las palabras que se le resisten — quedan marcadas para que las rescates en la próxima clase."'
+  },
+  {
+    pose: 'explicando',
+    title: '📖 Planificador de Clases',
+    text: '"¿Preparar clase te tomaba la tarde? El currículo completo de <strong>85 lecciones A1–C1</strong> está aquí: vocabulario, banco de frases y estructura lista. Tú eliges el tema; <em>la clase se arma sola</em>."'
+  },
+  {
+    pose: 'corrigiendo',
+    title: '🚀 Despachador de Misiones',
+    text: '"Los <strong>17 juegos de la Ludoteca</strong> se convierten en tareas con enlace único por alumno. Un clic, envías el link, y el progreso <em>regresa solo</em> al Hub. Sin perseguir a nadie por WhatsApp."'
+  },
+  {
+    pose: 'corrigiendo',
+    title: '⏱️ Horas & 📊 Diagnóstico CEFR',
+    text: '"El registro de horas se lleva <strong>solo</strong>: sesiones, asistencia y packs por renovar. Y el <em>radar CEFR</em> te muestra el dominio real de cada skill — decides con datos, no con intuición."'
+  },
+  {
+    pose: 'celebrando',
+    title: '¡Listo, profe! El Hub es tuyo 🎓',
+    text: '"Eso es todo: <strong>alumnos, clases, misiones, horas y diagnóstico</strong> en una sola órbita. Y recuerda — puedes cambiar mi skin arriba a la derecha: <em>Estándar, High-Tech o Gótica</em>. Misma Aurora, tres ambientes. ¡A enseñar!"'
+  }
+];
+
+let tourIdx = 0;
+
+function openTour() {
+  tourIdx = 0;
+  renderTourStep();
+  document.getElementById('tour-overlay').classList.add('active');
+}
+function closeTour() {
+  document.getElementById('tour-overlay').classList.remove('active');
+  showToast('Tutorial disponible cuando lo necesites, profe.');
+}
+function tourNav(dir) {
+  tourIdx = Math.min(Math.max(tourIdx + dir, 0), TOUR.length - 1);
+  renderTourStep();
+}
+
+function renderTourStep() {
+  const step = TOUR[tourIdx];
+  document.getElementById('tour-step-tag').textContent = `Paso ${tourIdx + 1} de ${TOUR.length}`;
+  document.getElementById('tour-title').innerHTML = step.title;
+  document.getElementById('tour-text').innerHTML = step.text;
+  document.getElementById('tour-avatar').src = SKINS[currentSkin].poses[step.pose];
+
+  const dots = document.getElementById('tour-dots');
+  dots.innerHTML = TOUR.map((_, i) =>
+    `<span class="tour-dot ${i === tourIdx ? 'active' : ''}"></span>`).join('');
+
+  document.getElementById('tour-prev').style.visibility = tourIdx === 0 ? 'hidden' : 'visible';
+  document.getElementById('tour-next').textContent =
+    tourIdx === TOUR.length - 1 ? '¡Empezar! ✨' : 'Siguiente →';
+  document.getElementById('tour-next').onclick = tourIdx === TOUR.length - 1
+    ? () => { closeTour(); setPose('celebrando', document.querySelector('[data-pose=celebrando]')); }
+    : () => tourNav(1);
+}
+
+/* ============================================================
+   Toast
+   ============================================================ */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* Cerrar tour con Escape o clic fuera */
+document.getElementById('tour-overlay').addEventListener('click', e => {
+  if (e.target.id === 'tour-overlay') closeTour();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTour(); });
+
+/* Bienvenida automática al primer acceso */
+window.addEventListener('load', () => setTimeout(openTour, 600));
+</script>
+</body>
+</html>

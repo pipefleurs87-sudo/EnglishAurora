@@ -1,0 +1,123 @@
+{
+  "id": "b2-collocations-work-study-01",
+  "nivel": "B2",
+  "arquetipo": "vocabulario",
+  "tema": "Collocations — Work & Study Power Combos",
+  "habilidades": ["vocabulary", "reading", "writing", "speaking"],
+  "vocabulario": [
+    {"bandera": "tomar una decisión", "palabra": "make a decision", "traduccion": "tomar una decisión"},
+    {"bandera": "esforzarse", "palabra": "make an effort", "traduccion": "hacer un esfuerzo"},
+    {"bandera": "progresar", "palabra": "make progress", "traduccion": "progresar"},
+    {"bandera": "cometer un error", "palabra": "make a mistake", "traduccion": "cometer un error"},
+    {"bandera": "hacer la tarea", "palabra": "do homework", "traduccion": "hacer la tarea"},
+    {"bandera": "investigar", "palabra": "do research", "traduccion": "hacer investigación"},
+    {"bandera": "dar lo mejor", "palabra": "do your best", "traduccion": "dar lo mejor de ti"},
+    {"bandera": "hacer negocios", "palabra": "do business", "traduccion": "hacer negocios"},
+    {"bandera": "tomar un descanso", "palabra": "take a break", "traduccion": "tomar un descanso"},
+    {"bandera": "tomar apuntes", "palabra": "take notes", "traduccion": "tomar apuntes"},
+    {"bandera": "asumir responsabilidad", "palabra": "take responsibility", "traduccion": "asumir responsabilidad"},
+    {"bandera": "aprovechar una oportunidad", "palabra": "take an opportunity", "traduccion": "aprovechar una oportunidad"},
+    {"bandera": "cumplir un plazo", "palabra": "meet a deadline", "traduccion": "cumplir un plazo"},
+    {"bandera": "alcanzar una meta", "palabra": "achieve a goal", "traduccion": "alcanzar una meta"},
+    {"bandera": "ganar experiencia", "palabra": "gain experience", "traduccion": "ganar experiencia"},
+    {"bandera": "postularse a un trabajo", "palabra": "apply for a job", "traduccion": "postularse a un trabajo"},
+    {"bandera": "asistir a una clase/conferencia", "palabra": "attend a lecture", "traduccion": "asistir a una conferencia/clase"},
+    {"bandera": "entregar un trabajo", "palabra": "hand in an assignment", "traduccion": "entregar un trabajo/tarea"},
+    {"bandera": "reprobar un examen", "palabra": "fail an exam", "traduccion": "reprobar un examen"},
+    {"bandera": "aprobar con nota alta", "palabra": "pass with flying colours", "traduccion": "aprobar con honores"},
+    {"bandera": "dirigir un equipo", "palabra": "run a team", "traduccion": "dirigir/gestionar un equipo"},
+    {"bandera": "fijar una meta", "palabra": "set a goal", "traduccion": "fijar una meta"},
+    {"bandera": "resolver un problema", "palabra": "solve a problem", "traduccion": "resolver un problema"},
+    {"bandera": "plantear una pregunta", "palabra": "raise a question", "traduccion": "plantear una pregunta"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Sofía made an effort to meet the tight deadline."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "We must do research before making any final decision."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Kenji passed the certification with flying colours."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She decided to apply for the design job in London."},
+    {"id": "s5", "forma": "negativo", "oracion": "He didn't make a single mistake during the presentation."},
+    {"id": "s6", "forma": "negativo", "oracion": "They haven't met the project deadline yet."},
+    {"id": "s7", "forma": "negativo", "oracion": "You shouldn't take responsibility for other people's delays."},
+    {"id": "s8", "forma": "negativo", "oracion": "She didn't hand in her assignment on time."},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did you make progress on your research paper today?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How do you plan to achieve your professional goals?"},
+    {"id": "s11", "forma": "interrogativo", "oracion": "Would you like to take a break after this meeting?"},
+    {"id": "s12", "forma": "interrogativo", "oracion": "Who is going to run the creative team next semester?"},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did she pass with flying colours? Yes, she did."},
+    {"id": "s14", "forma": "short_answer", "oracion": "Have you made a decision yet? No, I haven't."},
+    {"id": "s15", "forma": "short_answer", "oracion": "Can we take a short break now? Yes, we can."}
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Sofía: I really need to **make a decision** about this new internship.",
+        "Ben: Have you **done your research** on the company culture?",
+        "Kenji: If you **take the opportunity**, you will **gain valuable experience**.",
+        "Abuela Carmen: Always **do your best**, take notes, and remember to **take a break** when your tea is hot!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "I need to do a decision before Friday.",
+        "opcion_b": "I need to make a decision before Friday.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Collocations are natural word combinations. Using 'make' vs 'do' vs 'take' correctly makes your English sound fluent and professional.",
+      "tabla": {
+        "titulo": "The Core Verb Collocation Matrix (Work & Study)",
+        "encabezados": ["Verb", "Common Collocations", "Context Example"],
+        "filas": [
+          ["MAKE (creation / results)", "make a decision · make an effort · make progress · make a mistake", "We made great progress on the report."],
+          ["DO (tasks / actions / obligations)", "do homework · do research · do business · do your best", "Scientists must do thorough research."],
+          ["TAKE (opportunities / pauses)", "take a break · take notes · take responsibility · take an opportunity", "Please take notes during the lecture."],
+          ["WORK VERBS", "meet a deadline · achieve a goal · pass with flying colours · run a team", "She met every tight deadline."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "pregunta": "Before launching the product, we must ___ thorough market research.", "opciones": ["do", "make", "take"], "respuesta": "do"},
+        {"tipo": "multiple_choice", "pregunta": "She had to ___ a difficult decision regarding her career.", "opciones": ["make", "do", "take"], "respuesta": "make"},
+        {"tipo": "multiple_choice", "pregunta": "The whole team worked overtime to ___ the Friday deadline.", "opciones": ["meet", "reach", "catch"], "respuesta": "meet"},
+        {"tipo": "multiple_choice", "pregunta": "If you study consistently, you will pass your exams with ___ colours.", "opciones": ["flying", "shining", "running"], "respuesta": "flying"},
+        {"tipo": "multiple_choice", "pregunta": "Let's ___ a ten-minute break before continuing.", "opciones": ["take", "make", "do"], "respuesta": "take"},
+        {"tipo": "true_false", "afirmacion": "In English, we say 'make homework' rather than 'do homework'.", "respuesta": "false"},
+        {"tipo": "true_false", "afirmacion": "'Pass with flying colours' is an idiom meaning to pass an exam with exceptional results.", "respuesta": "true"},
+        {"tipo": "gap_fill", "texto": "It's completely normal to ___ (make / do) mistakes when learning a new language.", "respuesta": "make"},
+        {"tipo": "gap_fill", "texto": "Don't forget to ___ (hand in / give in) your assignments by 5 PM.", "respuesta": "hand in"},
+        {"tipo": "gap_fill", "texto": "The manager asked her to ___ (run / drive) the new design team.", "respuesta": "run"},
+        {"tipo": "unscramble", "palabras": ["she", "made", "an", "effort", "to", "solve", "the", "problem"], "respuesta": "She made an effort to solve the problem"},
+        {"tipo": "unscramble", "palabras": ["you", "must", "do", "research", "before", "writing"], "respuesta": "You must do research before writing"},
+        {"tipo": "correct_mistake", "texto_con_error": "He did a big mistake in his calculation.", "respuesta": "He made a big mistake in his calculation."},
+        {"tipo": "correct_mistake", "texto_con_error": "We need to make our homework now.", "respuesta": "We need to do our homework now."},
+        {"tipo": "transformation", "oracion_base": "She passed the exam with the highest possible marks.", "instruccion": "Rewrite using the collocation 'flying colours'.", "respuesta": "She passed the exam with flying colours."},
+        {"tipo": "transformation", "oracion_base": "She decided to attend the international conference.", "instruccion": "Rewrite using 'take the opportunity'.", "respuesta": "She decided to take the opportunity to attend the international conference."},
+        {"tipo": "write_opposite", "oracion_base": "They made significant progress on the project.", "instruccion": "Write the sentence in the negative form.", "respuesta": "They didn't make significant progress on the project."},
+        {"tipo": "short_answer_production", "pregunta": "Did you take notes during the lecture? (Short answer: Yes)", "respuesta": "Yes, I did."},
+        {"tipo": "short_answer_production", "pregunta": "Did you make a mistake in the calculations? (Short answer: No)", "respuesta": "No, I didn't."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: The client wants us to **meet the deadline** by next Monday.",
+        "Kenji: That is very tight. We need to **make an effort** and divide the tasks today.",
+        "Ben: I can **do the research** on the background images tonight.",
+        "Sofía: Excellent! If we work together, we can **achieve our goal** without working over the weekend.",
+        "Abuela Carmen: And don't forget: an organized mind always leaves time for a cup of chamomile tea."
+      ],
+      "gaps": ["deadline", "effort", "research", "goal"],
+      "comprension": [
+        {"pregunta": "When is the project deadline?", "opciones": ["Next Monday", "Tonight", "Next month"], "respuesta": "Next Monday"},
+        {"pregunta": "What task will Ben do tonight?", "opciones": ["Do research on background images", "Meet the client", "Cook tea"], "respuesta": "Do research on background images"}
+      ]
+    },
+    "reading": {
+      "texto": "Securing a top position in modern industries requires more than just technical qualifications. Employers actively look for candidates who can take responsibility, solve complex problems under pressure, and communicate clearly. During university, students who take every opportunity to gain practical experience and attend specialized lectures build stronger professional networks. When the final assessments arrive, those who have set clear study goals and kept consistent routines invariably pass with flying colours.",
+      "preguntas": [
+        {"afirmacion": "Employers look for candidates who take responsibility and solve problems.", "respuesta": "true"},
+        {"afirmacion": "Practical experience is irrelevant for building professional networks.", "respuesta": "false"},
+        {"afirmacion": "Setting clear study goals helps students pass assessments with flying colours.", "respuesta": "true"},
+        {"afirmacion": "Attending lectures is discouraged in the text.", "respuesta": "false"}
+      ]
+    }
+  }
+}
