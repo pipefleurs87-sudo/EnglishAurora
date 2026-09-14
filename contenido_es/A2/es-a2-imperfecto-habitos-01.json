@@ -1,0 +1,423 @@
+{
+  "id": "es-a2-imperfecto-habitos-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Pretérito Imperfecto (Hábitos Pasados y Descripciones)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "antes",
+      "traduccion": "before / formerly",
+      "bandera": "⏳"
+    },
+    {
+      "palabra": "en aquella época",
+      "traduccion": "in those days / at that time",
+      "bandera": "📜"
+    },
+    {
+      "palabra": "de niño / de niña",
+      "traduccion": "as a child",
+      "bandera": "🧒"
+    },
+    {
+      "palabra": "cuando era joven",
+      "traduccion": "when I was young",
+      "bandera": "🧑"
+    },
+    {
+      "palabra": "todos los veranos",
+      "traduccion": "every summer",
+      "bandera": "☀️"
+    },
+    {
+      "palabra": "solía",
+      "traduccion": "used to / was accustomed to",
+      "bandera": "🔄"
+    },
+    {
+      "palabra": "jugaba",
+      "traduccion": "I / he played",
+      "bandera": "🪁"
+    },
+    {
+      "palabra": "vivíamos",
+      "traduccion": "we lived",
+      "bandera": "🏠"
+    },
+    {
+      "palabra": "era",
+      "traduccion": "I / he was (ser - irreg.)",
+      "bandera": "🌟"
+    },
+    {
+      "palabra": "iba",
+      "traduccion": "I / he went (ir - irreg.)",
+      "bandera": "🚶"
+    },
+    {
+      "palabra": "veía",
+      "traduccion": "I / he saw (ver - irreg.)",
+      "bandera": "👁️"
+    },
+    {
+      "palabra": "había",
+      "traduccion": "there was / were",
+      "bandera": "🏛️"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Cuando era niña, Valeria vivía en una casa campestre con jardín grande."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Todos los domingos nosotros íbamos al parque a comer helado artesanal."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Antes en este barrio no había tantos edificios altos ni tanto tráfico."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Lucas no comía verduras de pequeño, pero ahora le encantan todas."
+    },
+    {
+      "id": "s5",
+      "forma": "interrogativo",
+      "oracion": "¿Qué hacías tú los fines de semana cuando estabas en la escuela?"
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Cómo era tu profesor de dibujo en la infancia?"
+    },
+    {
+      "id": "s7",
+      "forma": "short_answer",
+      "oracion": "¿Ibas al cine a menudo en aquella época? Sí, iba todos los viernes."
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Tenías muchos amigos en el colegio? Sí, tenía un grupo muy alegre."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡El **Pretérito Imperfecto** es el tiempo de la memoria afectuosa, los hábitos pasados y la pintura de fondo!",
+        "Doña Elena: En mis tiempos de juventud, las calles eran de piedra y los niños jugábamos en la plaza hasta que caía la noche.",
+        "Aurora: ¡Exactamente! Usamos el imperfecto para describir personas, lugares y escenarios en el pasado, y para evocar costumbres repetidas (*hacía, vivía*). Y lo mejor de todo: ¡solo existen tres verbos irregulares en todo el español: **ser** (*era*), **ir** (*iba*) y **ver** (*veía*)!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Cuando yo fui niño, yo fui muy tímido y viví en el campo.",
+        "opcion_b": "Cuando yo era niño, yo era muy tímido y vivía en el campo.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "El pretérito imperfecto describe cualidades de personas o lugares, circunstancias ambientales y costumbres repetidas en el pasado, sin enfocar su inicio ni su conclusión.",
+      "tabla": {
+        "titulo": "Desinencias del Pretérito Imperfecto (Regulares y 3 Únicos Irregulares)",
+        "encabezados": [
+          "Pronombre",
+          "-AR (cantar)",
+          "-ER / -IR (vivir)",
+          "Ser (irreg.)",
+          "Ir (irreg.)"
+        ],
+        "filas": [
+          [
+            "yo",
+            "cant-aba",
+            "viv-ía",
+            "era",
+            "iba"
+          ],
+          [
+            "tú",
+            "cant-abas",
+            "viv-ías",
+            "eras",
+            "ibas"
+          ],
+          [
+            "él / ella / usted",
+            "cant-aba",
+            "viv-ía",
+            "era",
+            "iba"
+          ],
+          [
+            "nosotros / nosotras",
+            "cant-ábamos",
+            "viv-íamos",
+            "éramos",
+            "íbamos"
+          ],
+          [
+            "vosotros / vosotras",
+            "cant-abais",
+            "viv-íais",
+            "erais",
+            "ibais"
+          ],
+          [
+            "ellos / ellas / ustedes",
+            "cant-aban",
+            "viv-ían",
+            "eran",
+            "iban"
+          ]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuáles son los únicos tres verbos irregulares en pretérito imperfecto en español?",
+          "opciones": [
+            "ser, ir y ver",
+            "tener, estar y hacer",
+            "haber, poder y saber",
+            "dar, decir y poner"
+          ],
+          "respuesta": "ser, ir y ver"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué terminación corresponde a los verbos en -ar para 'nosotros' en pretérito imperfecto?",
+          "opciones": [
+            "-ábamos",
+            "-abamos",
+            "-íamos",
+            "-abais"
+          ],
+          "respuesta": "-ábamos"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué función comunicativa caracteriza principalmente al pretérito imperfecto?",
+          "opciones": [
+            "describir hábitos repetidos y escenarios pasados",
+            "narrar acciones puntuales ocurridas ayer",
+            "expresar órdenes de imperativo",
+            "formular planes para el fin de semana"
+          ],
+          "respuesta": "describir hábitos repetidos y escenarios pasados"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "Todas las terminaciones de pretérito imperfecto para verbos en -er e -ir llevan tilde ortográfica en la vocal 'í' (-ía, -ías, -ía, -íamos, -íais, -ían).",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En el pretérito imperfecto, la forma de primera persona singular (yo) y la de tercera persona singular (él/ella) son formalmente idénticas (ej. yo vivía / él vivía).",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "conjugation_table",
+          "etapa": "Manipulate",
+          "verbo": "jugar",
+          "tiempo": "Pretérito Imperfecto Regular (-ar)",
+          "instruccion": "Completa el paradigma del verbo jugar en imperfecto:",
+          "filas": [
+            {
+              "id": "f_jugaba",
+              "pronombre": "yo",
+              "respuesta": "jugaba"
+            },
+            {
+              "id": "f_jugabas",
+              "pronombre": "tú",
+              "respuesta": "jugabas"
+            },
+            {
+              "id": "f_jugaba_3",
+              "pronombre": "él / ella / usted",
+              "respuesta": "jugaba"
+            },
+            {
+              "id": "f_jugabamos",
+              "pronombre": "nosotros / nosotras",
+              "respuesta": "jugábamos"
+            },
+            {
+              "id": "f_jugabais",
+              "pronombre": "vosotros / vosotras",
+              "respuesta": "jugabais"
+            },
+            {
+              "id": "f_jugaban",
+              "pronombre": "ellos / ellas / ustedes",
+              "respuesta": "jugaban"
+            }
+          ]
+        },
+        {
+          "tipo": "conjugation_table",
+          "etapa": "Manipulate",
+          "verbo": "ser",
+          "tiempo": "Pretérito Imperfecto Irregular",
+          "instruccion": "Completa el paradigma del verbo irregular ser en imperfecto:",
+          "filas": [
+            {
+              "id": "f_era",
+              "pronombre": "yo",
+              "respuesta": "era"
+            },
+            {
+              "id": "f_eras",
+              "pronombre": "tú",
+              "respuesta": "eras"
+            },
+            {
+              "id": "f_era_3",
+              "pronombre": "él / ella / usted",
+              "respuesta": "era"
+            },
+            {
+              "id": "f_eramos",
+              "pronombre": "nosotros / nosotras",
+              "respuesta": "éramos"
+            },
+            {
+              "id": "f_erais",
+              "pronombre": "vosotros / vosotras",
+              "respuesta": "erais"
+            },
+            {
+              "id": "f_eran",
+              "pronombre": "ellos / ellas / ustedes",
+              "respuesta": "eran"
+            }
+          ]
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "De niña, Valeria ___ (vivir) en un pueblo tranquilo y ___ (ser) muy curiosa.",
+          "respuesta": "vivía era"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Todos los veranos nosotros ___ (ir) a la playa y ___ (nadar) en el mar.",
+          "respuesta": "íbamos nadábamos"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "Antes",
+            "la",
+            "gente",
+            "escribía",
+            "cartas",
+            "a",
+            "mano"
+          ],
+          "respuesta": "Antes la gente escribía cartas a mano"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Cuando éramos jóvenes nosotros ibamos al cine todos los sábados.",
+          "respuesta": "Cuando éramos jóvenes nosotros íbamos al cine todos los sábados."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración de presente a pasado habitual usando el pretérito imperfecto:",
+          "oracion_base": "Ahora vivo en un apartamento moderno en el centro.",
+          "respuesta": "Antes vivía en un apartamento moderno en el centro."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración cambiando el sujeto de 'Yo' a 'Nosotros':",
+          "oracion_base": "Yo jugaba con mis amigos en el patio de la escuela.",
+          "respuesta": "Nosotros jugábamos con nuestros amigos en el patio de la escuela."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración afirmativa a interrogativa sobre el pasado habitual:",
+          "oracion_base": "Tú veías dibujos animados por las mañanas.",
+          "respuesta": "¿Veías dibujos animados por las mañanas?"
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la afirmación opuesta sobre un hábito del pasado:",
+          "oracion_base": "De niño me gustaba mucho madrugar para estudiar.",
+          "respuesta": "De niño no me gustaba nada madrugar para estudiar."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Cómo era tu rutina cuando eras niño o niña?",
+          "respuesta": "Iba a la escuela por la mañana y jugaba por la tarde."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Mateo: Doña Elena, cuéntenos cómo era este barrio hace cincuenta años.",
+        "Doña Elena: ¡Ay, Mateo! En aquella época todo era campo y huertas de café.",
+        "Mateo: ¿Y las familias se conocían todas?",
+        "Doña Elena: Sí, todos los vecinos éramos amigos y nos ayudábamos siempre."
+      ],
+      "gaps": [
+        "campo",
+        "vecinos"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Cómo era el barrio de Doña Elena hace cincuenta años?",
+          "opciones": [
+            "Todo era campo y huertas de café",
+            "Estaba lleno de rascacielos modernos",
+            "No vivía nadie en la zona"
+          ],
+          "respuesta": "Todo era campo y huertas de café"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Cuando la abuela Elena era pequeña, la vida en el pueblo transcurría a un ritmo sereno. Las familias no tenían televisores ni teléfonos inteligentes; en su lugar, se reunían en el zaguán después de la cena para escuchar historias fantásticas que narraban los ancianos. Elena y sus hermanos solían levantarse con el canto del gallo y ayudaban a recoger flores frescas antes de ir a la escuela rural. El camino hacia la escuela era largo, pero caminaban contentos cantando canciones populares bajo los árboles frutales.",
+      "preguntas": [
+        {
+          "afirmacion": "En la infancia de Elena las familias se reunían en el zaguán para escuchar historias.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Elena tenía un teléfono inteligente para hacer sus tareas escolares.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "Las formas 'era', 'transcurría', 'tenían', 'reunían' y 'solían' describen el ambiente habitual de aquella época.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "id": "es-a2-imperativo-instrucciones-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Imperativo Afirmativo (Instrucciones, Recetas y Direcciones)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "dobla / gire",
+      "traduccion": "turn (tú / usted)",
+      "bandera": "↪️"
+    },
+    {
+      "palabra": "sigue / continúe",
+      "traduccion": "go straight (tú / usted)",
+      "bandera": "⬆️"
+    },
+    {
+      "palabra": "cruza / cruce",
+      "traduccion": "cross (tú / usted)",
+      "bandera": "🚸"
+    },
+    {
+      "palabra": "añade / agregue",
+      "traduccion": "add (tú / usted)",
+      "bandera": "🧂"
+    },
+    {
+      "palabra": "mezcla / mezcle",
+      "traduccion": "mix (tú / usted)",
+      "bandera": "🥣"
+    },
+    {
+      "palabra": "haz (hacer)",
+      "traduccion": "do / make (tú irreg.)",
+      "bandera": "⚡"
+    },
+    {
+      "palabra": "pon (poner)",
+      "traduccion": "put (tú irreg.)",
+      "bandera": "📦"
+    },
+    {
+      "palabra": "ten (tener)",
+      "traduccion": "have / be careful (tú irreg.)",
+      "bandera": "⚠️"
+    },
+    {
+      "palabra": "sal (salir)",
+      "traduccion": "go out / exit (tú irreg.)",
+      "bandera": "🚪"
+    },
+    {
+      "palabra": "di (decir)",
+      "traduccion": "say / tell (tú irreg.)",
+      "bandera": "💬"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Dobla a la derecha en la esquina y camina dos cuadras hasta el museo."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Añade una pizca de sal marina y mezcla todos los ingredientes con cuidado."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Ten paciencia con el proceso de cocción y pon la tapa sobre la olla."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "No cruces la calle con el semáforo en rojo; espera siempre la luz verde."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "No agregues demasiada azúcar a la infusión tradicional de frutas."
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Puedes decirme cómo llego a la biblioteca principal desde aquí?"
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "¿Cuál es el siguiente paso de la receta para hornear las empanadas?"
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Sigo recto por esta calle? Sí, continúa tres cuadras hasta la plaza."
+    },
+    {
+      "id": "s9",
+      "forma": "short_answer",
+      "oracion": "¿Pongo la cazuela al fuego ahora? Sí, ponla a fuego medio diez minutos."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Para ir al banco, dobla a la derecha y después siga todo recto.",
+        "opcion_b": "Para ir al banco, dobla a la derecha y después sigue todo recto.",
+        "correcta": "b",
+        "explicacion": "Al dar instrucciones debemos mantener la coherencia del registro: si iniciamos tuteando ('dobla'), debemos continuar en imperativo de tú ('sigue'), evitando mezclarlo con el tratamiento formal de usted ('siga')."
+      },
+      "definicion_pragmatica": "Empleamos el imperativo afirmativo para guiar a alguien por la ciudad, explicar los pasos de una receta culinaria o dar consejos prácticos de manera directa y cordial.",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cómo se forma el imperativo afirmativo regular para la persona 'tú'?",
+          "opciones": [
+            "Coincide con la tercera persona singular (él/ella) del presente de indicativo (habla, come, vive)",
+            "Se le añade siempre una -s al final del infinitivo",
+            "Usa exactamente la forma del infinitivo con preposición"
+          ],
+          "respuesta": "Coincide con la tercera persona singular (él/ella) del presente de indicativo (habla, come, vive)"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuáles son las formas irregulares del imperativo afirmativo para 'tú' de los verbos 'hacer' y 'poner'?",
+          "opciones": [
+            "haz y pon",
+            "hace y pone",
+            "haga y ponga"
+          ],
+          "respuesta": "haz y pon"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "Para dirigirte formalmente a una persona mayor o cliente con 'usted', ¿cuál es el imperativo de 'pasar' y 'tomar' asiento?",
+          "opciones": [
+            "Pase y tome asiento",
+            "Pasa y toma asiento",
+            "Pasar y tomar asiento"
+          ],
+          "respuesta": "Pase y tome asiento"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En el imperativo afirmativo, los pronombres se colocan unidos al final del verbo (enclíticos), por ejemplo: 'escúchame' o 'bébelo'.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "El imperativo de 'tú' para el verbo 'tener' es *tene en el español estándar peninsular y americano.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Lucas, ___ (doblar - tú) a la izquierda en la siguiente esquina del parque.",
+          "respuesta": "dobla"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Señora Elena, por favor ___ (pasar - usted) a la sala de invitados.",
+          "respuesta": "pase"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "limón",
+            "jugo",
+            "el",
+            "ensalada",
+            "la",
+            "en",
+            "pon"
+          ],
+          "respuesta": "Pon el jugo de limón en la ensalada."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Mateo, salgas temprano de casa para evitar la congestión del tráfico.",
+          "respuesta": "Mateo, sal temprano de casa para evitar la congestión del tráfico."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Para preparar el té, hierve el agua y después agregue la canela.",
+          "respuesta": "Para preparar el té, hierve el agua y después agrega la canela."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la instrucción del tratamiento informal (tú) al formal (usted): 'Camina dos cuadras y cruza la avenida principal'.",
+          "oracion_base": "Camina dos cuadras y cruza la avenida principal.",
+          "respuesta": "Camine dos cuadras y cruce la avenida principal."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la sugerencia en una orden directa con imperativo irregular de 'tú' (hacer): 'Es buena idea que hagas tu maleta hoy'.",
+          "oracion_base": "Es buena idea que hagas tu maleta hoy.",
+          "respuesta": "Haz tu maleta hoy."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la instrucción añadiendo el pronombre enclítico 'lo': 'Escucha el consejo de la abuela'.",
+          "oracion_base": "Escucha el consejo de la abuela.",
+          "respuesta": "Escúchalo con atención."
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la respuesta contraria a la petición de detenerse:",
+          "oracion_base": "¿Me detengo aquí junto a la parada del autobús?",
+          "respuesta": "No, continúa avanzando hasta el final de la calle."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué consejo o instrucción le das a un amigo que visita tu ciudad por primera vez?",
+          "respuesta": "Visita el centro histórico a pie y prueba la comida tradicional en el mercado."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Lucas: Mateo, ¿cómo llego desde aquí al mirador de la ciudad?",
+        "Mateo: Es muy fácil, Lucas. Sube por esta colina empedrada y cruza el puente de madera.",
+        "Lucas: ¿Y después doblo hacia algún lado?",
+        "Mateo: Gira a la derecha junto a la iglesia antigua... y disfruta de la vista panorámica."
+      ],
+      "gaps": [
+        "Sube",
+        "Gira"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué debe hacer Lucas después de cruzar el puente de madera?",
+          "opciones": [
+            "Girar a la derecha junto a la iglesia antigua",
+            "Tomar un autobús hacia el aeropuerto",
+            "Regresar inmediatamente a la plaza central"
+          ],
+          "respuesta": "Girar a la derecha junto a la iglesia antigua"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Receta tradicional de chocolate santafereño por Doña Elena:\n'Pon a calentar en una chocolinera tradicional dos tazas de leche fresca y dos pastillas de chocolate amargo con clavo y canela. Deja que la leche alcance el punto de hervor a fuego medio. Bate con el molinillo de madera haciéndolo girar entre las palmas de tus manos con energía para sacar una espuma espesa y brillante. Finalmente, sírvelo inmediatamente en tazas de barro bien calientes y acompáñalo con queso fresco campesino y pan recién horneado'.",
+      "preguntas": [
+        {
+          "afirmacion": "El texto utiliza verbos en imperativo afirmativo ('Pon', 'Deja', 'Bate', 'sírvelo', 'acompáñalo') para estructurar la receta culinaria.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Doña Elena aconseja servir el chocolate frío de la nevera sin espuma.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "El molinillo de madera se utiliza para generar la espuma característica del chocolate caliente.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

@@ -1552,13 +1552,50 @@
     var bridge = window.EA_BRIDGES_DATA[tid];
     if (!bridge) return;
 
-    var container = document.getElementById('app') || document.querySelector('.wrap') || document.body;
     if (document.getElementById('ea-bridge-widget')) return;
+
+    var deck = document.getElementById('deck');
+    var waveBWrap = document.querySelector('.lesson-layout-wrap');
+    var app = document.getElementById('app') || document.querySelector('.wrap');
+
+    var targetContainer = null;
+    var insertBeforeNode = null;
+
+    if (deck) {
+      // Inside a slide presentation: attach to the LAST slide so it only appears at the end of the lesson!
+      var lastSlide = deck.querySelector('.slide:last-child');
+      if (lastSlide) {
+        targetContainer = lastSlide;
+        insertBeforeNode = lastSlide.querySelector('.url');
+      } else {
+        setTimeout(renderConnectedBridge, 100);
+        return;
+      }
+    } else if (waveBWrap) {
+      // Wave B Masterclass: attach inside the layout wrap after Scene 7
+      var s7 = document.getElementById('scene-7');
+      if (s7 && s7.parentNode) {
+        targetContainer = s7.parentNode;
+        insertBeforeNode = s7.nextSibling;
+      } else {
+        targetContainer = waveBWrap;
+      }
+    } else if (app) {
+      targetContainer = app;
+      insertBeforeNode = app.querySelector('footer');
+    }
+
+    if (!targetContainer) return; // Do NOT attach to body to prevent flickers!
 
     var w = document.createElement('section');
     w.id = 'ea-bridge-widget';
     w.className = 'ea-bridge-card';
     
+    // Prevent ANY clicks inside the bridge card from bubbling to slide deck navigation
+    w.addEventListener('click', function(e) { e.stopPropagation(); });
+    w.addEventListener('pointerdown', function(e) { e.stopPropagation(); });
+    w.addEventListener('mousedown', function(e) { e.stopPropagation(); });
+
     var destPractice = '../preview/' + bridge.nextId + '.html';
     var destLesson = '../leccion/' + bridge.nextId + '.html';
     if (bridge.nextId.indexOf('.html') !== -1) {
@@ -1601,7 +1638,9 @@
     var optBtns = w.querySelectorAll('.bridge-opt-btn');
     var fb = w.querySelector('.bridge-fb');
     optBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
         var sel = btn.getAttribute('data-opt');
         optBtns.forEach(function(b) { b.disabled = true; });
         fb.style.display = 'block';
@@ -1621,12 +1660,10 @@
       });
     });
 
-    // Inject before footer or at the bottom
-    var footer = container.querySelector('footer');
-    if (footer) {
-      container.insertBefore(w, footer);
+    if (insertBeforeNode) {
+      targetContainer.insertBefore(w, insertBeforeNode);
     } else {
-      container.appendChild(w);
+      targetContainer.appendChild(w);
     }
   }
 
@@ -1634,11 +1671,18 @@
     var tid = getTopicId();
     if (!tid) return;
 
+    // Do NOT render FAQ on slide presentation decks (only on practice, test, and wave-b masterclasses)
+    if (document.getElementById('deck')) return;
+
     var faqs = window.EA_FAQS_DATA[tid];
     if (!faqs || !faqs.length) return;
 
-    var container = document.getElementById('app') || document.querySelector('.wrap') || document.body;
     if (document.getElementById('ea-faq-widget')) return;
+
+    var waveBWrap = document.querySelector('.lesson-layout-wrap');
+    var app = document.getElementById('app') || document.querySelector('.wrap');
+    var targetContainer = waveBWrap || app;
+    if (!targetContainer) return;
 
     var sec = document.createElement('section');
     sec.id = 'ea-faq-widget';
@@ -1664,15 +1708,15 @@
       '</div>' +
       '<div class="ea-faq-list">' + itemsHtml + '</div>';
 
-    // Inject right before footer or after bridge
+    // Inject right after bridge or before footer
     var bridge = document.getElementById('ea-bridge-widget');
-    var footer = container.querySelector('footer');
+    var footer = targetContainer.querySelector('footer');
     if (bridge && bridge.nextSibling) {
-      container.insertBefore(sec, bridge.nextSibling);
+      targetContainer.insertBefore(sec, bridge.nextSibling);
     } else if (footer) {
-      container.insertBefore(sec, footer);
+      targetContainer.insertBefore(sec, footer);
     } else {
-      container.appendChild(sec);
+      targetContainer.appendChild(sec);
     }
   }
 
@@ -1841,6 +1885,75 @@
       }
       .btn-bridge.text:hover {
         color: var(--ink, #17223B);
+      }
+
+      /* Slide presentation adaptations */
+      #deck .slide:last-child {
+        overflow-y: auto !important;
+        justify-content: flex-start !important;
+        padding-top: 5vh !important;
+        padding-bottom: 8vh !important;
+      }
+      #deck .slide:last-child::-webkit-scrollbar {
+        width: 8px;
+      }
+      #deck .slide:last-child::-webkit-scrollbar-thumb {
+        background: rgba(212, 175, 55, 0.3);
+        border-radius: 4px;
+      }
+      .slide.dark .ea-bridge-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(15,76,92,0.22) 100%);
+        border: 1px solid rgba(212,175,55,0.35);
+        border-left: 5px solid #D4AF37;
+        color: #F7F8F5;
+        margin: 24px 0 16px;
+      }
+      .slide.dark .bridge-badge-kicker {
+        color: #D4AF37;
+      }
+      .slide.dark .bridge-title {
+        color: #F7F8F5;
+      }
+      .slide.dark .bridge-note {
+        color: #CBD5E0;
+      }
+      .slide.dark .bridge-challenge-box {
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+      }
+      .slide.dark .bridge-ch-prompt {
+        color: #F7F8F5;
+      }
+      .slide.dark .bridge-opt-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: #F7F8F5;
+      }
+      .slide.dark .bridge-opt-btn:hover:not(:disabled) {
+        border-color: #D4AF37;
+        background: rgba(212, 175, 55, 0.15);
+      }
+      .slide.dark .btn-bridge.primary {
+        background: #D4AF37;
+        color: #17223B;
+        border-color: #D4AF37;
+      }
+      .slide.dark .btn-bridge.primary:hover {
+        background: #F7F8F5;
+        border-color: #F7F8F5;
+      }
+      .slide.dark .btn-bridge.ghost {
+        border-color: #D4AF37;
+        color: #D4AF37;
+      }
+      .slide.dark .btn-bridge.ghost:hover {
+        background: rgba(212, 175, 55, 0.15);
+      }
+      .slide.dark .btn-bridge.text {
+        color: #A0AEC0;
+      }
+      .slide.dark .btn-bridge.text:hover {
+        color: #F7F8F5;
       }
 
       /* FAQ Accordion */

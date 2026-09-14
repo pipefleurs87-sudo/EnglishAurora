@@ -1,0 +1,292 @@
+{
+  "id": "es-a2-comparativos-superlativos-01",
+  "nivel": "A2",
+  "arquetipo": "comparativos",
+  "tema": "Comparativos y Superlativos (Grados del Adjetivo)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "más... que",
+      "traduccion": "more... than (superiority)",
+      "bandera": "📈"
+    },
+    {
+      "palabra": "menos... que",
+      "traduccion": "less... than (inferiority)",
+      "bandera": "📉"
+    },
+    {
+      "palabra": "tan... como",
+      "traduccion": "as... as (adjective/adverb)",
+      "bandera": "⚖️"
+    },
+    {
+      "palabra": "tanto... como",
+      "traduccion": "as much / as many... as",
+      "bandera": "🔢"
+    },
+    {
+      "palabra": "mejor / peor",
+      "traduccion": "better / worse (irregular)",
+      "bandera": "⭐"
+    },
+    {
+      "palabra": "mayor / menor",
+      "traduccion": "older / younger (irregular)",
+      "bandera": "👥"
+    },
+    {
+      "palabra": "el más... de",
+      "traduccion": "the most... of (superlative)",
+      "bandera": "🏆"
+    },
+    {
+      "palabra": "tranquilo",
+      "traduccion": "peaceful / quiet",
+      "bandera": "🌿"
+    },
+    {
+      "palabra": "rápido",
+      "traduccion": "fast / quick",
+      "bandera": "⚡"
+    },
+    {
+      "palabra": "delicioso",
+      "traduccion": "delicious",
+      "bandera": "🍰"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "El café de Doña Elena es más aromático que el café de las cadenas comerciales."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Este sendero ecológico es tan hermoso como el parque botánico central."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Lucas tiene tantos libros de fotografía en su estudio como Mateo."
+    },
+    {
+      "id": "s4",
+      "forma": "afirmativo",
+      "oracion": "La tarta de Chloe es la más deliciosa de toda la pastelería artesanal."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "El tren moderno no es menos puntual que el autobús intermunicipal."
+    },
+    {
+      "id": "s6",
+      "forma": "negativo",
+      "oracion": "La habitación del hotel no era tan espaciosa como esperábamos al llegar."
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "¿Es el clima de Medellín más templado que el clima de Bogotá?"
+    },
+    {
+      "id": "s8",
+      "forma": "interrogativo",
+      "oracion": "¿Quién es el hermano mayor en la familia de Mateo?"
+    },
+    {
+      "id": "s9",
+      "forma": "short_answer",
+      "oracion": "¿Es este museo más interesante que el de historia? Sí, es mucho más interactivo."
+    },
+    {
+      "id": "s10",
+      "forma": "short_answer",
+      "oracion": "¿Trabajas tantas horas como tus colegas? Sí, trabajo tanto como ellos."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Este restaurante tradicional es más bueno que el del centro comercial.",
+        "opcion_b": "Este restaurante tradicional es mejor que el del centro comercial.",
+        "correcta": "b",
+        "explicacion": "Los adjetivos 'bueno' y 'malo' tienen formas comparativas sintéticas irregulares ('mejor' y 'peor'). En español no se dice *más bueno ni *más malo en comparaciones de calidad general."
+      },
+      "definicion_pragmatica": "Comparamos cualidades, cantidades o acciones entre dos o más elementos ('más... que', 'tan... como'), o destacamos el grado supremo de un grupo ('el más... de').",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál es la estructura correcta para establecer una comparación de igualdad con adjetivos?",
+          "opciones": [
+            "tan + adjetivo + como",
+            "tanto + adjetivo + que",
+            "más + adjetivo + como"
+          ],
+          "respuesta": "tan + adjetivo + como"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuáles son las formas comparativas irregulares de 'bueno' y 'malo'?",
+          "opciones": [
+            "mejor y peor",
+            "más bueno y más malo",
+            "buenísimo y malísimo"
+          ],
+          "respuesta": "mejor y peor"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "Para referirse a la edad entre hermanos, ¿qué términos comparativos se usan correctamente?",
+          "opciones": [
+            "mayor y menor",
+            "más grande y más chico exclusivamente",
+            "más viejo y más joven de manera obligatoria"
+          ],
+          "respuesta": "mayor y menor"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "El superlativo relativo en español se construye con artículo definido + más/menos + adjetivo + 'de' (ej. 'la más alta de la ciudad').",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En comparaciones de superioridad en español se usa la preposición 'de' en lugar de 'que', como en *'Lucas es más alto de Mateo'.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "El centro histórico es ___ (más) pintoresco que la zona industrial.",
+          "respuesta": "más"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Doña Elena cocina ___ (tan) sabroso como los mejores chefs de la región.",
+          "respuesta": "tan"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "es",
+            "parque",
+            "este",
+            "antiguo",
+            "el",
+            "más",
+            "de",
+            "ciudad",
+            "la"
+          ],
+          "respuesta": "Este parque es el más antiguo de la ciudad."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Esta fruta exótica es más mejor que la manzana tradicional.",
+          "respuesta": "Esta fruta exótica es mejor que la manzana tradicional."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Mateo trabaja tanto horas como su socia en el proyecto arquitectónico.",
+          "respuesta": "Mateo trabaja tantas horas como su socia en el proyecto arquitectónico."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la comparación de superioridad en una comparación de igualdad usando 'tan... como': 'El metro es más rápido que el autobús'.",
+          "oracion_base": "El metro es más rápido que el autobús.",
+          "respuesta": "El autobús no es tan rápido como el metro."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Convierte la oración comparativa en una de grado superlativo relativo: 'Este mirador es más alto que los otros miradores del valle'.",
+          "oracion_base": "Este mirador es más alto que los otros miradores del valle.",
+          "respuesta": "Este mirador es el más alto del valle."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la afirmación en una pregunta sobre cuál opción es preferible:",
+          "oracion_base": "La ruta montañosa es más atractiva que la autopista plana.",
+          "respuesta": "¿Es la ruta montañosa más atractiva que la autopista plana?"
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la afirmación contraria cambiando el comparativo de superioridad a inferioridad:",
+          "oracion_base": "Este libro de historia es más complejo que aquel artículo.",
+          "respuesta": "Este libro de historia es menos complejo que aquel artículo."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué ciudad consideras la más fascinante del mundo y por qué?",
+          "respuesta": "Considero que Tokio es la más fascinante por su mezcla de tradición y futuro."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Chloe: Lucas, ¿cuál de los dos mercados te parece mejor para comprar frutas?",
+        "Lucas: El mercado de la plaza es más barato que el supermercado moderno.",
+        "Chloe: Sí, y además los mangos son tan dulces como la miel.",
+        "Lucas: Tienes toda la razón... ¡es el lugar más agradable de todo el barrio!"
+      ],
+      "gaps": [
+        "más barato",
+        "tan dulces"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Por qué prefieren comprar frutas en el mercado de la plaza?",
+          "opciones": [
+            "Porque es más barato y la fruta es muy dulce",
+            "Porque abre las veinticuatro horas del día",
+            "Porque queda más lejos de la casa"
+          ],
+          "respuesta": "Porque es más barato y la fruta es muy dulce"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Comparar dos ciudades hermanas como Medellín y Bogotá es un ejercicio fascinante. Medellín es conocida por tener un clima más cálido y templado que la capital andina, lo que le ha valido el apodo de la 'Ciudad de la Eterna Primavera'. Por su parte, Bogotá es más extensa y alberga una oferta cultural tan variada como las grandes metrópolis globales. Ambas ciudades cuentan con una calidez humana admirable, pero según Doña Elena, la amabilidad de los barrios tradicionales es la cualidad más valiosa de cualquier rincón colombiano.",
+      "preguntas": [
+        {
+          "afirmacion": "El texto señala que el clima de Medellín es más templado y cálido que el de Bogotá.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Bogotá tiene menos opciones culturales que los pueblos pequeños de la cordillera.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "Para Doña Elena, la amabilidad de los barrios es la cualidad más apreciada de todas.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

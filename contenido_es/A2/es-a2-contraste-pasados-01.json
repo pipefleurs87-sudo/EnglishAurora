@@ -1,0 +1,291 @@
+{
+  "id": "es-a2-contraste-pasados-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Contraste de Pasados (Indefinido vs Imperfecto)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "mientras",
+      "traduccion": "while",
+      "bandera": "⏳"
+    },
+    {
+      "palabra": "de repente",
+      "traduccion": "suddenly",
+      "bandera": "⚡"
+    },
+    {
+      "palabra": "cuando",
+      "traduccion": "when",
+      "bandera": "⏱️"
+    },
+    {
+      "palabra": "caminaba / caminó",
+      "traduccion": "was walking / walked",
+      "bandera": "🚶"
+    },
+    {
+      "palabra": "llovía / llovió",
+      "traduccion": "was raining / rained",
+      "bandera": "🌧️"
+    },
+    {
+      "palabra": "sonaba / sonó",
+      "traduccion": "was ringing / rang",
+      "bandera": "🔔"
+    },
+    {
+      "palabra": "leía / leyó",
+      "traduccion": "was reading / read",
+      "bandera": "📖"
+    },
+    {
+      "palabra": "cocinaba / cocinó",
+      "traduccion": "was cooking / cooked",
+      "bandera": "🍳"
+    },
+    {
+      "palabra": "en ese momento",
+      "traduccion": "at that moment",
+      "bandera": "🎯"
+    },
+    {
+      "palabra": "hacía sol",
+      "traduccion": "it was sunny",
+      "bandera": "☀️"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Lucas caminaba tranquilamente por el parque cuando vio una guacamaya hermosa."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Mientras Chloe cocinaba una sopa tradicional, sonó el timbre de la puerta."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Hacía mucho calor en la plaza y la gente buscaba sombra bajo los árboles."
+    },
+    {
+      "id": "s4",
+      "forma": "interrogativo",
+      "oracion": "¿Qué hacías cuando ocurrió el temblor de tierra la semana pasada?"
+    },
+    {
+      "id": "s5",
+      "forma": "afirmativo",
+      "oracion": "Mateo diseñaba los planos en su estudio cuando se cortó la energía eléctrica."
+    },
+    {
+      "id": "s6",
+      "forma": "afirmativo",
+      "oracion": "Eran las diez de la noche cuando Doña Elena cerró la cafetería."
+    },
+    {
+      "id": "s7",
+      "forma": "afirmativo",
+      "oracion": "Los turistas descansaban en la terraza mientras el guía explicaba la historia."
+    },
+    {
+      "id": "s8",
+      "forma": "negativo",
+      "oracion": "Nosotros no sabíamos la respuesta cuando el profesor hizo la pregunta."
+    },
+    {
+      "id": "s9",
+      "forma": "short_answer",
+      "oracion": "¿Dormías cuando sonó el teléfono? Sí, dormía profundamente."
+    },
+    {
+      "id": "s10",
+      "forma": "short_answer",
+      "oracion": "¿Llovía cuando saliste de la estación? Sí, llovía a cántaros."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Mientras yo dormí profundamente, sonó el teléfono ruidosamente.",
+        "opcion_b": "Mientras yo dormía profundamente, sonó el teléfono ruidosamente.",
+        "correcta": "b",
+        "explicacion": "El pretérito imperfecto describe la acción continua o escenario de fondo ('dormía'), mientras que el pretérito indefinido expresa la acción puntual que interrumpe ('sonó')."
+      },
+      "definicion_pragmatica": "Combinamos el imperfecto para pintar el escenario, el clima o la acción en progreso, y el indefinido para señalar el hecho concreto que irrumpe o avanza la narración.",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué tiempo verbal describe la acción de fondo que estaba ocurriendo?",
+          "opciones": [
+            "El pretérito imperfecto (ej. caminaba, leía)",
+            "El pretérito indefinido (ej. caminé, leyó)",
+            "El futuro simple (ej. caminaré, leerá)"
+          ],
+          "respuesta": "El pretérito imperfecto (ej. caminaba, leía)"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "En la frase 'Hacía mucho frío cuando llegamos al albergue', 'llegamos' está en indefinido porque...",
+          "opciones": [
+            "Es un hecho puntual y delimitado en el tiempo",
+            "Describe una condición meteorológica continua",
+            "Es una acción habitual que se repetía siempre"
+          ],
+          "respuesta": "Es un hecho puntual y delimitado en el tiempo"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "Selecciona la opción que completa correctamente la narración:\n'Lucas ___ (estudiar) cuando su amigo Mateo lo ___ (llamar).'",
+          "opciones": [
+            "estudiaba / llamó",
+            "estudió / llamaba",
+            "estudió / llamó"
+          ],
+          "respuesta": "estudiaba / llamó"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La palabra 'mientras' suele introducir oraciones en pretérito imperfecto porque expresa simultaneidad o desarrollo continuo.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La expresión 'de repente' suele acompañar a verbos en imperfecto porque describe situaciones que duran años.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Ayer ___ (llover) torrencialmente cuando salí de la oficina.",
+          "respuesta": "llovía"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Mientras Doña Elena preparaba el café, un cliente nuevo ___ (entrar) al local.",
+          "respuesta": "entró"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "cuando",
+            "dormía",
+            "el",
+            "gato",
+            "despertó",
+            "ruido",
+            "un",
+            "lo"
+          ],
+          "respuesta": "El gato dormía cuando un ruido lo despertó."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Ayer mientras nosotros almorzamos en el patio, empezó a caer granizo.",
+          "respuesta": "Ayer mientras nosotros almorzábamos en el patio, empezó a caer granizo."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Eran las tres de la tarde cuando el tren salía de la estación central puntualmente.",
+          "respuesta": "Eran las tres de la tarde cuando el tren salió de la estación central puntualmente."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Combina las dos oraciones usando 'cuando' (acción de fondo + acción puntual): 'Yo leía una novela' y 'Se apagó la luz'.",
+          "oracion_base": "Yo leía una novela. Se apagó la luz.",
+          "respuesta": "Yo leía una novela cuando se apagó la luz."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Combina las dos oraciones usando 'mientras': 'Mateo dibujaba' y 'Chloe cocinaba'.",
+          "oracion_base": "Mateo dibujaba. Chloe cocinaba al mismo tiempo.",
+          "respuesta": "Mateo dibujaba mientras Chloe cocinaba."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la afirmación en pregunta directa indagando la acción que se desarrollaba:",
+          "oracion_base": "Tú escuchabas música cuando recibiste el mensaje.",
+          "respuesta": "¿Escuchabas música cuando recibiste el mensaje?"
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la afirmación contraria cambiando el clima de fondo de agradable a tormentoso:",
+          "oracion_base": "Hacía un día soleado y despejado cuando salimos de excursión.",
+          "respuesta": "Hacía un día muy frío y tormentoso cuando salimos de excursión."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué hacías tú ayer por la tarde cuando empezó a llover?",
+          "respuesta": "Estudiaba en mi habitación cuando empezó a llover."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Mateo: Chloe, ¿supiste lo que pasó ayer en el mercado central?",
+        "Chloe: No, cuéntame. ¿Qué ocurrió?",
+        "Mateo: Yo compraba frutas frescas cuando de repente se cayó una pila gigante de naranjas.",
+        "Chloe: ¡No me digas! ¿Y alguien resultó herido o todo fue una risa?"
+      ],
+      "gaps": [
+        "compraba",
+        "cayó"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué estaba haciendo Mateo cuando ocurrió el incidente en el mercado?",
+          "opciones": [
+            "Compraba frutas frescas",
+            "Vendía flores exóticas",
+            "Almorzaba en un restaurante"
+          ],
+          "respuesta": "Compraba frutas frescas"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Era una tarde tranquila de octubre en el valle. El sol brillaba tenuemente a través de las nubes doradas y una brisa fresca soplaba desde las montañas. Lucas caminaba distraído por un sendero empedrado tomando fotos del paisaje rural. Llevaba su cámara fotográfica colgada del cuello y escuchaba el murmullo de un arroyo cercano. De repente, una hermosa mariposa azul brillante se posó sobre su lente. Lucas contuvo la respiración para no asustarla y esperó con paciencia hasta que la criatura alzó el vuelo nuevamente.",
+      "preguntas": [
+        {
+          "afirmacion": "La narración comienza describiendo el clima y el ambiente con verbos en pretérito imperfecto ('era', 'brillaba', 'soplaba').",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "La aparición de la mariposa azul se narra con imperfecto porque ocurrió durante cinco años seguidos.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "La acción puntual de posarse la mariposa ('se posó') interrumpe la caminata tranquila de Lucas.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

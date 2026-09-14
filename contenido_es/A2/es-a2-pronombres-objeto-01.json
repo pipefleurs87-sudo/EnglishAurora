@@ -1,0 +1,285 @@
+{
+  "id": "es-a2-pronombres-objeto-01",
+  "nivel": "A2",
+  "arquetipo": "pronombres",
+  "tema": "Pronombres de Objeto Directo e Indirecto (OD / OI y Se lo di)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "lo / la",
+      "traduccion": "him / her / it (direct object)",
+      "bandera": "📦"
+    },
+    {
+      "palabra": "los / las",
+      "traduccion": "them (direct object)",
+      "bandera": "📚"
+    },
+    {
+      "palabra": "le / les",
+      "traduccion": "to him / to her / to them (indirect object)",
+      "bandera": "👤"
+    },
+    {
+      "palabra": "se lo / se la",
+      "traduccion": "it to him/her (le + lo -> se lo)",
+      "bandera": "🔄"
+    },
+    {
+      "palabra": "me lo dio",
+      "traduccion": "he/she gave it to me",
+      "bandera": "🎁"
+    },
+    {
+      "palabra": "te lo explico",
+      "traduccion": "I explain it to you",
+      "bandera": "💡"
+    },
+    {
+      "palabra": "entregar",
+      "traduccion": "to hand over / deliver",
+      "bandera": "✉️"
+    },
+    {
+      "palabra": "prestar",
+      "traduccion": "to lend",
+      "bandera": "🤝"
+    },
+    {
+      "palabra": "regalar",
+      "traduccion": "to gift / give a present",
+      "bandera": "🎀"
+    },
+    {
+      "palabra": "enviar",
+      "traduccion": "to send",
+      "bandera": "📨"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Lucas compró una postal en el centro y se la envió a sus padres en Canadá."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Mateo preparó el informe técnico y se lo entregó a la arquitecta jefa."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Chloe me prestó su libro de recetas y yo se lo devolví ayer por la tarde."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Nosotros no les dijimos el secreto a los vecinos antes de la fiesta."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "Ella no me lo explicó con suficiente claridad durante la clase."
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Le diste las llaves del apartamento a Mateo esta mañana?"
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "¿Puedes traérmelo a la mesa antes de que comience la reunión?"
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Le enviaste el mensaje a Doña Elena? Sí, se lo envié hace diez minutos."
+    },
+    {
+      "id": "s9",
+      "forma": "short_answer",
+      "oracion": "¿Me prestas tu diccionario? Sí, te lo presto con mucho gusto."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Yo compré el café y le lo di a la profesora.",
+        "opcion_b": "Yo compré el café y se lo di a la profesora.",
+        "correcta": "b",
+        "explicacion": "Cuando el pronombre de objeto indirecto ('le' o 'les') precede a un pronombre de objeto directo de tercera persona ('lo', 'la', 'los', 'las'), se transforma obligatoriamente en 'se' para evitar la cacofonía (*le lo di -> se lo di)."
+      },
+      "definicion_pragmatica": "Sustituimos las personas y cosas mencionadas por pronombres de objeto directo e indirecto (siempre indirecto primero: 'se lo', 'me la') para hacer la conversación fluida, concisa y natural.",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "Cuando combinamos un objeto indirecto (OI) y uno directo (OD), ¿cuál es el orden correcto?",
+          "opciones": [
+            "Primero el indirecto y luego el directo (OI + OD, ej. me lo)",
+            "Primero el directo y luego el indirecto (OD + OI, ej. lo me)",
+            "El orden es totalmente libre en cualquier frase"
+          ],
+          "respuesta": "Primero el indirecto y luego el directo (OI + OD, ej. me lo)"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué ocurre con 'le' o 'les' cuando van seguidos de 'lo', 'la', 'los' o 'las'?",
+          "opciones": [
+            "Cambian a 'se' (ej. se lo di)",
+            "Se mantienen iguales (ej. le lo di)",
+            "Se eliminan por completo de la oración"
+          ],
+          "respuesta": "Cambian a 'se' (ej. se lo di)"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál es la sustitución correcta para 'Compré flores para mi madre'?",
+          "opciones": [
+            "Se las compré",
+            "Le las compré",
+            "Las le compré"
+          ],
+          "respuesta": "Se las compré"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En oraciones con verbo conjugado simple, los pronombres de objeto siempre se colocan antes del verbo (ej. 'Te lo regalo').",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La frase 'Yo le lo expliqué a Juan' es gramaticalmente correcta en el español estándar.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "¿Tienes el pasaporte de Lucas? Sí, ya ___ (se lo) entregué en el aeropuerto.",
+          "respuesta": "se lo"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Doña Elena preparó unos pasteles deliciosos y nos ___ (los) regaló a todos.",
+          "respuesta": "los"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "ayer",
+            "se",
+            "Mateo",
+            "carta",
+            "la",
+            "envió",
+            "la"
+          ],
+          "respuesta": "Mateo se la envió ayer."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Yo le escribí una carta a María y le la mandé por correo.",
+          "respuesta": "Yo le escribí una carta a María y se la mandé por correo."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "El profesor dio el examen a nosotros y nos lo explicó en inglés.",
+          "respuesta": "El profesor nos dio el examen y nos lo explicó en español."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Sustituye tanto el objeto directo como el indirecto por sus pronombres correspondientes: 'Doña Elena sirvió el café a los clientes'.",
+          "oracion_base": "Doña Elena sirvió el café a los clientes.",
+          "respuesta": "Doña Elena se lo sirvió."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Sustituye el objeto directo e indirecto por sus pronombres: 'Lucas mostró sus fotografías a Chloe'.",
+          "oracion_base": "Lucas mostró sus fotografías a Chloe.",
+          "respuesta": "Lucas se las mostró."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la afirmación en una pregunta sobre si ya se entregó el objeto:",
+          "oracion_base": "Tú le diste el dinero a Mateo.",
+          "respuesta": "¿Se lo diste a Mateo?"
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la forma negativa de la oración con pronombres combinados:",
+          "oracion_base": "Mateo me lo prestó para el fin de semana.",
+          "respuesta": "Mateo no me lo prestó para el fin de semana."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Le recomendaste este restaurante tradicional a tus amigos?",
+          "respuesta": "Sí, se lo recomendé con entusiasmo porque la comida es exquisita."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Lucas: Mateo, ¿tienes la guía de museos que me prometiste?",
+        "Mateo: Sí, claro. Te la traje esta mañana en mi mochila.",
+        "Lucas: ¡Muchas gracias! ¿Y le avisaste a Chloe sobre la exposición?",
+        "Mateo: Sí, ya se lo dije hace un rato por teléfono."
+      ],
+      "gaps": [
+        "Te la",
+        "se lo"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué le trajo Mateo a Lucas en su mochila?",
+          "opciones": [
+            "La guía de museos",
+            "Una cámara fotográfica",
+            "Un libro de cocina"
+          ],
+          "respuesta": "La guía de museos"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Ayer fue el cumpleaños de Doña Elena y todos sus amigos del barrio quisieron sorprenderla. Chloe cocinó una tarta de manzana especial y se la llevó temprano al café. Lucas tomó varias fotografías del momento y se las envió por mensaje digital a la familia de Elena en Bogotá. Mateo diseñó un cartel de felicitación con letras doradas y se lo colgó en la entrada del local. Elena estaba tan emocionada que casi lloró de alegría al ver tanto cariño reunido.",
+      "preguntas": [
+        {
+          "afirmacion": "Chloe cocinó una tarta de manzana y se la entregó a Doña Elena en el café.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "En la frase 'se las envió', 'las' hace referencia a las fotografías tomadas por Lucas.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Mateo diseñó un cartel pero nunca se lo mostró a Doña Elena.",
+          "respuesta": "false"
+        }
+      ]
+    }
+  }
+}
