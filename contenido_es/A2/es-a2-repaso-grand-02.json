@@ -1,0 +1,290 @@
+{
+  "id": "es-a2-repaso-grand-02",
+  "nivel": "A2",
+  "arquetipo": "joined_exercise",
+  "tema": "Gran Repaso A2 (La Travesía del Pasado y la Fluidez)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "la expedición",
+      "traduccion": "expedition / journey",
+      "bandera": "🧭"
+    },
+    {
+      "palabra": "la narración",
+      "traduccion": "storytelling / narration",
+      "bandera": "📜"
+    },
+    {
+      "palabra": "la anécdota",
+      "traduccion": "anecdote",
+      "bandera": "🗣️"
+    },
+    {
+      "palabra": "el recuerdo",
+      "traduccion": "memory / souvenir",
+      "bandera": "💭"
+    },
+    {
+      "palabra": "el logro",
+      "traduccion": "achievement",
+      "bandera": "🏆"
+    },
+    {
+      "palabra": "la fluidez",
+      "traduccion": "fluency",
+      "bandera": "🌊"
+    },
+    {
+      "palabra": "se lo entregué",
+      "traduccion": "I handed it to him/her",
+      "bandera": "🔄"
+    },
+    {
+      "palabra": "estaba esperando",
+      "traduccion": "was waiting",
+      "bandera": "⏳"
+    },
+    {
+      "palabra": "para concluir",
+      "traduccion": "in order to conclude",
+      "bandera": "🎯"
+    },
+    {
+      "palabra": "el nivel superado",
+      "traduccion": "completed level",
+      "bandera": "⭐"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Lucas ha aprendido a diferenciar con maestría el pretérito indefinido y el imperfecto."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Ayer mientras caminábamos por la plaza, vimos una exposición fotográfica magnífica."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Chloe horneó un pan artesanal para sus amigos y se lo llevó a la terraza."
+    },
+    {
+      "id": "s4",
+      "forma": "afirmativo",
+      "oracion": "Este curso de nivel A2 ha sido el más enriquecedor y dinámico de todos."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "Nosotros no dejamos de practicar la conversación en español por miedo a equivocarnos."
+    },
+    {
+      "id": "s6",
+      "forma": "negativo",
+      "oracion": "A Mateo no le dolió la espalda después de coordinar la gran fiesta de fin de módulo."
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "¿Le enviaste la invitación del evento a Doña Elena por mensaje telefónico?"
+    },
+    {
+      "id": "s8",
+      "forma": "interrogativo",
+      "oracion": "¿Qué estabas haciendo cuando anunciaron la culminación del nivel elemental?"
+    },
+    {
+      "id": "s9",
+      "forma": "short_answer",
+      "oracion": "¿Has disfrutado de este viaje de aprendizaje? Sí, lo he disfrutado muchísimo."
+    },
+    {
+      "id": "s10",
+      "forma": "short_answer",
+      "oracion": "¿Estás listo para el nivel B1? Sí, estoy totalmente preparado para avanzar."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Ayer cuando yo llegué a la fiesta, todos ya bailaron y cantaron alegremente.",
+        "opcion_b": "Ayer cuando yo llegué a la fiesta, todos ya bailaban y cantaban alegremente.",
+        "correcta": "b",
+        "explicacion": "Al combinar eventos pasados, usamos el imperfecto ('bailaban y cantaban') para la atmósfera o acciones en curso, y el indefinido ('llegué') para el hecho puntual que marca el ingreso a la escena."
+      },
+      "definicion_pragmatica": "El nivel A2 consolida tu capacidad para narrar anécdotas en el pasado, describir estados de salud, comparar realidades, sustituir pronombres con soltura y dar instrucciones claras en comunidad.",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué tiempo verbal usamos para relatar una experiencia personal sin definir una fecha concreta (ej. 'He viajado a España dos veces')?",
+          "opciones": [
+            "El pretérito perfecto compuesto (he viajado)",
+            "El pretérito indefinido (viajé)",
+            "El pretérito imperfecto (viajaba)"
+          ],
+          "respuesta": "El pretérito perfecto compuesto (he viajado)"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "En la frase 'Le regalé el libro a Chloe -> Se lo regalé', ¿por qué 'le' se convierte en 'se'?",
+          "opciones": [
+            "Porque ante 'lo/la/los/las' el pronombre 'le/les' cambia a 'se' para evitar cacofonía",
+            "Porque el pronombre reflexivo es obligatorio con verbos de regalo",
+            "Porque es una regla optativa según la región"
+          ],
+          "respuesta": "Porque ante 'lo/la/los/las' el pronombre 'le/les' cambia a 'se' para evitar cacofonía"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál es la diferencia esencial entre 'por' y 'para'?",
+          "opciones": [
+            "'Por' expresa causa, motivo, medio o duración; 'para' expresa finalidad, destinatario o límite",
+            "'Por' siempre va con verbos en futuro y 'para' con verbos en pasado",
+            "No existe diferencia; son sinónimos intercambiables"
+          ],
+          "respuesta": "'Por' expresa causa, motivo, medio o duración; 'para' expresa finalidad, destinatario o límite"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La estructura del verbo 'doler' exige pronombres de objeto indirecto y concuerda con la parte del cuerpo que molesta ('me duele la cabeza' / 'me duelen los pies').",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En español es gramaticalmente correcto decir *'Este plato es más bueno de todos'.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Ayer mientras Lucas ___ (dormir) la siesta, sonó la alarma de su reloj.",
+          "respuesta": "dormía"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Estudio español todos los días ___ (para) comunicarme con fluidez natural.",
+          "respuesta": "para"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "ha",
+            "un",
+            "sido",
+            "este",
+            "inolvidable",
+            "viaje",
+            "nivel"
+          ],
+          "respuesta": "Este nivel ha sido un viaje inolvidable."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Yo le compré un recuerdo a Doña Elena y le lo entregué ayer por la tarde.",
+          "respuesta": "Yo le compré un recuerdo a Doña Elena y se lo entregué ayer por la tarde."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Ayer después de subir al mirador me dolieron mucho la cabeza.",
+          "respuesta": "Ayer después de subir al mirador me dolió mucho la cabeza."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Combina las acciones pasadas usando 'mientras' para la acción continua y el indefinido para la puntual: 'Doña Elena preparaba café' y 'Llegó el cartero'.",
+          "oracion_base": "Doña Elena preparaba café. Llegó el cartero.",
+          "respuesta": "Doña Elena preparaba café cuando llegó el cartero."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Sustituye el objeto directo e indirecto por sus pronombres: 'Mateo explicó el proyecto a los estudiantes'.",
+          "oracion_base": "Mateo explicó el proyecto a los estudiantes.",
+          "respuesta": "Mateo se lo explicó."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la recomendación en una instrucción enérgica en imperativo afirmativo de 'tú': 'Es importante que sigas practicando cada día'.",
+          "oracion_base": "Es importante que sigas practicando cada día.",
+          "respuesta": "Sigue practicando cada día."
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la respuesta contraria a la afirmación sobre el pasado:",
+          "oracion_base": "¿Ayer tuviste dificultades para entender la narración en español?",
+          "respuesta": "No, ayer no tuve ninguna dificultad para entender la narración en español."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué logro lingüístico o momento especial ha sido el más memorable de tu paso por el nivel A2?",
+          "respuesta": "El logro más memorable ha sido aprender a narrar mis propias anécdotas en el pasado."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Aurora: ¡Felicitaciones, Lucas y Chloe! Han completado la travesía del nivel A2.",
+        "Lucas: ¡Muchas gracias, Aurora!... Ha sido una aventura maravillosa.",
+        "Chloe: Sí... ahora puedo narrar recetas tradicionales y anécdotas de mi infancia sin miedo.",
+        "Aurora: Recuerden siempre: la perseverancia y la curiosidad son las llaves maestras de la fluidez."
+      ],
+      "gaps": [
+        "completado",
+        "narrar"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué habilidad destaca Chloe tras culminar con éxito el nivel A2?",
+          "opciones": [
+            "Narrar recetas tradicionales y anécdotas de su infancia",
+            "Traducir textos técnicos de física cuántica",
+            "Escribir poemas barrocos en verso libre"
+          ],
+          "respuesta": "Narrar recetas tradicionales y anécdotas de su infancia"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Llegar a la cima del nivel A2 representa un hito transformador en el dominio del español. El estudiante ya no se limita a presentarse o pedir comida en un café: ahora es capaz de tejer relatos en el pasado distinguiendo con sutileza cuándo usar el pretérito indefinido para sucesos concluidos y el imperfecto para escenarios y nostalgias. Sabe navegar por la ciudad dando órdenes cordiales con el imperativo, expresa dolores y síntomas físicos con naturalidad, y maneja pronombres combinados y preposiciones con destreza. La puerta al nivel B1, el reino del subjuntivo y las opiniones complejas, se encuentra abierta de par en par.",
+      "preguntas": [
+        {
+          "afirmacion": "El nivel A2 permite al estudiante tejer narraciones en el pasado distinguiendo entre eventos puntuales y descripciones de fondo.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Al finalizar el nivel A2, el estudiante todavía es incapaz de dar instrucciones sencillas o hablar de su salud.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "La culminación del nivel A2 prepara el camino para explorar las estructuras complejas y el modo subjuntivo del nivel B1.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}
