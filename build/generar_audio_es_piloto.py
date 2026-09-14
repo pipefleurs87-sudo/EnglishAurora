@@ -27,45 +27,45 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 LINES = [
     {
         "file": "1.mp3",
-        "voice": "es-US-AlonsoNeural",
-        "rate": "-2%",
-        "pitch": "+1Hz",
-        "text": "¡Hola! Me llamo Lucas. Soy de Canadá y soy fotógrafo."
+        "voice": "es-MX-JorgeNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "text": "¡Hola! Me llamo Lucas... Soy de Canadá, y soy fotógrafo."
     },
     {
         "file": "2.mp3",
         "voice": "es-MX-DaliaNeural",
-        "rate": "-2%",
-        "pitch": "+2Hz",
-        "text": "¡Mucho gusto, Lucas! Yo soy Chloe. Soy francesa, de Lyon."
+        "rate": "+0%",
+        "pitch": "+1Hz",
+        "text": "¡Mucho gusto, Lucas! Yo soy Chloe... Soy francesa, de Lyon."
     },
     {
         "file": "3.mp3",
-        "voice": "es-US-AlonsoNeural",
-        "rate": "-1%",
-        "pitch": "+1Hz",
-        "text": "¿Eres estudiante o trabajas aquí?"
+        "voice": "es-MX-JorgeNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "text": "¿Y tú? ¿Eres estudiante, o trabajas aquí?"
     },
     {
         "file": "4.mp3",
         "voice": "es-MX-DaliaNeural",
-        "rate": "-2%",
-        "pitch": "+2Hz",
-        "text": "Soy chef y estudiante de español. ¿Y Mateo?"
+        "rate": "+0%",
+        "pitch": "+1Hz",
+        "text": "Soy chef... y también estudiante de español. ¿Y Mateo?"
     },
     {
         "file": "5.mp3",
         "voice": "es-CO-GonzaloNeural",
-        "rate": "-3%",
+        "rate": "+0%",
         "pitch": "-1Hz",
-        "text": "¡Hola a los dos! Yo soy Mateo. Soy colombiano, de Medellín."
+        "text": "¡Hola a los dos! Yo soy Mateo. Soy colombiano... de Medellín."
     },
     {
         "file": "6.mp3",
-        "voice": "es-US-AlonsoNeural",
-        "rate": "-2%",
-        "pitch": "+1Hz",
-        "text": "¡Excelente! Nosotros somos de tres países diferentes."
+        "voice": "es-MX-JorgeNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "text": "¡Excelente! Entonces... ¡nosotros somos de tres países diferentes!"
     }
 ]
 

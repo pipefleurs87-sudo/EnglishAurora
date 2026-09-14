@@ -1,0 +1,1037 @@
+# -*- coding: utf-8 -*-
+"""
+generar_bridges_y_faqs.py
+Generates:
+1. datos/curriculum-bridges.json: Connected lesson graph for all 85 topics with integrated contrast challenges.
+2. datos/faq-database.json: High-intent FAQ entries for Google People Also Ask & on-page accordions.
+3. js/ea-bridge.js: Client-side interactive widget engine for Connected Bridges & FAQ accordions.
+4. Injects FAQPage schema JSON-LD and static fallback links into preview/ and leccion/ pages.
+"""
+
+import json
+import pathlib
+import re
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+# 1. Base FAQ Database targeting high-volume Google queries
+FAQS = {
+    "b1-present-perfect-vs-past-simple-01": [
+        {
+            "q": "What is the main difference between Past Simple and Present Perfect?",
+            "a": "Use the Past Simple when the time period is finished (yesterday, last year, in 2020) and the action is completed. Use the Present Perfect when the time is unfinished (today, this week, in my life) or when a past action has a direct result in the present moment."
+        },
+        {
+            "q": "Which time expressions signal the Past Simple vs Present Perfect?",
+            "a": "Past Simple uses definite past time markers: yesterday, ago, last night, in 1999, when I was a child. Present Perfect uses indefinite or open time markers: already, yet, just, ever, never, since, for, so far, recently."
+        },
+        {
+            "q": "Why is 'I have lived here for 3 years' correct, but 'I lived here for 3 years' means something else?",
+            "a": "'I have lived here for 3 years' (Present Perfect) means you moved here 3 years ago and you STILL live here today. 'I lived here for 3 years' (Past Simple) means the period is finished and you no longer live there."
+        },
+        {
+            "q": "What is the #1 mistake Spanish speakers make with Present Perfect?",
+            "a": "Spanish speakers often translate directly from 'He visto a María ayer' and say 'I have seen Maria yesterday' (*incorrect). In English, as soon as you say 'yesterday', the rule forces Past Simple: 'I saw Maria yesterday'."
+        }
+    ],
+    "a1-present-simple-routines-01": [
+        {
+            "q": "When do we add -s or -es in the Present Simple?",
+            "a": "Only in the affirmative form with third-person singular subjects (He, She, It). For example: 'She works', 'He watches', 'It rains'. For I, You, We, They, the verb stays in its base form ('I work', 'They watch')."
+        },
+        {
+            "q": "Do we add -s to the verb in negative sentences or questions?",
+            "a": "No! The auxiliary 'does' already carries the third-person marker: 'Does she work here?' (not 'does she works') and 'He doesn't like coffee' (not 'doesn't likes')."
+        },
+        {
+            "q": "How do you know whether to use Present Simple or Present Continuous?",
+            "a": "Present Simple is for habits, routines, and permanent truths ('I drink coffee every morning'). Present Continuous is for actions happening right now at this exact moment ('I am drinking coffee right now')."
+        }
+    ],
+    "a1-present-continuous-01": [
+        {
+            "q": "How is the Present Continuous formed in English?",
+            "a": "It always requires two elements: the auxiliary verb 'to be' (am/is/are) + the main verb with '-ing' (e.g., 'Sofía is typing an email'). Never omit the verb to be!"
+        },
+        {
+            "q": "What verbs cannot be used in the Present Continuous?",
+            "a": "Stative verbs (verbs of thinking, feeling, and possession) are usually not used in continuous forms: like, love, hate, know, understand, believe, want, need. Say 'I understand now', not 'I am understanding now'."
+        },
+        {
+            "q": "Can Present Continuous be used to talk about the future?",
+            "a": "Yes! When you have a confirmed personal arrangement or appointment in the diary: 'I am meeting Kenji tomorrow at 5 PM'."
+        }
+    ],
+    "b1-will-vs-going-to-01": [
+        {
+            "q": "What is the difference between 'will' and 'be going to'?",
+            "a": "Use 'will' for spontaneous decisions made at the moment of speaking ('Wait, I will help you with those bags!') and promises. Use 'be going to' for pre-planned decisions or intentions decided before speaking ('I am going to study medicine next year')."
+        },
+        {
+            "q": "How do predictions differ with 'will' vs 'going to'?",
+            "a": "Use 'going to' when there is clear physical evidence right now in front of you ('Look at those black clouds! It is going to rain'). Use 'will' for general beliefs, opinions, or intuition ('I think humanity will colonize Mars one day')."
+        }
+    ],
+    "b1-conditionals-0-1-2-01": [
+        {
+            "q": "What is the difference between the First and Second Conditional?",
+            "a": "The First Conditional (If + Present Simple, will + verb) talks about real, possible future situations: 'If it rains, I will take an umbrella'. The Second Conditional (If + Past Simple, would + verb) talks about imaginary, hypothetical, or improbable present/future situations: 'If I won the lottery, I would buy an island'."
+        },
+        {
+            "q": "Why do we say 'If I were you' instead of 'If I was you'?",
+            "a": "'Were' is the traditional subjunctive mood used for hypothetical conditions with all subjects (I, he, she, it). While 'If I was you' is heard in informal conversation, 'If I were you' is the standard, grammatically formal English tested on Cambridge and IELTS exams."
+        }
+    ],
+    "b1-passive-voice-01": [
+        {
+            "q": "How do you form the passive voice in English?",
+            "a": "Subject + appropriate tense of the verb 'to be' + Past Participle (3rd column). For example: 'The letter was sent yesterday' (Past Simple passive), 'English is spoken worldwide' (Present Simple passive)."
+        },
+        {
+            "q": "When should you use the passive voice instead of the active voice?",
+            "a": "Use passive voice when the action or the object is more important than who did it, or when the agent is unknown, obvious, or unimportant: 'The thief was arrested' (the police obviously arrested him; the focus is on the capture)."
+        }
+    ],
+    "a2-past-simple-regular-01": [
+        {
+            "q": "How do you pronounce the -ed ending in regular past simple verbs?",
+            "a": "-ed has 3 distinct pronunciations: 1) /ɪd/ after /t/ and /d/ sounds ('started', 'decided'); 2) /t/ after voiceless sounds /p, k, f, s, ʃ, tʃ/ ('worked', 'laughed', 'watched'); 3) /d/ after all voiced vowel and consonant sounds ('played', 'lived', 'cleaned')."
+        },
+        {
+            "q": "What is the rule for spelling regular verbs with -ed?",
+            "a": "Most verbs simply add -ed ('walk' -> 'walked'). Verbs ending in -e just add -d ('live' -> 'lived'). Consonant + y changes to -ied ('study' -> 'studied'). Single vowel + single consonant doubles the consonant ('stop' -> 'stopped')."
+        }
+    ],
+    "a2-past-simple-irregular-01": [
+        {
+            "q": "How many irregular verbs are there in English?",
+            "a": "There are roughly 200 commonly used irregular verbs in modern English. Instead of memorizing alphabetical lists, the most effective method is learning them in 7 mnemonic patterns (e.g. no-change verbs like cut/cut/cut, vowel melody verbs like sing/sang/sung, -ought/-aught verbs like buy/bought/bought)."
+        },
+        {
+            "q": "Do irregular verbs change in negative sentences or questions?",
+            "a": "No! In negatives and questions, the auxiliary 'did / didn't' takes the past tense, so the main verb stays in the base infinitive: 'Did you see Ben?' (not 'did you saw') and 'I didn't go' (not 'I didn't went')."
+        }
+    ],
+    "b1-used-to-01": [
+        {
+            "q": "What is the difference between 'used to + verb' and 'be used to + -ing'?",
+            "a": "'Used to + base verb' describes past habits or states that no longer exist ('I used to play tennis when I was young'). 'Be used to + noun/-ing' means being accustomed to something familiar ('I am used to waking up early, it is normal for me')."
+        },
+        {
+            "q": "How do you form negative and question sentences with 'used to'?",
+            "a": "Drop the 'd' because 'did' takes the past: 'I didn't use to like olives' and 'Did you use to live in London?'"
+        }
+    ],
+    "b2-third-conditional-01": [
+        {
+            "q": "How is the Third Conditional formed and what does it express?",
+            "a": "Form: If + Past Perfect (had + past participle), would have + past participle. It expresses regrets, criticism, or imaginary hypotheses about past events that cannot be changed: 'If I had studied harder, I would have passed the exam'."
+        }
+    ],
+    "b2-reported-speech-01": [
+        {
+            "q": "What is 'backshift' in Reported Speech?",
+            "a": "When the reporting verb is in the past (e.g., 'She said that...'), the tenses shift one step back into the past: Present Simple becomes Past Simple, Present Continuous becomes Past Continuous, Present Perfect becomes Past Perfect, and 'will' becomes 'would'."
+        }
+    ],
+    "c1-inversion-01": [
+        {
+            "q": "What is grammatical inversion and when is it used?",
+            "a": "Inversion puts the auxiliary verb before the subject for formal emphasis or dramatic effect, usually following negative or restrictive adverbs: 'Rarely have I seen such beauty' or 'Not only did he apologize, but he also refunded the money'."
+        }
+    ]
+}
+
+# 2. Complete topic transition graph (all 85 topics)
+BRIDGES = {
+    # A1 - Foundations
+    "a1-to-be-nationalities-01": {
+        "nextId": "a1-to-be-identities-01",
+        "nextTitle": "Verb To Be — Identities & Professions",
+        "nextLevel": "A1",
+        "relation": "Next Milestone",
+        "note": "Now that you can state where people are from, learn how to describe who they are and what they do.",
+        "challenge": {
+            "q": "Sofía ___ from Colombia and she ___ a brilliant graphic designer.",
+            "options": ["is / is", "is / are", "am / is"],
+            "answer": "is / is",
+            "hint": "Sofía is singular (she), so use 'is' in both slots."
+        }
+    },
+    "a1-to-be-identities-01": {
+        "nextId": "a1-have-got-01",
+        "nextTitle": "Have got — Possessions & Family",
+        "nextLevel": "A1",
+        "relation": "Direct Contrast",
+        "note": "Careful Spanish transfer trap: In English we use 'to be' for age and emotions, but 'have got' for possessions.",
+        "challenge": {
+            "q": "Sofía ___ twenty-five years old, and she ___ two cats.",
+            "options": ["is / has got", "has / has got", "is / have got"],
+            "answer": "is / has got",
+            "hint": "Age takes 'to be' ('is 25'), while pets take 'has got'!"
+        }
+    },
+    "a1-have-got-01": {
+        "nextId": "a1-family-possessive-s-01",
+        "nextTitle": "Family & Possessive 's",
+        "nextLevel": "A1",
+        "relation": "Next Milestone",
+        "note": "From what you have to who belongs to who: master the English apostrophe -'s.",
+        "challenge": {
+            "q": "This is ___ iguana. She has got twenty mangos.",
+            "options": ["Abuela Carmen's", "Abuela Carmens", "the iguana of Carmen"],
+            "answer": "Abuela Carmen's",
+            "hint": "Add 's to the owner: Abuela Carmen's iguana."
+        }
+    },
+    "a1-family-possessive-s-01": {
+        "nextId": "a1-pronouns-possessives-01",
+        "nextTitle": "Subject Pronouns & Possessive Adjectives",
+        "nextLevel": "A1",
+        "relation": "Next Milestone",
+        "note": "Learn to replace names with my, your, his, her, their without hesitation.",
+        "challenge": {
+            "q": "Ben loves Cartagena. ___ favorite place is the old clock tower.",
+            "options": ["His", "Her", "He"],
+            "answer": "His",
+            "hint": "Ben is a man, so his possessive adjective is 'His'."
+        }
+    },
+    "a1-pronouns-possessives-01": {
+        "nextId": "a1-object-pronouns-01",
+        "nextTitle": "Object Pronouns (me, him, her, us, them)",
+        "nextLevel": "A1",
+        "relation": "Direct Contrast",
+        "note": "When the person receives the action instead of doing it: I -> me, he -> him, they -> them.",
+        "challenge": {
+            "q": "Kenji loves arepas. Abuela Carmen makes ___ for ___ every morning.",
+            "options": ["them / him", "they / he", "them / he"],
+            "answer": "them / him",
+            "hint": "Arepas are the object ('them'), and Kenji receives them ('him')."
+        }
+    },
+    "a1-articles-01": {
+        "nextId": "a1-plural-nouns-01",
+        "nextTitle": "Plural Nouns — Regular & Irregular",
+        "nextLevel": "A1",
+        "relation": "Next Milestone",
+        "note": "Articles 'a/an' only work with singular nouns. Now discover what happens when nouns become plural.",
+        "challenge": {
+            "q": "Ben saw one ___ and three ___ in the city park.",
+            "options": ["child / children", "children / childs", "child / childs"],
+            "answer": "child / children",
+            "hint": "'Child' is an irregular plural: one child, three children!"
+        }
+    },
+    "a1-plural-nouns-01": {
+        "nextId": "a1-demonstratives-01",
+        "nextTitle": "This / That / These / Those",
+        "nextLevel": "A1",
+        "relation": "Pragmatic Expansion",
+        "note": "Point at things near and far in singular and plural: This, That, These, Those.",
+        "challenge": {
+            "q": "___ mangos here in my basket are fresh, but ___ over there look old.",
+            "options": ["These / those", "This / that", "Those / these"],
+            "answer": "These / those",
+            "hint": "'These' for nearby plural, 'those' for distant plural."
+        }
+    },
+    "a1-demonstratives-01": {
+        "nextId": "a1-adjectives-people-things-01",
+        "nextTitle": "Adjectives — Describing People & Things",
+        "nextLevel": "A1",
+        "relation": "Next Milestone",
+        "note": "English adjectives never change for gender or plural, and always go BEFORE the noun!",
+        "challenge": {
+            "q": "Sofía lives in a ___ and designs ___ posters.",
+            "options": ["beautiful house / colorful", "house beautiful / colorfuls", "beautiful house / colorfuls"],
+            "answer": "beautiful house / colorful",
+            "hint": "Adjective goes before the noun and never takes an -s: 'beautiful house', 'colorful posters'."
+        }
+    },
+    "a1-present-simple-routines-01": {
+        "nextId": "a1-present-simple-frequency-01",
+        "nextTitle": "Present Simple — Adverbs of Frequency",
+        "nextLevel": "A1",
+        "relation": "Pragmatic Expansion",
+        "note": "Take your daily routines to the next level: specify how often with always, usually, sometimes, and never.",
+        "challenge": {
+            "q": "Abuela Carmen ___ at five in the morning.",
+            "options": ["always wakes up", "wakes always up", "wakes up always"],
+            "answer": "always wakes up",
+            "hint": "Adverbs of frequency go BEFORE the main verb: 'always wakes up'."
+        }
+    },
+    "a1-present-simple-frequency-01": {
+        "nextId": "a1-present-simple-likes-01",
+        "nextTitle": "Present Simple — Likes, Hobbies & Free Time",
+        "nextLevel": "A1",
+        "relation": "Next Milestone",
+        "note": "Learn how to talk about what you enjoy: verbs of liking + -ing (like, love, enjoy, hate).",
+        "challenge": {
+            "q": "Kenji ___ photos of the colonial balconies.",
+            "options": ["loves taking", "love takes", "loves take"],
+            "answer": "loves taking",
+            "hint": "Third person takes -s ('loves') and 'love' is followed by the gerund ('taking')."
+        }
+    },
+    "a1-present-simple-likes-01": {
+        "nextId": "a1-present-simple-neg-questions-01",
+        "nextTitle": "Present Simple — Negatives & Questions",
+        "nextLevel": "A1",
+        "relation": "Mastery Step",
+        "note": "Master the secret weapon of English: the auxiliaries DO and DOES for negatives and questions.",
+        "challenge": {
+            "q": "___ Ben ___ coffee in the morning? No, he drinks tea.",
+            "options": ["Does / drink", "Do / drinks", "Does / drinks"],
+            "answer": "Does / drink",
+            "hint": "'Does' already marks third person, so the main verb stays base: 'Does he drink?'"
+        }
+    },
+    "a1-present-simple-neg-questions-01": {
+        "nextId": "a1-present-continuous-01",
+        "nextTitle": "Present Continuous — Actions Happening Now",
+        "nextLevel": "A1",
+        "relation": "Direct Contrast",
+        "note": "The ultimate A1 contrast: What you do habitually (routines) vs what you are doing right now.",
+        "challenge": {
+            "q": "Kenji usually ___ breakfast at eight, but today he ___ at nine.",
+            "options": ["eats / is eating", "is eating / eats", "eat / is eating"],
+            "answer": "eats / is eating",
+            "hint": "'Usually' calls for Present Simple, while 'today / right now' calls for Present Continuous!"
+        }
+    },
+    "a1-present-continuous-01": {
+        "nextId": "a2-going-to-future-01",
+        "nextTitle": "Going to — Future Plans & Intentions",
+        "nextLevel": "A2",
+        "relation": "Next Milestone",
+        "note": "Bridge from present continuous to the future: use 'be going to' to announce your next goals.",
+        "challenge": {
+            "q": "Sofía bought her plane tickets. She ___ visit London in June.",
+            "options": ["is going to", "goes to", "will to"],
+            "answer": "is going to",
+            "hint": "A pre-arranged intention with tickets already bought uses 'is going to'!"
+        }
+    },
+    # A2 - Expanding World
+    "a2-verb-to-be-past-01": {
+        "nextId": "a2-past-simple-regular-01",
+        "nextTitle": "Past Simple — Regular Verbs (-ed)",
+        "nextLevel": "A2",
+        "relation": "Next Milestone",
+        "note": "You can say where you were (was/were). Now learn how to describe any action in the past.",
+        "challenge": {
+            "q": "Yesterday, Ben ___ around the walled city and ___ at a cafe.",
+            "options": ["walked / stopped", "walk / stoped", "walkt / stopped"],
+            "answer": "walked / stopped",
+            "hint": "Add -ed for regular past: 'walked', and double consonant for 'stopped'."
+        }
+    },
+    "a2-past-simple-regular-01": {
+        "nextId": "a2-past-simple-irregular-01",
+        "nextTitle": "Past Simple — Irregular Verbs Vault",
+        "nextLevel": "A2",
+        "relation": "Essential Continuation",
+        "note": "Not all verbs take -ed! Meet the 126 verbs that change their vowel or form in the past.",
+        "challenge": {
+            "q": "Kenji ___ an email to his mother and ___ a souvenir.",
+            "options": ["wrote / bought", "writed / buyed", "written / bought"],
+            "answer": "wrote / bought",
+            "hint": "'Write' becomes 'wrote' and 'buy' becomes 'bought'."
+        }
+    },
+    "a2-past-simple-irregular-01": {
+        "nextId": "a2-past-continuous-vs-simple-01",
+        "nextTitle": "Past Continuous vs Past Simple (when / while)",
+        "nextLevel": "A2",
+        "relation": "Direct Contrast",
+        "note": "Combine an action in progress in the past with a sudden interrupting event.",
+        "challenge": {
+            "q": "While Ben ___ his tea, the doorbell ___.",
+            "options": ["was drinking / rang", "drank / was ringing", "was drinking / was ringing"],
+            "answer": "was drinking / rang",
+            "hint": "The background ongoing action takes was/were + -ing; the interruption takes Past Simple!"
+        }
+    },
+    "a2-past-continuous-vs-simple-01": {
+        "nextId": "b1-present-perfect-vs-past-simple-01",
+        "nextTitle": "Present Perfect vs Past Simple — Which One?",
+        "nextLevel": "B1",
+        "relation": "Mastery Leap",
+        "note": "The #1 grammar dilemma in English: finished past time vs open, living experience.",
+        "challenge": {
+            "q": "I ___ to Cartagena in 2022, but Kenji ___ there three times.",
+            "options": ["went / has been", "have gone / went", "went / was"],
+            "answer": "went / has been",
+            "hint": "'In 2022' is a closed past time (went), but total life experiences take Present Perfect (has been)!"
+        }
+    },
+    # B1 - Intermediate Fluency
+    "b1-present-perfect-vs-past-simple-01": {
+        "nextId": "b1-present-perfect-continuous-01",
+        "nextTitle": "Present Perfect Continuous — for / since / just",
+        "nextLevel": "B1",
+        "relation": "Pragmatic Expansion",
+        "note": "Emphasize how long an action has been happening non-stop: 'I have been studying for 2 hours'.",
+        "challenge": {
+            "q": "Sofía is exhausted because she ___ posters all afternoon.",
+            "options": ["has been designing", "has designed", "is designing"],
+            "answer": "has been designing",
+            "hint": "Focus on the duration and immediate physical effect: Present Perfect Continuous!"
+        }
+    },
+    "b1-present-perfect-continuous-01": {
+        "nextId": "b1-past-perfect-01",
+        "nextTitle": "Past Perfect — The Timeline Detective",
+        "nextLevel": "B1",
+        "relation": "Timeline Mastery",
+        "note": "Travel further back in time: describe an action that happened BEFORE another past action.",
+        "challenge": {
+            "q": "When Ben arrived at the station, the train ___ already ___.",
+            "options": ["had / left", "has / left", "was / leaving"],
+            "answer": "had / left",
+            "hint": "The train left before Ben arrived: Past Perfect (had + participle)!"
+        }
+    },
+    "b1-will-vs-going-to-01": {
+        "nextId": "b1-conditionals-0-1-2-01",
+        "nextTitle": "Conditionals 0, 1 & 2 — Three Realities",
+        "nextLevel": "B1",
+        "relation": "Next Milestone",
+        "note": "Take future predictions into hypothetical worlds: If it rains, I will stay. If I were you, I would go.",
+        "challenge": {
+            "q": "If I ___ more free time, I ___ travel across South America.",
+            "options": ["had / would", "have / will", "had / will"],
+            "answer": "had / would",
+            "hint": "Second conditional for an imaginary present situation: If + past simple, would + verb."
+        }
+    },
+    "b1-conditionals-0-1-2-01": {
+        "nextId": "b2-third-conditional-01",
+        "nextTitle": "Third Conditional — Regrets & What Ifs",
+        "nextLevel": "B2",
+        "relation": "Advanced Leap",
+        "note": "Step into the past impossible: talk about what could have happened, but didn't.",
+        "challenge": {
+            "q": "If Ben ___ his alarm, he ___ the flight.",
+            "options": ["had set / wouldn't have missed", "set / wouldn't miss", "would have set / missed"],
+            "answer": "had set / wouldn't have missed",
+            "hint": "Third conditional: If + had + participle, would have + participle."
+        }
+    },
+    "b1-passive-voice-01": {
+        "nextId": "b2-causative-01",
+        "nextTitle": "Causative — Have / Get Something Done",
+        "nextLevel": "B2",
+        "relation": "Direct Contrast",
+        "note": "From 'The car was washed' (passive) to 'I had my car washed' (you arranged for someone else to do it).",
+        "challenge": {
+            "q": "Sofía didn't paint her office herself. She ___ it ___ by professionals.",
+            "options": ["had / painted", "was / painted", "got / paint"],
+            "answer": "had / painted",
+            "hint": "Causative structure: have + object + past participle."
+        }
+    },
+    # B2 - Advanced Fluency
+    "b2-third-conditional-01": {
+        "nextId": "b2-mixed-conditionals-01",
+        "nextTitle": "Mixed Conditionals — Past Causes, Present Results",
+        "nextLevel": "B2",
+        "relation": "Elite Grammar",
+        "note": "Blend the rules: a past decision that creates an ongoing reality right now.",
+        "challenge": {
+            "q": "If I ___ German at school, I ___ able to read this contract now.",
+            "options": ["had studied / would be", "studied / would have been", "had studied / would have been"],
+            "answer": "had studied / would be",
+            "hint": "Past action (had studied) with a present result right now (would be)!"
+        }
+    },
+    "b2-relative-clauses-01": {
+        "nextId": "c1-participle-clauses-01",
+        "nextTitle": "Participle Clauses — Advanced Sentence Reduction",
+        "nextLevel": "C1",
+        "relation": "Stylistic Transformation",
+        "note": "Transform relative clauses into high-scoring C1 prose: 'The man who was sitting' -> 'Sitting by the window'.",
+        "challenge": {
+            "q": "___ by the breathtaking sunset, Ben took dozens of photos.",
+            "options": ["Fascinated", "Fascinating", "Having fascinated"],
+            "answer": "Fascinated",
+            "hint": "Passive past participle clause describing how Ben felt."
+        }
+    },
+    "b2-reported-speech-01": {
+        "nextId": "c1-emphatic-structures-01",
+        "nextTitle": "Emphatic Structures — do/does/did & so/such",
+        "nextLevel": "C1",
+        "relation": "Expressive Power",
+        "note": "Add dramatic weight to your statements: 'I do want to help you' and 'So compelling was her argument'.",
+        "challenge": {
+            "q": "Believe me, I ___ apologize to Kenji yesterday!",
+            "options": ["did", "do", "done"],
+            "answer": "did",
+            "hint": "Use emphatic 'did' + base verb in affirmative past statements."
+        }
+    },
+    # C1 - Mastery
+    "c1-emphatic-structures-01": {
+        "nextId": "c1-inversion-01",
+        "nextTitle": "Inversion for Emphasis & Drama",
+        "nextLevel": "C1",
+        "relation": "Cambridge C1 Core",
+        "note": "The crown jewel of Cambridge C1 exam transformations: Rarely have I seen, Never before did he speak.",
+        "challenge": {
+            "q": "Rarely ___ such dedication in a language learner.",
+            "options": ["have I witnessed", "I have witnessed", "did I witnessed"],
+            "answer": "have I witnessed",
+            "hint": "After negative adverbs like 'Rarely', invert the auxiliary and subject: 'have I witnessed'."
+        }
+    },
+    "c1-inversion-01": {
+        "nextId": "c1-cleft-sentences-01",
+        "nextTitle": "Cleft Sentences — It-Clefts & What-Clefts",
+        "nextLevel": "C1",
+        "relation": "C1 Stylistic Mastery",
+        "note": "Re-frame any sentence to spotlight the exact piece of information you want to emphasize.",
+        "challenge": {
+            "q": "___ surprised everyone was Ben's flawless Spanish.",
+            "options": ["What", "It", "That"],
+            "answer": "What",
+            "hint": "What-cleft: 'What surprised everyone was...' focuses on the noun clause."
+        }
+    }
+}
+
+def generate_default_bridges(all_topics):
+    """Fills default transitions for any topic not explicitly detailed in BRIDGES"""
+    by_level = {"A1": [], "A2": [], "B1": [], "B2": [], "C1": []}
+    for t in all_topics:
+        lvl = t.get("nivel", "A1")
+        if lvl in by_level:
+            by_level[lvl].append(t)
+            
+    full_bridges = dict(BRIDGES)
+    
+    for lvl, topics in by_level.items():
+        for i, t in enumerate(topics):
+            tid = t["id"]
+            if tid not in full_bridges:
+                if i + 1 < len(topics):
+                    nxt = topics[i + 1]
+                    full_bridges[tid] = {
+                        "nextId": nxt["id"],
+                        "nextTitle": nxt["tema"],
+                        "nextLevel": nxt["nivel"],
+                        "relation": "Next Milestone",
+                        "note": f"Continue your journey in {lvl}: deepen your fluency with {nxt['tema']}.",
+                        "challenge": {
+                            "q": f"Ready to master {nxt['tema']}? Click below to explore its rule and practice.",
+                            "options": ["Let's go!", "Explore Star"],
+                            "answer": "Let's go!",
+                            "hint": "Press forward to claim more Aurora essence!"
+                        }
+                    }
+                else:
+                    # Point to grand review or next level
+                    full_bridges[tid] = {
+                        "nextId": "curriculum.html",
+                        "nextTitle": "Curriculum Catalog & Galaxy Sky",
+                        "nextLevel": lvl,
+                        "relation": "Level Milestone Reached",
+                        "note": f"Outstanding! You've traversed this sector of {lvl}. Review all constellations in the catalog.",
+                        "challenge": {
+                            "q": "Which step comes next after completing a constellation?",
+                            "options": ["Review & Test", "Rest forever"],
+                            "answer": "Review & Test",
+                            "hint": "Keep your Aurora essence shining with regular tests!"
+                        }
+                    }
+    return full_bridges
+
+def build_client_bridge_js(bridges, faqs):
+    """Generates standalone js/ea-bridge.js client script"""
+    bridges_json = json.dumps(bridges, ensure_ascii=False, indent=2)
+    faqs_json = json.dumps(faqs, ensure_ascii=False, indent=2)
+    
+    template = """/* English Aurora — Connected Topic Bridges & FAQ Engine
+   Autonomous client module: renders interactive next-quest bridges and FAQ accordions.
+   Loaded dynamically on preview/, leccion/, and evaluacion/ pages. */
+
+(function() {
+  'use strict';
+  
+  window.EA_BRIDGES_DATA = __BRIDGES_JSON__;
+  window.EA_FAQS_DATA = __FAQS_JSON__;
+
+  function getTopicId() {
+    if (window.SEQUENCE_DATA && window.SEQUENCE_DATA.id) {
+      return window.SEQUENCE_DATA.id;
+    }
+    var m = window.location.pathname.match(/([a-c][1-2]-[a-z0-9-]+(?:-01|-wave-b))/);
+    return m ? m[1] : null;
+  }
+
+  function renderConnectedBridge() {
+    var tid = getTopicId();
+    if (!tid) return;
+    
+    var bridge = window.EA_BRIDGES_DATA[tid];
+    if (!bridge) return;
+
+    var container = document.getElementById('app') || document.querySelector('.wrap') || document.body;
+    if (document.getElementById('ea-bridge-widget')) return;
+
+    var w = document.createElement('section');
+    w.id = 'ea-bridge-widget';
+    w.className = 'ea-bridge-card';
+    
+    var destPractice = '../preview/' + bridge.nextId + '.html';
+    var destLesson = '../leccion/' + bridge.nextId + '.html';
+    if (bridge.nextId.indexOf('.html') !== -1) {
+      destPractice = '../' + bridge.nextId;
+      destLesson = '../' + bridge.nextId;
+    }
+
+    var ch = bridge.challenge || {};
+    var optionsHtml = '';
+    if (ch.options && ch.options.length) {
+      optionsHtml = '<div class="bridge-ch-opts">' +
+        ch.options.map(function(opt) {
+          return '<button class="bridge-opt-btn" data-opt="' + opt.replace(/"/g, '&quot;') + '">' + opt + '</button>';
+        }).join('') +
+        '</div>' +
+        '<div class="bridge-fb" style="display:none;"></div>';
+    }
+
+    w.innerHTML = '' +
+      '<div class="bridge-badge-row">' +
+        '<span class="bridge-badge-kicker">🌌 NEXT STAR IN YOUR SKY</span>' +
+        '<span class="bridge-level-pill">' + (bridge.nextLevel || 'NEXT') + '</span>' +
+        '<span class="bridge-rel-pill">' + (bridge.relation || 'Connected Topic') + '</span>' +
+      '</div>' +
+      '<h3 class="bridge-title">' + (bridge.nextTitle || 'Next Topic') + '</h3>' +
+      '<p class="bridge-note">' + (bridge.note || '') + '</p>' +
+      (ch.q ? (
+        '<div class="bridge-challenge-box">' +
+          '<div class="bridge-ch-prompt"><b>⚡ Integrated Transition Challenge:</b> ' + ch.q + '</div>' +
+          optionsHtml +
+        '</div>'
+      ) : '') +
+      '<div class="bridge-actions">' +
+        '<a href="' + destLesson + '" class="btn-bridge primary">▶&nbsp;&nbsp;Launch Lesson</a>' +
+        '<a href="' + destPractice + '" class="btn-bridge ghost">✎&nbsp;&nbsp;Practice Topic</a>' +
+        '<a href="../curriculum.html" class="btn-bridge text">📜 Explore Catalog</a>' +
+      '</div>';
+
+    // Interactive checking for challenge options
+    var optBtns = w.querySelectorAll('.bridge-opt-btn');
+    var fb = w.querySelector('.bridge-fb');
+    optBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var sel = btn.getAttribute('data-opt');
+        optBtns.forEach(function(b) { b.disabled = true; });
+        fb.style.display = 'block';
+        if (sel === ch.answer) {
+          btn.classList.add('correct');
+          fb.className = 'bridge-fb good';
+          fb.innerHTML = '✨ <b>Aurora:</b> "Brilliant! You grasped the transition immediately. Onward to your next star!"';
+        } else {
+          btn.classList.add('wrong');
+          // Highlight correct one
+          optBtns.forEach(function(b) {
+            if (b.getAttribute('data-opt') === ch.answer) b.classList.add('correct');
+          });
+          fb.className = 'bridge-fb note';
+          fb.innerHTML = '🛡️ <b>Aurora:</b> "Careful! ' + (ch.hint || 'Review the clue') + '. Keep exploring below!"';
+        }
+      });
+    });
+
+    // Inject before footer or at the bottom
+    var footer = container.querySelector('footer');
+    if (footer) {
+      container.insertBefore(w, footer);
+    } else {
+      container.appendChild(w);
+    }
+  }
+
+  function renderFaqAccordion() {
+    var tid = getTopicId();
+    if (!tid) return;
+
+    var faqs = window.EA_FAQS_DATA[tid];
+    if (!faqs || !faqs.length) return;
+
+    var container = document.getElementById('app') || document.querySelector('.wrap') || document.body;
+    if (document.getElementById('ea-faq-widget')) return;
+
+    var sec = document.createElement('section');
+    sec.id = 'ea-faq-widget';
+    sec.className = 'ea-faq-section';
+
+    var itemsHtml = faqs.map(function(item, idx) {
+      return '' +
+        '<details class="ea-faq-item" ' + (idx === 0 ? 'open' : '') + '>' +
+          '<summary class="ea-faq-q">' +
+            '<span>' + item.q + '</span>' +
+            '<span class="ea-faq-icon">▾</span>' +
+          '</summary>' +
+          '<div class="ea-faq-a">' +
+            '<p>' + item.a + '</p>' +
+          '</div>' +
+        '</details>';
+    }).join('');
+
+    sec.innerHTML = '' +
+      '<div class="ea-faq-header">' +
+        '<div class="ea-faq-kicker">💡 PEOPLE ALSO ASK · FREQUENTLY ASKED QUESTIONS</div>' +
+        '<h3>Common Doubts & Spanish Speaker Traps</h3>' +
+      '</div>' +
+      '<div class="ea-faq-list">' + itemsHtml + '</div>';
+
+    // Inject right before footer or after bridge
+    var bridge = document.getElementById('ea-bridge-widget');
+    var footer = container.querySelector('footer');
+    if (bridge && bridge.nextSibling) {
+      container.insertBefore(sec, bridge.nextSibling);
+    } else if (footer) {
+      container.insertBefore(sec, footer);
+    } else {
+      container.appendChild(sec);
+    }
+  }
+
+  function injectBridgeStyles() {
+    if (document.getElementById('ea-bridge-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'ea-bridge-styles';
+    style.textContent = `
+      .ea-bridge-card {
+        margin: 45px 0 25px;
+        padding: 24px 26px;
+        background: linear-gradient(135deg, rgba(23,34,59,0.03) 0%, rgba(15,76,92,0.07) 100%);
+        border: 1px solid rgba(15,76,92,0.22);
+        border-left: 5px solid #0F4C5C;
+        border-radius: 12px;
+        font-family: var(--sans, system-ui, sans-serif);
+        color: var(--ink, #17223B);
+      }
+      .bridge-badge-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      .bridge-badge-kicker {
+        font-family: var(--mono, monospace);
+        font-size: 11px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: #0F4C5C;
+        font-weight: 600;
+      }
+      .bridge-level-pill {
+        font-family: var(--mono, monospace);
+        font-size: 10.5px;
+        padding: 2px 8px;
+        background: #0F4C5C;
+        color: #fff;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+      .bridge-rel-pill {
+        font-family: var(--mono, monospace);
+        font-size: 10.5px;
+        padding: 2px 8px;
+        background: rgba(212,175,55,0.18);
+        border: 1px solid #D4AF37;
+        color: #7A5B0B;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+      .bridge-title {
+        font-family: var(--serif, Georgia, serif);
+        font-size: 24px;
+        font-weight: 700;
+        margin: 4px 0 8px;
+        color: var(--ink, #17223B);
+      }
+      .bridge-note {
+        font-size: 15.5px;
+        line-height: 1.55;
+        color: #4A5568;
+        margin-bottom: 16px;
+      }
+      .bridge-challenge-box {
+        background: #ffffff;
+        border: 1px solid #DCE0D9;
+        border-radius: 9px;
+        padding: 14px 18px;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      }
+      .bridge-ch-prompt {
+        font-size: 14.5px;
+        color: var(--ink, #17223B);
+        margin-bottom: 10px;
+      }
+      .bridge-ch-opts {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .bridge-opt-btn {
+        font-family: var(--sans, sans-serif);
+        font-size: 13.5px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border: 1px solid #CBD5E0;
+        border-radius: 6px;
+        background: #F7FAFC;
+        color: #2D3748;
+        cursor: pointer;
+        transition: all .2s ease;
+      }
+      .bridge-opt-btn:hover:not(:disabled) {
+        border-color: #0F4C5C;
+        background: #EDF2F7;
+      }
+      .bridge-opt-btn.correct {
+        background: #10B981 !important;
+        border-color: #059669 !important;
+        color: #fff !important;
+        font-weight: 600;
+      }
+      .bridge-opt-btn.wrong {
+        background: #EF4444 !important;
+        border-color: #DC2626 !important;
+        color: #fff !important;
+      }
+      .bridge-fb {
+        margin-top: 10px;
+        font-size: 13.5px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        line-height: 1.4;
+      }
+      .bridge-fb.good {
+        background: #ECFDF5;
+        border: 1px solid #A7F3D0;
+        color: #065F46;
+      }
+      .bridge-fb.note {
+        background: #FFFBEB;
+        border: 1px solid #FDE68A;
+        color: #92400E;
+      }
+      .bridge-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .btn-bridge {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 9px 18px;
+        border-radius: 7px;
+        font-size: 13.5px;
+        font-weight: 600;
+        transition: all .2s ease;
+      }
+      .btn-bridge.primary {
+        background: #0F4C5C;
+        color: #fff;
+        border: 1px solid #0F4C5C;
+      }
+      .btn-bridge.primary:hover {
+        background: #17223B;
+        border-color: #17223B;
+        transform: translateY(-1px);
+      }
+      .btn-bridge.ghost {
+        background: transparent;
+        color: #0F4C5C;
+        border: 1px solid #0F4C5C;
+      }
+      .btn-bridge.ghost:hover {
+        background: rgba(15,76,92,0.06);
+      }
+      .btn-bridge.text {
+        color: #718096;
+        font-size: 13px;
+        margin-left: auto;
+      }
+      .btn-bridge.text:hover {
+        color: var(--ink, #17223B);
+      }
+
+      /* FAQ Accordion */
+      .ea-faq-section {
+        margin: 35px 0 45px;
+        border-top: 1px solid #DCE0D9;
+        padding-top: 24px;
+        font-family: var(--sans, sans-serif);
+      }
+      .ea-faq-header {
+        margin-bottom: 16px;
+      }
+      .ea-faq-kicker {
+        font-family: var(--mono, monospace);
+        font-size: 11px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: #B23A2E;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .ea-faq-header h3 {
+        font-family: var(--serif, Georgia, serif);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--ink, #17223B);
+        margin: 0;
+      }
+      .ea-faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .ea-faq-item {
+        background: #fff;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: border-color .2s ease;
+      }
+      .ea-faq-item[open] {
+        border-color: #0F4C5C;
+        box-shadow: 0 3px 10px rgba(15,76,92,0.05);
+      }
+      .ea-faq-q {
+        padding: 14px 18px;
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--ink, #17223B);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+        list-style: none;
+      }
+      .ea-faq-q::-webkit-details-marker { display: none; }
+      .ea-faq-icon {
+        font-size: 16px;
+        color: #718096;
+        transition: transform .2s ease;
+      }
+      .ea-faq-item[open] .ea-faq-icon {
+        transform: rotate(180deg);
+        color: #0F4C5C;
+      }
+      .ea-faq-a {
+        padding: 0 18px 16px;
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: #4A5568;
+        border-top: 1px solid #F1F5F9;
+        margin-top: 4px;
+        padding-top: 12px;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function init() {
+    injectBridgeStyles();
+    renderConnectedBridge();
+    renderFaqAccordion();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+"""
+    return template.replace("__BRIDGES_JSON__", bridges_json).replace("__FAQS_JSON__", faqs_json)
+
+def inject_static_faq_and_bridge_html(bridges, faqs):
+    """Injects static JSON-LD for FAQPage into HTML files in preview/ and leccion/"""
+    count_faqs = 0
+    count_bridges = 0
+    
+    for dir_path in [ROOT / "preview", ROOT / "leccion"]:
+        if not dir_path.exists():
+            continue
+        for f in dir_path.glob("*.html"):
+            txt = f.read_text(encoding="utf-8")
+            stem = f.stem
+            modified = False
+            
+            # 1. Check FAQ
+            if stem in faqs and 'FAQPage' not in txt:
+                faq_items = faqs[stem]
+                entities = []
+                for it in faq_items:
+                    entities.append({
+                        "@type": "Question",
+                        "name": it["q"],
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": it["a"]
+                        }
+                    })
+                faq_schema = {
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": entities
+                }
+                faq_jsonld = f'\n<script type="application/ld+json">\n{json.dumps(faq_schema, ensure_ascii=False, indent=2)}\n</script>'
+                if '</head>' in txt:
+                    txt = txt.replace('</head>', f'{faq_jsonld}\n</head>')
+                    modified = True
+                    count_faqs += 1
+            
+            # 2. Ensure ea-bridge.js script tag is present if ea-nav.js is present
+            if 'js/ea-bridge.js' not in txt and 'js/ea-nav.js' in txt:
+                txt = txt.replace('<script src="../js/ea-nav.js"></script>', '<script src="../js/ea-bridge.js"></script>\n<script src="../js/ea-nav.js"></script>')
+                modified = True
+                count_bridges += 1
+                
+            if modified:
+                f.write_text(txt, encoding="utf-8")
+                
+    print(f"Inyectados {count_faqs} bloques FAQPage y actualizados {count_bridges} enlaces de scripts en preview/ y leccion/.")
+
+def main():
+    print("Iniciando generador de Puentes y FAQ Engine...")
+    all_topics = json.loads((ROOT / "datos" / "temas-completos.json").read_text(encoding="utf-8"))
+    
+    full_bridges = generate_default_bridges(all_topics)
+    
+    # Write JSON files
+    (ROOT / "datos" / "curriculum-bridges.json").write_text(
+        json.dumps(full_bridges, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    (ROOT / "datos" / "faq-database.json").write_text(
+        json.dumps(FAQS, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(f"Guardados datos/curriculum-bridges.json ({len(full_bridges)} puentes) y datos/faq-database.json ({len(FAQS)} temas con FAQ).")
+    
+    # Generate js/ea-bridge.js
+    bridge_js = build_client_bridge_js(full_bridges, FAQS)
+    (ROOT / "js" / "ea-bridge.js").write_text(bridge_js, encoding="utf-8")
+    print("Generado js/ea-bridge.js con éxito.")
+    
+    # Inject into HTML files
+    inject_static_faq_and_bridge_html(full_bridges, FAQS)
+    print("Completado.")
+
+if __name__ == "__main__":
+    main()

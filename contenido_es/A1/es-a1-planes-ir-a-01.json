@@ -1,0 +1,299 @@
+{
+  "id": "es-a1-planes-ir-a-01",
+  "nivel": "A1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Planes y Futuro Inmediato (Ir a + Infinitivo)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "voy a",
+      "traduccion": "I am going to",
+      "bandera": "🎯"
+    },
+    {
+      "palabra": "vas a",
+      "traduccion": "you are going to",
+      "bandera": "🚶"
+    },
+    {
+      "palabra": "va a",
+      "traduccion": "he/she is going to",
+      "bandera": "➡️"
+    },
+    {
+      "palabra": "vamos a",
+      "traduccion": "we are going to",
+      "bandera": "👥"
+    },
+    {
+      "palabra": "van a",
+      "traduccion": "they are going to",
+      "bandera": "👥"
+    },
+    {
+      "palabra": "esta tarde",
+      "traduccion": "this afternoon",
+      "bandera": "🌇"
+    },
+    {
+      "palabra": "esta noche",
+      "traduccion": "tonight",
+      "bandera": "🌙"
+    },
+    {
+      "palabra": "mañana",
+      "traduccion": "tomorrow",
+      "bandera": "🌅"
+    },
+    {
+      "palabra": "este fin de semana",
+      "traduccion": "this weekend",
+      "bandera": "🗓️"
+    },
+    {
+      "palabra": "el próximo mes",
+      "traduccion": "next month",
+      "bandera": "📆"
+    },
+    {
+      "palabra": "viajar a la playa",
+      "traduccion": "to travel to the beach",
+      "bandera": "🏖️"
+    },
+    {
+      "palabra": "descansar",
+      "traduccion": "to rest",
+      "bandera": "🛋️"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Esta noche voy a preparar una cena especial con pasta fresca."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Mateo y Lucas van a viajar a la costa el próximo fin de semana."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Aurora va a explicar las tradiciones locales en la próxima clase."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Nosotros no vamos a salir hoy porque llueve torrencialmente."
+    },
+    {
+      "id": "s5",
+      "forma": "interrogativo",
+      "oracion": "¿Qué vas a hacer mañana después de salir del trabajo?"
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Van a participar ustedes en la maratón de la ciudad?"
+    },
+    {
+      "id": "s7",
+      "forma": "short_answer",
+      "oracion": "¿Vas a descansar este domingo? Sí, voy a dormir hasta tarde."
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Van a ir al cine esta noche? Sí, vamos a ver una comedia."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡Para hablar de tus planes, intenciones y proyectos futuros en español no necesitas conjugaciones complejas!",
+        "Chloe: ¿Simplemente usamos la estructura **ir + a + infinitivo**?",
+        "Aurora: ¡Exacto! Conjugas el verbo **ir** en presente (*voy, vas, va, vamos, vais, van*), colocas la preposición indispensable **a**, y añades el verbo de la acción en infinitivo (*voy a cocinar, vamos a viajar*). ¡Nunca olvides la 'a' intermedia!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Mañana nosotros vamos comer en el centro histórico.",
+        "opcion_b": "Mañana nosotros vamos a comer en el centro histórico.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "La estructura 'ir a + infinitivo' comunica planes seguros, decisiones tomadas con antelación y acciones futuras inmediatas.",
+      "tabla": {
+        "titulo": "Estructura del Futuro Inmediato (Ir a + Infinitivo)",
+        "encabezados": [
+          "Sujeto",
+          "Verbo IR",
+          "Nexo",
+          "Acción (Infinitivo)"
+        ],
+        "filas": [
+          [
+            "yo",
+            "voy",
+            "a",
+            "estudiar / viajar"
+          ],
+          [
+            "tú",
+            "vas",
+            "a",
+            "descansar / cocinar"
+          ],
+          [
+            "él / ella / usted",
+            "va",
+            "a",
+            "llegar temprano"
+          ],
+          [
+            "nosotros / nosotras",
+            "vamos",
+            "a",
+            "organizar una fiesta"
+          ],
+          [
+            "vosotros / vosotras",
+            "vais",
+            "a",
+            "aprender mucho"
+          ],
+          [
+            "ellos / ellas / ustedes",
+            "van",
+            "a",
+            "visitar el museo"
+          ]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué elemento es obligatorio entre el verbo 'ir' y el infinitivo para expresar futuro de intención?",
+          "opciones": [
+            "la preposición 'a'",
+            "la conjunción 'que'",
+            "el pronombre 'se'",
+            "ningún elemento"
+          ],
+          "respuesta": "la preposición 'a'"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "Completa la oración: 'Lucas y Chloe ___ a recorrer el centro histórico en bicicleta.'",
+          "opciones": [
+            "van",
+            "va",
+            "vamos",
+            "voy"
+          ],
+          "respuesta": "van"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En la perífrasis 'ir a + infinitivo', el verbo principal siempre permanece en su forma no conjugada (terminado en -ar, -er o -ir).",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Esta noche yo ___ (ir) a cocinar y mis amigos ___ (ir) a traer las bebidas.",
+          "respuesta": "voy van"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "— ¿Qué ___ (ir / tú) a hacer el sábado? — ___ (ir / yo) a visitar a mi familia.",
+          "respuesta": "vas voy"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "El",
+            "próximo",
+            "mes",
+            "vamos",
+            "a",
+            "viajar",
+            "juntos"
+          ],
+          "respuesta": "El próximo mes vamos a viajar juntos"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Mañana yo voy comprar las entradas para la función de teatro.",
+          "respuesta": "Mañana yo voy a comprar las entradas para la función de teatro."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración en presente simple a futuro con 'ir a + infinitivo':",
+          "oracion_base": "Yo estudio para el examen de mañana.",
+          "respuesta": "Yo voy a estudiar para el examen de mañana."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué vas a hacer este fin de semana para descansar?",
+          "respuesta": "Voy a descansar y pasar tiempo con mis amigos."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Mateo: Lucas, ¿qué vas a hacer después de clase?",
+        "Lucas: Voy a tomar fotos del atardecer en el mirador del cerro.",
+        "Mateo: ¡Qué buen plan! Yo voy a reunirme con Valeria para tomar un café.",
+        "Lucas: Excelente. Más tarde los llamo para ver si cenamos juntos."
+      ],
+      "gaps": [
+        "atardecer",
+        "café"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué va a hacer Lucas después de su clase?",
+          "opciones": [
+            "Tomar fotos en el mirador",
+            "Dormir una siesta en casa",
+            "Ir a un taller de reparación"
+          ],
+          "respuesta": "Tomar fotos en el mirador"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "El fin de semana largo de octubre está muy cerca y los amigos ya tienen todo planificado. El sábado por la mañana, Chloe y Valeria van a recorrer el mercado de flores de Santa Elena para comprar orquídeas frescas. Lucas y Mateo van a alquilar dos bicicletas de montaña para subir hasta el parque ecológico Arví. Por la noche, todos se van a reunir en el apartamento de Mateo, donde van a preparar una cena típica con música tradicional. Todos están convencidos de que van a pasar unos días inolvidables.",
+      "preguntas": [
+        {
+          "afirmacion": "Lucas y Mateo van a alquilar bicicletas de montaña el sábado.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Chloe y Valeria van a viajar a otro país en barco.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "La estructura 'van a preparar' expresa un plan decidido con certeza.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

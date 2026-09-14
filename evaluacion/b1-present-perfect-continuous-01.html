@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EXMWV3HGG');
+</script>
 <title>Present Perfect Continuous — for / since / just (presente perfecto continuo) — B1 Test | English Aurora</title>
 <meta name="description" content="Present Perfect Continuous — for / since / just — B1 test: check your grammar with instant scoring. Examen de presente perfecto continuo gratis.">
 <meta name="keywords" content="Present Perfect Continuous — for / since / just exercises, English grammar, Present Perfect Continuous, B1 English, ESL, ejercicios de ingles, ejercicios presente perfecto continuo, presente perfecto continuo">
@@ -310,23 +319,23 @@
   function eq(a,b){return normalize(a)===normalize(b);}
   function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
   function esc(s){return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  const graders=[]; let n=0;
+  const graders=[]; const isEs = !!(D && (D.idioma === 'es' || (D.id && D.id.startsWith('es-'))));
 
   const mh=el('div','masthead');
-  mh.appendChild(el('div','brand','English Aurora · Test'));
+  mh.appendChild(el('div','brand', isEs ? 'Spanish Aurora · Examen' : 'English Aurora · Test'));
   mh.appendChild(el('div','tema',esc(D.tema)));
-  const tags=el('div','tags'); tags.appendChild(el('span','tag lvl',D.nivel)); tags.appendChild(el('span','tag exam','Test'));
+  const tags=el('div','tags'); tags.appendChild(el('span','tag lvl',D.nivel)); tags.appendChild(el('span','tag exam', isEs ? 'Examen' : 'Test'));
   mh.appendChild(tags);
   // Mode bar: every page is an entry point to the full sequence
   if(D.id){const mb=el('div','modebar');
-    [['📖 Lesson','../leccion/',false],['✏️ Practice','../preview/',false],['✓ Test','../evaluacion/',true]].forEach(([lbl,dir,on])=>{
+    (isEs ? [['📖 Lección','../leccion/',false],['✏️ Práctica','../preview/',false],['✓ Examen','../evaluacion/',true]] : [['📖 Lesson','../leccion/',false],['✏️ Practice','../preview/',false],['✓ Test','../evaluacion/',true]]).forEach(([lbl,dir,on])=>{
       const a=el('a',on?'on':null,lbl);a.href=dir+D.id+'.html';mb.appendChild(a);});
-    mb.appendChild(el('a',null,'🎲 Exercise Generator')).href='../herramientas/generador-ejercicios.html';
-    mb.appendChild(el('a',null,'🎮 Games')).href='../ludoteca.html';
-    mb.appendChild(el('a',null,'🌌 Galaxy')).href='../englishaurora/index.html';
+    mb.appendChild(el('a',null, isEs ? '🎲 Generador' : '🎲 Exercise Generator')).href='../herramientas/generador-ejercicios.html';
+    mb.appendChild(el('a',null, isEs ? '🎮 Juegos' : '🎮 Games')).href='../ludoteca.html';
+    mb.appendChild(el('a',null, isEs ? '🌌 Galaxia' : '🌌 Galaxy')).href='../englishaurora/index.html';
     mh.appendChild(mb);}
   app.appendChild(mh);
-  app.appendChild(el('div','instr','No hints. Answer everything and press <b>Submit</b>. You will see your score and the correct answers at the end.'));
+  app.appendChild(el('div','instr', isEs ? 'Sin pistas. Responde todo y presiona <b>Calificar examen</b>. Verás tu puntaje y las respuestas correctas al final.' : 'No hints. Answer everything and press <b>Submit</b>. You will see your score and the correct answers at the end.'));
   const cta=el('div','cta-sp','Enjoyed this test? <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer">Book a real class with Felipe on Superprof →</a>');
   app.appendChild(cta);
 
@@ -338,10 +347,11 @@
     const cats=Object.keys(R.byCategory); if(!cats.length)return '';
     const fila=c=>{const b=R.byCategory[c];
       const pct=b.percent==null?'—':Math.round(b.percent*100)+'%';
-      const nota=b.mode==='formative'?' <span class="cat-tag">not graded</span>':'';
-      const sin=b.unanswered?' · '+b.unanswered+' blank':'';
-      return '<div class="cat-row"><span class="cat-name">'+esc(c)+nota+'</span>'
-        +'<span class="cat-num">'+b.correct+'/'+b.possible+' · '+pct+sin+'</span></div>';};
+      const nota=b.mode==='formative'?(isEs?' <span class="cat-tag">formativo</span>':' <span class="cat-tag">not graded</span>'):'';
+      const sin=b.unanswered?(isEs?' · '+b.unanswered+' en blanco':' · '+b.unanswered+' blank'):'';
+      const catLabel = isEs ? ({grammar:'Gramática',reading:'Lectura',listening:'Comprensión auditiva'}[c]||c) : c;
+      return `<div class="cat-row"><span class="cat-name">${esc(catLabel)}${nota}</span><span class="cat-num">${b.correct}/${b.possible} (${pct}${sin})</span></div>`;
+    };
     return '<div class="cats">'+cats.map(fila).join('')+'</div>';
   }
 
@@ -349,8 +359,9 @@
     ? window.EATelemetry.crearSesion({ tema_id: D.id, nivel: D.nivel, modo: 'examen' })
     : null;
 
+  let n = 0;
   function item(ex,categoria){
-    n++; const box=el('div','q'); box.appendChild(el('div','qnum','Question '+n));
+    n++; const box=el('div','q'); box.appendChild(el('div','qnum',(isEs ? 'Pregunta ' : 'Question ') + n));
     const itemId = 'i' + (n - 1);
     if(telSes) telSes.registrarItem(itemId, { tipo: ex.tipo, category: categoria });
     let getVal, correct, markEl=el('div','mark','');
@@ -372,7 +383,7 @@
       const tf=el('div','tf-btns'); let sel='';
       ['true','false'].forEach(v=>{
         const b=el('button',null,'');
-        b.textContent=v==='true'?'✔ True':'✗ False';
+        b.textContent=v==='true'?(isEs?'✔ Verdadero':'✔ True'):(isEs?'✗ Falso':'✗ False');
         b.onclick=()=>{
           if(sel!==v && telSes) telSes.registrarInteraccion(itemId);
           sel=v;tf.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
@@ -390,13 +401,13 @@
       limpiarGaps=()=>gf.inputs.forEach(x=>x.removeAttribute('data-state'));
       correct=ex.respuesta;
     } else if(t==='unscramble'){
-      box.appendChild(el('div','instr-line','Put the words in order.'));
+      box.appendChild(el('div','instr-line',isEs?'Ordena las palabras:':'Put the words in order.'));
       const sc=el('div','scrambled');const ws=(ex.palabras||[]).slice();for(let i=ws.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ws[i],ws[j]]=[ws[j],ws[i]];}if(ws.length>2&&ws.join(' ')===(ex.palabras||[]).join(' '))ws.push(ws.shift());ws.forEach(w=>sc.appendChild(el('span',null,esc(w))));box.appendChild(sc);
       const inp=el('input');inp.type='text';
       inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(itemId); };
       box.appendChild(inp);getVal=()=>inp.value;correct=ex.respuesta;
     } else if(t==='correct_mistake'){
-      box.appendChild(el('div','instr-line','Fix the mistake.'));
+      box.appendChild(el('div','instr-line',isEs?'Encuentra y corrige el error:':'Fix the mistake.'));
       box.appendChild(el('div','base','✗ '+esc(ex.texto_con_error)));
       const inp=el('input');inp.type='text';
       inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(itemId); };
@@ -423,6 +434,8 @@
           limpiarGaps: ()=>ct.limpiar()
         });
       });
+      box.appendChild(markEl);
+      return box;
     } else if(t==='ser_estar_haber'||t==='accent_choice'){
       const ic=construirInlineChips(ex,el,esc,(hId,opt)=>{
         if(telSes) telSes.registrarInteraccion(hId);
@@ -439,6 +452,8 @@
           limpiarGaps: ()=>ic.limpiar()
         });
       });
+      box.appendChild(markEl);
+      return box;
     } else if(t==='banked_choice'){
       const bc=construirBanked(ex,el,esc,(vals)=>{
         if(telSes){
@@ -469,19 +484,19 @@
   }
 
   if(F.practica && Array.isArray(F.practica.ejercicios)){
-    app.appendChild(el('div','sec-label','Grammar'));
+    app.appendChild(el('div','sec-label', isEs ? 'Gramática' : 'Grammar'));
     F.practica.ejercicios.forEach(ex=>app.appendChild(item(ex)));
   }
   if(F.reading && Array.isArray(F.reading.preguntas) && F.reading.preguntas.length){
-    app.appendChild(el('div','sec-label','Reading'));
+    app.appendChild(el('div','sec-label', isEs ? 'Lectura' : 'Reading'));
     if(F.reading.texto) app.appendChild(el('div','base',esc(F.reading.texto)));
     F.reading.preguntas.forEach(p=>app.appendChild(item({tipo:'true_false',afirmacion:p.afirmacion,respuesta:p.respuesta},'reading')));
   }
 
-  app.appendChild(el('footer','','English Aurora — made by your teacher, not a random worksheet machine. · <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">Book real classes on Superprof</a>'));
+  app.appendChild(el('footer','', isEs ? 'Spanish Aurora — hecho por tu profesor, no por una máquina automática de guías. · <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">Clases reales con Felipe</a>' : 'English Aurora — made by your teacher, not a random worksheet machine. · <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">Book real classes on Superprof</a>'));
 
-  const submit=el('button','btn','Submit test');
-  const again=el('button','btn ghost','Retry'); again.style.display='none';
+  const submit=el('button','btn', isEs ? 'Calificar examen' : 'Submit test');
+  const again=el('button','btn ghost', isEs ? 'Reintentar' : 'Retry'); again.style.display='none';
   const res=el('div','result','');
   submit.onclick=()=>{
     let ok=0;
@@ -497,14 +512,14 @@
       const r=mine?mine.ok:false; if(r)ok++;
       g.markEl.className='mark '+(r?'right':'wrong');
       if(g.marcarGaps)g.marcarGaps(r);
-      g.markEl.innerHTML=r?'✓ Correct':(mine&&!mine.answered?'○ Not answered':'✗ Incorrect')+'<span class="sol">Answer: '+esc(g.correct)+'</span>';
+      g.markEl.innerHTML=r?(isEs?'✓ Correcto':'✓ Correct'):(mine&&!mine.answered?(isEs?'○ Sin responder':'○ Not answered'):(isEs?'✗ Incorrecto':'✗ Incorrect'))+'<span class="sol">'+(isEs?'Respuesta: ':'Answer: ')+esc(g.correct)+'</span>';
       g.box.querySelectorAll('input,button').forEach(x=>x.disabled=true);
     });
     const pct=R.grade==null?null:Math.round(R.grade);
     res.className='result'+(pct!=null&&pct>=75?' pass':'');
     res.innerHTML=pct==null
-      ? 'Nothing graded in this test.'
-      : `Score: ${ok}/${graders.length} · <span class="pct">${pct}%</span>`+desglose(R);
+      ? (isEs ? 'Nada que calificar en este examen.' : 'Nothing graded in this test.')
+      : (isEs ? `Puntaje: ${ok}/${graders.length} · <span class="pct">${pct}%</span>` : `Score: ${ok}/${graders.length} · <span class="pct">${pct}%</span>`)+desglose(R);
     submit.style.display='none'; again.style.display='';
     cta.style.display='block';
 
@@ -519,7 +534,7 @@
     try{if(D.id){const P=JSON.parse(localStorage.getItem('ea_progreso')||'{}');const prev=P[D.id];
       if(!prev||pct>prev.pct)P[D.id]={pct:pct,ok:ok,total:graders.length,fecha:new Date().toISOString().slice(0,10)};
       localStorage.setItem('ea_progreso',JSON.stringify(P));
-      if(pct>=75)res.innerHTML+=' <span style="color:var(--gold);font-weight:600">· \u2726 star lit on the 3D map</span>';
+      if(pct>=75)res.innerHTML+=' <span style="color:var(--gold);font-weight:600">· ' + (isEs ? '✦ estrella encendida en el mapa 3D' : '✦ star lit on the 3D map') + '</span>';
     }}catch(e){}
     window.scrollTo({top:0,behavior:'smooth'});
   };

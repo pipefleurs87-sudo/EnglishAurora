@@ -1,0 +1,251 @@
+{
+  "id": "es-a1-restaurante-comida-01",
+  "nivel": "A1",
+  "arquetipo": "funcional_skills",
+  "tema": "En el Restaurante y el Café (Comida y Cortesía)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "el camarero / la camarera",
+      "traduccion": "waiter / waitress",
+      "bandera": "🧑‍🍳"
+    },
+    {
+      "palabra": "la carta / el menú",
+      "traduccion": "menu",
+      "bandera": "📜"
+    },
+    {
+      "palabra": "de primero",
+      "traduccion": "first course / starter",
+      "bandera": "🥗"
+    },
+    {
+      "palabra": "de segundo",
+      "traduccion": "main course",
+      "bandera": "🍲"
+    },
+    {
+      "palabra": "el postre",
+      "traduccion": "dessert",
+      "bandera": "🍰"
+    },
+    {
+      "palabra": "la cuenta",
+      "traduccion": "bill / check",
+      "bandera": "🧾"
+    },
+    {
+      "palabra": "para mí...",
+      "traduccion": "for me...",
+      "bandera": "🙋"
+    },
+    {
+      "palabra": "¿Qué me recomienda?",
+      "traduccion": "What do you recommend?",
+      "bandera": "🤔"
+    },
+    {
+      "palabra": "un café con leche",
+      "traduccion": "coffee with milk",
+      "bandera": "☕"
+    },
+    {
+      "palabra": "agua con / sin gas",
+      "traduccion": "sparkling / still water",
+      "bandera": "💧"
+    },
+    {
+      "palabra": "¿Cuánto es?",
+      "traduccion": "How much is it?",
+      "bandera": "💶"
+    },
+    {
+      "palabra": "¡Buen provecho!",
+      "traduccion": "Enjoy your meal!",
+      "bandera": "🍽️"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Buenas tardes, ¿nos trae la carta del menú, por favor?"
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "De primero quiero una ensalada mixta con queso fresco."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "De segundo para mí el pescado a la plancha con verduras."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Nosotros no tomamos café después de las seis de la tarde."
+    },
+    {
+      "id": "s5",
+      "forma": "interrogativo",
+      "oracion": "¿Tienen opciones vegetarianas en el menú del día?"
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "Para beber, ¿nos trae una jarra de agua fría, por favor?"
+    },
+    {
+      "id": "s7",
+      "forma": "short_answer",
+      "oracion": "¿Se puede pagar con tarjeta de crédito? — Sí, por supuesto."
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Desean algún postre o café? — Sí, dos cafés solos, por favor."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡Comer y conversar alrededor de una mesa es uno de los rituales más hermosos de la cultura hispanohablante!",
+        "Chloe: En un restaurante es muy importante saber pedir con cortesía y naturalidad sin sonar brusco.",
+        "Aurora: ¡Totalmente de acuerdo! En español usamos fórmulas amables como *'Para mí...', '¿Me trae... por favor?', 'Quisiera...'*, y al terminar, *'La cuenta, por favor'*. ¡Y nunca olvides desear *¡buen provecho!* antes de comer!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Yo quiero que usted me dé la cuenta ahora.",
+        "opcion_b": "La cuenta, por favor, cuando pueda.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Fórmulas de interacción social para ordenar alimentos y bebidas, pedir recomendaciones del día y solicitar la cuenta con cortesía natural en cafés y restaurantes.",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué fórmula cortés es la más habitual para ordenar tu plato al camarero?",
+          "opciones": [
+            "Para mí la ensalada, por favor",
+            "Dame la ensalada rápido",
+            "Yo tomo ensalada ahora",
+            "Tráeme ensalada ya"
+          ],
+          "respuesta": "Para mí la ensalada, por favor"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cómo solicitas el total a pagar al terminar de almorzar?",
+          "opciones": [
+            "La cuenta, por favor",
+            "El dinero, por favor",
+            "El papel de pago, por favor",
+            "¿Cuánto tengo yo?"
+          ],
+          "respuesta": "La cuenta, por favor"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La frase '¡Buen provecho!' se dice a los comensales antes de comenzar la comida como expresión de cortesía.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "— ¿Qué desean beber? — Para mí ___ (un / una) café con leche y para ella ___ (un / una) agua sin gas.",
+          "respuesta": "un una"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "— ¿Se puede pagar con tarjeta? — Sí, ___ (por favor / por supuesto), aquí tiene el terminal.",
+          "respuesta": "por supuesto"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "¿Nos",
+            "trae",
+            "la",
+            "cuenta,",
+            "por",
+            "favor?"
+          ],
+          "respuesta": "¿Nos trae la cuenta, por favor?"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "De primero para mí yo quiero una sopa de verduras caliente.",
+          "respuesta": "De primero para mí una sopa de verduras caliente."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la orden imperativa directa a una petición amable y cortés:",
+          "oracion_base": "Tráeme agua.",
+          "respuesta": "¿Me trae un vaso de agua, por favor?"
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué dices al camarero cuando terminas tu comida y deseas pagar?",
+          "respuesta": "La cuenta, por favor."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Camarero: Buenas tardes. ¿Qué les gustaría tomar hoy?",
+        "Chloe: Buenas tardes. Para mí, el menú del día con ensalada de primero y salmón de segundo.",
+        "Camarero: Excelente elección. ¿Y para beber?",
+        "Chloe: Una botella de agua con gas, por favor."
+      ],
+      "gaps": [
+        "salmón",
+        "gas"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué pide Chloe como plato principal (de segundo)?",
+          "opciones": [
+            "Salmón a la plancha",
+            "Pollo asado",
+            "Sopa de verduras"
+          ],
+          "respuesta": "Salmón a la plancha"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Al mediodía, el Café El Manantial está lleno de comensales que disfrutan del aroma a café recién tostado y pan horneado. Doña Elena saluda amablemente a cada visitante: '¡Buenas tardes! Pasen adelante, hay una mesa libre junto a la ventana'. Mateo y Chloe se sientan y examinan la carta con calma. Mateo pide una sopa casera de primero y ternera estofada de segundo, mientras que Chloe elige salmón con verduras al vapor. De postre deciden probar un flan de caramelo tradicional. Al finalizar la comida, Mateo levanta la mano cordialmente: 'Doña Elena, todo estuvo riquísimo. ¿Nos trae la cuenta, por favor?'",
+      "preguntas": [
+        {
+          "afirmacion": "Mateo pide sopa casera de primero y ternera estofada de segundo.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Chloe pide carne roja y vino blanco de postre.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "Mateo pide la cuenta cordialmente a Doña Elena al concluir el almuerzo.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

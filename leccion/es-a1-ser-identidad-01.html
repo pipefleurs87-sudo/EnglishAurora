@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EXMWV3HGG');
+</script>
 <title>Verbo Ser — Identidad, Nacionalidad y Profesiones — A1 Lección | Spanish Aurora</title>
 <meta name="description" content="Lección interactiva: Verbo Ser — Identidad, Nacionalidad y Profesiones (A1). Reglas claras, ejemplos y práctica guiada.">
 <meta name="keywords" content="Verbo Ser — Identidad, Nacionalidad y Profesiones, ejercicios de español, gramatica española, A1, ELE, aprender español">
@@ -87,6 +96,16 @@
   .mini-who{font-family:var(--mono);font-size:clamp(13px,1.6vw,18px);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-right:.6em}
   .slide.dark .mini-who{color:var(--gold)}
   .mini-txt strong{background:rgba(201,150,47,.35);padding:0 .15em;border-radius:4px;font-weight:600}
+  .conj-slide-box{margin-top:1.5vh;background:#fff;border:1px solid var(--line);border-radius:14px;padding:2vh 2.5vw;max-width:850px}
+  .conj-verb-badge{font-family:var(--mono);font-size:clamp(14px,1.8vw,22px);text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:1.5vh;padding-bottom:1vh;border-bottom:1px solid var(--line)}
+  .conj-slide-rows{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2vh 2.5vw}
+  .conj-slide-row{font-family:var(--serif);font-size:clamp(18px,2.4vw,32px);display:flex;justify-content:space-between;align-items:center;padding:.6vh 0;border-bottom:1px dashed var(--line)}
+  .conj-slide-row .pron{color:var(--ink);font-weight:600}
+  .conj-slide-row .gap{font-family:var(--mono);color:var(--muted);letter-spacing:.1em}
+  .conj-slide-row .ans{color:#2f7d4f;font-weight:700}
+  .inline-chip-prompt{font-family:var(--serif);font-size:clamp(24px,3.6vw,48px);line-height:1.3;margin-bottom:2vh}
+  .inline-chip-badge{background:rgba(201,150,47,.2);border:1px solid var(--gold);color:var(--ink);padding:0 .35em;border-radius:6px;font-family:var(--mono);font-size:.85em}
+  .inline-chip-badge.ans{background:rgba(47,125,79,.18);border-color:#2f7d4f;color:#2f7d4f;font-weight:700}
 </style>
 </head>
 <body>
@@ -105,32 +124,34 @@
   function balanced(a,max){const pages=Math.max(1,Math.ceil(a.length/max));return chunk(a,Math.ceil(a.length/pages));}
   const slides=[];
 
-  const chars=['Sofía','Ben','Kenji','Carmen'].filter(c=>JSON.stringify(D).includes(c));
-  slides.push(`<div class="slide dark"><div class="kicker">English Aurora · Level ${D.nivel}</div><h1>${esc(D.tema)}</h1><span class="badge">Lesson in ${(D.habilidades||[]).length} skills</span>${chars.length?`<div class="cast">with ${chars.join(', ')}</div>`:''}</div>`);
+  const isEs = !!(D && (D.idioma === 'es' || (D.id && D.id.startsWith('es-'))));
+  const chars=(isEs ? ['Aurora','Lucas','Chloe','Mateo','Lucía','Valeria','Elena'] : ['Sofía','Ben','Kenji','Carmen']).filter(c=>JSON.stringify(D).includes(c));
+  const auroraAvatar = (isEs || D.nivel === 'A1') ? '<img src="../assets/aurora.png" class="aurora-portrait" alt="Aurora" style="width:68px;height:68px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3);">' : '';
+  slides.push(`<div class="slide dark">${auroraAvatar}<div class="kicker">${isEs ? 'Spanish Aurora · Nivel ' + D.nivel : 'English Aurora · Level ' + D.nivel}</div><h1>${esc(D.tema)}</h1><span class="badge">${isEs ? 'Lección en ' + (D.habilidades||[]).length + ' habilidades' : 'Lesson in ' + (D.habilidades||[]).length + ' skills'}</span>${chars.length?`<div class="cast">${isEs ? 'con ' : 'with '}${chars.join(', ')}</div>`:''}</div>`);
 
   if(F.inicio && Array.isArray(F.inicio.interaccion) && F.inicio.interaccion.length){
     const dlgLines=F.inicio.interaccion.map(l=>{const i=l.indexOf(': ');
       if(i>0) return `<div class="mini-line"><span class="mini-who">${esc(l.slice(0,i))}:</span><span class="mini-txt">${esc(l.slice(i+2)).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')}</span></div>`;
       return `<div class="mini-line"><span class="mini-txt">${esc(l)}</span></div>`;
     }).join('');
-    slides.push(`<div class="slide"><div class="kicker">Meet the characters</div><div class="mini-dialog">${dlgLines}</div></div>`);
+    slides.push(`<div class="slide"><div class="kicker">${isEs ? 'Conoce a los personajes' : 'Meet the characters'}</div><div class="mini-dialog">${dlgLines}</div></div>`);
   }
 
   if(F.inicio && F.inicio.definicion_pragmatica){
-    slides.push(`<div class="slide"><div class="kicker">When do we use it?</div><div class="rule"><div class="lead it">${esc(F.inicio.definicion_pragmatica)}</div></div><div class="whisper">It's not about memorizing rules — it's knowing when and why to use it.</div></div>`);
+    slides.push(`<div class="slide"><div class="kicker">${isEs ? '¿Cuándo lo usamos?' : 'When do we use it?'}</div><div class="rule"><div class="lead it">${esc(F.inicio.definicion_pragmatica)}</div></div><div class="whisper">${isEs ? 'No se trata de memorizar reglas, sino de saber cuándo y por qué usarlo.' : 'It\'s not about memorizing rules — it\'s knowing when and why to use it.'}</div></div>`);
   }
 
   const b=F.inicio && F.inicio.banner_diagnostico;
   if(b){
     const wrong=b.correcta==='a'?b.opcion_b:b.opcion_a; const right=b.correcta==='a'?b.opcion_a:b.opcion_b;
-    slides.push(`<div class="slide"><div class="kicker">The mistake almost everyone makes</div><div class="wrong"><span class="mk">✗</span><span class="txt">${esc(wrong)}</span></div><div class="right"><span class="mk">✓</span><span class="txt">${esc(right)}</span></div><div class="whisper">See the difference? That's what we'll master today.</div></div>`);
+    slides.push(`<div class="slide"><div class="kicker">${isEs ? 'El error que casi todos cometen' : 'The mistake almost everyone makes'}</div><div class="wrong"><span class="mk">✗</span><span class="txt">${esc(wrong)}</span></div><div class="right"><span class="mk">✓</span><span class="txt">${esc(right)}</span></div><div class="whisper">${isEs ? '¿Ves la diferencia? Eso es lo que dominaremos hoy.' : 'See the difference? That\'s what we\'ll master today.'}</div></div>`);
   }
 
   if(F.inicio && F.inicio.tabla && Array.isArray(F.inicio.tabla.filas)){
     const T=F.inicio.tabla;
     const head=(T.encabezados||[]).map(h=>`<th>${esc(h)}</th>`).join('');
     const rows=T.filas.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('');
-    slides.push(`<div class="slide"><div class="kicker">The form${T.titulo?' · '+esc(T.titulo):''}</div><table class="ltab"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`);
+    slides.push(`<div class="slide"><div class="kicker">${isEs ? 'La estructura' : 'The form'}${T.titulo?' · '+esc(T.titulo):''}</div><table class="ltab"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`);
   }
 
   if(F.inicio && F.inicio.vocab_warmup && Array.isArray(D.vocabulario) && D.vocabulario.length){
@@ -141,52 +162,93 @@
         return `<div class="vc"><div class="w">${esc(v.palabra||'')}</div><div class="t">${esc(v.traduccion||'')}</div></div>`;
       }).join('');
       const cols=grp.length<=4?grp.length:(grp.length%3===0&&grp.length<=9?3:4);
-      slides.push(`<div class="slide"><div class="kicker">Vocabulary${i>0?' (cont.)':''}</div><div class="vgrid" style="grid-template-columns:repeat(${cols},1fr)">${cards}</div></div>`);
+      slides.push(`<div class="slide"><div class="kicker">${isEs ? 'Vocabulario' : 'Vocabulary'}${i>0?' (cont.)':''}</div><div class="vgrid" style="grid-template-columns:repeat(${cols},1fr)">${cards}</div></div>`);
     });
   }
 
   if(Array.isArray(D.banco_oraciones) && D.banco_oraciones.length){
     const banco=D.banco_oraciones; const tieneForma=banco.some(o=>o.forma);
     if(tieneForma){
-      [['afirmativo','Affirmative'],['negativo','Negative'],['interrogativo','Questions'],['short_answer','Short answers (Yes/No)']].forEach(([k,label])=>{
+      [['afirmativo',isEs?'Afirmativo':'Affirmative'],['negativo',isEs?'Negativo':'Negative'],['interrogativo',isEs?'Preguntas':'Questions'],['short_answer',isEs?'Respuestas cortas (Sí/No)':'Short answers (Yes/No)']].forEach(([k,label])=>{
         const grp=banco.filter(o=>o.forma===k).map(o=>o.oracion); if(!grp.length)return;
         const lines=grp.map(o=>`<div class="ex-line">${esc(o)}</div>`).join('');
-        slides.push(`<div class="slide"><div class="kicker">In action</div><div class="forma-tag">${label}</div><div class="ex-list">${lines}</div></div>`);
+        slides.push(`<div class="slide"><div class="kicker">${isEs ? 'En acción' : 'In action'}</div><div class="forma-tag">${label}</div><div class="ex-list">${lines}</div></div>`);
       });
     } else {
       chunk(banco.map(o=>o.oracion||o).filter(Boolean),3).forEach((grp,i)=>{
         const lines=grp.map(o=>`<div class="ex-line">${esc(o)}</div>`).join('');
-        slides.push(`<div class="slide"><div class="kicker">In action${i>0?' (cont.)':''}</div><div class="ex-list">${lines}</div></div>`);
+        slides.push(`<div class="slide"><div class="kicker">${isEs ? 'En acción' : 'In action'}${i>0?' (cont.)':''}</div><div class="ex-list">${lines}</div></div>`);
       });
     }
   }
 
-  const stageOf=t=>({multiple_choice:'reconocer',true_false:'reconocer',gap_fill:'manipular',unscramble:'manipular',correct_mistake:'manipular',transformation:'transformar',write_opposite:'transformar',short_answer_production:'producir'}[t]||'practicar');
+  const stageOf=t=>({multiple_choice:'reconocer',true_false:'reconocer',gap_fill:'manipular',unscramble:'manipular',correct_mistake:'manipular',transformation:'transformar',write_opposite:'transformar',short_answer_production:'producir',conjugation_table:'manipular',ser_estar_haber:'manipular',accent_choice:'manipular',banked_choice:'reconocer'}[t]||'practicar');
   function exContent(ex){
     const t=ex.tipo;
-    if(t==='multiple_choice'){const opts=(ex.opciones||[]).map(o=>`<div class="opt">${esc(o)}</div>`).join('');return {cue:'Choose the correct option',q:`<div class="q">${esc(ex.pregunta).replace(/___/g,'_____')}</div><div class="opts">${opts}</div>`,a:esc(ex.respuesta)};}
-    if(t==='true_false') return {cue:'True or false?',q:`<div class="q">${esc(ex.afirmacion)}</div>`,a:(String(ex.respuesta)==='true'?'True':'False')};
-    if(t==='gap_fill') return {cue:'Fill the gap',q:`<div class="q">${esc(ex.texto).replace(/___/g,'_____')}</div>`,a:esc(ex.respuesta)};
-    if(t==='unscramble') return {cue:'Put the words in order',q:`<div class="q">${(ex.palabras||[]).map(esc).join(' · ')}</div>`,a:esc(ex.respuesta)};
-    if(t==='correct_mistake') return {cue:'Find and fix the mistake',q:`<div class="q wrong-q">${esc(ex.texto_con_error)}</div>`,a:esc(ex.respuesta)};
-    if(t==='transformation'||t==='write_opposite') return {cue:esc(ex.instruccion||'Transform the sentence'),q:`<div class="q">${esc(ex.oracion_base)}</div>`,a:esc(ex.respuesta)};
-    if(t==='short_answer_production') return {cue:'Answer in a full sentence',q:`<div class="q">${esc(ex.pregunta)}</div>`,a:esc(ex.respuesta)};
-    return {cue:'Practice',q:'',a:esc(ex.respuesta||'')};
+    if(t==='multiple_choice'){const opts=(ex.opciones||[]).map(o=>`<div class="opt">${esc(o)}</div>`).join('');return {cue:isEs?'Elige la opción correcta':'Choose the correct option',q:`<div class="q">${esc(ex.pregunta).replace(/___/g,'_____')}</div><div class="opts">${opts}</div>`,a:esc(ex.respuesta)};}
+    if(t==='true_false') return {cue:isEs?'¿Verdadero o falso?':'True or false?',q:`<div class="q">${esc(ex.afirmacion)}</div>`,a:(String(ex.respuesta)==='true'?(isEs?'Verdadero':'True'):(isEs?'Falso':'False'))};
+    if(t==='gap_fill') return {cue:isEs?'Completa el hueco':'Fill the gap',q:`<div class="q">${esc(ex.texto).replace(/___/g,'_____')}</div>`,a:esc(ex.respuesta)};
+    if(t==='unscramble') return {cue:isEs?'Ordena las palabras':'Put the words in order',q:`<div class="q">${(ex.palabras||[]).map(esc).join(' · ')}</div>`,a:esc(ex.respuesta)};
+    if(t==='correct_mistake') return {cue:isEs?'Encuentra y corrige el error':'Find and fix the mistake',q:`<div class="q wrong-q">${esc(ex.texto_con_error)}</div>`,a:esc(ex.respuesta)};
+    if(t==='transformation'||t==='write_opposite') return {cue:esc(ex.instruccion||(isEs?'Transforma la oración':'Transform the sentence')),q:`<div class="q">${esc(ex.oracion_base)}</div>`,a:esc(ex.respuesta)};
+    if(t==='short_answer_production') return {cue:isEs?'Responde en una oración completa':'Answer in a full sentence',q:`<div class="q">${esc(ex.pregunta)}</div>`,a:esc(ex.respuesta)};
+    if(t==='conjugation_table'){
+      const v=ex.verbo||'';
+      const tm=ex.tiempo?` (${ex.tiempo})`:'';
+      const cue=ex.instruccion||(isEs?`Conjuga el verbo: ${v}${tm}`:`Conjugate the verb: ${v}${tm}`);
+      const filas=Array.isArray(ex.filas)?ex.filas:[];
+      const qGrid=`<div class="conj-slide-box"><div class="conj-verb-badge">${isEs?'Verbo: ':'Verb: '}<b>${esc(v)}</b>${esc(tm)}</div><div class="conj-slide-rows">${filas.map(f=>`<div class="conj-slide-row"><span class="pron">${esc(f.pronombre)}:</span> <span class="gap">_______</span></div>`).join('')}</div></div>`;
+      const aGrid=`<div class="conj-slide-box"><div class="conj-verb-badge">${isEs?'Verbo: ':'Verb: '}<b>${esc(v)}</b>${esc(tm)}</div><div class="conj-slide-rows">${filas.map(f=>`<div class="conj-slide-row"><span class="pron">${esc(f.pronombre)}:</span> <b class="ans">${esc(f.respuesta)}</b></div>`).join('')}</div></div>`;
+      return {
+        cue: cue,
+        q: qGrid,
+        a: '',
+        ansSlide: aGrid
+      };
+    }
+    if(t==='ser_estar_haber'||t==='accent_choice'){
+      const cue=ex.instruccion||(isEs?'Elige la opción correcta':'Choose the correct option');
+      const oracion=ex.oracion||'';
+      const huecos=Array.isArray(ex.huecos)?ex.huecos:[];
+      let qSentence=esc(oracion);
+      let aSentence=esc(oracion);
+      huecos.forEach(h=>{
+        const opts=(h.opciones||[]).join(' / ');
+        qSentence=qSentence.replace('___',`<span class="inline-chip-badge">[ ${esc(opts)} ]</span>`);
+        aSentence=aSentence.replace('___',`<span class="inline-chip-badge ans">${esc(h.respuesta)}</span>`);
+      });
+      return {
+        cue: cue,
+        q: `<div class="inline-chip-prompt">${qSentence}</div>`,
+        a: huecos.map(h=>esc(h.respuesta)).join(' · '),
+        ansSlide: `<div class="inline-chip-prompt">${aSentence}</div><div class="answer">✓ ${huecos.map(h=>esc(h.respuesta)).join(' · ')}</div>`
+      };
+    }
+    if(t==='banked_choice'){
+      const prompt=ex.prompt||(isEs?'Relaciona cada elemento':'Match each item');
+      const items=Array.isArray(ex.items)?ex.items:[];
+      const qHtml=`<div class="q">${esc(prompt)}</div><div class="opts">${items.map(it=>`<div class="opt"><b>${esc(it.prompt||it.id)}:</b> _____</div>`).join('')}</div>`;
+      const aHtml=`<div class="q">${esc(prompt)}</div><div class="opts">${items.map(it=>`<div class="opt" style="border-color:#2f7d4f"><b>${esc(it.prompt||it.id)}:</b> <span style="color:#2f7d4f;font-weight:700">${esc(it.answer)}</span></div>`).join('')}</div>`;
+      return { cue: isEs?'Completa las opciones':'Match options', q: qHtml, a: '', ansSlide: aHtml };
+    }
+    const txt=ex.texto||ex.oracion||ex.pregunta||'';
+    const qHtml=txt?`<div class="q">${esc(txt).replace(/___/g,'_____')}</div>`:'';
+    return {cue:isEs?'Práctica':'Practice',q:qHtml,a:esc(ex.respuesta||'')};
   }
   const ejercicios=(F.practica && Array.isArray(F.practica.ejercicios))?F.practica.ejercicios:[];
   const picked=[]; const seenStage={};
   ejercicios.forEach(ex=>{const s=stageOf(ex.tipo);if(!seenStage[s]){seenStage[s]=1;picked.push(ex);}});
   for(const ex of ejercicios){if(picked.length>=4)break;if(picked.indexOf(ex)<0)picked.push(ex);}
   if(picked.length){
-    slides.push(`<div class="slide dark"><div class="kicker">Let's practice together</div><h2>Your turn.</h2><div class="cta">Pause the video, try each one out loud, then we'll check the answer.</div></div>`);
+    slides.push(`<div class="slide dark"><div class="kicker">${isEs ? 'Practiquemos juntos' : 'Let\'s practice together'}</div><h2>${isEs ? 'Tu turno.' : 'Your turn.'}</h2><div class="cta">${isEs ? 'Pausa el video, intenta cada ejercicio en voz alta y luego revisamos la respuesta.' : 'Pause the video, try each one out loud, then we\'ll check the answer.'}</div></div>`);
     picked.forEach((ex,i)=>{const c=exContent(ex);
-      slides.push(`<div class="slide"><div class="kicker">Exercise ${i+1} · ${c.cue}</div>${c.q}<div class="signpost">▸ Pause and try. Ready? Go →</div></div>`);
-      slides.push(`<div class="slide"><div class="kicker">Exercise ${i+1} · The answer</div>${c.q}<div class="answer">✓ ${c.a}</div>${ex.tambien_valido?`<div class="also-valid">Also correct: ${esc(ex.tambien_valido)}</div>`:''}</div>`);
+      slides.push(`<div class="slide"><div class="kicker">${isEs ? 'Ejercicio ' : 'Exercise '}${i+1} · ${c.cue}</div>${c.q}<div class="signpost">${isEs ? '▸ Pausa e intenta. ¿Listo? Dale →' : '▸ Pause and try. Ready? Go →'}</div></div>`);
+      slides.push(`<div class="slide"><div class="kicker">${isEs ? 'Ejercicio ' : 'Exercise '}${i+1} · ${isEs ? 'La respuesta' : 'The answer'}</div>${c.ansSlide || (c.q + (c.a ? `<div class="answer">✓ ${c.a}</div>` : ''))}${ex.tambien_valido?`<div class="also-valid">${isEs ? 'También válido: ' : 'Also correct: '}${esc(ex.tambien_valido)}</div>`:''}</div>`);
     });
   }
 
   const exHref=D.id?('../preview/'+D.id+'.html'):null;
-  slides.push(`<div class="slide dark"><div class="kicker">Keep practicing</div><h2>Now it's your turn.</h2><div class="cta">More <b>${esc(D.tema)}</b> exercises —<br>diagnosis, practice, listening and reading— free.${exHref?`<br><a href="${exHref}">Go to the exercises →</a>`:''}</div><div class="url">english aurora · level ${D.nivel} · want classes? write to me</div></div>`);
+  slides.push(`<div class="slide dark"><div class="kicker">${isEs ? '¡Sigue practicando!' : 'Keep practicing'}</div><h2>${isEs ? 'Ahora te toca a ti.' : 'Now it\'s your turn.'}</h2><div class="cta">${isEs ? `Más ejercicios de <b>${esc(D.tema)}</b> —<br>diagnóstico, práctica, listening y lectura— gratis.` : `More <b>${esc(D.tema)}</b> exercises —<br>diagnosis, practice, listening and reading— free.`}${exHref?`<br><a href="${exHref}">${isEs ? 'Ir a los ejercicios →' : 'Go to the exercises →'}</a>`:''}</div><div class="url">${isEs ? 'spanish aurora · nivel ' + D.nivel + ' · ¿quieres clases? escríbeme' : 'english aurora · level ' + D.nivel + ' · want classes? write to me'}</div></div>`);
 
   deck.innerHTML=slides.join('');
   const nodes=[...deck.querySelectorAll('.slide')];
@@ -203,15 +265,16 @@
   deck.addEventListener('click',e=>{if(e.target.closest('a'))return;(e.clientX<window.innerWidth*0.33)?prev():next();});
   // Mode bar: the lesson page is also an entry point to practice & test
   if(D.id){const mb=document.createElement('div');mb.className='modebar-fixed';
-    [['📖 Lesson','../leccion/',true],['✏️ Practice','../preview/',false],['✓ Test','../evaluacion/',false]].forEach(([lbl,dir,on])=>{
+    (isEs ? [['📖 Lección','../leccion/',true],['✏️ Práctica','../preview/',false],['✓ Examen','../evaluacion/',false]] : [['📖 Lesson','../leccion/',true],['✏️ Practice','../preview/',false],['✓ Test','../evaluacion/',false]]).forEach(([lbl,dir,on])=>{
       const a=document.createElement('a');a.textContent=lbl;a.href=dir+D.id+'.html';if(on)a.className='on';mb.appendChild(a);});
-    const gLink=document.createElement('a');gLink.textContent='🎲 Exercise Generator';gLink.href='../herramientas/generador-ejercicios.html';mb.appendChild(gLink);
-    const lLink=document.createElement('a');lLink.textContent='🎮 Games';lLink.href='../ludoteca.html';mb.appendChild(lLink);
-    const mLink=document.createElement('a');mLink.textContent='🌌 Galaxy';mLink.href='../englishaurora/index.html';mb.appendChild(mLink);
+    const gLink=document.createElement('a');gLink.textContent=isEs ? '🎲 Generador' : '🎲 Exercise Generator';gLink.href='../herramientas/generador-ejercicios.html';mb.appendChild(gLink);
+    const lLink=document.createElement('a');lLink.textContent=isEs ? '🎮 Juegos' : '🎮 Games';lLink.href='../ludoteca.html';mb.appendChild(lLink);
+    const mLink=document.createElement('a');mLink.textContent=isEs ? '🌌 Galaxia' : '🌌 Galaxy';mLink.href='../englishaurora/index.html';mb.appendChild(mLink);
     document.body.appendChild(mb);}
   show(0);
 })();
 </script>
+<script src="../js/ea-bridge.js"></script>
 <script src="../js/ea-nav.js"></script>
 </body>
 </html>

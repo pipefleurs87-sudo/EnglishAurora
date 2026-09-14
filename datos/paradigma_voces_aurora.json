@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "idioma": "es",
+  "proyecto": "Spanish Aurora",
+  "descripcion": "Paradigma canónico de voces y prosodia humanizada para los personajes recurrentes de Spanish Aurora (ELE).",
+  "personajes": {
+    "aurora": {
+      "nombre": "Aurora",
+      "rol": "Mentora y guía arcana de la plataforma",
+      "arquetipo": "Voz maestra, sabia, inspiradora y serena",
+      "origen": "Ecosistema Aurora",
+      "voz_edge_tts": "es-ES-ElviraNeural",
+      "voz_alternativa": "es-MX-DaliaNeural",
+      "configuracion": {
+        "rate": "-3%",
+        "pitch": "+1Hz",
+        "cadencia": "Pausada, modulada, con pausas cálidas antes de los conceptos clave"
+      },
+      "imagenes": {
+        "idle": "assets/aurora.png",
+        "explicando": "assets/aurora-explicando.png",
+        "celebrando": "assets/aurora-celebrando.png",
+        "corrigiendo": "assets/aurora-corrigiendo.png"
+      }
+    },
+    "lucas": {
+      "nombre": "Lucas Miller",
+      "rol": "Estudiante de español, fotógrafo y creador digital (26 años)",
+      "arquetipo": "Aprendiz entusiasta, curioso, enérgico",
+      "origen": "Canadá / EE.UU. (residiendo en México y Colombia)",
+      "voz_edge_tts": "es-MX-JorgeNeural",
+      "voz_alternativa": "es-ES-AlvaroNeural",
+      "configuracion": {
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "cadencia": "Voz juvenil, entusiasta y cálida; entonación conversacional viva, micro-pausas respiratorias con SSML sin arrastre mecánico"
+      },
+      "foco_pedagogico": "Interferencias comunes del inglés (ser/estar, por/para, falsos amigos)"
+    },
+    "chloe": {
+      "nombre": "Chloe Dubois",
+      "rol": "Sommelier, amante de la gastronomía y viajera (24 años)",
+      "arquetipo": "Curiosa, detallista, cálida y extrovertida",
+      "origen": "Francia (Lyon)",
+      "voz_edge_tts": "es-MX-DaliaNeural",
+      "voz_alternativa": "es-ES-XimenaNeural",
+      "configuracion": {
+        "rate": "-3%",
+        "pitch": "+2Hz",
+        "cadencia": "Entonación musical, vivaz, entusiasta, micro-pausas melódicas al describir sensaciones y platos"
+      },
+      "foco_pedagogico": "Vocabulario sensorial, matices léxicos y diferencias culturales"
+    },
+    "mateo": {
+      "nombre": "Mateo Morales",
+      "rol": "Diseñador, arquitecto y anfitrión local (28 años)",
+      "arquetipo": "Amigo nativo, empático, paciente, con humor cercano",
+      "origen": "Colombia (Medellín)",
+      "voz_edge_tts": "es-CO-GonzaloNeural",
+      "voz_alternativa": "es-MX-JorgeNeural",
+      "configuracion": {
+        "rate": "-4%",
+        "pitch": "-1Hz",
+        "cadencia": "Acento paisa auténtico: cadencia suave y cálida, entonación musical colombiana, amabilidad natural"
+      },
+      "foco_pedagogico": "Modelado del español auténtico, expresiones coloquiales naturales y cortesía cotidiana"
+    },
+    "dona_elena": {
+      "nombre": "Doña Elena",
+      "rol": "Dueña del Café El Manantial y voz de la comunidad (68 años)",
+      "arquetipo": "Voz maternal, sabia, narradora de anécdotas y recetas tradicionales",
+      "origen": "Hispanoamérica tradicional",
+      "voz_edge_tts": "es-CO-SalomeNeural",
+      "voz_alternativa": "es-ES-ElviraNeural",
+      "configuracion": {
+        "rate": "-6%",
+        "pitch": "-2Hz",
+        "cadencia": "Ritmo sosegado, afectuoso, cálido, marcado por pausas de sabiduría popular"
+      },
+      "foco_pedagogico": "Tiempos del pasado (indefinido/imperfecto), presente perfecto, tratamiento formal (usted) y refranes"
+    }
+  },
+  "reglas_humanizacion_audio": [
+    "1. Inserción de micro-pausas con elipsis (...) y comas estratégicas para simular la respiración humana.",
+    "2. Variación de pitch entre preguntas (entonación ascendente) y afirmaciones (entonación conclusiva natural).",
+    "3. Desaceleración moderada (rate -3% a -5%) para evitar la velocidad atropellada típica del TTS por defecto.",
+    "4. Encadenamiento estricto en cliente mediante onended y bloqueo de doble disparo.",
+    "5. Preservación del timbre único por personaje a lo largo de todos los módulos del currículo."
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "id": "es-a2-indefinido-regular-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Pretérito Indefinido (Verbos Regulares y Marcadores del Pasado)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "ayer",
+      "traduccion": "yesterday",
+      "bandera": "🗓️"
+    },
+    {
+      "palabra": "anoche",
+      "traduccion": "last night",
+      "bandera": "🌙"
+    },
+    {
+      "palabra": "la semana pasada",
+      "traduccion": "last week",
+      "bandera": "📆"
+    },
+    {
+      "palabra": "el año pasado",
+      "traduccion": "last year",
+      "bandera": "📅"
+    },
+    {
+      "palabra": "hace dos días",
+      "traduccion": "two days ago",
+      "bandera": "⏱️"
+    },
+    {
+      "palabra": "en 2022",
+      "traduccion": "in 2022",
+      "bandera": "🏷️"
+    },
+    {
+      "palabra": "viajé",
+      "traduccion": "I traveled",
+      "bandera": "✈️"
+    },
+    {
+      "palabra": "comí",
+      "traduccion": "I ate",
+      "bandera": "🍽️"
+    },
+    {
+      "palabra": "viví",
+      "traduccion": "I lived",
+      "bandera": "🏠"
+    },
+    {
+      "palabra": "compró",
+      "traduccion": "he/she bought",
+      "bandera": "🛍️"
+    },
+    {
+      "palabra": "escribieron",
+      "traduccion": "they wrote",
+      "bandera": "✍️"
+    },
+    {
+      "palabra": "llegamos",
+      "traduccion": "we arrived",
+      "bandera": "🏁"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Ayer caminé cuatro kilómetros por el centro histórico de la ciudad."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Lucas llegó a Colombia el año pasado para estudiar fotografía."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Anoche cenamos en un restaurante tradicional con vista al valle."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Ellos no trabajaron el lunes porque fue día festivo nacional."
+    },
+    {
+      "id": "s5",
+      "forma": "interrogativo",
+      "oracion": "¿A qué hora saliste de la oficina ayer por la tarde?"
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Compraste los billetes de tren la semana pasada?"
+    },
+    {
+      "id": "s7",
+      "forma": "short_answer",
+      "oracion": "¿Escribiste la carta a tus padres? Sí, la escribí anoche."
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Hablaste con el profesor esta mañana? No, hablé con él ayer."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡El **Pretérito Indefinido** es el gran tiempo narrativo en español! Lo usamos para hechos que ocurrieron en un momento cerrado y concluido del pasado (*ayer, el año pasado, en 2022*).",
+        "Mateo: Fíjate bien en sus desinencias regulares: los verbos en **-ar** llevan *-é, -aste, -ó, -amos, -asteis, -aron*, y los verbos en **-er / -ir** comparten las mismas terminaciones: *-í, -iste, -ió, -imos, -isteis, -ieron*.",
+        "Aurora: ¡Exacto! Y mucha atención a las tildes: la primera persona (*yo hablé, comí*) y la tercera persona singular (*él habló, comió*) llevan tilde ortográfica indispensable para distinguirlas del presente (*yo hablo, yo como*)."
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Ayer yo camine mucho y visito a mis amigos.",
+        "opcion_b": "Ayer yo caminé mucho y visité a mis amigos.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "El pretérito indefinido sitúa acciones completadas y concluidas en un punto temporal cerrado y específico del pasado, sin conexión temporal con el momento presente.",
+      "tabla": {
+        "titulo": "Desinencias del Pretérito Indefinido Regular",
+        "encabezados": [
+          "Pronombre",
+          "-AR (hablar)",
+          "-ER (comer)",
+          "-IR (vivir)"
+        ],
+        "filas": [
+          [
+            "yo",
+            "habl-é",
+            "com-í",
+            "viv-í"
+          ],
+          [
+            "tú",
+            "habl-aste",
+            "com-iste",
+            "viv-iste"
+          ],
+          [
+            "él / ella / usted",
+            "habl-ó",
+            "com-ió",
+            "viv-ió"
+          ],
+          [
+            "nosotros / nosotras",
+            "habl-amos",
+            "com-imos",
+            "viv-imos"
+          ],
+          [
+            "vosotros / vosotras",
+            "habl-asteis",
+            "com-isteis",
+            "viv-isteis"
+          ],
+          [
+            "ellos / ellas / ustedes",
+            "habl-aron",
+            "com-ieron",
+            "viv-ieron"
+          ]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué terminación corresponde a la tercera persona singular (él/ella/usted) para verbos en -ar en indefinido?",
+          "opciones": [
+            "-ó",
+            "-é",
+            "-aron",
+            "-aste"
+          ],
+          "respuesta": "-ó"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál de estos marcadores temporales exige el uso del pretérito indefinido por referirse a un periodo cerrado?",
+          "opciones": [
+            "ayer",
+            "hoy",
+            "esta semana",
+            "este año"
+          ],
+          "respuesta": "ayer"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál es la forma correcta de primera persona singular (yo) para el verbo 'viajar' en pretérito indefinido?",
+          "opciones": [
+            "viajé",
+            "viajo",
+            "viajó",
+            "viajaba"
+          ],
+          "respuesta": "viajé"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "Las terminaciones de pretérito indefinido para verbos regulares en -er e -ir son completamente idénticas (-í, -iste, -ió, -imos, -isteis, -ieron).",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La forma verbal 'hablamos' es formalmente idéntica en presente de indicativo y en pretérito indefinido para 'nosotros'.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "conjugation_table",
+          "etapa": "Manipulate",
+          "verbo": "hablar",
+          "tiempo": "Pretérito Indefinido Regular (-ar)",
+          "instruccion": "Completa el paradigma del verbo hablar en indefinido:",
+          "filas": [
+            {
+              "id": "f_hable",
+              "pronombre": "yo",
+              "respuesta": "hablé"
+            },
+            {
+              "id": "f_hablaste",
+              "pronombre": "tú",
+              "respuesta": "hablaste"
+            },
+            {
+              "id": "f_hablo",
+              "pronombre": "él / ella / usted",
+              "respuesta": "habló"
+            },
+            {
+              "id": "f_hablamos",
+              "pronombre": "nosotros / nosotras",
+              "respuesta": "hablamos"
+            },
+            {
+              "id": "f_hablasteis",
+              "pronombre": "vosotros / vosotras",
+              "respuesta": "hablasteis"
+            },
+            {
+              "id": "f_hablaron",
+              "pronombre": "ellos / ellas / ustedes",
+              "respuesta": "hablaron"
+            }
+          ]
+        },
+        {
+          "tipo": "conjugation_table",
+          "etapa": "Manipulate",
+          "verbo": "comer",
+          "tiempo": "Pretérito Indefinido Regular (-er)",
+          "instruccion": "Completa el paradigma del verbo comer en indefinido:",
+          "filas": [
+            {
+              "id": "f_comi",
+              "pronombre": "yo",
+              "respuesta": "comí"
+            },
+            {
+              "id": "f_comiste",
+              "pronombre": "tú",
+              "respuesta": "comiste"
+            },
+            {
+              "id": "f_comio",
+              "pronombre": "él / ella / usted",
+              "respuesta": "comió"
+            },
+            {
+              "id": "f_comimos",
+              "pronombre": "nosotros / nosotras",
+              "respuesta": "comimos"
+            },
+            {
+              "id": "f_comisteis",
+              "pronombre": "vosotros / vosotras",
+              "respuesta": "comisteis"
+            },
+            {
+              "id": "f_comieron",
+              "pronombre": "ellos / ellas / ustedes",
+              "respuesta": "comieron"
+            }
+          ]
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "El año pasado nosotros ___ (viajar) a Perú y ___ (visitar) las ruinas históricas.",
+          "respuesta": "viajamos visitamos"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Ayer Lucas ___ (comprar) una cámara y ___ (escribir) en su diario.",
+          "respuesta": "compró escribió"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "Anoche",
+            "cenamos",
+            "en",
+            "un",
+            "restaurante",
+            "mexicano",
+            "delicioso"
+          ],
+          "respuesta": "Anoche cenamos en un restaurante mexicano delicioso"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "El mes pasado yo visito a mi familia en Buenos Aires.",
+          "respuesta": "El mes pasado yo visité a mi familia en Buenos Aires."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración de presente a pretérito indefinido usando el marcador 'ayer':",
+          "oracion_base": "Hoy como paella con mis amigos.",
+          "respuesta": "Ayer comí paella con mis amigos."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración afirmativa a negativa en indefinido:",
+          "oracion_base": "El tren llegó a tiempo a la estación.",
+          "respuesta": "El tren no llegó a tiempo a la estación."
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la respuesta opuesta a la afirmación en indefinido:",
+          "oracion_base": "Ayer trabajé todo el día en la oficina.",
+          "respuesta": "Ayer descansé todo el día en casa."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué hiciste ayer por la tarde después de terminar tus actividades?",
+          "respuesta": "Ayer descansé y leí una novela."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿A qué hora saliste de tu casa esta mañana?",
+          "respuesta": "Salí de mi casa a las ocho en punto."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Mateo: Lucas, ¿a qué hora regresaste ayer del viaje a Guatapé?",
+        "Lucas: Regresé anoche a las nueve, cansado pero fascinado.",
+        "Mateo: ¿Y subiste los setecientos escalones de la gran piedra?",
+        "Lucas: ¡Claro que sí! Subí hasta la cima y tomé fotos panorámicas espectaculares."
+      ],
+      "gaps": [
+        "nueve",
+        "cima"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué hizo Lucas en Guatapé según la conversación?",
+          "opciones": [
+            "Subió a la cima de la piedra y tomó fotos",
+            "Se quedó descansando en el hotel",
+            "Perdió su cámara en el lago"
+          ],
+          "respuesta": "Subió a la cima de la piedra y tomó fotos"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "El fin de semana pasado, Chloe decidió explorar los pueblos coloniales del departamento. El sábado por la mañana tomó el primer autobús hacia Santa Fe de Antioquia. Al llegar, caminó por las calles empedradas, admiró las casas blancas con techos de teja y visitó el Museo Colonial. Al mediodía almorzó pescado fresco junto al río Cauca y conversó con los artesanos locales sobre las leyendas de la región. El domingo por la tarde regresó a Medellín con muchas notas y recuerdos inolvidables.",
+      "preguntas": [
+        {
+          "afirmacion": "Chloe tomó el primer autobús hacia Santa Fe de Antioquia el sábado por la mañana.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Chloe visitó un museo de tecnología aeroespacial.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "Los verbos 'tomó', 'caminó', 'admiró' y 'regresó' expresan acciones concluidas en el pasado.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

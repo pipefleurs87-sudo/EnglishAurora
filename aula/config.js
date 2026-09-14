@@ -7,7 +7,8 @@ const firebaseConfig = {
   projectId: "sanguine-fusion-403621",
   storageBucket: "sanguine-fusion-403621.firebasestorage.app",
   messagingSenderId: "1048421550101",
-  appId: "1:1048421550101:web:c068b31ef9873cd525a61c"
+  appId: "1:1048421550101:web:c068b31ef9873cd525a61c",
+  measurementId: "G-6EXMWV3HGG"
 };
 
 // URL base del sitio público (sin / al final)

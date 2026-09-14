@@ -1,0 +1,126 @@
+{
+  "b1-present-perfect-vs-past-simple-01": [
+    {
+      "q": "What is the main difference between Past Simple and Present Perfect?",
+      "a": "Use the Past Simple when the time period is finished (yesterday, last year, in 2020) and the action is completed. Use the Present Perfect when the time is unfinished (today, this week, in my life) or when a past action has a direct result in the present moment."
+    },
+    {
+      "q": "Which time expressions signal the Past Simple vs Present Perfect?",
+      "a": "Past Simple uses definite past time markers: yesterday, ago, last night, in 1999, when I was a child. Present Perfect uses indefinite or open time markers: already, yet, just, ever, never, since, for, so far, recently."
+    },
+    {
+      "q": "Why is 'I have lived here for 3 years' correct, but 'I lived here for 3 years' means something else?",
+      "a": "'I have lived here for 3 years' (Present Perfect) means you moved here 3 years ago and you STILL live here today. 'I lived here for 3 years' (Past Simple) means the period is finished and you no longer live there."
+    },
+    {
+      "q": "What is the #1 mistake Spanish speakers make with Present Perfect?",
+      "a": "Spanish speakers often translate directly from 'He visto a María ayer' and say 'I have seen Maria yesterday' (*incorrect). In English, as soon as you say 'yesterday', the rule forces Past Simple: 'I saw Maria yesterday'."
+    }
+  ],
+  "a1-present-simple-routines-01": [
+    {
+      "q": "When do we add -s or -es in the Present Simple?",
+      "a": "Only in the affirmative form with third-person singular subjects (He, She, It). For example: 'She works', 'He watches', 'It rains'. For I, You, We, They, the verb stays in its base form ('I work', 'They watch')."
+    },
+    {
+      "q": "Do we add -s to the verb in negative sentences or questions?",
+      "a": "No! The auxiliary 'does' already carries the third-person marker: 'Does she work here?' (not 'does she works') and 'He doesn't like coffee' (not 'doesn't likes')."
+    },
+    {
+      "q": "How do you know whether to use Present Simple or Present Continuous?",
+      "a": "Present Simple is for habits, routines, and permanent truths ('I drink coffee every morning'). Present Continuous is for actions happening right now at this exact moment ('I am drinking coffee right now')."
+    }
+  ],
+  "a1-present-continuous-01": [
+    {
+      "q": "How is the Present Continuous formed in English?",
+      "a": "It always requires two elements: the auxiliary verb 'to be' (am/is/are) + the main verb with '-ing' (e.g., 'Sofía is typing an email'). Never omit the verb to be!"
+    },
+    {
+      "q": "What verbs cannot be used in the Present Continuous?",
+      "a": "Stative verbs (verbs of thinking, feeling, and possession) are usually not used in continuous forms: like, love, hate, know, understand, believe, want, need. Say 'I understand now', not 'I am understanding now'."
+    },
+    {
+      "q": "Can Present Continuous be used to talk about the future?",
+      "a": "Yes! When you have a confirmed personal arrangement or appointment in the diary: 'I am meeting Kenji tomorrow at 5 PM'."
+    }
+  ],
+  "b1-will-vs-going-to-01": [
+    {
+      "q": "What is the difference between 'will' and 'be going to'?",
+      "a": "Use 'will' for spontaneous decisions made at the moment of speaking ('Wait, I will help you with those bags!') and promises. Use 'be going to' for pre-planned decisions or intentions decided before speaking ('I am going to study medicine next year')."
+    },
+    {
+      "q": "How do predictions differ with 'will' vs 'going to'?",
+      "a": "Use 'going to' when there is clear physical evidence right now in front of you ('Look at those black clouds! It is going to rain'). Use 'will' for general beliefs, opinions, or intuition ('I think humanity will colonize Mars one day')."
+    }
+  ],
+  "b1-conditionals-0-1-2-01": [
+    {
+      "q": "What is the difference between the First and Second Conditional?",
+      "a": "The First Conditional (If + Present Simple, will + verb) talks about real, possible future situations: 'If it rains, I will take an umbrella'. The Second Conditional (If + Past Simple, would + verb) talks about imaginary, hypothetical, or improbable present/future situations: 'If I won the lottery, I would buy an island'."
+    },
+    {
+      "q": "Why do we say 'If I were you' instead of 'If I was you'?",
+      "a": "'Were' is the traditional subjunctive mood used for hypothetical conditions with all subjects (I, he, she, it). While 'If I was you' is heard in informal conversation, 'If I were you' is the standard, grammatically formal English tested on Cambridge and IELTS exams."
+    }
+  ],
+  "b1-passive-voice-01": [
+    {
+      "q": "How do you form the passive voice in English?",
+      "a": "Subject + appropriate tense of the verb 'to be' + Past Participle (3rd column). For example: 'The letter was sent yesterday' (Past Simple passive), 'English is spoken worldwide' (Present Simple passive)."
+    },
+    {
+      "q": "When should you use the passive voice instead of the active voice?",
+      "a": "Use passive voice when the action or the object is more important than who did it, or when the agent is unknown, obvious, or unimportant: 'The thief was arrested' (the police obviously arrested him; the focus is on the capture)."
+    }
+  ],
+  "a2-past-simple-regular-01": [
+    {
+      "q": "How do you pronounce the -ed ending in regular past simple verbs?",
+      "a": "-ed has 3 distinct pronunciations: 1) /ɪd/ after /t/ and /d/ sounds ('started', 'decided'); 2) /t/ after voiceless sounds /p, k, f, s, ʃ, tʃ/ ('worked', 'laughed', 'watched'); 3) /d/ after all voiced vowel and consonant sounds ('played', 'lived', 'cleaned')."
+    },
+    {
+      "q": "What is the rule for spelling regular verbs with -ed?",
+      "a": "Most verbs simply add -ed ('walk' -> 'walked'). Verbs ending in -e just add -d ('live' -> 'lived'). Consonant + y changes to -ied ('study' -> 'studied'). Single vowel + single consonant doubles the consonant ('stop' -> 'stopped')."
+    }
+  ],
+  "a2-past-simple-irregular-01": [
+    {
+      "q": "How many irregular verbs are there in English?",
+      "a": "There are roughly 200 commonly used irregular verbs in modern English. Instead of memorizing alphabetical lists, the most effective method is learning them in 7 mnemonic patterns (e.g. no-change verbs like cut/cut/cut, vowel melody verbs like sing/sang/sung, -ought/-aught verbs like buy/bought/bought)."
+    },
+    {
+      "q": "Do irregular verbs change in negative sentences or questions?",
+      "a": "No! In negatives and questions, the auxiliary 'did / didn't' takes the past tense, so the main verb stays in the base infinitive: 'Did you see Ben?' (not 'did you saw') and 'I didn't go' (not 'I didn't went')."
+    }
+  ],
+  "b1-used-to-01": [
+    {
+      "q": "What is the difference between 'used to + verb' and 'be used to + -ing'?",
+      "a": "'Used to + base verb' describes past habits or states that no longer exist ('I used to play tennis when I was young'). 'Be used to + noun/-ing' means being accustomed to something familiar ('I am used to waking up early, it is normal for me')."
+    },
+    {
+      "q": "How do you form negative and question sentences with 'used to'?",
+      "a": "Drop the 'd' because 'did' takes the past: 'I didn't use to like olives' and 'Did you use to live in London?'"
+    }
+  ],
+  "b2-third-conditional-01": [
+    {
+      "q": "How is the Third Conditional formed and what does it express?",
+      "a": "Form: If + Past Perfect (had + past participle), would have + past participle. It expresses regrets, criticism, or imaginary hypotheses about past events that cannot be changed: 'If I had studied harder, I would have passed the exam'."
+    }
+  ],
+  "b2-reported-speech-01": [
+    {
+      "q": "What is 'backshift' in Reported Speech?",
+      "a": "When the reporting verb is in the past (e.g., 'She said that...'), the tenses shift one step back into the past: Present Simple becomes Past Simple, Present Continuous becomes Past Continuous, Present Perfect becomes Past Perfect, and 'will' becomes 'would'."
+    }
+  ],
+  "c1-inversion-01": [
+    {
+      "q": "What is grammatical inversion and when is it used?",
+      "a": "Inversion puts the auxiliary verb before the subject for formal emphasis or dramatic effect, usually following negative or restrictive adverbs: 'Rarely have I seen such beauty' or 'Not only did he apologize, but he also refunded the money'."
+    }
+  ]
+}

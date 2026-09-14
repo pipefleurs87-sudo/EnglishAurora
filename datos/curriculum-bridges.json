@@ -1,0 +1,1405 @@
+{
+  "a1-to-be-nationalities-01": {
+    "nextId": "a1-to-be-identities-01",
+    "nextTitle": "Verb To Be — Identities & Professions",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Now that you can state where people are from, learn how to describe who they are and what they do.",
+    "challenge": {
+      "q": "Sofía ___ from Colombia and she ___ a brilliant graphic designer.",
+      "options": [
+        "is / is",
+        "is / are",
+        "am / is"
+      ],
+      "answer": "is / is",
+      "hint": "Sofía is singular (she), so use 'is' in both slots."
+    }
+  },
+  "a1-to-be-identities-01": {
+    "nextId": "a1-have-got-01",
+    "nextTitle": "Have got — Possessions & Family",
+    "nextLevel": "A1",
+    "relation": "Direct Contrast",
+    "note": "Careful Spanish transfer trap: In English we use 'to be' for age and emotions, but 'have got' for possessions.",
+    "challenge": {
+      "q": "Sofía ___ twenty-five years old, and she ___ two cats.",
+      "options": [
+        "is / has got",
+        "has / has got",
+        "is / have got"
+      ],
+      "answer": "is / has got",
+      "hint": "Age takes 'to be' ('is 25'), while pets take 'has got'!"
+    }
+  },
+  "a1-have-got-01": {
+    "nextId": "a1-family-possessive-s-01",
+    "nextTitle": "Family & Possessive 's",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "From what you have to who belongs to who: master the English apostrophe -'s.",
+    "challenge": {
+      "q": "This is ___ iguana. She has got twenty mangos.",
+      "options": [
+        "Abuela Carmen's",
+        "Abuela Carmens",
+        "the iguana of Carmen"
+      ],
+      "answer": "Abuela Carmen's",
+      "hint": "Add 's to the owner: Abuela Carmen's iguana."
+    }
+  },
+  "a1-family-possessive-s-01": {
+    "nextId": "a1-pronouns-possessives-01",
+    "nextTitle": "Subject Pronouns & Possessive Adjectives",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Learn to replace names with my, your, his, her, their without hesitation.",
+    "challenge": {
+      "q": "Ben loves Cartagena. ___ favorite place is the old clock tower.",
+      "options": [
+        "His",
+        "Her",
+        "He"
+      ],
+      "answer": "His",
+      "hint": "Ben is a man, so his possessive adjective is 'His'."
+    }
+  },
+  "a1-pronouns-possessives-01": {
+    "nextId": "a1-object-pronouns-01",
+    "nextTitle": "Object Pronouns (me, him, her, us, them)",
+    "nextLevel": "A1",
+    "relation": "Direct Contrast",
+    "note": "When the person receives the action instead of doing it: I -> me, he -> him, they -> them.",
+    "challenge": {
+      "q": "Kenji loves arepas. Abuela Carmen makes ___ for ___ every morning.",
+      "options": [
+        "them / him",
+        "they / he",
+        "them / he"
+      ],
+      "answer": "them / him",
+      "hint": "Arepas are the object ('them'), and Kenji receives them ('him')."
+    }
+  },
+  "a1-articles-01": {
+    "nextId": "a1-plural-nouns-01",
+    "nextTitle": "Plural Nouns — Regular & Irregular",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Articles 'a/an' only work with singular nouns. Now discover what happens when nouns become plural.",
+    "challenge": {
+      "q": "Ben saw one ___ and three ___ in the city park.",
+      "options": [
+        "child / children",
+        "children / childs",
+        "child / childs"
+      ],
+      "answer": "child / children",
+      "hint": "'Child' is an irregular plural: one child, three children!"
+    }
+  },
+  "a1-plural-nouns-01": {
+    "nextId": "a1-demonstratives-01",
+    "nextTitle": "This / That / These / Those",
+    "nextLevel": "A1",
+    "relation": "Pragmatic Expansion",
+    "note": "Point at things near and far in singular and plural: This, That, These, Those.",
+    "challenge": {
+      "q": "___ mangos here in my basket are fresh, but ___ over there look old.",
+      "options": [
+        "These / those",
+        "This / that",
+        "Those / these"
+      ],
+      "answer": "These / those",
+      "hint": "'These' for nearby plural, 'those' for distant plural."
+    }
+  },
+  "a1-demonstratives-01": {
+    "nextId": "a1-adjectives-people-things-01",
+    "nextTitle": "Adjectives — Describing People & Things",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "English adjectives never change for gender or plural, and always go BEFORE the noun!",
+    "challenge": {
+      "q": "Sofía lives in a ___ and designs ___ posters.",
+      "options": [
+        "beautiful house / colorful",
+        "house beautiful / colorfuls",
+        "beautiful house / colorfuls"
+      ],
+      "answer": "beautiful house / colorful",
+      "hint": "Adjective goes before the noun and never takes an -s: 'beautiful house', 'colorful posters'."
+    }
+  },
+  "a1-present-simple-routines-01": {
+    "nextId": "a1-present-simple-frequency-01",
+    "nextTitle": "Present Simple — Adverbs of Frequency",
+    "nextLevel": "A1",
+    "relation": "Pragmatic Expansion",
+    "note": "Take your daily routines to the next level: specify how often with always, usually, sometimes, and never.",
+    "challenge": {
+      "q": "Abuela Carmen ___ at five in the morning.",
+      "options": [
+        "always wakes up",
+        "wakes always up",
+        "wakes up always"
+      ],
+      "answer": "always wakes up",
+      "hint": "Adverbs of frequency go BEFORE the main verb: 'always wakes up'."
+    }
+  },
+  "a1-present-simple-frequency-01": {
+    "nextId": "a1-present-simple-likes-01",
+    "nextTitle": "Present Simple — Likes, Hobbies & Free Time",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Learn how to talk about what you enjoy: verbs of liking + -ing (like, love, enjoy, hate).",
+    "challenge": {
+      "q": "Kenji ___ photos of the colonial balconies.",
+      "options": [
+        "loves taking",
+        "love takes",
+        "loves take"
+      ],
+      "answer": "loves taking",
+      "hint": "Third person takes -s ('loves') and 'love' is followed by the gerund ('taking')."
+    }
+  },
+  "a1-present-simple-likes-01": {
+    "nextId": "a1-present-simple-neg-questions-01",
+    "nextTitle": "Present Simple — Negatives & Questions",
+    "nextLevel": "A1",
+    "relation": "Mastery Step",
+    "note": "Master the secret weapon of English: the auxiliaries DO and DOES for negatives and questions.",
+    "challenge": {
+      "q": "___ Ben ___ coffee in the morning? No, he drinks tea.",
+      "options": [
+        "Does / drink",
+        "Do / drinks",
+        "Does / drinks"
+      ],
+      "answer": "Does / drink",
+      "hint": "'Does' already marks third person, so the main verb stays base: 'Does he drink?'"
+    }
+  },
+  "a1-present-simple-neg-questions-01": {
+    "nextId": "a1-present-continuous-01",
+    "nextTitle": "Present Continuous — Actions Happening Now",
+    "nextLevel": "A1",
+    "relation": "Direct Contrast",
+    "note": "The ultimate A1 contrast: What you do habitually (routines) vs what you are doing right now.",
+    "challenge": {
+      "q": "Kenji usually ___ breakfast at eight, but today he ___ at nine.",
+      "options": [
+        "eats / is eating",
+        "is eating / eats",
+        "eat / is eating"
+      ],
+      "answer": "eats / is eating",
+      "hint": "'Usually' calls for Present Simple, while 'today / right now' calls for Present Continuous!"
+    }
+  },
+  "a1-present-continuous-01": {
+    "nextId": "a2-going-to-future-01",
+    "nextTitle": "Going to — Future Plans & Intentions",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Bridge from present continuous to the future: use 'be going to' to announce your next goals.",
+    "challenge": {
+      "q": "Sofía bought her plane tickets. She ___ visit London in June.",
+      "options": [
+        "is going to",
+        "goes to",
+        "will to"
+      ],
+      "answer": "is going to",
+      "hint": "A pre-arranged intention with tickets already bought uses 'is going to'!"
+    }
+  },
+  "a2-verb-to-be-past-01": {
+    "nextId": "a2-past-simple-regular-01",
+    "nextTitle": "Past Simple — Regular Verbs (-ed)",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "You can say where you were (was/were). Now learn how to describe any action in the past.",
+    "challenge": {
+      "q": "Yesterday, Ben ___ around the walled city and ___ at a cafe.",
+      "options": [
+        "walked / stopped",
+        "walk / stoped",
+        "walkt / stopped"
+      ],
+      "answer": "walked / stopped",
+      "hint": "Add -ed for regular past: 'walked', and double consonant for 'stopped'."
+    }
+  },
+  "a2-past-simple-regular-01": {
+    "nextId": "a2-past-simple-irregular-01",
+    "nextTitle": "Past Simple — Irregular Verbs Vault",
+    "nextLevel": "A2",
+    "relation": "Essential Continuation",
+    "note": "Not all verbs take -ed! Meet the 126 verbs that change their vowel or form in the past.",
+    "challenge": {
+      "q": "Kenji ___ an email to his mother and ___ a souvenir.",
+      "options": [
+        "wrote / bought",
+        "writed / buyed",
+        "written / bought"
+      ],
+      "answer": "wrote / bought",
+      "hint": "'Write' becomes 'wrote' and 'buy' becomes 'bought'."
+    }
+  },
+  "a2-past-simple-irregular-01": {
+    "nextId": "a2-past-continuous-vs-simple-01",
+    "nextTitle": "Past Continuous vs Past Simple (when / while)",
+    "nextLevel": "A2",
+    "relation": "Direct Contrast",
+    "note": "Combine an action in progress in the past with a sudden interrupting event.",
+    "challenge": {
+      "q": "While Ben ___ his tea, the doorbell ___.",
+      "options": [
+        "was drinking / rang",
+        "drank / was ringing",
+        "was drinking / was ringing"
+      ],
+      "answer": "was drinking / rang",
+      "hint": "The background ongoing action takes was/were + -ing; the interruption takes Past Simple!"
+    }
+  },
+  "a2-past-continuous-vs-simple-01": {
+    "nextId": "b1-present-perfect-vs-past-simple-01",
+    "nextTitle": "Present Perfect vs Past Simple — Which One?",
+    "nextLevel": "B1",
+    "relation": "Mastery Leap",
+    "note": "The #1 grammar dilemma in English: finished past time vs open, living experience.",
+    "challenge": {
+      "q": "I ___ to Cartagena in 2022, but Kenji ___ there three times.",
+      "options": [
+        "went / has been",
+        "have gone / went",
+        "went / was"
+      ],
+      "answer": "went / has been",
+      "hint": "'In 2022' is a closed past time (went), but total life experiences take Present Perfect (has been)!"
+    }
+  },
+  "b1-present-perfect-vs-past-simple-01": {
+    "nextId": "b1-present-perfect-continuous-01",
+    "nextTitle": "Present Perfect Continuous — for / since / just",
+    "nextLevel": "B1",
+    "relation": "Pragmatic Expansion",
+    "note": "Emphasize how long an action has been happening non-stop: 'I have been studying for 2 hours'.",
+    "challenge": {
+      "q": "Sofía is exhausted because she ___ posters all afternoon.",
+      "options": [
+        "has been designing",
+        "has designed",
+        "is designing"
+      ],
+      "answer": "has been designing",
+      "hint": "Focus on the duration and immediate physical effect: Present Perfect Continuous!"
+    }
+  },
+  "b1-present-perfect-continuous-01": {
+    "nextId": "b1-past-perfect-01",
+    "nextTitle": "Past Perfect — The Timeline Detective",
+    "nextLevel": "B1",
+    "relation": "Timeline Mastery",
+    "note": "Travel further back in time: describe an action that happened BEFORE another past action.",
+    "challenge": {
+      "q": "When Ben arrived at the station, the train ___ already ___.",
+      "options": [
+        "had / left",
+        "has / left",
+        "was / leaving"
+      ],
+      "answer": "had / left",
+      "hint": "The train left before Ben arrived: Past Perfect (had + participle)!"
+    }
+  },
+  "b1-will-vs-going-to-01": {
+    "nextId": "b1-conditionals-0-1-2-01",
+    "nextTitle": "Conditionals 0, 1 & 2 — Three Realities",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Take future predictions into hypothetical worlds: If it rains, I will stay. If I were you, I would go.",
+    "challenge": {
+      "q": "If I ___ more free time, I ___ travel across South America.",
+      "options": [
+        "had / would",
+        "have / will",
+        "had / will"
+      ],
+      "answer": "had / would",
+      "hint": "Second conditional for an imaginary present situation: If + past simple, would + verb."
+    }
+  },
+  "b1-conditionals-0-1-2-01": {
+    "nextId": "b2-third-conditional-01",
+    "nextTitle": "Third Conditional — Regrets & What Ifs",
+    "nextLevel": "B2",
+    "relation": "Advanced Leap",
+    "note": "Step into the past impossible: talk about what could have happened, but didn't.",
+    "challenge": {
+      "q": "If Ben ___ his alarm, he ___ the flight.",
+      "options": [
+        "had set / wouldn't have missed",
+        "set / wouldn't miss",
+        "would have set / missed"
+      ],
+      "answer": "had set / wouldn't have missed",
+      "hint": "Third conditional: If + had + participle, would have + participle."
+    }
+  },
+  "b1-passive-voice-01": {
+    "nextId": "b2-causative-01",
+    "nextTitle": "Causative — Have / Get Something Done",
+    "nextLevel": "B2",
+    "relation": "Direct Contrast",
+    "note": "From 'The car was washed' (passive) to 'I had my car washed' (you arranged for someone else to do it).",
+    "challenge": {
+      "q": "Sofía didn't paint her office herself. She ___ it ___ by professionals.",
+      "options": [
+        "had / painted",
+        "was / painted",
+        "got / paint"
+      ],
+      "answer": "had / painted",
+      "hint": "Causative structure: have + object + past participle."
+    }
+  },
+  "b2-third-conditional-01": {
+    "nextId": "b2-mixed-conditionals-01",
+    "nextTitle": "Mixed Conditionals — Past Causes, Present Results",
+    "nextLevel": "B2",
+    "relation": "Elite Grammar",
+    "note": "Blend the rules: a past decision that creates an ongoing reality right now.",
+    "challenge": {
+      "q": "If I ___ German at school, I ___ able to read this contract now.",
+      "options": [
+        "had studied / would be",
+        "studied / would have been",
+        "had studied / would have been"
+      ],
+      "answer": "had studied / would be",
+      "hint": "Past action (had studied) with a present result right now (would be)!"
+    }
+  },
+  "b2-relative-clauses-01": {
+    "nextId": "c1-participle-clauses-01",
+    "nextTitle": "Participle Clauses — Advanced Sentence Reduction",
+    "nextLevel": "C1",
+    "relation": "Stylistic Transformation",
+    "note": "Transform relative clauses into high-scoring C1 prose: 'The man who was sitting' -> 'Sitting by the window'.",
+    "challenge": {
+      "q": "___ by the breathtaking sunset, Ben took dozens of photos.",
+      "options": [
+        "Fascinated",
+        "Fascinating",
+        "Having fascinated"
+      ],
+      "answer": "Fascinated",
+      "hint": "Passive past participle clause describing how Ben felt."
+    }
+  },
+  "b2-reported-speech-01": {
+    "nextId": "c1-emphatic-structures-01",
+    "nextTitle": "Emphatic Structures — do/does/did & so/such",
+    "nextLevel": "C1",
+    "relation": "Expressive Power",
+    "note": "Add dramatic weight to your statements: 'I do want to help you' and 'So compelling was her argument'.",
+    "challenge": {
+      "q": "Believe me, I ___ apologize to Kenji yesterday!",
+      "options": [
+        "did",
+        "do",
+        "done"
+      ],
+      "answer": "did",
+      "hint": "Use emphatic 'did' + base verb in affirmative past statements."
+    }
+  },
+  "c1-emphatic-structures-01": {
+    "nextId": "c1-inversion-01",
+    "nextTitle": "Inversion for Emphasis & Drama",
+    "nextLevel": "C1",
+    "relation": "Cambridge C1 Core",
+    "note": "The crown jewel of Cambridge C1 exam transformations: Rarely have I seen, Never before did he speak.",
+    "challenge": {
+      "q": "Rarely ___ such dedication in a language learner.",
+      "options": [
+        "have I witnessed",
+        "I have witnessed",
+        "did I witnessed"
+      ],
+      "answer": "have I witnessed",
+      "hint": "After negative adverbs like 'Rarely', invert the auxiliary and subject: 'have I witnessed'."
+    }
+  },
+  "c1-inversion-01": {
+    "nextId": "c1-cleft-sentences-01",
+    "nextTitle": "Cleft Sentences — It-Clefts & What-Clefts",
+    "nextLevel": "C1",
+    "relation": "C1 Stylistic Mastery",
+    "note": "Re-frame any sentence to spotlight the exact piece of information you want to emphasize.",
+    "challenge": {
+      "q": "___ surprised everyone was Ben's flawless Spanish.",
+      "options": [
+        "What",
+        "It",
+        "That"
+      ],
+      "answer": "What",
+      "hint": "What-cleft: 'What surprised everyone was...' focuses on the noun clause."
+    }
+  },
+  "a1-adjectives-people-things-01": {
+    "nextId": "a1-articles-01",
+    "nextTitle": "Articles — a / an / the",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Articles — a / an / the.",
+    "challenge": {
+      "q": "Ready to master Articles — a / an / the? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-imperatives-01": {
+    "nextId": "a1-modal-can-ability-01",
+    "nextTitle": "Modal Verb 'Can' — Ability & the Body",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Modal Verb 'Can' — Ability & the Body.",
+    "challenge": {
+      "q": "Ready to master Modal Verb 'Can' — Ability & the Body? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-modal-can-ability-01": {
+    "nextId": "a1-modal-have-to-01",
+    "nextTitle": "Modal 'Have to' — Obligations at Work & School",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Modal 'Have to' — Obligations at Work & School.",
+    "challenge": {
+      "q": "Ready to master Modal 'Have to' — Obligations at Work & School? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-modal-have-to-01": {
+    "nextId": "a1-modal-must-duties-01",
+    "nextTitle": "Modal Verb 'Must' — Duties at Home",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Modal Verb 'Must' — Duties at Home.",
+    "challenge": {
+      "q": "Ready to master Modal Verb 'Must' — Duties at Home? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-modal-must-duties-01": {
+    "nextId": "a1-modal-should-advice-01",
+    "nextTitle": "Modal Verb 'Should' — Advice & Suggestions",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Modal Verb 'Should' — Advice & Suggestions.",
+    "challenge": {
+      "q": "Ready to master Modal Verb 'Should' — Advice & Suggestions? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-modal-should-advice-01": {
+    "nextId": "a1-modal-would-like-01",
+    "nextTitle": "Would like — Wishes & Polite Offers",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Would like — Wishes & Polite Offers.",
+    "challenge": {
+      "q": "Ready to master Would like — Wishes & Polite Offers? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-modal-would-like-01": {
+    "nextId": "a1-object-pronouns-01",
+    "nextTitle": "Object Pronouns (me, him, her, us, them)",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Object Pronouns (me, him, her, us, them).",
+    "challenge": {
+      "q": "Ready to master Object Pronouns (me, him, her, us, them)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-object-pronouns-01": {
+    "nextId": "a1-plural-nouns-01",
+    "nextTitle": "Plural Nouns — regular & irregular",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Plural Nouns — regular & irregular.",
+    "challenge": {
+      "q": "Ready to master Plural Nouns — regular & irregular? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-prepositions-place-01": {
+    "nextId": "a1-prepositions-time-01",
+    "nextTitle": "Prepositions of Time (at, on, in)",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Prepositions of Time (at, on, in).",
+    "challenge": {
+      "q": "Ready to master Prepositions of Time (at, on, in)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-prepositions-time-01": {
+    "nextId": "a1-present-continuous-01",
+    "nextTitle": "Present Continuous — Now (vs Present Simple)",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Present Continuous — Now (vs Present Simple).",
+    "challenge": {
+      "q": "Ready to master Present Continuous — Now (vs Present Simple)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-present-simple-wh-questions-01": {
+    "nextId": "a1-pronouns-possessives-01",
+    "nextTitle": "Subject Pronouns & Possessive Adjectives",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Subject Pronouns & Possessive Adjectives.",
+    "challenge": {
+      "q": "Ready to master Subject Pronouns & Possessive Adjectives? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-relative-clauses-objects-01": {
+    "nextId": "a1-relative-clauses-places-01",
+    "nextTitle": "Relative Clauses — Places in the City (a place where...)",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Relative Clauses — Places in the City (a place where...).",
+    "challenge": {
+      "q": "Ready to master Relative Clauses — Places in the City (a place where...)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-relative-clauses-places-01": {
+    "nextId": "a1-relative-clauses-professions-01",
+    "nextTitle": "Relative Clauses — Defining People (a person who...)",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Relative Clauses — Defining People (a person who...).",
+    "challenge": {
+      "q": "Ready to master Relative Clauses — Defining People (a person who...)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-relative-clauses-professions-01": {
+    "nextId": "a1-review-grand-01",
+    "nextTitle": "A1 Grand Review — All Topics Together",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with A1 Grand Review — All Topics Together.",
+    "challenge": {
+      "q": "Ready to master A1 Grand Review — All Topics Together? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-review-grand-01": {
+    "nextId": "a1-review-identity-01",
+    "nextTitle": "A1 Review — Identity: To Be, Pronouns & Demonstratives",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with A1 Review — Identity: To Be, Pronouns & Demonstratives.",
+    "challenge": {
+      "q": "Ready to master A1 Review — Identity: To Be, Pronouns & Demonstratives? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-review-identity-01": {
+    "nextId": "a1-review-modals-preps-01",
+    "nextTitle": "A1 Review — Modals & Prepositions: Advice, Duties, Time & Place",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with A1 Review — Modals & Prepositions: Advice, Duties, Time & Place.",
+    "challenge": {
+      "q": "Ready to master A1 Review — Modals & Prepositions: Advice, Duties, Time & Place? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-review-modals-preps-01": {
+    "nextId": "a1-review-present-simple-01",
+    "nextTitle": "A1 Review — Present Simple: Routines, Frequency, Questions & Likes",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with A1 Review — Present Simple: Routines, Frequency, Questions & Likes.",
+    "challenge": {
+      "q": "Ready to master A1 Review — Present Simple: Routines, Frequency, Questions & Likes? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-review-present-simple-01": {
+    "nextId": "a1-to-be-nationalities-01",
+    "nextTitle": "Verb To Be — Nationalities",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Verb To Be — Nationalities.",
+    "challenge": {
+      "q": "Ready to master Verb To Be — Nationalities? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-to-be-neg-questions-01": {
+    "nextId": "a1-wh-questions-bank-01",
+    "nextTitle": "Wh- Questions — Question Bank (you / he-she)",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Wh- Questions — Question Bank (you / he-she).",
+    "challenge": {
+      "q": "Ready to master Wh- Questions — Question Bank (you / he-she)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-wh-questions-bank-01": {
+    "nextId": "curriculum.html",
+    "nextTitle": "Curriculum Catalog & Galaxy Sky",
+    "nextLevel": "A1",
+    "relation": "Level Milestone Reached",
+    "note": "Outstanding! You've traversed this sector of A1. Review all constellations in the catalog.",
+    "challenge": {
+      "q": "Which step comes next after completing a constellation?",
+      "options": [
+        "Review & Test",
+        "Rest forever"
+      ],
+      "answer": "Review & Test",
+      "hint": "Keep your Aurora essence shining with regular tests!"
+    }
+  },
+  "a2-comparatives-superlatives-01": {
+    "nextId": "a2-countables-some-any-01",
+    "nextTitle": "Countable & Uncountable — a / some / any / much / many (Food)",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A2: deepen your fluency with Countable & Uncountable — a / some / any / much / many (Food).",
+    "challenge": {
+      "q": "Ready to master Countable & Uncountable — a / some / any / much / many (Food)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a2-countables-some-any-01": {
+    "nextId": "a2-going-to-future-01",
+    "nextTitle": "Going to — Plans, Decisions & Predictions",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A2: deepen your fluency with Going to — Plans, Decisions & Predictions.",
+    "challenge": {
+      "q": "Ready to master Going to — Plans, Decisions & Predictions? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a2-going-to-future-01": {
+    "nextId": "a2-past-continuous-vs-simple-01",
+    "nextTitle": "Past Continuous vs Past Simple — when / while",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A2: deepen your fluency with Past Continuous vs Past Simple — when / while.",
+    "challenge": {
+      "q": "Ready to master Past Continuous vs Past Simple — when / while? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a2-past-simple-narrative-01": {
+    "nextId": "a2-past-simple-regular-01",
+    "nextTitle": "Past Simple — Regular Verbs (-ed) & Time Expressions",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A2: deepen your fluency with Past Simple — Regular Verbs (-ed) & Time Expressions.",
+    "challenge": {
+      "q": "Ready to master Past Simple — Regular Verbs (-ed) & Time Expressions? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a2-review-grand-01": {
+    "nextId": "a2-there-is-there-are-01",
+    "nextTitle": "There is / There are — Describing the House",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A2: deepen your fluency with There is / There are — Describing the House.",
+    "challenge": {
+      "q": "Ready to master There is / There are — Describing the House? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a2-there-is-there-are-01": {
+    "nextId": "a2-verb-to-be-past-01",
+    "nextTitle": "Verb To Be — Past (was / were)",
+    "nextLevel": "A2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A2: deepen your fluency with Verb To Be — Past (was / were).",
+    "challenge": {
+      "q": "Ready to master Verb To Be — Past (was / were)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-adverbs-01": {
+    "nextId": "b1-conditionals-0-1-2-01",
+    "nextTitle": "Conditionals 0, 1 & 2 — One Ice Cream, Three Realities",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Conditionals 0, 1 & 2 — One Ice Cream, Three Realities.",
+    "challenge": {
+      "q": "Ready to master Conditionals 0, 1 & 2 — One Ice Cream, Three Realities? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-gerund-vs-infinitive-01": {
+    "nextId": "b1-indefinite-pronouns-01",
+    "nextTitle": "Indefinite Pronouns — Someone, Anyone, No One, Everyone",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Indefinite Pronouns — Someone, Anyone, No One, Everyone.",
+    "challenge": {
+      "q": "Ready to master Indefinite Pronouns — Someone, Anyone, No One, Everyone? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-indefinite-pronouns-01": {
+    "nextId": "b1-passive-voice-01",
+    "nextTitle": "Passive Voice — Present, Past & Perfect",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Passive Voice — Present, Past & Perfect.",
+    "challenge": {
+      "q": "Ready to master Passive Voice — Present, Past & Perfect? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-past-perfect-01": {
+    "nextId": "b1-present-perfect-bucket-list-01",
+    "nextTitle": "Present Perfect — The Bucket List (already / yet)",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Present Perfect — The Bucket List (already / yet).",
+    "challenge": {
+      "q": "Ready to master Present Perfect — The Bucket List (already / yet)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-present-perfect-bucket-list-01": {
+    "nextId": "b1-present-perfect-continuous-01",
+    "nextTitle": "Present Perfect Continuous — for / since / just",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Present Perfect Continuous — for / since / just.",
+    "challenge": {
+      "q": "Ready to master Present Perfect Continuous — for / since / just? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-present-perfect-ever-experiences-01": {
+    "nextId": "b1-present-perfect-vs-past-simple-01",
+    "nextTitle": "Present Perfect vs Past Simple — Which One?",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Present Perfect vs Past Simple — Which One?.",
+    "challenge": {
+      "q": "Ready to master Present Perfect vs Past Simple — Which One?? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-review-grand-01": {
+    "nextId": "b1-used-to-01",
+    "nextTitle": "Used to — Past Habits That Are Gone",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Used to — Past Habits That Are Gone.",
+    "challenge": {
+      "q": "Ready to master Used to — Past Habits That Are Gone? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b1-used-to-01": {
+    "nextId": "b1-will-vs-going-to-01",
+    "nextTitle": "Will vs Going to — Plans, Decisions & Promises",
+    "nextLevel": "B1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B1: deepen your fluency with Will vs Going to — Plans, Decisions & Promises.",
+    "challenge": {
+      "q": "Ready to master Will vs Going to — Plans, Decisions & Promises? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-causative-01": {
+    "nextId": "b2-collocations-work-study-01",
+    "nextTitle": "Collocations — Work & Study Power Combos",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Collocations — Work & Study Power Combos.",
+    "challenge": {
+      "q": "Ready to master Collocations — Work & Study Power Combos? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-collocations-work-study-01": {
+    "nextId": "b2-idioms-money-01",
+    "nextTitle": "Idioms — Money & Business (Abuela Carmen's Wisdom)",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Idioms — Money & Business (Abuela Carmen's Wisdom).",
+    "challenge": {
+      "q": "Ready to master Idioms — Money & Business (Abuela Carmen's Wisdom)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-idioms-money-01": {
+    "nextId": "b2-idioms-time-effort-01",
+    "nextTitle": "Idioms — Time & Effort (Abuela Carmen's Wisdom)",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Idioms — Time & Effort (Abuela Carmen's Wisdom).",
+    "challenge": {
+      "q": "Ready to master Idioms — Time & Effort (Abuela Carmen's Wisdom)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-idioms-time-effort-01": {
+    "nextId": "b2-linkers-01",
+    "nextTitle": "Linking Words — Contrast, Addition, Cause, Result & More",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Linking Words — Contrast, Addition, Cause, Result & More.",
+    "challenge": {
+      "q": "Ready to master Linking Words — Contrast, Addition, Cause, Result & More? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-linkers-01": {
+    "nextId": "b2-mixed-conditionals-01",
+    "nextTitle": "Mixed Conditionals",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Mixed Conditionals.",
+    "challenge": {
+      "q": "Ready to master Mixed Conditionals? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-mixed-conditionals-01": {
+    "nextId": "b2-modals-deduction-past-01",
+    "nextTitle": "Modals of Deduction — Past (must have / might have / can't have)",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Modals of Deduction — Past (must have / might have / can't have).",
+    "challenge": {
+      "q": "Ready to master Modals of Deduction — Past (must have / might have / can't have)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-modals-deduction-past-01": {
+    "nextId": "b2-modals-deduction-present-01",
+    "nextTitle": "Modals of Deduction — Present (must / might / could / can't)",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Modals of Deduction — Present (must / might / could / can't).",
+    "challenge": {
+      "q": "Ready to master Modals of Deduction — Present (must / might / could / can't)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-modals-deduction-present-01": {
+    "nextId": "b2-modals-obligation-past-01",
+    "nextTitle": "Modals of Obligation — Past (had to / didn't have to / needn't have)",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Modals of Obligation — Past (had to / didn't have to / needn't have).",
+    "challenge": {
+      "q": "Ready to master Modals of Obligation — Past (had to / didn't have to / needn't have)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-modals-obligation-past-01": {
+    "nextId": "b2-phrasal-verbs-down-01",
+    "nextTitle": "Phrasal Verbs with DOWN",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Phrasal Verbs with DOWN.",
+    "challenge": {
+      "q": "Ready to master Phrasal Verbs with DOWN? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-phrasal-verbs-down-01": {
+    "nextId": "b2-phrasal-verbs-get-01",
+    "nextTitle": "Phrasal Verbs — GET: One Verb, Many Meanings",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Phrasal Verbs — GET: One Verb, Many Meanings.",
+    "challenge": {
+      "q": "Ready to master Phrasal Verbs — GET: One Verb, Many Meanings? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-phrasal-verbs-get-01": {
+    "nextId": "b2-phrasal-verbs-on-off-01",
+    "nextTitle": "Phrasal Verbs with ON vs OFF",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Phrasal Verbs with ON vs OFF.",
+    "challenge": {
+      "q": "Ready to master Phrasal Verbs with ON vs OFF? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-phrasal-verbs-on-off-01": {
+    "nextId": "b2-phrasal-verbs-out-01",
+    "nextTitle": "Phrasal Verbs with OUT",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Phrasal Verbs with OUT.",
+    "challenge": {
+      "q": "Ready to master Phrasal Verbs with OUT? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-phrasal-verbs-out-01": {
+    "nextId": "b2-phrasal-verbs-up-01",
+    "nextTitle": "Phrasal Verbs with UP",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Phrasal Verbs with UP.",
+    "challenge": {
+      "q": "Ready to master Phrasal Verbs with UP? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-phrasal-verbs-up-01": {
+    "nextId": "b2-relative-clauses-01",
+    "nextTitle": "Relative Clauses — Non-Defining & Advanced Structures",
+    "nextLevel": "B2",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in B2: deepen your fluency with Relative Clauses — Non-Defining & Advanced Structures.",
+    "challenge": {
+      "q": "Ready to master Relative Clauses — Non-Defining & Advanced Structures? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "b2-wish-if-only-01": {
+    "nextId": "curriculum.html",
+    "nextTitle": "Curriculum Catalog & Galaxy Sky",
+    "nextLevel": "B2",
+    "relation": "Level Milestone Reached",
+    "note": "Outstanding! You've traversed this sector of B2. Review all constellations in the catalog.",
+    "challenge": {
+      "q": "Which step comes next after completing a constellation?",
+      "options": [
+        "Review & Test",
+        "Rest forever"
+      ],
+      "answer": "Review & Test",
+      "hint": "Keep your Aurora essence shining with regular tests!"
+    }
+  },
+  "c1-advanced-passive-01": {
+    "nextId": "c1-advanced-verbs-nuance-01",
+    "nextTitle": "Advanced Verbs — Precision & Nuance (The Scholar's Arsenal)",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Advanced Verbs — Precision & Nuance (The Scholar's Arsenal).",
+    "challenge": {
+      "q": "Ready to master Advanced Verbs — Precision & Nuance (The Scholar's Arsenal)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-advanced-verbs-nuance-01": {
+    "nextId": "c1-cleft-sentences-01",
+    "nextTitle": "Cleft Sentences — It-Clefts & What-Clefts",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Cleft Sentences — It-Clefts & What-Clefts.",
+    "challenge": {
+      "q": "Ready to master Cleft Sentences — It-Clefts & What-Clefts? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-cleft-sentences-01": {
+    "nextId": "c1-ellipsis-substitution-01",
+    "nextTitle": "Ellipsis & Substitution",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Ellipsis & Substitution.",
+    "challenge": {
+      "q": "Ready to master Ellipsis & Substitution? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-ellipsis-substitution-01": {
+    "nextId": "c1-emphatic-structures-01",
+    "nextTitle": "Emphatic Structures — do/does/did & so/such",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Emphatic Structures — do/does/did & so/such.",
+    "challenge": {
+      "q": "Ready to master Emphatic Structures — do/does/did & so/such? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-future-in-the-past-01": {
+    "nextId": "c1-gerund-clauses-subject-01",
+    "nextTitle": "Gerund Clauses as Subject",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Gerund Clauses as Subject.",
+    "challenge": {
+      "q": "Ready to master Gerund Clauses as Subject? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-gerund-clauses-subject-01": {
+    "nextId": "c1-inversion-01",
+    "nextTitle": "Inversion for Emphasis",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Inversion for Emphasis.",
+    "challenge": {
+      "q": "Ready to master Inversion for Emphasis? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-participle-clauses-01": {
+    "nextId": "c1-register-style-01",
+    "nextTitle": "Register & Style — Formal vs Informal Rewriting (C1–C2, capstone)",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Register & Style — Formal vs Informal Rewriting (C1–C2, capstone).",
+    "challenge": {
+      "q": "Ready to master Register & Style — Formal vs Informal Rewriting (C1–C2, capstone)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-register-style-01": {
+    "nextId": "c1-subjunctive-01",
+    "nextTitle": "Subjunctive — Formal & Literary Register (C1–C2)",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Subjunctive — Formal & Literary Register (C1–C2).",
+    "challenge": {
+      "q": "Ready to master Subjunctive — Formal & Literary Register (C1–C2)? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-subjunctive-01": {
+    "nextId": "c1-would-rather-prefer-01",
+    "nextTitle": "Would Rather / Would Prefer",
+    "nextLevel": "C1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in C1: deepen your fluency with Would Rather / Would Prefer.",
+    "challenge": {
+      "q": "Ready to master Would Rather / Would Prefer? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "c1-would-rather-prefer-01": {
+    "nextId": "curriculum.html",
+    "nextTitle": "Curriculum Catalog & Galaxy Sky",
+    "nextLevel": "C1",
+    "relation": "Level Milestone Reached",
+    "note": "Outstanding! You've traversed this sector of C1. Review all constellations in the catalog.",
+    "challenge": {
+      "q": "Which step comes next after completing a constellation?",
+      "options": [
+        "Review & Test",
+        "Rest forever"
+      ],
+      "answer": "Review & Test",
+      "hint": "Keep your Aurora essence shining with regular tests!"
+    }
+  }
+}

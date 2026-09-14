@@ -1,0 +1,343 @@
+{
+  "id": "es-a2-preterito-perfecto-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Pretérito Perfecto Compuesto (Experiencias y Pasado Reciente)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "hoy",
+      "traduccion": "today",
+      "bandera": "📅"
+    },
+    {
+      "palabra": "esta mañana",
+      "traduccion": "this morning",
+      "bandera": "🌅"
+    },
+    {
+      "palabra": "esta semana",
+      "traduccion": "this week",
+      "bandera": "📆"
+    },
+    {
+      "palabra": "este año",
+      "traduccion": "this year",
+      "bandera": "🗓️"
+    },
+    {
+      "palabra": "alguna vez",
+      "traduccion": "ever / sometime",
+      "bandera": "❓"
+    },
+    {
+      "palabra": "ya",
+      "traduccion": "already",
+      "bandera": "✅"
+    },
+    {
+      "palabra": "todavía no",
+      "traduccion": "not yet",
+      "bandera": "⏳"
+    },
+    {
+      "palabra": "he viajado",
+      "traduccion": "I have traveled",
+      "bandera": "✈️"
+    },
+    {
+      "palabra": "has comido",
+      "traduccion": "you have eaten",
+      "bandera": "🍽️"
+    },
+    {
+      "palabra": "hemos hecho",
+      "traduccion": "we have done / made (irregular)",
+      "bandera": "🔨"
+    },
+    {
+      "palabra": "ha visto",
+      "traduccion": "he/she has seen (irregular)",
+      "bandera": "👁️"
+    },
+    {
+      "palabra": "han escrito",
+      "traduccion": "they have written (irregular)",
+      "bandera": "✍️"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Hoy he tomado tres tazas de café y he trabajado en el estudio."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Chloe ya ha probado las arepas tradicionales en el Café El Manantial."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Mateo ha escrito un artículo fascinante sobre arquitectura colonial."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Nosotros todavía no hemos visitado el museo de arte moderno."
+    },
+    {
+      "id": "s5",
+      "forma": "interrogativo",
+      "oracion": "¿Has viajado alguna vez a un país de habla hispana?"
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Qué habéis hecho vosotros esta mañana antes de clase?"
+    },
+    {
+      "id": "s7",
+      "forma": "short_answer",
+      "oracion": "¿Has visto a Lucas hoy? Sí, lo he visto en la biblioteca."
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Has terminado el informe? Sí, ya lo he terminado."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Aurora: ¡Bienvenidos al Nivel A2! Aquí abrimos las puertas de la memoria y la narración en español.",
+        "Lucas: ¿Cómo hablamos de las cosas que hemos hecho hoy o de nuestras experiencias de vida?",
+        "Aurora: Usamos el **Pretérito Perfecto Compuesto**. Se construye combinando el verbo auxiliar **haber** en presente (*he, has, ha, hemos, habéis, han*) + el **participio** del verbo (*-ado* para verbos en -ar, *-ido* para verbos en -er/-ir). ¡Y atención: el participio no cambia jamás de género ni de número!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Esta semana nosotros hemos viajados a dos ciudades.",
+        "opcion_b": "Esta semana nosotros hemos viajado a dos ciudades.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "El pretérito perfecto compuesto conecta el pasado con el presente, expresando experiencias vitales y acciones ocurridas en un periodo temporal aún abierto (hoy, esta semana, este mes).",
+      "tabla": {
+        "titulo": "Conjugación del Pretérito Perfecto Compuesto",
+        "encabezados": [
+          "Pronombre",
+          "Haber",
+          "Participio Regular",
+          "Participio Irregular"
+        ],
+        "filas": [
+          [
+            "yo",
+            "he",
+            "hablado / comido",
+            "hecho (hacer)"
+          ],
+          [
+            "tú",
+            "has",
+            "viajado / vivido",
+            "visto (ver)"
+          ],
+          [
+            "él / ella / usted",
+            "ha",
+            "estudiado / aprendido",
+            "escrito (escribir)"
+          ],
+          [
+            "nosotros / nosotras",
+            "hemos",
+            "trabajado / salido",
+            "dicho (decir)"
+          ],
+          [
+            "vosotros / vosotras",
+            "habéis",
+            "cenado / vuelto",
+            "abierto (abrir)"
+          ],
+          [
+            "ellos / ellas / ustedes",
+            "han",
+            "bailado / dormido",
+            "puesto (poner)"
+          ]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué forma del verbo auxiliar haber corresponde al sujeto 'nosotros'?",
+          "opciones": [
+            "hemos",
+            "han",
+            "ha",
+            "habéis"
+          ],
+          "respuesta": "hemos"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál es el participio irregular correcto del verbo 'hacer'?",
+          "opciones": [
+            "hecho",
+            "hacido",
+            "haciado",
+            "puesto"
+          ],
+          "respuesta": "hecho"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Qué marcador temporal indica una acción completada dentro de la jornada presente?",
+          "opciones": [
+            "esta mañana",
+            "ayer",
+            "el año pasado",
+            "anoche"
+          ],
+          "respuesta": "esta mañana"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En el pretérito perfecto compuesto, el participio permanece invariable (termina en -o) sin importar el género ni el número del sujeto.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En la pregunta '¿Has viajado alguna vez a España?', el pretérito perfecto indaga sobre una experiencia acumulada hasta el presente.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Esta mañana yo ___ (tomar) un café y Lucas ___ (escribir) un correo importante.",
+          "respuesta": "he tomado ha escrito"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "— ¿___ (viajar / tú) alguna vez a México? — No, todavía no ___ (visitar / yo) ese país.",
+          "respuesta": "Has viajado he visitado"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "Hoy",
+            "hemos",
+            "aprendido",
+            "muchas",
+            "cosas",
+            "nuevas",
+            "juntos"
+          ],
+          "respuesta": "Hoy hemos aprendido muchas cosas nuevas juntos"
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Esta semana mis amigas han salidos a cenar todas las noches.",
+          "respuesta": "Esta semana mis amigas han salido a cenar todas las noches."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Hoy yo he hacido todos los ejercicios prácticos de la lección.",
+          "respuesta": "Hoy yo he hecho todos los ejercicios prácticos de la lección."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración afirmativa usando el marcador temporal 'todavía no':",
+          "oracion_base": "Ya he terminado el libro de historia.",
+          "respuesta": "Todavía no he terminado el libro de historia."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración de presente simple a pretérito perfecto con 'hoy':",
+          "oracion_base": "Nosotros comemos en el restaurante del centro.",
+          "respuesta": "Hoy nosotros hemos comido en el restaurante del centro."
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la respuesta contraria y negativa a la pregunta de experiencia:",
+          "oracion_base": "¿Has probado alguna vez el ceviche peruano?",
+          "respuesta": "No, nunca he probado el ceviche peruano."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Has visitado alguna vez una ciudad colonial en América Latina?",
+          "respuesta": "Sí, he visitado varias ciudades coloniales."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué cosas importantes has hecho hoy por la mañana?",
+          "respuesta": "Hoy he estudiado español y he respondido mensajes."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Mateo: Chloe, ¿has probado ya la bandeja paisa en Medellín?",
+        "Chloe: ¡Sí, ya la he probado dos veces y me ha encantado!",
+        "Mateo: ¿Y has visitado el jardín botánico esta semana?",
+        "Chloe: Todavía no he ido, pero tengo muchas ganas de ir este sábado."
+      ],
+      "gaps": [
+        "probado",
+        "semana"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Cuántas veces ha probado Chloe la bandeja paisa?",
+          "opciones": [
+            "Dos veces",
+            "Nunca la ha probado",
+            "Una sola vez hace un año"
+          ],
+          "respuesta": "Dos veces"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Este mes ha sido una época de grandes descubrimientos para Lucas en su estancia académica. Ha tomado más de quinientas fotografías de la arquitectura urbana y ha conocido a artesanos fascinantes en los mercados locales. Además, esta semana ha asistido a dos recitales de poesía y ha mejorado notablemente su fluidez al hablar con los vecinos del barrio. Aunque todavía no ha recorrido los pueblos de las afueras, ya ha organizado un viaje con Mateo y Chloe para el próximo fin de semana.",
+      "preguntas": [
+        {
+          "afirmacion": "Lucas ha tomado más de quinientas fotografías este mes.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Lucas ya ha visitado todos los pueblos de las afueras.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "El texto usa el pretérito perfecto porque los hechos ocurren en un periodo temporal aún abierto ('este mes', 'esta semana').",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

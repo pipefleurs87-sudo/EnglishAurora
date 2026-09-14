@@ -21,10 +21,24 @@
     var mb = document.querySelector('.modebar') || document.querySelector('.modebar-fixed');
     if (!mb) return;
 
-    var tieneFluidez = CON_FLUIDEZ.indexOf(D.id) !== -1 || !!(D.fases && D.fases.fluency);
+    var isEs = (D.id && D.id.indexOf('es-') === 0) || D.idioma === 'es';
+    var tieneFluidez = (D.fases && D.fases.fluency) ||
+      CON_FLUIDEZ.indexOf(D.id) !== -1;
     var modos = [];
-    if (tieneFluidez) modos.push(['🗣 Fluency', '../fluency/']);
-    modos.push(['🎮 Games', '../juegos/']);   // activado 2026-07-27 (ludoteca publicada)
+    if (tieneFluidez) modos.push([isEs ? '🗣 Fluidez' : '🗣 Fluency', '../fluency/']);
+    var yaTieneJuegos = false;
+    var links = mb.querySelectorAll('a');
+    for (var j = 0; j < links.length; j++) {
+      var txt = links[j].textContent || '';
+      var hr = links[j].getAttribute('href') || '';
+      if (/juegos|games/i.test(txt) || /ludoteca|juegos/i.test(hr)) {
+        yaTieneJuegos = true;
+        break;
+      }
+    }
+    if (!yaTieneJuegos) {
+      modos.push([isEs ? '🎮 Juegos' : '🎮 Games', '../juegos/']);
+    }
 
     modos.forEach(function (m) {
       var destino = m[1] + D.id + '.html';

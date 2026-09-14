@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EXMWV3HGG');
+</script>
 <title>Advanced Verbs — Precision &amp; Nuance (The Scholar&#x27;s Arsenal) — C1 Exercises | English Aurora</title>
 <meta name="description" content="Advanced Verbs — Precision &amp; Nuance (The Scholar&#x27;s Arsenal) — C1 English exercises: grammar, listening and reading in one sequence. Ejercicios de ingles gratis.">
 <meta name="keywords" content="Advanced Verbs — Precision &amp; Nuance (The Scholar&#x27;s Arsenal) exercises, English grammar, C1, C1 English, ESL, ejercicios de ingles">
@@ -32,10 +41,11 @@
   .tags{display:flex;flex-wrap:wrap;gap:8px}
   .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted);background:#fff}
   .tag.lvl{border-color:var(--gold);color:var(--teal);font-weight:600}
-  .aurora-banner{margin:16px 0 24px;background:linear-gradient(135deg, rgba(15,76,92,0.08), rgba(212,175,55,0.12));border:1px solid var(--gold);border-left:4px solid var(--teal);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px}
+  .aurora-banner{margin:16px 0 24px;background:linear-gradient(135deg, rgba(15,76,92,0.08), rgba(212,175,55,0.12));border:1px solid var(--gold);border-left:4px solid var(--teal);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:14px}
+  .aurora-portrait{width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.14)}
   .aurora-ico{font-size:24px;line-height:1}
   .aurora-txt{font-family:var(--serif);font-size:15px;color:var(--ink);line-height:1.4}
-  .aurora-feedback-box{margin:18px 0 10px;padding:14px 16px;border-radius:8px;font-family:var(--serif);font-size:15px;line-height:1.5}
+  .aurora-feedback-box{margin:18px 0 10px;padding:14px 16px;border-radius:8px;font-family:var(--serif);font-size:15px;line-height:1.5;display:flex;align-items:center;gap:14px}
   .aurora-feedback-box.win{background:#eef7f0;border:1px solid #2f7d4f;border-left:4px solid #2f7d4f;color:#1e4d31}
   .aurora-feedback-box.trial{background:#fff8eb;border:1px solid var(--gold);border-left:4px solid var(--gold);color:#70480a}
   section{margin:34px 0}
@@ -92,12 +102,28 @@
   .audio-box{background:var(--ink);color:var(--paper);border-radius:10px;padding:18px}
   .audio-box .play{font-family:var(--sans);font-weight:600;font-size:15px;background:var(--gold);color:var(--ink);border:none;border-radius:8px;padding:11px 18px;cursor:pointer}
   .audio-box .play:disabled{opacity:.5;cursor:default}
+  .audio-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .audio-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:rgba(212,175,55,0.15);border:1px solid var(--gold);color:var(--gold);border-radius:6px;padding:4px 9px}
+  .line-play-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:var(--paper);border-radius:4px;cursor:pointer;font-size:12px;padding:2px 6px;margin-right:6px;vertical-align:middle;transition:all .15s}
+  .line-play-btn:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
   .audio-box .hint{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:10px}
   .transcript{margin-top:14px}
-  .transcript .line{margin:6px 0;font-size:15px}
+  .transcript .line{margin:8px 0;font-size:15px;line-height:1.7}
   .transcript .who{font-family:var(--mono);font-size:12px;color:var(--gold);margin-right:6px}
-  .transcript .line.active{background:rgba(201,150,47,.18);border-radius:5px;padding:2px 6px}
+  .transcript .line.active{background:rgba(201,150,47,.18);border-radius:5px;padding:4px 8px}
   .transcript .blank{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--gold);border-bottom:1px solid var(--gold);padding:0 2px}
+  .dlg-gap-slot{display:inline-flex;align-items:center;gap:3px;vertical-align:baseline;margin:0 3px}
+  .dlg-gap-inp{display:inline-block;vertical-align:baseline;font-family:inherit;font-size:14px;
+    padding:2px 6px;border:none;border-bottom:2px solid var(--gold);
+    border-radius:4px 4px 0 0;background:rgba(255,255,255,0.12);color:#fff;text-align:center;
+    transition:background-color .15s, border-color .15s}
+  .dlg-gap-inp:focus{outline:none;background:rgba(255,255,255,0.22);border-bottom-color:#fff}
+  .dlg-gap-inp[data-state=ok]{border-bottom-color:#4ade80;background:rgba(74,222,128,0.18);color:#86efac}
+  .dlg-gap-inp[data-state=bad]{border-bottom-color:#f87171;background:rgba(248,113,113,0.18);color:#fca5a5}
+  .dlg-gap-mark{font-size:13px;font-family:var(--mono);font-weight:600;margin-left:2px}
+  .dlg-gap-mark.ok{color:#4ade80}
+  .dlg-gap-mark.bad{color:#f87171}
+  .dlg-gap-sol{font-size:12px;color:#fca5a5;font-style:italic;margin-left:4px;font-weight:normal}
   .listen-sub{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:22px 0 4px}
   .reading-text{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;font-family:var(--serif);font-size:17px;line-height:1.7}
   .controls{position:sticky;bottom:0;background:linear-gradient(transparent,var(--paper) 30%);padding:20px 0 4px;margin-top:30px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
@@ -371,36 +397,39 @@
   function esc(s){return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function section(label,title){const s=el('section');s.appendChild(el('div','sec-label',label));if(title)s.appendChild(el('h2','sec-title',title));return s;}
 
+  const isEs = !!(D && (D.idioma === 'es' || (D.id && D.id.startsWith('es-'))));
   const mh=el('div','masthead');
-  mh.appendChild(el('div','brand','English Aurora · Exercise bank'));
+  mh.appendChild(el('div','brand', isEs ? ('Spanish Aurora · Nivel ' + esc(D.nivel)) : 'English Aurora · Exercise bank'));
   mh.appendChild(el('h1','tema',esc(D.tema)));
   const tags=el('div','tags'); tags.appendChild(el('span','tag lvl',D.nivel));
   (D.habilidades||[]).forEach(h=>tags.appendChild(el('span','tag',h)));
   // Estimated class time: warm-up + ~1.2 min per graded item + listening + reading
   (function(){const F0=D.fases||{};let n=(F0.practica&&F0.practica.ejercicios||[]).length;
     let est=(F0.inicio?6:0)+n*1.2+(F0.listening&&F0.listening.guion?8:0)+(F0.reading&&F0.reading.texto?6:0);
-    if(est>0)tags.appendChild(el('span','tag','≈ '+(Math.round(est/5)*5)+' min class'));})();
+    if(est>0)tags.appendChild(el('span','tag','≈ '+(Math.round(est/5)*5)+(isEs ? ' min de clase' : ' min class')));})();
   mh.appendChild(tags);
   // Mode bar: every page is an entry point to the full sequence (lesson + practice + test)
   if(D.id){const mb=el('div','modebar');
-    [['📖 Lesson','../leccion/'],['✏️ Practice','../preview/'],['✓ Test','../evaluacion/']].forEach(([lbl,dir])=>{
+    (isEs ? [['✏️ Práctica','../preview/'],['📖 Lección','../leccion/'],['✓ Examen','../evaluacion/']] : [['📖 Lesson','../leccion/'],['✏️ Practice','../preview/'],['✓ Test','../evaluacion/']]).forEach(([lbl,dir])=>{
       const a=el('a',dir==='../preview/'?'on':null,lbl);a.href=dir+D.id+'.html';mb.appendChild(a);});
-    mb.appendChild(el('a',null,'🎲 Exercise Generator')).href='../herramientas/generador-ejercicios.html';
-    mb.appendChild(el('a',null,'🎮 Games')).href='../ludoteca.html';
-    mb.appendChild(el('a',null,'🌌 Galaxy')).href='../englishaurora/index.html';
+    mb.appendChild(el('a',null, isEs ? '🎲 Generador de Ejercicios' : '🎲 Exercise Generator')).href='../herramientas/generador-ejercicios.html';
+    mb.appendChild(el('a',null, isEs ? '🎮 Juegos' : '🎮 Games')).href='../ludoteca.html';
+    mb.appendChild(el('a',null, isEs ? '🌌 Galaxia' : '🌌 Galaxy')).href='../englishaurora/index.html';
     mh.appendChild(mb);}
   app.appendChild(mh);
 
   if(D.nivel === 'A1'){
     const ab = el('div','aurora-banner');
-    ab.innerHTML = '<span class="aurora-ico">🌌</span><div class="aurora-txt"><b>Aurora\'s Guidance:</b> Welcome to this quest, seeker! Choose your words with care, like casting an arcane spell.</div>';
+    ab.innerHTML = isEs
+      ? '<img src="../assets/aurora.png" class="aurora-portrait" alt="Aurora"><div class="aurora-txt"><b>Guía de Aurora:</b> ¡Bienvenido a esta senda, aprendiz! Elige tus palabras con cuidado, como invocando un conjuro arcano.</div>'
+      : '<img src="../assets/aurora.png" class="aurora-portrait" alt="Aurora"><div class="aurora-txt"><b>Aurora\'s Guidance:</b> Welcome to this quest, seeker! Choose your words with care, like casting an arcane spell.</div>';
     app.appendChild(ab);
   }
 
   const F=D.fases||{};
 
   if(F.inicio){
-    const s=section('01 · Warm-up — Diagnosis','Which one sounds right?');
+    const s=section(isEs ? '01 · Inicio — Diagnóstico' : '01 · Warm-up — Diagnosis', isEs ? '¿Cuál suena natural?' : 'Which one sounds right?');
     s.classList.add('sec-inicio');
     if(Array.isArray(F.inicio.interaccion)&&F.inicio.interaccion.length){
       const dlg=el('div','mini-dialog');
@@ -413,13 +442,13 @@
     }
     const b=F.inicio.banner_diagnostico;
     if(b){
-      const box=el('div','diag'); box.appendChild(el('p','q','Choose the correct option:'));
+      const box=el('div','diag'); box.appendChild(el('p','q', isEs ? 'Elige la opción correcta:' : 'Choose the correct option:'));
       const opts=el('div','opts');
       [['a',b.opcion_a],['b',b.opcion_b]].forEach(([k,txt])=>{
         const btn=el('button','opt-btn',esc(txt));
         btn.onclick=()=>{const fb=box.querySelector('.feedback');box.querySelectorAll('.opt-btn').forEach(x=>x.disabled=true);
-          if(k===b.correcta){btn.classList.add('ok');fb.className='feedback good';fb.textContent='Exactly! That is the correct form.';}
-          else{btn.classList.add('no');box.querySelectorAll('.opt-btn')[b.correcta==='a'?0:1].classList.add('ok');fb.className='feedback';fb.textContent='Careful — that is the typical mistake. The other one is correct.';}};
+          if(k===b.correcta){btn.classList.add('ok');fb.className='feedback good';fb.textContent=isEs ? '¡Exacto! Esa es la forma correcta.' : 'Exactly! That is the correct form.';}
+          else{btn.classList.add('no');box.querySelectorAll('.opt-btn')[b.correcta==='a'?0:1].classList.add('ok');fb.className='feedback';fb.textContent=isEs ? 'Cuidado — ese es el error típico. La otra opción es la correcta.' : 'Careful — that is the typical mistake. The other one is correct.';}};
         opts.appendChild(btn);
       });
       box.appendChild(opts); box.appendChild(el('div','feedback','')); s.appendChild(box);
@@ -432,8 +461,8 @@
       const tbl=el('table','gtab');
       tbl.innerHTML=(T.titulo?'<caption>'+esc(T.titulo)+'</caption>':'')+'<thead><tr>'+head+'</tr></thead><tbody>'+rows+'</tbody>';
       s.appendChild(tbl);
-      // Printable reference table — teachers search for "tabla del verbo to be" etc.
-      const pbtn=el('button','print-btn','🖨 Print reference table');
+      // Printable reference table
+      const pbtn=el('button','print-btn', isEs ? '🖨 Imprimir tabla de referencia' : '🖨 Print reference table');
       pbtn.onclick=()=>{document.body.classList.add('print-tabla');window.print();};
       window.addEventListener('afterprint',()=>document.body.classList.remove('print-tabla'));
       s.appendChild(pbtn);
@@ -451,26 +480,26 @@
   }
 
   if(F.practica && Array.isArray(F.practica.ejercicios) && F.practica.ejercicios.length){
-    const s=section('02 · Practice','Exercises');
+    const s=section(isEs ? '02 · Práctica' : '02 · Practice', isEs ? 'Ejercicios' : 'Exercises');
     F.practica.ejercicios.forEach((ex,i)=>s.appendChild(renderExercise(ex,i)));
     app.appendChild(s);
   }
 
   if(F.listening && Array.isArray(F.listening.guion) && F.listening.guion.length){
-    const s=section('03 · Listening','Listen and answer');
+    const s=section(isEs ? '03 · Comprensión auditiva' : '03 · Listening', isEs ? 'Escucha y responde' : 'Listen and answer');
     s.appendChild(renderListening(F.listening)); app.appendChild(s);
   }
 
   if(F.reading && F.reading.texto){
-    const s=section('04 · Reading','Read and answer');
+    const s=section(isEs ? '04 · Lectura' : '04 · Reading', isEs ? 'Lee y responde' : 'Read and answer');
     s.appendChild(el('div','reading-text',esc(F.reading.texto)));
     (F.reading.preguntas||[]).forEach((p,i)=>s.appendChild(renderExercise({tipo:'true_false',afirmacion:p.afirmacion,respuesta:p.respuesta},'r'+i)));
     app.appendChild(s);
   }
 
   const ctr=el('div','controls');
-  const check=el('button','btn primary','Check answers');
-  const reset=el('button','btn ghost','Reset');
+  const check=el('button','btn primary', isEs ? 'Comprobar respuestas' : 'Check answers');
+  const reset=el('button','btn ghost', isEs ? 'Reiniciar' : 'Reset');
   const score=el('div','score','');
   // Grades ONLY answered items: teachers can assign a subset without unanswered ones counting as wrong.
   check.onclick=()=>{let ok=0,ans=0;
@@ -478,17 +507,21 @@
       if(g.answered && !g.answered()){ if(g.clear)g.clear(); return; }
       ans++; const r=g.check(); g.reveal(r); if(r)ok++;});
     if(!graders.length){score.innerHTML='';return;}
-    if(!ans){score.innerHTML='Nothing answered yet — try a few first.';return;}
-    score.innerHTML=`Score: <b>${ok}/${ans}</b> answered`+(ans<graders.length?` <span style="color:var(--muted)">· ${graders.length} total</span>`:'');
+    if(!ans){score.innerHTML=isEs ? 'Aún no has respondido — prueba con algunas primero.' : 'Nothing answered yet — try a few first.';return;}
+    score.innerHTML=(isEs ? `Puntuación: <b>${ok}/${ans}</b> respondidas` : `Score: <b>${ok}/${ans}</b> answered`)+(ans<graders.length?` <span style="color:var(--muted)">· ${graders.length} ${isEs ? 'total' : 'total'}</span>`:'');
     if(D.nivel === 'A1'){
       let afb = document.getElementById('aurora-fb');
       if(!afb){ afb = el('div','aurora-feedback-box'); afb.id = 'aurora-fb'; ctr.parentNode.insertBefore(afb, cta); }
       if(ok === ans && ans > 0){
         afb.className = 'aurora-feedback-box win';
-        afb.innerHTML = '✨ <b>Aurora:</b> "Extraordinary mastery! Your Aurora Essence shines brightly. All incantations were successful!"';
+        afb.innerHTML = isEs
+          ? '<img src="../assets/aurora-celebrando.png" class="aurora-portrait" alt="Aurora"><div><b>Aurora:</b> "¡Extraordinario dominio! Tu Esencia Aurora resplandece con fuerza. ¡Todos los conjuros fueron acertados!"</div>'
+          : '<img src="../assets/aurora-celebrando.png" class="aurora-portrait" alt="Aurora"><div><b>Aurora:</b> "Extraordinary mastery! Your Aurora Essence shines brightly. All incantations were successful!"</div>';
       } else {
         afb.className = 'aurora-feedback-box trial';
-        afb.innerHTML = '🛡️ <b>Aurora:</b> "Beware! The Mistake Goblins have intercepted some of your spells. Take heart, review the red marks, and try again!"';
+        afb.innerHTML = isEs
+          ? '<img src="../assets/aurora-corrigiendo.png" class="aurora-portrait" alt="Aurora"><div><b>Aurora:</b> "¡Cuidado! Los Duendes del Error interceptaron algunos conjuros. ¡Ánimo, revisa las marcas rojas e inténtalo de nuevo!"</div>'
+          : '<img src="../assets/aurora-corrigiendo.png" class="aurora-portrait" alt="Aurora"><div><b>Aurora:</b> "Beware! The Mistake Goblins have intercepted some of your spells. Take heart, review the red marks, and try again!"</div>';
       }
     }
     cta.style.display='block';
@@ -511,15 +544,17 @@
   };
   reset.onclick=()=>location.reload();
   ctr.appendChild(check);ctr.appendChild(reset);ctr.appendChild(score);app.appendChild(ctr);
-  const cta=el('div','cta-sp','Enjoyed this? <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer">Book a real class with Felipe on Superprof →</a>');
+  const cta=el('div','cta-sp', isEs ? '¿Te gustó esta lección? <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer">Reserva una clase real con Felipe en Superprof →</a>' : 'Enjoyed this? <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer">Book a real class with Felipe on Superprof →</a>');
   app.appendChild(cta);
-  app.appendChild(el('footer','','English Aurora — made by your teacher, not a random worksheet machine. · <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">Book real classes on Superprof</a>'));
+  app.appendChild(el('footer','', isEs ? 'Spanish Aurora — hecho por tu profesor, no por una máquina automática de guías. · <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">Clases reales con Felipe</a>' : 'English Aurora — made by your teacher, not a random worksheet machine. · <a href="https://www.superprof.co/ingles-real-para-hablar-sin-miedo-conversacion-confianza-clases-disfrutan.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">Book real classes on Superprof</a>'));
 
   function renderExercise(ex,idx){
     const box=el('div','ex');
-    const stageMap={multiple_choice:'Recognize',true_false:'Recognize',gap_fill:'Manipulate',unscramble:'Manipulate',correct_mistake:'Manipulate',transformation:'Transform',write_opposite:'Transform',short_answer_production:'Produce'};
-    box.appendChild(el('div','stage',stageMap[ex.tipo]||'Exercise'));
-    if(Array.isArray(ex.combina) && ex.combina.length) box.appendChild(el('div','joined','🔗 Combines: '+ex.combina.map(esc).join(' + ')));
+    const stageMap=isEs
+      ? {multiple_choice:'Reconocer',true_false:'Reconocer',gap_fill:'Manipular',unscramble:'Manipular',correct_mistake:'Manipular',transformation:'Transformar',write_opposite:'Transformar',short_answer_production:'Producir'}
+      : {multiple_choice:'Recognize',true_false:'Recognize',gap_fill:'Manipulate',unscramble:'Manipulate',correct_mistake:'Manipulate',transformation:'Transform',write_opposite:'Transform',short_answer_production:'Produce'};
+    box.appendChild(el('div','stage',stageMap[ex.tipo]||(isEs?'Ejercicio':'Exercise')));
+    if(Array.isArray(ex.combina) && ex.combina.length) box.appendChild(el('div','joined',(isEs?'🔗 Combina: ':'🔗 Combines: ')+ex.combina.map(esc).join(' + ')));
     const itemId = String(idx || ('ex_' + graders.length));
     if(telSes) telSes.registrarItem(itemId, { tipo: ex.tipo });
     let getVal,correct,markEl=el('div','mark','');
@@ -541,7 +576,7 @@
         const tf=el('div','tf-btns');let sel='';
         ['true','false'].forEach(v=>{
           const btn=el('button',null,'');
-          btn.textContent=v==='true'?'✔ True':'✗ False';
+          btn.textContent=v==='true'?(isEs?'✔ Verdadero':'✔ True'):(isEs?'✗ Falso':'✗ False');
           btn.onclick=()=>{
             if(sel!==v && telSes) telSes.registrarInteraccion(itemId);
             sel=v;tf.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));btn.classList.add('sel');
@@ -559,27 +594,27 @@
         limpiarGaps=()=>gf.inputs.forEach(x=>x.removeAttribute('data-state'));
         correct=ex.respuesta;break;}
       case 'unscramble':{
-        box.appendChild(el('div','instr','Put the words in order to make a correct sentence.'));
+        box.appendChild(el('div','instr', isEs ? 'Ordena las palabras para formar una oración correcta.' : 'Put the words in order to make a correct sentence.'));
         const sc=el('div','scrambled');const ws=(ex.palabras||[]).slice();for(let i=ws.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ws[i],ws[j]]=[ws[j],ws[i]];}if(ws.length>2&&ws.join(' ')===(ex.palabras||[]).join(' '))ws.push(ws.shift());ws.forEach(w=>sc.appendChild(el('span',null,esc(w))));box.appendChild(sc);
-        const inp=el('input');inp.type='text';inp.placeholder='Write the ordered sentence…';
+        const inp=el('input');inp.type='text';inp.placeholder=isEs ? 'Escribe la oración ordenada…' : 'Write the ordered sentence…';
         inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(itemId); };
         box.appendChild(inp);getVal=()=>inp.value;correct=ex.respuesta;break;}
       case 'correct_mistake':{
-        box.appendChild(el('div','instr','There is a mistake. Rewrite the correct sentence.'));
+        box.appendChild(el('div','instr', isEs ? 'Hay un error. Escribe la oración corregida.' : 'There is a mistake. Rewrite the correct sentence.'));
         box.appendChild(el('div','base','✗ '+esc(ex.texto_con_error)));
-        const inp=el('input');inp.type='text';inp.placeholder='Corrected version…';
+        const inp=el('input');inp.type='text';inp.placeholder=isEs ? 'Versión corregida…' : 'Corrected version…';
         inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(itemId); };
         box.appendChild(inp);getVal=()=>inp.value;correct=ex.respuesta;break;}
       case 'transformation':
       case 'write_opposite':{
         box.appendChild(el('div','instr',esc(ex.instruccion||'')));
         box.appendChild(el('div','base',esc(ex.oracion_base)));
-        const inp=el('input');inp.type='text';inp.placeholder='Your answer…';
+        const inp=el('input');inp.type='text';inp.placeholder=isEs ? 'Tu respuesta…' : 'Your answer…';
         inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(itemId); };
         box.appendChild(inp);getVal=()=>inp.value;correct=ex.respuesta;break;}
       case 'short_answer_production':{
         box.appendChild(el('p','prompt',esc(ex.pregunta)));
-        const inp=el('input');inp.type='text';inp.placeholder='Answer in a full sentence…';
+        const inp=el('input');inp.type='text';inp.placeholder=isEs ? 'Responde en una oración completa…' : 'Answer in a full sentence…';
         inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(itemId); };
         box.appendChild(inp);getVal=()=>inp.value;correct=ex.respuesta;break;}
       case 'conjugation_table':{
@@ -642,76 +677,309 @@
             clear:()=>bc.limpiar(),
             reveal:(ok)=>{const m={};m[it.id]=ok;bc.marcar(m);}});});
         return box;}
-      default: box.appendChild(el('p','prompt','[Unsupported type: '+esc(ex.tipo)+']'));getVal=()=>'';correct='';
+      default: box.appendChild(el('p','prompt',isEs ? ('[Tipo no soportado: '+esc(ex.tipo)+']') : ('[Unsupported type: '+esc(ex.tipo)+']')));getVal=()=>'';correct='';
     }
     box.appendChild(markEl);
     graders.push({id:itemId,tipo:ex.tipo,getVal,correct,
       check:()=>eq(getVal(),correct),
       answered:()=>String(getVal()||'').trim()!=='',
       clear:()=>{markEl.className='mark';markEl.innerHTML='';if(limpiarGaps)limpiarGaps();},
-      reveal:(ok)=>{markEl.className='mark '+(ok?'right':'wrong');if(marcarGaps)marcarGaps(ok);markEl.innerHTML=(ok?'✓ Correct!':'✗ Not quite<span class="sol">Answer: '+esc(correct)+'</span>')+(ex.tambien_valido?'<span class="alt">Also correct: '+esc(ex.tambien_valido)+'</span>':'');}});
+      reveal:(ok)=>{markEl.className='mark '+(ok?'right':'wrong');if(marcarGaps)marcarGaps(ok);markEl.innerHTML=(ok?(isEs?'✓ ¡Correcto!':'✓ Correct!'):(isEs?'✗ Casi<span class="sol">Respuesta: '+esc(correct)+'</span>':'✗ Not quite<span class="sol">Answer: '+esc(correct)+'</span>'))+(ex.tambien_valido?(isEs?'<span class="alt">También válido: '+esc(ex.tambien_valido)+'</span>':'<span class="alt">Also correct: '+esc(ex.tambien_valido)+'</span>'):'');}});
     return box;
   }
 
   function renderListening(L){
     const wrapEl=el('div');
     const box=el('div','audio-box');
-    const play=el('button','play','▶ Play dialogue');box.appendChild(play);
-    box.appendChild(el('div','hint','Listen first. The transcript has gaps: fill them by listening.'));
+    const audioBar=el('div','audio-bar');
+    const play=el('button','play', isEs ? '▶ Reproducir diálogo completo' : '▶ Play full dialogue');
+    audioBar.appendChild(play);
+    const hasAudio = !!(window.SEQUENCE_DATA && (window.SEQUENCE_DATA.audio_data || window.SEQUENCE_DATA.id));
+    if(hasAudio){
+      const badge=el('span','audio-badge', isEs ? '🎙️ Audio HD · Voces Humanizadas' : '🎙️ HD Audio · Humanized Voices');
+      audioBar.appendChild(badge);
+    }
+    box.appendChild(audioBar);
+    box.appendChild(el('div','hint', isEs ? 'Escucha con atención y completa los huecos en el diálogo (puedes escuchar frases individuales pulsando 🔊):' : 'Listen carefully and complete the gaps in the dialogue (click 🔊 to replay any individual line):'));
     const tr=el('div','transcript');
-    const gaps=Array.isArray(L.gaps)?L.gaps.slice():[]; const used=new Array(gaps.length).fill(false);
-    const lines=L.guion.map(g=>{
+    const gaps=Array.isArray(L.gaps)?L.gaps.slice():[];
+    const used=new Array(gaps.length).fill(false);
+
+    function escRegex(s){ return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    function getAudioSrc(idx){
+      const d = window.SEQUENCE_DATA;
+      if(d && d.audio_data && d.audio_data[String(idx + 1)]){
+        return d.audio_data[String(idx + 1)];
+      }
+      const seqId = (d && d.id) || '';
+      return '../audio/' + seqId + '/' + (idx + 1) + '.mp3';
+    }
+
+    let currentAudio=null;
+
+    const lines=(L.guion||[]).map((g,lineIdx)=>{
       const idx=g.indexOf(':'); const who=idx>0?g.slice(0,idx):''; const spoken=idx>0?g.slice(idx+1).trim():g;
-      let shown=esc(spoken);
-      gaps.forEach((w,gi)=>{if(used[gi])return;const re=new RegExp('\\b'+String(w).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','i');if(re.test(shown)){shown=shown.replace(re,'<span class="blank">('+(gi+1)+') _____</span>');used[gi]=true;}});
-      const line=el('div','line'); if(who)line.innerHTML='<span class="who">'+esc(who)+'</span>'; line.insertAdjacentHTML('beforeend',shown); tr.appendChild(line);
-      return {txt:spoken,node:line};
+      const line=el('div','line');
+      if(who){
+        const playBtn=el('button','line-play-btn','🔊');
+        playBtn.type='button';
+        playBtn.title=isEs ? ('Escuchar a ' + who) : ('Listen to ' + who);
+        playBtn.onclick=(ev)=>{
+          ev.preventDefault();
+          ev.stopPropagation();
+          playSingleLine(lineIdx);
+        };
+        line.appendChild(playBtn);
+        const whoSpan=el('span','who',who+':');
+        line.appendChild(whoSpan);
+        line.appendChild(document.createTextNode(' '));
+      }
+
+      let lineSegments=[{ text: spoken, isGap: false, gapIdx: -1 }];
+      gaps.forEach((w,gi)=>{
+        if(used[gi]) return;
+        const re=new RegExp('(?<![\\p{L}\\p{N}])' + escRegex(w) + '(?![\\p{L}\\p{N}])', 'iu');
+        for(let sIdx=0; sIdx<lineSegments.length; sIdx++){
+          const seg=lineSegments[sIdx];
+          if(seg.isGap) continue;
+          const match=seg.text.match(re);
+          if(match){
+            const before=seg.text.slice(0, match.index);
+            const after=seg.text.slice(match.index + match[0].length);
+            const newSegs=[];
+            if(before) newSegs.push({ text: before, isGap: false, gapIdx: -1 });
+            newSegs.push({ text: match[0], isGap: true, gapIdx: gi, targetWord: w });
+            if(after) newSegs.push({ text: after, isGap: false, gapIdx: -1 });
+            lineSegments.splice(sIdx, 1, ...newSegs);
+            used[gi]=true;
+            break;
+          }
+        }
+      });
+
+      lineSegments.forEach((seg)=>{
+        if(!seg.isGap){
+          line.appendChild(document.createTextNode(seg.text));
+        } else {
+          const subId='list_gap_' + seg.gapIdx;
+          if(telSes) telSes.registrarItem(subId, { tipo: 'gap_fill', category: 'listening' });
+          const slot=el('span','dlg-gap-slot');
+          const inp=el('input','dlg-gap-inp');
+          inp.type='text'; inp.placeholder='…';
+          inp.autocomplete='off'; inp.autocorrect='off'; inp.autocapitalize='off'; inp.spellcheck=false;
+          inp.style.width=Math.max(seg.targetWord.length, 5) + 3 + 'ch';
+          inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(subId); };
+          const markEl=el('span','dlg-gap-mark','');
+          slot.appendChild(inp);
+          slot.appendChild(markEl);
+          line.appendChild(slot);
+
+          graders.push({id:subId,tipo:'gap_fill',category:'listening',
+            getVal:()=>inp.value,correct:seg.targetWord,
+            check:()=>eq(inp.value,seg.targetWord),
+            answered:()=>inp.value.trim()!=='',
+            clear:()=>{
+              inp.removeAttribute('data-state');
+              markEl.className='dlg-gap-mark';
+              markEl.innerHTML='';
+            },
+            reveal:(ok)=>{
+              inp.setAttribute('data-state', ok ? 'ok' : 'bad');
+              markEl.className='dlg-gap-mark ' + (ok ? 'ok' : 'bad');
+              markEl.innerHTML=ok ? '✓' : ('✗ <span class="dlg-gap-sol">' + esc(seg.targetWord) + '</span>');
+            }});
+        }
+      });
+
+      tr.appendChild(line);
+      return {txt:spoken,who:who,node:line};
     });
     box.appendChild(tr); wrapEl.appendChild(box);
-    play.onclick=()=>{ if(!('speechSynthesis' in window) && !window.SEQUENCE_DATA){alert('Your browser does not support audio playback.');return;}
-      window.speechSynthesis && window.speechSynthesis.cancel(); play.disabled=true; let i=0;
-      const seqId=(window.SEQUENCE_DATA&&window.SEQUENCE_DATA.id)||'';
-      const speakFallback=(txt,cb)=>{
-        if(!('speechSynthesis' in window)){cb();return;}
-        const u=new SpeechSynthesisUtterance(txt);u.lang='en-US';u.rate=.95;
-        u.onend=cb;u.onerror=cb;window.speechSynthesis.speak(u);
-      };
-      const speakNext=()=>{ tr.querySelectorAll('.line').forEach(l=>l.classList.remove('active'));
-        if(i>=lines.length){play.disabled=false;play.textContent='▶ Play again';return;}
-        lines[i].node.classList.add('active');
-        const idx=i; const txt=lines[i].txt; const advance=()=>{i++;speakNext();};
-        if(seqId){
-          const audio=new Audio('../audio/'+seqId+'/'+(idx+1)+'.mp3');
-          audio.onended=advance; audio.onerror=()=>{speakFallback(txt,advance);};
-          audio.play().catch(()=>{speakFallback(txt,advance);});
-        } else { speakFallback(txt,advance); }
-      };
-      speakNext();};
-    if(gaps.length){
-      wrapEl.appendChild(el('div','listen-sub','Fill in the missing words'));
-      gaps.forEach((g,i)=>{const ex=el('div','ex');ex.appendChild(el('div','stage','Completion'));
-        ex.appendChild(el('div','instr','Gap ('+(i+1)+') in the transcript — write it as you hear it:'));
-        const subId = 'list_gap_' + i;
-        if(telSes) telSes.registrarItem(subId, { tipo: 'gap_fill', category: 'listening' });
-        const inp=el('input');inp.type='text';inp.placeholder='Word…';
-        inp.oninput=()=>{ if(telSes) telSes.registrarRespuesta(subId); };
-        ex.appendChild(inp);const mk=el('div','mark','');ex.appendChild(mk);
-        graders.push({id:subId,tipo:'gap_fill',categoria:'listening',getVal:()=>inp.value,correct:g,
-          check:()=>eq(inp.value,g),
-          answered:()=>inp.value.trim()!=='',
-          clear:()=>{mk.className='mark';mk.innerHTML='';},
-          reveal:(ok)=>{mk.className='mark '+(ok?'right':'wrong');mk.innerHTML=ok?'✓ Correct!':'✗ Not quite<span class="sol">Answer: '+esc(g)+'</span>';}});
-        wrapEl.appendChild(ex);});
+
+    const speakFallback=(txt,who,cb)=>{
+      if(!('speechSynthesis' in window)){ if(cb) cb(); return; }
+      try{ window.speechSynthesis.cancel(); }catch(e){}
+      const u=new SpeechSynthesisUtterance(txt);
+      u.lang=isEs?'es-ES':'en-US';
+      const cleanWho = String(who||'').replace(/[:\s]/g, '').toLowerCase();
+      const isFemale = /aurora|chloe|lucia|lucía|elena|dona|carmen|sofia|sofía|valeria|maria|maría|woman|female/i.test(cleanWho);
+      const isMateo = /mateo/i.test(cleanWho);
+      const isLucas = /lucas/i.test(cleanWho);
+      
+      if(window.speechSynthesis.getVoices){
+        const voices=window.speechSynthesis.getVoices();
+        const esVoices=voices.filter(v=>(v.lang&&v.lang.startsWith(isEs?'es':'en')));
+        let chosen=null;
+        if(esVoices.length){
+          if(isFemale){
+            chosen=esVoices.find(v=>/(elvira|dalia|salome|salomé|ximena|paloma|camila|andrea|karina|tania).*natural|neural|online/i.test(v.name))
+                || esVoices.find(v=>/elvira|dalia|salome|salomé|helena|laura|sabina|ximena|paloma|camila|andrea|karina|tania|female/i.test(v.name))
+                || esVoices.find(v=>!/alvaro|álvaro|jorge|gonzalo|alonso|pablo|male|man/i.test(v.name));
+          } else if(isMateo){
+            chosen=esVoices.find(v=>/(gonzalo|mateo).*natural|neural|online/i.test(v.name))
+                || esVoices.find(v=>/gonzalo|mateo/i.test(v.name))
+                || esVoices.find(v=>/jorge|alonso|pablo|alvaro|male/i.test(v.name));
+          } else {
+            chosen=esVoices.find(v=>/(jorge|alonso).*natural|neural|online/i.test(v.name))
+                || esVoices.find(v=>/jorge|alonso|pablo|alvaro|gonzalo|male/i.test(v.name));
+          }
+          if(!chosen) chosen=esVoices[0];
+          if(chosen) u.voice=chosen;
+        }
+      }
+
+      if(isFemale){
+        if(/aurora/i.test(cleanWho)){
+          u.pitch = 1.12; u.rate = 0.93;
+        } else {
+          u.pitch = 1.18; u.rate = 0.98;
+        }
+      } else if(isMateo){
+        u.pitch = 0.88; u.rate = 0.92;
+      } else {
+        u.pitch = 1.02; u.rate = 0.98;
+      }
+
+      let ended=false;
+      const finish=()=>{ if(!ended){ ended=true; if(cb) cb(); } };
+      u.onend=finish; u.onerror=finish;
+      window.speechSynthesis.speak(u);
+    };
+
+    let sharedAudio=null;
+    function getPlayer(){
+      if(!sharedAudio){
+        sharedAudio=new Audio();
+        sharedAudio.preload='auto';
+      }
+      return sharedAudio;
     }
+
+    function playAudioTrack(idx, onEnded, onFallback){
+      const d = window.SEQUENCE_DATA;
+      const seqId = (d && d.id) || '';
+      const dataUri = (d && d.audio_data && d.audio_data[String(idx + 1)]) ? d.audio_data[String(idx + 1)] : null;
+      const fileUrl = seqId ? ('../audio/' + seqId + '/' + (idx + 1) + '.mp3') : null;
+
+      let triedFile = false;
+      const audio = getPlayer();
+      currentAudio = audio;
+      let handled = false;
+
+      const finish = () => {
+        if(handled) return;
+        handled = true;
+        currentAudio = null;
+        if(onEnded) onEnded();
+      };
+
+      const fail = () => {
+        if(handled) return;
+        if(!triedFile && fileUrl && dataUri){
+          triedFile = true;
+          audio.src = fileUrl;
+          const p2 = audio.play();
+          if(p2 && typeof p2.catch === 'function'){
+            p2.catch(() => {
+              if(handled) return;
+              handled = true;
+              currentAudio = null;
+              if(onFallback) onFallback();
+            });
+          }
+          return;
+        }
+        handled = true;
+        currentAudio = null;
+        if(onFallback) onFallback();
+      };
+
+      audio.onended = finish;
+      audio.onerror = fail;
+      audio.src = dataUri || fileUrl || '';
+      if(!audio.src){
+        fail();
+        return;
+      }
+      const p = audio.play();
+      if(p && typeof p.catch === 'function'){
+        p.catch(() => {
+          fail();
+        });
+      }
+    }
+
+    function playSingleLine(lineIdx){
+      if(currentAudio){
+        try{ currentAudio.pause(); currentAudio.currentTime=0; }catch(e){}
+        currentAudio=null;
+      }
+      if(window.speechSynthesis) window.speechSynthesis.cancel();
+      tr.querySelectorAll('.line').forEach((l, li)=>{
+        if(li === lineIdx) l.classList.add('active');
+        else l.classList.remove('active');
+      });
+      const lineData = lines[lineIdx];
+      const clearActive = ()=>{
+        tr.querySelectorAll('.line').forEach(l=>l.classList.remove('active'));
+      };
+
+      playAudioTrack(
+        lineIdx,
+        clearActive,
+        ()=>{
+          speakFallback(lineData.txt, lineData.who, clearActive);
+        }
+      );
+    }
+
+    play.onclick=()=>{
+      if(currentAudio){
+        try{ currentAudio.pause(); currentAudio.currentTime=0; }catch(e){}
+        currentAudio=null;
+      }
+      if(window.speechSynthesis) window.speechSynthesis.cancel();
+      play.disabled=true; let i=0;
+
+      const speakNext=()=>{
+        tr.querySelectorAll('.line').forEach(l=>l.classList.remove('active'));
+        if(i>=lines.length){play.disabled=false;play.textContent=isEs ? '▶ Escuchar de nuevo' : '▶ Play again';return;}
+        lines[i].node.classList.add('active');
+        const idx=i; const lineData=lines[i];
+        let moved=false;
+        const advance=()=>{
+          if(moved) return;
+          moved=true;
+          i++;
+          speakNext();
+        };
+
+        playAudioTrack(
+          idx,
+          advance,
+          ()=>{
+            speakFallback(lineData.txt, lineData.who, advance);
+          }
+        );
+      };
+      speakNext();
+    };
+
     if(Array.isArray(L.comprension) && L.comprension.length){
-      wrapEl.appendChild(el('div','listen-sub','Did you understand the dialogue?'));
-      L.comprension.forEach((q,i)=>wrapEl.appendChild(renderExercise({tipo:'multiple_choice',pregunta:q.pregunta,opciones:q.opciones,respuesta:q.respuesta},'lc'+i)));
+      wrapEl.appendChild(el('div','listen-sub', isEs ? 'Preguntas de comprensión' : 'Comprehension questions'));
+      L.comprension.forEach((q,i)=>{
+        const ex=renderExercise({tipo:'multiple_choice',pregunta:q.pregunta,opciones:q.opciones,respuesta:q.respuesta},'lc'+i);
+        const st=ex.querySelector('.stage'); if(st) st.textContent=isEs ? 'Comprensión' : 'Comprehension';
+        wrapEl.appendChild(ex);
+      });
     }
     return wrapEl;
   }
 })();
 </script>
 <script src="../js/ea-telemetry.js"></script>
+<script src="../js/ea-bridge.js"></script>
 <script src="../js/ea-nav.js"></script>
 </body>
 </html>

@@ -50,7 +50,7 @@ FORMAS_REQUERIDAS = ["afirmativo","negativo","interrogativo","short_answer"]
 
 ETAPAS = {
     "Recognize": ["multiple_choice", "true_false"],
-    "Manipulate": ["gap_fill", "unscramble", "correct_mistake"],
+    "Manipulate": ["gap_fill", "unscramble", "correct_mistake", "conjugation_table", "ser_estar_haber", "accent_choice", "banked_choice"],
     "Transform": ["transformation", "write_opposite", "short_answer_production"],
 }
 
@@ -130,8 +130,20 @@ def titulo_hibrido(tema, area):
 def esc(s):
     return html.escape(str(s), quote=True)
 
+GA4_SNIPPET = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EXMWV3HGG');
+</script>
+"""
+
 def seo_head(title, desc, keywords, jsonld, canonical=""):
-    b = "<title>" + esc(title) + "</title>\n"
+    b = GA4_SNIPPET
+    b += "<title>" + esc(title) + "</title>\n"
     b += '<meta name="description" content="' + esc(desc) + '">\n'
     b += '<meta name="keywords" content="' + esc(keywords) + '">\n'
     b += '<meta property="og:title" content="' + esc(title) + '">\n'
@@ -253,7 +265,24 @@ def inyectar(motor_txt, data, title, desc, keywords, jsonld, modo="ejercicios", 
     ld = json.dumps(jsonld, ensure_ascii=False)
     head = seo_head(title, desc, keywords, ld, canonical)
     page = re.sub(r"<title>.*?</title>", lambda m: head, motor_txt, count=1)
-    payload = json.dumps(data, ensure_ascii=False)
+    data_to_embed = data
+    if modo == "ejercicios" and data.get("id"):
+        seq_id = data["id"]
+        audio_dir = ROOT / "audio" / seq_id
+        if audio_dir.is_dir():
+            import base64
+            audio_map = {}
+            for mp3_path in sorted(audio_dir.glob("*.mp3"), key=lambda f: int(f.stem) if f.stem.isdigit() else 999):
+                try:
+                    b64 = base64.b64encode(mp3_path.read_bytes()).decode("ascii")
+                    audio_map[mp3_path.stem] = f"data:audio/mpeg;base64,{b64}"
+                except Exception:
+                    pass
+            if audio_map:
+                data_to_embed = dict(data)
+                data_to_embed["audio_data"] = audio_map
+
+    payload = json.dumps(data_to_embed, ensure_ascii=False)
     page = page.replace("<body>", "<body>\n<script>window.SEQUENCE_DATA = " + payload + ";</script>", 1)
     pre = prerender_texto(data)
     if modo == "leccion":
@@ -267,7 +296,9 @@ def inyectar(motor_txt, data, title, desc, keywords, jsonld, modo="ejercicios", 
     # navegacion compartida: un solo archivo controla los enlaces de modo de todas las paginas
     if "js/ea-nav.js" not in page:
         assert page.count("</body>") == 1, "body de cierre no encontrado en " + data.get("id", "?")
-        page = page.replace("</body>", '<script src="../js/ea-nav.js"></script>\n</body>', 1)
+        page = page.replace("</body>", '<script src="../js/ea-bridge.js"></script>\n<script src="../js/ea-nav.js"></script>\n</body>', 1)
+    elif "js/ea-bridge.js" not in page:
+        page = page.replace('<script src="../js/ea-nav.js"></script>', '<script src="../js/ea-bridge.js"></script>\n<script src="../js/ea-nav.js"></script>', 1)
     return page
 
 def jsonld_for(data, area, rtype):
@@ -603,8 +634,9 @@ def build_index(seqs):
     doc = doc.replace("{{CHIPS}}", chips).replace("{{CARDS}}", "".join(cards))
     doc = doc.replace("{{TOTAL}}", str(len(seqs))).replace("{{FECHA}}", datetime.date.today().isoformat())
     doc = doc.replace("{{BASE_URL}}", BASE_URL)
-    INDEX.write_text(doc, encoding="utf-8")
-    print("  OK  index.html (buscador + " + str(len(seqs)) + " temas)")
+    curriculum_path = ROOT / "curriculum.html"
+    curriculum_path.write_text(doc, encoding="utf-8")
+    print("  OK  curriculum.html (buscador + " + str(len(seqs)) + " temas)")
 
 def build_banco_maestro(seqs):
     # Indice plano de TODOS los ejercicios ya generados, para el generador a la carta
@@ -679,6 +711,17 @@ def build_sitemap(seqs):
     sitemap, que es peor que no listarlos.
     """
     urls = [BASE_URL + "/", BASE_URL + "/herramientas/generador-ejercicios.html", BASE_URL + "/herramientas/generador-clases.html", BASE_URL + "/herramientas/mapa-3d.html", BASE_URL + "/herramientas/placement.html", BASE_URL + "/herramientas/la-ola.html"]
+    extra_hubs = [
+        "curriculum.html",
+        "contrastes-gramaticales.html",
+        "cambridge-preparation.html",
+        "verbos-irregulares.html",
+        "herramientas/fichas-imprimibles.html",
+        "herramientas/teacher-hub.html"
+    ]
+    for hub in extra_hubs:
+        if (ROOT / hub).exists():
+            urls.append(BASE_URL + "/" + hub)
     if (ROOT / "ludoteca.html").exists():
         urls.append(BASE_URL + "/ludoteca.html")
     if (ROOT / "pronunciacion.html").exists():

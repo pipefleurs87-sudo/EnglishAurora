@@ -7,11 +7,11 @@
     "default_voice": "es-ES",
     "rate": 0.95,
     "cast": {
-      "aurora": "es-ES-ElviraNeural",
-      "abuela": "es-ES-AbrilNeural",
-      "mateo": "es-ES-AlvaroNeural",
-      "diego": "es-MX-CecilioNeural",
-      "lucia": "es-MX-MarinaNeural"
+      "aurora": { "voice": "es-ES-ElviraNeural", "rate": "-3%", "pitch": "+1Hz" },
+      "lucas": { "voice": "es-MX-JorgeNeural", "rate": "+0%", "pitch": "+0Hz" },
+      "chloe": { "voice": "es-MX-DaliaNeural", "rate": "+0%", "pitch": "+0Hz" },
+      "mateo": { "voice": "es-CO-GonzaloNeural", "rate": "+0%", "pitch": "+0Hz" },
+      "elena": { "voice": "es-CO-SalomeNeural", "rate": "-6%", "pitch": "-2Hz" }
     }
   },
   "normalization": {

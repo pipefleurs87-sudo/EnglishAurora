@@ -5,25 +5,25 @@
   "niveles": {
     "A1": {
       "nombre": "Acceso / Fundamentos Arcanos",
-      "descripcion": "Construcción de la base lingüística: identidad, presente regular e irregular, ser/estar/haber y ortografía acentual.",
+      "descripcion": "Construcción de la base lingüística y comunicativa: identidad, ciudad, rutina diaria, vida social, presente regular e irregular, y capstone integrador.",
       "sendas": [
         {
           "id": "es-a1-saludos-presentacion-01",
-          "tema": "Saludos y Presentaciones",
+          "tema": "Saludos, Presentaciones y Cortesía",
           "arquetipo": "vocabulario",
           "prerrequisitos": []
+        },
+        {
+          "id": "es-a1-ser-identidad-01",
+          "tema": "Verbo Ser — Identidad, Nacionalidad y Profesiones",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-saludos-presentacion-01"]
         },
         {
           "id": "es-a1-ser-estar-01",
           "tema": "Ser vs Estar (Fundamentos)",
           "arquetipo": "ser_vs_estar",
-          "prerrequisitos": ["es-a1-saludos-presentacion-01"]
-        },
-        {
-          "id": "es-a1-presente-regular-01",
-          "tema": "Presente de Indicativo (Regulares -ar, -er, -ir)",
-          "arquetipo": "tiempo_verbal",
-          "prerrequisitos": ["es-a1-ser-estar-01"]
+          "prerrequisitos": ["es-a1-ser-identidad-01"]
         },
         {
           "id": "es-a1-genero-numero-01",
@@ -32,34 +32,77 @@
           "prerrequisitos": []
         },
         {
+          "id": "es-a1-hay-estar-01",
+          "tema": "Hay vs Estar (Existencia y Ubicación)",
+          "arquetipo": "ser_vs_estar",
+          "prerrequisitos": ["es-a1-ser-estar-01", "es-a1-genero-numero-01"]
+        },
+        {
+          "id": "es-a1-presente-regular-01",
+          "tema": "Presente de Indicativo (Regulares -ar, -er, -ir)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-ser-estar-01"]
+        },
+        {
+          "id": "es-a1-rutina-reflexivos-01",
+          "tema": "La Rutina Diaria y Verbos Reflexivos",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-presente-regular-01"]
+        },
+        {
+          "id": "es-a1-la-hora-frecuencia-01",
+          "tema": "La Hora, Momentos del Día y Frecuencia",
+          "arquetipo": "vocabulario",
+          "prerrequisitos": ["es-a1-rutina-reflexivos-01"]
+        },
+        {
+          "id": "es-a1-preguntas-basicas-01",
+          "tema": "Banco de Preguntas Básicas (Interrogativos)",
+          "arquetipo": "funcional_skills",
+          "prerrequisitos": ["es-a1-presente-regular-01"]
+        },
+        {
+          "id": "es-a1-gustar-preferencias-01",
+          "tema": "Verbo Gustar y Expresar Preferencias",
+          "arquetipo": "pronombres",
+          "prerrequisitos": ["es-a1-preguntas-basicas-01"]
+        },
+        {
+          "id": "es-a1-restaurante-comida-01",
+          "tema": "En el Restaurante y el Café (Comida y Cortesía)",
+          "arquetipo": "funcional_skills",
+          "prerrequisitos": ["es-a1-gustar-preferencias-01"]
+        },
+        {
+          "id": "es-a1-presente-irregular-01",
+          "tema": "Presente Irregular (Cambios de Raíz y Verbos en -go)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-presente-regular-01"]
+        },
+        {
+          "id": "es-a1-planes-ir-a-01",
+          "tema": "Planes y Futuro Inmediato (Ir a + Infinitivo)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-presente-irregular-01"]
+        },
+        {
           "id": "es-a1-tildes-diacriticas-01",
           "tema": "Tildes Diacríticas y Acentuación",
           "arquetipo": "ortografia",
           "prerrequisitos": []
         },
         {
-          "id": "es-a1-hay-estar-01",
-          "tema": "Hay vs Estar (Existencia y Ubicación)",
-          "arquetipo": "ser_vs_estar",
-          "prerrequisitos": ["es-a1-ser-estar-01"]
-        },
-        {
-          "id": "es-a1-gustar-preferencias-01",
-          "tema": "Verbo Gustar y Preferencias",
-          "arquetipo": "pronombres",
-          "prerrequisitos": ["es-a1-presente-regular-01"]
-        },
-        {
-          "id": "es-a1-presente-irregular-01",
-          "tema": "Presente de Indicativo (Irregulares y Diptongos)",
-          "arquetipo": "tiempo_verbal",
-          "prerrequisitos": ["es-a1-presente-regular-01"]
-        },
-        {
           "id": "es-a1-repaso-grand-01",
-          "tema": "Repaso Grand A1 (Checkpoint Elemental)",
+          "tema": "Repaso Grand A1 (La Gran Celebración Elemental)",
           "arquetipo": "joined_exercise",
-          "prerrequisitos": ["es-a1-ser-estar-01", "es-a1-presente-regular-01", "es-a1-tildes-diacriticas-01"]
+          "prerrequisitos": [
+            "es-a1-ser-estar-01",
+            "es-a1-hay-estar-01",
+            "es-a1-rutina-reflexivos-01",
+            "es-a1-gustar-preferencias-01",
+            "es-a1-planes-ir-a-01",
+            "es-a1-tildes-diacriticas-01"
+          ]
         }
       ]
     },
