@@ -1,0 +1,285 @@
+{
+  "id": "es-a2-salud-cuerpo-01",
+  "nivel": "A2",
+  "arquetipo": "pronombres",
+  "tema": "El Cuerpo Humano, Dolencias y Salud (Verbo Doler)",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "la cabeza",
+      "traduccion": "head",
+      "bandera": "🤕"
+    },
+    {
+      "palabra": "la garganta",
+      "traduccion": "throat",
+      "bandera": "🧣"
+    },
+    {
+      "palabra": "el estómago",
+      "traduccion": "stomach",
+      "bandera": "🥣"
+    },
+    {
+      "palabra": "la espalda",
+      "traduccion": "back",
+      "bandera": "🧍"
+    },
+    {
+      "palabra": "las piernas",
+      "traduccion": "legs",
+      "bandera": "🦵"
+    },
+    {
+      "palabra": "me duele / me duelen",
+      "traduccion": "hurts me / hurt me (doler)",
+      "bandera": "⚡"
+    },
+    {
+      "palabra": "tener fiebre",
+      "traduccion": "to have a fever",
+      "bandera": "🌡️"
+    },
+    {
+      "palabra": "tener resfriado / gripe",
+      "traduccion": "to have a cold / flu",
+      "bandera": "🤧"
+    },
+    {
+      "palabra": "la farmacia",
+      "traduccion": "pharmacy",
+      "bandera": "💊"
+    },
+    {
+      "palabra": "descansar",
+      "traduccion": "to rest",
+      "bandera": "🛌"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "A Lucas le duelen los músculos de las piernas después de subir la montaña."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Ayer me dolía mucho la cabeza, así que me acosté temprano sin cenar."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Doña Elena preparó una infusión caliente de jengibre y miel para la tos."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "A Mateo no le duele la garganta hoy, pero tiene un poco de cansancio."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "Nosotros no tenemos fiebre alta, solamente un resfriado común de invierno."
+    },
+    {
+      "id": "s6",
+      "forma": "interrogativo",
+      "oracion": "¿Te duele la espalda cuando pasas muchas horas sentado frente a la pantalla?"
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "¿Qué medicamento le recomendó el farmacéutico para aliviar el dolor?"
+    },
+    {
+      "id": "s8",
+      "forma": "short_answer",
+      "oracion": "¿Te duele el estómago? Sí, me duele un poco por comer tan rápido."
+    },
+    {
+      "id": "s9",
+      "forma": "short_answer",
+      "oracion": "¿Tienes fiebre? No, no tengo fiebre, mi temperatura es normal."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Yo duelo mi cabeza y tengo mucho malestar.",
+        "opcion_b": "Me duele la cabeza y tengo mucho malestar.",
+        "correcta": "b",
+        "explicacion": "El verbo 'doler' funciona exactamente igual que el verbo 'gustar': la persona afectada es el objeto indirecto ('me / te / le / nos / les') y la parte del cuerpo es el sujeto ('la cabeza' duele; 'las piernas' duelen)."
+      },
+      "definicion_pragmatica": "Construimos frases con 'doler' usando pronombres de objeto indirecto y el artículo determinado ('me duele la garganta') para expresar síntomas físicos y solicitar ayuda médica o farmacéutica.",
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "¿Cuál es la concordancia correcta para el verbo doler cuando el sujeto es plural ('los ojos')?",
+          "opciones": [
+            "Me duelen los ojos",
+            "Me duele los ojos",
+            "Yo duelo los ojos"
+          ],
+          "respuesta": "Me duelen los ojos"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "En español, al hablar de partes del cuerpo con 'doler', ¿qué artículo o determinante se usa?",
+          "opciones": [
+            "El artículo determinado (la cabeza, los brazos)",
+            "El adjetivo posesivo obligatorio (*mi cabeza, *mis brazos)",
+            "Ningún artículo en absoluto"
+          ],
+          "respuesta": "El artículo determinado (la cabeza, los brazos)"
+        },
+        {
+          "tipo": "multiple_choice",
+          "etapa": "Recognize",
+          "pregunta": "Para expresar que una persona tiene temperatura corporal elevada, ¿cuál es la expresión adecuada?",
+          "opciones": [
+            "Tiene fiebre",
+            "Es caliente",
+            "Está calurosa"
+          ],
+          "respuesta": "Tiene fiebre"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "La estructura de 'doler' requiere pronombres de objeto indirecto (me, te, le, nos, os, les).",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "true_false",
+          "etapa": "Recognize",
+          "afirmacion": "En español es correcto decir *'Yo duelo la espalda' para expresar molestia física.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "A Lucas le ___ (doler - plural) los hombros por cargar la mochila pesada.",
+          "respuesta": "duelen"
+        },
+        {
+          "tipo": "gap_fill",
+          "etapa": "Manipulate",
+          "texto": "Si tienes dolor de muelas, debes ir al ___ (dentista) de inmediato.",
+          "respuesta": "dentista"
+        },
+        {
+          "tipo": "unscramble",
+          "etapa": "Manipulate",
+          "palabras": [
+            "garganta",
+            "la",
+            "mucho",
+            "le",
+            "duele",
+            "Chloe",
+            "a"
+          ],
+          "respuesta": "A Chloe le duele mucho la garganta."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "Ayer yo dolí las rodillas después del partido de fútbol.",
+          "respuesta": "Ayer me dolieron las rodillas después del partido de fútbol."
+        },
+        {
+          "tipo": "correct_mistake",
+          "etapa": "Manipulate",
+          "texto_con_error": "A Mateo le duele sus dientes cuando bebe agua muy fría.",
+          "respuesta": "A Mateo le duelen los dientes cuando bebe agua muy fría."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración usando el verbo 'doler' en singular: 'Tengo dolor en la espalda'.",
+          "oracion_base": "Tengo dolor en la espalda.",
+          "respuesta": "Me duele la espalda."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la oración de presente a pretérito indefinido: 'Me duele el brazo izquierdo'.",
+          "oracion_base": "Me duele el brazo izquierdo.",
+          "respuesta": "Ayer me dolió el brazo izquierdo."
+        },
+        {
+          "tipo": "transformation",
+          "etapa": "Transform",
+          "instruccion": "Transforma la afirmación en una pregunta sobre el estado de salud de un compañero:",
+          "oracion_base": "A ti te duele la cabeza hoy.",
+          "respuesta": "¿Te duele la cabeza hoy?"
+        },
+        {
+          "tipo": "write_opposite",
+          "etapa": "Transform",
+          "instruccion": "Escribe la afirmación negativa sobre el dolor físico:",
+          "oracion_base": "A Lucas le duelen los pies tras la caminata.",
+          "respuesta": "A Lucas no le duelen los pies tras la caminata."
+        },
+        {
+          "tipo": "short_answer_production",
+          "etapa": "Produce",
+          "pregunta": "¿Qué haces habitualmente cuando te duele la cabeza o estás resfriado?",
+          "respuesta": "Bebo una infusión caliente de limón y descanso en la cama."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Doña Elena: ¡Lucas! Te veo muy pálido hoy... ¿Qué te pasa?",
+        "Lucas: Me duele mucho la garganta y tengo un poco de fiebre.",
+        "Doña Elena: Tienes que descansar y abrigarte bien el pecho.",
+        "Lucas: Sí, señora Elena... Voy a tomar un té de jengibre y a dormir."
+      ],
+      "gaps": [
+        "garganta",
+        "fiebre"
+      ],
+      "comprension": [
+        {
+          "pregunta": "¿Qué síntomas presenta Lucas en el diálogo?",
+          "opciones": [
+            "Dolor de garganta y un poco de fiebre",
+            "Dolor de muelas y tos seca",
+            "Dolor de estómago por comida pesada"
+          ],
+          "respuesta": "Dolor de garganta y un poco de fiebre"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Después de una larga excursión por el sendero montañoso del cañón, varios miembros del grupo sintieron el rigor del esfuerzo físico. A Lucas le dolían intensamente los gemelos y las rodillas por el desnivel del terreno. Chloe, en cambio, tenía una leve alergia en los ojos debido al polen de las flores silvestres. Doña Elena los recibió en la posada con un remedio casero milagroso: compresas de árnica para las articulaciones de Lucas y una infusión reconfortante de menta y miel para la garganta de todos.",
+      "preguntas": [
+        {
+          "afirmacion": "Lucas sentía dolor en las rodillas y las piernas por el esfuerzo de la caminata.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Doña Elena envió a Lucas a correr una maratón adicional para curar sus dolores musculares.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "El texto usa construcciones con 'doler' en plural ('le dolían los gemelos y las rodillas') para concordar con los sujetos plurales.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}
