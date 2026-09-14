@@ -506,11 +506,11 @@
     const viralBox = document.createElement('div');
     viralBox.className = 'aurora-teacher-viral-box';
     viralBox.innerHTML = `
-      <div class="aurora-viral-title">👨‍🏫 ¿Enseñas inglés? Asigna esta misión a tus alumnos</div>
-      <div class="aurora-viral-sub">Entrenan discriminación auditiva y vocabulario jugando directamente sin registro previo.</div>
+      <div class="aurora-viral-title">👨‍🏫 Teaching English? Assign this quest to your students</div>
+      <div class="aurora-viral-sub">Students train auditory discrimination and vocabulary directly in their browser without signing up.</div>
       <div class="aurora-viral-actions">
-        <button class="btn-aurora-viral-wa" id="btn-aurora-viral-wa">📲 Asignar por WhatsApp</button>
-        <button class="btn-aurora-viral-copy" id="btn-aurora-viral-copy">📋 Copiar Tarea</button>
+        <button class="btn-aurora-viral-wa" id="btn-aurora-viral-wa">📲 Assign via WhatsApp</button>
+        <button class="btn-aurora-viral-copy" id="btn-aurora-viral-copy">📋 Copy Quest Link</button>
         <a class="btn-aurora-viral-hub" href="../herramientas/teacher-hub.html" target="_blank">🪐 Teacher's Hub →</a>
       </div>
     `;
@@ -518,12 +518,12 @@
 
     const btnWa = viralBox.querySelector('#btn-aurora-viral-wa');
     const btnCopy = viralBox.querySelector('#btn-aurora-viral-copy');
-    const gameTitle = (document.title || 'Misión de Inglés').split('—')[0].split('·')[0].split('|')[0].trim();
+    const gameTitle = (document.title || 'English Quest').split('—')[0].split('·')[0].split('|')[0].trim();
     const gameUrl = window.location.href;
 
     if (btnWa) {
       btnWa.onclick = () => {
-        const msg = `🎮 *English Aurora — Tarea Arcade de Inglés*\nMisión: *${gameTitle}*\n¡Hola clase! Jueguen hoy a esta misión para entrenar su oído y vocabulario:\n👉 ${gameUrl}\n¡Sumen estrellas y derroten la sombra! ⭐`;
+        const msg = `🎮 *English Aurora — English Arcade Quest*\nQuest: *${gameTitle}*\nHello class! Play this quest today to train your ear and vocabulary:\n👉 ${gameUrl}\nCollect stars and defeat the shadow! ⭐`;
         window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
       };
     }
@@ -532,12 +532,12 @@
       btnCopy.onclick = () => {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(gameUrl).then(() => {
-            showToast(0, '¡Enlace copiado para tus alumnos! 📋', null, null, false);
+            showToast(0, 'Link copied for your students! 📋', null, null, false);
           }).catch(() => {
-            prompt('Copia este enlace de misión:', gameUrl);
+            prompt('Copy this quest link:', gameUrl);
           });
         } else {
-          prompt('Copia este enlace de misión:', gameUrl);
+          prompt('Copy this quest link:', gameUrl);
         }
       };
     }

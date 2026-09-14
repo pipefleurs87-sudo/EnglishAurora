@@ -108,8 +108,89 @@
     },
     "A2": {
       "nombre": "Plataforma / Senderos de Exploración",
-      "descripcion": "Contraste de pasados (Indefinido vs Imperfecto), Por vs Para, pronombres de objeto directo e indirecto.",
-      "sendas": []
+      "descripcion": "Contraste de pasados (Indefinido vs Imperfecto), Por vs Para, pronombres de objeto directo e indirecto, imperativo afirmativo y salud.",
+      "sendas": [
+        {
+          "id": "es-a2-preterito-perfecto-01",
+          "tema": "Pretérito Perfecto Compuesto (Experiencias y Pasado Reciente)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a1-repaso-grand-01"]
+        },
+        {
+          "id": "es-a2-indefinido-regular-01",
+          "tema": "Pretérito Indefinido Regular (Acciones Pasadas Concretas)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a2-preterito-perfecto-01"]
+        },
+        {
+          "id": "es-a2-indefinido-irregular-01",
+          "tema": "Pretérito Indefinido Irregular (Raíces Fuertes y Gemelos Ser/Ir)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a2-indefinido-regular-01"]
+        },
+        {
+          "id": "es-a2-imperfecto-habitos-01",
+          "tema": "Pretérito Imperfecto (Hábitos Pasados y Descripciones)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a2-indefinido-irregular-01"]
+        },
+        {
+          "id": "es-a2-contraste-pasados-01",
+          "tema": "Contraste de Pasados (Indefinido vs Imperfecto)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a2-indefinido-irregular-01", "es-a2-imperfecto-habitos-01"]
+        },
+        {
+          "id": "es-a2-estar-gerundio-01",
+          "tema": "Estar + Gerundio (Acciones en Progreso)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a2-contraste-pasados-01"]
+        },
+        {
+          "id": "es-a2-pronombres-objeto-01",
+          "tema": "Pronombres de Objeto Directo e Indirecto (OD / OI y Se lo di)",
+          "arquetipo": "pronombres",
+          "prerrequisitos": ["es-a2-contraste-pasados-01"]
+        },
+        {
+          "id": "es-a2-por-vs-para-01",
+          "tema": "Por vs Para (Causa y Medio vs Finalidad y Destino)",
+          "arquetipo": "preposiciones",
+          "prerrequisitos": ["es-a2-pronombres-objeto-01"]
+        },
+        {
+          "id": "es-a2-comparativos-superlativos-01",
+          "tema": "Comparativos y Superlativos (Grados del Adjetivo)",
+          "arquetipo": "comparativos",
+          "prerrequisitos": ["es-a2-por-vs-para-01"]
+        },
+        {
+          "id": "es-a2-imperativo-instrucciones-01",
+          "tema": "Imperativo Afirmativo (Instrucciones, Recetas y Direcciones)",
+          "arquetipo": "tiempo_verbal",
+          "prerrequisitos": ["es-a2-estar-gerundio-01"]
+        },
+        {
+          "id": "es-a2-salud-cuerpo-01",
+          "tema": "El Cuerpo Humano, Dolencias y Salud (Verbo Doler)",
+          "arquetipo": "pronombres",
+          "prerrequisitos": ["es-a2-pronombres-objeto-01"]
+        },
+        {
+          "id": "es-a2-repaso-grand-02",
+          "tema": "Gran Repaso A2 (La Travesía del Pasado y la Fluidez)",
+          "arquetipo": "joined_exercise",
+          "prerrequisitos": [
+            "es-a2-contraste-pasados-01",
+            "es-a2-estar-gerundio-01",
+            "es-a2-pronombres-objeto-01",
+            "es-a2-por-vs-para-01",
+            "es-a2-comparativos-superlativos-01",
+            "es-a2-imperativo-instrucciones-01",
+            "es-a2-salud-cuerpo-01"
+          ]
+        }
+      ]
     },
     "B1": {
       "nombre": "Umbral / Reinos del Subjuntivo",

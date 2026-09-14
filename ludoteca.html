@@ -375,7 +375,7 @@ html, body {
   <!-- HUD (Synced with Aurora Companion) -->
   <header class="aurora-hud-bar" lang="en">
     <div class="aurora-brand-group">
-      <div class="aurora-brand-title">ENGLISH AURORA · LUDOTECA</div>
+      <div class="aurora-brand-title">ENGLISH AURORA · CELESTIAL ARCADE</div>
       <div class="aurora-level-pill" id="aurora-level-tag">SPARK · LV 1</div>
     </div>
 
@@ -422,11 +422,11 @@ html, body {
     <div class="hero-actions">
       <a class="btn-primary" href="juegos/meteor-words-pilot.html">🎮 Quick Play: Meteor Words</a>
       <a class="btn-secondary" href="index.html">🌌 Galaxy Sky</a>
-      <a class="btn-secondary" href="contrastes-gramaticales.html">⚔️ Contrastes</a>
+      <a class="btn-secondary" href="contrastes-gramaticales.html">⚔️ Grammar Battles</a>
       <a class="btn-secondary" href="cambridge-preparation.html">🎓 Cambridge</a>
-      <a class="btn-secondary" href="verbos-irregulares.html" style="border-color:var(--gold); color:var(--gold);">⚡ Verbos Irregulares</a>
-      <a class="btn-secondary" href="herramientas/fichas-imprimibles.html">📄 Fichas PDF</a>
-      <button class="btn-secondary" id="btn-share-all-games" style="border-color:#25D366; color:#25D366; background:rgba(37, 211, 102, 0.1);" onclick="openTeacherAssignModal('Ludoteca Completa', 'ludoteca.html')">📲 Asignar Misiones a Alumnos</button>
+      <a class="btn-secondary" href="verbos-irregulares.html" style="border-color:var(--gold); color:var(--gold);">⚡ Irregular Verbs</a>
+      <a class="btn-secondary" href="herramientas/fichas-imprimibles.html">📄 PDF Worksheets</a>
+      <button class="btn-secondary" id="btn-share-all-games" style="border-color:#25D366; color:#25D366; background:rgba(37, 211, 102, 0.1);" onclick="openTeacherAssignModal('Celestial Arcade Hub', 'ludoteca.html')">📲 Assign Quests to Students</button>
     </div>
   </section>
 
@@ -863,8 +863,8 @@ html, body {
 
       const shareBtn = document.createElement('button');
       shareBtn.className = 'btn-share-card';
-      shareBtn.innerHTML = '<span>📲</span> Asignar';
-      shareBtn.title = 'Asignar misión a mis alumnos (WhatsApp / Enlace)';
+      shareBtn.innerHTML = '<span>📲</span> Assign';
+      shareBtn.title = 'Assign quest to students (WhatsApp / Link)';
       shareBtn.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -884,20 +884,20 @@ html, body {
       modal.innerHTML = `
         <div class="modal-card" style="max-width: 480px; text-align: center;">
           <button class="modal-close" id="assign-modal-close">&times;</button>
-          <div class="modal-title" id="assign-modal-title" style="color: #2DD4BF; font-size: 20px;">📲 Asignar Misión a Alumnos</div>
+          <div class="modal-title" id="assign-modal-title" style="color: #2DD4BF; font-size: 20px;">📲 Assign Quest to Students</div>
           <div class="modal-sub" id="assign-modal-sub" style="margin-bottom: 16px;">
-            Envía esta misión de entrenamiento de inglés por WhatsApp o copia el enlace directo para Classroom.
+            Share this English arcade mission via WhatsApp or copy the direct link for Google Classroom.
           </div>
           <div style="background: rgba(7, 11, 24, 0.7); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px; font-family: var(--mono); font-size: 11px; color: #CCD7DE; margin-bottom: 18px; text-align: left; word-break: break-all;" id="assign-modal-preview"></div>
           <div style="display: flex; flex-direction: column; gap: 10px;">
             <button class="btn-primary" id="btn-assign-modal-wa" style="background: #25D366; color: #070B18; width: 100%; justify-content: center;">
-              📲 Compartir por WhatsApp
+              📲 Share via WhatsApp
             </button>
             <button class="btn-secondary" id="btn-assign-modal-copy" style="width: 100%; justify-content: center;">
-              📋 Copiar Enlace de Tarea
+              📋 Copy Quest Link
             </button>
             <a href="herramientas/teacher-hub.html" class="btn-secondary" style="width: 100%; justify-content: center; color: #2DD4BF; border-color: rgba(45,212,191,0.3);">
-              🪐 Abrir Teacher's Hub
+              🪐 Open Teacher's Hub
             </a>
           </div>
         </div>
@@ -912,8 +912,8 @@ html, body {
     const btnCopy = modal.querySelector('#btn-assign-modal-copy');
     const title = modal.querySelector('#assign-modal-title');
 
-    title.textContent = '📲 Asignar: ' + name;
-    const taskMsg = `🎮 *English Aurora — Tarea Arcade de Inglés*\nMisión: *${name}*\n¡Hola clase! Jueguen hoy a esta misión para entrenar su pronunciación y vocabulario:\n👉 ${fullUrl}\n¡Sumen estrellas y derroten la sombra! ⭐`;
+    title.textContent = '📲 Assign: ' + name;
+    const taskMsg = `🎮 *English Aurora — English Arcade Quest*\nQuest: *${name}*\nHello class! Play this quest today to train your listening and vocabulary:\n👉 ${fullUrl}\nCollect stars and defeat the shadow! ⭐`;
     preview.textContent = taskMsg;
 
     btnWa.onclick = () => {
@@ -923,13 +923,13 @@ html, body {
     btnCopy.onclick = () => {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(fullUrl).then(() => {
-          btnCopy.textContent = '✓ ¡Enlace Copiado!';
-          setTimeout(() => btnCopy.textContent = '📋 Copiar Enlace de Tarea', 2000);
+          btnCopy.textContent = '✓ Link Copied!';
+          setTimeout(() => btnCopy.textContent = '📋 Copy Quest Link', 2000);
         }).catch(() => {
-          prompt('Copia este enlace de tarea:', fullUrl);
+          prompt('Copy this quest link:', fullUrl);
         });
       } else {
-        prompt('Copia este enlace de tarea:', fullUrl);
+        prompt('Copy this quest link:', fullUrl);
       }
     };
 

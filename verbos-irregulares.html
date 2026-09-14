@@ -284,9 +284,9 @@ tbody td { padding: 12px 18px; vertical-align: middle; }
       <span class="brand-title">English Aurora</span>
     </a>
     <div class="nav-actions">
-      <a href="ludoteca.html" class="nav-link">🎮 Ludoteca Arcade</a>
+      <a href="ludoteca.html" class="nav-link">🎮 Celestial Arcade</a>
       <a href="herramientas/teacher-hub.html" class="nav-link">🧙‍♂️ Teacher's Hub</a>
-      <a href="showcase/a1-articles-aurora-rpg.html" class="nav-link">🗺️ Master Sky</a>
+      <a href="index.html" class="nav-link">🌌 Galaxy Sky</a>
     </div>
   </nav>
 
@@ -300,9 +300,9 @@ tbody td { padding: 12px 18px; vertical-align: middle; }
       </p>
     </div>
     <div class="hero-cta-group">
-      <button class="btn-cta gold" onclick="window.print()">🖨️ Imprimir Ficha PDF</button>
-      <button class="btn-cta teal" id="btn-toggle-practice">🎮 Modo Examen</button>
-      <button class="btn-cta wa" onclick="shareVaultWhatsApp()">📲 Asignar por WhatsApp</button>
+      <button class="btn-cta gold" onclick="window.print()">🖨️ Print Worksheet (PDF)</button>
+      <button class="btn-cta teal" id="btn-toggle-practice">🎮 Test Mode</button>
+      <button class="btn-cta wa" onclick="shareVaultWhatsApp()">📲 Share via WhatsApp</button>
     </div>
   </section>
 
@@ -311,15 +311,15 @@ tbody td { padding: 12px 18px; vertical-align: middle; }
     <div class="search-row">
       <div class="search-input-wrap">
         <span class="search-icon">🔍</span>
-        <input type="text" id="verb-search" placeholder="Buscar verbo en inglés o significado en español (ej: buy, sing, pensar)..." autocomplete="off">
+        <input type="text" id="verb-search" placeholder="Search irregular verbs by infinitive, past, or meaning (e.g. buy, sing, think)..." autocomplete="off">
       </div>
-      <span id="counter-tag" style="font-family:var(--mono); font-size:12px; color:var(--gold); font-weight:700;">Mostrando 0 verbos</span>
+      <span id="counter-tag" style="font-family:var(--mono); font-size:12px; color:var(--gold); font-weight:700;">Showing 0 verbs</span>
     </div>
 
     <!-- CEFR Filters -->
     <div class="filter-pills-row">
-      <span class="filter-label">Nivel CEFR:</span>
-      <button class="pill-btn active" data-cefr="all">Todos</button>
+      <span class="filter-label">CEFR Level:</span>
+      <button class="pill-btn active" data-cefr="all">All Levels</button>
       <button class="pill-btn" data-cefr="A1">A1 · Spark</button>
       <button class="pill-btn" data-cefr="A2">A2 · Verdant</button>
       <button class="pill-btn" data-cefr="B1">B1 · Sapphire</button>
@@ -329,28 +329,28 @@ tbody td { padding: 12px 18px; vertical-align: middle; }
 
     <!-- Mnemonic Pattern Filters -->
     <div class="filter-pills-row">
-      <span class="filter-label">Patrón Mnemotécnico:</span>
-      <button class="pill-btn pattern active" data-pattern="all">Todos los Patrones</button>
-      <button class="pill-btn pattern" data-pattern="invariant">🛡️ Invariables (cut / cut / cut)</button>
-      <button class="pill-btn pattern" data-pattern="ought">⚡ Familia -ought (buy / bought)</button>
-      <button class="pill-btn pattern" data-pattern="iau">🎶 Melodía i - a - u (sing / sang / sung)</button>
-      <button class="pill-btn pattern" data-pattern="en_participle">📜 Participio -en (write / written)</button>
+      <span class="filter-label">Mnemonic Pattern:</span>
+      <button class="pill-btn pattern active" data-pattern="all">All Patterns</button>
+      <button class="pill-btn pattern" data-pattern="invariant">🛡️ Invariant (cut / cut / cut)</button>
+      <button class="pill-btn pattern" data-pattern="ought">⚡ -ought / -aught Family (buy / bought)</button>
+      <button class="pill-btn pattern" data-pattern="iau">🎶 Vowel Melody i - a - u (sing / sang / sung)</button>
+      <button class="pill-btn pattern" data-pattern="en_participle">📜 -en Participle (write / written)</button>
       <button class="pill-btn pattern" data-pattern="d_to_t">🔄 d ➔ t (send / sent)</button>
-      <button class="pill-btn pattern" data-pattern="vowel_shift">🌙 Cambio Vocálico (find / found)</button>
-      <button class="pill-btn pattern" data-pattern="ew_own">🌬️ Familia -ew / -own (fly / flown)</button>
-      <button class="pill-btn pattern" data-pattern="celestial">🌌 Celestiales Especiales (be, go, have)</button>
+      <button class="pill-btn pattern" data-pattern="vowel_shift">🌙 Vowel Shift (find / found)</button>
+      <button class="pill-btn pattern" data-pattern="ew_own">🌬️ -ew / -own Family (fly / flown)</button>
+      <button class="pill-btn pattern" data-pattern="celestial">🌌 Celestial Specials (be, go, have)</button>
     </div>
   </div>
 
   <!-- PRACTICE MODE STATUS BAR -->
   <div class="practice-mode-bar" id="practice-bar">
     <div class="practice-instructions">
-      <strong>🎯 Modo Examen Activo:</strong> Escribe la forma correcta en cada casilla y presiona [Enter] para verificar al instante.
+      <strong>🎯 Test Mode Active:</strong> Type the correct form in each box and press [Enter] to check instantly.
     </div>
     <div class="practice-controls">
-      <button class="pill-btn active" id="mode-hide-past">Ocultar Pasado Simple</button>
-      <button class="pill-btn" id="mode-hide-part">Ocultar Participio</button>
-      <button class="pill-btn" id="mode-reveal-all">💡 Revelar Todo</button>
+      <button class="pill-btn active" id="mode-hide-past">Hide Past Simple</button>
+      <button class="pill-btn" id="mode-hide-part">Hide Past Participle</button>
+      <button class="pill-btn" id="mode-reveal-all">💡 Reveal All</button>
     </div>
   </div>
 
@@ -362,9 +362,9 @@ tbody td { padding: 12px 18px; vertical-align: middle; }
           <th>Base Form (Infinitive)</th>
           <th>Past Simple</th>
           <th>Past Participle</th>
-          <th>Significado (Español)</th>
+          <th>Meaning / Definition</th>
           <th>CEFR</th>
-          <th>Patrón</th>
+          <th>Pattern</th>
         </tr>
       </thead>
       <tbody id="verbs-tbody"></tbody>
@@ -396,6 +396,51 @@ function speakWord(word, btnEl) {
   }
 }
 
+const EN_DEFINITIONS = {
+  cost: "have a price / require payment", cut: "divide or sever with a blade", hit: "strike with force",
+  hurt: "cause physical pain or injury", let: "allow or permit to happen", put: "place in a particular position",
+  read: "comprehend written words", set: "put or fix in a position", shut: "close tightly",
+  spread: "extend over a wider area", quit: "stop doing or leave a job", broadcast: "transmit on radio or TV",
+  burst: "break open suddenly", split: "divide into two or more parts", upset: "make someone unhappy or worried",
+  bid: "offer a price at an auction", bring: "take or carry to a place", buy: "acquire by paying money",
+  catch: "capture or seize something", fight: "struggle or battle against", teach: "impart knowledge to others",
+  think: "use the mind to form ideas", seek: "search for or try to find", begin: "start performing an action",
+  drink: "swallow a liquid", ring: "make a clear resonant sound", run: "move rapidly on foot",
+  sing: "produce musical vocal sounds", sink: "go down below the surface", swim: "propel oneself through water",
+  spring: "leap or bounce forward", shrink: "become smaller in size", bite: "cut with the teeth",
+  break: "separate into pieces with force", choose: "pick or select from options", drive: "operate a vehicle",
+  eat: "chew and swallow food", fall: "drop downward by gravity", forgive: "stop feeling angry at someone",
+  freeze: "turn to ice from cold", give: "freely transfer to another", hide: "conceal from sight",
+  ride: "sit on and control a bike/horse", rise: "move upward / ascend", shake: "tremble or move back and forth",
+  speak: "say words aloud in conversation", steal: "take without permission", take: "reach out and grasp",
+  wake: "emerge from sleep", write: "mark words on paper or screen", arise: "originate, get up or emerge",
+  forbid: "order someone not to do", forsake: "abandon or renounce", bend: "curve into an angle",
+  build: "construct a structure", burn: "destroy with fire or heat", deal: "distribute or manage business",
+  dream: "experience images while asleep", feel: "experience a sensation / emotion", keep: "retain possession of",
+  leave: "depart or go away from", lend: "grant temporary use of", lose: "misplace or fail to win",
+  mean: "signify or intend to say", meet: "encounter or come together", send: "cause to go or be conveyed",
+  sleep: "rest in a state of slumber", spend: "pay out money / pass time", creep: "move slowly and stealthily",
+  leap: "jump high into the air", weep: "shed tears / cry expressively", bleed: "lose blood from an injury",
+  feed: "give food to someone/pet", find: "discover after searching", get: "obtain, acquire or receive",
+  hang: "suspend from above", hear: "perceive sound with the ear", hold: "grasp or carry in hands",
+  lead: "guide in a direction", light: "ignite or illuminate", make: "create, produce or assemble",
+  pay: "give money for goods or service", say: "utter words or pronounce", sell: "transfer goods for money",
+  shine: "emit or reflect bright light", shoot: "fire a weapon or projectile", sit: "rest on a chair or bench",
+  stand: "remain upright on one's feet", stick: "attach with adhesive", strike: "hit forcefully or ignite",
+  tell: "communicate information", understand: "grasp the meaning of", win: "achieve victory in a contest",
+  bind: "tie or secure tightly", cling: "hold on tightly to", dig: "break up soil with a spade",
+  flee: "run away from danger", grind: "crush into small powder", sling: "hurl or throw forcefully",
+  spin: "rotate rapidly around an axis", sting: "wound with a venomous stinger", swing: "move backward and forward",
+  wind: "turn, twist or coil", wring: "squeeze or twist wet fabric", blow: "expel air from the mouth",
+  draw: "produce a picture with lines", fly: "move through the air with wings", grow: "develop or increase in size",
+  know: "be aware of through study/facts", throw: "propel through the air by hand", sew: "join fabric with needle & thread",
+  sow: "plant seeds in the ground", withdraw: "pull back or remove funds", be: "exist / identity / condition",
+  do: "perform an action or duty", go: "move or travel to a place", have: "possess, own or experience",
+  see: "perceive with the eyes", come: "arrive or move toward here", become: "develop into / begin to be",
+  overcome: "succeed in dealing with a problem", swear: "make a solemn pledge", tear: "rip or pull apart by force",
+  wear: "have clothing on one's body", bear: "endure, tolerate or carry", lie: "rest horizontally / recline"
+};
+
 function renderTable() {
   const tbody = document.getElementById('verbs-tbody');
   tbody.innerHTML = '';
@@ -404,11 +449,12 @@ function renderTable() {
     const matchesCefr = (activeCefr === 'all') || (v.cefr === activeCefr);
     const matchesPattern = (activePattern === 'all') || (v.pattern === activePattern);
     const q = searchQuery.toLowerCase().trim();
-    const matchesSearch = !q || v.base.toLowerCase().includes(q) || v.past.toLowerCase().includes(q) || v.part.toLowerCase().includes(q) || v.es.toLowerCase().includes(q);
+    const meaning = (EN_DEFINITIONS[v.base] || '').toLowerCase();
+    const matchesSearch = !q || v.base.toLowerCase().includes(q) || v.past.toLowerCase().includes(q) || v.part.toLowerCase().includes(q) || meaning.includes(q);
     return matchesCefr && matchesPattern && matchesSearch;
   });
 
-  document.getElementById('counter-tag').textContent = `Mostrando ${filtered.length} de ${VERBS.length} verbos`;
+  document.getElementById('counter-tag').textContent = `Showing ${filtered.length} of ${VERBS.length} verbs`;
 
   filtered.forEach(v => {
     const tr = document.createElement('tr');
@@ -417,7 +463,7 @@ function renderTable() {
     const tdBase = document.createElement('td');
     tdBase.innerHTML = `
       <div class="word-cell">
-        <button class="btn-audio" onclick="speakWord('${v.base}', this)" title="Escuchar pronunciación">🔊</button>
+        <button class="btn-audio" onclick="speakWord('${v.base}', this)" title="Listen pronunciation">🔊</button>
         <strong>${v.base}</strong>
       </div>
     `;
@@ -426,12 +472,12 @@ function renderTable() {
     const tdPast = document.createElement('td');
     if (isPracticeMode && practiceHideColumn === 'past') {
       tdPast.innerHTML = `
-        <input type="text" class="test-input" data-answer="${v.past.toLowerCase()}" placeholder="Escribe pasado..." onkeydown="handleCheckInput(event, this)">
+        <input type="text" class="test-input" data-answer="${v.past.toLowerCase()}" placeholder="Type past..." onkeydown="handleCheckInput(event, this)">
       `;
     } else {
       tdPast.innerHTML = `
         <div class="word-cell">
-          <button class="btn-audio" onclick="speakWord('${v.past.split('/')[0].trim()}', this)" title="Escuchar pronunciación">🔊</button>
+          <button class="btn-audio" onclick="speakWord('${v.past.split('/')[0].trim()}', this)" title="Listen pronunciation">🔊</button>
           <span>${v.past}</span>
         </div>
       `;
@@ -441,21 +487,21 @@ function renderTable() {
     const tdPart = document.createElement('td');
     if (isPracticeMode && practiceHideColumn === 'part') {
       tdPart.innerHTML = `
-        <input type="text" class="test-input" data-answer="${v.part.toLowerCase()}" placeholder="Escribe participio..." onkeydown="handleCheckInput(event, this)">
+        <input type="text" class="test-input" data-answer="${v.part.toLowerCase()}" placeholder="Type participle..." onkeydown="handleCheckInput(event, this)">
       `;
     } else {
       tdPart.innerHTML = `
         <div class="word-cell">
-          <button class="btn-audio" onclick="speakWord('${v.part.split('/')[0].trim()}', this)" title="Escuchar pronunciación">🔊</button>
+          <button class="btn-audio" onclick="speakWord('${v.part.split('/')[0].trim()}', this)" title="Listen pronunciation">🔊</button>
           <span>${v.part}</span>
         </div>
       `;
     }
 
     // Meaning column
-    const tdEs = document.createElement('td');
-    tdEs.style.color = '#CCD7DE';
-    tdEs.textContent = v.es;
+    const tdMeaning = document.createElement('td');
+    tdMeaning.style.color = '#CCD7DE';
+    tdMeaning.textContent = EN_DEFINITIONS[v.base] || v.base;
 
     // CEFR column
     const tdCefr = document.createElement('td');
@@ -464,16 +510,16 @@ function renderTable() {
     // Pattern column
     const tdPat = document.createElement('td');
     const patLabels = {
-      invariant: 'Invariable', ought: '-ought/-aught', iau: 'i-a-u',
-      en_participle: '-en participio', d_to_t: 'd ➔ t',
-      vowel_shift: 'Cambio vocálico', ew_own: '-ew/-own', celestial: 'Celestial'
+      invariant: 'Invariant', ought: '-ought / -aught', iau: 'i - a - u',
+      en_participle: '-en Participle', d_to_t: 'd ➔ t',
+      vowel_shift: 'Vowel Shift', ew_own: '-ew / -own', celestial: 'Celestial'
     };
     tdPat.innerHTML = `<span class="pattern-tag">${patLabels[v.pattern] || v.pattern}</span>`;
 
     tr.appendChild(tdBase);
     tr.appendChild(tdPast);
     tr.appendChild(tdPart);
-    tr.appendChild(tdEs);
+    tr.appendChild(tdMeaning);
     tr.appendChild(tdCefr);
     tr.appendChild(tdPat);
     tbody.appendChild(tr);
@@ -527,7 +573,7 @@ const practiceBar = document.getElementById('practice-bar');
 btnPractice.addEventListener('click', () => {
   isPracticeMode = !isPracticeMode;
   practiceBar.classList.toggle('active', isPracticeMode);
-  btnPractice.textContent = isPracticeMode ? '✓ Salir del Examen' : '🎮 Modo Examen';
+  btnPractice.textContent = isPracticeMode ? '✓ Exit Test' : '🎮 Test Mode';
   renderTable();
 });
 
@@ -556,9 +602,9 @@ document.getElementById('mode-reveal-all').addEventListener('click', function() 
 window.shareVaultWhatsApp = function() {
   const url = window.location.href;
   const msg = `⚡ *English Aurora — The Master Irregular Verbs Vault*
-¡Hola clase! Les comparto la bóveda interactiva de verbos irregulares en inglés con audio nativo en 1 clic y modo de práctica interactiva:
+Hello class! Here is the interactive irregular verbs vault with 1-click native audio and practice mode:
 👉 ${url}
-¡Entrenen los patrones mnemotécnicos y superen su examen! ⭐`;
+Master the mnemonic patterns and ace your exam! ⭐`;
   window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
 };
 

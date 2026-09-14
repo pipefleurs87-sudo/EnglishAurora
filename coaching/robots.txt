@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pipefleurs87-sudo.github.io/EnglishAurora/coaching/sitemap.xml
