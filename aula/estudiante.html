@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Mi aula — EnglishAngel</title>
+<title>My Classroom · English Aurora</title>
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap" id="app">
-  <div class="empty" id="cargando">Cargando tu aula…</div>
+  <div class="empty" id="cargando">Loading your classroom…</div>
 </div>
 
 <div class="modal-bg hidden" id="modalBg">
   <div class="modal">
-    <h3 id="mTitulo">Registrar resultado</h3>
+    <h3 id="mTitulo">Record Score</h3>
     <p class="muted" id="mTema"></p>
-    <label>Tu score (0–100) — el que te dio la página al calificar</label>
-    <input type="number" id="mScore" min="0" max="100" placeholder="p. ej. 85">
-    <label>Comentario para Felipe (opcional)</label>
-    <textarea id="mNota" rows="2" placeholder="¿Qué se te dificultó?"></textarea>
+    <label>Your score (0–100) — as awarded by the exercise page</label>
+    <input type="number" id="mScore" min="0" max="100" placeholder="e.g. 85">
+    <label>Note for Prof. Felipe Florez (optional)</label>
+    <textarea id="mNota" rows="2" placeholder="What was challenging or notable?"></textarea>
     <div class="row" style="margin-top:14px;justify-content:flex-end">
-      <button class="ghost" onclick="cerrarModal()">Cancelar</button>
-      <button class="red" id="mGuardar" onclick="guardarResultado()">Guardar</button>
+      <button class="ghost" onclick="cerrarModal()">Cancel</button>
+      <button class="red" id="mGuardar" onclick="guardarResultado()">Save Score</button>
     </div>
   </div>
 </div>
@@ -37,56 +37,59 @@ let EST = null, modalCtx = null;
 const ref = () => db.collection('estudiantes').doc(token);
 
 async function init(){
-  if(!token){ return errorPage('Este link no es válido. Pídele a Felipe tu link personal.'); }
+  if(!token){ return errorPage('This link is not valid. Please ask Prof. Felipe Florez for your personal link.'); }
   try{
     const [snap] = await Promise.all([ ref().get(), cargarCatalogo() ]);
-    if(!snap.exists) return errorPage('No encontramos tu aula. Verifica que copiaste el link completo.');
+    if(!snap.exists) return errorPage('We could not find your classroom. Please verify that you copied the complete link.');
     EST = snap.data();
     render();
     cargarTareas(); cargarHistorial(); cargarComentarios();
   }catch(e){
     console.error(e);
-    errorPage('No se pudo cargar. Revisa tu conexión e intenta de nuevo.');
+    errorPage('Could not load classroom. Please check your internet connection and try again.');
   }
 }
 function errorPage(msg){
   document.getElementById('app').innerHTML =
-    '<div class="kicker">EnglishAngel · Aula</div><h1>Ups</h1><p class="sub">' + esc(msg) + '</p>';
+    '<div class="kicker">English Aurora · Classroom</div><h1>Notice</h1><p class="sub">' + esc(msg) + '</p>';
 }
 function render(){
+  const firstName = (EST.nombre || 'Student').split(' ')[0];
   document.getElementById('app').innerHTML = `
-    <div class="kicker">EnglishAngel · Aula</div>
-    <h1>Hola, ${esc(EST.nombre.split(' ')[0])} 👋</h1>
-    <p class="sub">Nivel <span class="tag lvl">${esc(EST.nivel)}</span> · Tu profesor: ${esc(TEACHER_NAME)}</p>
-    <div style="margin:14px 0 4px">
-      <a class="btn" href="../englishaurora/index.html?t=${encodeURIComponent(token)}">✨ Mi galaxia de progreso (English Aurora)</a>
+    <div class="kicker">English Aurora · Student Classroom</div>
+    <h1>Hello, ${esc(firstName)} 👋</h1>
+    <p class="sub">CEFR Level <span class="tag lvl">${esc(EST.nivel)}</span> · Instructor: Prof. ${esc(TEACHER_NAME || 'Felipe Florez')}</p>
+    <div style="margin:16px 0 6px">
+      <a class="btn" href="../index.html?t=${encodeURIComponent(token)}" style="background:var(--gold); color:#1B2A41; font-weight:700;">
+        ✨ My 3D Progress Galaxy (English Aurora)
+      </a>
     </div>
 
-    <h2>📌 Tus tareas</h2>
-    <div id="tareas"><div class="empty">Cargando…</div></div>
+    <h2>📌 Assigned Tasks</h2>
+    <div id="tareas"><div class="empty">Loading tasks…</div></div>
 
-    <h2>🎲 Práctica libre</h2>
+    <h2>🎲 Free Practice</h2>
     <div class="card">
-      <p class="muted" style="margin-bottom:8px">¿Quieres practicar algo por tu cuenta? Elige un tema y hazlo aquí mismo — tu score se guarda solo.</p>
+      <p class="muted" style="margin-bottom:8px">Want to practice on your own? Select any curriculum topic — your score will automatically synchronize to your mastery profile.</p>
       <div class="row">
         <select id="libreNivel" class="grow" onchange="poblarTemasLibres()"></select>
         <select id="libreTema" class="grow"></select>
       </div>
       <div class="row" style="margin-top:10px">
-        <button class="red" onclick="abrirLibre()">Practicar →</button>
-        <button class="ghost" onclick="registrarLibre()">Registrar un score a mano</button>
+        <button class="red" onclick="abrirLibre()">Practice →</button>
+        <button class="ghost" onclick="registrarLibre()">Log Score Manually</button>
       </div>
     </div>
 
-    <h2>📈 Mi historial</h2>
-    <div id="historial"><div class="empty">Cargando…</div></div>
+    <h2>📈 Submission History</h2>
+    <div id="historial"><div class="empty">Loading history…</div></div>
 
-    <h2>💬 Comentarios con Felipe</h2>
-    <div id="comentarios"><div class="empty">Cargando…</div></div>
+    <h2>💬 Feedback Channel with Prof. Felipe</h2>
+    <div id="comentarios"><div class="empty">Loading feedback stream…</div></div>
     <div class="card">
-      <textarea id="nuevoComentario" rows="2" placeholder="Escríbele algo a Felipe…"></textarea>
+      <textarea id="nuevoComentario" rows="2" placeholder="Write a note or question for Prof. Felipe…"></textarea>
       <div class="row" style="margin-top:10px;justify-content:flex-end">
-        <button onclick="enviarComentario()">Enviar</button>
+        <button onclick="enviarComentario()">Send Note</button>
       </div>
     </div>
     <p class="hand" style="margin-top:26px">Keep going — every exercise counts! ✎</p>`;
@@ -97,7 +100,7 @@ function render(){
 async function cargarTareas(){
   const q = await ref().collection('tareas').orderBy('fecha','desc').get();
   const cont = document.getElementById('tareas');
-  if(q.empty){ cont.innerHTML = '<div class="empty">No tienes tareas asignadas por ahora.</div>'; return; }
+  if(q.empty){ cont.innerHTML = '<div class="empty">No tasks assigned at the moment.</div>'; return; }
   cont.innerHTML = q.docs.map(d => {
     const t = d.data();
     const hecha = t.estado === 'hecha';
@@ -109,15 +112,15 @@ async function cargarTareas(){
             <span class="tag">${esc(TIPO_LBL[t.tipo]||t.tipo)}</span>
             ${t.nivel?`<span class="tag lvl">${esc(t.nivel)}</span>`:''}
             ${t.area?`<span class="tag">${esc(t.area)}</span>`:''}
-            <span class="tag ${hecha?'ok':'pend'}">${hecha?'✓ hecha':'pendiente'}</span>
+            <span class="tag ${hecha?'ok':'pend'}">${hecha?'✓ Completed':'⏳ Pending'}</span>
           </div>
-          <p class="muted" style="margin-top:6px">Asignada: ${fmtFecha(t.fecha)}</p>
+          <p class="muted" style="margin-top:6px">Assigned: ${fmtFecha(t.fecha)}</p>
         </div>
         <div class="row" style="gap:8px">
           ${t.tipo==='practica'&&t.temaId
-            ?`<a class="btn red" href="ejercicio.html?t=${encodeURIComponent(token)}&tema=${encodeURIComponent(t.temaId)}&tarea=${d.id}">Hacer ejercicio →</a>`
-            :`<a class="btn sec" target="_blank" rel="noopener" href="${esc(t.url)}">Abrir ↗</a>`}
-          ${hecha||(t.tipo==='practica'&&t.temaId)?'':`<button class="red" onclick="abrirModal('${d.id}')">Registrar resultado</button>`}
+            ?`<a class="btn red" href="ejercicio.html?t=${encodeURIComponent(token)}&tema=${encodeURIComponent(t.temaId)}&tarea=${d.id}">Do Exercise →</a>`
+            :`<a class="btn sec" target="_blank" rel="noopener" href="${esc(t.url)}">Open Mission ↗</a>`}
+          ${hecha||(t.tipo==='practica'&&t.temaId)?'':`<button class="red" onclick="abrirModal('${d.id}')">Record Result</button>`}
         </div>
       </div>
     </div>`;
@@ -136,7 +139,7 @@ function abrirModal(tareaId){
 function registrarLibre(){
   const id = document.getElementById('libreTema').value;
   const t = temaPorId(id);
-  if(!t) return toast('Elige un tema primero');
+  if(!t) return toast('Please select a topic first');
   modalCtx = { tareaId:null, temaId:t.id, tema:t.tema, area:t.area, nivel:t.nivel, tipo:'practica' };
   document.getElementById('mTema').textContent = t.tema;
   document.getElementById('mScore').value = ''; document.getElementById('mNota').value = '';
@@ -146,7 +149,7 @@ function cerrarModal(){ document.getElementById('modalBg').classList.add('hidden
 async function guardarResultado(){
   const score = Number(document.getElementById('mScore').value);
   if(isNaN(score) || score < 0 || score > 100 || document.getElementById('mScore').value === '')
-    return toast('Escribe un score entre 0 y 100');
+    return toast('Please enter a score between 0 and 100');
   const btn = document.getElementById('mGuardar'); btn.disabled = true;
   try{
     await ref().collection('resultados').add({
@@ -157,9 +160,9 @@ async function guardarResultado(){
       fecha: FV.serverTimestamp()
     });
     if(modalCtx.tareaId) await ref().collection('tareas').doc(modalCtx.tareaId).update({estado:'hecha'});
-    cerrarModal(); toast('¡Resultado guardado! 🎉');
+    cerrarModal(); toast('Result saved successfully! 🎉');
     cargarTareas(); cargarHistorial();
-  }catch(e){ console.error(e); toast('No se pudo guardar, intenta de nuevo'); }
+  }catch(e){ console.error(e); toast('Could not save, please check connection'); }
   btn.disabled = false;
 }
 
@@ -186,13 +189,13 @@ function abrirLibre(){
 async function cargarHistorial(){
   const q = await ref().collection('resultados').orderBy('fecha','desc').limit(40).get();
   const cont = document.getElementById('historial');
-  if(q.empty){ cont.innerHTML = '<div class="empty">Aún no has registrado resultados. ¡Tu primer score te espera!</div>'; return; }
-  cont.innerHTML = '<div class="card" style="padding:6px 10px;overflow-x:auto"><table><thead><tr><th>Fecha</th><th>Tema</th><th>Tipo</th><th>Score</th></tr></thead><tbody>' +
+  if(q.empty){ cont.innerHTML = '<div class="empty">No results recorded yet. Your first score awaits!</div>'; return; }
+  cont.innerHTML = '<div class="card" style="padding:6px 10px;overflow-x:auto"><table><thead><tr><th>Date</th><th>Topic</th><th>Type</th><th>Score</th></tr></thead><tbody>' +
     q.docs.map(d => { const r = d.data(); return `<tr>
       <td class="mono">${fmtFecha(r.fecha)}</td>
       <td>${esc(r.tema)}</td>
       <td><span class="tag">${esc(r.tipo)}</span></td>
-      <td><span class="score ${scoreClass(r.score)}">${r.score}</span></td>
+      <td><span class="score ${scoreClass(r.score)}">${r.score}%</span></td>
     </tr>`; }).join('') + '</tbody></table></div>';
 }
 
@@ -200,10 +203,10 @@ async function cargarHistorial(){
 async function cargarComentarios(){
   const q = await ref().collection('comentarios').orderBy('fecha','desc').limit(30).get();
   const cont = document.getElementById('comentarios');
-  if(q.empty){ cont.innerHTML = '<div class="empty">Sin comentarios todavía.</div>'; return; }
+  if(q.empty){ cont.innerHTML = '<div class="empty">No messages yet. Send a note below!</div>'; return; }
   cont.innerHTML = q.docs.map(d => { const c = d.data(); return `
     <div class="comment ${c.autor==='profesor'?'prof':''}">
-      <div class="who">${c.autor==='profesor'?esc(TEACHER_NAME)+' (profesor)':'Tú'} · ${fmtFecha(c.fecha)}</div>
+      <div class="who">${c.autor==='profesor'?esc(TEACHER_NAME || 'Prof. Felipe Florez')+' (Instructor)':'You'} · ${fmtFecha(c.fecha)}</div>
       <div>${esc(c.texto)}</div>
     </div>`; }).join('');
 }
@@ -213,8 +216,8 @@ async function enviarComentario(){
   if(!texto) return;
   try{
     await ref().collection('comentarios').add({texto, autor:'estudiante', fecha: FV.serverTimestamp()});
-    ta.value = ''; toast('Enviado'); cargarComentarios();
-  }catch(e){ toast('No se pudo enviar'); }
+    ta.value = ''; toast('Note sent'); cargarComentarios();
+  }catch(e){ toast('Could not send note'); }
 }
 
 init();

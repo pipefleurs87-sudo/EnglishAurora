@@ -1,0 +1,157 @@
+{
+  "id": "a2-past-simple-regular-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Past Simple Regular — The -ed Adventure",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "🚶", "palabra": "walk → walked", "traduccion": "caminar → caminó"},
+    {"bandera": "🎮", "palabra": "play → played", "traduccion": "jugar → jugó"},
+    {"bandera": "🧹", "palabra": "clean → cleaned", "traduccion": "limpiar → limpió"},
+    {"bandera": "🍳", "palabra": "cook → cooked", "traduccion": "cocinar → cocinó"},
+    {"bandera": "👀", "palabra": "watch → watched", "traduccion": "ver → vio"},
+    {"bandera": "🎧", "palabra": "listen → listened", "traduccion": "escuchar → escuchó"},
+    {"bandera": "📞", "palabra": "call → called", "traduccion": "llamar → llamó"},
+    {"bandera": "🗣️", "palabra": "talk → talked", "traduccion": "hablar → habló"},
+    {"bandera": "🏃", "palabra": "start → started", "traduccion": "empezar → empezó"},
+    {"bandera": "🏁", "palabra": "finish → finished", "traduccion": "terminar → terminó"},
+    {"bandera": "❤️", "palabra": "love → loved", "traduccion": "amar → amó"},
+    {"bandera": "💃", "palabra": "dance → danced", "traduccion": "bailar → bailó"},
+    {"bandera": "🎨", "palabra": "paint → painted", "traduccion": "pintar → pintó"},
+    {"bandera": "📚", "palabra": "study → studied", "traduccion": "estudiar → estudió"},
+    {"bandera": "🧳", "palabra": "travel → traveled", "traduccion": "viajar → viajó"},
+    {"bandera": "😂", "palabra": "laugh → laughed", "traduccion": "reír → rió"},
+    {"bandera": "🤝", "palabra": "help → helped", "traduccion": "ayudar → ayudó"},
+    {"bandera": "🌧️", "palabra": "rain → rained", "traduccion": "llover → llovió"},
+    {"bandera": "🛑", "palabra": "stop → stopped", "traduccion": "parar → paró"},
+    {"bandera": "🧗", "palabra": "climb → climbed", "traduccion": "escalar → escaló"},
+    {"bandera": "👋", "palabra": "visit → visited", "traduccion": "visitar → visitó"},
+    {"bandera": "💼", "palabra": "work → worked", "traduccion": "trabajar → trabajó"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Yesterday is a story, heroes. Add '-ed' to your verbs and tell it like a legend."},
+    {"personaje": "Ben", "linea": "Yesterday I walked to work, and it rained! I arrived completely wet."},
+    {"personaje": "Kenji", "linea": "I played video games all evening, and then I studied for two hours."},
+    {"personaje": "Sofía", "linea": "I painted a new picture and called my mother. Did you watch the movie, Ben?"},
+    {"personaje": "Abuela Carmen", "linea": "I cooked soup, listened to the radio, and danced a little. Old bones, young heart!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Ben walked to work yesterday."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Kenji played video games all evening."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Sofía painted a new picture."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "It rained all morning."},
+    {"id": "s5", "forma": "negativo", "oracion": "I didn't watch the movie."},
+    {"id": "s6", "forma": "negativo", "oracion": "She didn't call her mother."},
+    {"id": "s7", "forma": "negativo", "oracion": "We didn't study yesterday."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you watch the movie?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did she call her mother?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What did you do yesterday?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you play? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did it rain? No, it didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they dance? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She didn't watched the movie.",
+        "opcion_b": "She didn't watch the movie.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Regular verbs form the past with '-ed' (walk→walked, study→studied, stop→stopped). Negatives and questions use 'did/didn't' + base verb — the '-ed' disappears!",
+      "tabla": {
+        "titulo": "Past Simple — regular verbs",
+        "encabezados": ["Rule", "Base", "Past"],
+        "filas": [
+          ["+ ed", "walk, play", "walked, played"],
+          ["+ d (ends in -e)", "dance, love", "danced, loved"],
+          ["y → ied", "study, carry", "studied, carried"],
+          ["double consonant", "stop, travel", "stopped, traveled"],
+          ["Negative/Question", "didn't / Did + base", "Did you watch? I didn't watch."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Yesterday I ___ to work.", "opciones": ["walk", "walked", "walking"], "respuesta": "walked"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The past of 'study' is ___.", "opciones": ["studyed", "studied", "studed"], "respuesta": "studied"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you watch the movie?", "opciones": ["Do", "Did", "Was"], "respuesta": "Did"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'didn't', the verb goes back to the base form.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The past of 'stop' is 'stoped'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Sofía ___ a new picture yesterday. (paint)", "respuesta": "painted"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We ___ the movie. (not/watch)", "respuesta": "didn't watch"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["rained", "It", "all morning", "."], "respuesta": "It rained all morning."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She didn't called her mother.", "respuesta": "She didn't call her mother."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Ben walked to work.", "instruccion": "Make it negative.", "respuesta": "Ben didn't walk to work."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They danced all night.", "instruccion": "Turn it into a question.", "respuesta": "Did they dance all night?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What did you do yesterday? (Answer with two regular verbs in the past.)", "respuesta": "I watched TV and cooked dinner."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: What did you do yesterday, Ben?",
+        "Ben: I walked to work, and it rained all morning!",
+        "Sofía: Oh no! Did you watch the movie in the evening?",
+        "Ben: No, I didn't. I worked late. And you?",
+        "Sofía: I painted a new picture and called my mother.",
+        "Ben: Nice! Did she like the picture?",
+        "Sofía: She loved it!"
+      ],
+      "gaps": ["rained", "picture"],
+      "comprension": [
+        {"pregunta": "What did Ben do in the morning?", "opciones": ["He watched a movie", "He walked to work", "He painted"], "respuesta": "He walked to work"},
+        {"pregunta": "Did Ben watch the movie?", "opciones": ["Yes, he did", "No, he didn't", "He worked at the cinema"], "respuesta": "No, he didn't"}
+      ]
+    },
+    "reading": {
+      "texto": "Yesterday was a busy day for everybody. Ben walked to work, but it rained all morning, so he arrived wet. He worked late and didn't watch the movie. Kenji played video games and then studied for two hours. Sofía painted a beautiful picture and called her mother — she loved it! Abuela Carmen cooked soup, listened to the radio and danced a little. A normal day, full of small stories.",
+      "preguntas": [
+        {"afirmacion": "Ben arrived at work wet.", "respuesta": "true"},
+        {"afirmacion": "Kenji studied for three hours.", "respuesta": "false"},
+        {"afirmacion": "Sofía's mother loved the picture.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-2 — Past Simple Regular",
+    "partes": [
+      {
+        "parte": "A — Escribe el pasado",
+        "ejercicios": [
+          {"n": 1, "texto": "walk → ___"},
+          {"n": 2, "texto": "study → ___"},
+          {"n": 3, "texto": "stop → ___"},
+          {"n": 4, "texto": "dance → ___"}
+        ]
+      },
+      {
+        "parte": "B — Completa con el pasado simple",
+        "ejercicios": [
+          {"n": 5, "texto": "Sofía ___ (paint) a picture yesterday."},
+          {"n": 6, "texto": "We ___ (not/watch) the movie."},
+          {"n": 7, "texto": "___ (did) you call your mother?"}
+        ]
+      },
+      {
+        "parte": "10C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She didn't called me.'"},
+          {"n": 9, "texto": "Corrige: 'I studyed English yesterday.'"},
+          {"n": 10, "texto": "Escribe 4 oraciones sobre tu día de ayer con verbos regulares."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. walked",
+      "2. studied",
+      "3. stopped",
+      "4. danced",
+      "5. painted",
+      "6. didn't watch",
+      "7. Did",
+      "8. She didn't call me.",
+      "9. I studied English yesterday.",
+      "10. Respuesta libre (ej. 'I walked to school. I played soccer. I watched TV. I called my friend.')"
+    ]
+  }
+}

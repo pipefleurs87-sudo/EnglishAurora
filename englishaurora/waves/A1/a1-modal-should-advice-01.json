@@ -1,0 +1,155 @@
+{
+  "id": "a1-modal-should-advice-01",
+  "nivel": "A1",
+  "arquetipo": "verbo_modal",
+  "tema": "Modal Should — Advice & Remedies",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🤕", "palabra": "a headache", "traduccion": "dolor de cabeza"},
+    {"bandera": "🤒", "palabra": "a fever", "traduccion": "fiebre"},
+    {"bandera": "🥶", "palabra": "a cold", "traduccion": "un resfriado"},
+    {"bandera": "😮‍💨", "palabra": "a cough", "traduccion": "tos"},
+    {"bandera": "🦷", "palabra": "a toothache", "traduccion": "dolor de muelas"},
+    {"bandera": "🤢", "palabra": "a stomachache", "traduccion": "dolor de estómago"},
+    {"bandera": "😴", "palabra": "tired", "traduccion": "cansado/a"},
+    {"bandera": "😰", "palabra": "stressed", "traduccion": "estresado/a"},
+    {"bandera": "🛌", "palabra": "rest", "traduccion": "descansar"},
+    {"bandera": "🛏️", "palabra": "go to bed early", "traduccion": "acostarse temprano"},
+    {"bandera": "🚰", "palabra": "drink water", "traduccion": "beber agua"},
+    {"bandera": "🍵", "palabra": "drink tea with honey", "traduccion": "tomar té con miel"},
+    {"bandera": "💊", "palabra": "take a pill", "traduccion": "tomar una pastilla"},
+    {"bandera": "🧑‍⚕️", "palabra": "see a doctor", "traduccion": "ver a un médico"},
+    {"bandera": "🦷", "palabra": "see a dentist", "traduccion": "ver a un dentista"},
+    {"bandera": "🥗", "palabra": "eat healthy food", "traduccion": "comer sano"},
+    {"bandera": "🏃", "palabra": "exercise more", "traduccion": "hacer más ejercicio"},
+    {"bandera": "🧘", "palabra": "relax", "traduccion": "relajarse"},
+    {"bandera": "🚬", "palabra": "quit smoking", "traduccion": "dejar de fumar"},
+    {"bandera": "☕", "palabra": "drink less coffee", "traduccion": "tomar menos café"},
+    {"bandera": "📱", "palabra": "use your phone less", "traduccion": "usar menos el teléfono"},
+    {"bandera": "🌳", "palabra": "go for a walk", "traduccion": "salir a caminar"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "A hero also gets tired, heroes. When the body speaks, 'should' is the wise healer's word."},
+    {"personaje": "Kenji", "linea": "I've got a terrible headache. What should I do?"},
+    {"personaje": "Abuela Carmen", "linea": "You should drink water and rest, dear. And you shouldn't look at screens."},
+    {"personaje": "Ben", "linea": "I'm always tired. Should I go to bed earlier?"},
+    {"personaje": "Sofía", "linea": "Yes! And you should drink less coffee, Ben. Five cups a day is too much!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "You should drink more water."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He should see a dentist."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We should go to bed early."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She should take a pill."},
+    {"id": "s5", "forma": "negativo", "oracion": "You shouldn't drink so much coffee."},
+    {"id": "s6", "forma": "negativo", "oracion": "He shouldn't work so hard."},
+    {"id": "s7", "forma": "negativo", "oracion": "They shouldn't stay up late."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Should I see a doctor?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What should I do?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Should we go for a walk?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Should I rest? Yes, you should."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Should he quit smoking? Yes, he should."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Should I take a pill? No, you shouldn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "You should to rest more.",
+        "opcion_b": "You should rest more.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "'Should' gives advice — it's softer than 'must'. It never changes form and the next verb is the base form: 'You should rest'. Negative: 'shouldn't'.",
+      "tabla": {
+        "titulo": "Should — advice",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "should + base verb", "You should rest."],
+          ["Negative", "shouldn't + base verb", "You shouldn't smoke."],
+          ["Question", "Should + subject + base verb?", "Should I see a doctor?"],
+          ["Asking for advice", "What should I do?", "I've got a cold. What should I do?"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I've got a toothache. You ___ see a dentist.", "opciones": ["should", "should to", "shoulds"], "respuesta": "should"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He's stressed. He ___ work so hard.", "opciones": ["should", "shouldn't", "doesn't should"], "respuesta": "shouldn't"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I've got a cold. What ___ I do?", "opciones": ["should", "must to", "can to"], "respuesta": "should"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Should' is softer than 'must' — it's advice, not a rule.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'should' we use 'to + verb'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "You ___ drink more water. (advice)", "respuesta": "should"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ stay up late before an exam. (negative advice)", "respuesta": "shouldn't"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["should", "You", "a doctor", "see", "."], "respuesta": "You should see a doctor."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She should to take a pill.", "respuesta": "She should take a pill."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "You should drink coffee at night.", "instruccion": "Make it negative advice.", "respuesta": "You shouldn't drink coffee at night."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I should see a doctor.", "instruccion": "Turn it into a question.", "respuesta": "Should I see a doctor?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Your friend is always tired. Give two pieces of advice. (Use 'should' and 'shouldn't'.)", "respuesta": "You should go to bed early. You shouldn't drink so much coffee."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: I've got a terrible headache, Carmen.",
+        "Abuela Carmen: Oh, dear. You should drink water and rest.",
+        "Kenji: Should I take a pill?",
+        "Abuela Carmen: Yes, you should. And you shouldn't look at your phone.",
+        "Kenji: Anything else?",
+        "Abuela Carmen: You should go to bed early tonight. Sleep is the best medicine."
+      ],
+      "gaps": ["water", "bed"],
+      "comprension": [
+        {"pregunta": "What's Kenji's problem?", "opciones": ["A cold", "A headache", "A toothache"], "respuesta": "A headache"},
+        {"pregunta": "What shouldn't Kenji do?", "opciones": ["Drink water", "Take a pill", "Look at his phone"], "respuesta": "Look at his phone"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben is always tired. He drinks five cups of coffee a day and he goes to bed very late. His friends have some advice for him. Sofía says he should drink less coffee and he should go to bed earlier. Abuela Carmen says he should eat healthy food and exercise more. Kenji says he shouldn't work so hard, and he should relax on weekends. Ben should listen to his friends!",
+      "preguntas": [
+        {"afirmacion": "Ben drinks five cups of coffee a day.", "respuesta": "true"},
+        {"afirmacion": "Sofía says he should drink more coffee.", "respuesta": "false"},
+        {"afirmacion": "Kenji says Ben should relax on weekends.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 16 — Modal Should: Advice",
+    "partes": [
+      {
+        "parte": "A — Completa con should o shouldn't",
+        "ejercicios": [
+          {"n": 1, "texto": "You've got a fever. You ___ see a doctor."},
+          {"n": 2, "texto": "He's stressed. He ___ work so hard."},
+          {"n": 3, "texto": "You've got a cough. You ___ drink tea with honey."},
+          {"n": 4, "texto": "She's tired. She ___ stay up late."}
+        ]
+      },
+      {
+        "parte": "B — Une el problema con el consejo",
+        "ejercicios": [
+          {"n": 5, "texto": "A toothache → (see a dentist / drink less water / run fast)"},
+          {"n": 6, "texto": "A headache → (watch more TV / rest and drink water / eat candy)"},
+          {"n": 7, "texto": "Stress → (work more / drink more coffee / relax and go for a walk)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'You should to rest.'"},
+          {"n": 9, "texto": "Corrige: 'He shoulds see a doctor.'"},
+          {"n": 10, "texto": "Un amigo tiene un resfriado. Escríbele 3 consejos con should/shouldn't."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. should",
+      "2. shouldn't",
+      "3. should",
+      "4. shouldn't",
+      "5. see a dentist",
+      "6. rest and drink water",
+      "7. relax and go for a walk",
+      "8. You should rest.",
+      "9. He should see a doctor.",
+      "10. Respuesta libre (ej. 'You should rest. You should drink tea with honey. You shouldn't go out.')"
+    ]
+  }
+}

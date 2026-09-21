@@ -1,0 +1,156 @@
+{
+  "id": "b1-relative-clauses-non-defining-01",
+  "nivel": "B1",
+  "arquetipo": "oraciones_de_relativo",
+  "tema": "Non-Defining Relative Clauses — Extra Information Between Commas",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🗼", "palabra": "Tokyo", "traduccion": "Tokio"},
+    {"bandera": "🗽", "palabra": "New York", "traduccion": "Nueva York"},
+    {"bandera": "🏙️", "palabra": "Medellín", "traduccion": "Medellín"},
+    {"bandera": "📷", "palabra": "camera", "traduccion": "cámara"},
+    {"bandera": "👵", "palabra": "grandmother", "traduccion": "abuela"},
+    {"bandera": "🍜", "palabra": "ramen", "traduccion": "ramen"},
+    {"bandera": "🎻", "palabra": "violin", "traduccion": "violín"},
+    {"bandera": "🏅", "palabra": "gold medal", "traduccion": "medalla de oro"},
+    {"bandera": "📖", "palabra": "autobiography", "traduccion": "autobiografía"},
+    {"bandera": "🏔️", "palabra": "the Andes", "traduccion": "los Andes"},
+    {"bandera": "🌊", "palabra": "the Pacific", "traduccion": "el Pacífico"},
+    {"bandera": "🎂", "palabra": "birthday", "traduccion": "cumpleaños"},
+    {"bandera": "✍️", "palabra": "author", "traduccion": "autor"},
+    {"bandera": "🏛️", "palabra": "capital", "traduccion": "capital (ciudad)"},
+    {"bandera": "🐈", "palabra": "pet", "traduccion": "mascota"},
+    {"bandera": "🖼️", "palabra": "masterpiece", "traduccion": "obra maestra"},
+    {"bandera": "📅", "palabra": "century", "traduccion": "siglo"},
+    {"bandera": "🎼", "palabra": "composer", "traduccion": "compositor"},
+    {"bandera": "🏟️", "palabra": "stadium", "traduccion": "estadio"},
+    {"bandera": "🧑‍🎨", "palabra": "artist", "traduccion": "artista"},
+    {"bandera": "🌸", "palabra": "spring", "traduccion": "primavera"},
+    {"bandera": "🚲", "palabra": "bicycle", "traduccion": "bicicleta"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Between commas, heroes, we whisper extra secrets: the sentence survives without them, but shines with them."},
+    {"personaje": "Ben", "linea": "My camera, which I bought in London, was very expensive. My brother, who lives in Madrid, is visiting."},
+    {"personaje": "Kenji", "linea": "Tokyo, which is the capital of Japan, has fourteen million people. My ramen recipe, which is a family secret, took years to perfect."},
+    {"personaje": "Sofía", "linea": "Medellín, where I was born, is called the city of eternal spring. My novel, which I finished last month, comes out soon!"},
+    {"personaje": "Abuela Carmen", "linea": "My garden, which I planted in 1975, has won two prizes. My cat Michi, who is fifteen, sleeps all day."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Tokyo, which is the capital of Japan, is enormous."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "My brother, who lives in Madrid, is visiting."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Her novel, which she finished last month, comes out soon."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "My cat, who is fifteen, sleeps all day."},
+    {"id": "s5", "forma": "negativo", "oracion": "My car, which is twenty years old, isn't expensive."},
+    {"id": "s6", "forma": "negativo", "oracion": "His garden, which is tiny, doesn't have roses."},
+    {"id": "s7", "forma": "negativo", "oracion": "My violin, which is very old, doesn't sound bad."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is Medellín, where you were born, a big city?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did your brother, who lives in Madrid, call you?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is Tokyo, which is huge, the capital?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is your camera, which you bought in London, expensive? Yes, it is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Does your cat, who is old, sleep a lot? Yes, she does."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is her novel, which is new, in bookshops? No, it isn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Tokyo which is the capital of Japan is enormous.",
+        "opcion_b": "Tokyo, which is the capital of Japan, is enormous.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Non-defining clauses add EXTRA information between commas — the sentence works without them. With a unique noun (Tokyo, my mother), the clause is always non-defining. 'That' is NOT used; use who/which/where/whose.",
+      "tabla": {
+        "titulo": "Defining vs Non-Defining",
+        "encabezados": ["Type", "Commas?", "Example"],
+        "filas": [
+          ["Defining", "no commas, 'that' OK", "The book that I read was great."],
+          ["Non-defining", "WITH commas, no 'that'", "My book, which I wrote, is great."],
+          ["who (people)", "extra info", "My brother, who lives abroad, called."],
+          ["where (places)", "extra info", "Medellín, where I was born, is lovely."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Tokyo, ___ is the capital of Japan, is enormous.", "opciones": ["which", "that", "who"], "respuesta": "which"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "My brother, ___ lives in Madrid, is visiting.", "opciones": ["which", "who", "that"], "respuesta": "who"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Medellín, ___ I was born, is lovely.", "opciones": ["which", "that", "where"], "respuesta": "where"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Non-defining clauses can use 'that'.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Non-defining clauses go between commas.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "My cat, ___ is fifteen, sleeps all day.", "respuesta": "who"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Her novel, ___ she finished last month, comes out soon.", "respuesta": "which"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": [", who is fifteen,", "My cat", "sleeps all day", "."], "respuesta": "My cat, who is fifteen, sleeps all day."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Tokyo, that is the capital of Japan, is enormous.", "respuesta": "Tokyo, which is the capital of Japan, is enormous."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "My camera was expensive. I bought it in London.", "instruccion": "Join with a non-defining clause.", "respuesta": "My camera, which I bought in London, was expensive."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "My grandmother is ninety. She dances tango.", "instruccion": "Join with a non-defining clause.", "respuesta": "My grandmother, who is ninety, dances tango."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write three sentences about your city, a person and an object, each with extra information between commas.", "respuesta": "Bogotá, which is very high, has cool weather. My sister, who lives nearby, visits often. My bike, which I love, is red."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Look at this photo. That's my brother, who lives in Madrid.",
+        "Sofía: Nice! And is this your camera, which you bought in London?",
+        "Ben: Yes. It was expensive, but I love it.",
+        "Sofía: Medellín, where I was born, has perfect weather for photos.",
+        "Ben: That's true. And Kenji's recipe, which is a family secret, is perfect for dinner.",
+        "Sofía: Everything has a story between commas!",
+        "Ben: Exactly. Even Michi, who is fifteen, has a legendary past."
+      ],
+      "gaps": ["Madrid", "London"],
+      "comprension": [
+        {"pregunta": "Where does Ben's brother live?", "opciones": ["In London", "In Madrid", "In Medellín"], "respuesta": "In Madrid"},
+        {"pregunta": "What is a family secret?", "opciones": ["Ben's camera", "Kenji's recipe", "Michi's past"], "respuesta": "Kenji's recipe"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben's photo album is full of stories. His brother, who lives in Madrid, appears on the first page, and his camera, which he bought in London, appears in every picture. Medellín, where Sofía was born, shines in the spring photos. Kenji's ramen, which is a family secret, appears in the dinner pictures. Even Michi, Abuela Carmen's cat, who is fifteen, has his own page.",
+      "preguntas": [
+        {"afirmacion": "Ben's brother lives in Madrid.", "respuesta": "true"},
+        {"afirmacion": "Ben bought his camera in Medellín.", "respuesta": "false"},
+        {"afirmacion": "Michi has his own page in the album.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-16 — Non-Defining Relative Clauses",
+    "partes": [
+      {
+        "parte": "A — Completa con who, which o where",
+        "ejercicios": [
+          {"n": 1, "texto": "Tokyo, ___ is the capital of Japan, is enormous."},
+          {"n": 2, "texto": "My brother, ___ lives in Madrid, is visiting."},
+          {"n": 3, "texto": "Medellín, ___ I was born, is lovely."},
+          {"n": 4, "texto": "My cat, ___ is fifteen, sleeps all day."}
+        ]
+      },
+      {
+        "parte": "B — Une con una cláusula no especificativa (con comas)",
+        "ejercicios": [
+          {"n": 5, "texto": "My camera was expensive. I bought it in London."},
+          {"n": 6, "texto": "My grandmother is ninety. She dances tango."},
+          {"n": 7, "texto": "Her novel comes out soon. She finished it last month."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Tokyo, that is the capital of Japan, is enormous.'"},
+          {"n": 9, "texto": "Corrige: 'My brother which lives in Madrid is visiting.'"},
+          {"n": 10, "texto": "Escribe 3 frases con información extra entre comas (una persona, un lugar, un objeto)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. which",
+      "2. who",
+      "3. where",
+      "4. who",
+      "5. My camera, which I bought in London, was expensive.",
+      "6. My grandmother, who is ninety, dances tango.",
+      "7. Her novel, which she finished last month, comes out soon.",
+      "8. Tokyo, which is the capital of Japan, is enormous.",
+      "9. My brother, who lives in Madrid, is visiting.",
+      "10. Respuesta libre (ej. 'My sister, who lives nearby, visits often. Bogotá, which is very high, has cool weather. My bike, which I love, is red.')"
+    ]
+  }
+}

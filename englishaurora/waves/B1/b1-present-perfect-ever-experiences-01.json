@@ -1,0 +1,156 @@
+{
+  "id": "b1-present-perfect-ever-experiences-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Present Perfect with Ever / Never — Have You Ever...?",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🐙", "palabra": "eat octopus", "traduccion": "comer pulpo"},
+    {"bandera": "🐫", "palabra": "ride a camel", "traduccion": "montar en camello"},
+    {"bandera": "💃", "palabra": "dance tango", "traduccion": "bailar tango"},
+    {"bandera": "❄️", "palabra": "see snow", "traduccion": "ver la nieve"},
+    {"bandera": "🎤", "palabra": "sing in public", "traduccion": "cantar en público"},
+    {"bandera": "🦈", "palabra": "see a shark", "traduccion": "ver un tiburón"},
+    {"bandera": "🏕️", "palabra": "go camping", "traduccion": "ir de acampada"},
+    {"bandera": "🎡", "palabra": "ride a roller coaster", "traduccion": "subir a una montaña rusa"},
+    {"bandera": "🌋", "palabra": "visit a volcano", "traduccion": "visitar un volcán"},
+    {"bandera": "🚁", "palabra": "fly in a helicopter", "traduccion": "volar en helicóptero"},
+    {"bandera": "🎭", "palabra": "act in a play", "traduccion": "actuar en una obra"},
+    {"bandera": "🥇", "palabra": "win a competition", "traduccion": "ganar un concurso"},
+    {"bandera": "🦜", "palabra": "talk to a parrot", "traduccion": "hablar con un loro"},
+    {"bandera": "🌵", "palabra": "visit a desert", "traduccion": "visitar un desierto"},
+    {"bandera": "🎬", "palabra": "meet a famous actor", "traduccion": "conocer a un actor famoso"},
+    {"bandera": "❓", "palabra": "ever", "traduccion": "alguna vez"},
+    {"bandera": "🚫", "palabra": "never", "traduccion": "nunca"},
+    {"bandera": "🔁", "palabra": "once", "traduccion": "una vez"},
+    {"bandera": "🌍", "palabra": "abroad", "traduccion": "en el extranjero"},
+    {"bandera": "😱", "palabra": "scary experience", "traduccion": "experiencia aterradora"},
+    {"bandera": "🤩", "palabra": "amazing", "traduccion": "increíble"},
+    {"bandera": "🗣️", "palabra": "share stories", "traduccion": "compartir historias"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "'Have you ever...?' is the magic question, heroes. It opens the door to every story a person carries inside."},
+    {"personaje": "Ben", "linea": "Have you ever eaten octopus? I've never tried it — it looks scary!"},
+    {"personaje": "Kenji", "linea": "I've eaten it many times in Japan! But I've never seen snow. Have you ever seen it, Sofía?"},
+    {"personaje": "Sofía", "linea": "Yes, I've seen snow in the Andes. And I've ridden a horse, but I've never ridden a camel."},
+    {"personaje": "Abuela Carmen", "linea": "I've danced tango in Argentina and I've met a famous actor. Never say never, mis héroes — life surprises you!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I have eaten octopus twice."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She has ridden a camel in the desert."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We have seen snow in the mountains."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They have met a famous actor."},
+    {"id": "s5", "forma": "negativo", "oracion": "I have never tried octopus."},
+    {"id": "s6", "forma": "negativo", "oracion": "He has never seen snow."},
+    {"id": "s7", "forma": "negativo", "oracion": "We haven't ridden a camel."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Have you ever eaten octopus?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Has she ever danced tango?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Have they ever won a competition?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Have you ever seen snow? Yes, I have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Has he ever ridden a camel? No, he hasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Have you ever sung in public? No, I haven't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Have you ever ate octopus?",
+        "opcion_b": "Have you ever eaten octopus?",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "'Have you ever + past participle?' asks about life experience at any time before now. Answer with 'Yes, I have / No, I haven't' or add details with once, twice, never. 'Ever' goes in questions; 'never' makes the sentence negative.",
+      "tabla": {
+        "titulo": "Ever & Never",
+        "encabezados": ["Word", "Position", "Example"],
+        "filas": [
+          ["ever (questions)", "Have you ever + participle...?", "Have you ever seen snow?"],
+          ["never (negative)", "have/has never + participle", "I have never tried octopus."],
+          ["once / twice", "end of sentence", "I've eaten it twice."],
+          ["Short answers", "Yes, I have. / No, I haven't.", "— Have you? — Yes, I have."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Have you ever ___ octopus?", "opciones": ["ate", "eaten", "eated"], "respuesta": "eaten"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I have ___ seen snow. I live near the beach!", "opciones": ["ever", "never", "yet"], "respuesta": "never"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ she ever ___ a camel?", "opciones": ["Has / ridden", "Have / rode", "Did / ride"], "respuesta": "Has / ridden"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Ever' is normally used in questions.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'I have never eaten octopus' means the same as 'I haven't ever eaten octopus'.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ (ride) a camel twice.", "respuesta": "has ridden"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ you ever ___ (sing) in public?", "respuesta": "Have / sung"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["never", "has", "He", "seen", "snow", "."], "respuesta": "He has never seen snow."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Have you ever rode a horse?", "respuesta": "Have you ever ridden a horse?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I have eaten octopus.", "instruccion": "Make it negative with 'never'.", "respuesta": "I have never eaten octopus."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She has danced tango.", "instruccion": "Turn it into a question with 'ever'.", "respuesta": "Has she ever danced tango?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Answer with details: Have you ever done something scary? What was it?", "respuesta": "Yes, I have. I have ridden a roller coaster twice. It was amazing!"}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Have you ever eaten octopus, Sofía?",
+        "Sofía: Yes, I've eaten it twice in Spain. It's delicious!",
+        "Ben: Wow. I've never tried it. Have you ever seen snow, Kenji?",
+        "Kenji: No, I've never seen snow. But I've visited a volcano!",
+        "Sofía: Amazing! And Abuela Carmen has danced tango in Argentina.",
+        "Ben: Really? She has had the most interesting life!",
+        "Kenji: Yes. Her stories are always the best."
+      ],
+      "gaps": ["octopus", "volcano"],
+      "comprension": [
+        {"pregunta": "How many times has Sofía eaten octopus?", "opciones": ["Never", "Once", "Twice"], "respuesta": "Twice"},
+        {"pregunta": "What has Kenji never seen?", "opciones": ["A volcano", "Snow", "The sea"], "respuesta": "Snow"}
+      ]
+    },
+    "reading": {
+      "texto": "Have you ever eaten octopus? Ben has never tried it, but Sofía has eaten it twice in Spain. Kenji has travelled to many countries, yet he has never seen snow. Abuela Carmen has had the most interesting life: she has danced tango in Argentina, she has ridden a camel, and she has even met a famous actor. The friends have shared many stories, but hers are always the best.",
+      "preguntas": [
+        {"afirmacion": "Ben has tried octopus once.", "respuesta": "false"},
+        {"afirmacion": "Kenji has never seen snow.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen has ridden a camel.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-3 — Present Perfect: Ever & Never",
+    "partes": [
+      {
+        "parte": "A — Completa con el participio correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "Have you ever ___ (eat) octopus?"},
+          {"n": 2, "texto": "She has ___ (ride) a camel twice."},
+          {"n": 3, "texto": "I have never ___ (see) snow."},
+          {"n": 4, "texto": "They have ___ (meet) a famous actor."}
+        ]
+      },
+      {
+        "parte": "B — Escribe preguntas con 'ever' y respuestas cortas",
+        "ejercicios": [
+          {"n": 5, "texto": "(you / dance tango) → pregunta + respuesta ✓"},
+          {"n": 6, "texto": "(he / see snow) → pregunta + respuesta ✗"},
+          {"n": 7, "texto": "(they / win a competition) → pregunta + respuesta ✓"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Have you ever ate octopus?'"},
+          {"n": 9, "texto": "Corrige: 'I have never rode a camel.'"},
+          {"n": 10, "texto": "Escribe 5 preguntas 'Have you ever...?' para entrevistar a un compañero."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. eaten",
+      "2. ridden",
+      "3. seen",
+      "4. met",
+      "5. Have you ever danced tango? Yes, I have.",
+      "6. Has he ever seen snow? No, he hasn't.",
+      "7. Have they ever won a competition? Yes, they have.",
+      "8. Have you ever eaten octopus?",
+      "9. I have never ridden a camel.",
+      "10. Respuesta libre (ej. 'Have you ever flown in a plane? Have you ever sung in public? ...')"
+    ]
+  }
+}

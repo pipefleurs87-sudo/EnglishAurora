@@ -1,0 +1,156 @@
+{
+  "id": "b1-modal-deduction-01",
+  "nivel": "B1",
+  "arquetipo": "modales",
+  "tema": "Modals of Deduction — Must, Can't, Might",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🕵️", "palabra": "detective", "traduccion": "detective"},
+    {"bandera": "🔍", "palabra": "clue", "traduccion": "pista"},
+    {"bandera": "💡", "palabra": "the lights are on", "traduccion": "las luces están encendidas"},
+    {"bandera": "🚗", "palabra": "the car is gone", "traduccion": "el coche no está"},
+    {"bandera": "🌧️", "palabra": "wet umbrella", "traduccion": "paraguas mojado"},
+    {"bandera": "🐾", "palabra": "paw prints", "traduccion": "huellas de patas"},
+    {"bandera": "🍫", "palabra": "empty chocolate box", "traduccion": "caja de chocolates vacía"},
+    {"bandera": "😴", "palabra": "exhausted", "traduccion": "agotado"},
+    {"bandera": "🤒", "palabra": "ill", "traduccion": "enfermo"},
+    {"bandera": "🏆", "palabra": "trophy", "traduccion": "trofeo"},
+    {"bandera": "🎓", "palabra": "graduate", "traduccion": "graduarse"},
+    {"bandera": "💼", "palabra": "briefcase", "traduccion": "maletín"},
+    {"bandera": "🕶️", "palabra": "sunglasses", "traduccion": "gafas de sol"},
+    {"bandera": "❄️", "palabra": "freezing", "traduccion": "helador"},
+    {"bandera": "🔑", "palabra": "locked door", "traduccion": "puerta cerrada con llave"},
+    {"bandera": "☕", "palabra": "fresh coffee", "traduccion": "café recién hecho"},
+    {"bandera": "📦", "palabra": "parcel", "traduccion": "paquete"},
+    {"bandera": "🐱", "palabra": "the cat is missing", "traduccion": "el gato ha desaparecido"},
+    {"bandera": "🤔", "palabra": "I'm not sure", "traduccion": "no estoy seguro"},
+    {"bandera": "💯", "palabra": "certain", "traduccion": "seguro"},
+    {"bandera": "❓", "palabra": "possible", "traduccion": "posible"},
+    {"bandera": "🚫", "palabra": "impossible", "traduccion": "imposible"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Put on your detective hats, heroes. 'Must' means 95% sure, 'can't' means impossible, and 'might' means... maybe."},
+    {"personaje": "Ben", "linea": "The lights are on in Sofía's house. She must be home. Wait — her car is gone. She can't be home!"},
+    {"personaje": "Kenji", "linea": "This umbrella is wet. It might be raining outside. I'm not sure."},
+    {"personaje": "Sofía", "linea": "There are paw prints in the kitchen... and the chocolate box is empty. The thief can't be human. It must be the cat!"},
+    {"personaje": "Abuela Carmen", "linea": "You must be tired after all that thinking, mis héroes. Come — the coffee is fresh. It might even be hot!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The lights are on — she must be home."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "It might rain later."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "He must be tired after the marathon."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "This parcel could be for you."},
+    {"id": "s5", "forma": "negativo", "oracion": "Her car is gone — she can't be home."},
+    {"id": "s6", "forma": "negativo", "oracion": "It can't be true!"},
+    {"id": "s7", "forma": "negativo", "oracion": "He might not come to the party."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "That must be difficult, isn't it?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Could this be your umbrella?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What can that noise be?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is that Kenji's car? It must be."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is she a doctor? She can't be — she's too young."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Will it rain? It might."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "The lights are on, so she can be home. (95% seguro)",
+        "opcion_b": "The lights are on, so she must be home. (95% seguro)",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Deductions about the present: must = almost certain (evidence says yes), can't = almost impossible (evidence says no), might/may/could = possible (50%). Note: the negative deduction is CAN'T, not 'mustn't'.",
+      "tabla": {
+        "titulo": "Modals of Deduction",
+        "encabezados": ["Certainty", "Modal", "Example"],
+        "filas": [
+          ["95% sure (yes)", "must + verb", "She must be home. (lights on)"],
+          ["95% sure (no)", "can't + verb", "She can't be home. (car gone)"],
+          ["50% possible", "might / may / could", "It might rain."],
+          ["Structure", "modal + infinitive (no 'to')", "He must be tired."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The lights are on. She ___ be home.", "opciones": ["must", "can't", "might not"], "respuesta": "must"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Her car is gone. She ___ be home.", "opciones": ["must", "can't", "mustn't"], "respuesta": "can't"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I'm not sure, but it ___ rain later.", "opciones": ["must", "might", "can't"], "respuesta": "might"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Can't' expresses a negative deduction (impossible).", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For deductions we say 'He must to be tired'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He ran a marathon today. He ___ be exhausted!", "respuesta": "must"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "That ___ be the postman — it's midnight! (impossible)", "respuesta": "can't"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["be", "must", "It", "true", "!"], "respuesta": "It must be true!"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She mustn't be home — her car is gone.", "respuesta": "She can't be home — her car is gone."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'm sure she is home.", "instruccion": "Rewrite with 'must'.", "respuesta": "She must be home."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'm sure it isn't true.", "instruccion": "Rewrite with 'can't'.", "respuesta": "It can't be true."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Look around you. Make three deductions: one with must, one with can't, one with might.", "respuesta": "My neighbour must be on holiday — the windows are closed. It can't be Sunday — the shops are open. It might rain later."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Look — the lights are on in Sofía's house. She must be home.",
+        "Kenji: But her car isn't here. She can't be home.",
+        "Ben: Then who turned on the lights?",
+        "Kenji: It might be her sister. She has a key.",
+        "Ben: And what's that noise in the kitchen?",
+        "Kenji: It can't be a person — look at those tiny paw prints!",
+        "Ben: It must be the cat. Mystery solved, detective!"
+      ],
+      "gaps": ["lights", "cat"],
+      "comprension": [
+        {"pregunta": "Why does Ben think Sofía is home at first?", "opciones": ["Her car is there", "The lights are on", "He hears music"], "respuesta": "The lights are on"},
+        {"pregunta": "What made the noise in the kitchen?", "opciones": ["Her sister", "The postman", "The cat"], "respuesta": "The cat"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben and Kenji are playing detectives outside Sofía's house. The lights are on, so somebody must be inside. But Sofía's car is not there, so it can't be her — it might be her sister, who has a key. Then they hear a strange noise in the kitchen and see tiny paw prints on the floor. The mysterious visitor can't be a person. It must be the cat, hunting for chocolates again!",
+      "preguntas": [
+        {"afirmacion": "The lights in the house are off.", "respuesta": "false"},
+        {"afirmacion": "Sofía's car is outside the house.", "respuesta": "false"},
+        {"afirmacion": "The visitor is probably the cat.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-12 — Modals of Deduction",
+    "partes": [
+      {
+        "parte": "A — Completa con must, can't o might",
+        "ejercicios": [
+          {"n": 1, "texto": "The lights are on — she ___ be home."},
+          {"n": 2, "texto": "Her car is gone — she ___ be home."},
+          {"n": 3, "texto": "I'm not sure, but it ___ rain later."},
+          {"n": 4, "texto": "He ran a marathon — he ___ be exhausted!"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe la frase con un modal de deducción",
+        "ejercicios": [
+          {"n": 5, "texto": "I'm sure she is a doctor. → She ___"},
+          {"n": 6, "texto": "I'm sure that isn't true. → That ___"},
+          {"n": 7, "texto": "Perhaps he is ill. → He ___"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She mustn't be home — her car is gone.'"},
+          {"n": 9, "texto": "Corrige: 'He must to be tired.'"},
+          {"n": 10, "texto": "Escribe 3 deducciones sobre tu vecindario: una con must, una con can't y una con might."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. must",
+      "2. can't",
+      "3. might",
+      "4. must",
+      "5. must be a doctor.",
+      "6. can't be true.",
+      "7. might be ill.",
+      "8. She can't be home — her car is gone.",
+      "9. He must be tired.",
+      "10. Respuesta libre (ej. 'The neighbours must be away — the windows are dark. It can't be midnight — the sun is out. It might snow tonight.')"
+    ]
+  }
+}

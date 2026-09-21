@@ -1,0 +1,155 @@
+{
+  "id": "a1-review-identity-01",
+  "nivel": "A1",
+  "arquetipo": "repaso",
+  "tema": "Review 1 — Identity: To Be, Pronouns, Articles, Plurals & Demonstratives",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "🆔", "palabra": "identity", "traduccion": "identidad"},
+    {"bandera": "🌍", "palabra": "nationality", "traduccion": "nacionalidad"},
+    {"bandera": "🇬🇧", "palabra": "British", "traduccion": "británico/a"},
+    {"bandera": "🇯🇵", "palabra": "Japanese", "traduccion": "japonés/a"},
+    {"bandera": "🇨🇴", "palabra": "Colombian", "traduccion": "colombiano/a"},
+    {"bandera": "🇪🇸", "palabra": "Spanish", "traduccion": "español/a"},
+    {"bandera": "🙋", "palabra": "I / my / me", "traduccion": "yo / mi / me"},
+    {"bandera": "👩", "palabra": "she / her", "traduccion": "ella / su"},
+    {"bandera": "👥", "palabra": "they / their / them", "traduccion": "ellos / su / les"},
+    {"bandera": "🍎", "palabra": "an apple", "traduccion": "una manzana"},
+    {"bandera": "📕", "palabra": "a book", "traduccion": "un libro"},
+    {"bandera": "☀️", "palabra": "the sun", "traduccion": "el sol"},
+    {"bandera": "🧒", "palabra": "child → children", "traduccion": "niño → niños"},
+    {"bandera": "🐭", "palabra": "mouse → mice", "traduccion": "ratón → ratones"},
+    {"bandera": "🐑", "palabra": "sheep → sheep", "traduccion": "oveja → ovejas"},
+    {"bandera": "🦷", "palabra": "tooth → teeth", "traduccion": "diente → dientes"},
+    {"bandera": "👇", "palabra": "this / these", "traduccion": "este / estos"},
+    {"bandera": "👉", "palabra": "that / those", "traduccion": "ese / esos"},
+    {"bandera": "🧑‍🎓", "palabra": "student", "traduccion": "estudiante"},
+    {"bandera": "🧑‍🏫", "palabra": "teacher", "traduccion": "profesor/a"},
+    {"bandera": "👪", "palabra": "family", "traduccion": "familia"},
+    {"bandera": "🤝", "palabra": "friend", "traduccion": "amigo/a"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "First checkpoint, heroes! Everything from lessons 1 to 6: who you are, what you own, and the words that point."},
+    {"personaje": "Ben", "linea": "I am Ben. I am British, and this is my dog. These are his toys!"},
+    {"personaje": "Kenji", "linea": "I am Japanese. Those children over there are my sister's students."},
+    {"personaje": "Sofía", "linea": "I am Colombian. My family is big: five people, two cats and an old house."},
+    {"personaje": "Abuela Carmen", "linea": "And I am your Spanish grandmother. My grandchildren are my treasure — all five of them!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I am Colombian and my family is big."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "These are his toys."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Those children are her students."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "There are five people in my family."},
+    {"id": "s5", "forma": "negativo", "oracion": "I am not Spanish."},
+    {"id": "s6", "forma": "negativo", "oracion": "This isn't my book."},
+    {"id": "s7", "forma": "negativo", "oracion": "They aren't teachers."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Are you a student?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Is this your pen?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Are those her children?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is Ben British? Yes, he is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are these your keys? No, they aren't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is she your teacher? Yes, she is."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Those childs are her students.",
+        "opcion_b": "Those children are her students.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Checkpoint of lessons 1-6: to be (am/is/are), pronouns and possessives (I/my, she/her), articles (a/an/the), plurals (books, children, mice) and demonstratives (this/that/these/those).",
+      "tabla": {
+        "titulo": "Review map — lessons 1 to 6",
+        "encabezados": ["Topic", "Key rule", "Example"],
+        "filas": [
+          ["To be", "I am / you are / she is", "She is Colombian."],
+          ["Possessives", "my, your, his, her, our, their", "This is my dog."],
+          ["Articles", "a + consonant, an + vowel, the = specific", "an apple, the sun"],
+          ["Plurals", "+s, +es, y→ies, irregular", "children, mice, sheep"],
+          ["Demonstratives", "this/these (near), that/those (far)", "These are my books."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Kenji ___ Japanese.", "opciones": ["am", "is", "are"], "respuesta": "is"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Sofía calls ___ mother every Sunday.", "opciones": ["his", "her", "their"], "respuesta": "her"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ mountains over there are huge.", "opciones": ["This", "These", "Those"], "respuesta": "Those"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'an hour' because the 'h' is silent.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The plural of 'mouse' is 'mouses'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "There are three ___ in the garden. (sheep)", "respuesta": "sheep"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ is my pen. (here, singular)", "respuesta": "This"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["are", "These", "books", "my", "."], "respuesta": "These are my books."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "They is my friends.", "respuesta": "They are my friends."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She is American.", "instruccion": "Make it negative.", "respuesta": "She isn't American."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "This is my key.", "instruccion": "Make it plural.", "respuesta": "These are my keys."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Introduce yourself: name, nationality, and one thing you own. (3 sentences.)", "respuesta": "I am Ana. I am Mexican. This is my bike."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Aurora: Heroes, introduce yourselves to the new student!",
+        "Ben: I am Ben. I am British, and this is my dog, Sherlock.",
+        "Kenji: I am Kenji, from Japan. Those are my books over there.",
+        "Sofía: I am Sofía, from Colombia. These are my paintings.",
+        "Abuela Carmen: And I am Carmen. These children are my grandchildren."
+      ],
+      "gaps": ["British", "grandchildren"],
+      "comprension": [
+        {"pregunta": "What is Ben's dog called?", "opciones": ["Rex", "Sherlock", "Rocky"], "respuesta": "Sherlock"},
+        {"pregunta": "Whose paintings are they?", "opciones": ["Carmen's", "Sofía's", "Kenji's"], "respuesta": "Sofía's"}
+      ]
+    },
+    "reading": {
+      "texto": "Welcome to our class! This is Ben; he is British, and this is his dog, Sherlock. That is Kenji; he is Japanese, and those are his books. This is Sofía; she is Colombian, and these are her paintings. And this is Abuela Carmen, our Spanish grandmother. Those children over there are her grandchildren. We are all different, and we are all friends.",
+      "preguntas": [
+        {"afirmacion": "Ben is British.", "respuesta": "true"},
+        {"afirmacion": "Kenji is Chinese.", "respuesta": "false"},
+        {"afirmacion": "The children are Carmen's grandchildren.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 29 — Review 1: Identity",
+    "partes": [
+      {
+        "parte": "A — To be, pronombres y artículos",
+        "ejercicios": [
+          {"n": 1, "texto": "She ___ British. (am/is/are)"},
+          {"n": 2, "texto": "Ben walks ___ dog. (his/her/their)"},
+          {"n": 3, "texto": "___ apple a day keeps the doctor away. (A/An/The)"},
+          {"n": 4, "texto": "They ___ students. (am/is/are)"}
+        ]
+      },
+      {
+        "parte": "B — Plurales y demostrativos",
+        "ejercicios": [
+          {"n": 5, "texto": "child → ___"},
+          {"n": 6, "texto": "mouse → ___"},
+          {"n": 7, "texto": "___ are my shoes. (cerca) / ___ are my mountains. (lejos)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'This are my books.'"},
+          {"n": 9, "texto": "Corrige: 'She is a engineer.'"},
+          {"n": 10, "texto": "Preséntate con 4 oraciones: nombre, nacionalidad, familia y una posesión."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. is",
+      "2. his",
+      "3. An",
+      "4. are",
+      "5. children",
+      "6. mice",
+      "7. These / Those",
+      "8. These are my books.",
+      "9. She is an engineer.",
+      "10. Respuesta libre (ej. 'I am Ana. I am Mexican. My family is big. This is my dog.')"
+    ]
+  }
+}

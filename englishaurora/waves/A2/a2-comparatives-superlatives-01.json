@@ -1,0 +1,156 @@
+{
+  "id": "a2-comparatives-superlatives-01",
+  "nivel": "A2",
+  "arquetipo": "adjetivos",
+  "tema": "Comparatives & Superlatives — The Tournament of Adjectives",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "📏", "palabra": "tall → taller → the tallest", "traduccion": "alto → más alto → el más alto"},
+    {"bandera": "🐘", "palabra": "big → bigger → the biggest", "traduccion": "grande → más grande → el más grande"},
+    {"bandera": "⚡", "palabra": "fast → faster → the fastest", "traduccion": "rápido → más rápido → el más rápido"},
+    {"bandera": "🐢", "palabra": "slow → slower → the slowest", "traduccion": "lento → más lento → el más lento"},
+    {"bandera": "😊", "palabra": "happy → happier → the happiest", "traduccion": "feliz → más feliz → el más feliz"},
+    {"bandera": "🧠", "palabra": "clever → cleverer → the cleverest", "traduccion": "listo → más listo → el más listo"},
+    {"bandera": "🌟", "palabra": "beautiful → more beautiful → the most beautiful", "traduccion": "hermoso → más hermoso → el más hermoso"},
+    {"bandera": "🎢", "palabra": "exciting → more exciting → the most exciting", "traduccion": "emocionante → más emocionante → el más emocionante"},
+    {"bandera": "💎", "palabra": "expensive → more expensive → the most expensive", "traduccion": "caro → más caro → el más caro"},
+    {"bandera": "😴", "palabra": "boring → more boring → the most boring", "traduccion": "aburrido → más aburrido → el más aburrido"},
+    {"bandera": "👍", "palabra": "good → better → the best", "traduccion": "bueno → mejor → el mejor"},
+    {"bandera": "👎", "palabra": "bad → worse → the worst", "traduccion": "malo → peor → el peor"},
+    {"bandera": "🧭", "palabra": "far → further → the furthest", "traduccion": "lejos → más lejos → el más lejos"},
+    {"bandera": "⚖️", "palabra": "than", "traduccion": "que (comparación)"},
+    {"bandera": "🌍", "palabra": "in the world", "traduccion": "del mundo"},
+    {"bandera": "👥", "palabra": "of all", "traduccion": "de todos"},
+    {"bandera": "🏔️", "palabra": "mountain", "traduccion": "montaña"},
+    {"bandera": "🌊", "palabra": "ocean", "traduccion": "océano"},
+    {"bandera": "🏙️", "palabra": "city", "traduccion": "ciudad"},
+    {"bandera": "🐆", "palabra": "cheetah", "traduccion": "guepardo"},
+    {"bandera": "🐢", "palabra": "turtle", "traduccion": "tortuga"},
+    {"bandera": "📚", "palabra": "easy → easier → the easiest", "traduccion": "fácil → más fácil → el más fácil"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Welcome to the Tournament of Adjectives, heroes! Who is taller? Who is the fastest of all? Let the battle begin."},
+    {"personaje": "Ben", "linea": "London is bigger than Medellín, but Medellín is more beautiful!"},
+    {"personaje": "Kenji", "linea": "My phone is more expensive than yours, but yours is better."},
+    {"personaje": "Sofía", "linea": "The cheetah is the fastest animal in the world, and the turtle is the slowest."},
+    {"personaje": "Abuela Carmen", "linea": "My soup is the best in the neighborhood. And dancing is the most exciting exercise of all!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "London is bigger than Medellín."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "My phone is more expensive than yours."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "The cheetah is the fastest animal in the world."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Her soup is the best in the neighborhood."},
+    {"id": "s5", "forma": "negativo", "oracion": "English isn't more difficult than Spanish."},
+    {"id": "s6", "forma": "negativo", "oracion": "The turtle isn't faster than the cheetah."},
+    {"id": "s7", "forma": "negativo", "oracion": "This isn't the worst movie of the year."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is London bigger than Medellín?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Which is the fastest animal?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is your phone more expensive than mine?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is English easier than Japanese? Yes, it is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is this the best restaurant? No, it isn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is the cheetah faster than the turtle? Yes, it is."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "London is more big than Medellín.",
+        "opcion_b": "London is bigger than Medellín.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Short adjectives take '-er/-est' (tall→taller→the tallest); long adjectives take 'more/the most' (beautiful→more beautiful→the most beautiful). Irregulars: good→better→best, bad→worse→worst. Compare with 'than'.",
+      "tabla": {
+        "titulo": "Comparative & superlative rules",
+        "encabezados": ["Adjective type", "Comparative", "Superlative"],
+        "filas": [
+          ["Short (tall, fast)", "taller than", "the tallest"],
+          ["Ends in -y (happy, easy)", "happier than", "the happiest"],
+          ["Long (beautiful, expensive)", "more beautiful than", "the most beautiful"],
+          ["Irregular", "better / worse than", "the best / the worst"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "London is ___ than Medellín.", "opciones": ["bigger", "more big", "biggest"], "respuesta": "bigger"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The cheetah is ___ animal in the world.", "opciones": ["faster", "the fastest", "the most fast"], "respuesta": "the fastest"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Her soup is ___ in the neighborhood.", "opciones": ["better", "the best", "the better"], "respuesta": "the best"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Long adjectives use 'more' and 'the most'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The comparative of 'good' is 'gooder'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "My phone is ___ than yours. (expensive)", "respuesta": "more expensive"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "This is ___ movie of the year. (bad)", "respuesta": "the worst"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["is", "The turtle", "slower", "than the cheetah", "."], "respuesta": "The turtle is slower than the cheetah."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "London is more big than Medellín.", "respuesta": "London is bigger than Medellín."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The cheetah is fast.", "instruccion": "Make it a superlative.", "respuesta": "The cheetah is the fastest animal."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "London is bigger than Medellín.", "instruccion": "Turn it into a question.", "respuesta": "Is London bigger than Medellín?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Compare two things in your life. (Use a comparative with 'than'.)", "respuesta": "My house is smaller than my friend's house."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: Let's compare! Which is faster, a car or a bike?",
+        "Ben: A car is faster than a bike, obviously.",
+        "Kenji: OK. And which is more expensive, your phone or mine?",
+        "Ben: Yours! But mine is better.",
+        "Kenji: Ha! Final question: what is the most beautiful city in the world?",
+        "Ben: London, of course!",
+        "Kenji: Wrong! It's Kyoto!"
+      ],
+      "gaps": ["faster", "beautiful"],
+      "comprension": [
+        {"pregunta": "Whose phone is more expensive?", "opciones": ["Ben's", "Kenji's", "Sofía's"], "respuesta": "Kenji's"},
+        {"pregunta": "For Ben, what is the most beautiful city?", "opciones": ["Kyoto", "London", "Medellín"], "respuesta": "London"}
+      ]
+    },
+    "reading": {
+      "texto": "My friends love to compare everything. Ben says London is bigger than Medellín, but Sofía says Medellín is more beautiful. Kenji's phone is more expensive than Ben's, but Ben's is better. We all agree the cheetah is the fastest animal in the world and the turtle is the slowest. And Abuela Carmen's soup? It is the best in the neighborhood — that is a fact!",
+      "preguntas": [
+        {"afirmacion": "London is bigger than Medellín.", "respuesta": "true"},
+        {"afirmacion": "Ben's phone is more expensive than Kenji's.", "respuesta": "false"},
+        {"afirmacion": "The turtle is the slowest animal.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-6 — Comparatives & Superlatives",
+    "partes": [
+      {
+        "parte": "A — Escribe el comparativo y el superlativo",
+        "ejercicios": [
+          {"n": 1, "texto": "tall → ___ → ___"},
+          {"n": 2, "texto": "happy → ___ → ___"},
+          {"n": 3, "texto": "beautiful → ___ → ___"},
+          {"n": 4, "texto": "good → ___ → ___"}
+        ]
+      },
+      {
+        "parte": "B — Completa la comparación",
+        "ejercicios": [
+          {"n": 5, "texto": "London is ___ (big) than Medellín."},
+          {"n": 6, "texto": "My phone is ___ (expensive) than yours."},
+          {"n": 7, "texto": "This is ___ (bad) movie of the year."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'London is more big than Medellín.'"},
+          {"n": 9, "texto": "Corrige: 'This is the most fast car.'"},
+          {"n": 10, "texto": "Escribe 3 comparaciones y 1 superlativo sobre tu ciudad o tu familia."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. taller / the tallest",
+      "2. happier / the happiest",
+      "3. more beautiful / the most beautiful",
+      "4. better / the best",
+      "5. bigger",
+      "6. more expensive",
+      "7. the worst",
+      "8. London is bigger than Medellín.",
+      "9. This is the fastest car.",
+      "10. Respuesta libre (ej. 'My city is smaller than Bogotá. My brother is taller than me. My mom is the best cook in the family.')"
+    ]
+  }
+}

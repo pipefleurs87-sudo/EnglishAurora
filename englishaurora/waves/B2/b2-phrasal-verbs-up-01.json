@@ -1,0 +1,156 @@
+{
+  "id": "b2-phrasal-verbs-up-01",
+  "nivel": "B2",
+  "arquetipo": "phrasal_verbs",
+  "tema": "Phrasal Verbs with UP",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "⏰", "palabra": "wake up", "traduccion": "despertarse"},
+    {"bandera": "🧹", "palabra": "tidy up", "traduccion": "ordenar"},
+    {"bandera": "🔍", "palabra": "come across", "traduccion": "encontrarse con (por casualidad)"},
+    {"bandera": "😊", "palabra": "cheer up", "traduccion": "animarse / animar"},
+    {"bandera": "💔", "palabra": "break up", "traduccion": "romper (una relación)"},
+    {"bandera": "🚪", "palabra": "show up", "traduccion": "aparecer"},
+    {"bandera": "🔚", "palabra": "end up", "traduccion": "acabar (terminar en)"},
+    {"bandera": "🧽", "palabra": "clean up", "traduccion": "limpiar"},
+    {"bandera": "🍼", "palabra": "bring up", "traduccion": "criar / mencionar un tema"},
+    {"bandera": "🎈", "palabra": "blow up", "traduccion": "inflar / explotar"},
+    {"bandera": "🏃", "palabra": "catch up", "traduccion": "ponerse al día"},
+    {"bandera": "✂️", "palabra": "cut up", "traduccion": "cortar en trozos"},
+    {"bandera": "🎁", "palabra": "wrap up", "traduccion": "envolver / concluir"},
+    {"bandera": "📞", "palabra": "hang up", "traduccion": "colgar (el teléfono)"},
+    {"bandera": "🚗", "palabra": "pick up", "traduccion": "recoger"},
+    {"bandera": "🛠️", "palabra": "fix up", "traduccion": "arreglar / renovar"},
+    {"bandera": "🥾", "palabra": "dress up", "traduccion": "vestirse elegante / disfrazarse"},
+    {"bandera": "📈", "palabra": "go up", "traduccion": "subir (precios)"},
+    {"bandera": "🤲", "palabra": "give up", "traduccion": "rendirse"},
+    {"bandera": "🍲", "palabra": "heat up", "traduccion": "calentar"},
+    {"bandera": "🔊", "palabra": "turn up", "traduccion": "subir (volumen) / aparecer"},
+    {"bandera": "💪", "palabra": "work up", "traduccion": "generar (apetito, energía)"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The particle 'up' lifts everything, heroes: it finishes, improves, appears and completes. Feel its energy!"},
+    {"personaje": "Ben", "linea": "I woke up late, tidied up my studio, and while I was cleaning I came across my first camera."},
+    {"personaje": "Kenji", "linea": "I broke up with my old recipe book — I've ended up inventing my own ramen!"},
+    {"personaje": "Sofía", "linea": "Cheer up, Ben! I'll pick you up at seven, we'll dress up, and we'll catch up over dinner."},
+    {"personaje": "Abuela Carmen", "linea": "I brought up four children and never gave up. And now, mis héroes, let me heat up the soup. Eat up!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I woke up at six and tidied up my room."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She came across an old photo album."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Kenji showed up with dessert."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "We ended up talking all night."},
+    {"id": "s5", "forma": "negativo", "oracion": "He didn't show up at the meeting."},
+    {"id": "s6", "forma": "negativo", "oracion": "I never give up."},
+    {"id": "s7", "forma": "negativo", "oracion": "She didn't pick up the phone."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you catch up with the news?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What time did you wake up?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Can you heat up the soup?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he show up? No, he didn't."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did she cheer up? Yes, she did."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they break up? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I came up across an old photo.",
+        "opcion_b": "I came across an old photo.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Phrasal verbs with 'up' often express completion (eat up, tidy up), improvement (cheer up, fix up), appearance (show up, turn up) or origin (wake up, bring up). With pronouns, separable verbs split: 'cheer him up', 'clean it up'.",
+      "tabla": {
+        "titulo": "UP — meanings",
+        "encabezados": ["Meaning", "Verbs", "Example"],
+        "filas": [
+          ["Complete/finish", "eat up, clean up, wrap up", "Eat up your dinner!"],
+          ["Improve", "cheer up, fix up, dress up", "Cheer up! It's Friday."],
+          ["Appear", "show up, turn up", "He didn't show up."],
+          ["Separable with pronoun", "pick up, heat up", "I'll pick you up."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "While cleaning, I ___ an old photo album.", "opciones": ["came across", "came up", "came on"], "respuesta": "came across"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He didn't ___ at the meeting. Nobody saw him.", "opciones": ["show up", "show off", "show down"], "respuesta": "show up"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I'll pick ___ at seven. (you)", "opciones": ["up you", "you up", "up to you"], "respuesta": "you up"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "With pronouns, separable phrasal verbs split: 'cheer him up'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Give up' means 'continue trying'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We ___ (end) talking about old times all night.", "respuesta": "ended up"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Can you ___ the soup? It's cold. (heat)", "respuesta": "heat up"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["up", "Cheer", "!", "It's Friday", ""], "respuesta": "Cheer up! It's Friday."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I'll pick up you at seven.", "respuesta": "I'll pick you up at seven."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She came across an old photo.", "instruccion": "Make it negative.", "respuesta": "She didn't come across an old photo."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Kenji showed up with dessert.", "instruccion": "Turn it into a question.", "respuesta": "Did Kenji show up with dessert?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe your last weekend using three phrasal verbs with 'up'.", "respuesta": "I woke up late, tidied up my flat, and ended up watching films with friends."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: You won't believe what I came across today, Ben!",
+        "Ben: What? Show me!",
+        "Sofía: Some old photos of us. I was tidying up my flat.",
+        "Ben: Oh, I needed that. I just broke up with my girlfriend...",
+        "Sofía: Oh, Ben... Cheer up! I'll pick you up at seven and we'll catch up over dinner.",
+        "Ben: Thanks, Sofía. That cheers me up already.",
+        "Sofía: And guess what — Kenji has offered to heat up his famous ramen for us!"
+      ],
+      "gaps": ["photos", "seven"],
+      "comprension": [
+        {"pregunta": "What did Sofía find while cleaning?", "opciones": ["Old letters", "Old photos", "An old camera"], "respuesta": "Old photos"},
+        {"pregunta": "Why was Ben sad?", "opciones": ["He lost his camera", "He broke up with his girlfriend", "He missed a train"], "respuesta": "He broke up with his girlfriend"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía woke up early and decided to tidy up her flat. While she was cleaning, she came across some old photos and cheered up immediately. She called Ben, who had just broken up with his girlfriend, and invited him to lunch to cheer him up. Kenji showed up with dessert, and they ended up talking about old times. When life gets messy, friends always help you clean it up.",
+      "preguntas": [
+        {"afirmacion": "Sofía found old photos while cleaning.", "respuesta": "true"},
+        {"afirmacion": "Ben broke up with his girlfriend.", "respuesta": "true"},
+        {"afirmacion": "Kenji brought the main course.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-1 — Phrasal Verbs with UP",
+    "partes": [
+      {
+        "parte": "A — Completa con el phrasal verb correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "I ___ an old photo album while cleaning. (encontré por casualidad)"},
+          {"n": 2, "texto": "He didn't ___ at the meeting. (aparecer)"},
+          {"n": 3, "texto": "___ ! It's not the end of the world. (anímate)"},
+          {"n": 4, "texto": "We ___ talking all night. (acabamos)"}
+        ]
+      },
+      {
+        "parte": "B — Coloca el pronombre en el lugar correcto",
+        "ejercicios": [
+          {"n": 5, "texto": "pick up / I / you / at seven →"},
+          {"n": 6, "texto": "heat up / can you / it / please? →"},
+          {"n": 7, "texto": "cheer up / her friends / her / tried to →"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I'll pick up you at seven.'"},
+          {"n": 9, "texto": "Corrige: 'I came up across an old photo.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre tu día de ayer con phrasal verbs con 'up'."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. came across",
+      "2. show up",
+      "3. Cheer up",
+      "4. ended up",
+      "5. I'll pick you up at seven.",
+      "6. Can you heat it up, please?",
+      "7. Her friends tried to cheer her up.",
+      "8. I'll pick you up at seven.",
+      "9. I came across an old photo.",
+      "10. Respuesta libre (ej. 'I woke up at seven. I cleaned up the kitchen. I caught up with the news. I ended up cooking pasta.')"
+    ]
+  }
+}

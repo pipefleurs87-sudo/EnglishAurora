@@ -1,0 +1,155 @@
+{
+  "id": "a2-there-is-there-are-01",
+  "nivel": "A2",
+  "arquetipo": "existenciales",
+  "tema": "There Is / There Are — Mapping the World",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🛏️", "palabra": "bed", "traduccion": "cama"},
+    {"bandera": "🪑", "palabra": "chair", "traduccion": "silla"},
+    {"bandera": "🛋️", "palabra": "sofa", "traduccion": "sofá"},
+    {"bandera": "🖥️", "palabra": "desk", "traduccion": "escritorio"},
+    {"bandera": "🚪", "palabra": "wardrobe", "traduccion": "armario"},
+    {"bandera": "🪟", "palabra": "window", "traduccion": "ventana"},
+    {"bandera": "🖼️", "palabra": "picture", "traduccion": "cuadro"},
+    {"bandera": "🛁", "palabra": "bathroom", "traduccion": "baño"},
+    {"bandera": "🍳", "palabra": "kitchen", "traduccion": "cocina"},
+    {"bandera": "🛗", "palabra": "elevator", "traduccion": "ascensor"},
+    {"bandera": "🌳", "palabra": "garden", "traduccion": "jardín"},
+    {"bandera": "🚗", "palabra": "garage", "traduccion": "garaje"},
+    {"bandera": "🏊", "palabra": "swimming pool", "traduccion": "piscina"},
+    {"bandera": "📚", "palabra": "bookshelf", "traduccion": "estantería"},
+    {"bandera": "🛎️", "palabra": "reception", "traduccion": "recepción"},
+    {"bandera": "🧺", "palabra": "laundry room", "traduccion": "lavandería"},
+    {"bandera": "🚲", "palabra": "bike rack", "traduccion": "aparcabicis"},
+    {"bandera": "🔥", "palabra": "fireplace", "traduccion": "chimenea"},
+    {"bandera": "🪜", "palabra": "stairs", "traduccion": "escaleras"},
+    {"bandera": "🏠", "palabra": "upstairs / downstairs", "traduccion": "arriba / abajo"},
+    {"bandera": "🚪", "palabra": "balcony", "traduccion": "balcón"},
+    {"bandera": "💡", "palabra": "lamp", "traduccion": "lámpara"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Every map needs a legend, heroes. 'There is' marks one treasure; 'there are' marks many."},
+    {"personaje": "Ben", "linea": "In my flat there is a small kitchen and there are two bedrooms."},
+    {"personaje": "Kenji", "linea": "Is there an elevator in your building? There isn't one in mine!"},
+    {"personaje": "Sofía", "linea": "There is a beautiful garden behind my house, and there are three balconies."},
+    {"personaje": "Abuela Carmen", "linea": "In my house there is a fireplace, and there are photos everywhere. Are there stairs? Of course — I climb them every day!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "There is a small kitchen in my flat."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "There are two bedrooms upstairs."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "There is a garden behind the house."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "There are three balconies."},
+    {"id": "s5", "forma": "negativo", "oracion": "There isn't an elevator in my building."},
+    {"id": "s6", "forma": "negativo", "oracion": "There aren't any pictures on the wall."},
+    {"id": "s7", "forma": "negativo", "oracion": "There isn't a garage."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is there an elevator in your building?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Are there any shops near here?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How many bedrooms are there?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is there a garden? Yes, there is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are there stairs? No, there aren't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is there a pool? Yes, there is."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "There is two bedrooms upstairs.",
+        "opcion_b": "There are two bedrooms upstairs.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use 'there is' for one thing and 'there are' for many. In negatives and questions with plural, add 'any': 'There aren't any shops', 'Are there any shops?'",
+      "tabla": {
+        "titulo": "There is / There are",
+        "encabezados": ["Form", "Singular", "Plural"],
+        "filas": [
+          ["Affirmative", "There is a kitchen.", "There are two bedrooms."],
+          ["Negative", "There isn't a garage.", "There aren't any pictures."],
+          ["Question", "Is there a garden?", "Are there any shops?"],
+          ["Short answer", "Yes, there is.", "No, there aren't."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "There ___ two bedrooms upstairs.", "opciones": ["is", "are", "be"], "respuesta": "are"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ there an elevator in your building?", "opciones": ["Is", "Are", "There"], "respuesta": "Is"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "There aren't ___ pictures on the wall.", "opciones": ["some", "any", "a"], "respuesta": "any"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We use 'there are' for plural things.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In negative sentences we use 'some'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ a garden behind the house. (singular)", "respuesta": "There is"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ any shops near here? (plural question)", "respuesta": "Are there"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["is", "There", "a fireplace", "in the living room", "."], "respuesta": "There is a fireplace in the living room."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "There is three balconies.", "respuesta": "There are three balconies."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "There is a garage.", "instruccion": "Make it negative.", "respuesta": "There isn't a garage."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "There are shops near here.", "instruccion": "Turn it into a question.", "respuesta": "Are there any shops near here?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe your room with 'there is' and 'there are'. (2 sentences.)", "respuesta": "There is a bed and a desk. There are two windows."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: Tell me about your new flat, Ben!",
+        "Ben: Well, there is a small kitchen and a big living room.",
+        "Kenji: Nice! How many bedrooms are there?",
+        "Ben: There are two bedrooms upstairs.",
+        "Kenji: Is there an elevator?",
+        "Ben: No, there isn't. But there is a balcony with a great view!"
+      ],
+      "gaps": ["kitchen", "balcony"],
+      "comprension": [
+        {"pregunta": "How many bedrooms are there?", "opciones": ["One", "Two", "Three"], "respuesta": "Two"},
+        {"pregunta": "Is there an elevator?", "opciones": ["Yes, there is", "No, there isn't", "There are two"], "respuesta": "No, there isn't"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben's new flat is small but comfortable. There is a small kitchen and a big living room with a fireplace. There are two bedrooms upstairs, and there is a balcony with a great view. There isn't an elevator, so Ben climbs the stairs every day. There aren't any pictures on the walls yet, but there are boxes full of books everywhere. It already feels like home.",
+      "preguntas": [
+        {"afirmacion": "There is a fireplace in the living room.", "respuesta": "true"},
+        {"afirmacion": "There is an elevator in the building.", "respuesta": "false"},
+        {"afirmacion": "There are boxes full of books.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-7 — There Is / There Are",
+    "partes": [
+      {
+        "parte": "A — Completa con there is / there are / there isn't / there aren't",
+        "ejercicios": [
+          {"n": 1, "texto": "___ a garden behind the house."},
+          {"n": 2, "texto": "___ two bedrooms upstairs."},
+          {"n": 3, "texto": "___ an elevator. (negative)"},
+          {"n": 4, "texto": "___ any pictures on the wall. (negative)"}
+        ]
+      },
+      {
+        "parte": "B — Escribe la pregunta y la respuesta corta",
+        "ejercicios": [
+          {"n": 5, "texto": "(a garden) → pregunta + respuesta ✓"},
+          {"n": 6, "texto": "(stairs) → pregunta + respuesta ✗"},
+          {"n": 7, "texto": "(shops near here) → pregunta + respuesta ✓"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'There is two bedrooms.'"},
+          {"n": 9, "texto": "Corrige: 'There aren't some pictures.'"},
+          {"n": 10, "texto": "Describe tu casa con 4 oraciones: 2 con there is/are y 2 con there isn't/aren't."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. There is",
+      "2. There are",
+      "3. There isn't",
+      "4. There aren't",
+      "5. Is there a garden? Yes, there is.",
+      "6. Are there stairs? No, there aren't.",
+      "7. Are there any shops near here? Yes, there are.",
+      "8. There are two bedrooms.",
+      "9. There aren't any pictures.",
+      "10. Respuesta libre (ej. 'There is a kitchen. There are two bedrooms. There isn't a garden. There aren't any stairs.')"
+    ]
+  }
+}

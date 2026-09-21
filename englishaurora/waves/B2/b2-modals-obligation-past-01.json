@@ -1,0 +1,157 @@
+{
+  "id": "b2-modals-obligation-past-01",
+  "nivel": "B2",
+  "arquetipo": "modales",
+  "tema": "Obligation in the Past — Had To, Should Have, Was Supposed To, Needn't Have",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "⏰", "palabra": "work late", "traduccion": "trabajar hasta tarde"},
+    {"bandera": "🪑", "palabra": "carry the chairs", "traduccion": "llevar las sillas"},
+    {"bandera": "📱", "palabra": "the phone died", "traduccion": "el móvil se apagó (sin batería)"},
+    {"bandera": "🍰", "palabra": "apologize", "traduccion": "disculparse"},
+    {"bandera": "🎈", "palabra": "set up the party", "traduccion": "preparar la fiesta"},
+    {"bandera": "🧾", "palabra": "pay in advance", "traduccion": "pagar por adelantado"},
+    {"bandera": "📋", "palabra": "fill in a form", "traduccion": "rellenar un formulario"},
+    {"bandera": "🚑", "palabra": "go to hospital", "traduccion": "ir al hospital"},
+    {"bandera": "💊", "palabra": "take pills", "traduccion": "tomar pastillas"},
+    {"bandera": "🧑‍💼", "palabra": "attend a meeting", "traduccion": "asistir a una reunión"},
+    {"bandera": "🎁", "palabra": "bring a gift", "traduccion": "traer un regalo"},
+    {"bandera": "🧹", "palabra": "clean up afterwards", "traduccion": "limpiar después"},
+    {"bandera": "🕗", "palabra": "arrive at eight", "traduccion": "llegar a las ocho"},
+    {"bandera": "📞", "palabra": "give a call", "traduccion": "llamar"},
+    {"bandera": "🍲", "palabra": "cook everything", "traduccion": "cocinarlo todo"},
+    {"bandera": "😟", "palabra": "worry", "traduccion": "preocuparse"},
+    {"bandera": "🙇", "palabra": "regret", "traduccion": "arrepentirse"},
+    {"bandera": "🤦", "palabra": "blame", "traduccion": "culpar"},
+    {"bandera": "🫂", "palabra": "forgive", "traduccion": "perdonar"},
+    {"bandera": "🚗", "palabra": "give a lift", "traduccion": "llevar en coche"},
+    {"bandera": "🎵", "palabra": "bring the music", "traduccion": "traer la música"},
+    {"bandera": "📆", "palabra": "reschedule", "traduccion": "reprogramar"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Past obligations and past regrets, heroes: what we HAD to do, what we SHOULD have done, and what we NEEDN'T have worried about."},
+    {"personaje": "Ben", "linea": "I was supposed to arrive at eight, but I had to work late. I should have called!"},
+    {"personaje": "Kenji", "linea": "I was supposed to help Sofía with the chairs. I should have been there. Sorry!"},
+    {"personaje": "Sofía", "linea": "Don't worry. You needn't have brought anything anyway — Abuela Carmen had cooked everything."},
+    {"personaje": "Abuela Carmen", "linea": "You shouldn't have worried about the food, mis héroes. But Ben... you ought to have apologized earlier!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I had to work late last night."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He was supposed to arrive at eight."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She should have called me."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They ought to have apologized."},
+    {"id": "s5", "forma": "negativo", "oracion": "You needn't have worried about the food."},
+    {"id": "s6", "forma": "negativo", "oracion": "We didn't have to pay in advance."},
+    {"id": "s7", "forma": "negativo", "oracion": "You shouldn't have blamed him."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you have to work late?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Was he supposed to bring the music?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Should I have called earlier?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you have to go? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was she supposed to help? Yes, she was."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Should they have waited? No, they shouldn't have."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "You should have call me.",
+        "opcion_b": "You should have called me.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Past obligation: had to (necessary), was/were supposed to (expected plan, often unfulfilled), should/ought to have + participle (regret or criticism), needn't have + participle (done but unnecessary), didn't have to (not necessary, often not done).",
+      "tabla": {
+        "titulo": "Past Obligation & Regret",
+        "encabezados": ["Form", "Meaning", "Example"],
+        "filas": [
+          ["had to", "past obligation", "I had to work late."],
+          ["was supposed to", "expected plan (unfulfilled)", "He was supposed to arrive at eight."],
+          ["should have + pp", "regret / criticism", "You should have called."],
+          ["needn't have + pp", "unnecessary but done", "You needn't have worried."],
+          ["didn't have to", "not necessary", "We didn't have to pay."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I was supposed to arrive at eight, but I ___ work late.", "opciones": ["had to", "should have", "needn't have"], "respuesta": "had to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "You ___ called me! I was worried. (reproach)", "opciones": ["should have", "had to", "were supposed"], "respuesta": "should have"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "You ___ worried about the food — Carmen cooked everything. (unnecessary)", "opciones": ["needn't have", "shouldn't have", "didn't have to"], "respuesta": "needn't have"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Was supposed to' often describes a plan that didn't happen.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'should have' we use the infinitive, not the participle.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He was supposed to ___ (help) her with the chairs.", "respuesta": "help"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We didn't have to ___ (pay) in advance.", "respuesta": "pay"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["have", "should", "You", "called", "me", "."], "respuesta": "You should have called me."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "You should have call me.", "respuesta": "You should have called me."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "It was necessary for me to work late.", "instruccion": "Rewrite with 'had to'.", "respuesta": "I had to work late."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "You worried, but it wasn't necessary.", "instruccion": "Rewrite with 'needn't have'.", "respuesta": "You needn't have worried."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write about a recent event: one thing you had to do, one you should have done, and one you needn't have done.", "respuesta": "I had to work on Saturday. I should have called my mother. I needn't have bought milk — we had plenty."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben! You were supposed to arrive at eight. What happened?",
+        "Ben: I'm so sorry. I had to work late, and my phone died.",
+        "Sofía: You should have called from the office!",
+        "Ben: I know, I know. And Kenji? Wasn't he supposed to help you?",
+        "Sofía: Yes, but he had to attend a meeting. Luckily, Abuela Carmen had cooked everything.",
+        "Ben: I needn't have brought this cake then!",
+        "Sofía: Don't be silly. We can never have too much cake. But you ought to apologize to her!"
+      ],
+      "gaps": ["eight", "cake"],
+      "comprension": [
+        {"pregunta": "Why was Ben late?", "opciones": ["His car broke down", "He had to work late", "He forgot"], "respuesta": "He had to work late"},
+        {"pregunta": "What had Abuela Carmen done?", "opciones": ["She had called everyone", "She had cooked everything", "She had set up the party"], "respuesta": "She had cooked everything"}
+      ]
+    },
+    "reading": {
+      "texto": "Last Saturday, Ben was supposed to arrive at eight, but he had to work late. He should have called, but his phone had died. Sofía had to carry all the chairs alone, though Kenji was supposed to help her. They needn't have worried about the food — Abuela Carmen had cooked everything. In the end, Ben ought to have apologized earlier, but his cake made everyone forgive him.",
+      "preguntas": [
+        {"afirmacion": "Ben arrived at eight as planned.", "respuesta": "false"},
+        {"afirmacion": "Sofía carried the chairs alone.", "respuesta": "true"},
+        {"afirmacion": "Nobody forgave Ben.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-8 — Obligation in the Past",
+    "partes": [
+      {
+        "parte": "A — Completa con had to, was supposed to, should have o needn't have",
+        "ejercicios": [
+          {"n": 1, "texto": "I ___ work late last night. (obligación)"},
+          {"n": 2, "texto": "He ___ arrive at eight. (plan incumplido)"},
+          {"n": 3, "texto": "You ___ called me! (reproche)"},
+          {"n": 4, "texto": "You ___ worried — everything was fine. (innecesario pero hecho)"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe la frase",
+        "ejercicios": [
+          {"n": 5, "texto": "It was necessary for me to work late. → (had to)"},
+          {"n": 6, "texto": "You worried, but it wasn't necessary. → (needn't have)"},
+          {"n": 7, "texto": "It wasn't necessary to pay in advance. → (didn't have to)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'You should have call me.'"},
+          {"n": 9, "texto": "Corrige: 'He was suppose to arrive at eight.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre una fiesta o evento: had to, was supposed to, should have, needn't have."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. had to",
+      "2. was supposed to",
+      "3. should have",
+      "4. needn't have",
+      "5. I had to work late.",
+      "6. You needn't have worried.",
+      "7. We didn't have to pay in advance.",
+      "8. You should have called me.",
+      "9. He was supposed to arrive at eight.",
+      "10. Respuesta libre (ej. 'I had to buy the drinks. Ana was supposed to bring the music. We should have started earlier. You needn't have brought a gift.')"
+    ]
+  }
+}

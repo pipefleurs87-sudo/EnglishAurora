@@ -1,0 +1,157 @@
+{
+  "id": "b2-phrasal-verbs-on-off-01",
+  "nivel": "B2",
+  "arquetipo": "phrasal_verbs",
+  "tema": "Phrasal Verbs with ON & OFF",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "▶️", "palabra": "carry on", "traduccion": "seguir (continuar)"},
+    {"bandera": "⏸️", "palabra": "put off", "traduccion": "posponer"},
+    {"bandera": "✋", "palabra": "hold on", "traduccion": "esperar un momento"},
+    {"bandera": "💡", "palabra": "go off", "traduccion": "apagarse / estallar (alarma)"},
+    {"bandera": "🎭", "palabra": "go on", "traduccion": "continuar / suceder"},
+    {"bandera": "👔", "palabra": "put on", "traduccion": "ponerse (ropa)"},
+    {"bandera": "🧥", "palabra": "take off", "traduccion": "quitarse (ropa) / despegar"},
+    {"bandera": "🚀", "palabra": "set off", "traduccion": "partir (iniciar viaje)"},
+    {"bandera": "🔌", "palabra": "turn on", "traduccion": "encender"},
+    {"bandera": "🕯️", "palabra": "turn off", "traduccion": "apagar"},
+    {"bandera": "📴", "palabra": "switch off", "traduccion": "apagar / desconectar"},
+    {"bandera": "🏋️", "palabra": "work on", "traduccion": "trabajar en"},
+    {"bandera": "📞", "palabra": "call off", "traduccion": "cancelar"},
+    {"bandera": "🧪", "palabra": "try on", "traduccion": "probarse (ropa)"},
+    {"bandera": "🎓", "palabra": "drop off", "traduccion": "dejar (a alguien) / quedarse dormido"},
+    {"bandera": "🔍", "palabra": "find out", "traduccion": "descubrir"},
+    {"bandera": "🏃", "palabra": "run off", "traduccion": "huir corriendo"},
+    {"bandera": "💍", "palabra": "put on (weight)", "traduccion": "ganar (peso)"},
+    {"bandera": "🤝", "palabra": "get on", "traduccion": "subir (al transporte) / llevarse bien"},
+    {"bandera": "🚶", "palabra": "get off", "traduccion": "bajar (del transporte)"},
+    {"bandera": "🎉", "palabra": "show off", "traduccion": "presumir"},
+    {"bandera": "⏰", "palabra": "ring off", "traduccion": "colgar"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "On and off, heroes: the switch of the English language. Continuation or cancellation, connection or departure — all in one tiny word."},
+    {"personaje": "Ben", "linea": "I was nervous before my exhibition, but I carried on preparing. Hold on — my alarm is going off!"},
+    {"personaje": "Kenji", "linea": "The judges put off the announcement, but the show went on. Then I set off to collect my prize."},
+    {"personaje": "Sofía", "linea": "I tried on three dresses before the party. In the end I put on the red one and took off the tags."},
+    {"personaje": "Abuela Carmen", "linea": "When I was young, the lights went off every evening. We carried on talking by candlelight. Switch off your phones and talk, mis héroes!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "She carried on working despite the noise."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "They put off the meeting until Friday."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "He set off early to avoid the traffic."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I tried on three dresses."},
+    {"id": "s5", "forma": "negativo", "oracion": "The alarm didn't go off this morning."},
+    {"id": "s6", "forma": "negativo", "oracion": "They didn't call off the match."},
+    {"id": "s7", "forma": "negativo", "oracion": "She didn't take off her coat."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What time did you set off?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did the show go on after the break?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Can I try on this jacket?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did they call off the wedding? No, they didn't."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did the lights go off? Yes, they did."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did you carry on working? Yes, I did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "They put the meeting off until Friday.",
+        "opcion_b": "They put off the meeting until Friday.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "'On' suggests continuation or connection (carry on, go on, work on, put on). 'Off' suggests separation, cancellation or departure (put off, call off, take off, set off, go off). Note: 'put off' = postpone; 'call off' = cancel completely.",
+      "tabla": {
+        "titulo": "ON vs OFF",
+        "encabezados": ["Particle", "Core meaning", "Examples"],
+        "filas": [
+          ["on", "continue / connect", "carry on, go on, work on, hold on"],
+          ["on", "wear / switch on", "put on, try on, turn on"],
+          ["off", "cancel / postpone", "call off, put off"],
+          ["off", "depart / disconnect", "set off, take off, turn off, go off"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Despite the noise, she ___ working.", "opciones": ["carried on", "carried off", "carried out"], "respuesta": "carried on"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The judges ___ the announcement until later. (posponer)", "opciones": ["put off", "called off", "took off"], "respuesta": "put off"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "We ___ early to avoid the traffic.", "opciones": ["set off", "set on", "set up"], "respuesta": "set off"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Call off' means to cancel completely.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Put off' and 'call off' mean exactly the same.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ three dresses before the party. (try)", "respuesta": "tried on"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The alarm didn't ___ this morning. (go)", "respuesta": "go off"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["on", "Hold", "—", "my alarm", "is going off", "!"], "respuesta": "Hold on — my alarm is going off!"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She carried off working despite the noise.", "respuesta": "She carried on working despite the noise."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They put off the meeting.", "instruccion": "Replace 'the meeting' with 'it'.", "respuesta": "They put it off."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The show went on after the break.", "instruccion": "Make it negative.", "respuesta": "The show didn't go on after the break."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell a short story of a journey or event using three phrasal verbs with on/off.", "respuesta": "We set off at six, but the car alarm went off twice. We carried on driving and arrived on time."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: How was the cooking competition, Kenji?",
+        "Kenji: Stressful! The judges put off the announcement for an hour.",
+        "Sofía: Oh no! Did the show go on?",
+        "Kenji: Yes, we carried on cooking. Then suddenly the lights went off!",
+        "Sofía: What happened?",
+        "Kenji: Someone shouted 'hold on!', and two minutes later everything went on as normal.",
+        "Sofía: And then?",
+        "Kenji: They called my name! I took off my apron and set off to collect my prize."
+      ],
+      "gaps": ["apron", "prize"],
+      "comprension": [
+        {"pregunta": "What did the judges put off?", "opciones": ["The competition", "The announcement", "The dinner"], "respuesta": "The announcement"},
+        {"pregunta": "What went off during the show?", "opciones": ["The alarm", "The lights", "The oven"], "respuesta": "The lights"}
+      ]
+    },
+    "reading": {
+      "texto": "Kenji was nervous before the cooking competition, but he carried on preparing his ramen. When the judges put off the announcement, the crowd waited patiently. Suddenly the lights went off, and someone shouted to hold on. Two minutes later the show went on, and the judges called Kenji's name. He took off his apron, put on a big smile, and set off to collect his prize.",
+      "preguntas": [
+        {"afirmacion": "Kenji stopped cooking when he was nervous.", "respuesta": "false"},
+        {"afirmacion": "The lights went off during the show.", "respuesta": "true"},
+        {"afirmacion": "Kenji kept his apron on to collect the prize.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-3 — Phrasal Verbs with ON & OFF",
+    "partes": [
+      {
+        "parte": "A — Completa con el phrasal verb correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "Despite the noise, she ___ working. (continuar)"},
+          {"n": 2, "texto": "The judges ___ the announcement. (posponer)"},
+          {"n": 3, "texto": "We ___ early to avoid the traffic. (partir)"},
+          {"n": 4, "texto": "I ___ three dresses before the party. (probarse)"}
+        ]
+      },
+      {
+        "parte": "B — put off o call off?",
+        "ejercicios": [
+          {"n": 5, "texto": "They ___ the wedding completely. They won't marry."},
+          {"n": 6, "texto": "They ___ the meeting until Friday. It's still happening."},
+          {"n": 7, "texto": "Sustituye: 'They put off the meeting.' → (it)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She carried off working despite the noise.'"},
+          {"n": 9, "texto": "Corrige: 'I tried them on the shoes.' (con pronombre)"},
+          {"n": 10, "texto": "Escribe 4 frases sobre un evento o viaje usando phrasal verbs con on/off."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. carried on",
+      "2. put off",
+      "3. set off",
+      "4. tried on",
+      "5. called off",
+      "6. put off",
+      "7. They put it off.",
+      "8. She carried on working despite the noise.",
+      "9. I tried them on. / I tried the shoes on.",
+      "10. Respuesta libre (ej. 'We set off early. The alarm went off. We carried on driving. We didn't put off the trip.')"
+    ]
+  }
+}

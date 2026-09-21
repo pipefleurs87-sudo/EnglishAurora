@@ -1,0 +1,156 @@
+{
+  "id": "a2-past-simple-narrative-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Past Simple Narrative — Tell Me a Story",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "1️⃣", "palabra": "first", "traduccion": "primero, en primer lugar"},
+    {"bandera": "2️⃣", "palabra": "then", "traduccion": "luego, entonces"},
+    {"bandera": "➡️", "palabra": "next", "traduccion": "después, a continuación"},
+    {"bandera": "⏭️", "palabra": "after that", "traduccion": "después de eso"},
+    {"bandera": "🕐", "palabra": "later", "traduccion": "más tarde"},
+    {"bandera": "🏁", "palabra": "finally", "traduccion": "finalmente"},
+    {"bandera": "😲", "palabra": "suddenly", "traduccion": "de repente"},
+    {"bandera": "🍀", "palabra": "luckily", "traduccion": "afortunadamente"},
+    {"bandera": "😱", "palabra": "unfortunately", "traduccion": "desafortunadamente"},
+    {"bandera": "🗺️", "palabra": "trip", "traduccion": "viaje"},
+    {"bandera": "🎒", "palabra": "pack a bag", "traduccion": "hacer la maleta"},
+    {"bandera": "🚂", "palabra": "catch the train", "traduccion": "tomar el tren"},
+    {"bandera": "🏨", "palabra": "arrive at the hotel", "traduccion": "llegar al hotel"},
+    {"bandera": "📸", "palabra": "take photos", "traduccion": "tomar fotos"},
+    {"bandera": "🍽️", "palabra": "try the local food", "traduccion": "probar la comida local"},
+    {"bandera": "🎁", "palabra": "buy souvenirs", "traduccion": "comprar recuerdos"},
+    {"bandera": "🌧️", "palabra": "get wet", "traduccion": "mojarse"},
+    {"bandera": "🔑", "palabra": "lose the keys", "traduccion": "perder las llaves"},
+    {"bandera": "🧭", "palabra": "get lost", "traduccion": "perderse"},
+    {"bandera": "🤝", "palabra": "meet someone", "traduccion": "conocer a alguien"},
+    {"bandera": "😂", "palabra": "have a great time", "traduccion": "pasarlo muy bien"},
+    {"bandera": "🏠", "palabra": "come back home", "traduccion": "volver a casa"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "A trip becomes a legend when you tell it in order: first, then, next, finally. Narrate your adventure, heroes!"},
+    {"personaje": "Sofía", "linea": "First, I packed my bag. Then I caught the train to the coast. Next, I arrived at the hotel... and suddenly, it started to rain!"},
+    {"personaje": "Ben", "linea": "Oh no! What did you do then?"},
+    {"personaje": "Kenji", "linea": "Great story! First you packed, then you travelled, and finally you took photos — a perfect narrative!"},
+    {"personaje": "Sofía", "linea": "Luckily, I met a friendly woman who lent me an umbrella. Finally, the sun came out and I took amazing photos."},
+    {"personaje": "Abuela Carmen", "linea": "That reminds me of my first trip to the sea. I got lost, but a fisherman showed me the way. Those were adventures!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "First, I packed my bag and caught the train."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Then I arrived at the hotel."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Suddenly, it started to rain."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Finally, the sun came out and I took photos."},
+    {"id": "s5", "forma": "negativo", "oracion": "I didn't lose my keys this time."},
+    {"id": "s6", "forma": "negativo", "oracion": "We didn't get lost in the city."},
+    {"id": "s7", "forma": "negativo", "oracion": "She didn't buy any souvenirs."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What did you do first?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did you try the local food?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What happened next?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you have a good time? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did it rain? Yes, it did."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did you get lost? No, I didn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "First I pack my bag, then I caught the train.",
+        "opcion_b": "First I packed my bag, then I caught the train.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "To tell a story in the past, chain events with sequencers: first, then, next, after that, finally. Add drama with 'suddenly' and relief with 'luckily'. All main verbs go in the past simple.",
+      "tabla": {
+        "titulo": "Story sequencers",
+        "encabezados": ["Sequencer", "Position in story", "Example"],
+        "filas": [
+          ["first", "the beginning", "First, I packed my bag."],
+          ["then / next / after that", "the middle", "Then I caught the train."],
+          ["suddenly / luckily", "the twist", "Suddenly, it started to rain."],
+          ["finally", "the end", "Finally, the sun came out."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___, I packed my bag. (the beginning)", "opciones": ["Finally", "First", "Suddenly"], "respuesta": "First"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___, it started to rain. (the twist)", "opciones": ["Suddenly", "First", "Then"], "respuesta": "Suddenly"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___, the sun came out. (the end)", "opciones": ["First", "Next", "Finally"], "respuesta": "Finally"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In a past narrative, all main verbs go in the past simple.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Luckily' introduces a problem in the story.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "First, I ___ my bag. (pack)", "respuesta": "packed"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Then I ___ the train to the coast. (catch)", "respuesta": "caught"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["Finally,", "came out", "the sun", "."], "respuesta": "Finally, the sun came out."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "First I pack my bag, then I caught the train.", "respuesta": "First I packed my bag, then I caught the train."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I lost my keys.", "instruccion": "Make it negative.", "respuesta": "I didn't lose my keys."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She tried the local food.", "instruccion": "Turn it into a question.", "respuesta": "Did she try the local food?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell a mini-story of your last trip in 3 sentences. (Use first, then, finally.)", "respuesta": "First, I packed my bag. Then I visited my grandmother. Finally, I came back home."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Tell me about your trip, Sofía!",
+        "Sofía: Well, first I packed my bag and caught the train.",
+        "Ben: And then?",
+        "Sofía: Then I arrived at the hotel. Suddenly, it started to rain!",
+        "Ben: Oh no! What happened next?",
+        "Sofía: Luckily, a woman lent me an umbrella. Finally, the sun came out and I took amazing photos."
+      ],
+      "gaps": ["train", "umbrella"],
+      "comprension": [
+        {"pregunta": "What happened suddenly?", "opciones": ["She lost her keys", "It started to rain", "She missed the train"], "respuesta": "It started to rain"},
+        {"pregunta": "Who lent Sofía an umbrella?", "opciones": ["A woman", "Ben", "The hotel manager"], "respuesta": "A woman"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía's trip was a real adventure. First, she packed her bag and caught the train to the coast. Then she arrived at the hotel and left her things. Suddenly, it started to rain! Luckily, a friendly woman lent her an umbrella. After that, she tried the local food and bought some souvenirs. Finally, the sun came out, and she took amazing photos. She came back home tired but very happy.",
+      "preguntas": [
+        {"afirmacion": "Sofía caught the train to the coast.", "respuesta": "true"},
+        {"afirmacion": "It rained all weekend.", "respuesta": "false"},
+        {"afirmacion": "She took amazing photos.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-4 — Past Simple Narrative",
+    "partes": [
+      {
+        "parte": "A — Ordena la historia (1-4)",
+        "ejercicios": [
+          {"n": 1, "texto": "___ I arrived at the hotel. / ___ I packed my bag. / ___ I took photos. / ___ I caught the train."},
+          {"n": 2, "texto": "Escribe el secuenciador para el inicio: ___"},
+          {"n": 3, "texto": "Escribe el secuenciador para el giro dramático: ___"},
+          {"n": 4, "texto": "Escribe el secuenciador para el final: ___"}
+        ]
+      },
+      {
+        "parte": "B — Completa con el pasado simple",
+        "ejercicios": [
+          {"n": 5, "texto": "First, I ___ (pack) my bag."},
+          {"n": 6, "texto": "Then I ___ (catch) the train."},
+          {"n": 7, "texto": "Suddenly, it ___ (start) to rain."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'First I pack my bag, then I catched the train.'"},
+          {"n": 9, "texto": "Corrige: 'Did you tried the local food?'"},
+          {"n": 10, "texto": "Escribe tu propia mini-historia de viaje en 5 oraciones con first, then, suddenly, luckily, finally."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. 2, 1, 4, 3 (packed → caught → arrived → took)",
+      "2. first",
+      "3. suddenly",
+      "4. finally",
+      "5. packed",
+      "6. caught",
+      "7. started",
+      "8. First I packed my bag, then I caught the train.",
+      "9. Did you try the local food?",
+      "10. Respuesta libre (ej. 'First, I packed my bag. Then I caught the bus. Suddenly, it started to rain. Luckily, I had an umbrella. Finally, I arrived safe at home.')"
+    ]
+  }
+}

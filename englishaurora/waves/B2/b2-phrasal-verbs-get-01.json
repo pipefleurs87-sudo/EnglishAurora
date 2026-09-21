@@ -1,0 +1,156 @@
+{
+  "id": "b2-phrasal-verbs-get-01",
+  "nivel": "B2",
+  "arquetipo": "phrasal_verbs",
+  "tema": "Phrasal Verbs with GET",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "⏰", "palabra": "get up", "traduccion": "levantarse"},
+    {"bandera": "👕", "palabra": "get dressed", "traduccion": "vestirse"},
+    {"bandera": "🚌", "palabra": "get on", "traduccion": "subir (al transporte)"},
+    {"bandera": "🚶", "palabra": "get off", "traduccion": "bajar (del transporte)"},
+    {"bandera": "👥", "palabra": "get together", "traduccion": "reunirse"},
+    {"bandera": "💪", "palabra": "get over", "traduccion": "superar (enfermedad, ruptura)"},
+    {"bandera": "📚", "palabra": "get through", "traduccion": "terminar / soportar"},
+    {"bandera": "🤝", "palabra": "get to know", "traduccion": "llegar a conocer"},
+    {"bandera": "🔙", "palabra": "get back", "traduccion": "volver"},
+    {"bandera": "📈", "palabra": "get better", "traduccion": "mejorar"},
+    {"bandera": "😤", "palabra": "get angry", "traduccion": "enfadarse"},
+    {"bandera": "🧓", "palabra": "get older", "traduccion": "hacerse mayor"},
+    {"bandera": "💼", "palabra": "get a job", "traduccion": "conseguir trabajo"},
+    {"bandera": "🏠", "palabra": "get home", "traduccion": "llegar a casa"},
+    {"bandera": "💌", "palabra": "get in touch", "traduccion": "ponerse en contacto"},
+    {"bandera": "🚪", "palabra": "get out", "traduccion": "salir"},
+    {"bandera": "🤷", "palabra": "get rid of", "traduccion": "deshacerse de"},
+    {"bandera": "🧳", "palabra": "get away", "traduccion": "escaparse (de vacaciones)"},
+    {"bandera": "📵", "palabra": "get along (with)", "traduccion": "llevarse bien (con)"},
+    {"bandera": "🌧️", "palabra": "get wet", "traduccion": "mojarse"},
+    {"bandera": "🥶", "palabra": "get cold", "traduccion": "enfriarse"},
+    {"bandera": "🎁", "palabra": "get a present", "traduccion": "recibir un regalo"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "'Get' is the most democratic verb in English, heroes: it changes meaning with every particle, and it lives in every conversation."},
+    {"personaje": "Ben", "linea": "I got back from my trip last night and I'm still getting over the jet lag."},
+    {"personaje": "Kenji", "linea": "My girlfriend and I get along really well. We got to know each other at a cooking class."},
+    {"personaje": "Sofía", "linea": "I got up late, got on the bus just in time, and got off two stops early to buy fresh bread."},
+    {"personaje": "Abuela Carmen", "linea": "When we get together, we get through two pots of coffee! And yes, mis héroes, I'm getting older — but better."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I got up late this morning."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "We get together every Friday."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She got over the flu quickly."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They got to know each other at school."},
+    {"id": "s5", "forma": "negativo", "oracion": "I didn't get on the last bus."},
+    {"id": "s6", "forma": "negativo", "oracion": "He hasn't got over the break-up yet."},
+    {"id": "s7", "forma": "negativo", "oracion": "We don't get along with the neighbours."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What time did you get home?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did you get through the whole book?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How do you get along with your colleagues?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you get my message? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Has she got over the flu? No, she hasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they get back on time? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I got over the flu quickly.",
+        "opcion_b": "I got the flu over quickly.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "'Get' + particle covers daily life: movement (get on/off, get back), change of state (get better, get older, get dressed), relationships (get along, get together, get to know) and recovery (get over, get through). Note: 'get over' is inseparable — 'I got over it'.",
+      "tabla": {
+        "titulo": "GET — families",
+        "encabezados": ["Family", "Verbs", "Example"],
+        "filas": [
+          ["Movement", "get up, get on/off, get back", "I got off two stops early."],
+          ["Change of state", "get better, get angry, get wet", "It's getting cold."],
+          ["Relationships", "get along, get together, get to know", "We get along well."],
+          ["Recovery", "get over, get through", "She got over the flu."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She ___ the flu in just three days.", "opciones": ["got over", "got up", "got off"], "respuesta": "got over"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "We ___ every Friday for coffee.", "opciones": ["get together", "get over", "get rid"], "respuesta": "get together"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "They ___ each other at a cooking class.", "opciones": ["got to know", "got along with", "got through"], "respuesta": "got to know"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Get over' means to recover from something difficult.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We can say 'I got the flu over quickly'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ the bus just in time. (get on)", "respuesta": "got on"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "How do you ___ with your colleagues? (get along)", "respuesta": "get along"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["together", "We", "get", "every Friday", "."], "respuesta": "We get together every Friday."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I got the flu over quickly.", "respuesta": "I got over the flu quickly."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They got back on time.", "instruccion": "Make it negative.", "respuesta": "They didn't get back on time."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She got through the whole book.", "instruccion": "Turn it into a question.", "respuesta": "Did she get through the whole book?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe your typical morning and a recent reunion using four phrasal verbs with 'get'.", "respuesta": "I get up at seven and get dressed quickly. Last Friday we got together and I got home very late."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Abuela Carmen: Sofía! You're late. What time did you get up?",
+        "Sofía: Too late! I got dressed in two minutes and got on the bus just in time.",
+        "Abuela Carmen: And why did you get off two stops early?",
+        "Sofía: To buy fresh bread for you! How are you getting along with the new neighbours?",
+        "Abuela Carmen: Very well! They're helping me get rid of the old furniture.",
+        "Sofía: And when did Ben get back from his trip?",
+        "Abuela Carmen: Last night. He's still getting over the jet lag."
+      ],
+      "gaps": ["bread", "jet lag"],
+      "comprension": [
+        {"pregunta": "Why did Sofía get off the bus early?", "opciones": ["To buy bread", "To see Ben", "To walk"], "respuesta": "To buy bread"},
+        {"pregunta": "What is Ben getting over?", "opciones": ["The flu", "A break-up", "Jet lag"], "respuesta": "Jet lag"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía got up late, got dressed quickly, and got on the bus just in time. She got off two stops early to get some fresh bread. At Abuela Carmen's house, everyone got together to get over the stress of the week. They got through two pots of coffee while getting to know Kenji's new girlfriend. When Ben got back from his trip, the party was still getting better.",
+      "preguntas": [
+        {"afirmacion": "Sofía missed the bus.", "respuesta": "false"},
+        {"afirmacion": "The friends drank two pots of coffee.", "respuesta": "true"},
+        {"afirmacion": "Ben missed the party completely.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-5 — Phrasal Verbs with GET",
+    "partes": [
+      {
+        "parte": "A — Completa con el phrasal verb correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "She ___ the flu in three days. (superar)"},
+          {"n": 2, "texto": "We ___ every Friday for coffee. (reunirse)"},
+          {"n": 3, "texto": "They ___ each other at a cooking class. (llegar a conocer)"},
+          {"n": 4, "texto": "I ___ the bus just in time. (subir)"}
+        ]
+      },
+      {
+        "parte": "B — Escribe la pregunta",
+        "ejercicios": [
+          {"n": 5, "texto": "(what time / you / get home?)"},
+          {"n": 6, "texto": "(she / get through / the whole book?)"},
+          {"n": 7, "texto": "(how / you / get along / with your colleagues?)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I got the flu over quickly.'"},
+          {"n": 9, "texto": "Corrige: 'We get us together every Friday.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre tu semana usando phrasal verbs con 'get'."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. got over",
+      "2. get together",
+      "3. got to know",
+      "4. got on",
+      "5. What time did you get home?",
+      "6. Did she get through the whole book?",
+      "7. How do you get along with your colleagues?",
+      "8. I got over the flu quickly.",
+      "9. We get together every Friday.",
+      "10. Respuesta libre (ej. 'I got up early. I got on the bus at eight. I got through a lot of work. I got home late.')"
+    ]
+  }
+}

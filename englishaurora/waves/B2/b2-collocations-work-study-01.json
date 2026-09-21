@@ -1,0 +1,157 @@
+{
+  "id": "b2-collocations-work-study-01",
+  "nivel": "B2",
+  "arquetipo": "colocaciones",
+  "tema": "Collocations — Work & Study",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🔬", "palabra": "do research", "traduccion": "investigar"},
+    {"bandera": "📝", "palabra": "take notes", "traduccion": "tomar apuntes"},
+    {"bandera": "📈", "palabra": "make progress", "traduccion": "progresar"},
+    {"bandera": "💼", "palabra": "apply for a job", "traduccion": "solicitar un trabajo"},
+    {"bandera": "⏰", "palabra": "meet deadlines", "traduccion": "cumplir los plazos"},
+    {"bandera": "💪", "palabra": "gain experience", "traduccion": "ganar experiencia"},
+    {"bandera": "💵", "palabra": "earn a salary", "traduccion": "ganar un salario"},
+    {"bandera": "🎯", "palabra": "reach your goals", "traduccion": "alcanzar tus metas"},
+    {"bandera": "🧗", "palabra": "make an effort", "traduccion": "esforzarse"},
+    {"bandera": "📚", "palabra": "do a course", "traduccion": "hacer un curso"},
+    {"bandera": "🎓", "palabra": "get a degree", "traduccion": "obtener un título"},
+    {"bandera": "✅", "palabra": "pass an exam", "traduccion": "aprobar un examen"},
+    {"bandera": "❌", "palabra": "fail an exam", "traduccion": "suspender un examen"},
+    {"bandera": "📊", "palabra": "give a presentation", "traduccion": "dar una presentación"},
+    {"bandera": "🤝", "palabra": "attend a meeting", "traduccion": "asistir a una reunión"},
+    {"bandera": "📧", "palabra": "send an application", "traduccion": "enviar una solicitud"},
+    {"bandera": "🧠", "palabra": "learn by heart", "traduccion": "aprender de memoria"},
+    {"bandera": "📆", "palabra": "set a deadline", "traduccion": "fijar un plazo"},
+    {"bandera": "🪜", "palabra": "climb the career ladder", "traduccion": "ascender profesionalmente"},
+    {"bandera": "💼", "palabra": "land a job", "traduccion": "conseguir un empleo"},
+    {"bandera": "🗣️", "palabra": "improve your English", "traduccion": "mejorar tu inglés"},
+    {"bandera": "🏆", "palabra": "achieve success", "traduccion": "lograr el éxito"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Words have best friends, heroes. 'Do research', 'make progress', 'meet deadlines' — collocations are the couples of vocabulary."},
+    {"personaje": "Ben", "linea": "I want to make progress in my career, so I've applied for a job at a photo agency."},
+    {"personaje": "Kenji", "linea": "At the restaurant we meet deadlines every day. It's stressful, but we gain experience."},
+    {"personaje": "Sofía", "linea": "I'm doing research for my next novel, so I spend mornings taking notes at the library."},
+    {"personaje": "Abuela Carmen", "linea": "Make an effort now, mis héroes, and you'll reach your goals. Earn your salary, but never stop learning."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "She is doing research for her novel."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He has applied for a job at an agency."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We meet deadlines every week."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They are making progress with their English."},
+    {"id": "s5", "forma": "negativo", "oracion": "He didn't pass the exam."},
+    {"id": "s6", "forma": "negativo", "oracion": "She doesn't earn a high salary yet."},
+    {"id": "s7", "forma": "negativo", "oracion": "We haven't set a deadline yet."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Have you applied for the job?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "How do you take notes — on paper or online?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Did she get her degree last year?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he pass the exam? Yes, he did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are you making progress? Yes, I am."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they meet the deadline? No, they didn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She is making research for her novel.",
+        "opcion_b": "She is doing research for her novel.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Collocations are natural word partnerships: we DO research, MAKE progress, MEET deadlines, EARN a salary, APPLY FOR a job, GAIN experience, REACH goals. Wrong partners sound strange: ❌ 'do progress', ❌ 'make research'.",
+      "tabla": {
+        "titulo": "Work & Study Collocations",
+        "encabezados": ["Verb", "Partners", "Example"],
+        "filas": [
+          ["do", "research, a course", "She's doing research."],
+          ["make", "progress, an effort, money", "We're making progress."],
+          ["meet / set", "deadlines", "They met the deadline."],
+          ["earn / gain", "a salary, experience", "He gained experience abroad."],
+          ["apply for / land", "a job", "She applied for the job."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She is ___ research for her novel.", "opciones": ["doing", "making", "taking"], "respuesta": "doing"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "We're ___ progress with our English.", "opciones": ["making", "doing", "getting"], "respuesta": "making"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "They ___ the deadline and delivered on Friday.", "opciones": ["met", "made", "did"], "respuesta": "met"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'do research' and 'make progress'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'make research'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He has ___ for a job at a photo agency. (apply)", "respuesta": "applied"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Young people should ___ experience before they earn a high salary. (gain)", "respuesta": "gain"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["deadlines", "We", "meet", "every week", "."], "respuesta": "We meet deadlines every week."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She is making research for her novel.", "respuesta": "She is doing research for her novel."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She is doing research for her novel.", "instruccion": "Turn it into a question.", "respuesta": "Is she doing research for her novel?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He passed the exam.", "instruccion": "Make it negative.", "respuesta": "He didn't pass the exam."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe your work or studies using four collocations from the lesson.", "respuesta": "I'm doing a course online. I take notes on my laptop. I'm making progress, and I hope to land a better job."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: I have great news — I've applied for a job at a photo agency!",
+        "Sofía: Congratulations! You're really making progress in your career.",
+        "Ben: Thanks. And you? How's the novel?",
+        "Sofía: I'm doing research at the library every morning. I take notes for hours.",
+        "Ben: And Kenji says you have to meet deadlines at the restaurant every day.",
+        "Sofía: Yes, but he's gaining experience. That's what matters.",
+        "Ben: Abuela Carmen is right: make an effort now, and you'll reach your goals."
+      ],
+      "gaps": ["agency", "library"],
+      "comprension": [
+        {"pregunta": "What has Ben applied for?", "opciones": ["A course", "A job at a photo agency", "A prize"], "respuesta": "A job at a photo agency"},
+        {"pregunta": "Where does Sofía do her research?", "opciones": ["At home", "At the library", "At the restaurant"], "respuesta": "At the library"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía is doing research for her next novel, so she spends mornings taking notes at the library. Ben wants to make progress in his career, so he has applied for a job at a photo agency. Kenji works hard to meet deadlines at the restaurant, while Abuela Carmen says young people should gain experience before they earn a high salary. They all agree: make an effort now, and you'll reach your goals.",
+      "preguntas": [
+        {"afirmacion": "Sofía takes notes at the library.", "respuesta": "true"},
+        {"afirmacion": "Ben has applied for a job at a newspaper.", "respuesta": "false"},
+        {"afirmacion": "Abuela Carmen says salary comes before experience.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-16 — Collocations: Work & Study",
+    "partes": [
+      {
+        "parte": "A — Elige el verbo correcto (do/make/meet/earn)",
+        "ejercicios": [
+          {"n": 1, "texto": "She is ___ research for her novel."},
+          {"n": 2, "texto": "We're ___ progress with our English."},
+          {"n": 3, "texto": "They ___ the deadline and delivered on Friday."},
+          {"n": 4, "texto": "He ___ a high salary at the bank."}
+        ]
+      },
+      {
+        "parte": "B — Completa la colocación",
+        "ejercicios": [
+          {"n": 5, "texto": "apply ___ a job"},
+          {"n": 6, "texto": "gain ___ / take ___ / set a ___"},
+          {"n": 7, "texto": "Escribe la pregunta: (you / apply / for the job?)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She is making research for her novel.'"},
+          {"n": 9, "texto": "Corrige: 'We did a big progress this year.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre tu trabajo o estudios usando colocaciones de la lección."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. doing",
+      "2. making",
+      "3. met",
+      "4. earns",
+      "5. for",
+      "6. experience / notes / deadline",
+      "7. Have you applied for the job?",
+      "8. She is doing research for her novel.",
+      "9. We made a lot of progress this year.",
+      "10. Respuesta libre (ej. 'I'm doing a course. I take notes online. I'm making progress. I hope to land a job soon.')"
+    ]
+  }
+}

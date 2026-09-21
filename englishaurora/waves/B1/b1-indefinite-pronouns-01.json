@@ -1,0 +1,119 @@
+{
+  "id": "b1-indefinite-pronouns-01",
+  "nivel": "B1",
+  "arquetipo": "pronombres",
+  "tema": "Indefinite Pronouns — Someone, Anyone, No One, Everyone",
+  "habilidades": ["grammar", "vocabulary", "listening", "speaking"],
+  "vocabulario": [
+    {"bandera": "alguien (afirmativo)", "palabra": "somebody / someone", "traduccion": "alguien"},
+    {"bandera": "algo (afirmativo)", "palabra": "something", "traduccion": "algo"},
+    {"bandera": "en algún lugar", "palabra": "somewhere", "traduccion": "en/a algún lugar"},
+    {"bandera": "alguien (pregunta/negativo)", "palabra": "anybody / anyone", "traduccion": "alguien / nadie (en preguntas y negativos)"},
+    {"bandera": "algo / nada (pregunta/negativo)", "palabra": "anything", "traduccion": "algo / nada"},
+    {"bandera": "en algún/ningún lugar", "palabra": "anywhere", "traduccion": "en/a cualquier lugar / ningún lugar"},
+    {"bandera": "nadie", "palabra": "nobody / no one", "traduccion": "nadie"},
+    {"bandera": "nada", "palabra": "nothing", "traduccion": "nada"},
+    {"bandera": "en ningún lugar", "palabra": "nowhere", "traduccion": "en/a ningún lugar"},
+    {"bandera": "todos (personas)", "palabra": "everybody / everyone", "traduccion": "todos"},
+    {"bandera": "todo", "palabra": "everything", "traduccion": "todo"},
+    {"bandera": "en todas partes", "palabra": "everywhere", "traduccion": "en todas partes"},
+    {"bandera": "otra cosa más", "palabra": "something else", "traduccion": "otra cosa"},
+    {"bandera": "en otro lugar", "palabra": "somewhere else", "traduccion": "en otro lugar"},
+    {"bandera": "cualquier cosa (da igual)", "palabra": "anything at all", "traduccion": "cualquier cosa (énfasis)"},
+    {"bandera": "nadie más", "palabra": "nobody else", "traduccion": "nadie más"},
+    {"bandera": "todo lo demás", "palabra": "everything else", "traduccion": "todo lo demás"},
+    {"bandera": "algún sitio concreto (desconocido)", "palabra": "someplace (AmE)", "traduccion": "algún lugar (inglés americano)"},
+    {"bandera": "cada persona (formal)", "palabra": "each person", "traduccion": "cada persona (alternativa formal)"},
+    {"bandera": "quien sea", "palabra": "whoever", "traduccion": "quien sea (introducción a -ever)"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Somebody left a mysterious book in the classroom."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Everyone loves the new music festival."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "There is something magical about the aurora."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I want to travel somewhere warm this winter."},
+    {"id": "s5", "forma": "negativo", "oracion": "I didn't see anyone at the library this morning."},
+    {"id": "s6", "forma": "negativo", "oracion": "Nobody answered the telephone call."},
+    {"id": "s7", "forma": "negativo", "oracion": "There is nothing in the wooden box."},
+    {"id": "s8", "forma": "negativo", "oracion": "We couldn't find the key anywhere."},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did anything strange happen last night?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is there anybody inside the ancient tower?"},
+    {"id": "s11", "forma": "interrogativo", "oracion": "Can someone help me carry these heavy books?"},
+    {"id": "s12", "forma": "interrogativo", "oracion": "Are you going anywhere exciting this weekend?"},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is there anything to eat? Yes, there is."},
+    {"id": "s14", "forma": "short_answer", "oracion": "Did anyone call for me? No, nobody did."},
+    {"id": "s15", "forma": "short_answer", "oracion": "Does everybody understand the rule? Yes, they do."}
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Sofía: **Somebody** left their notebook on my desk!",
+        "Ben: Is there **anything** written inside it?",
+        "Kenji: **Nobody** touched it. I think **everyone** was at the library.",
+        "Abuela Carmen: Look closely! If there is **nothing** inside, it belongs to the future."
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Everybody are ready for the exam.",
+        "opcion_b": "Everybody is ready for the exam.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Indefinite pronouns refer to non-specific people, things, or places. In English, they always take a singular verb.",
+      "tabla": {
+        "titulo": "The 4x4 Indefinite Pronoun Matrix",
+        "encabezados": ["Prefix", "Person (-body / -one)", "Thing (-thing)", "Place (-where)"],
+        "filas": [
+          ["Some- (affirmative / polite request)", "somebody / someone", "something", "somewhere"],
+          ["Any- (negative / questions / free choice)", "anybody / anyone", "anything", "anywhere"],
+          ["No- (negative meaning, positive verb)", "nobody / no one", "nothing", "nowhere"],
+          ["Every- (all members considered together)", "everybody / everyone", "everything", "everywhere"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "pregunta": "Everybody ___ ready to begin the lesson.", "opciones": ["is", "are", "were"], "respuesta": "is"},
+        {"tipo": "multiple_choice", "pregunta": "I looked for my keys, but they were ___ to be found.", "opciones": ["nowhere", "anywhere", "somewhere"], "respuesta": "nowhere"},
+        {"tipo": "multiple_choice", "pregunta": "Did ___ call while I was out?", "opciones": ["anybody", "somebody", "nobody"], "respuesta": "anybody"},
+        {"tipo": "multiple_choice", "pregunta": "There is ___ interesting in this magazine.", "opciones": ["nothing", "nobody", "nowhere"], "respuesta": "nothing"},
+        {"tipo": "multiple_choice", "pregunta": "Would you like ___ to drink? (Polite offer)", "opciones": ["something", "anything", "nothing"], "respuesta": "something"},
+        {"tipo": "true_false", "afirmacion": "Words like 'everyone', 'somebody', and 'nothing' take a singular verb.", "respuesta": "true"},
+        {"tipo": "true_false", "afirmacion": "In standard English, double negatives like 'I don't know nobody' are correct.", "respuesta": "false"},
+        {"tipo": "gap_fill", "texto": "I opened the fridge, but there was ___ (nothing / anything) left.", "respuesta": "nothing"},
+        {"tipo": "gap_fill", "texto": "Does ___ (anyone / someone) have a pencil I could borrow?", "respuesta": "anyone"},
+        {"tipo": "gap_fill", "texto": "She packed her bags and went ___ (somewhere / anywhere) peaceful.", "respuesta": "somewhere"},
+        {"tipo": "unscramble", "palabras": ["everybody", "knows", "the", "secret", "in", "town"], "respuesta": "Everybody knows the secret in town"},
+        {"tipo": "unscramble", "palabras": ["did", "you", "find", "anything", "interesting", "there"], "respuesta": "Did you find anything interesting there"},
+        {"tipo": "correct_mistake", "texto_con_error": "Everybody are happy today.", "respuesta": "Everybody is happy today."},
+        {"tipo": "correct_mistake", "texto_con_error": "I didn't see nobody at the party.", "respuesta": "I didn't see anybody at the party."},
+        {"tipo": "transformation", "oracion_base": "There wasn't anyone in the room.", "instruccion": "Rewrite using 'no one'.", "respuesta": "There was no one in the room."},
+        {"tipo": "transformation", "oracion_base": "I saw someone in the garden.", "instruccion": "Rewrite in the negative form using 'anyone'.", "respuesta": "I didn't see anyone in the garden."},
+        {"tipo": "write_opposite", "oracion_base": "Everything went wrong during the rehearsal.", "instruccion": "Write the opposite using 'nothing'.", "respuesta": "Nothing went wrong during the rehearsal."},
+        {"tipo": "short_answer_production", "pregunta": "Is there anything in the bag? (Short answer: No)", "respuesta": "No, there isn't."},
+        {"tipo": "short_answer_production", "pregunta": "Did anyone find the missing map? (Short answer: Yes)", "respuesta": "Yes, someone did."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Has **anyone** seen my blue sketchbook?",
+        "Ben: I searched **everywhere**, but I couldn't find **anything**.",
+        "Kenji: Look under the table! **Somebody** placed a stack of papers there.",
+        "Sofía: Ah, here it is! **Nothing** is lost after all.",
+        "Abuela Carmen: Remember, my dear: **everyone** finds what they seek when they look with calm eyes."
+      ],
+      "gaps": ["anyone", "everywhere", "anything", "nothing"],
+      "comprension": [
+        {"pregunta": "What was Sofía looking for?", "opciones": ["Her blue sketchbook", "Her house keys", "A stack of papers"], "respuesta": "Her blue sketchbook"},
+        {"pregunta": "Where was the stack of papers placed?", "opciones": ["Under the table", "On the fridge", "At the library"], "respuesta": "Under the table"}
+      ]
+    },
+    "reading": {
+      "texto": "In the whispering forest of Whispering Pines, everyone knows the legend of the Star Stone. The tale says that someone placed a glowing gem inside an ancient oak tree three hundred years ago. Many adventurers have searched everywhere across the valley, but nobody has ever discovered its hiding place. Some believe there is nothing true in the old story, while others say that anyone with a pure heart can hear the stone humming in the twilight.",
+      "preguntas": [
+        {"afirmacion": "Everyone in Whispering Pines knows the legend of the Star Stone.", "respuesta": "true"},
+        {"afirmacion": "Someone found the stone last year.", "respuesta": "false"},
+        {"afirmacion": "Many adventurers have searched across the valley.", "respuesta": "true"},
+        {"afirmacion": "The legend claims the stone was hidden in a deep cave.", "respuesta": "false"}
+      ]
+    }
+  }
+}

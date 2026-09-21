@@ -1,0 +1,157 @@
+{
+  "id": "b2-reported-speech-01",
+  "nivel": "B2",
+  "arquetipo": "estilo_indirecto",
+  "tema": "Reported Speech — Questions, Commands & Reporting Verbs",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🖼️", "palabra": "exhibition opening", "traduccion": "inauguración de exposición"},
+    {"bandera": "✍️", "palabra": "signature", "traduccion": "firma"},
+    {"bandera": "📰", "palabra": "journalist", "traduccion": "periodista"},
+    {"bandera": "🖨️", "palabra": "print (photo)", "traduccion": "copia (foto)"},
+    {"bandera": "💶", "palabra": "raise the prices", "traduccion": "subir los precios"},
+    {"bandera": "🙏", "palabra": "thank the organizers", "traduccion": "agradecer a los organizadores"},
+    {"bandera": "💝", "palabra": "donate", "traduccion": "donar"},
+    {"bandera": "📚", "palabra": "sign copies", "traduccion": "firmar ejemplares"},
+    {"bandera": "❓", "palabra": "ask if/whether", "traduccion": "preguntar si"},
+    {"bandera": "📢", "palabra": "tell someone to", "traduccion": "decir a alguien que (orden)"},
+    {"bandera": "💡", "palabra": "advise", "traduccion": "aconsejar"},
+    {"bandera": "⏰", "palabra": "remind", "traduccion": "recordar"},
+    {"bandera": "🤝", "palabra": "offer", "traduccion": "ofrecer(se)"},
+    {"bandera": "🤞", "palabra": "promise", "traduccion": "prometer"},
+    {"bandera": "🚫", "palabra": "refuse", "traduccion": "negarse"},
+    {"bandera": "⚠️", "palabra": "warn", "traduccion": "advertir"},
+    {"bandera": "🎤", "palabra": "interview", "traduccion": "entrevistar"},
+    {"bandera": "🗞️", "palabra": "headline", "traduccion": "titular"},
+    {"bandera": "🎟️", "palabra": "invite", "traduccion": "invitar"},
+    {"bandera": "💬", "palabra": "quote", "traduccion": "cita textual"},
+    {"bandera": "🧾", "palabra": "apologize for", "traduccion": "disculparse por"},
+    {"bandera": "🔁", "palabra": "repeat", "traduccion": "repetir"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Reported speech grows up, heroes: questions without inversion, commands with infinitives, and a whole family of reporting verbs."},
+    {"personaje": "Ben", "linea": "The journalist asked me where I had found those mountains. I told her to read my book."},
+    {"personaje": "Kenji", "linea": "I asked Ben if I could buy a print. He offered to sign it, and promised to donate part of the money."},
+    {"personaje": "Sofía", "linea": "Abuela Carmen advised Ben to raise his prices and reminded him to thank the organizers."},
+    {"personaje": "Abuela Carmen", "linea": "I warned them not to touch the wet frames, and I invited everyone to celebrate at my house. They all agreed to come!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "She asked me where I had found the mountains."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He told me to look at the signature."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They offered to sign every copy."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She advised him to raise his prices."},
+    {"id": "s5", "forma": "negativo", "oracion": "She warned us not to touch the frames."},
+    {"id": "s6", "forma": "negativo", "oracion": "He refused to answer the question."},
+    {"id": "s7", "forma": "negativo", "oracion": "He told me not to worry."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What did the journalist ask him?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did she ask if they could buy a print?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What did she remind him to do?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he promise to donate? Yes, he did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did she advise raising prices? Yes, she did."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did he refuse to answer? No, he didn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She asked me where had I found the mountains.",
+        "opcion_b": "She asked me where I had found the mountains.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Reported questions: no inversion, no question mark — 'ask + (if/whether) + subject + verb' (yes/no) or 'ask + wh- + subject + verb'. Commands: tell/order/warn + person + (not) to + infinitive. Reporting verbs: advise, offer, promise, refuse, remind, invite (+ to + infinitive).",
+      "tabla": {
+        "titulo": "Advanced Reported Speech",
+        "encabezados": ["Type", "Structure", "Example"],
+        "filas": [
+          ["Wh- question", "ask + wh- + subject + verb", "She asked where I had found them."],
+          ["Yes/No question", "ask + if/whether + subject + verb", "He asked if they could buy a print."],
+          ["Command/request", "tell + person + (not) to + verb", "She told me not to touch them."],
+          ["Reporting verbs", "advise/offer/promise/remind + to", "He offered to sign it."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She asked me where I ___ the mountains.", "opciones": ["had found", "have found", "did find"], "respuesta": "had found"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He asked ___ they could buy a print.", "opciones": ["if", "that", "what"], "respuesta": "if"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She warned us ___ touch the wet frames.", "opciones": ["not to", "to not", "don't"], "respuesta": "not to"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Reported questions keep the question word order (inversion).", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Offer', 'promise' and 'refuse' are followed by 'to + infinitive'.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He told me ___ (not / worry).", "respuesta": "not to worry"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She advised him ___ (raise) his prices.", "respuesta": "to raise"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["asked", "She", "me", "where I had found them", "."], "respuesta": "She asked me where I had found them."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She asked me where had I found the mountains.", "respuesta": "She asked me where I had found the mountains."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "'Can I buy a print?' Kenji asked.", "instruccion": "Report the question.", "respuesta": "Kenji asked if/whether he could buy a print."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "'Don't touch the frames,' she said to us.", "instruccion": "Report with 'warn'.", "respuesta": "She warned us not to touch the frames."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Report one question, one command and one promise from your week.", "respuesta": "My boss asked if I had finished. She told me to send the report. I promised to do it by Friday."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: How was the exhibition opening, Ben?",
+        "Ben: Crazy! A journalist asked me where I had found those mountains.",
+        "Kenji: And what did you tell her?",
+        "Ben: I told her to read my book. And you? Did you ask about the print?",
+        "Kenji: Yes, I asked if I could buy one, and you offered to sign it!",
+        "Ben: True. Abuela Carmen also advised me to raise my prices.",
+        "Kenji: Wise woman. And she warned everyone not to touch the wet frames!",
+        "Ben: Then she invited us all to celebrate at her house."
+      ],
+      "gaps": ["mountains", "prices"],
+      "comprension": [
+        {"pregunta": "What did the journalist ask Ben?", "opciones": ["Where he had found the mountains", "How much the photos cost", "Who took the photos"], "respuesta": "Where he had found the mountains"},
+        {"pregunta": "What did Abuela Carmen advise?", "opciones": ["To lower the prices", "To raise the prices", "To close the exhibition"], "respuesta": "To raise the prices"}
+      ]
+    },
+    "reading": {
+      "texto": "At the exhibition opening, everyone was talking. Sofía asked Ben if he had taken all the photos, and he told her to look at the signature. The journalist asked where he had found the mountains, and Kenji asked if they could buy a print. Abuela Carmen advised Ben to raise his prices and reminded him to thank the organizers. Ben promised to donate part of the money and offered to sign every copy.",
+      "preguntas": [
+        {"afirmacion": "Sofía asked if Ben had taken the photos.", "respuesta": "true"},
+        {"afirmacion": "The journalist asked about the prices.", "respuesta": "false"},
+        {"afirmacion": "Ben promised to donate part of the money.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-12 — Reported Speech: Questions, Commands & Reporting Verbs",
+    "partes": [
+      {
+        "parte": "A — Reporta las preguntas",
+        "ejercicios": [
+          {"n": 1, "texto": "'Where did you find the mountains?' → She asked me ___"},
+          {"n": 2, "texto": "'Can I buy a print?' → He asked ___"},
+          {"n": 3, "texto": "'Did you take the photos?' → Sofía asked Ben ___"},
+          {"n": 4, "texto": "'When will the book come out?' → They asked him ___"}
+        ]
+      },
+      {
+        "parte": "B — Reporta con el verbo indicado",
+        "ejercicios": [
+          {"n": 5, "texto": "'Don't touch the frames,' she said. → (warn)"},
+          {"n": 6, "texto": "'I'll sign every copy,' he said. → (offer)"},
+          {"n": 7, "texto": "'You should raise your prices,' she said to Ben. → (advise)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She asked me where had I found the mountains.'"},
+          {"n": 9, "texto": "Corrige: 'He told to me not to worry.'"},
+          {"n": 10, "texto": "Escribe 3 frases reportando una pregunta, una orden y una promesa de esta semana."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. where I had found the mountains.",
+      "2. if/whether he could buy a print.",
+      "3. if/whether he had taken the photos.",
+      "4. when the book would come out.",
+      "5. She warned us not to touch the frames.",
+      "6. He offered to sign every copy.",
+      "7. She advised Ben to raise his prices.",
+      "8. She asked me where I had found the mountains.",
+      "9. He told me not to worry.",
+      "10. Respuesta libre (ej. 'My boss asked if I had finished. She told me to send the report. I promised to call my mother.')"
+    ]
+  }
+}

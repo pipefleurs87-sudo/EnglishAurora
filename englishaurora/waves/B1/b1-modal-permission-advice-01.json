@@ -1,0 +1,157 @@
+{
+  "id": "b1-modal-permission-advice-01",
+  "nivel": "B1",
+  "arquetipo": "modales",
+  "tema": "Modals of Permission & Strong Advice",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🚬", "palabra": "smoke", "traduccion": "fumar"},
+    {"bandera": "🏥", "palabra": "hospital", "traduccion": "hospital"},
+    {"bandera": "📵", "palabra": "use your phone", "traduccion": "usar el móvil"},
+    {"bandera": "🅿️", "palabra": "park here", "traduccion": "aparcar aquí"},
+    {"bandera": "🎟️", "palabra": "buy tickets in advance", "traduccion": "comprar billetes con antelación"},
+    {"bandera": "🤒", "palabra": "rest", "traduccion": "descansar"},
+    {"bandera": "💊", "palabra": "take medicine", "traduccion": "tomar medicina"},
+    {"bandera": "🧣", "palabra": "wear a scarf", "traduccion": "llevar bufanda"},
+    {"bandera": "🪪", "palabra": "show your ID", "traduccion": "mostrar tu identificación"},
+    {"bandera": "🦺", "palabra": "wear a seatbelt", "traduccion": "llevar cinturón"},
+    {"bandera": "🚫", "palabra": "forbidden", "traduccion": "prohibido"},
+    {"bandera": "✅", "palabra": "allowed", "traduccion": "permitido"},
+    {"bandera": "🩺", "palabra": "see a doctor", "traduccion": "ir al médico"},
+    {"bandera": "🦷", "palabra": "brush your teeth", "traduccion": "cepillarse los dientes"},
+    {"bandera": "🧪", "palabra": "do a blood test", "traduccion": "hacerse un análisis"},
+    {"bandera": "🏛️", "palabra": "museum rules", "traduccion": "normas del museo"},
+    {"bandera": "📸", "palabra": "take photos", "traduccion": "sacar fotos"},
+    {"bandera": "🗣️", "palabra": "speak quietly", "traduccion": "hablar bajo"},
+    {"bandera": "🚪", "palabra": "leave early", "traduccion": "salir temprano"},
+    {"bandera": "🍔", "palabra": "eat inside", "traduccion": "comer dentro"},
+    {"bandera": "👟", "palabra": "wear comfortable shoes", "traduccion": "llevar zapatos cómodos"},
+    {"bandera": "🌡️", "palabra": "have a fever", "traduccion": "tener fiebre"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Rules and remedies, heroes: 'must' obliges, 'can't' forbids, 'should' advises, and 'had better' warns."},
+    {"personaje": "Ben", "linea": "At the museum you mustn't touch the paintings, and you can't use flash. But you can take photos without it."},
+    {"personaje": "Kenji", "linea": "You look terrible, Ben. You should see a doctor, and you'd better rest today."},
+    {"personaje": "Sofía", "linea": "Can I leave early today? I don't feel well. I have a fever."},
+    {"personaje": "Abuela Carmen", "linea": "If you have a fever, you must drink hot soup and you should stay in bed. Doctor Carmen has spoken!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "You must wear a seatbelt."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "You should see a doctor."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "You'd better rest today."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "You can take photos without flash."},
+    {"id": "s5", "forma": "negativo", "oracion": "You mustn't touch the paintings."},
+    {"id": "s6", "forma": "negativo", "oracion": "You can't smoke in the hospital."},
+    {"id": "s7", "forma": "negativo", "oracion": "You shouldn't eat so much sugar."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Can I leave early today?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "May I use your phone?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Should I see a doctor?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Can I park here? No, you can't."},
+    {"id": "s12", "forma": "short_answer", "oracion": "May I come in? Yes, of course."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Should I rest? Yes, you should."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "You must to see a doctor.",
+        "opcion_b": "You must see a doctor.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Permission: can/can't (informal), may/may not (formal). Obligation: must; prohibition: mustn't or can't. Advice: should/shouldn't; strong advice with warning: had better ('d better). All followed by the infinitive WITHOUT 'to'.",
+      "tabla": {
+        "titulo": "Permission & Advice",
+        "encabezados": ["Function", "Modal", "Example"],
+        "filas": [
+          ["Permission", "can / may", "Can I leave early? / May I come in?"],
+          ["Obligation", "must", "You must wear a seatbelt."],
+          ["Prohibition", "mustn't / can't", "You mustn't smoke here."],
+          ["Advice", "should / shouldn't", "You should rest."],
+          ["Strong advice", "had better", "You'd better see a doctor."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "You ___ touch the paintings. It's forbidden!", "opciones": ["mustn't", "don't have to", "should"], "respuesta": "mustn't"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ I use your phone? (formal)", "opciones": ["Can", "May", "Must"], "respuesta": "May"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "You look ill. You'd ___ rest today.", "opciones": ["better", "rather", "should"], "respuesta": "better"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Mustn't' means something is prohibited.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Modals are followed by the infinitive with 'to'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "You ___ (should) eat so much sugar. (negative advice)", "respuesta": "shouldn't"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ I come in? (formal permission)", "respuesta": "May"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["better", "You'd", "see", "a doctor", "."], "respuesta": "You'd better see a doctor."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "You must to see a doctor.", "respuesta": "You must see a doctor."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "You should see a doctor.", "instruccion": "Make it stronger (warning).", "respuesta": "You'd better see a doctor."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Smoking is forbidden here.", "instruccion": "Rewrite with 'can't'.", "respuesta": "You can't smoke here."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Give advice to a friend who has a fever: one obligation, one prohibition, one advice.", "respuesta": "You must drink water. You mustn't go to work. You should stay in bed."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Can I take photos in the museum, Ben?",
+        "Ben: Yes, but you mustn't use flash. And you can't touch the paintings.",
+        "Sofía: Of course. Oh — you don't look well. Do you have a fever?",
+        "Ben: A little. I think I should go home.",
+        "Sofía: You'd better see a doctor. And you must drink hot soup.",
+        "Ben: Yes, doctor Sofía! May I leave my camera here?",
+        "Sofía: Sure, but you'd better hurry. The museum closes soon."
+      ],
+      "gaps": ["flash", "doctor"],
+      "comprension": [
+        {"pregunta": "What is forbidden in the museum?", "opciones": ["Taking photos", "Using flash", "Bringing cameras"], "respuesta": "Using flash"},
+        {"pregunta": "What should Ben do?", "opciones": ["Drink coffee", "See a doctor", "Stay in the museum"], "respuesta": "See a doctor"}
+      ]
+    },
+    "reading": {
+      "texto": "The city museum has clear rules: visitors can take photos, but they mustn't use flash, and they can't touch the paintings. Today Ben doesn't feel well — he has a fever. Sofía tells him he should see a doctor and he'd better go home to rest. Abuela Carmen agrees: he must drink hot soup and stay in bed. Rules and advice are different, but both help us live better.",
+      "preguntas": [
+        {"afirmacion": "Visitors can't take any photos in the museum.", "respuesta": "false"},
+        {"afirmacion": "Ben has a fever.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen says Ben must go to work.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-13 — Modals: Permission & Advice",
+    "partes": [
+      {
+        "parte": "A — Completa con must, mustn't, should, can't o 'd better",
+        "ejercicios": [
+          {"n": 1, "texto": "You ___ touch the paintings. It's forbidden!"},
+          {"n": 2, "texto": "You look ill. You ___ see a doctor. (strong advice)"},
+          {"n": 3, "texto": "You ___ wear a seatbelt. It's the law."},
+          {"n": 4, "texto": "You ___ smoke in the hospital."}
+        ]
+      },
+      {
+        "parte": "B — Escribe la pregunta de permiso",
+        "ejercicios": [
+          {"n": 5, "texto": "(I / leave early) — informal"},
+          {"n": 6, "texto": "(I / use your phone) — formal"},
+          {"n": 7, "texto": "Responde en negativo a la pregunta 5."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'You must to see a doctor.'"},
+          {"n": 9, "texto": "Corrige: 'You'd better to rest.'"},
+          {"n": 10, "texto": "Escribe 4 normas de una biblioteca usando must, mustn't, can y should."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. mustn't / can't",
+      "2. 'd better / should",
+      "3. must",
+      "4. can't / mustn't",
+      "5. Can I leave early?",
+      "6. May I use your phone?",
+      "7. No, you can't. / No, I'm afraid you can't.",
+      "8. You must see a doctor.",
+      "9. You'd better rest.",
+      "10. Respuesta libre (ej. 'You must be quiet. You mustn't eat inside. You can borrow three books. You should return them on time.')"
+    ]
+  }
+}

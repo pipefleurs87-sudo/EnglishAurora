@@ -1,0 +1,158 @@
+{
+  "id": "c1-inversion-01",
+  "nivel": "C1",
+  "arquetipo": "estructuras_avanzadas",
+  "tema": "Inversion — Never, Rarely, Not Only, Little",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🌅", "palabra": "sunrise", "traduccion": "amanecer"},
+    {"bandera": "🗻", "palabra": "peak", "traduccion": "pico (montaña)"},
+    {"bandera": "✨", "palabra": "glow", "traduccion": "brillar"},
+    {"bandera": "☁️", "palabra": "clouds roll in", "traduccion": "llegar las nubes"},
+    {"bandera": "🏆", "palabra": "win a prize", "traduccion": "ganar un premio"},
+    {"bandera": "📸", "palabra": "take a shot", "traduccion": "hacer una foto"},
+    {"bandera": "🏔️", "palabra": "descend", "traduccion": "descender"},
+    {"bandera": "🌨️", "palabra": "start to snow", "traduccion": "empezar a nevar"},
+    {"bandera": "🫀", "palabra": "feel alive", "traduccion": "sentirse vivo"},
+    {"bandera": "🎖️", "palabra": "rarely", "traduccion": "rara vez"},
+    {"bandera": "🚫", "palabra": "never before", "traduccion": "nunca antes"},
+    {"bandera": "➕", "palabra": "not only", "traduccion": "no solo"},
+    {"bandera": "🤏", "palabra": "little did they know", "traduccion": "poco sabían ellos"},
+    {"bandera": "⚡", "palabra": "no sooner... than", "traduccion": "apenas... cuando"},
+    {"bandera": "🥾", "palabra": "hardly... when", "traduccion": "apenas... cuando"},
+    {"bandera": "🎒", "palabra": "expedition", "traduccion": "expedición"},
+    {"bandera": "🌄", "palabra": "summit", "traduccion": "cumbre"},
+    {"bandera": "🧗", "palabra": "climb", "traduccion": "escalar"},
+    {"bandera": "📷", "palabra": "lens", "traduccion": "objetivo (cámara)"},
+    {"bandera": "🌬️", "palabra": "wind", "traduccion": "viento"},
+    {"bandera": "🧊", "palabra": "frozen", "traduccion": "helado"},
+    {"bandera": "🙌", "palabra": "breathtaking", "traduccion": "impresionante"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "When a negative word opens the sentence, heroes, the subject and the auxiliary dance backwards. Rarely had I seen such elegance."},
+    {"personaje": "Ben", "linea": "Rarely have I seen such a perfect sunrise. Not only did the sky turn gold, but the snow began to glow."},
+    {"personaje": "Kenji", "linea": "Never before had I felt so small. Hardly had we taken the photo when the clouds rolled in."},
+    {"personaje": "Sofía", "linea": "Little did we know that image would win the national prize. No sooner had we descended than it started to snow."},
+    {"personaje": "Abuela Carmen", "linea": "Seldom have I read a story so beautifully told. Not until you see it with your own eyes do you understand, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Rarely have I seen such a perfect sunrise."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Not only did the sky turn gold, but the snow began to glow."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "No sooner had we descended than it started to snow."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Little did they know the image would win a prize."},
+    {"id": "s5", "forma": "negativo", "oracion": "Never before had I felt so alive."},
+    {"id": "s6", "forma": "negativo", "oracion": "Not until you see it do you understand."},
+    {"id": "s7", "forma": "negativo", "oracion": "Nowhere else have I found such peace."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Rarely does one see such beauty, does one?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Have you ever felt that small? Never before had I."},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What did they know? Little, it turned out."},
+    {"id": "s11", "forma": "short_answer", "oracion": "Had he seen such a sunrise before? Rarely had he."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did they expect to win? Little did they expect it."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Had they just descended? No sooner had they than it snowed."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Rarely I have seen such a perfect sunrise.",
+        "opcion_b": "Rarely have I seen such a perfect sunrise.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "When a negative or limiting adverbial opens the sentence (never, rarely, seldom, little, not only, no sooner, hardly, not until, nowhere), subject and auxiliary invert: 'Rarely have I seen...'. Pairs: no sooner... than / hardly... when + past perfect.",
+      "tabla": {
+        "titulo": "Inversion after negative adverbials",
+        "encabezados": ["Opener", "Structure", "Example"],
+        "filas": [
+          ["never / rarely / seldom", "adverb + aux + subject + verb", "Never have I felt so alive."],
+          ["not only... but", "not only + inversion", "Not only did we win, but we celebrated."],
+          ["no sooner... than", "no sooner + past perfect", "No sooner had we left than it rained."],
+          ["hardly... when", "hardly + past perfect", "Hardly had we arrived when it started."],
+          ["little", "little + do/did + subject + know", "Little did they know."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ seen such a perfect sunrise.", "opciones": ["Rarely have I", "Rarely I have", "I rarely have"], "respuesta": "Rarely have I"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ had we descended than it started to snow.", "opciones": ["No sooner", "Hardly", "Not only"], "respuesta": "No sooner"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ did they know the photo would win a prize.", "opciones": ["Little", "Few", "Small"], "respuesta": "Little"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'not only' at the start of a sentence, we invert subject and auxiliary.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'No sooner had we left when it rained' is correct.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Hardly had we taken the photo ___ the clouds rolled in.", "respuesta": "when"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Never before ___ I felt so alive.", "respuesta": "had"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["did", "Little", "they", "know", "."], "respuesta": "Little did they know."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Rarely I have seen such a perfect sunrise.", "respuesta": "Rarely have I seen such a perfect sunrise."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I have never felt so alive before.", "instruccion": "Rewrite starting with 'Never before'.", "respuesta": "Never before have I felt so alive."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "We had just arrived when it started to rain.", "instruccion": "Rewrite starting with 'Hardly'.", "respuesta": "Hardly had we arrived when it started to rain."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe an impressive experience using 'rarely' and 'not only... but' with inversion.", "respuesta": "Rarely have I seen such a beautiful place. Not only did we climb the mountain, but we also watched the sunrise."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben, tell us about the sunrise on Mount Fuji.",
+        "Ben: Rarely have I seen anything so perfect. Not only did the sky turn gold, but the snow began to glow pink.",
+        "Sofía: Wow. And you took the winning photo there, right?",
+        "Ben: Yes. Hardly had we taken it when the clouds rolled in.",
+        "Sofía: Incredible timing!",
+        "Ben: Little did we know it would win the national prize.",
+        "Sofía: And the descent?",
+        "Ben: No sooner had we descended than it started to snow. We escaped by minutes!"
+      ],
+      "gaps": ["gold", "snow"],
+      "comprension": [
+        {"pregunta": "What happened right after they took the photo?", "opciones": ["It started to snow", "The clouds rolled in", "The sun set"], "respuesta": "The clouds rolled in"},
+        {"pregunta": "What happened when they descended?", "opciones": ["It started to snow", "They got lost", "The prize was announced"], "respuesta": "It started to snow"}
+      ]
+    },
+    "reading": {
+      "texto": "Rarely had Ben seen such a perfect sunrise over Mount Fuji. Not only did the sky turn gold, but the snow began to glow pink. Never before had the friends felt so small and so alive. Hardly had they taken their first photo when the clouds rolled in. Little did they know that this exact image would win the national photography prize. No sooner had they descended than it started to snow.",
+      "preguntas": [
+        {"afirmacion": "Ben had seen many sunrises like this before.", "respuesta": "false"},
+        {"afirmacion": "The clouds arrived right after the first photo.", "respuesta": "true"},
+        {"afirmacion": "It started to snow before they descended.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha C1-1 — Inversion after Negative Adverbials",
+    "partes": [
+      {
+        "parte": "A — Reescribe comenzando con el adverbio",
+        "ejercicios": [
+          {"n": 1, "texto": "I have never felt so alive before. → Never before..."},
+          {"n": 2, "texto": "We had just arrived when it started to rain. → Hardly..."},
+          {"n": 3, "texto": "We had just descended when it started to snow. → No sooner..."},
+          {"n": 4, "texto": "I have rarely seen such beauty. → Rarely..."}
+        ]
+      },
+      {
+        "parte": "B — Completa la pareja correcta (than / when)",
+        "ejercicios": [
+          {"n": 5, "texto": "No sooner had we left ___ it rained."},
+          {"n": 6, "texto": "Hardly had we arrived ___ it started."},
+          {"n": 7, "texto": "___ did they know the truth. (Little / Few)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Rarely I have seen such a perfect sunrise.'"},
+          {"n": 9, "texto": "Corrige: 'No sooner had we left when it rained.'"},
+          {"n": 10, "texto": "Escribe 3 frases con inversión: never before, not only... but, little did..."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. Never before have I felt so alive.",
+      "2. Hardly had we arrived when it started to rain.",
+      "3. No sooner had we descended than it started to snow.",
+      "4. Rarely have I seen such beauty.",
+      "5. than",
+      "6. when",
+      "7. Little",
+      "8. Rarely have I seen such a perfect sunrise.",
+      "9. No sooner had we left than it rained.",
+      "10. Respuesta libre (ej. 'Never before have I been so happy. Not only did we win, but we celebrated. Little did I know the truth.')"
+    ]
+  }
+}

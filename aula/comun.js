@@ -25,8 +25,8 @@ function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&am
 function fmtFecha(ts){
   if(!ts) return '—';
   const d = ts.toDate ? ts.toDate() : new Date(ts);
-  return d.toLocaleDateString('es-CO',{day:'numeric',month:'short',year:'numeric'}) + ' ' +
-         d.toLocaleTimeString('es-CO',{hour:'numeric',minute:'2-digit'});
+  return d.toLocaleDateString('en-US',{day:'numeric',month:'short',year:'numeric'}) + ' ' +
+         d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
 }
 function scoreClass(n){ return n >= 80 ? 'good' : n >= 60 ? 'mid' : 'low'; }
 function toast(msg){
@@ -40,4 +40,4 @@ function nuevoToken(){
   const a = new Uint8Array(22); crypto.getRandomValues(a);
   return Array.from(a, b => abc[b % abc.length]).join('');
 }
-const TIPO_LBL = {practica:'Práctica', leccion:'Lección', examen:'Examen', custom:'Clase custom'};
+const TIPO_LBL = {practica:'Practice', leccion:'Lesson', examen:'Exam', custom:'Custom Mission'};

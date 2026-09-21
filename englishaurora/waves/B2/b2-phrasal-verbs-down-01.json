@@ -1,0 +1,156 @@
+{
+  "id": "b2-phrasal-verbs-down-01",
+  "nivel": "B2",
+  "arquetipo": "phrasal_verbs",
+  "tema": "Phrasal Verbs with DOWN",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "💻", "palabra": "break down", "traduccion": "averiarse"},
+    {"bandera": "🧘", "palabra": "calm down", "traduccion": "calmarse"},
+    {"bandera": "🪑", "palabra": "sit down", "traduccion": "sentarse"},
+    {"bandera": "📝", "palabra": "write down", "traduccion": "anotar"},
+    {"bandera": "🎯", "palabra": "narrow down", "traduccion": "reducir (opciones)"},
+    {"bandera": "🙅", "palabra": "turn down", "traduccion": "rechazar"},
+    {"bandera": "🐢", "palabra": "slow down", "traduccion": "ir más despacio"},
+    {"bandera": "🔌", "palabra": "go down", "traduccion": "caerse (internet) / bajar"},
+    {"bandera": "🔥", "palabra": "burn down", "traduccion": "incendiarse"},
+    {"bandera": "✈️", "palabra": "come down", "traduccion": "bajar (precios, aterrizar)"},
+    {"bandera": "🗡️", "palabra": "cut down on", "traduccion": "reducir (consumo)"},
+    {"bandera": "😞", "palabra": "let down", "traduccion": "defraudar"},
+    {"bandera": "👎", "palabra": "put down", "traduccion": "menospreciar / dejar"},
+    {"bandera": "🏚️", "palabra": "fall down", "traduccion": "caerse"},
+    {"bandera": "🔉", "palabra": "turn down (volume)", "traduccion": "bajar (volumen)"},
+    {"bandera": "🧾", "palabra": "note down", "traduccion": "apuntar"},
+    {"bandera": "🛑", "palabra": "close down", "traduccion": "cerrar definitivamente"},
+    {"bandera": "⚖️", "palabra": "weigh down", "traduccion": "agobiar"},
+    {"bandera": "🌧️", "palabra": "pour down", "traduccion": "llover a cántaros"},
+    {"bandera": "🧘‍♂️", "palabra": "lie down", "traduccion": "tumbarse"},
+    {"bandera": "🏗️", "palabra": "knock down", "traduccion": "demoler"},
+    {"bandera": "📉", "palabra": "bring down", "traduccion": "derribar / reducir"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The particle 'down' brings things to the ground, heroes: failures, calm, reductions... but from the ground we rise stronger."},
+    {"personaje": "Ben", "linea": "My laptop broke down while I was editing, and my car broke down on the motorway. What a week!"},
+    {"personaje": "Kenji", "linea": "Calm down, Ben. Sit down, write down the problems, and narrow them down to the important ones."},
+    {"personaje": "Sofía", "linea": "I turned down an expensive repair and decided to cut down on coffee to save money."},
+    {"personaje": "Abuela Carmen", "linea": "When it pours down, I lie down and listen to the rain. Nothing weighs me down, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "My laptop broke down yesterday."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She wrote down all the problems."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They narrowed the choices down to two."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I turned down the offer."},
+    {"id": "s5", "forma": "negativo", "oracion": "The internet didn't go down this time."},
+    {"id": "s6", "forma": "negativo", "oracion": "He didn't let me down."},
+    {"id": "s7", "forma": "negativo", "oracion": "Prices haven't come down yet."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did your car break down?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Can you turn down the music?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Why did they close down the factory?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did she calm down? Yes, she did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did he turn down the job? No, he didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did the prices go down? No, they didn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "My laptop broke down yesterday.",
+        "opcion_b": "My laptop broke yesterday down.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "Phrasal verbs with 'down' express failure (break down, go down), reduction (cut down on, narrow down, slow down), rejection (turn down, let down) or relaxation (calm down, lie down). Many are separable: 'turn the music down' / 'turn it down'.",
+      "tabla": {
+        "titulo": "DOWN — meanings",
+        "encabezados": ["Meaning", "Verbs", "Example"],
+        "filas": [
+          ["Failure", "break down, go down, fall down", "My car broke down."],
+          ["Reduction", "cut down on, narrow down, slow down", "Cut down on sugar."],
+          ["Rejection", "turn down, let down", "She turned down the job."],
+          ["Relax/lower", "calm down, lie down, sit down", "Calm down and sit down."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "My laptop ___ while I was editing photos.", "opciones": ["broke down", "broke up", "broke in"], "respuesta": "broke down"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She ___ the expensive repair. It cost too much.", "opciones": ["turned down", "turned up", "turned on"], "respuesta": "turned down"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Can you turn ___ the music? It's too loud.", "opciones": ["up", "down", "off"], "respuesta": "down"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Let down' means to disappoint someone.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Cut down on' means to increase something.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ the choices ___ to two. (narrow)", "respuesta": "narrowed / down"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I'm trying to ___ on coffee. (cut)", "respuesta": "cut down"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["down", "Calm", "and", "sit down", "."], "respuesta": "Calm down and sit down."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "My laptop broke yesterday down.", "respuesta": "My laptop broke down yesterday."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She wrote down the problems.", "instruccion": "Replace 'the problems' with 'them'.", "respuesta": "She wrote them down."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He turned down the offer.", "instruccion": "Turn it into a question.", "respuesta": "Did he turn down the offer?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe a bad day using three phrasal verbs with 'down'.", "respuesta": "My car broke down, my internet went down, and I had to calm down and write down my problems."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: You look stressed, Ben. Sit down and tell me.",
+        "Ben: Everything went wrong. My laptop broke down while I was editing.",
+        "Kenji: Oh no. Anything else?",
+        "Ben: Yes — my car broke down on the motorway, and then my internet went down!",
+        "Kenji: Wow. Calm down. Write down the problems and narrow them down.",
+        "Ben: I did. The repair costs a fortune, but I turned it down.",
+        "Kenji: Good decision. Slow down, have some tea, and we'll fix it together."
+      ],
+      "gaps": ["laptop", "motorway"],
+      "comprension": [
+        {"pregunta": "What broke down first?", "opciones": ["The car", "The internet", "The laptop"], "respuesta": "The laptop"},
+        {"pregunta": "What did Ben turn down?", "opciones": ["The music", "The repair", "The job"], "respuesta": "The repair"}
+      ]
+    },
+    "reading": {
+      "texto": "Last week everything went wrong for Ben. His laptop broke down while he was editing photos, his car broke down on the motorway, and his internet went down during a video call. He tried to calm down, sat down, and wrote down all the problems. Then he narrowed the choices down to two: fix the laptop or buy a new one. In the end, he turned down an expensive repair and slowed down to think.",
+      "preguntas": [
+        {"afirmacion": "Ben's car broke down on the motorway.", "respuesta": "true"},
+        {"afirmacion": "Ben accepted the expensive repair.", "respuesta": "false"},
+        {"afirmacion": "Ben narrowed the choices down to three.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-2 — Phrasal Verbs with DOWN",
+    "partes": [
+      {
+        "parte": "A — Completa con el phrasal verb correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "My laptop ___ while I was editing. (averiarse)"},
+          {"n": 2, "texto": "She ___ the expensive repair. (rechazar)"},
+          {"n": 3, "texto": "They ___ the choices ___ to two. (reducir opciones)"},
+          {"n": 4, "texto": "I'm trying to ___ on coffee. (reducir consumo)"}
+        ]
+      },
+      {
+        "parte": "B — Sustituye el sustantivo por un pronombre",
+        "ejercicios": [
+          {"n": 5, "texto": "She wrote down the problems. → (them)"},
+          {"n": 6, "texto": "Can you turn down the music? → (it)"},
+          {"n": 7, "texto": "He turned down the offer. → (it)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'My laptop broke yesterday down.'"},
+          {"n": 9, "texto": "Corrige: 'She wrote down them on a paper.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre un día difícil usando phrasal verbs con 'down'."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. broke down",
+      "2. turned down",
+      "3. narrowed / down",
+      "4. cut down",
+      "5. She wrote them down.",
+      "6. Can you turn it down?",
+      "7. He turned it down.",
+      "8. My laptop broke down yesterday.",
+      "9. She wrote them down on a piece of paper.",
+      "10. Respuesta libre (ej. 'My car broke down. My internet went down. I calmed down. I wrote down my problems.')"
+    ]
+  }
+}

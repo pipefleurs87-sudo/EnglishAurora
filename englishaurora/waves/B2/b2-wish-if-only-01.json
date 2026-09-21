@@ -1,0 +1,156 @@
+{
+  "id": "b2-wish-if-only-01",
+  "nivel": "B2",
+  "arquetipo": "deseos",
+  "tema": "Wish & If Only — Regrets and Desires",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "☔", "palabra": "bring an umbrella", "traduccion": "traer un paraguas"},
+    {"bandera": "🌦️", "palabra": "check the weather", "traduccion": "mirar el tiempo"},
+    {"bandera": "🏙️", "palabra": "live closer", "traduccion": "vivir más cerca"},
+    {"bandera": "🗣️", "palabra": "speak French", "traduccion": "hablar francés"},
+    {"bandera": "⏳", "palabra": "waste time", "traduccion": "perder el tiempo"},
+    {"bandera": "🎓", "palabra": "study harder", "traduccion": "estudiar más duro"},
+    {"bandera": "💰", "palabra": "save money", "traduccion": "ahorrar dinero"},
+    {"bandera": "🏖️", "palabra": "be on holiday", "traduccion": "estar de vacaciones"},
+    {"bandera": "🧑‍🤝‍🧑", "palabra": "see my friends", "traduccion": "ver a mis amigos"},
+    {"bandera": "🛏️", "palabra": "stay in bed", "traduccion": "quedarse en la cama"},
+    {"bandera": "😤", "palabra": "annoying habit", "traduccion": "hábito molesto"},
+    {"bandera": "🔇", "palabra": "stop making noise", "traduccion": "dejar de hacer ruido"},
+    {"bandera": "🚭", "palabra": "quit smoking", "traduccion": "dejar de fumar"},
+    {"bandera": "🏃", "palabra": "be fitter", "traduccion": "estar más en forma"},
+    {"bandera": "🕰️", "palabra": "turn back time", "traduccion": "volver atrás en el tiempo"},
+    {"bandera": "💔", "palabra": "regret", "traduccion": "arrepentimiento"},
+    {"bandera": "🌠", "palabra": "desire", "traduccion": "deseo"},
+    {"bandera": "🙏", "palabra": "appreciate today", "traduccion": "apreciar el hoy"},
+    {"bandera": "😮‍💨", "palabra": "sigh", "traduccion": "suspirar"},
+    {"bandera": "🔑", "palabra": "lost keys", "traduccion": "llaves perdidas"},
+    {"bandera": "🧥", "palabra": "warmer coat", "traduccion": "abrigo más caliente"},
+    {"bandera": "🎸", "palabra": "play an instrument", "traduccion": "tocar un instrumento"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "'Wish' and 'if only' are the grammar of the heart, heroes: past simple for present desires, past perfect for regrets, 'would' for complaints."},
+    {"personaje": "Ben", "linea": "I wish I had brought an umbrella. If only I had checked the weather this morning!"},
+    {"personaje": "Kenji", "linea": "I wish I could speak French — my restaurant has French customers every week."},
+    {"personaje": "Sofía", "linea": "I wish I lived closer to the centre. And I wish my neighbours would stop making noise!"},
+    {"personaje": "Abuela Carmen", "linea": "I wish I were twenty again, mis héroes. But if only we appreciated today more — yesterday's wishes become tomorrow's regrets."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I wish I lived closer to the centre. (present desire)"},
+    {"id": "s2", "forma": "afirmativo", "oracion": "I wish I had brought an umbrella. (past regret)"},
+    {"id": "s3", "forma": "afirmativo", "oracion": "I wish I could speak French. (ability)"},
+    {"id": "s4", "forma": "afirmativo", "oracion": "If only I were twenty again."},
+    {"id": "s5", "forma": "negativo", "oracion": "I wish I didn't waste so much time."},
+    {"id": "s6", "forma": "negativo", "oracion": "If only I hadn't sold my bike."},
+    {"id": "s7", "forma": "negativo", "oracion": "I wish it weren't raining."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Do you wish you lived somewhere else?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What do you wish you had studied?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Don't you wish you could fly?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Do you wish you were on holiday? Yes, I do."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Do you regret it? Yes, if only I had known."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Do you wish you played an instrument? Yes, I wish I did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I wish I would live closer to the centre.",
+        "opcion_b": "I wish I lived closer to the centre.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Wish/if only + past simple = desire about the present ('I wish I lived closer'). Wish/if only + past perfect = regret about the past ('If only I had studied'). Wish + would = complaint about annoying behaviour ('I wish you would listen'). 'If only' is stronger and more dramatic than 'I wish'.",
+      "tabla": {
+        "titulo": "Wish & If Only",
+        "encabezados": ["Meaning", "Structure", "Example"],
+        "filas": [
+          ["Present desire", "wish + past simple", "I wish I lived closer."],
+          ["Past regret", "wish + past perfect", "I wish I had studied harder."],
+          ["Complaint (others)", "wish + would + verb", "I wish they would be quiet."],
+          ["Ability", "wish + could", "I wish I could fly."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I wish I ___ closer to the centre. (now)", "opciones": ["lived", "would live", "had lived"], "respuesta": "lived"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If only I ___ an umbrella. (this morning)", "opciones": ["had brought", "brought", "would bring"], "respuesta": "had brought"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I wish my neighbours ___ making noise. (complaint)", "opciones": ["would stop", "stopped to", "had stopped"], "respuesta": "would stop"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For regrets about the past we use 'wish + past perfect'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'I wish I would be taller' is correct.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I wish I ___ (speak) French. (ability)", "respuesta": "could speak"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "If only I ___ (not sell) my bike.", "respuesta": "hadn't sold / had not sold"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["wish", "I", "I were", "twenty again", "."], "respuesta": "I wish I were twenty again."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I wish I would live closer to the centre.", "respuesta": "I wish I lived closer to the centre."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I regret not studying harder at school.", "instruccion": "Rewrite with 'If only'.", "respuesta": "If only I had studied harder at school."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I want to live closer. (unreal now)", "instruccion": "Rewrite with 'I wish'.", "respuesta": "I wish I lived closer."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write three wishes: one present desire, one past regret and one complaint.", "respuesta": "I wish I had more free time. If only I had learned the piano. I wish my phone would stop ringing."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben! You're soaked!",
+        "Ben: I wish I had brought an umbrella. If only I had checked the weather!",
+        "Sofía: Poor thing. I wish I lived closer — you could have run to my place.",
+        "Ben: And I wish this bus would come! We've been waiting for ages.",
+        "Sofía: Any other wishes while we're here?",
+        "Ben: Yes — I wish I were on a beach right now.",
+        "Sofía: Careful, Ben. Abuela Carmen says yesterday's wishes become tomorrow's regrets. Enjoy the rain!"
+      ],
+      "gaps": ["umbrella", "beach"],
+      "comprension": [
+        {"pregunta": "What does Ben regret?", "opciones": ["Not checking his phone", "Not bringing an umbrella", "Not living closer"], "respuesta": "Not bringing an umbrella"},
+        {"pregunta": "What does Sofía wish?", "opciones": ["To live closer", "To be on a beach", "To have a car"], "respuesta": "To live closer"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben stood in the rain and sighed: 'I wish I had brought an umbrella. If only I had checked the weather!' Sofía wished she lived closer to the city centre, and Kenji wished he could speak French — his restaurant had French customers every week. Abuela Carmen smiled wisely: 'I wish I were twenty again, mis héroes. But if only we appreciated today more — yesterday's wishes become tomorrow's regrets.'",
+      "preguntas": [
+        {"afirmacion": "Ben brought an umbrella.", "respuesta": "false"},
+        {"afirmacion": "Kenji wishes he could speak French.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen regrets appreciating today.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-11 — Wish & If Only",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "I wish I ___ (live) closer to the centre. (now)"},
+          {"n": 2, "texto": "If only I ___ (bring) an umbrella. (this morning)"},
+          {"n": 3, "texto": "I wish I ___ (speak) French. (ability)"},
+          {"n": 4, "texto": "I wish my neighbours ___ (stop) making noise. (complaint)"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con wish / if only",
+        "ejercicios": [
+          {"n": 5, "texto": "I regret not studying harder at school. → (If only)"},
+          {"n": 6, "texto": "I want to live closer, but I don't. → (I wish)"},
+          {"n": 7, "texto": "My brother never calls me, and it annoys me. → (I wish + would)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I wish I would live closer to the centre.'"},
+          {"n": 9, "texto": "Corrige: 'If only I would have brought an umbrella.'"},
+          {"n": 10, "texto": "Escribe 4 deseos: 1 presente, 1 pasado, 1 queja y 1 con 'could'."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. lived",
+      "2. had brought",
+      "3. could speak",
+      "4. would stop",
+      "5. If only I had studied harder at school.",
+      "6. I wish I lived closer.",
+      "7. I wish my brother would call me.",
+      "8. I wish I lived closer to the centre.",
+      "9. If only I had brought an umbrella.",
+      "10. Respuesta libre (ej. 'I wish I had more time. If only I had saved money. I wish it would stop raining. I wish I could swim.')"
+    ]
+  }
+}

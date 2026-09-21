@@ -1,0 +1,156 @@
+{
+  "id": "b1-present-perfect-continuous-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Present Perfect Continuous — Unfinished Actions",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🌧️", "palabra": "rain all morning", "traduccion": "llover toda la mañana"},
+    {"bandera": "📸", "palabra": "take photos for hours", "traduccion": "sacar fotos durante horas"},
+    {"bandera": "📚", "palabra": "study English", "traduccion": "estudiar inglés"},
+    {"bandera": "🍜", "palabra": "cook ramen", "traduccion": "cocinar ramen"},
+    {"bandera": "🧶", "palabra": "knit a scarf", "traduccion": "tejer una bufanda"},
+    {"bandera": "🔋", "palabra": "dead battery", "traduccion": "batería agotada"},
+    {"bandera": "😓", "palabra": "tired eyes", "traduccion": "ojos cansados"},
+    {"bandera": "💦", "palabra": "sweat", "traduccion": "sudar"},
+    {"bandera": "🏃", "palabra": "run in the park", "traduccion": "correr en el parque"},
+    {"bandera": "🎨", "palabra": "paint a picture", "traduccion": "pintar un cuadro"},
+    {"bandera": "🧹", "palabra": "clean the house", "traduccion": "limpiar la casa"},
+    {"bandera": "📱", "palabra": "wait for a call", "traduccion": "esperar una llamada"},
+    {"bandera": "🎮", "palabra": "play video games", "traduccion": "jugar videojuegos"},
+    {"bandera": "🛠️", "palabra": "fix a bike", "traduccion": "arreglar una bici"},
+    {"bandera": "⏳", "palabra": "for three hours", "traduccion": "durante tres horas"},
+    {"bandera": "🌅", "palabra": "since morning", "traduccion": "desde la mañana"},
+    {"bandera": "🥵", "palabra": "out of breath", "traduccion": "sin aliento"},
+    {"bandera": "👃", "palabra": "smell wonderful", "traduccion": "oler de maravilla"},
+    {"bandera": "💪", "palabra": "work hard", "traduccion": "trabajar duro"},
+    {"bandera": "🕐", "palabra": "all day", "traduccion": "todo el día"},
+    {"bandera": "📈", "palabra": "make progress", "traduccion": "progresar"},
+    {"bandera": "🧘", "palabra": "practise yoga", "traduccion": "practicar yoga"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Look around, heroes: actions in progress leave traces. Wet streets, tired eyes, warm kitchens. The Present Perfect Continuous tells that story."},
+    {"personaje": "Ben", "linea": "I've been taking photos for three hours. My battery is almost dead!"},
+    {"personaje": "Kenji", "linea": "And I've been cooking ramen. Can you smell it? The kitchen is full of steam."},
+    {"personaje": "Sofía", "linea": "I've been studying English all afternoon. My eyes are tired, but I'm making progress."},
+    {"personaje": "Abuela Carmen", "linea": "I've been knitting a scarf for the winter. Slow hands, warm hearts, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "It has been raining since morning."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "I have been studying English all afternoon."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She has been knitting a scarf."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They have been working hard all day."},
+    {"id": "s5", "forma": "negativo", "oracion": "He hasn't been sleeping well."},
+    {"id": "s6", "forma": "negativo", "oracion": "We haven't been waiting long."},
+    {"id": "s7", "forma": "negativo", "oracion": "It hasn't been raining today."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "How long have you been studying English?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What have you been doing all day?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Has it been raining?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Have you been waiting long? Yes, I have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Has she been cooking? No, she hasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Have they been working? Yes, they have."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I have been study English all afternoon.",
+        "opcion_b": "I have been studying English all afternoon.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use 'have/has + been + verb-ing' for actions that started in the past and are still happening (or just stopped, with visible results). Duration words: for, since, all day, all morning.",
+      "tabla": {
+        "titulo": "Present Perfect Continuous",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "have/has been + -ing", "It has been raining."],
+          ["Negative", "haven't/hasn't been + -ing", "He hasn't been sleeping well."],
+          ["Question", "Have/Has + subject + been + -ing?", "What have you been doing?"],
+          ["Duration", "for + period / since + point", "for three hours / since morning"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It ___ all morning. The streets are wet.", "opciones": ["has been raining", "has rained", "is rain"], "respuesta": "has been raining"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ English for two years.", "opciones": ["have been studying", "have been study", "am study"], "respuesta": "have been studying"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "What ___ you ___ all day?", "opciones": ["have / been doing", "has / been doing", "did / do"], "respuesta": "have / been doing"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The Present Perfect Continuous focuses on the duration of an action.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'I have been study English'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ (knit) a scarf for the winter.", "respuesta": "has been knitting"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ (not / sleep) well lately.", "respuesta": "haven't been sleeping / have not been sleeping"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["been", "have", "How long", "you", "studying English", "?"], "respuesta": "How long have you been studying English?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I have been study English all afternoon.", "respuesta": "I have been studying English all afternoon."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "It has been raining.", "instruccion": "Make it negative.", "respuesta": "It hasn't been raining."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She has been cooking for an hour.", "instruccion": "Turn it into a question with 'How long'.", "respuesta": "How long has she been cooking?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What have you been doing today? Give two answers with 'for' or 'since'.", "respuesta": "I've been working since morning. I've been studying English for an hour."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: You look exhausted, Ben! What have you been doing?",
+        "Ben: I've been taking photos in the park for three hours.",
+        "Sofía: No wonder you're tired. Has it been raining there?",
+        "Ben: Yes, it has been raining since morning. My camera is wet!",
+        "Sofía: Go home and rest. I've been studying all afternoon too.",
+        "Ben: And what's that wonderful smell?",
+        "Sofía: Kenji has been cooking ramen. Dinner is almost ready!"
+      ],
+      "gaps": ["photos", "ramen"],
+      "comprension": [
+        {"pregunta": "How long has Ben been taking photos?", "opciones": ["All day", "For three hours", "Since yesterday"], "respuesta": "For three hours"},
+        {"pregunta": "What has Kenji been doing?", "opciones": ["Sleeping", "Studying", "Cooking ramen"], "respuesta": "Cooking ramen"}
+      ]
+    },
+    "reading": {
+      "texto": "It has been raining since morning, and the streets are wet. Ben has been taking photos for three hours, so his camera battery is almost dead. Sofía has been studying English all afternoon and her eyes are tired. Kenji has been cooking ramen — the kitchen smells wonderful. Abuela Carmen has been knitting a scarf for the winter. Everybody has been working hard, but they are happy together.",
+      "preguntas": [
+        {"afirmacion": "The streets are dry.", "respuesta": "false"},
+        {"afirmacion": "Sofía's eyes are tired from studying.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen has been cooking.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-5 — Present Perfect Continuous",
+    "partes": [
+      {
+        "parte": "A — Completa con el Present Perfect Continuous",
+        "ejercicios": [
+          {"n": 1, "texto": "It ___ (rain) since morning."},
+          {"n": 2, "texto": "I ___ (study) English all afternoon."},
+          {"n": 3, "texto": "She ___ (knit) a scarf."},
+          {"n": 4, "texto": "They ___ (not / sleep) well lately."}
+        ]
+      },
+      {
+        "parte": "B — Escribe la pregunta",
+        "ejercicios": [
+          {"n": 5, "texto": "(how long / you / study English?)"},
+          {"n": 6, "texto": "(what / you / do / all day?)"},
+          {"n": 7, "texto": "(it / rain?) → pregunta + respuesta corta ✓"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I have been study English.'"},
+          {"n": 9, "texto": "Corrige: 'She has being cooking ramen.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre lo que has estado haciendo hoy, con for o since."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. has been raining",
+      "2. have been studying",
+      "3. has been knitting",
+      "4. haven't been sleeping / have not been sleeping",
+      "5. How long have you been studying English?",
+      "6. What have you been doing all day?",
+      "7. Has it been raining? Yes, it has.",
+      "8. I have been studying English.",
+      "9. She has been cooking ramen.",
+      "10. Respuesta libre (ej. 'I've been working since morning. I've been reading for an hour. ...')"
+    ]
+  }
+}

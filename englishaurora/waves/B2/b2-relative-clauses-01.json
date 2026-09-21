@@ -1,0 +1,157 @@
+{
+  "id": "b2-relative-clauses-01",
+  "nivel": "B2",
+  "arquetipo": "oraciones_de_relativo",
+  "tema": "Advanced Relative Clauses — Whose, Where, When, Whom & Omission",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🏠", "palabra": "the house where she was born", "traduccion": "la casa donde nació"},
+    {"bandera": "🧱", "palabra": "whose walls remember", "traduccion": "cuyas paredes recuerdan"},
+    {"bandera": "☕", "palabra": "the café in which we met", "traduccion": "el café en el que nos conocimos"},
+    {"bandera": "👥", "palabra": "the people to whom I owe", "traduccion": "las personas a quienes debo"},
+    {"bandera": "📅", "palabra": "the year when we met", "traduccion": "el año en que nos conocimos"},
+    {"bandera": "📖", "palabra": "the book (that) I read", "traduccion": "el libro (que) leí"},
+    {"bandera": "🖼️", "palabra": "the photo she took", "traduccion": "la foto que ella hizo"},
+    {"bandera": "🎓", "palabra": "the school I went to", "traduccion": "el colegio al que fui"},
+    {"bandera": "🧑‍🤝‍🧑", "palabra": "the friend I grew up with", "traduccion": "el amigo con quien crecí"},
+    {"bandera": "🏙️", "palabra": "neighbourhood", "traduccion": "barrio"},
+    {"bandera": "🌳", "palabra": "the park we used to play in", "traduccion": "el parque donde jugábamos"},
+    {"bandera": "💌", "palabra": "the letter he wrote to her", "traduccion": "la carta que él le escribió"},
+    {"bandera": "🎵", "palabra": "the song we danced to", "traduccion": "la canción que bailamos"},
+    {"bandera": "🧓", "palabra": "the woman whose son is a doctor", "traduccion": "la mujer cuyo hijo es médico"},
+    {"bandera": "🛋️", "palabra": "the sofa we sat on", "traduccion": "el sofá en el que nos sentamos"},
+    {"bandera": "📆", "palabra": "the day when everything changed", "traduccion": "el día en que todo cambió"},
+    {"bandera": "🔑", "palabra": "the person I spoke to", "traduccion": "la persona con la que hablé"},
+    {"bandera": "🏫", "palabra": "childhood", "traduccion": "infancia"},
+    {"bandera": "🎞️", "palabra": "memories", "traduccion": "recuerdos"},
+    {"bandera": "🧭", "palabra": "roots", "traduccion": "raíces"},
+    {"bandera": "🕰️", "palabra": "fifty years ago", "traduccion": "hace cincuenta años"},
+    {"bandera": "🤝", "palabra": "owe", "traduccion": "deber (gratitud)"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Now the relatives bring the whole family, heroes: whose for possession, where for places, when for time, whom for formal elegance... and sometimes, silence."},
+    {"personaje": "Ben", "linea": "This is the street where I grew up, and that's the park we used to play in."},
+    {"personaje": "Kenji", "linea": "The chef whose recipes I studied lives in Osaka. The restaurant he opened is legendary."},
+    {"personaje": "Sofía", "linea": "2019 was the year when everything changed. The people I met then became my family."},
+    {"personaje": "Abuela Carmen", "linea": "I live in the house where I was born, mis héroes — a place whose walls remember fifty years of love."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "This is the house where she was born."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "That's the woman whose son is a doctor."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "2019 was the year when everything changed."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "The café (which) we met in is still open."},
+    {"id": "s5", "forma": "negativo", "oracion": "This isn't the park where we used to play."},
+    {"id": "s6", "forma": "negativo", "oracion": "He isn't the person (whom) I spoke to."},
+    {"id": "s7", "forma": "negativo", "oracion": "She doesn't remember the day when we met."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is this the house where you grew up?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Who's the woman whose son won the prize?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is that the book I lent you?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is this where you met? Yes, it is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is he the friend you grew up with? Yes, he is."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is that the letter he wrote to her? No, it isn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "That's the woman which son is a doctor.",
+        "opcion_b": "That's the woman whose son is a doctor.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Advanced relatives: 'whose' (possession: the woman whose son...), 'where' (places: the house where...), 'when' (time: the year when...). The object pronoun can be omitted: 'the book (that) I read'. Formal style puts the preposition first: 'the person to whom I spoke', 'the café in which we met'.",
+      "tabla": {
+        "titulo": "Advanced Relatives",
+        "encabezados": ["Pronoun", "Use", "Example"],
+        "filas": [
+          ["whose", "possession", "the woman whose son is a doctor"],
+          ["where", "places", "the house where I was born"],
+          ["when", "time", "the year when we met"],
+          ["omission", "object pronoun", "the book (that) I read"],
+          ["prep + which/whom", "formal", "the people to whom I owe everything"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "That's the woman ___ son is a doctor.", "opciones": ["whose", "which", "who"], "respuesta": "whose"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "This is the house ___ she was born.", "opciones": ["where", "which", "whose"], "respuesta": "where"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "2019 was the year ___ everything changed.", "opciones": ["when", "where", "whose"], "respuesta": "when"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We can omit the relative pronoun when it is the object: 'the book I read'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Whose' is only used for things, never for people.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He isn't the person ___ I spoke to. (formal)", "respuesta": "to whom"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The café ___ we met in is still open. (omit or which)", "respuesta": "which / that / (omitted)"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["where", "the house", "This is", "she was born", "."], "respuesta": "This is the house where she was born."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "That's the woman which son is a doctor.", "respuesta": "That's the woman whose son is a doctor."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I spoke to a person. That person is my lawyer.", "instruccion": "Join with 'whom' (formal).", "respuesta": "The person to whom I spoke is my lawyer."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I read a book. It changed my life.", "instruccion": "Join, omitting the pronoun.", "respuesta": "The book I read changed my life."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe your roots: one place (where), one time (when) and one person (whose/who).", "respuesta": "This is the town where I was born. 2010 was the year when I started school. My grandmother, whose garden I loved, taught me to cook."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: This is the street where I grew up, Sofía.",
+        "Sofía: It's beautiful! And that park?",
+        "Ben: That's the park we used to play in. And see that house? That's the woman whose son became a doctor.",
+        "Sofía: You never forget your roots, do you?",
+        "Ben: Never. 2019 was the year when everything changed for me.",
+        "Sofía: The year we all met!",
+        "Ben: Exactly. The people I met that year became my family."
+      ],
+      "gaps": ["park", "2019"],
+      "comprension": [
+        {"pregunta": "What did Ben and his friends use to do in the park?", "opciones": ["Study", "Play", "Have picnics"], "respuesta": "Play"},
+        {"pregunta": "What happened in 2019?", "opciones": ["Ben moved away", "The friends all met", "Ben became a photographer"], "respuesta": "The friends all met"}
+      ]
+    },
+    "reading": {
+      "texto": "Abuela Carmen lives in the house where she was born, a place whose walls remember fifty years of stories. The street where the friends first met has changed, but the café in which they spent their afternoons is still there. Ben, whose photos made the neighbourhood famous, never forgot the people to whom he owed everything. The year when they all met was 2019 — the year everything started.",
+      "preguntas": [
+        {"afirmacion": "Abuela Carmen still lives in the house where she was born.", "respuesta": "true"},
+        {"afirmacion": "The café where the friends met has closed.", "respuesta": "false"},
+        {"afirmacion": "The friends met in 2019.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-18 — Advanced Relative Clauses",
+    "partes": [
+      {
+        "parte": "A — Completa con whose, where, when o whom",
+        "ejercicios": [
+          {"n": 1, "texto": "That's the woman ___ son is a doctor."},
+          {"n": 2, "texto": "This is the house ___ she was born."},
+          {"n": 3, "texto": "2019 was the year ___ everything changed."},
+          {"n": 4, "texto": "He isn't the person to ___ I spoke."}
+        ]
+      },
+      {
+        "parte": "B — Une las frases",
+        "ejercicios": [
+          {"n": 5, "texto": "I spoke to a person. That person is my lawyer. (whom, formal)"},
+          {"n": 6, "texto": "I read a book. It changed my life. (omite el pronombre)"},
+          {"n": 7, "texto": "We met in a café. It's still open. (in which / where)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'That's the woman which son is a doctor.'"},
+          {"n": 9, "texto": "Corrige: 'This is the house which she was born.'"},
+          {"n": 10, "texto": "Escribe 3 frases sobre tus raíces con where, when y whose."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. whose",
+      "2. where",
+      "3. when",
+      "4. whom",
+      "5. The person to whom I spoke is my lawyer.",
+      "6. The book I read changed my life.",
+      "7. The café where/in which we met is still open.",
+      "8. That's the woman whose son is a doctor.",
+      "9. This is the house where she was born. / This is the house in which she was born.",
+      "10. Respuesta libre (ej. 'This is the town where I was born. 2010 was the year when I started school. My aunt, whose recipes I love, taught me to cook.')"
+    ]
+  }
+}

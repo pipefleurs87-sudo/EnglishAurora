@@ -1,0 +1,154 @@
+{
+  "id": "a1-object-pronouns-01",
+  "nivel": "A1",
+  "arquetipo": "pronombres",
+  "tema": "Object Pronouns — Me, You, Him, Her, It, Us, Them",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🙋", "palabra": "I → me", "traduccion": "yo → me, mí"},
+    {"bandera": "👉", "palabra": "you → you", "traduccion": "tú → te, ti"},
+    {"bandera": "👨", "palabra": "he → him", "traduccion": "él → le, lo"},
+    {"bandera": "👩", "palabra": "she → her", "traduccion": "ella → le, la"},
+    {"bandera": "🐱", "palabra": "it → it", "traduccion": "ello → lo, la"},
+    {"bandera": "👥", "palabra": "we → us", "traduccion": "nosotros → nos"},
+    {"bandera": "🧑‍🤝‍🧑", "palabra": "they → them", "traduccion": "ellos → les, los, las"},
+    {"bandera": "📞", "palabra": "call", "traduccion": "llamar"},
+    {"bandera": "❤️", "palabra": "love", "traduccion": "amar, querer"},
+    {"bandera": "👀", "palabra": "see", "traduccion": "ver"},
+    {"bandera": "🤝", "palabra": "help", "traduccion": "ayudar"},
+    {"bandera": "👂", "palabra": "listen to", "traduccion": "escuchar a"},
+    {"bandera": "⏳", "palabra": "wait for", "traduccion": "esperar a"},
+    {"bandera": "👋", "palabra": "visit", "traduccion": "visitar"},
+    {"bandera": "📧", "palabra": "write to", "traduccion": "escribir a"},
+    {"bandera": "🎁", "palabra": "give", "traduccion": "dar, regalar"},
+    {"bandera": "🗣️", "palabra": "tell", "traduccion": "decir, contar"},
+    {"bandera": "🤗", "palabra": "hug", "traduccion": "abrazar"},
+    {"bandera": "🚗", "palabra": "pick up", "traduccion": "recoger (en coche)"},
+    {"bandera": "📸", "palabra": "photograph", "traduccion": "fotografiar"},
+    {"bandera": "🎂", "palabra": "invite", "traduccion": "invitar"},
+    {"bandera": "🔍", "palabra": "look for", "traduccion": "buscar"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The hero acts, but someone receives the action. Today you learn to speak of them without repeating their names."},
+    {"personaje": "Sofía", "linea": "I love my grandmother. I visit her every Sunday."},
+    {"personaje": "Ben", "linea": "And my dog follows me everywhere. I take him to the park daily."},
+    {"personaje": "Kenji", "linea": "My friends help me with Spanish. I call them every week."},
+    {"personaje": "Abuela Carmen", "linea": "My grandchildren hug me so hard! And I always tell them stories."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I visit her every Sunday."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Ben takes him to the park."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She calls them every week."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "We love it here."},
+    {"id": "s5", "forma": "negativo", "oracion": "I don't know him."},
+    {"id": "s6", "forma": "negativo", "oracion": "She doesn't call me."},
+    {"id": "s7", "forma": "negativo", "oracion": "They don't invite us."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Do you see them?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Does he help you?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Can you hear me?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Do you love her? Yes, I do."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Does she know him? No, she doesn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Can you help us? Yes, of course."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I visit she every Sunday.",
+        "opcion_b": "I visit her every Sunday.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Object pronouns receive the action of the verb and replace a name: 'I love Sofía' → 'I love her'. They go AFTER the verb or preposition: 'Listen to me', 'Wait for us'.",
+      "tabla": {
+        "titulo": "Subject → Object",
+        "encabezados": ["Subject", "Object", "Example"],
+        "filas": [
+          ["I / you", "me / you", "She calls me. / I see you."],
+          ["he / she / it", "him / her / it", "I help him. / We love her. / I read it."],
+          ["we / they", "us / them", "They invite us. / I visit them."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I love my grandmother. I visit ___ every Sunday.", "opciones": ["she", "her", "hers"], "respuesta": "her"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "My friends help ___ with Spanish. (yo)", "opciones": ["I", "me", "my"], "respuesta": "me"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "We have a dog. We take ___ to the park.", "opciones": ["him", "it", "them"], "respuesta": "it"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Object pronouns go after the verb.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Him' is the object form of 'she'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She calls ___ every week. (they)", "respuesta": "them"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Can you hear ___? (I)", "respuesta": "me"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["helps", "He", "me", "always", "."], "respuesta": "He always helps me."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I visit she every week.", "respuesta": "I visit her every week."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I know Ben.", "instruccion": "Replace 'Ben' with an object pronoun.", "respuesta": "I know him."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She calls her friends.", "instruccion": "Make it negative.", "respuesta": "She doesn't call them."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Who helps you with English? (Answer with an object pronoun: 'X helps me.')", "respuesta": "My teacher helps me."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Do you see Sofía today?",
+        "Kenji: No, I don't see her. Is she at work?",
+        "Ben: I think so. I need to call her about the party.",
+        "Kenji: Call me later too, OK?",
+        "Ben: Sure! And Abuela Carmen — should we invite her?",
+        "Kenji: Of course! She always brings us cake."
+      ],
+      "gaps": ["her", "cake"],
+      "comprension": [
+        {"pregunta": "Where is Sofía?", "opciones": ["At home", "At work", "At the park"], "respuesta": "At work"},
+        {"pregunta": "What does Abuela Carmen bring?", "opciones": ["Flowers", "Cake", "Coffee"], "respuesta": "Cake"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía loves her grandmother and visits her every Sunday. Ben has a dog; he takes it to the park every day, and the dog follows him everywhere. Kenji's friends help him with Spanish, and he calls them every week. Abuela Carmen adores her grandchildren: they hug her, and she tells them wonderful stories. In this group, everybody helps everybody.",
+      "preguntas": [
+        {"afirmacion": "Sofía visits her grandmother every Sunday.", "respuesta": "true"},
+        {"afirmacion": "Ben's dog follows him everywhere.", "respuesta": "true"},
+        {"afirmacion": "Kenji calls his friends every month.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 23 — Object Pronouns",
+    "partes": [
+      {
+        "parte": "A — Escribe el pronombre de objeto",
+        "ejercicios": [
+          {"n": 1, "texto": "he → ___"},
+          {"n": 2, "texto": "she → ___"},
+          {"n": 3, "texto": "we → ___"},
+          {"n": 4, "texto": "they → ___"}
+        ]
+      },
+      {
+        "parte": "B — Sustituye el nombre por el pronombre",
+        "ejercicios": [
+          {"n": 5, "texto": "I visit Sofía. → I visit ___."},
+          {"n": 6, "texto": "She calls Ben and Kenji. → She calls ___."},
+          {"n": 7, "texto": "We read the book. → We read ___."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I help she with English.'"},
+          {"n": 9, "texto": "Corrige: 'The dog follows he everywhere.'"},
+          {"n": 10, "texto": "Escribe 3 oraciones sobre personas que quieres, usando her, him y them."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. him",
+      "2. her",
+      "3. us",
+      "4. them",
+      "5. her",
+      "6. them",
+      "7. it",
+      "8. I help her with English.",
+      "9. The dog follows him everywhere.",
+      "10. Respuesta libre (ej. 'I love my mom. I call her every day. My brother helps me. I help him too. My friends are great. I visit them often.')"
+    ]
+  }
+}

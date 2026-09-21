@@ -1,0 +1,156 @@
+{
+  "id": "b2-causative-01",
+  "nivel": "B2",
+  "arquetipo": "voz_gramatical",
+  "tema": "Causative — Have / Get Something Done",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🎨", "palabra": "paint the kitchen", "traduccion": "pintar la cocina"},
+    {"bandera": "🏠", "palabra": "install a roof", "traduccion": "instalar un tejado"},
+    {"bandera": "🪟", "palabra": "clean the windows", "traduccion": "limpiar las ventanas"},
+    {"bandera": "📖", "palabra": "print a novel", "traduccion": "imprimir una novela"},
+    {"bandera": "📷", "palabra": "service the camera", "traduccion": "revisar la cámara"},
+    {"bandera": "💇", "palabra": "cut my hair", "traduccion": "cortarme el pelo"},
+    {"bandera": "🚗", "palabra": "repair the car", "traduccion": "reparar el coche"},
+    {"bandera": "🦷", "palabra": "check my teeth", "traduccion": "revisar los dientes"},
+    {"bandera": "👗", "palabra": "make a dress", "traduccion": "hacer un vestido"},
+    {"bandera": "🛠️", "palabra": "fix the heating", "traduccion": "arreglar la calefacción"},
+    {"bandera": "🔑", "palabra": "change the locks", "traduccion": "cambiar las cerraduras"},
+    {"bandera": "🌳", "palabra": "cut the tree", "traduccion": "cortar el árbol"},
+    {"bandera": "📱", "palabra": "repair the screen", "traduccion": "reparar la pantalla"},
+    {"bandera": "🧾", "palabra": "do the accounts", "traduccion": "llevar las cuentas"},
+    {"bandera": "👷", "palabra": "professional", "traduccion": "profesional"},
+    {"bandera": "📅", "palabra": "once a year", "traduccion": "una vez al año"},
+    {"bandera": "🏗️", "palabra": "renovate", "traduccion": "renovar"},
+    {"bandera": "🔍", "palabra": "inspection", "traduccion": "inspección"},
+    {"bandera": "💈", "palabra": "hairdresser's", "traduccion": "peluquería"},
+    {"bandera": "🧑‍🔧", "palabra": "mechanic", "traduccion": "mecánico"},
+    {"bandera": "📸", "palabra": "photocopy shop", "traduccion": "copistería"},
+    {"bandera": "🧵", "palabra": "tailor", "traduccion": "sastre"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Heroes, sometimes you don't do the job — you CAUSE the job to be done. 'Have it done': the grammar of delegation."},
+    {"personaje": "Ben", "linea": "I get my camera serviced once a year. I'd never repair it myself!"},
+    {"personaje": "Kenji", "linea": "I had my restaurant's windows cleaned before the inspection. The inspector was impressed."},
+    {"personaje": "Sofía", "linea": "I'm getting my novel printed at a local shop. And next week I'm having my hair cut!"},
+    {"personaje": "Abuela Carmen", "linea": "I'm having the kitchen painted next week, mis héroes. At my age, the smartest skill is knowing who to call."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "She is having the kitchen painted."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He gets his camera serviced once a year."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They have just had a new roof installed."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I had my hair cut yesterday."},
+    {"id": "s5", "forma": "negativo", "oracion": "I don't repair my car myself — I have it repaired."},
+    {"id": "s6", "forma": "negativo", "oracion": "She hasn't had her teeth checked this year."},
+    {"id": "s7", "forma": "negativo", "oracion": "We aren't getting the heating fixed until winter."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Where do you get your hair cut?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did you have the windows cleaned?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "When are you getting your novel printed?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he have his car repaired? Yes, he did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are you having the kitchen painted? Yes, I am."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did she get the dress made? No, she didn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She is having painted the kitchen.",
+        "opcion_b": "She is having the kitchen painted.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Causative: have/get + object + past participle = you arrange for someone else to do the job. Order matters: 'I had my hair cut' (NOT 'I had cut my hair' — that would mean you cut it!). 'Get' is slightly more informal than 'have'.",
+      "tabla": {
+        "titulo": "Causative",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["have", "have + object + participle", "I had my hair cut."],
+          ["get (informal)", "get + object + participle", "She got her novel printed."],
+          ["Any tense", "change 'have/get'", "We are having the roof fixed."],
+          ["Warning", "object BEFORE participle", "I had my car repaired ✅"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She is having the kitchen ___.", "opciones": ["painted", "paint", "painting"], "respuesta": "painted"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I get my camera ___ once a year.", "opciones": ["serviced", "service", "to service"], "respuesta": "serviced"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Where do you get your hair ___?", "opciones": ["cut", "cutted", "cutting"], "respuesta": "cut"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'I had my hair cut' means I cut my own hair.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Get' is a slightly more informal alternative to 'have' in causatives.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They have just had a new roof ___ (install).", "respuesta": "installed"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She is getting her novel ___ (print) at a local shop.", "respuesta": "printed"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["had", "I", "my hair", "cut", "yesterday", "."], "respuesta": "I had my hair cut yesterday."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She is having painted the kitchen.", "respuesta": "She is having the kitchen painted."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "A mechanic repairs my car.", "instruccion": "Rewrite with 'have'.", "respuesta": "I have my car repaired (by a mechanic)."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "A local shop is printing her novel.", "instruccion": "Rewrite with 'get'.", "respuesta": "She is getting her novel printed."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Name three services you pay for, using have/get something done.", "respuesta": "I have my hair cut every month. I get my eyes tested every two years. I had my phone screen repaired last year."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Your kitchen looks amazing, Abuela Carmen!",
+        "Abuela Carmen: Thank you! I'm having it painted this week.",
+        "Sofía: Oh, so you're not painting it yourself?",
+        "Abuela Carmen: At my age? No, mis héroes! I had the roof installed by professionals too.",
+        "Sofía: Smart. I'm getting my novel printed at a local shop, by the way.",
+        "Abuela Carmen: Wonderful! And Ben gets his camera serviced once a year, he told me.",
+        "Sofía: It's true — sometimes the smartest skill is knowing who to call."
+      ],
+      "gaps": ["painted", "novel"],
+      "comprension": [
+        {"pregunta": "Who is painting the kitchen?", "opciones": ["Abuela Carmen", "Professionals", "Sofía"], "respuesta": "Professionals"},
+        {"pregunta": "What is Sofía getting printed?", "opciones": ["Her photos", "Her novel", "Her posters"], "respuesta": "Her novel"}
+      ]
+    },
+    "reading": {
+      "texto": "Abuela Carmen is renovating her house. She is having the kitchen painted next week, and she has just had a new roof installed. Kenji had his restaurant's windows cleaned before the inspection, and Sofía is getting her novel printed at a local shop. Ben gets his camera serviced once a year. Nobody does these jobs themselves — sometimes the smartest skill is knowing who to call.",
+      "preguntas": [
+        {"afirmacion": "Abuela Carmen is painting the kitchen herself.", "respuesta": "false"},
+        {"afirmacion": "Kenji had the windows cleaned before the inspection.", "respuesta": "true"},
+        {"afirmacion": "Ben services his camera himself.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-13 — Causative: Have/Get Something Done",
+    "partes": [
+      {
+        "parte": "A — Completa con el participio correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "She is having the kitchen ___ (paint)."},
+          {"n": 2, "texto": "I get my camera ___ (service) once a year."},
+          {"n": 3, "texto": "They have just had a new roof ___ (install)."},
+          {"n": 4, "texto": "She is getting her novel ___ (print)."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con have/get something done",
+        "ejercicios": [
+          {"n": 5, "texto": "A mechanic repairs my car. →"},
+          {"n": 6, "texto": "A local shop is printing her novel. →"},
+          {"n": 7, "texto": "A hairdresser cuts my hair every month. →"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She is having painted the kitchen.'"},
+          {"n": 9, "texto": "Corrige: 'I had cut my hair at the hairdresser's.' (queriendo decir que otro lo cortó)"},
+          {"n": 10, "texto": "Escribe 4 frases sobre servicios que pagas usando have/get something done."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. painted",
+      "2. serviced",
+      "3. installed",
+      "4. printed",
+      "5. I have my car repaired (by a mechanic).",
+      "6. She is getting her novel printed.",
+      "7. I have my hair cut every month.",
+      "8. She is having the kitchen painted.",
+      "9. I had my hair cut at the hairdresser's.",
+      "10. Respuesta libre (ej. 'I have my hair cut monthly. I get my eyes tested yearly. I had my phone repaired. I'm getting my flat cleaned.')"
+    ]
+  }
+}

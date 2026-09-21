@@ -1,0 +1,156 @@
+{
+  "id": "b1-present-perfect-vs-past-simple-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Present Perfect vs Past Simple — Connected or Finished?",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🏙️", "palabra": "live in a city", "traduccion": "vivir en una ciudad"},
+    {"bandera": "📦", "palabra": "move house", "traduccion": "mudarse"},
+    {"bandera": "🧒", "palabra": "when I was a child", "traduccion": "cuando era niño"},
+    {"bandera": "📅", "palabra": "last year", "traduccion": "el año pasado"},
+    {"bandera": "⏳", "palabra": "since then", "traduccion": "desde entonces"},
+    {"bandera": "🕰️", "palabra": "for five years", "traduccion": "durante cinco años"},
+    {"bandera": "📆", "palabra": "in 2020", "traduccion": "en 2020"},
+    {"bandera": "🔙", "palabra": "go back", "traduccion": "volver"},
+    {"bandera": "💼", "palabra": "work as a photographer", "traduccion": "trabajar como fotógrafo"},
+    {"bandera": "✉️", "palabra": "invite", "traduccion": "invitar"},
+    {"bandera": "🌱", "palabra": "grow up", "traduccion": "crecer"},
+    {"bandera": "🎓", "palabra": "finish university", "traduccion": "terminar la universidad"},
+    {"bandera": "💍", "palabra": "get married", "traduccion": "casarse"},
+    {"bandera": "👶", "palabra": "be born", "traduccion": "nacer"},
+    {"bandera": "🏆", "palabra": "win an award", "traduccion": "ganar un premio"},
+    {"bandera": "🗓️", "palabra": "this week", "traduccion": "esta semana"},
+    {"bandera": "⏰", "palabra": "today", "traduccion": "hoy"},
+    {"bandera": "🧭", "palabra": "ever since", "traduccion": "desde entonces (con cariño)"},
+    {"bandera": "🔁", "palabra": "so far", "traduccion": "hasta ahora"},
+    {"bandera": "📸", "palabra": "take photos", "traduccion": "sacar fotos"},
+    {"bandera": "🤝", "palabra": "meet a friend", "traduccion": "conocer a un amigo"},
+    {"bandera": "✈️", "palabra": "fly to London", "traduccion": "volar a Londres"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Two tenses, one question, heroes: is the time finished, or does it touch today? That is the key."},
+    {"personaje": "Ben", "linea": "I lived in London for five years — that chapter is closed. But I've worked as a photographer since then."},
+    {"personaje": "Kenji", "linea": "I visited three countries last year. And this year I've already visited two more!"},
+    {"personaje": "Sofía", "linea": "I've lived in Medellín all my life. I moved here when I was a child and I've loved it ever since."},
+    {"personaje": "Abuela Carmen", "linea": "I met your grandfather in 1975, and we were happy for fifty years. Finished time, past simple; living time, present perfect."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I have lived here all my life."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She visited London last year."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "He has worked as a photographer since 2020."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They moved to Spain in 2020."},
+    {"id": "s5", "forma": "negativo", "oracion": "I haven't seen him this week."},
+    {"id": "s6", "forma": "negativo", "oracion": "She didn't travel last summer."},
+    {"id": "s7", "forma": "negativo", "oracion": "We haven't finished yet."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Have you ever been to London?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "When did you move here?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How long have you lived in this city?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Have you seen him today? Yes, I have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did you go out last night? No, I didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Has she called this morning? No, she hasn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I have seen him yesterday.",
+        "opcion_b": "I saw him yesterday.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Finished time (yesterday, last year, in 2020, when I was a child) → Past Simple. Unfinished or connected time (today, this week, since, for, ever, yet, already, so far) → Present Perfect.",
+      "tabla": {
+        "titulo": "Present Perfect vs Past Simple",
+        "encabezados": ["Tense", "Time words", "Example"],
+        "filas": [
+          ["Past Simple", "yesterday, last year, in 2020, ago", "She visited London last year."],
+          ["Present Perfect", "ever, never, yet, already, just", "I have never been to London."],
+          ["Present Perfect", "since + point, for + period", "He has worked here since 2020."],
+          ["Present Perfect", "today, this week, so far", "I have seen him twice this week."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She ___ London last year.", "opciones": ["has visited", "visited", "visits"], "respuesta": "visited"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ him twice this week.", "opciones": ["saw", "have seen", "see"], "respuesta": "have seen"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He ___ as a photographer since 2020.", "opciones": ["worked", "has worked", "works"], "respuesta": "has worked"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We use the Past Simple with 'yesterday' and 'last year'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We can say 'I have seen him yesterday'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ (move) to Spain in 2020.", "respuesta": "moved"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ (live) here all my life.", "respuesta": "have lived / 've lived"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["did", "When", "you", "move", "here", "?"], "respuesta": "When did you move here?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I have seen him yesterday.", "respuesta": "I saw him yesterday."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She visited London last year.", "instruccion": "Change 'last year' to 'twice' and adjust the tense.", "respuesta": "She has visited London twice."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He has worked here since 2020.", "instruccion": "Turn it into a question with 'How long'.", "respuesta": "How long has he worked here?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell me one thing you did last year and one thing you have done this week.", "respuesta": "Last year I visited my grandmother. This week I have started a new book."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: How long have you lived in Medellín, Sofía?",
+        "Sofía: I've lived here all my life. I moved here when I was a child.",
+        "Ben: Lucky you! I lived in London for five years.",
+        "Sofía: Really? When did you leave?",
+        "Ben: I moved to Spain in 2020. I've worked as a photographer since then.",
+        "Sofía: And have you ever been back to London?",
+        "Ben: Not yet. But last year I visited three other countries!"
+      ],
+      "gaps": ["child", "2020"],
+      "comprension": [
+        {"pregunta": "How long has Sofía lived in Medellín?", "opciones": ["Five years", "All her life", "Since 2020"], "respuesta": "All her life"},
+        {"pregunta": "When did Ben move to Spain?", "opciones": ["Last year", "When he was a child", "In 2020"], "respuesta": "In 2020"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía has lived in Medellín all her life. She moved there when she was a child and she has loved the city ever since. Last year she visited London, and she has already decided to go back. Ben lived in London for five years, but he moved to Spain in 2020. He has worked as a photographer since then. He hasn't visited Medellín yet, but Sofía has invited him many times.",
+      "preguntas": [
+        {"afirmacion": "Sofía moved to Medellín as an adult.", "respuesta": "false"},
+        {"afirmacion": "Ben has worked as a photographer since 2020.", "respuesta": "true"},
+        {"afirmacion": "Ben has already visited Medellín.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-4 — Present Perfect vs Past Simple",
+    "partes": [
+      {
+        "parte": "A — Elige el tiempo correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "She ___ (visited / has visited) London last year."},
+          {"n": 2, "texto": "I ___ (saw / have seen) him twice this week."},
+          {"n": 3, "texto": "He ___ (worked / has worked) here since 2020."},
+          {"n": 4, "texto": "They ___ (moved / have moved) to Spain in 2020."}
+        ]
+      },
+      {
+        "parte": "B — Completa con since, for, ago o last",
+        "ejercicios": [
+          {"n": 5, "texto": "He has worked here ___ 2020."},
+          {"n": 6, "texto": "She lived in London ___ five years."},
+          {"n": 7, "texto": "I met her two years ___. / We travelled ___ summer."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I have seen him yesterday.'"},
+          {"n": 9, "texto": "Corrige: 'How long did you live in this city?' (si todavía vives ahí)"},
+          {"n": 10, "texto": "Escribe 4 frases sobre tu vida: 2 en Past Simple (tiempo terminado) y 2 en Present Perfect."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. visited",
+      "2. have seen",
+      "3. has worked",
+      "4. moved",
+      "5. since",
+      "6. for",
+      "7. ago / last",
+      "8. I saw him yesterday.",
+      "9. How long have you lived in this city?",
+      "10. Respuesta libre (ej. 'I visited my grandmother last year. I finished school in 2022. I have lived here all my life. I have started a new book this week.')"
+    ]
+  }
+}

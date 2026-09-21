@@ -1,0 +1,158 @@
+{
+  "id": "b2-idioms-money-01",
+  "nivel": "B2",
+  "arquetipo": "idioms",
+  "tema": "Money Idioms — The Language of the Wallet",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "💰", "palabra": "money is tight", "traduccion": "el dinero escasea"},
+    {"bandera": "🪢", "palabra": "tighten your belt", "traduccion": "apretarse el cinturón"},
+    {"bandera": "🦵", "palabra": "cost an arm and a leg", "traduccion": "costar un ojo de la cara"},
+    {"bandera": "🔴", "palabra": "be in the red", "traduccion": "estar en números rojos"},
+    {"bandera": "🟢", "palabra": "be in the black", "traduccion": "estar en números negros"},
+    {"bandera": "🚿", "palabra": "throw money down the drain", "traduccion": "tirar el dinero"},
+    {"bandera": "🌧️", "palabra": "save for a rainy day", "traduccion": "ahorrar para tiempos difíciles"},
+    {"bandera": "💸", "palabra": "splash out on", "traduccion": "darse un capricho (gastar)"},
+    {"bandera": "🧺", "palabra": "put all your eggs in one basket", "traduccion": "jugárselo todo a una carta"},
+    {"bandera": "🍽️", "palabra": "live from hand to mouth", "traduccion": "vivir al día"},
+    {"bandera": "🤑", "palabra": "make a fortune", "traduccion": "hacer una fortuna"},
+    {"bandera": "🪙", "palabra": "a penny saved is a penny earned", "traduccion": "ahorrar es ganar"},
+    {"bandera": "💳", "palabra": "break the bank", "traduccion": "arruinarse (gastar mucho)"},
+    {"bandera": "🧾", "palabra": "pay through the nose", "traduccion": "pagar un dineral"},
+    {"bandera": "🏦", "palabra": "nest egg", "traduccion": "ahorros (colchón)"},
+    {"bandera": "📉", "palabra": "go bankrupt", "traduccion": "ir a la quiebra"},
+    {"bandera": "🤝", "palabra": "chip in", "traduccion": "contribuir con dinero"},
+    {"bandera": "🆓", "palabra": "for free", "traduccion": "gratis"},
+    {"bandera": "💵", "palabra": "hard-earned money", "traduccion": "dinero ganado con esfuerzo"},
+    {"bandera": "🔥", "palabra": "burn a hole in your pocket", "traduccion": "quemar el bolsillo (dinero)"},
+    {"bandera": "🧮", "palabra": "make ends meet", "traduccion": "llegar a fin de mes"},
+    {"bandera": "🎁", "palabra": "money doesn't grow on trees", "traduccion": "el dinero no crece en los árboles"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Money has its own poetry, heroes. Idioms turn wallets into stories — learn them and you'll understand what numbers hide."},
+    {"personaje": "Ben", "linea": "My new lens cost an arm and a leg, but I didn't want to put all my eggs in one cheap basket."},
+    {"personaje": "Kenji", "linea": "When I opened the restaurant, money was tight. We were in the red for six months!"},
+    {"personaje": "Sofía", "linea": "I save a little for a rainy day every month. I don't want to live from hand to mouth."},
+    {"personaje": "Abuela Carmen", "linea": "Money doesn't grow on trees, mis héroes. A penny saved is a penny earned — but sometimes, splash out on cake!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The renovation cost an arm and a leg."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Now the business is in the black."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "He saved some money for a rainy day."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Last month she splashed out on a new oven."},
+    {"id": "s5", "forma": "negativo", "oracion": "He didn't throw money down the drain."},
+    {"id": "s6", "forma": "negativo", "oracion": "They aren't living from hand to mouth anymore."},
+    {"id": "s7", "forma": "negativo", "oracion": "We didn't break the bank on the holiday."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did the car cost an arm and a leg?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Is the company in the red or in the black?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Do you save for a rainy day?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he go bankrupt? No, he didn't."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is money tight this month? Yes, it is."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did you splash out? Yes, I did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "The renovation cost an arm and a leg.",
+        "opcion_b": "The renovation cost an arm and a hand.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "Money idioms are fixed expressions: 'cost an arm and a leg' (very expensive), 'in the red/black' (losing/making money), 'tighten your belt' (spend less), 'splash out on' (spend freely). They don't translate word by word — learn them as complete pictures.",
+      "tabla": {
+        "titulo": "Money Idioms",
+        "encabezados": ["Idiom", "Meaning", "Example"],
+        "filas": [
+          ["cost an arm and a leg", "muy caro", "The car cost an arm and a leg."],
+          ["in the red / in the black", "pérdidas / beneficios", "We were in the red for months."],
+          ["tighten your belt", "gastar menos", "Money is tight — tighten your belt."],
+          ["save for a rainy day", "ahorrar por si acaso", "She saves for a rainy day."],
+          ["splash out on", "darse un capricho", "He splashed out on a new oven."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The renovation cost ___. It was incredibly expensive.", "opciones": ["an arm and a leg", "a hand and a foot", "two legs"], "respuesta": "an arm and a leg"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "After six bad months, the restaurant is finally ___.", "opciones": ["in the black", "in the red", "in the blue"], "respuesta": "in the black"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I save a little ___ — you never know what will happen.", "opciones": ["for a rainy day", "for a sunny day", "for a cloudy day"], "respuesta": "for a rainy day"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'To tighten your belt' means to spend more money.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'To live from hand to mouth' means to live with just enough money to survive.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He didn't want to put all his ___ in one basket.", "respuesta": "eggs"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Money ___ grow on trees, you know!", "respuesta": "doesn't"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["the drain", "Don't throw", "money", "down", "."], "respuesta": "Don't throw money down the drain."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "The renovation cost an arm and a hand.", "respuesta": "The renovation cost an arm and a leg."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The car was extremely expensive.", "instruccion": "Rewrite with an idiom.", "respuesta": "The car cost an arm and a leg."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The company was losing money.", "instruccion": "Rewrite with an idiom.", "respuesta": "The company was in the red."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe your relationship with money using three idioms.", "respuesta": "I save for a rainy day. I never throw money down the drain. Sometimes I splash out on books."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Kenji, how did the restaurant survive its first year?",
+        "Kenji: With difficulty! Money was tight, and the renovation cost an arm and a leg.",
+        "Sofía: So you were in the red?",
+        "Kenji: For six months. But I didn't throw money down the drain — I saved for a rainy day.",
+        "Sofía: And now?",
+        "Kenji: Now we're in the black! Last month I even splashed out on a new oven.",
+        "Sofía: Congratulations! Any advice?",
+        "Kenji: Yes: don't put all your eggs in one basket."
+      ],
+      "gaps": ["oven", "basket"],
+      "comprension": [
+        {"pregunta": "How long was the restaurant in the red?", "opciones": ["One month", "Six months", "One year"], "respuesta": "Six months"},
+        {"pregunta": "What did Kenji splash out on?", "opciones": ["A new oven", "A new car", "A new flat"], "respuesta": "A new oven"}
+      ]
+    },
+    "reading": {
+      "texto": "When Kenji opened his restaurant, money was tight and he had to tighten his belt. The renovation cost an arm and a leg, and at first the business was in the red. But Kenji didn't throw money down the drain: he saved pennies for a rainy day. Now the restaurant is in the black, and last month he splashed out on a new oven. His advice? Don't put all your eggs in one basket.",
+      "preguntas": [
+        {"afirmacion": "The renovation was cheap.", "respuesta": "false"},
+        {"afirmacion": "The restaurant is profitable now.", "respuesta": "true"},
+        {"afirmacion": "Kenji advises putting all your eggs in one basket.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-14 — Money Idioms",
+    "partes": [
+      {
+        "parte": "A — Completa el idiom",
+        "ejercicios": [
+          {"n": 1, "texto": "The renovation cost an arm and a ___."},
+          {"n": 2, "texto": "After six bad months, the restaurant is finally in the ___."},
+          {"n": 3, "texto": "I save a little for a ___ day."},
+          {"n": 4, "texto": "Don't put all your ___ in one basket."}
+        ]
+      },
+      {
+        "parte": "B — Une el idiom con su significado",
+        "ejercicios": [
+          {"n": 5, "texto": "tighten your belt / in the red / splash out on → gastar menos / en pérdidas / darse un capricho"},
+          {"n": 6, "texto": "Reescribe: 'The car was extremely expensive.' → idiom"},
+          {"n": 7, "texto": "Reescribe: 'The company was losing money.' → idiom"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'The renovation cost an arm and a hand.'"},
+          {"n": 9, "texto": "Corrige: 'Money doesn't grow in trees.'"},
+          {"n": 10, "texto": "Escribe 3 frases sobre tu economía usando idioms de dinero."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. leg",
+      "2. black",
+      "3. rainy",
+      "4. eggs",
+      "5. tighten your belt = gastar menos / in the red = en pérdidas / splash out on = darse un capricho",
+      "6. The car cost an arm and a leg.",
+      "7. The company was in the red.",
+      "8. The renovation cost an arm and a leg.",
+      "9. Money doesn't grow on trees.",
+      "10. Respuesta libre (ej. 'I save for a rainy day. I don't throw money down the drain. I splash out on books sometimes.')"
+    ]
+  }
+}

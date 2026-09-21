@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Refuerzo automático — EnglishAngel Aula</title>
+<title>Automated Reinforcement Generator · English Aurora</title>
 <link rel="stylesheet" href="app.css">
 <style>
   .areaChk{width:18px;height:18px;margin-top:3px;accent-color:var(--red)}
@@ -14,12 +14,12 @@
 </head>
 <body>
 <div class="wrap">
-  <button class="ghost" onclick="location.href='index.html'">← Volver al panel</button>
-  <div class="kicker" style="margin-top:10px">EnglishAngel · Aula</div>
-  <h1>🎯 Refuerzo automático</h1>
-  <p class="sub" id="hNombre">Cargando…</p>
+  <button class="ghost" onclick="location.href='../herramientas/teacher-hub.html'">← Return to Teacher's Hub</button>
+  <div class="kicker" style="margin-top:10px">English Aurora · Diagnostic LMS</div>
+  <h1>🎯 Automated Reinforcement Generator</h1>
+  <p class="sub" id="hNombre">Loading student…</p>
   <p class="sub" id="hMeta"></p>
-  <div id="status"><div class="empty">Analizando el historial del estudiante…</div></div>
+  <div id="status"><div class="empty">Analyzing student history and error telemetry…</div></div>
   <div id="panel" class="hidden"></div>
 </div>
 
@@ -30,7 +30,7 @@
 <script src="comun.js"></script>
 <script>
 const NIVELES=['A1','A2','B1','B2','C1','C2'];
-const STAGE_ES={Recognize:'reconocer',Manipulate:'manipular',Transform:'transformar',Produce:'producir'};
+const STAGE_EN={Recognize:'Recognition',Manipulate:'Manipulation',Transform:'Transformation',Produce:'Production'};
 const SM_FALLBACK={multiple_choice:'Recognize',true_false:'Recognize',gap_fill:'Manipulate',unscramble:'Manipulate',correct_mistake:'Manipulate',transformation:'Transform',write_opposite:'Transform',short_answer_production:'Transform'};
 const P=new URLSearchParams(location.search);
 const token=P.get('t');
@@ -41,10 +41,10 @@ function shuffle(a){ a=(a||[]).slice(); for(let i=a.length-1;i>0;i--){ const j=M
 
 firebase.auth().onAuthStateChanged(async user=>{
   const st=document.getElementById('status');
-  if(!user){ st.innerHTML='<div class="card">Primero inicia sesión en el <a href="index.html">panel de profesor</a>, luego vuelve a abrir el refuerzo desde el detalle del estudiante.</div>'; return; }
-  if(!token){ st.innerHTML='<div class="card">Falta el token del estudiante en el enlace.</div>'; return; }
+  if(!user){ st.innerHTML='<div class="card">Please sign in to the <a href="../herramientas/teacher-hub.html">Teacher\'s Hub</a> first, then relaunch reinforcement from the student dossier.</div>'; return; }
+  if(!token){ st.innerHTML='<div class="card">Missing student token in link.</div>'; return; }
   try{ await init(); }
-  catch(e){ console.error(e); st.innerHTML='<div class="card">No se pudo cargar: '+esc(e&&e.message?e.message:e)+'</div>'; }
+  catch(e){ console.error(e); st.innerHTML='<div class="card">Could not load: '+esc(e&&e.message?e.message:e)+'</div>'; }
 });
 
 async function cargarTemas(){
@@ -69,13 +69,13 @@ async function init(){
     estRef.get(),
     estRef.collection('resultados').orderBy('fecha','desc').limit(300).get()
   ]);
-  if(!snap.exists) throw new Error('estudiante no encontrado');
+  if(!snap.exists) throw new Error('Student not found in registry');
   est=snap.data();
   await cargarTemas();
   banco=await cargarBanco();
-  document.getElementById('hNombre').textContent=est.nombre||'Estudiante';
+  document.getElementById('hNombre').textContent=est.nombre||'Student';
   document.getElementById('hMeta').innerHTML='<span class="tag lvl">'+esc(est.nivel||'?')+'</span>'+
-    (est.nivel_sugerido?(' · <span class="muted">diagnóstico sugiere</span> <b>'+esc(est.nivel_sugerido)+'</b>'):'');
+    (est.nivel_sugerido?(' · <span class="muted">Diagnostic suggests</span> <b>'+esc(est.nivel_sugerido)+'</b>'):'');
   const resultados=resQ.docs.map(d=>d.data());
   const stats=computarAreas(resultados);
   document.getElementById('status').innerHTML='';
@@ -127,13 +127,13 @@ async function construirRefuerzo(stats){
   const now=Date.now();
   const cand=areasNivel.map(area=>{
     const s=stats[area]; let prioridad, motivo, weak='', avg=null;
-    if(!s){ prioridad=1000; motivo='nunca practicado'; }
+    if(!s){ prioridad=1000; motivo='Never practiced'; }
     else{
       const days=s.lastMs?Math.round((now-s.lastMs)/86400000):999;
       avg=(s.avg==null)?null:s.avg; const avgv=(avg==null)?100:avg;
       let wr=1.1; ['Recognize','Manipulate','Transform','Produce'].forEach(k=>{ const st=s.stage[k]; if(st&&st.total>=2){ const rr=st.ok/st.total; if(rr<wr){wr=rr;weak=k;} } });
       prioridad=(100-avgv) + Math.min(days,120)*0.25 + ((weak&&wr<0.75)?(1-wr)*15:0);
-      motivo=(avg==null?'practicado':avg+'% aciertos')+((days>30&&days<900)?(' · último hace '+days+' d'):'')+((weak&&wr<0.75)?(' · flojo en '+(STAGE_ES[weak]||weak)):'');
+      motivo=(avg==null?'Practiced':avg+'% accuracy')+((days>30&&days<900)?(' · last done '+days+'d ago'):'')+((weak&&wr<0.75)?(' · needs work in '+(STAGE_EN[weak]||weak)):'');
     }
     return {area, prioridad, motivo, weak, avg, practicado:!!s};
   });
@@ -144,21 +144,21 @@ async function construirRefuerzo(stats){
 }
 
 function renderRefuerzo(cand, rotateOut, selSet){
-  let html='<div class="card"><p>A partir del historial de <b>'+esc(est.nombre)+'</b>, estas son las áreas que más conviene reforzar (nunca practicada → precisión baja → hace mucho que no se toca). Revisa, ajusta y asigna — <b>nada se envía sin tu confirmación</b>.</p></div>';
-  html+='<div class="row" style="align-items:center;gap:10px;margin:12px 2px"><label style="margin:0">Ejercicios por área</label><input id="perArea" type="number" min="2" max="10" value="4" style="width:72px"></div>';
+  let html='<div class="card"><p>Based on the history of <b>'+esc(est.nombre)+'</b>, here are the highest-priority areas to reinforce (unpracticed → lower accuracy → long time without practice). Review, adjust, and assign — <b>nothing is dispatched without your confirmation</b>.</p></div>';
+  html+='<div class="row" style="align-items:center;gap:10px;margin:12px 2px"><label style="margin:0">Exercises per area</label><input id="perArea" type="number" min="2" max="10" value="4" style="width:72px"></div>';
   html+=cand.map(c=>{
     const checked=selSet.has(c.area)?'checked':'';
-    const rot=rotateOut.has(c.area)?'<span class="rotchip">rotada · no la tocó</span>':'';
+    const rot=rotateOut.has(c.area)?'<span class="rotchip">Rotated · unattempted</span>':'';
     let badge;
-    if(!c.practicado) badge='<span class="rotchip" style="border-color:var(--red);color:var(--red)">nunca practicado</span>';
-    else if(c.avg!=null) badge='<span class="score '+scoreClass(c.avg)+'">'+c.avg+'</span>';
+    if(!c.practicado) badge='<span class="rotchip" style="border-color:var(--red);color:var(--red)">never practiced</span>';
+    else if(c.avg!=null) badge='<span class="score '+scoreClass(c.avg)+'">'+c.avg+'%</span>';
     else badge='';
     return '<div class="card"><label class="row" style="gap:12px;align-items:flex-start;cursor:pointer">'
       +'<input type="checkbox" class="areaChk" data-area="'+esc(c.area)+'" data-weak="'+esc(c.weak||'')+'" '+checked+'>'
       +'<div style="flex:1"><div class="row" style="gap:8px;align-items:center"><strong>'+esc(c.area)+'</strong> '+badge+' '+rot+'</div>'
       +'<div class="muted" style="margin-top:2px">'+esc(c.motivo)+'</div></div></label></div>';
   }).join('');
-  html+='<div class="row" style="justify-content:flex-end;gap:10px;margin-top:16px"><button class="ghost" onclick="location.href=\'index.html\'">Cancelar</button><button class="red" id="btnAsignar">🎯 Asignar refuerzo</button></div>';
+  html+='<div class="row" style="justify-content:flex-end;gap:10px;margin-top:16px"><button class="ghost" onclick="location.href=\'../herramientas/teacher-hub.html\'">Cancel</button><button class="red" id="btnAsignar">🎯 Assign Reinforcement</button></div>';
   const panel=document.getElementById('panel'); panel.innerHTML=html; panel.classList.remove('hidden');
   document.getElementById('btnAsignar').onclick=asignarRefuerzo;
 }
@@ -166,7 +166,7 @@ function renderRefuerzo(cand, rotateOut, selSet){
 async function asignarRefuerzo(){
   const per=Math.max(2,Math.min(10,parseInt(document.getElementById('perArea').value,10)||4));
   const chks=Array.prototype.slice.call(document.querySelectorAll('.areaChk:checked'));
-  if(!chks.length) return toast('Elige al menos un área');
+  if(!chks.length) return toast('Please select at least one area');
   const nivel=est.nivel||'A1';
   const areasSel=chks.map(c=>({area:c.getAttribute('data-area'), weak:c.getAttribute('data-weak')||''}));
   const ejercicios=[]; const areasMeta=[];
@@ -175,18 +175,18 @@ async function asignarRefuerzo(){
     picks.forEach(p=>{ const ej=Object.assign({},p.ejercicio); ej._area=a.area; ejercicios.push(ej); });
     areasMeta.push({area:a.area, n:picks.length, weak:a.weak});
   });
-  if(!ejercicios.length) return toast('No encontré ejercicios para esas áreas');
-  const titulo='🎯 Refuerzo: '+areasSel.map(a=>a.area).join(' · ');
-  const btn=document.getElementById('btnAsignar'); btn.disabled=true; btn.textContent='Asignando…';
+  if(!ejercicios.length) return toast('No exercises found for those areas');
+  const titulo='🎯 Reinforcement: '+areasSel.map(a=>a.area).join(' · ');
+  const btn=document.getElementById('btnAsignar'); btn.disabled=true; btn.textContent='Assigning…';
   try{
     const tarea={titulo:titulo, url:'', tipo:'custom', temaId:'', area:'(refuerzo)', nivel:nivel, estado:'pendiente',
       fecha:FV.serverTimestamp(), refuerzo:{tipo:'refuerzo', areas:areasMeta, ejercicios:ejercicios}};
     const ref=await estRef.collection('tareas').add(tarea);
     await ref.update({url:'refuerzo.html?t='+encodeURIComponent(token)+'&tarea='+ref.id});
     await estRef.update({ultimo_refuerzo:{areas:areasSel.map(a=>({area:a.area})), tareaId:ref.id, fecha:FV.serverTimestamp()}});
-    toast('✓ Refuerzo asignado — '+ejercicios.length+' ejercicios');
-    setTimeout(function(){ location.href='index.html'; },1300);
-  }catch(e){ console.error(e); btn.disabled=false; btn.textContent='🎯 Asignar refuerzo'; toast('Error al asignar: '+(e&&e.message?e.message:e)); }
+    toast('✓ Reinforcement assigned — '+ejercicios.length+' exercises');
+    setTimeout(function(){ location.href='../herramientas/teacher-hub.html'; },1300);
+  }catch(e){ console.error(e); btn.disabled=false; btn.textContent='🎯 Assign Reinforcement'; toast('Error assigning: '+(e&&e.message?e.message:e)); }
 }
 
 function construirPlacement(){
@@ -196,28 +196,28 @@ function construirPlacement(){
   const ejercicios=[]; const meta=[];
   orden.forEach(n=>{ const arr=shuffle(byLevel[n]||[]).slice(0,porNivel);
     arr.forEach(t=>{ const b=t.banner_diagnostico; const correct=(b.correcta==='a')?b.opcion_a:b.opcion_b;
-      ejercicios.push({tipo:'multiple_choice', pregunta:'Choose the correct option:', opciones:[b.opcion_a,b.opcion_b], respuesta:correct, _area:'Nivel '+n}); });
-    if(arr.length) meta.push({area:'Nivel '+n, n:arr.length});
+      ejercicios.push({tipo:'multiple_choice', pregunta:'Choose the correct option:', opciones:[b.opcion_a,b.opcion_b], respuesta:correct, _area:'Level '+n}); });
+    if(arr.length) meta.push({area:'Level '+n, n:arr.length});
   });
   plan={ejercicios:ejercicios, meta:meta};
-  if(!ejercicios.length){ const p=document.getElementById('panel'); p.innerHTML='<div class="card">No pude cargar los diagnósticos (revisa la conexión al sitio público) e intenta de nuevo.</div>'; p.classList.remove('hidden'); return; }
-  let html='<div class="card"><p><b>'+esc(est.nombre)+'</b> aún no tiene historial. Te armé un <b>diagnóstico de nivel</b> con '+ejercicios.length+' preguntas de contraste (error típico vs. forma correcta), repartidas de A1 a C1. Al completarlo, el sistema sugiere un nivel automáticamente.</p></div>';
+  if(!ejercicios.length){ const p=document.getElementById('panel'); p.innerHTML='<div class="card">Could not load diagnostics. Check internet connection and try again.</div>'; p.classList.remove('hidden'); return; }
+  let html='<div class="card"><p><b>'+esc(est.nombre)+'</b> has no prior submission history yet. We prepared a <b>Level Diagnostic Exam</b> with '+ejercicios.length+' contrast questions (typical error vs correct form), spanning A1 to C1. Upon completion, the system automatically suggests a CEFR level.</p></div>';
   html+='<div class="card"><div class="row" style="gap:16px">'+meta.map(m=>'<div><b>'+m.n+'</b> <span class="muted">'+esc(m.area)+'</span></div>').join('')+'</div></div>';
-  html+='<div class="row" style="justify-content:flex-end;gap:10px;margin-top:16px"><button class="ghost" onclick="location.href=\'index.html\'">Cancelar</button><button class="red" id="btnAsignar">📋 Asignar diagnóstico</button></div>';
+  html+='<div class="row" style="justify-content:flex-end;gap:10px;margin-top:16px"><button class="ghost" onclick="location.href=\'../herramientas/teacher-hub.html\'">Cancel</button><button class="red" id="btnAsignar">📋 Assign Diagnostic Exam</button></div>';
   const panel=document.getElementById('panel'); panel.innerHTML=html; panel.classList.remove('hidden');
   document.getElementById('btnAsignar').onclick=asignarPlacement;
 }
 
 async function asignarPlacement(){
-  const btn=document.getElementById('btnAsignar'); btn.disabled=true; btn.textContent='Asignando…';
+  const btn=document.getElementById('btnAsignar'); btn.disabled=true; btn.textContent='Assigning…';
   try{
-    const tarea={titulo:'📋 Diagnóstico de nivel', url:'', tipo:'custom', temaId:'', area:'(placement)', nivel:est.nivel||'', estado:'pendiente',
+    const tarea={titulo:'📋 Level Diagnostic Exam', url:'', tipo:'custom', temaId:'', area:'(placement)', nivel:est.nivel||'', estado:'pendiente',
       fecha:FV.serverTimestamp(), refuerzo:{tipo:'placement', areas:plan.meta, ejercicios:plan.ejercicios}};
     const ref=await estRef.collection('tareas').add(tarea);
     await ref.update({url:'refuerzo.html?t='+encodeURIComponent(token)+'&tarea='+ref.id});
-    toast('✓ Diagnóstico asignado — '+plan.ejercicios.length+' preguntas');
-    setTimeout(function(){ location.href='index.html'; },1300);
-  }catch(e){ console.error(e); btn.disabled=false; btn.textContent='📋 Asignar diagnóstico'; toast('Error: '+(e&&e.message?e.message:e)); }
+    toast('✓ Diagnostic assigned — '+plan.ejercicios.length+' questions');
+    setTimeout(function(){ location.href='../herramientas/teacher-hub.html'; },1300);
+  }catch(e){ console.error(e); btn.disabled=false; btn.textContent='📋 Assign Diagnostic Exam'; toast('Error: '+(e&&e.message?e.message:e)); }
 }
 </script>
 </body>

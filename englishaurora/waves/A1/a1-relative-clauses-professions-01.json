@@ -1,0 +1,155 @@
+{
+  "id": "a1-relative-clauses-professions-01",
+  "nivel": "A1",
+  "arquetipo": "oraciones_de_relativo",
+  "tema": "Relative Clauses — People & Professions (Who/That)",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "🧑‍🏫", "palabra": "teacher", "traduccion": "profesor/a"},
+    {"bandera": "🧑‍⚕️", "palabra": "doctor", "traduccion": "médico/a"},
+    {"bandera": "🧑‍🍳", "palabra": "chef / cook", "traduccion": "cocinero/a"},
+    {"bandera": "🧑‍🚒", "palabra": "firefighter", "traduccion": "bombero/a"},
+    {"bandera": "👮", "palabra": "police officer", "traduccion": "policía"},
+    {"bandera": "🧑‍🌾", "palabra": "farmer", "traduccion": "granjero/a, agricultor"},
+    {"bandera": "🧑‍🔧", "palabra": "mechanic", "traduccion": "mecánico/a"},
+    {"bandera": "🧑‍🎨", "palabra": "artist", "traduccion": "artista"},
+    {"bandera": "🧑‍✈️", "palabra": "pilot", "traduccion": "piloto"},
+    {"bandera": "🧑‍🚀", "palabra": "astronaut", "traduccion": "astronauta"},
+    {"bandera": "🧑‍⚖️", "palabra": "judge", "traduccion": "juez/a"},
+    {"bandera": "🧑‍💼", "palabra": "office worker", "traduccion": "oficinista"},
+    {"bandera": "🧑‍🔬", "palabra": "scientist", "traduccion": "científico/a"},
+    {"bandera": "🧑‍🎤", "palabra": "singer", "traduccion": "cantante"},
+    {"bandera": "🧑‍🏭", "palabra": "factory worker", "traduccion": "operario/a de fábrica"},
+    {"bandera": "💇", "palabra": "hairdresser", "traduccion": "peluquero/a"},
+    {"bandera": "🧑‍🍼", "palabra": "nurse", "traduccion": "enfermero/a"},
+    {"bandera": "🚌", "palabra": "bus driver", "traduccion": "conductor de autobús"},
+    {"bandera": "📷", "palabra": "photographer", "traduccion": "fotógrafo/a"},
+    {"bandera": "🧑‍💻", "palabra": "programmer", "traduccion": "programador/a"},
+    {"bandera": "🦷", "palabra": "dentist", "traduccion": "dentista"},
+    {"bandera": "📰", "palabra": "journalist", "traduccion": "periodista"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "A hero is someone WHO helps others. Today you learn to define people by what they do."},
+    {"personaje": "Ben", "linea": "A firefighter is a person who saves people from fires."},
+    {"personaje": "Kenji", "linea": "And a programmer is someone who writes code. That's me!"},
+    {"personaje": "Sofía", "linea": "My mother is a teacher who works with children. She loves her job."},
+    {"personaje": "Abuela Carmen", "linea": "A nurse is a person that helps doctors and cares for the sick. Angels on Earth."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "A doctor is a person who helps sick people."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "A chef is someone who cooks in a restaurant."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She is the teacher who works with children."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "A pilot is a person that flies planes."},
+    {"id": "s5", "forma": "negativo", "oracion": "He isn't the mechanic who fixed my car."},
+    {"id": "s6", "forma": "negativo", "oracion": "A judge isn't a person who works in a hospital."},
+    {"id": "s7", "forma": "negativo", "oracion": "She isn't a singer who sings rock music."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is he the doctor who works here?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What is a firefighter?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is she the journalist who wrote the article?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is a nurse a person who helps doctors? Yes, it is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is he the singer who won the prize? No, he isn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is a pilot someone who flies planes? Yes, it is."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "A doctor is a person which helps sick people.",
+        "opcion_b": "A doctor is a person who helps sick people.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Relative clauses describe a noun. For people, use 'who' (or 'that'): 'A doctor is a person who helps sick people.' This is how English defines professions.",
+      "tabla": {
+        "titulo": "Defining people",
+        "encabezados": ["Pattern", "Example"],
+        "filas": [
+          ["A + profession + is a person who...", "A nurse is a person who helps doctors."],
+          ["A + profession + is someone who...", "A chef is someone who cooks."],
+          ["The + person + who/that...", "She is the teacher who works here."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "A firefighter is a person ___ saves people from fires.", "opciones": ["which", "who", "where"], "respuesta": "who"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "A ___ is someone who flies planes.", "opciones": ["pilot", "farmer", "nurse"], "respuesta": "pilot"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She is the teacher ___ works with children.", "opciones": ["who", "which", "whose"], "respuesta": "who"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For people, we use 'who' or 'that' in relative clauses.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'a person which helps people'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "A dentist is a person ___ fixes teeth.", "respuesta": "who / that"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "A ___ is someone who cuts hair. (profession)", "respuesta": "hairdresser"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["is", "A chef", "someone", "who cooks", "."], "respuesta": "A chef is someone who cooks."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "A nurse is a person which helps doctors.", "respuesta": "A nurse is a person who helps doctors."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "A mechanic fixes cars.", "instruccion": "Define the profession with 'a person who'.", "respuesta": "A mechanic is a person who fixes cars."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He is the doctor who works here.", "instruccion": "Turn it into a question.", "respuesta": "Is he the doctor who works here?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Define your dream job. (Use 'A ... is a person who...')", "respuesta": "A programmer is a person who writes code."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Let's play a game! I describe a job, you guess it.",
+        "Kenji: OK, go!",
+        "Ben: It's a person who helps sick people in a hospital.",
+        "Kenji: A doctor!",
+        "Ben: Correct! Now: someone who flies planes.",
+        "Kenji: A pilot! My turn: a person who writes code.",
+        "Ben: Ha! A programmer — that's you!"
+      ],
+      "gaps": ["hospital", "code"],
+      "comprension": [
+        {"pregunta": "What is the first job Ben describes?", "opciones": ["A nurse", "A doctor", "A dentist"], "respuesta": "A doctor"},
+        {"pregunta": "What is Kenji's job?", "opciones": ["Pilot", "Programmer", "Journalist"], "respuesta": "Programmer"}
+      ]
+    },
+    "reading": {
+      "texto": "My family has many professions. My mother is a teacher who works with children. My uncle is a firefighter — a person who saves people from fires. My cousin is a nurse who helps doctors in a big hospital, and my grandfather was a farmer who grew potatoes. I want to be a programmer, someone who writes code. Every profession helps the world in a different way.",
+      "preguntas": [
+        {"afirmacion": "Her mother is a teacher.", "respuesta": "true"},
+        {"afirmacion": "Her uncle is a police officer.", "respuesta": "false"},
+        {"afirmacion": "Her grandfather was a farmer.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 25 — Relative Clauses: Professions",
+    "partes": [
+      {
+        "parte": "A — Completa con who/that y el verbo",
+        "ejercicios": [
+          {"n": 1, "texto": "A doctor is a person ___ (help) sick people."},
+          {"n": 2, "texto": "A pilot is someone ___ (fly) planes."},
+          {"n": 3, "texto": "A chef is a person ___ (cook) in a restaurant."},
+          {"n": 4, "texto": "A nurse is someone ___ (care) for the sick."}
+        ]
+      },
+      {
+        "parte": "B — Adivina la profesión",
+        "ejercicios": [
+          {"n": 5, "texto": "A person who cuts hair → ___"},
+          {"n": 6, "texto": "A person who writes articles → ___"},
+          {"n": 7, "texto": "A person who fixes teeth → ___"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'A singer is a person which sings.'"},
+          {"n": 9, "texto": "Corrige: 'She is the teacher who work here.'"},
+          {"n": 10, "texto": "Define 3 profesiones de tu familia con 'a person who'."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. who/that helps",
+      "2. who/that flies",
+      "3. who/that cooks",
+      "4. who/that cares",
+      "5. hairdresser",
+      "6. journalist",
+      "7. dentist",
+      "8. A singer is a person who sings.",
+      "9. She is the teacher who works here.",
+      "10. Respuesta libre (ej. 'My dad is a mechanic, a person who fixes cars.')"
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "b2-idioms-time-effort-01",
+  "nivel": "B2",
+  "arquetipo": "idioms",
+  "tema": "Time & Effort Idioms — Racing the Clock",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "⏳", "palabra": "time flies", "traduccion": "el tiempo vuela"},
+    {"bandera": "🕯️", "palabra": "burn the midnight oil", "traduccion": "trabajar hasta altas horas"},
+    {"bandera": "🕐", "palabra": "around the clock", "traduccion": "las veinticuatro horas"},
+    {"bandera": "⏰", "palabra": "at the eleventh hour", "traduccion": "a última hora"},
+    {"bandera": "🎬", "palabra": "it's now or never", "traduccion": "es ahora o nunca"},
+    {"bandera": "🏁", "palabra": "in the nick of time", "traduccion": "en el último momento"},
+    {"bandera": "🏛️", "palabra": "Rome wasn't built in a day", "traduccion": "Roma no se hizo en un día"},
+    {"bandera": "🐦", "palabra": "kill two birds with one stone", "traduccion": "matar dos pájaros de un tiro"},
+    {"bandera": "⏲️", "palabra": "beat the clock", "traduccion": "ganarle al reloj"},
+    {"bandera": "📅", "palabra": "call it a day", "traduccion": "dar por terminado el día"},
+    {"bandera": "🔄", "palabra": "in the long run", "traduccion": "a la larga"},
+    {"bandera": "🐌", "palabra": "take your time", "traduccion": "tómate tu tiempo"},
+    {"bandera": "💨", "palabra": "a race against time", "traduccion": "una carrera contra el tiempo"},
+    {"bandera": "🎯", "palabra": "make up for lost time", "traduccion": "recuperar el tiempo perdido"},
+    {"bandera": "🧘", "palabra": "take a break", "traduccion": "tomarse un descanso"},
+    {"bandera": "📈", "palabra": "step up", "traduccion": "esforzarse más"},
+    {"bandera": "🧗", "palabra": "go the extra mile", "traduccion": "esforzarse al máximo"},
+    {"bandera": "🥊", "palabra": "pull your weight", "traduccion": "hacer tu parte"},
+    {"bandera": "🔥", "palabra": "work flat out", "traduccion": "trabajar a tope"},
+    {"bandera": "⏸️", "palabra": "slow progress", "traduccion": "progreso lento"},
+    {"bandera": "🌅", "palabra": "the crack of dawn", "traduccion": "el amanecer"},
+    {"bandera": "🕰️", "palabra": "behind schedule", "traduccion": "con retraso"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Time is the only currency we all spend, heroes. These idioms teach you to talk about racing it, saving it and beating it."},
+    {"personaje": "Ben", "linea": "I burned the midnight oil all week, but I finished the exhibition photos in the nick of time!"},
+    {"personaje": "Kenji", "linea": "I woke up at the crack of dawn to prepare the catering. With events, it's now or never."},
+    {"personaje": "Sofía", "linea": "Don't leave everything to the eleventh hour, Ben. In the long run, that stress will hurt you."},
+    {"personaje": "Abuela Carmen", "linea": "Rome wasn't built in a day, mis héroes. Take your time... but when you work, pull your weight!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Time flies when you love your work."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He burned the midnight oil for weeks."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She finished in the nick of time."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "We killed two birds with one stone."},
+    {"id": "s5", "forma": "negativo", "oracion": "He didn't leave everything to the eleventh hour."},
+    {"id": "s6", "forma": "negativo", "oracion": "Rome wasn't built in a day."},
+    {"id": "s7", "forma": "negativo", "oracion": "They didn't call it a day until midnight."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you finish in the nick of time?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Are we behind schedule?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Shall we call it a day?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he beat the clock? Yes, he did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was it a race against time? Yes, it was."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did she go the extra mile? Yes, she did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I finished the report in the nick of time.",
+        "opcion_b": "I finished the report in the neck of time.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "Time and effort idioms describe speed and dedication: 'burn the midnight oil' (work late), 'in the nick of time' (just before it's too late), 'the eleventh hour' (the last moment), 'kill two birds with one stone' (solve two problems with one action).",
+      "tabla": {
+        "titulo": "Time & Effort Idioms",
+        "encabezados": ["Idiom", "Meaning", "Example"],
+        "filas": [
+          ["burn the midnight oil", "trabajar hasta tarde", "I burned the midnight oil all week."],
+          ["in the nick of time", "justo a tiempo", "She finished in the nick of time."],
+          ["at the eleventh hour", "a última hora", "Don't wait until the eleventh hour."],
+          ["kill two birds with one stone", "2 problemas, 1 acción", "We killed two birds with one stone."],
+          ["go the extra mile", "esfuerzo extra", "She always goes the extra mile."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ all week to finish the report.", "opciones": ["burned the midnight oil", "burned the midnight gas", "lit the midnight candle"], "respuesta": "burned the midnight oil"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She finished ___. Just one minute before the deadline!", "opciones": ["in the nick of time", "in the neck of time", "on the nick of time"], "respuesta": "in the nick of time"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Don't leave everything to the ___ hour.", "opciones": ["eleventh", "eleven", "last eleven"], "respuesta": "eleventh"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Rome wasn't built in a day' means great things take time.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Call it a day' means to start working.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We killed two ___ with one stone.", "respuesta": "birds"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I woke up at the crack of ___.", "respuesta": "dawn"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["built", "wasn't", "Rome", "in a day", "."], "respuesta": "Rome wasn't built in a day."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I finished the report in the neck of time.", "respuesta": "I finished the report in the nick of time."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He worked until very late every night.", "instruccion": "Rewrite with an idiom.", "respuesta": "He burned the midnight oil every night."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "We solved two problems with one action.", "instruccion": "Rewrite with an idiom.", "respuesta": "We killed two birds with one stone."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe a busy week in your life using three time/effort idioms.", "respuesta": "I burned the midnight oil on Monday. On Wednesday it was a race against time. I finished in the nick of time on Friday."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben! Did you finish the exhibition photos?",
+        "Ben: In the nick of time! I burned the midnight oil all week.",
+        "Sofía: I told you not to leave everything to the eleventh hour.",
+        "Ben: I know, I know. But time flies when you're editing. And hey — it's now or never.",
+        "Sofía: In the long run, this stress will hurt you.",
+        "Ben: Maybe. But by finishing today, I killed two birds with one stone: the exhibition and the magazine cover!",
+        "Sofía: True! Now call it a day and come to dinner."
+      ],
+      "gaps": ["midnight oil", "cover"],
+      "comprension": [
+        {"pregunta": "When did Ben finish the photos?", "opciones": ["At the eleventh hour, too late", "In the nick of time", "A week early"], "respuesta": "In the nick of time"},
+        {"pregunta": "What were the 'two birds' Ben killed?", "opciones": ["Two exhibitions", "The exhibition and the magazine cover", "Two photo contests"], "respuesta": "The exhibition and the magazine cover"}
+      ]
+    },
+    "reading": {
+      "texto": "Working on the exhibition, Ben learned that time flies. He burned the midnight oil for weeks, working around the clock. Sofía told him not to leave everything to the eleventh hour, but Ben likes pressure — he says it's now or never. In the end he finished in the nick of time. Abuela Carmen laughed: 'Rome wasn't built in a day, but you're killing two birds with one stone.'",
+      "preguntas": [
+        {"afirmacion": "Ben worked only during the mornings.", "respuesta": "false"},
+        {"afirmacion": "Ben finished just in time.", "respuesta": "true"},
+        {"afirmacion": "Sofía advised Ben to leave things to the last moment.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-15 — Time & Effort Idioms",
+    "partes": [
+      {
+        "parte": "A — Completa el idiom",
+        "ejercicios": [
+          {"n": 1, "texto": "I burned the midnight ___ all week."},
+          {"n": 2, "texto": "She finished in the ___ of time."},
+          {"n": 3, "texto": "Don't leave everything to the ___ hour."},
+          {"n": 4, "texto": "We killed two ___ with one stone."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con un idiom",
+        "ejercicios": [
+          {"n": 5, "texto": "He worked until very late every night."},
+          {"n": 6, "texto": "We solved two problems with one action."},
+          {"n": 7, "texto": "Let's stop working for today. → (idiom)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I finished the report in the neck of time.'"},
+          {"n": 9, "texto": "Corrige: 'Rome didn't build in a day.'"},
+          {"n": 10, "texto": "Escribe 3 frases sobre una semana ocupada usando idioms de tiempo y esfuerzo."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. oil",
+      "2. nick",
+      "3. eleventh",
+      "4. birds",
+      "5. He burned the midnight oil every night.",
+      "6. We killed two birds with one stone.",
+      "7. Let's call it a day.",
+      "8. I finished the report in the nick of time.",
+      "9. Rome wasn't built in a day.",
+      "10. Respuesta libre (ej. 'I burned the midnight oil on Monday. It was a race against time. I finished in the nick of time.')"
+    ]
+  }
+}

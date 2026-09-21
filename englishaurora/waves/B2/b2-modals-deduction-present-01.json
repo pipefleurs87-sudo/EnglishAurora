@@ -1,0 +1,156 @@
+{
+  "id": "b2-modals-deduction-present-01",
+  "nivel": "B2",
+  "arquetipo": "modales",
+  "tema": "Modals of Deduction — Present (Must Be, Can't Be, Must Be Doing)",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🎹", "palabra": "play the piano", "traduccion": "tocar el piano"},
+    {"bandera": "🏢", "palabra": "the flat upstairs", "traduccion": "el piso de arriba"},
+    {"bandera": "📦", "palabra": "move out", "traduccion": "mudarse (dejar un piso)"},
+    {"bandera": "👩", "palabra": "neighbour", "traduccion": "vecina"},
+    {"bandera": "🎼", "palabra": "recording", "traduccion": "grabación"},
+    {"bandera": "🎵", "palabra": "tempo", "traduccion": "tempo (ritmo musical)"},
+    {"bandera": "⏱️", "palabra": "practise for hours", "traduccion": "practicar durante horas"},
+    {"bandera": "🌡️", "palabra": "fever", "traduccion": "fiebre"},
+    {"bandera": "🥵", "palabra": "sweating", "traduccion": "sudando"},
+    {"bandera": "🏋️", "palabra": "at the gym", "traduccion": "en el gimnasio"},
+    {"bandera": "💼", "palabra": "at work", "traduccion": "en el trabajo"},
+    {"bandera": "🚪", "palabra": "knocking", "traduccion": "llamando (a la puerta)"},
+    {"bandera": "📞", "palabra": "ringing", "traduccion": "sonando"},
+    {"bandera": "🍳", "palabra": "smell of burnt toast", "traduccion": "olor a tostada quemada"},
+    {"bandera": "🚿", "palabra": "water running", "traduccion": "agua corriendo"},
+    {"bandera": "🛌", "palabra": "still in bed", "traduccion": "aún en la cama"},
+    {"bandera": "🎧", "palabra": "wearing headphones", "traduccion": "con auriculares"},
+    {"bandera": "🧐", "palabra": "joking", "traduccion": "bromeando"},
+    {"bandera": "🌙", "palabra": "at this hour", "traduccion": "a estas horas"},
+    {"bandera": "🔊", "palabra": "loud music", "traduccion": "música alta"},
+    {"bandera": "👣", "palabra": "footsteps", "traduccion": "pasos"},
+    {"bandera": "🪞", "palabra": "mirror", "traduccion": "espejo"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Present deductions with continuous forms, heroes: not just what IS true, but what is HAPPENING right now."},
+    {"personaje": "Ben", "linea": "Listen — someone's playing the piano upstairs. It must be the new neighbour."},
+    {"personaje": "Kenji", "linea": "It can't be Mr. Lopez — he moved out last week. And it can't be a recording: the tempo keeps changing."},
+    {"personaje": "Sofía", "linea": "Whoever it is, they must be practising for hours every day. It sounds beautiful!"},
+    {"personaje": "Abuela Carmen", "linea": "Someone is knocking at my door at this hour... It must be Ben — he can't be working so late again!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "It must be the new neighbour."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Someone must be practising every day."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She must be joking."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "He might be working late."},
+    {"id": "s5", "forma": "negativo", "oracion": "It can't be Mr. Lopez — he moved out."},
+    {"id": "s6", "forma": "negativo", "oracion": "It can't be a recording — the tempo changes."},
+    {"id": "s7", "forma": "negativo", "oracion": "He can't be sleeping — the lights are on."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Who can that be at the door?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What must they be doing upstairs?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Could she be joking?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is that the neighbour? It must be."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is he at the gym? He can't be — he's at work."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is she practising? She might be."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Someone must be practise the piano upstairs.",
+        "opcion_b": "Someone must be practising the piano upstairs.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Present deductions: must be + noun/adjective (states) and must be + verb-ing (actions happening now). The same for can't and might. Continuous form for actions in progress: 'He must be working', 'She can't be sleeping'.",
+      "tabla": {
+        "titulo": "Present Deduction — Continuous",
+        "encabezados": ["Certainty", "Form", "Example"],
+        "filas": [
+          ["95% yes (state)", "must be + noun/adj", "It must be the neighbour."],
+          ["95% yes (action now)", "must be + -ing", "They must be practising."],
+          ["95% no", "can't be (+ -ing)", "He can't be sleeping."],
+          ["50% possible", "might be (+ -ing)", "She might be working late."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Listen! Someone ___ the piano upstairs.", "opciones": ["must be playing", "must be play", "must playing"], "respuesta": "must be playing"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It ___ Mr. Lopez — he moved out last week.", "opciones": ["must be", "can't be", "might be"], "respuesta": "can't be"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The tempo keeps changing, so it ___ a recording.", "opciones": ["must be", "can't be", "mustn't be"], "respuesta": "can't be"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For actions happening now we use 'must be + verb-ing'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'He must be work late' is correct.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They must be ___ (practise) for hours every day.", "respuesta": "practising"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He can't be ___ (sleep) — the lights are on.", "respuesta": "sleeping"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["be", "must", "She", "joking", "."], "respuesta": "She must be joking."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Someone must be practise the piano upstairs.", "respuesta": "Someone must be practising the piano upstairs."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'm sure she is working late.", "instruccion": "Rewrite with 'must be'.", "respuesta": "She must be working late."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'm sure he isn't sleeping.", "instruccion": "Rewrite with 'can't be'.", "respuesta": "He can't be sleeping."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Deduce three things about your neighbours right now (must be, can't be, might be + -ing).", "respuesta": "The neighbours must be cooking — it smells great. They can't be sleeping — the TV is loud. They might be having a party."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Listen — someone's playing the piano in the flat upstairs.",
+        "Sofía: It must be the new neighbour. She plays beautifully.",
+        "Ben: Are you sure? It could be Mr. Lopez.",
+        "Sofía: It can't be him — he moved out last week.",
+        "Kenji: And it can't be a recording. The tempo keeps changing.",
+        "Sofía: Whoever it is, they must be practising for hours every day.",
+        "Ben: Well, they can't be practising now — the music just stopped."
+      ],
+      "gaps": ["piano", "recording"],
+      "comprension": [
+        {"pregunta": "Who does Sofía think is playing?", "opciones": ["Mr. Lopez", "The new neighbour", "Kenji"], "respuesta": "The new neighbour"},
+        {"pregunta": "Why can't it be a recording?", "opciones": ["It's too loud", "The tempo keeps changing", "It's too beautiful"], "respuesta": "The tempo keeps changing"}
+      ]
+    },
+    "reading": {
+      "texto": "Listen — someone is playing the piano in the flat upstairs. It can't be Mr. Lopez, because he moved out last week. It must be the new neighbour; Sofía says she plays beautifully. It can't be a recording, because the tempo keeps changing. Whoever it is, they must be practising for hours every day. Ben can't be hearing it, though — he is at work and his flat is two streets away.",
+      "preguntas": [
+        {"afirmacion": "Mr. Lopez still lives upstairs.", "respuesta": "false"},
+        {"afirmacion": "The tempo of the music changes.", "respuesta": "true"},
+        {"afirmacion": "Ben lives in the flat upstairs.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-7 — Modals of Deduction: Present",
+    "partes": [
+      {
+        "parte": "A — Completa con must be, can't be o might be (+ -ing si hay acción)",
+        "ejercicios": [
+          {"n": 1, "texto": "Listen! Someone ___ playing the piano upstairs. (certainty)"},
+          {"n": 2, "texto": "It ___ Mr. Lopez — he moved out last week. (impossible)"},
+          {"n": 3, "texto": "They ___ practising for hours every day. (certainty, action)"},
+          {"n": 4, "texto": "He ___ working late, but I'm not sure. (possibility)"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con must be / can't be",
+        "ejercicios": [
+          {"n": 5, "texto": "I'm sure she is working late. →"},
+          {"n": 6, "texto": "I'm sure he isn't sleeping. →"},
+          {"n": 7, "texto": "I'm sure they are having a party. →"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Someone must be practise the piano.'"},
+          {"n": 9, "texto": "Corrige: 'He can't to be sleeping — the lights are on.'"},
+          {"n": 10, "texto": "Escribe 3 deducciones sobre lo que está pasando ahora cerca de ti (must/can't/might be + -ing)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. must be",
+      "2. can't be",
+      "3. must be",
+      "4. might be",
+      "5. She must be working late.",
+      "6. He can't be sleeping.",
+      "7. They must be having a party.",
+      "8. Someone must be practising the piano.",
+      "9. He can't be sleeping — the lights are on.",
+      "10. Respuesta libre (ej. 'My neighbour must be cooking. The dog can't be sleeping — it's barking. Someone might be watching TV.')"
+    ]
+  }
+}

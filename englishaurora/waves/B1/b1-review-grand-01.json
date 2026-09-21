@@ -1,0 +1,157 @@
+{
+  "id": "b1-review-grand-01",
+  "nivel": "B1",
+  "arquetipo": "repaso_integrador",
+  "tema": "Grand Review — B1 Checkpoint (Perfect Tenses, Conditionals, Passives, Modals, Linkers)",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🧳", "palabra": "pack the suitcase", "traduccion": "hacer la maleta"},
+    {"bandera": "✈️", "palabra": "catch a flight", "traduccion": "coger un vuelo"},
+    {"bandera": "🏆", "palabra": "achievement", "traduccion": "logro"},
+    {"bandera": "🌍", "palabra": "journey", "traduccion": "viaje"},
+    {"bandera": "🎓", "palabra": "graduate", "traduccion": "graduarse"},
+    {"bandera": "🗺️", "palabra": "map", "traduccion": "mapa"},
+    {"bandera": "🧭", "palabra": "direction", "traduccion": "dirección"},
+    {"bandera": "📸", "palabra": "exhibition", "traduccion": "exposición"},
+    {"bandera": "🥘", "palabra": "recipe", "traduccion": "receta"},
+    {"bandera": "🏔️", "palabra": "summit", "traduccion": "cima"},
+    {"bandera": "⏳", "palabra": "for a long time", "traduccion": "durante mucho tiempo"},
+    {"bandera": "🔔", "palabra": "just", "traduccion": "acabar de"},
+    {"bandera": "✅", "palabra": "already", "traduccion": "ya"},
+    {"bandera": "🚧", "palabra": "still not", "traduccion": "todavía no"},
+    {"bandera": "🤞", "palabra": "wish", "traduccion": "desear"},
+    {"bandera": "🌠", "palabra": "dream", "traduccion": "sueño"},
+    {"bandera": "🔑", "palabra": "opportunity", "traduccion": "oportunidad"},
+    {"bandera": "🧑‍🤝‍🧑", "palabra": "teamwork", "traduccion": "trabajo en equipo"},
+    {"bandera": "📖", "palabra": "chapter", "traduccion": "capítulo"},
+    {"bandera": "🎖️", "palabra": "checkpoint", "traduccion": "punto de control"},
+    {"bandera": "🛤️", "palabra": "path", "traduccion": "camino"},
+    {"bandera": "🌄", "palabra": "horizon", "traduccion": "horizonte"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "This is your B1 checkpoint, heroes. Every tense, every modal, every linker you've mastered now fights by your side."},
+    {"personaje": "Ben", "linea": "I've been preparing my exhibition for months. If it opens on Friday, I'll invite everyone. My photos, which were taken on the road, tell our story."},
+    {"personaje": "Kenji", "linea": "When I arrived, Ben had already hung the pictures. Although I was tired, I helped. The exhibition, which looks amazing, will definitely be a success."},
+    {"personaje": "Sofía", "linea": "I've never seen such beautiful photos! Ben must be proud. If I were you, I'd publish a book. You should talk to an editor."},
+    {"personaje": "Abuela Carmen", "linea": "I have known these heroes since they were children, and I have watched them grow. Despite the storms, they never stopped walking. That's the real achievement."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I have been preparing this for months."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "When I arrived, he had already finished."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "If it opens on Friday, I'll invite everyone."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "The photos, which were taken on the road, tell our story."},
+    {"id": "s5", "forma": "negativo", "oracion": "I haven't finished packing yet."},
+    {"id": "s6", "forma": "negativo", "oracion": "You mustn't touch the exhibits."},
+    {"id": "s7", "forma": "negativo", "oracion": "If I were you, I wouldn't wait."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Have you ever seen such beautiful photos?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What would you do if you were me?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How long have you been learning English?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Have you finished? Yes, I have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Should I talk to an editor? Yes, you should."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Had he finished when you arrived? No, he hadn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "If I will have time, I'll visit the exhibition.",
+        "opcion_b": "If I have time, I'll visit the exhibition.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "B1 checkpoint: perfect tenses (experience, duration, sequence), will vs going to, conditionals 0-1-2, passive voice, deduction modals, reported speech, relative clauses and linkers — all working together in one story.",
+      "tabla": {
+        "titulo": "B1 Grand Review Map",
+        "encabezados": ["Topic", "Key structure", "Example"],
+        "filas": [
+          ["Present perfect (continuous)", "have/has (been) + participle/-ing", "I've been working for months."],
+          ["Past perfect", "had + participle", "He had finished when I arrived."],
+          ["Conditionals", "if + present/past, will/would", "If I were you, I'd go."],
+          ["Passive & deduction", "be + participle / must, can't, might", "It was taken in 2019. / She must be proud."],
+          ["Relatives & linkers", "who/which/that, although, however", "My photos, which..., are great."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "When I arrived, the exhibition ___.", "opciones": ["had already started", "has already started", "already starts"], "respuesta": "had already started"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If I ___ you, I'd publish a book.", "opciones": ["am", "were", "will be"], "respuesta": "were"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "My photos, ___ were taken on the road, tell our story.", "opciones": ["that", "which", "who"], "respuesta": "which"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'if' in the first conditional we don't use 'will'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In non-defining clauses we can use 'that'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ (prepare) this exhibition for months. (duration, unfinished)", "respuesta": "have been preparing"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The lights are on — she ___ be home. (deduction)", "respuesta": "must"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["you", "Have", "ever", "seen", "such beautiful photos", "?"], "respuesta": "Have you ever seen such beautiful photos?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She said me that she would come.", "respuesta": "She told me that she would come."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Someone took these photos on the road.", "instruccion": "Change to passive.", "respuesta": "These photos were taken on the road."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "It was difficult, but we finished.", "instruccion": "Rewrite with 'although'.", "respuesta": "Although it was difficult, we finished."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Summarize your English journey in 3 sentences: one perfect tense, one conditional, one relative clause.", "respuesta": "I've been learning English for two years. If I practise every day, I'll reach B2. My teacher, who is very patient, helps me a lot."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Wow, Ben! I've never seen such beautiful photos.",
+        "Ben: Thanks! I've been preparing this exhibition for months.",
+        "Sofía: The one which shows the mountain road is my favourite.",
+        "Ben: That photo was taken just before the storm. We had already walked ten kilometres!",
+        "Sofía: You must be proud. If I were you, I'd publish a book.",
+        "Ben: Actually, I've decided to try. An editor is coming tomorrow.",
+        "Sofía: Although I'm not surprised — your work is incredible. I'll bring everyone on Friday!"
+      ],
+      "gaps": ["months", "editor"],
+      "comprension": [
+        {"pregunta": "How long has Ben been preparing the exhibition?", "opciones": ["For weeks", "For months", "For years"], "respuesta": "For months"},
+        {"pregunta": "What is happening tomorrow?", "opciones": ["The exhibition opens", "An editor is coming", "Ben publishes a book"], "respuesta": "An editor is coming"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben's exhibition opens on Friday. He has been preparing it for months, and the photos, which were taken during his journeys, tell the story of the whole group. When Sofía arrived to help, Ben had already hung most of the pictures. Although she was tired, she stayed until the end. If the exhibition is a success, Ben will publish a book. Everybody says he must be proud — and he definitely is.",
+      "preguntas": [
+        {"afirmacion": "Ben's exhibition opens on Saturday.", "respuesta": "false"},
+        {"afirmacion": "Ben had hung most pictures before Sofía arrived.", "respuesta": "true"},
+        {"afirmacion": "Ben has decided not to publish a book.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-18 — Grand Review: B1 Checkpoint",
+    "partes": [
+      {
+        "parte": "A — Elige la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "When I arrived, the exhibition ___ (had already started / has already started)."},
+          {"n": 2, "texto": "If I ___ (was / were) you, I'd publish a book."},
+          {"n": 3, "texto": "My photos, ___ (that / which) were taken on the road, tell our story."},
+          {"n": 4, "texto": "The lights are on — she ___ (must / can't) be home."}
+        ]
+      },
+      {
+        "parte": "B — Transforma",
+        "ejercicios": [
+          {"n": 5, "texto": "Someone took these photos on the road. → pasiva"},
+          {"n": 6, "texto": "'I'll come tomorrow,' she told me. → reported speech"},
+          {"n": 7, "texto": "It was difficult, but we finished. → con 'although'"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She said me that she would come.'"},
+          {"n": 9, "texto": "Corrige: 'If I will have time, I'll visit the exhibition.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre tu aprendizaje de inglés: present perfect, condicional, pasiva y cláusula de relativo."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. had already started",
+      "2. were",
+      "3. which",
+      "4. must",
+      "5. These photos were taken on the road.",
+      "6. She told me she would come the next day.",
+      "7. Although it was difficult, we finished.",
+      "8. She told me that she would come.",
+      "9. If I have time, I'll visit the exhibition.",
+      "10. Respuesta libre (ej. 'I've studied English for two years. If I practise, I'll improve. English is spoken everywhere. My teacher, who is patient, helps me.')"
+    ]
+  }
+}

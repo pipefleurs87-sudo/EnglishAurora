@@ -1,0 +1,155 @@
+{
+  "id": "a2-verb-to-be-past-01",
+  "nivel": "A2",
+  "arquetipo": "verbo_to_be",
+  "tema": "To Be Past — Was & Were: Yesterday's Heroes",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🕰️", "palabra": "yesterday", "traduccion": "ayer"},
+    {"bandera": "📅", "palabra": "last week", "traduccion": "la semana pasada"},
+    {"bandera": "🗓️", "palabra": "last month", "traduccion": "el mes pasado"},
+    {"bandera": "📆", "palabra": "last year", "traduccion": "el año pasado"},
+    {"bandera": "🌙", "palabra": "last night", "traduccion": "anoche"},
+    {"bandera": "⏪", "palabra": "ago", "traduccion": "hace (tiempo)"},
+    {"bandera": "🏠", "palabra": "at home", "traduccion": "en casa"},
+    {"bandera": "🏖️", "palabra": "on vacation", "traduccion": "de vacaciones"},
+    {"bandera": "😊", "palabra": "happy", "traduccion": "feliz"},
+    {"bandera": "😢", "palabra": "sad", "traduccion": "triste"},
+    {"bandera": "😴", "palabra": "tired", "traduccion": "cansado/a"},
+    {"bandera": "🤒", "palabra": "sick", "traduccion": "enfermo/a"},
+    {"bandera": "⛅", "palabra": "cloudy", "traduccion": "nublado"},
+    {"bandera": "🌧️", "palabra": "rainy", "traduccion": "lluvioso"},
+    {"bandera": "☀️", "palabra": "sunny", "traduccion": "soleado"},
+    {"bandera": "🎂", "palabra": "born", "traduccion": "nacido/a"},
+    {"bandera": "👶", "palabra": "a baby", "traduccion": "un bebé"},
+    {"bandera": "🧒", "palabra": "a child", "traduccion": "un niño"},
+    {"bandera": "🏫", "palabra": "at school", "traduccion": "en la escuela"},
+    {"bandera": "🎉", "palabra": "at the party", "traduccion": "en la fiesta"},
+    {"bandera": "🎬", "palabra": "at the cinema", "traduccion": "en el cine"},
+    {"bandera": "⏰", "palabra": "late / early", "traduccion": "tarde / temprano"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Heroes, open the book of yesterday! 'Was' and 'were' are the footprints of your past."},
+    {"personaje": "Ben", "linea": "I was in London last week. The weather was rainy, as always!"},
+    {"personaje": "Kenji", "linea": "Were you at the party last night, Sofía? You weren't at the cinema with us."},
+    {"personaje": "Sofía", "linea": "No, I wasn't. I was at home — I was sick! But Ben and Kenji were there."},
+    {"personaje": "Abuela Carmen", "linea": "I was born in 1955. Life was different then, but people were happy too."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I was in London last week."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "The weather was rainy."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Ben and Kenji were at the party."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They were very happy yesterday."},
+    {"id": "s5", "forma": "negativo", "oracion": "I wasn't at the cinema."},
+    {"id": "s6", "forma": "negativo", "oracion": "She wasn't sick yesterday."},
+    {"id": "s7", "forma": "negativo", "oracion": "We weren't late."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Were you at the party last night?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Was the weather sunny?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Where were you yesterday?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was she at home? Yes, she was."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Were they late? No, they weren't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Was it cold? Yes, it was."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "They was at the party.",
+        "opcion_b": "They were at the party.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "The past of 'to be' is 'was' (I/he/she/it) and 'were' (you/we/they). Negatives: wasn't/weren't. Questions invert: 'Were you...?' — still no 'did' with 'to be'.",
+      "tabla": {
+        "titulo": "Was / Were",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "was / were", "I was tired. / They were happy."],
+          ["Negative", "wasn't / weren't", "She wasn't sick."],
+          ["Question", "Was/Were + subject...?", "Were you at home?"],
+          ["Time markers", "yesterday, last night, ago", "two days ago"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "They ___ at the party last night.", "opciones": ["was", "were", "are"], "respuesta": "were"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ in London last week.", "opciones": ["was", "were", "am"], "respuesta": "was"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you at the cinema yesterday?", "opciones": ["Was", "Were", "Did"], "respuesta": "Were"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "With I/he/she/it we use 'was' in the past.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Questions with 'to be' past need 'did'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ at home because she ___ sick. (was/were)", "respuesta": "was / was"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We ___ late for class yesterday. (negative)", "respuesta": "weren't"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["were", "Where", "you", "yesterday", "?"], "respuesta": "Where were you yesterday?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "They was very happy.", "respuesta": "They were very happy."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She was at the party.", "instruccion": "Make it negative.", "respuesta": "She wasn't at the party."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The weather was sunny.", "instruccion": "Turn it into a question.", "respuesta": "Was the weather sunny?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Where were you yesterday at eight o'clock? (Answer with a full sentence.)", "respuesta": "I was at home."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: Hi, Ben! Were you at the party last night?",
+        "Ben: Yes, I was! It was amazing. Were you there?",
+        "Kenji: No, I wasn't. I was at home with my sister.",
+        "Ben: Oh, that's a shame. The music was great.",
+        "Kenji: Was Sofía there?",
+        "Ben: No, she wasn't. She was sick."
+      ],
+      "gaps": ["party", "sick"],
+      "comprension": [
+        {"pregunta": "Where was Kenji last night?", "opciones": ["At the party", "At home", "At the cinema"], "respuesta": "At home"},
+        {"pregunta": "Why wasn't Sofía at the party?", "opciones": ["She was tired", "She was sick", "She was in London"], "respuesta": "She was sick"}
+      ]
+    },
+    "reading": {
+      "texto": "Last night there was a party at school. Ben was there, and the music was great. Kenji wasn't at the party; he was at home with his sister. Sofía wasn't there either — she was sick. The weather was cold and rainy, but everybody inside was warm and happy. Abuela Carmen was at home too. It was a quiet night for her, but a fun night for the others.",
+      "preguntas": [
+        {"afirmacion": "Ben was at the party.", "respuesta": "true"},
+        {"afirmacion": "Kenji was at the cinema.", "respuesta": "false"},
+        {"afirmacion": "The weather was warm and sunny.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-1 — To Be Past: Was & Were",
+    "partes": [
+      {
+        "parte": "A — Completa con was/were o wasn't/weren't",
+        "ejercicios": [
+          {"n": 1, "texto": "I ___ in London last week."},
+          {"n": 2, "texto": "They ___ at the party. (negative)"},
+          {"n": 3, "texto": "She ___ sick yesterday."},
+          {"n": 4, "texto": "We ___ late. (negative)"}
+        ]
+      },
+      {
+        "parte": "B — Escribe la pregunta y la respuesta corta",
+        "ejercicios": [
+          {"n": 5, "texto": "(you / at the party) → pregunta + respuesta ✓"},
+          {"n": 6, "texto": "(the weather / sunny) → pregunta + respuesta ✗"},
+          {"n": 7, "texto": "(they / late) → pregunta + respuesta ✗"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'They was at home.'"},
+          {"n": 9, "texto": "Corrige: 'Did you were at school?'"},
+          {"n": 10, "texto": "Escribe 4 oraciones sobre tu día de ayer con was/were."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. was",
+      "2. weren't",
+      "3. was",
+      "4. weren't",
+      "5. Were you at the party? Yes, I was.",
+      "6. Was the weather sunny? No, it wasn't.",
+      "7. Were they late? No, they weren't.",
+      "8. They were at home.",
+      "9. Were you at school?",
+      "10. Respuesta libre (ej. 'I was at home. The weather was cold. My friends were at the park. It was a good day.')"
+    ]
+  }
+}

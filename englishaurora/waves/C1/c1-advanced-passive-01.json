@@ -1,0 +1,156 @@
+{
+  "id": "c1-advanced-passive-01",
+  "nivel": "C1",
+  "arquetipo": "voz_gramatical",
+  "tema": "Advanced Passive — It is said that... / He is believed to...",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🗞️", "palabra": "it is said that", "traduccion": "se dice que"},
+    {"bandera": "🧐", "palabra": "is believed to", "traduccion": "se cree que"},
+    {"bandera": "📢", "palabra": "it is reported that", "traduccion": "se informa que"},
+    {"bandera": "💭", "palabra": "was thought to be", "traduccion": "se pensaba que era"},
+    {"bandera": "🔮", "palabra": "is expected to", "traduccion": "se espera que"},
+    {"bandera": "📸", "palabra": "portrait archive", "traduccion": "archivo de retratos"},
+    {" bandera": "🌊", "palabra": "flood", "traduccion": "inundación"},
+    {"bandera": "🧰", "palabra": "metal box", "traduccion": "caja de metal"},
+    {"bandera": "🎞️", "palabra": "negatives", "traduccion": "negativos (foto)"},
+    {"bandera": "🧪", "palabra": "restore", "traduccion": "restaurar"},
+    {"bandera": "🏛️", "palabra": "national museum", "traduccion": "museo nacional"},
+    {"bandera": "👨‍👩‍👧", "palabra": "generations", "traduccion": "generaciones"},
+    {"bandera": "🗃️", "palabra": "collection", "traduccion": "colección"},
+    {"bandera": "📊", "palabra": "over ten thousand", "traduccion": "más de diez mil"},
+    {"bandera": "🏚️", "palabra": "the oldest in the city", "traduccion": "el más antiguo de la ciudad"},
+    {"bandera": "🧾", "palabra": "it is claimed that", "traduccion": "se afirma que"},
+    {"bandera": "🕊️", "palabra": "is rumoured to", "traduccion": "se rumorea que"},
+    {"bandera": "📜", "palabra": "is known to", "traduccion": "se sabe que"},
+    {"bandera": "🔒", "palabra": "intact", "traduccion": "intacto"},
+    {"bandera": "🧑‍⚖️", "palabra": "it was alleged that", "traduccion": "se alegó que"},
+    {"bandera": "📈", "palabra": "value", "traduccion": "valorar"},
+    {"bandera": "🎙️", "palabra": "press release", "traduccion": "comunicado de prensa"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Formal English loves distance, heroes. 'It is said that...', 'He is believed to...' — the passive of reputation and report."},
+    {"personaje": "Ben", "linea": "The old studio is said to be the oldest in the city. Its owner is believed to have photographed three generations."},
+    {"personaje": "Kenji", "linea": "It is reported that over ten thousand portraits were taken there. Incredible!"},
+    {"personaje": "Sofía", "linea": "The archive was thought to be lost, but it was found intact in a metal box."},
+    {"personaje": "Abuela Carmen", "linea": "The collection is expected to travel to the national museum. My portrait is in it, mis héroes — from 1965!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The studio is said to be the oldest in the city."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He is believed to have photographed three generations."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "It is reported that ten thousand portraits were taken."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "The collection is expected to travel next year."},
+    {"id": "s5", "forma": "negativo", "oracion": "The archive wasn't thought to be complete."},
+    {"id": "s6", "forma": "negativo", "oracion": "It is not known who paid for the restoration."},
+    {"id": "s7", "forma": "negativo", "oracion": "He is not believed to have sold any portraits."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is the studio said to be haunted?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What is the collection expected to include?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is it true that the archive was found in a metal box?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is he believed to be the oldest photographer? Yes, he is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was the archive thought to be lost? Yes, it was."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is it reported to open next year? Yes, it is."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "He is believed to have photographed three generations.",
+        "opcion_b": "He is believed to has photographed three generations.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "Impersonal reporting: 'It is said/reported/thought that + clause' OR 'subject + is said/believed/expected + to-infinitive'. For earlier actions use the perfect infinitive: 'He is believed to have photographed...'. Common in news and formal writing.",
+      "tabla": {
+        "titulo": "Advanced Passive",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Impersonal it", "It is said that + clause", "It is said that the studio is haunted."],
+          ["Personal passive", "subject + is believed + to + verb", "He is believed to be 95."],
+          ["Perfect infinitive", "is thought + to have + pp", "She is thought to have left."],
+          ["Verbs", "say, believe, report, think, expect, know, rumour", "It is known to be true."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The studio ___ to be the oldest in the city.", "opciones": ["is said", "is sayed", "says"], "respuesta": "is said"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He is believed ___ three generations.", "opciones": ["to have photographed", "to has photographed", "having photographed"], "respuesta": "to have photographed"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It ___ that over ten thousand portraits were taken.", "opciones": ["is reported", "is reporting", "reports"], "respuesta": "is reported"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For earlier actions we use 'is believed to have + participle'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'He is believed to has left' is correct.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The collection is expected ___ (travel) to the national museum.", "respuesta": "to travel"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The archive was thought ___ (be) lost.", "respuesta": "to be"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["that", "It is said", "the studio is haunted", "."], "respuesta": "It is said that the studio is haunted."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "He is believed to has photographed three generations.", "respuesta": "He is believed to have photographed three generations."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "People say that the studio is the oldest in the city.", "instruccion": "Rewrite starting with 'The studio'.", "respuesta": "The studio is said to be the oldest in the city."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "People believe that he photographed three generations.", "instruccion": "Rewrite starting with 'He'.", "respuesta": "He is believed to have photographed three generations."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Report two pieces of local news using 'is said to' and 'it is reported that'.", "respuesta": "The old bridge is said to be two hundred years old. It is reported that a new museum will open next year."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Have you read the article about Ben's studio discovery?",
+        "Kenji: Yes! It says the studio is said to be the oldest in the city.",
+        "Sofía: And the owner is believed to have photographed three generations of the same families.",
+        "Kenji: Incredible. It is reported that over ten thousand portraits were taken there.",
+        "Sofía: The archive was thought to be lost after the flood, you know.",
+        "Kenji: But it was found intact in a metal box!",
+        "Sofía: And now the collection is expected to travel to the national museum."
+      ],
+      "gaps": ["oldest", "metal box"],
+      "comprension": [
+        {"pregunta": "What is the studio said to be?", "opciones": ["The most expensive", "The oldest in the city", "The most modern"], "respuesta": "The oldest in the city"},
+        {"pregunta": "Where was the archive found?", "opciones": ["In the attic", "In a metal box", "In the museum"], "respuesta": "In a metal box"}
+      ]
+    },
+    "reading": {
+      "texto": "The old studio is said to be the oldest in the city. Its owner is believed to have photographed three generations of local families. It is reported that over ten thousand portraits were taken there between 1950 and 2010. The archive was thought to be lost, but it was found intact in a metal box. The negatives are now being restored, and the collection is expected to travel to the national museum next year.",
+      "preguntas": [
+        {"afirmacion": "The studio is said to be the oldest in the city.", "respuesta": "true"},
+        {"afirmacion": "The archive was destroyed by the flood.", "respuesta": "false"},
+        {"afirmacion": "The collection will stay in the city.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha C1-4 — Advanced Passive",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "The studio ___ (say) to be the oldest in the city."},
+          {"n": 2, "texto": "He is believed ___ (photograph) three generations. (acción anterior)"},
+          {"n": 3, "texto": "It ___ (report) that ten thousand portraits were taken."},
+          {"n": 4, "texto": "The collection is expected ___ (travel) next year."}
+        ]
+      },
+      {
+        "parte": "B — Transforma a pasiva impersonal/personal",
+        "ejercicios": [
+          {"n": 5, "texto": "People say that the studio is the oldest in the city. → The studio..."},
+          {"n": 6, "texto": "People believe that he photographed three generations. → He..."},
+          {"n": 7, "texto": "People expect the collection to travel. → It..."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'He is believed to has photographed three generations.'"},
+          {"n": 9, "texto": "Corrige: 'It is say that the studio is haunted.'"},
+          {"n": 10, "texto": "Escribe 3 frases de noticias usando is said to, is believed to have, it is reported that."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. is said",
+      "2. to have photographed",
+      "3. is reported",
+      "4. to travel",
+      "5. The studio is said to be the oldest in the city.",
+      "6. He is believed to have photographed three generations.",
+      "7. It is expected that the collection will travel.",
+      "8. He is believed to have photographed three generations.",
+      "9. It is said that the studio is haunted.",
+      "10. Respuesta libre (ej. 'The bridge is said to be old. He is believed to have won the prize. It is reported that the museum will open.')"
+    ]
+  }
+}

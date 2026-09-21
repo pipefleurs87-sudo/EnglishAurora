@@ -1,0 +1,157 @@
+{
+  "id": "b1-connectors-transition-01",
+  "nivel": "B1",
+  "arquetipo": "conectores",
+  "tema": "Linkers & Discourse Markers — Weaving Ideas",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "➕", "palabra": "and / also", "traduccion": "y / también"},
+    {"bandera": "⚖️", "palabra": "but", "traduccion": "pero"},
+    {"bandera": "🌦️", "palabra": "although", "traduccion": "aunque"},
+    {"bandera": "🔄", "palabra": "however", "traduccion": "sin embargo"},
+    {"bandera": "🎯", "palabra": "because", "traduccion": "porque"},
+    {"bandera": "📌", "palabra": "so", "traduccion": "así que"},
+    {"bandera": "🧭", "palabra": "therefore", "traduccion": "por lo tanto"},
+    {"bandera": "🥇", "palabra": "first", "traduccion": "primero"},
+    {"bandera": "🥈", "palabra": "then / next", "traduccion": "luego / después"},
+    {"bandera": "🏁", "palabra": "finally", "traduccion": "finalmente"},
+    {"bandera": "📎", "palabra": "for example", "traduccion": "por ejemplo"},
+    {"bandera": "💭", "palabra": "in my opinion", "traduccion": "en mi opinión"},
+    {"bandera": "⚡", "palabra": "suddenly", "traduccion": "de repente"},
+    {"bandera": "🤝", "palabra": "on the other hand", "traduccion": "por otro lado"},
+    {"bandera": "✨", "palabra": "in addition", "traduccion": "además"},
+    {"bandera": "🔚", "palabra": "in conclusion", "traduccion": "en conclusión"},
+    {"bandera": "😮", "palabra": "actually", "traduccion": "en realidad"},
+    {"bandera": "🎬", "palabra": "meanwhile", "traduccion": "mientras tanto"},
+    {"bandera": "🚸", "palabra": "despite", "traduccion": "a pesar de"},
+    {"bandera": "📉", "palabra": "instead", "traduccion": "en lugar de"},
+    {"bandera": "🔁", "palabra": "as a result", "traduccion": "como resultado"},
+    {"bandera": "🕰️", "palabra": "after that", "traduccion": "después de eso"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Ideas are pearls, heroes, and connectors are the thread. Without them, your story is just a handful of loose beads."},
+    {"personaje": "Ben", "linea": "Although it was raining, we went out. However, we took umbrellas, so we didn't get wet."},
+    {"personaje": "Kenji", "linea": "First I chopped the vegetables, then I boiled the noodles, and finally I served the ramen. As a result, dinner was perfect."},
+    {"personaje": "Sofía", "linea": "In my opinion, the film was too long. On the other hand, the music was beautiful. Despite the rain, we enjoyed the evening."},
+    {"personaje": "Abuela Carmen", "linea": "I love cities because they are alive. However, the countryside is peaceful. Therefore, I live between both worlds."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Although it was raining, we went out."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "It was raining; however, we went out."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "I was tired, so I went to bed early."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "First we walked, then we ate, and finally we rested."},
+    {"id": "s5", "forma": "negativo", "oracion": "Despite the rain, we didn't get wet."},
+    {"id": "s6", "forma": "negativo", "oracion": "She didn't study; therefore, she didn't pass."},
+    {"id": "s7", "forma": "negativo", "oracion": "I don't like coffee; instead, I drink tea."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Do you like tea or coffee, for example?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "In your opinion, was the film too long?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What did you do after that?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was it raining? Yes, but we went out anyway."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did she pass? No, although she studied hard."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did you enjoy it? Yes, despite the weather."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Although it was raining, but we went out.",
+        "opcion_b": "Although it was raining, we went out.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Connectors show the relationship between ideas: addition (and, also, in addition), contrast (but, although, however, despite), cause/result (because, so, therefore, as a result), sequence (first, then, finally) and opinion (in my opinion). Never combine 'although' with 'but' in the same sentence.",
+      "tabla": {
+        "titulo": "Linkers by Function",
+        "encabezados": ["Function", "Linkers", "Example"],
+        "filas": [
+          ["Contrast", "but, although, however, despite", "Although it rained, we went out."],
+          ["Cause/result", "because, so, therefore", "I was tired, so I slept."],
+          ["Sequence", "first, then, after that, finally", "First we walked, then we ate."],
+          ["Opinion/example", "in my opinion, for example", "In my opinion, it was great."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ it was raining, we went out.", "opciones": ["Although", "Because", "So"], "respuesta": "Although"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I was tired, ___ I went to bed early.", "opciones": ["but", "so", "although"], "respuesta": "so"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ the rain, we enjoyed the walk.", "opciones": ["Despite", "Although", "Because"], "respuesta": "Despite"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We can say 'Although it rained, but we went out'.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'However' and 'but' both express contrast.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She didn't study; ___, she didn't pass. (result)", "respuesta": "therefore / as a result"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ we walked, ___ we ate, and ___ we rested. (sequence)", "respuesta": "First, then, finally"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["it was raining,", "Although", "we went out", "."], "respuesta": "Although it was raining, we went out."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Although it was raining, but we went out.", "respuesta": "Although it was raining, we went out."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "It was raining, but we went out.", "instruccion": "Rewrite with 'although'.", "respuesta": "Although it was raining, we went out."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I was tired because I worked all day.", "instruccion": "Rewrite with 'so'.", "respuesta": "I worked all day, so I was tired."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell a 4-sentence story of your last weekend using first, then, however and finally.", "respuesta": "First I slept late. Then I met my friends. However, it started to rain. Finally, we watched a film at home."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: How was the trip, Ben?",
+        "Ben: It was an adventure! First, we missed the train.",
+        "Sofía: Oh no! What did you do then?",
+        "Ben: We took a bus instead. However, it broke down after an hour.",
+        "Sofía: You're joking! So how did you arrive?",
+        "Ben: Although it was late, a farmer gave us a ride. Finally, we arrived at midnight.",
+        "Sofía: Despite everything, it sounds memorable!",
+        "Ben: Exactly. As a result, I have the best photos of my life."
+      ],
+      "gaps": ["bus", "midnight"],
+      "comprension": [
+        {"pregunta": "What happened first?", "opciones": ["The bus broke down", "They missed the train", "A farmer helped them"], "respuesta": "They missed the train"},
+        {"pregunta": "How did they finally arrive?", "opciones": ["By train", "By bus", "A farmer gave them a ride"], "respuesta": "A farmer gave them a ride"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben's trip was an adventure from the start. First, he missed the train, so he took a bus instead. However, the bus broke down after an hour. Although it was getting late, a friendly farmer gave him a ride, and finally he arrived at midnight. Despite all the problems, Ben was happy, because the journey gave him the best photos of his life. As a result, he now plans a book about the road.",
+      "preguntas": [
+        {"afirmacion": "Ben caught the first train.", "respuesta": "false"},
+        {"afirmacion": "A farmer helped Ben arrive.", "respuesta": "true"},
+        {"afirmacion": "Ben regretted the trip.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-17 — Linkers & Discourse Markers",
+    "partes": [
+      {
+        "parte": "A — Completa con el conector adecuado",
+        "ejercicios": [
+          {"n": 1, "texto": "___ it was raining, we went out. (contrast)"},
+          {"n": 2, "texto": "I was tired, ___ I went to bed early. (result)"},
+          {"n": 3, "texto": "___ the rain, we enjoyed the walk. (despite/although)"},
+          {"n": 4, "texto": "She didn't study; ___, she didn't pass. (result)"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe la frase con el conector indicado",
+        "ejercicios": [
+          {"n": 5, "texto": "It was raining, but we went out. → (although)"},
+          {"n": 6, "texto": "I was tired because I worked all day. → (so)"},
+          {"n": 7, "texto": "Ordena con first, then, finally: 'we ate / we walked / we rested'."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Although it was raining, but we went out.'"},
+          {"n": 9, "texto": "Corrige: 'Despite it was raining, we went out.'"},
+          {"n": 10, "texto": "Escribe una mini-historia de 4 frases usando first, however, because y finally."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. Although",
+      "2. so",
+      "3. Despite",
+      "4. therefore / as a result",
+      "5. Although it was raining, we went out.",
+      "6. I worked all day, so I was tired.",
+      "7. First we walked, then we ate, and finally we rested.",
+      "8. Although it was raining, we went out.",
+      "9. Despite the rain, we went out. / Although it was raining, we went out.",
+      "10. Respuesta libre (ej. 'First I woke up late. However, I wasn't stressed, because it was Saturday. Finally, I had a relaxing day.')"
+    ]
+  }
+}

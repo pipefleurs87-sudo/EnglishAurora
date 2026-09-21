@@ -1,0 +1,156 @@
+{
+  "id": "a1-plural-nouns-01",
+  "nivel": "A1",
+  "arquetipo": "sustantivos",
+  "tema": "Plural Nouns — Regular & Irregular",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "📕", "palabra": "book → books", "traduccion": "libro → libros"},
+    {"bandera": "🐈", "palabra": "cat → cats", "traduccion": "gato → gatos"},
+    {"bandera": "📦", "palabra": "box → boxes", "traduccion": "caja → cajas"},
+    {"bandera": "⌚", "palabra": "watch → watches", "traduccion": "reloj → relojes"},
+    {"bandera": "🚌", "palabra": "bus → buses", "traduccion": "autobús → autobuses"},
+    {"bandera": "🍅", "palabra": "tomato → tomatoes", "traduccion": "tomate → tomates"},
+    {"bandera": "🥔", "palabra": "potato → potatoes", "traduccion": "papa → papas"},
+    {"bandera": "🏙️", "palabra": "city → cities", "traduccion": "ciudad → ciudades"},
+    {"bandera": "👶", "palabra": "baby → babies", "traduccion": "bebé → bebés"},
+    {"bandera": "🍓", "palabra": "strawberry → strawberries", "traduccion": "fresa → fresas"},
+    {"bandera": "🔪", "palabra": "knife → knives", "traduccion": "cuchillo → cuchillos"},
+    {"bandera": "🍃", "palabra": "leaf → leaves", "traduccion": "hoja → hojas"},
+    {"bandera": "🐺", "palabra": "wolf → wolves", "traduccion": "lobo → lobos"},
+    {"bandera": "🧒", "palabra": "child → children", "traduccion": "niño → niños"},
+    {"bandera": "👨", "palabra": "man → men", "traduccion": "hombre → hombres"},
+    {"bandera": "👩", "palabra": "woman → women", "traduccion": "mujer → mujeres"},
+    {"bandera": "🦷", "palabra": "tooth → teeth", "traduccion": "diente → dientes"},
+    {"bandera": "🦶", "palabra": "foot → feet", "traduccion": "pie → pies"},
+    {"bandera": "🐭", "palabra": "mouse → mice", "traduccion": "ratón → ratones"},
+    {"bandera": "🐑", "palabra": "sheep → sheep", "traduccion": "oveja → ovejas"},
+    {"bandera": "🐟", "palabra": "fish → fish", "traduccion": "pez → peces"},
+    {"bandera": "👤", "palabra": "person → people", "traduccion": "persona → gente/personas"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "One hero is brave, but two heroes are unstoppable. Today we multiply everything: plurals!"},
+    {"personaje": "Ben", "linea": "Look at those boxes! There are three watches and two knives inside."},
+    {"personaje": "Kenji", "linea": "And in the garden there are children playing with two sheep."},
+    {"personaje": "Sofía", "linea": "Careful! Mice love boxes, and this city has many mice."},
+    {"personaje": "Abuela Carmen", "linea": "In my day, children brushed their teeth and washed their feet before dinner. Those were the days!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "There are two boxes on the table."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "The children play in the garden."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "These tomatoes are fresh."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Many people live in big cities."},
+    {"id": "s5", "forma": "negativo", "oracion": "There aren't any mice in the house."},
+    {"id": "s6", "forma": "negativo", "oracion": "The babies don't cry at night."},
+    {"id": "s7", "forma": "negativo", "oracion": "She doesn't like strawberries."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "How many books are there?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Are there sheep on the farm?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Do wolves live here?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Are there children in the park? Yes, there are."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Do you have two watches? No, I don't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Are these knives sharp? Yes, they are."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "There are two childs in the park.",
+        "opcion_b": "There are two children in the park.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Most nouns add '-s' for the plural. Nouns ending in -s, -sh, -ch, -x, -o add '-es'; consonant + y changes to '-ies'; some nouns are irregular and must be memorized.",
+      "tabla": {
+        "titulo": "Plural rules",
+        "encabezados": ["Rule", "Singular", "Plural"],
+        "filas": [
+          ["+ s", "book, cat", "books, cats"],
+          ["+ es (s, sh, ch, x, o)", "bus, watch, tomato", "buses, watches, tomatoes"],
+          ["y → ies", "city, baby", "cities, babies"],
+          ["f/fe → ves", "knife, leaf", "knives, leaves"],
+          ["Irregular", "child, man, mouse, sheep", "children, men, mice, sheep"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The plural of 'child' is ___.", "opciones": ["childs", "children", "childes"], "respuesta": "children"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The plural of 'tomato' is ___.", "opciones": ["tomatos", "tomatoes", "tomaties"], "respuesta": "tomatoes"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The plural of 'sheep' is ___.", "opciones": ["sheeps", "sheepes", "sheep"], "respuesta": "sheep"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'City' becomes 'cities' in the plural.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Knife' becomes 'knifes' in the plural.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "There are three ___ on the farm. (sheep)", "respuesta": "sheep"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Brush your ___ twice a day! (tooth)", "respuesta": "teeth"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["children", "The", "playing", "are", "."], "respuesta": "The children are playing."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I see two mouses in the kitchen.", "respuesta": "I see two mice in the kitchen."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "There is a box on the table.", "instruccion": "Change to plural (three).", "respuesta": "There are three boxes on the table."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The baby cries at night.", "instruccion": "Change to plural.", "respuesta": "The babies cry at night."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "How many people are there in your family? (Answer with a full sentence.)", "respuesta": "There are four people in my family."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Abuela Carmen: What do you see at the market, Sofía?",
+        "Sofía: I see tomatoes, potatoes and strawberries.",
+        "Abuela Carmen: And how many boxes of strawberries?",
+        "Sofía: There are three boxes. And two babies are crying near the buses!",
+        "Abuela Carmen: Poor babies. And the women? Are they buying fish?",
+        "Sofía: Yes, they are. The fish are very fresh today."
+      ],
+      "gaps": ["three", "fish"],
+      "comprension": [
+        {"pregunta": "How many boxes of strawberries are there?", "opciones": ["Two", "Three", "Four"], "respuesta": "Three"},
+        {"pregunta": "What are the women buying?", "opciones": ["Tomatoes", "Potatoes", "Fish"], "respuesta": "Fish"}
+      ]
+    },
+    "reading": {
+      "texto": "At the market there are many people. The women buy fresh fish and the men carry heavy boxes. Two children look at the sheep near the buses, and three babies cry in their mothers' arms. On the tables there are tomatoes, potatoes and red strawberries. The leaves of the trees move in the wind. It is a busy, happy morning.",
+      "preguntas": [
+        {"afirmacion": "The men carry heavy boxes.", "respuesta": "true"},
+        {"afirmacion": "There are four babies at the market.", "respuesta": "false"},
+        {"afirmacion": "The strawberries are red.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 5 — Plural Nouns",
+    "partes": [
+      {
+        "parte": "A — Escribe el plural",
+        "ejercicios": [
+          {"n": 1, "texto": "watch → ___"},
+          {"n": 2, "texto": "city → ___"},
+          {"n": 3, "texto": "knife → ___"},
+          {"n": 4, "texto": "mouse → ___"}
+        ]
+      },
+      {
+        "parte": "B — Elige la opción correcta",
+        "ejercicios": [
+          {"n": 5, "texto": "There are five ___ on the hill. (sheeps / sheep)"},
+          {"n": 6, "texto": "The ___ are playing. (childs / children)"},
+          {"n": 7, "texto": "Brush your ___! (tooths / teeth)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I have two foots.'"},
+          {"n": 9, "texto": "Corrige: 'There are three potatos.'"},
+          {"n": 10, "texto": "Escribe 3 oraciones con plurales irregulares distintos."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. watches",
+      "2. cities",
+      "3. knives",
+      "4. mice",
+      "5. sheep",
+      "6. children",
+      "7. teeth",
+      "8. I have two feet.",
+      "9. There are three potatoes.",
+      "10. Respuesta libre (ej. 'The men are tall. / Mice eat cheese. / People are kind.')"
+    ]
+  }
+}

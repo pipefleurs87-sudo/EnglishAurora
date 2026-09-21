@@ -1,0 +1,156 @@
+{
+  "id": "b2-phrasal-verbs-out-01",
+  "nivel": "B2",
+  "arquetipo": "phrasal_verbs",
+  "tema": "Phrasal Verbs with OUT",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🔍", "palabra": "find out", "traduccion": "descubrir"},
+    {"bandera": "🪟", "palabra": "look out", "traduccion": "mirar fuera / ¡cuidado!"},
+    {"bandera": "🏃", "palabra": "run out of", "traduccion": "quedarse sin"},
+    {"bandera": "🧩", "palabra": "work out", "traduccion": "resolver / hacer ejercicio"},
+    {"bandera": "🗂️", "palabra": "sort out", "traduccion": "arreglar / organizar"},
+    {"bandera": "🕯️", "palabra": "put out", "traduccion": "apagar (fuego, vela)"},
+    {"bandera": "🕵️", "palabra": "carry out", "traduccion": "llevar a cabo"},
+    {"bandera": "🎬", "palabra": "turn out", "traduccion": "resultar"},
+    {"bandera": "📢", "palabra": "point out", "traduccion": "señalar"},
+    {"bandera": "🎁", "palabra": "give out", "traduccion": "repartir"},
+    {"bandera": "🖨️", "palabra": "print out", "traduccion": "imprimir"},
+    {"bandera": "📝", "palabra": "fill out", "traduccion": "rellenar (formulario)"},
+    {"bandera": "✂️", "palabra": "cut out", "traduccion": "recortar / eliminar"},
+    {"bandera": "🚪", "palabra": "go out", "traduccion": "salir"},
+    {"bandera": "😴", "palabra": "worn out", "traduccion": "agotado"},
+    {"bandera": "🔦", "palabra": "check out", "traduccion": "verificar / echar un vistazo"},
+    {"bandera": "🧹", "palabra": "clear out", "traduccion": "vaciar (limpiar a fondo)"},
+    {"bandera": "💡", "palabra": "figure out", "traduccion": "averiguar"},
+    {"bandera": "🤝", "palabra": "help out", "traduccion": "echar una mano"},
+    {"bandera": "📤", "palabra": "hand out", "traduccion": "repartir (documentos)"},
+    {"bandera": "🌟", "palabra": "stand out", "traduccion": "destacar"},
+    {"bandera": "🥘", "palabra": "eat out", "traduccion": "comer fuera"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "'Out' is the particle of discovery, heroes: finding out, working out, figuring out. The truth always comes out!"},
+    {"personaje": "Ben", "linea": "Someone ate Abuela Carmen's chocolates! I'm going to find out who it was."},
+    {"personaje": "Kenji", "linea": "I can't work out how the box was opened. It was on the highest shelf!"},
+    {"personaje": "Sofía", "linea": "Look out! The cat is running out of the kitchen with something brown in its mouth."},
+    {"personaje": "Abuela Carmen", "linea": "Don't carry out an investigation, mis héroes. It turned out I ate them myself... and I've run out of excuses!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I'm going to find out the truth."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "They sorted out the mess quickly."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "It turned out that the cat was innocent."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She handed out the exam papers."},
+    {"id": "s5", "forma": "negativo", "oracion": "I can't work out this puzzle."},
+    {"id": "s6", "forma": "negativo", "oracion": "We didn't run out of milk."},
+    {"id": "s7", "forma": "negativo", "oracion": "He didn't point out the mistake."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you find out who ate the chocolates?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "How did it turn out in the end?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Can you help out this weekend?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you figure it out? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did they run out of time? No, they didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did the plan work out? Yes, it did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I can't work out how the box was opened.",
+        "opcion_b": "I can't work how out the box was opened.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "Phrasal verbs with 'out' often express discovery (find out, figure out, work out), distribution (give out, hand out), completion (sort out, carry out) or results (turn out). 'Run out of' means to have none left.",
+      "tabla": {
+        "titulo": "OUT — meanings",
+        "encabezados": ["Meaning", "Verbs", "Example"],
+        "filas": [
+          ["Discover/solve", "find out, work out, figure out", "I can't work it out."],
+          ["Distribute", "give out, hand out", "She handed out the papers."],
+          ["Complete/organize", "sort out, carry out, fill out", "They sorted out the mess."],
+          ["Result", "turn out, run out of", "It turned out fine. / We've run out of milk."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I'm going to ___ who ate the chocolates.", "opciones": ["find out", "find up", "find in"], "respuesta": "find out"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "We've ___ milk. Can you buy some?", "opciones": ["run out of", "run out", "run off"], "respuesta": "run out of"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It ___ that the cat was innocent.", "opciones": ["turned out", "turned up", "turned off"], "respuesta": "turned out"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Work out' can mean both 'solve' and 'do exercise'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Run out of milk' means you have a lot of milk.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ (sort) the mess in ten minutes.", "respuesta": "sorted out"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ (hand) the exam papers to everyone.", "respuesta": "handed out"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["out", "work", "can't", "I", "this puzzle", "."], "respuesta": "I can't work out this puzzle."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I can't work how out the box was opened.", "respuesta": "I can't work out how the box was opened."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They sorted out the problem.", "instruccion": "Replace 'the problem' with 'it'.", "respuesta": "They sorted it out."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He found out the truth.", "instruccion": "Turn it into a question.", "respuesta": "Did he find out the truth?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write three sentences about solving a problem using find out, work out and sort out.", "respuesta": "I found out the printer was broken. I couldn't work out why. In the end, my brother sorted it out."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Abuela Carmen! Someone has eaten your chocolates!",
+        "Abuela Carmen: What?! The box was full this morning.",
+        "Ben: Don't worry. I'll find out who it was. Kenji, help me carry out an investigation.",
+        "Kenji: Look — paw prints! It must be the cat.",
+        "Sofía: Wait... the cat was outside all day. I can't work it out.",
+        "Abuela Carmen: Mis héroes... it turned out I ate them myself last night!",
+        "Ben: Mystery solved. But next time, write it down!"
+      ],
+      "gaps": ["chocolates", "cat"],
+      "comprension": [
+        {"pregunta": "What disappeared?", "opciones": ["The cake", "The chocolates", "The coffee"], "respuesta": "The chocolates"},
+        {"pregunta": "Who ate the chocolates?", "opciones": ["The cat", "Kenji", "Abuela Carmen"], "respuesta": "Abuela Carmen"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben decided to find out who had eaten Abuela Carmen's chocolates. He looked out of the window and saw the cat running out of the kitchen. 'I can't work out how it opened the box,' he laughed. Later the friends helped him sort out the mess, put out the candles, and carried out a full investigation. It turned out the cat was innocent — the thief was Kenji!",
+      "preguntas": [
+        {"afirmacion": "Ben saw the cat running out of the kitchen.", "respuesta": "true"},
+        {"afirmacion": "The cat ate the chocolates.", "respuesta": "false"},
+        {"afirmacion": "The friends carried out an investigation.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-4 — Phrasal Verbs with OUT",
+    "partes": [
+      {
+        "parte": "A — Completa con el phrasal verb correcto",
+        "ejercicios": [
+          {"n": 1, "texto": "I'm going to ___ who ate the chocolates. (descubrir)"},
+          {"n": 2, "texto": "We've ___ milk. (quedarse sin)"},
+          {"n": 3, "texto": "It ___ that the cat was innocent. (resultar)"},
+          {"n": 4, "texto": "They ___ the mess in ten minutes. (arreglar)"}
+        ]
+      },
+      {
+        "parte": "B — Sustituye por pronombre o reordena",
+        "ejercicios": [
+          {"n": 5, "texto": "They sorted out the problem. → (it)"},
+          {"n": 6, "texto": "I can't work out this puzzle. → (it)"},
+          {"n": 7, "texto": "Escribe la pregunta: (you / find out / the truth)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I can't work how out the box was opened.'"},
+          {"n": 9, "texto": "Corrige: 'We've run out milk.'"},
+          {"n": 10, "texto": "Escribe 4 frases sobre un misterio o problema usando find out, work out, sort out y turn out."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. find out",
+      "2. run out of",
+      "3. turned out",
+      "4. sorted out",
+      "5. They sorted it out.",
+      "6. I can't work it out.",
+      "7. Did you find out the truth?",
+      "8. I can't work out how the box was opened.",
+      "9. We've run out of milk.",
+      "10. Respuesta libre (ej. 'I found out the truth. I worked out the answer. We sorted out the problem. It turned out fine.')"
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "id": "b1-used-to-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Used To — Past Habits & States",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🧒", "palabra": "childhood", "traduccion": "infancia"},
+    {"bandera": "🏘️", "palabra": "small village", "traduccion": "pueblo pequeño"},
+    {"bandera": "⚽", "palabra": "play football", "traduccion": "jugar al fútbol"},
+    {"bandera": "🥦", "palabra": "like vegetables", "traduccion": "gustar las verduras"},
+    {"bandera": "💇", "palabra": "long hair", "traduccion": "pelo largo"},
+    {"bandera": "🗣️", "palabra": "speak English", "traduccion": "hablar inglés"},
+    {"bandera": "💃", "palabra": "dance tango", "traduccion": "bailar tango"},
+    {"bandera": "🚲", "palabra": "ride a bike to school", "traduccion": "ir en bici al colegio"},
+    {"bandera": "📺", "palabra": "watch cartoons", "traduccion": "ver dibujos animados"},
+    {"bandera": "🧸", "palabra": "play with toys", "traduccion": "jugar con juguetes"},
+    {"bandera": "😴", "palabra": "go to bed early", "traduccion": "acostarse temprano"},
+    {"bandera": "🍬", "palabra": "eat sweets", "traduccion": "comer dulces"},
+    {"bandera": "🏊", "palabra": "swim in the river", "traduccion": "nadar en el río"},
+    {"bandera": "🎮", "palabra": "play video games", "traduccion": "jugar videojuegos"},
+    {"bandera": "📻", "palabra": "listen to the radio", "traduccion": "escuchar la radio"},
+    {"bandera": "🐶", "palabra": "have a dog", "traduccion": "tener un perro"},
+    {"bandera": "🏫", "palabra": "walk to school", "traduccion": "caminar al colegio"},
+    {"bandera": "⏪", "palabra": "in the past", "traduccion": "en el pasado"},
+    {"bandera": "🔄", "palabra": "any more", "traduccion": "ya no (not... any more)"},
+    {"bandera": "🌱", "palabra": "change", "traduccion": "cambiar"},
+    {"bandera": "💭", "palabra": "memories", "traduccion": "recuerdos"},
+    {"bandera": "🕰️", "palabra": "those days", "traduccion": "aquellos días"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "We all carry a museum inside, heroes. 'Used to' is the key that opens the room of past habits."},
+    {"personaje": "Ben", "linea": "I used to live in a small village, and I used to ride my bike to school every day."},
+    {"personaje": "Kenji", "linea": "I didn't use to speak English at all. Now I use it every day with you!"},
+    {"personaje": "Sofía", "linea": "I used to have long hair. Did you use to play football, Ben?"},
+    {"personaje": "Abuela Carmen", "linea": "I used to dance tango every weekend. Those days are gone, but the memories still dance with me."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I used to live in a small village."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She used to have long hair."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We used to play football every afternoon."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "He used to ride his bike to school."},
+    {"id": "s5", "forma": "negativo", "oracion": "I didn't use to like vegetables."},
+    {"id": "s6", "forma": "negativo", "oracion": "He didn't use to speak English."},
+    {"id": "s7", "forma": "negativo", "oracion": "We didn't use to watch TV much."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you use to play football?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Where did you use to live?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Did she use to have long hair?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you use to dance? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did he use to speak English? No, he didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they use to live here? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I use to live in a small village.",
+        "opcion_b": "I used to live in a small village.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use 'used to + verb' for past habits and states that are NOT true now. In negatives and questions the 'd' disappears: 'didn't use to', 'Did you use to...?'.",
+      "tabla": {
+        "titulo": "Used To",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "used to + verb", "I used to play football."],
+          ["Negative", "didn't use to + verb", "I didn't use to like vegetables."],
+          ["Question", "Did + subject + use to?", "Did you use to dance?"],
+          ["Contrast", "used to (past) vs now", "I used to have long hair, but now it's short."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ in a small village when I was a child.", "opciones": ["used to live", "use to live", "used to living"], "respuesta": "used to live"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He ___ speak English, but now he speaks it every day.", "opciones": ["didn't use to", "doesn't use to", "used not"], "respuesta": "didn't use to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you ___ to play football?", "opciones": ["Did / use", "Did / used", "Do / use"], "respuesta": "Did / use"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Used to' describes habits that are still true today.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In questions we say 'Did you use to...?' without 'd'.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ (have) long hair, but now it's short.", "respuesta": "used to have"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ (not / like) vegetables when I was a child.", "respuesta": "didn't use to like"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["use to", "did", "Where", "you", "live", "?"], "respuesta": "Where did you use to live?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Did you used to play football?", "respuesta": "Did you use to play football?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I used to watch cartoons.", "instruccion": "Make it negative.", "respuesta": "I didn't use to watch cartoons."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She used to dance tango.", "instruccion": "Turn it into a question.", "respuesta": "Did she use to dance tango?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Compare your childhood with now: two things you used to do and one you didn't use to do.", "respuesta": "I used to play with toys. I used to go to bed early. I didn't use to like coffee."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Did you use to live in the city, Ben?",
+        "Ben: No, I used to live in a small village. I used to ride my bike to school.",
+        "Sofía: That sounds nice! I used to have long hair in those days.",
+        "Ben: Really? I can't imagine that!",
+        "Sofía: And Kenji didn't use to speak English at all.",
+        "Ben: Wow. People change a lot!",
+        "Sofía: Yes, but Abuela Carmen still dances tango. Some things never change."
+      ],
+      "gaps": ["village", "tango"],
+      "comprension": [
+        {"pregunta": "Where did Ben use to live?", "opciones": ["In the city", "In a small village", "In London"], "respuesta": "In a small village"},
+        {"pregunta": "What did Sofía use to have?", "opciones": ["A dog", "Short hair", "Long hair"], "respuesta": "Long hair"}
+      ]
+    },
+    "reading": {
+      "texto": "When Ben was a child, he used to live in a small village. He used to play football every afternoon, and he didn't use to like vegetables at all. Sofía used to have long hair, but now she wears it short. Kenji didn't use to speak English, but now he speaks it every day. Abuela Carmen used to dance tango every weekend. People change, but memories stay forever.",
+      "preguntas": [
+        {"afirmacion": "Ben used to like vegetables.", "respuesta": "false"},
+        {"afirmacion": "Sofía's hair is short now.", "respuesta": "true"},
+        {"afirmacion": "Kenji used to speak English well.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-6 — Used To: Past Habits",
+    "partes": [
+      {
+        "parte": "A — Completa con used to / didn't use to",
+        "ejercicios": [
+          {"n": 1, "texto": "I ___ (live) in a small village."},
+          {"n": 2, "texto": "She ___ (have) long hair."},
+          {"n": 3, "texto": "He ___ (not / speak) English."},
+          {"n": 4, "texto": "We ___ (play) football every afternoon."}
+        ]
+      },
+      {
+        "parte": "B — Escribe preguntas y respuestas cortas",
+        "ejercicios": [
+          {"n": 5, "texto": "(you / play football) → pregunta + respuesta ✓"},
+          {"n": 6, "texto": "(she / have long hair) → pregunta + respuesta ✗"},
+          {"n": 7, "texto": "(where / you / live?)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Did you used to play football?'"},
+          {"n": 9, "texto": "Corrige: 'I use to have a dog.'"},
+          {"n": 10, "texto": "Escribe 5 frases sobre tu infancia con used to y didn't use to."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. used to live",
+      "2. used to have",
+      "3. didn't use to speak",
+      "4. used to play",
+      "5. Did you use to play football? Yes, I did.",
+      "6. Did she use to have long hair? No, she didn't.",
+      "7. Where did you use to live?",
+      "8. Did you use to play football?",
+      "9. I used to have a dog.",
+      "10. Respuesta libre (ej. 'I used to watch cartoons. I didn't use to like coffee. ...')"
+    ]
+  }
+}

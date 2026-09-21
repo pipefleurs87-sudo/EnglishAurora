@@ -1,0 +1,153 @@
+{
+  "id": "a1-to-be-neg-questions-01",
+  "nivel": "A1",
+  "arquetipo": "verbo_to_be",
+  "tema": "Verb To Be — Negatives & Questions",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "😊", "palabra": "happy", "traduccion": "feliz, contento"},
+    {"bandera": "😢", "palabra": "sad", "traduccion": "triste"},
+    {"bandera": "😴", "palabra": "tired", "traduccion": "cansado/a"},
+    {"bandera": "🤒", "palabra": "sick", "traduccion": "enfermo/a"},
+    {"bandera": "😰", "palabra": "nervous", "traduccion": "nervioso/a"},
+    {"bandera": "😃", "palabra": "excited", "traduccion": "emocionado/a"},
+    {"bandera": "🥶", "palabra": "cold", "traduccion": "frío (tener frío)"},
+    {"bandera": "🥵", "palabra": "hot", "traduccion": "caliente (tener calor)"},
+    {"bandera": "🍽️", "palabra": "hungry", "traduccion": "hambriento/a"},
+    {"bandera": "🥤", "palabra": "thirsty", "traduccion": "sediento/a"},
+    {"bandera": "🏠", "palabra": "at home", "traduccion": "en casa"},
+    {"bandera": "🏫", "palabra": "at school", "traduccion": "en la escuela"},
+    {"bandera": "💼", "palabra": "at work", "traduccion": "en el trabajo"},
+    {"bandera": "⏰", "palabra": "late", "traduccion": "tarde (retrasado)"},
+    {"bandera": "✅", "palabra": "ready", "traduccion": "listo/a"},
+    {"bandera": "🎂", "palabra": "years old", "traduccion": "años (edad)"},
+    {"bandera": "👨", "palabra": "man", "traduccion": "hombre"},
+    {"bandera": "👩", "palabra": "woman", "traduccion": "mujer"},
+    {"bandera": "🧒", "palabra": "child", "traduccion": "niño/a"},
+    {"bandera": "👫", "palabra": "together", "traduccion": "juntos"},
+    {"bandera": "📍", "palabra": "here", "traduccion": "aquí"},
+    {"bandera": "📍", "palabra": "there", "traduccion": "allí"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Today we learn to say no and to ask — the two superpowers of 'to be'."},
+    {"personaje": "Kenji", "linea": "Are you tired, Ben? You are very quiet today."},
+    {"personaje": "Ben", "linea": "No, I'm not tired. I'm just hungry!"},
+    {"personaje": "Sofía", "linea": "Is Abuela Carmen at home? She isn't here."},
+    {"personaje": "Abuela Carmen", "linea": "Yes, I am here, dear! I am not late — you are early!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I am happy today."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Kenji is twenty years old."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They are at school."},
+    {"id": "s4", "forma": "negativo", "oracion": "I am not tired."},
+    {"id": "s5", "forma": "negativo", "oracion": "She isn't at home."},
+    {"id": "s6", "forma": "negativo", "oracion": "We aren't late."},
+    {"id": "s7", "forma": "interrogativo", "oracion": "Are you hungry?"},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is Ben nervous?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Are they together?"},
+    {"id": "s10", "forma": "short_answer", "oracion": "Are you tired? No, I'm not."},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is she sick? Yes, she is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are they ready? No, they aren't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She no is at home.",
+        "opcion_b": "She isn't at home.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "To make 'to be' negative, add 'not' (isn't / aren't). To ask, put the verb before the person: 'Are you...?' — never use 'do' with 'to be'.",
+      "tabla": {
+        "titulo": "To Be — Negative & Question",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Negative", "subject + am/is/are + not", "He isn't late."],
+          ["Question", "Am/Is/Are + subject...?", "Is he late?"],
+          ["Short answer", "Yes/No + subject + be", "Yes, he is. / No, he isn't."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you hungry?", "opciones": ["Do", "Are", "Is"], "respuesta": "Are"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She ___ at home. She's at work.", "opciones": ["isn't", "aren't", "am not"], "respuesta": "isn't"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Are they ready? No, they ___.", "opciones": ["isn't", "aren't", "not"], "respuesta": "aren't"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In questions with 'to be' we don't use 'do'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'I amn't tired' is a correct contraction.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We ___ late. The class starts at nine. (negative)", "respuesta": "aren't"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ Ben nervous? The exam is today.", "respuesta": "Is"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["hungry", "you", "Are", "?"], "respuesta": "Are you hungry?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Do you are tired?", "respuesta": "Are you tired?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They are at school.", "instruccion": "Make it negative.", "respuesta": "They aren't at school."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She is sick.", "instruccion": "Turn it into a question.", "respuesta": "Is she sick?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Are you at home now? (Answer with a short answer.)", "respuesta": "Yes, I am. / No, I'm not."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Hi, Kenji! Are you OK?",
+        "Kenji: I'm fine, but I'm very tired.",
+        "Sofía: Are you sick?",
+        "Kenji: No, I'm not sick. I'm just tired and hungry.",
+        "Sofía: Is Ben at home?",
+        "Kenji: No, he isn't. He's at work."
+      ],
+      "gaps": ["tired", "work"],
+      "comprension": [
+        {"pregunta": "Is Kenji sick?", "opciones": ["Yes, he is", "No, he isn't", "He is at home"], "respuesta": "No, he isn't"},
+        {"pregunta": "Where is Ben?", "opciones": ["At home", "At school", "At work"], "respuesta": "At work"}
+      ]
+    },
+    "reading": {
+      "texto": "It is Monday morning. Kenji is tired, but he isn't sick. Ben is at work; he isn't late today. Sofía is at school, and she is very excited because the class is interesting. Abuela Carmen is at home. She isn't hungry, but she is thirsty. They are all fine, and they are happy.",
+      "preguntas": [
+        {"afirmacion": "Kenji is sick.", "respuesta": "false"},
+        {"afirmacion": "Ben is at work.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen is hungry.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 2 — To Be: Negatives & Questions",
+    "partes": [
+      {
+        "parte": "A — Escribe la forma negativa",
+        "ejercicios": [
+          {"n": 1, "texto": "She is tired. → ___"},
+          {"n": 2, "texto": "They are at home. → ___"},
+          {"n": 3, "texto": "I am late. → ___"},
+          {"n": 4, "texto": "We are ready. → ___"}
+        ]
+      },
+      {
+        "parte": "B — Ordena y forma la pregunta",
+        "ejercicios": [
+          {"n": 5, "texto": "you / hungry / are / ?"},
+          {"n": 6, "texto": "is / Ben / nervous / ?"},
+          {"n": 7, "texto": "they / together / are / ?"}
+        ]
+      },
+      {
+        "parte": "C — Responde con respuestas cortas",
+        "ejercicios": [
+          {"n": 8, "texto": "Is Sofía excited? (✓)"},
+          {"n": 9, "texto": "Are you sick? (✗)"},
+          {"n": 10, "texto": "Escribe 2 preguntas con 'to be' para un compañero."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. She isn't tired.",
+      "2. They aren't at home.",
+      "3. I'm not late.",
+      "4. We aren't ready.",
+      "5. Are you hungry?",
+      "6. Is Ben nervous?",
+      "7. Are they together?",
+      "8. Yes, she is.",
+      "9. No, I'm not.",
+      "10. Respuesta libre (ej. 'Are you tired?' / 'Is your friend at school?')"
+    ]
+  }
+}

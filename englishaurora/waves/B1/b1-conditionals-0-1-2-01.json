@@ -1,0 +1,156 @@
+{
+  "id": "b1-conditionals-0-1-2-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Conditionals 0, 1 & 2 — Facts, Futures and Dreams",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "💧", "palabra": "boil water", "traduccion": "hervir agua"},
+    {"bandera": "🧊", "palabra": "ice melts", "traduccion": "el hielo se derrite"},
+    {"bandera": "🌡️", "palabra": "heat", "traduccion": "calentar"},
+    {"bandera": "🌧️", "palabra": "rain", "traduccion": "llover"},
+    {"bandera": "🏠", "palabra": "stay home", "traduccion": "quedarse en casa"},
+    {"bandera": "🎟️", "palabra": "win the lottery", "traduccion": "ganar la lotería"},
+    {"bandera": "🌍", "palabra": "travel the world", "traduccion": "viajar por el mundo"},
+    {"bandera": "⏰", "palabra": "hurry up", "traduccion": "darse prisa"},
+    {"bandera": "🚌", "palabra": "miss the bus", "traduccion": "perder el autobús"},
+    {"bandera": "📚", "palabra": "study hard", "traduccion": "estudiar duro"},
+    {"bandera": "✅", "palabra": "pass the exam", "traduccion": "aprobar el examen"},
+    {"bandera": "🦸", "palabra": "superpower", "traduccion": "superpoder"},
+    {"bandera": "🕊️", "palabra": "fly", "traduccion": "volar"},
+    {"bandera": "💰", "palabra": "rich", "traduccion": "rico"},
+    {"bandera": "🏝️", "palabra": "desert island", "traduccion": "isla desierta"},
+    {"bandera": "🤒", "palabra": "feel sick", "traduccion": "sentirse enfermo"},
+    {"bandera": "👨‍⚕️", "palabra": "see a doctor", "traduccion": "ir al médico"},
+    {"bandera": "🔥", "palabra": "fire", "traduccion": "fuego"},
+    {"bandera": "❄️", "palabra": "freeze", "traduccion": "congelarse"},
+    {"bandera": "🌻", "palabra": "plants die", "traduccion": "las plantas mueren"},
+    {"bandera": "💤", "palabra": "sleep well", "traduccion": "dormir bien"},
+    {"bandera": "🧚", "palabra": "dream come true", "traduccion": "sueño hecho realidad"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Three doors, heroes: the zero conditional for facts, the first for real futures, the second for beautiful dreams."},
+    {"personaje": "Ben", "linea": "If you heat ice, it melts. Science! And if it rains tomorrow, I'll stay home and edit photos."},
+    {"personaje": "Kenji", "linea": "If I win the lottery, I'll buy a ramen restaurant. If I were rich, I'd travel the world first!"},
+    {"personaje": "Sofía", "linea": "If you study hard, you'll pass the exam. And if I had a superpower, I'd fly to Japan every weekend."},
+    {"personaje": "Abuela Carmen", "linea": "If you don't water the plants, they die. And if I were twenty again, mis héroes, I'd dance tango every night."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "If you heat ice, it melts. (fact)"},
+    {"id": "s2", "forma": "afirmativo", "oracion": "If it rains tomorrow, I'll stay home. (real future)"},
+    {"id": "s3", "forma": "afirmativo", "oracion": "If I were rich, I'd travel the world. (dream)"},
+    {"id": "s4", "forma": "afirmativo", "oracion": "If you study hard, you'll pass the exam."},
+    {"id": "s5", "forma": "negativo", "oracion": "If you don't water plants, they die."},
+    {"id": "s6", "forma": "negativo", "oracion": "If she doesn't hurry, she won't catch the bus."},
+    {"id": "s7", "forma": "negativo", "oracion": "If I weren't tired, I wouldn't go to bed."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What happens if you freeze water?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What will you do if it rains?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What would you do if you won the lottery?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Will you come if it rains? Yes, I will."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Would you fly if you could? Yes, I would."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Does ice melt if you heat it? Yes, it does."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "If I will win the lottery, I'll travel the world.",
+        "opcion_b": "If I win the lottery, I'll travel the world.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Zero: if + present, present (facts). First: if + present, will (real future). Second: if + past, would (imaginary now). Never use 'will' in the if-clause! With 'be', prefer 'were' for all persons in the second conditional.",
+      "tabla": {
+        "titulo": "Conditionals 0, 1 & 2",
+        "encabezados": ["Type", "Structure", "Example"],
+        "filas": [
+          ["Zero (facts)", "if + present, present", "If you heat ice, it melts."],
+          ["First (real future)", "if + present, will + verb", "If it rains, I'll stay home."],
+          ["Second (imaginary)", "if + past, would + verb", "If I were rich, I'd travel."],
+          ["Warning", "no 'will' after 'if'", "If I win ✅ / If I will win ❌"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If you heat ice, it ___.", "opciones": ["melts", "will melt", "would melt"], "respuesta": "melts"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If it rains tomorrow, I ___ home.", "opciones": ["stay", "'ll stay", "would stay"], "respuesta": "'ll stay"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If I ___ rich, I'd travel the world.", "opciones": ["am", "will be", "were"], "respuesta": "were"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In the first conditional we use 'will' in the if-clause.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The second conditional talks about imaginary situations now.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "If she ___ (not hurry), she'll miss the bus.", "respuesta": "doesn't hurry"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "If I had a superpower, I ___ (fly) to Japan.", "respuesta": "would fly / 'd fly"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["would you do", "What", "if", "you won the lottery", "?"], "respuesta": "What would you do if you won the lottery?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "If I will win the lottery, I'll travel the world.", "respuesta": "If I win the lottery, I'll travel the world."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "If it rains, I'll stay home.", "instruccion": "Make it a general fact (zero conditional).", "respuesta": "If it rains, I stay home."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "If I am rich, I'll travel the world.", "instruccion": "Make it imaginary (second conditional).", "respuesta": "If I were rich, I'd travel the world."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write one fact (zero), one real plan (first) and one dream (second conditional).", "respuesta": "If you freeze water, it becomes ice. If I have time, I'll call you. If I lived by the sea, I'd swim every day."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: What will you do if it rains tomorrow, Ben?",
+        "Ben: If it rains, I'll stay home and edit photos. And you?",
+        "Kenji: If I have time, I'll cook ramen for everyone.",
+        "Sofía: And what would you do if you won the lottery?",
+        "Kenji: If I won the lottery, I'd buy a ramen restaurant!",
+        "Ben: And if I were rich, I'd travel the world.",
+        "Sofía: Well, if you don't hurry, you'll miss the bus. Let's go!"
+      ],
+      "gaps": ["lottery", "bus"],
+      "comprension": [
+        {"pregunta": "What will Ben do if it rains?", "opciones": ["Cook ramen", "Stay home and edit photos", "Travel the world"], "respuesta": "Stay home and edit photos"},
+        {"pregunta": "What would Kenji buy if he won the lottery?", "opciones": ["A camera", "A restaurant", "A house"], "respuesta": "A restaurant"}
+      ]
+    },
+    "reading": {
+      "texto": "The friends love the 'if' game. Ben is practical: if it rains tomorrow, he will stay home and edit photos. Kenji is a dreamer: if he won the lottery, he would buy a ramen restaurant. Sofía is wise: if you study hard, you pass your exams — that is almost a fact, like water boiling at one hundred degrees. Abuela Carmen smiles: if she were twenty again, she would dance tango every night.",
+      "preguntas": [
+        {"afirmacion": "Ben will go out if it rains.", "respuesta": "false"},
+        {"afirmacion": "Kenji would buy a restaurant if he won the lottery.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen dances tango every night now.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-8 — Conditionals 0, 1 & 2",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "If you heat ice, it ___ (melt)."},
+          {"n": 2, "texto": "If it rains tomorrow, I ___ (stay) home."},
+          {"n": 3, "texto": "If I ___ (be) rich, I'd travel the world."},
+          {"n": 4, "texto": "If she ___ (not hurry), she'll miss the bus."}
+        ]
+      },
+      {
+        "parte": "B — Identifica el tipo de condicional (0, 1 o 2)",
+        "ejercicios": [
+          {"n": 5, "texto": "'If you freeze water, it becomes ice.'"},
+          {"n": 6, "texto": "'If I had a superpower, I'd fly.'"},
+          {"n": 7, "texto": "'If you study hard, you'll pass.'"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'If I will win the lottery, I'll travel.'"},
+          {"n": 9, "texto": "Corrige: 'If I was rich, I will buy a house.'"},
+          {"n": 10, "texto": "Escribe 3 frases: un hecho (0), un futuro real (1) y un sueño (2)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. melts",
+      "2. 'll stay / will stay",
+      "3. were",
+      "4. doesn't hurry",
+      "5. Tipo 0 (hecho general)",
+      "6. Tipo 2 (imaginario)",
+      "7. Tipo 1 (futuro real)",
+      "8. If I win the lottery, I'll travel.",
+      "9. If I were rich, I would buy a house.",
+      "10. Respuesta libre (ej. 'If you heat water, it boils. / If it's sunny, I'll go out. / If I could fly, I'd visit Japan.')"
+    ]
+  }
+}

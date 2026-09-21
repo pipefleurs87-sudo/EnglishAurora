@@ -1,0 +1,156 @@
+{
+  "id": "b1-passive-voice-01",
+  "nivel": "B1",
+  "arquetipo": "voz_gramatical",
+  "tema": "Passive Voice — Present & Past",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🏛️", "palabra": "build a museum", "traduccion": "construir un museo"},
+    {"bandera": "🎨", "palabra": "paint a portrait", "traduccion": "pintar un retrato"},
+    {"bandera": "📖", "palabra": "write a novel", "traduccion": "escribir una novela"},
+    {"bandera": "🏆", "palabra": "win a prize", "traduccion": "ganar un premio"},
+    {"bandera": "🎬", "palabra": "direct a film", "traduccion": "dirigir una película"},
+    {"bandera": "💻", "palabra": "invent the computer", "traduccion": "inventar el ordenador"},
+    {"bandera": "🌉", "palabra": "design a bridge", "traduccion": "diseñar un puente"},
+    {"bandera": "🍫", "palabra": "make chocolate", "traduccion": "fabricar chocolate"},
+    {"bandera": "🚗", "palabra": "produce cars", "traduccion": "fabricar coches"},
+    {"bandera": "🗳️", "palabra": "elect a president", "traduccion": "elegir un presidente"},
+    {"bandera": "🌍", "palabra": "discover a continent", "traduccion": "descubrir un continente"},
+    {"bandera": "🖼️", "palabra": "exhibit paintings", "traduccion": "exhibir cuadros"},
+    {"bandera": "📦", "palabra": "deliver packages", "traduccion": "entregar paquetes"},
+    {"bandera": "🧹", "palabra": "clean the streets", "traduccion": "limpiar las calles"},
+    {"bandera": "🌳", "palabra": "plant trees", "traduccion": "plantar árboles"},
+    {"bandera": "🗼", "palabra": "the Eiffel Tower", "traduccion": "la Torre Eiffel"},
+    {"bandera": "🇲🇽", "palabra": "is spoken in Mexico", "traduccion": "se habla en México"},
+    {"bandera": "👷", "palabra": "workers", "traduccion": "trabajadores"},
+    {"bandera": "🏭", "palabra": "factory", "traduccion": "fábrica"},
+    {"bandera": "📜", "palabra": "century", "traduccion": "siglo"},
+    {"bandera": "🔨", "palabra": "construct", "traduccion": "construir"},
+    {"bandera": "🎭", "palabra": "perform a play", "traduccion": "representar una obra"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Sometimes the hero of the sentence is not who acts, but what receives the action. That is the passive voice, heroes."},
+    {"personaje": "Ben", "linea": "This photo was taken by me in 2019. And my camera is made in Japan!"},
+    {"personaje": "Kenji", "linea": "Ramen is eaten all over the world now. The first instant noodles were invented in Japan in 1958."},
+    {"personaje": "Sofía", "linea": "Spanish is spoken in more than twenty countries. And this novel was written by a Colombian author."},
+    {"personaje": "Abuela Carmen", "linea": "This house was built by my grandfather sixty years ago. Every wall was painted with love."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Spanish is spoken in Mexico."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "This house was built sixty years ago."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "The novel was written by a Colombian author."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Cars are produced in this factory."},
+    {"id": "s5", "forma": "negativo", "oracion": "English isn't spoken here."},
+    {"id": "s6", "forma": "negativo", "oracion": "The bridge wasn't designed by an engineer."},
+    {"id": "s7", "forma": "negativo", "oracion": "These cars aren't made in Japan."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is chocolate made in this factory?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "When was this museum built?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Was the film directed by a woman?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is Spanish spoken here? Yes, it is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was it built in 1889? No, it wasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Are cars produced here? Yes, they are."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "This house built sixty years ago.",
+        "opcion_b": "This house was built sixty years ago.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use the passive when the action or its result matters more than who does it: 'be (present/past) + past participle'. Add the agent with 'by' only when it is important.",
+      "tabla": {
+        "titulo": "Passive Voice",
+        "encabezados": ["Tense", "Structure", "Example"],
+        "filas": [
+          ["Present", "am/is/are + participle", "Spanish is spoken here."],
+          ["Past", "was/were + participle", "The house was built in 1960."],
+          ["With agent", "+ by + person", "It was painted by my grandfather."],
+          ["Active → Passive", "object becomes subject", "They make cars → Cars are made."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Spanish ___ in Mexico.", "opciones": ["is spoken", "is speak", "speaks"], "respuesta": "is spoken"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "This house ___ sixty years ago.", "opciones": ["was built", "is built", "was build"], "respuesta": "was built"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The novel was written ___ a Colombian author.", "opciones": ["for", "by", "from"], "respuesta": "by"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The passive voice uses 'be + past participle'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In a passive sentence, the agent is always necessary.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Cars ___ (produce) in this factory.", "respuesta": "are produced"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The bridge ___ (not / design) by an engineer.", "respuesta": "wasn't designed / was not designed"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["was", "This museum", "built", "When", "?"], "respuesta": "When was this museum built?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "This house was build sixty years ago.", "respuesta": "This house was built sixty years ago."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They make cars in this factory.", "instruccion": "Change to passive.", "respuesta": "Cars are made in this factory."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "My grandfather built this house.", "instruccion": "Change to passive.", "respuesta": "This house was built by my grandfather."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write two passive facts about your country (present) and one about its history (past).", "respuesta": "Coffee is grown in my country. Football is played everywhere. The cathedral was built two hundred years ago."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: This museum is amazing! When was it built?",
+        "Ben: It was built in 1889, I think. Look — this portrait was painted by a local artist.",
+        "Sofía: Beautiful! And this old camera... was it made in Japan?",
+        "Ben: Yes, it was. The best cameras are made there.",
+        "Sofía: And look at this sign: 'Photographs are not allowed here.'",
+        "Ben: Oops! Then my photos were taken illegally. Let's go before we're discovered!",
+        "Sofía: Ben! Rules are made to be respected."
+      ],
+      "gaps": ["1889", "Japan"],
+      "comprension": [
+        {"pregunta": "When was the museum built?", "opciones": ["In 1958", "In 1889", "Sixty years ago"], "respuesta": "In 1889"},
+        {"pregunta": "What is not allowed in the museum?", "opciones": ["Food", "Photographs", "Dogs"], "respuesta": "Photographs"}
+      ]
+    },
+    "reading": {
+      "texto": "The city museum is visited by thousands of people every year. It was built in 1889 and was designed by a famous architect. Inside, portraits are exhibited that were painted by local artists, and old cameras are shown that were made in Japan. Photographs are not allowed in some rooms, and silence is requested everywhere. At the exit, souvenirs are sold and coffee is served in a small café.",
+      "preguntas": [
+        {"afirmacion": "The museum was built in 1889.", "respuesta": "true"},
+        {"afirmacion": "Photographs are allowed everywhere.", "respuesta": "false"},
+        {"afirmacion": "Coffee is served in a café at the exit.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-9 — Passive Voice: Present & Past",
+    "partes": [
+      {
+        "parte": "A — Completa con la voz pasiva",
+        "ejercicios": [
+          {"n": 1, "texto": "Spanish ___ (speak) in Mexico."},
+          {"n": 2, "texto": "This house ___ (build) sixty years ago."},
+          {"n": 3, "texto": "Cars ___ (produce) in this factory."},
+          {"n": 4, "texto": "The novel ___ (write) by a Colombian author."}
+        ]
+      },
+      {
+        "parte": "B — Transforma de activa a pasiva",
+        "ejercicios": [
+          {"n": 5, "texto": "They make chocolate in this factory."},
+          {"n": 6, "texto": "My grandfather built this house."},
+          {"n": 7, "texto": "A local artist painted this portrait."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'This house was build sixty years ago.'"},
+          {"n": 9, "texto": "Corrige: 'Spanish is speak in Mexico.'"},
+          {"n": 10, "texto": "Escribe 4 frases en pasiva sobre tu ciudad o país (2 presente, 2 pasado)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. is spoken",
+      "2. was built",
+      "3. are produced",
+      "4. was written",
+      "5. Chocolate is made in this factory.",
+      "6. This house was built by my grandfather.",
+      "7. This portrait was painted by a local artist.",
+      "8. This house was built sixty years ago.",
+      "9. Spanish is spoken in Mexico.",
+      "10. Respuesta libre (ej. 'Coffee is grown here. Buses are driven fast. The cathedral was built in 1800. The first school was opened in 1920.')"
+    ]
+  }
+}

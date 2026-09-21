@@ -1,0 +1,156 @@
+{
+  "id": "b1-adverbs-01",
+  "nivel": "B1",
+  "arquetipo": "modificadores",
+  "tema": "Adverbs of Manner, Degree & Probability",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🐌", "palabra": "slowly", "traduccion": "lentamente"},
+    {"bandera": "⚡", "palabra": "quickly", "traduccion": "rápidamente"},
+    {"bandera": "🤫", "palabra": "quietly", "traduccion": "en silencio"},
+    {"bandera": "😊", "palabra": "happily", "traduccion": "felizmente"},
+    {"bandera": "🎨", "palabra": "beautifully", "traduccion": "hermosamente"},
+    {"bandera": "🥊", "palabra": "hard", "traduccion": "duro (adv.)"},
+    {"bandera": "🏎️", "palabra": "fast", "traduccion": "rápido (adv.)"},
+    {"bandera": "🌟", "palabra": "well", "traduccion": "bien"},
+    {"bandera": "🌡️", "palabra": "extremely hot", "traduccion": "extremadamente caliente"},
+    {"bandera": "🤏", "palabra": "slightly different", "traduccion": "ligeramente diferente"},
+    {"bandera": "💯", "palabra": "absolutely certain", "traduccion": "absolutamente seguro"},
+    {"bandera": "🔮", "palabra": "probably", "traduccion": "probablemente"},
+    {"bandera": "✅", "palabra": "definitely", "traduccion": "definitivamente"},
+    {"bandera": "🤷", "palabra": "perhaps", "traduccion": "quizás"},
+    {"bandera": "🍀", "palabra": "luckily", "traduccion": "afortunadamente"},
+    {"bandera": "😔", "palabra": "unfortunately", "traduccion": "desafortunadamente"},
+    {"bandera": "🐢", "palabra": "carefully", "traduccion": "con cuidado"},
+    {"bandera": "💥", "palabra": "suddenly", "traduccion": "de repente"},
+    {"bandera": "🎯", "palabra": "nearly", "traduccion": "casi"},
+    {"bandera": "🧮", "palabra": "quite", "traduccion": "bastante"},
+    {"bandera": "🥶", "palabra": "incredibly cold", "traduccion": "increíblemente frío"},
+    {"bandera": "🗣️", "palabra": "speak loudly", "traduccion": "hablar alto"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Adverbs are the spices of the sentence, heroes: they say how, how much, and how sure we are."},
+    {"personaje": "Ben", "linea": "Kenji drives extremely carefully. He'll definitely arrive on time."},
+    {"personaje": "Kenji", "linea": "Luckily, the traffic is moving quite fast today. We'll probably arrive early."},
+    {"personaje": "Sofía", "linea": "Abuela Carmen sings beautifully! Unfortunately, I sing really badly."},
+    {"personaje": "Abuela Carmen", "linea": "Nonsense, Sofía! You speak English incredibly well. Sing slowly and happily, and you'll be perfect."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "She sings beautifully."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He drives extremely carefully."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They will probably arrive early."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "The team worked really hard."},
+    {"id": "s5", "forma": "negativo", "oracion": "He doesn't speak loudly."},
+    {"id": "s6", "forma": "negativo", "oracion": "She didn't play well yesterday."},
+    {"id": "s7", "forma": "negativo", "oracion": "It probably won't rain today."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Do you drive carefully?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Will it definitely rain tomorrow?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How quickly can you finish?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Does she sing well? Yes, she does."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Will they come? Probably."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did he pass easily? No, he didn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She sings beautiful.",
+        "opcion_b": "She sings beautifully.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Adverbs of manner (adjective + -ly: slowly, beautifully) answer 'how?'. Degree adverbs (very, really, quite, extremely, slightly) answer 'how much?'. Probability adverbs (probably, definitely, perhaps) answer 'how sure?'. Irregulars: good → well, fast → fast, hard → hard.",
+      "tabla": {
+        "titulo": "Adverbs",
+        "encabezados": ["Type", "Formation", "Example"],
+        "filas": [
+          ["Manner", "adjective + -ly", "She sings beautifully."],
+          ["Irregular", "good→well, fast→fast, hard→hard", "He works hard. / She plays well."],
+          ["Degree", "very, really, quite, extremely", "It's extremely hot."],
+          ["Probability", "probably, definitely, perhaps", "It'll probably rain."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She sings ___.", "opciones": ["beautiful", "beautifully", "beauty"], "respuesta": "beautifully"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He plays football very ___.", "opciones": ["good", "well", "goodly"], "respuesta": "well"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It ___ rain tomorrow. The sky is grey.", "opciones": ["probably will", "will probably", "probable"], "respuesta": "will probably"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Fast' and 'hard' have the same form as adjectives and adverbs.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The adverb of 'good' is 'goodly'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Kenji drives ___ (extreme) carefully.", "respuesta": "extremely"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ (lucky), the traffic is moving fast today.", "respuesta": "Luckily"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["probably", "They", "arrive", "will", "early", "."], "respuesta": "They will probably arrive early."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She sings beautiful.", "respuesta": "She sings beautifully."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He is a careful driver.", "instruccion": "Rewrite with an adverb (He drives...).", "respuesta": "He drives carefully."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She sings beautifully.", "instruccion": "Make it negative.", "respuesta": "She doesn't sing beautifully."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe how you do three things using manner/degree adverbs.", "respuesta": "I speak English quite well. I drive really carefully. I work extremely hard."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: This soup smells incredibly good, Abuela Carmen!",
+        "Abuela Carmen: Thank you, Ben. I cooked it slowly, with love.",
+        "Ben: Sofía sings beautifully too. We heard her yesterday.",
+        "Abuela Carmen: Yes! She'll definitely win the competition.",
+        "Ben: Unfortunately, I sing really badly.",
+        "Abuela Carmen: Don't worry. You take photos extremely well!",
+        "Ben: Luckily, we all have different talents."
+      ],
+      "gaps": ["slowly", "talents"],
+      "comprension": [
+        {"pregunta": "How did Abuela Carmen cook the soup?", "opciones": ["Quickly", "Slowly", "Badly"], "respuesta": "Slowly"},
+        {"pregunta": "How does Ben sing?", "opciones": ["Beautifully", "Quite well", "Really badly"], "respuesta": "Really badly"}
+      ]
+    },
+    "reading": {
+      "texto": "Saturday at Abuela Carmen's house is always special. She cooks slowly and carefully, and her soup smells incredibly good. Sofía sings beautifully while she sets the table, and she will definitely win the school competition. Ben takes photos extremely well, but unfortunately he sings really badly. Kenji drives carefully, so he will probably arrive on time. Luckily, everyone contributes something different.",
+      "preguntas": [
+        {"afirmacion": "Abuela Carmen cooks quickly.", "respuesta": "false"},
+        {"afirmacion": "Sofía sings beautifully.", "respuesta": "true"},
+        {"afirmacion": "Kenji will probably be late.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-11 — Adverbs: Manner, Degree & Probability",
+    "partes": [
+      {
+        "parte": "A — Forma el adverbio y completa",
+        "ejercicios": [
+          {"n": 1, "texto": "She sings ___ (beautiful)."},
+          {"n": 2, "texto": "He drives ___ (extreme) carefully."},
+          {"n": 3, "texto": "They played very ___ (good)."},
+          {"n": 4, "texto": "___ (lucky), we arrived on time."}
+        ]
+      },
+      {
+        "parte": "B — Clasifica el adverbio: manner (M), degree (D) o probability (P)",
+        "ejercicios": [
+          {"n": 5, "texto": "slowly, probably, extremely"},
+          {"n": 6, "texto": "definitely, quietly, quite"},
+          {"n": 7, "texto": "Ordena: 'They / will / probably / arrive / early'."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She sings beautiful.'"},
+          {"n": 9, "texto": "Corrige: 'He works hardly every day.' (quiere decir que trabaja mucho)"},
+          {"n": 10, "texto": "Escribe 4 frases sobre ti con adverbios de modo, grado y probabilidad."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. beautifully",
+      "2. extremely",
+      "3. well",
+      "4. Luckily",
+      "5. slowly (M), probably (P), extremely (D)",
+      "6. definitely (P), quietly (M), quite (D)",
+      "7. They will probably arrive early.",
+      "8. She sings beautifully.",
+      "9. He works hard every day.",
+      "10. Respuesta libre (ej. 'I drive carefully. It's quite hot today. I'll probably stay home. I speak English quite well.')"
+    ]
+  }
+}

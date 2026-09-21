@@ -1,0 +1,158 @@
+{
+  "id": "a2-review-grand-01",
+  "nivel": "A2",
+  "arquetipo": "repaso_integrador",
+  "tema": "Grand Review — A2 Checkpoint (Past, Comparatives, There is/are, Some/Any, Going to)",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "⏪", "palabra": "yesterday", "traduccion": "ayer"},
+    {"bandera": "🌙", "palabra": "last night", "traduccion": "anoche"},
+    {"bandera": "📅", "palabra": "last week", "traduccion": "la semana pasada"},
+    {"bandera": "🎬", "palabra": "watch a film", "traduccion": "ver una película"},
+    {"bandera": "🍳", "palabra": "cook dinner", "traduccion": "cocinar la cena"},
+    {"bandera": "🚶", "palabra": "walk in the park", "traduccion": "pasear por el parque"},
+    {"bandera": "🛒", "palabra": "buy groceries", "traduccion": "comprar víveres"},
+    {"bandera": "📖", "palabra": "read a story", "traduccion": "leer un cuento"},
+    {"bandera": "🌧️", "palabra": "rain heavily", "traduccion": "llover fuerte"},
+    {"bandera": "☀️", "palabra": "sunny day", "traduccion": "día soleado"},
+    {"bandera": "🏙️", "palabra": "city centre", "traduccion": "centro de la ciudad"},
+    {"bandera": "🏞️", "palabra": "countryside", "traduccion": "el campo"},
+    {"bandera": "🥇", "palabra": "the best", "traduccion": "el mejor"},
+    {"bandera": "🐢", "palabra": "slower than", "traduccion": "más lento que"},
+    {"bandera": "🪑", "palabra": "furniture", "traduccion": "muebles (incontable)"},
+    {"bandera": "🥛", "palabra": "some milk", "traduccion": "algo de leche"},
+    {"bandera": "🍎", "palabra": "a few apples", "traduccion": "unas pocas manzanas"},
+    {"bandera": "❓", "palabra": "any questions", "traduccion": "alguna pregunta"},
+    {"bandera": "🔮", "palabra": "future plans", "traduccion": "planes de futuro"},
+    {"bandera": "🧳", "palabra": "pack a suitcase", "traduccion": "hacer la maleta"},
+    {"bandera": "🎂", "palabra": "birthday party", "traduccion": "fiesta de cumpleaños"},
+    {"bandera": "🏆", "palabra": "win a prize", "traduccion": "ganar un premio"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Heroes, this is your A2 checkpoint. Everything you learned — past, comparisons, quantities and future plans — lives in one story now."},
+    {"personaje": "Ben", "linea": "Last weekend was the best weekend of the year! First we walked in the park, then we watched a film."},
+    {"personaje": "Kenji", "linea": "While we were watching the film, it started to rain. There wasn't any milk at home, so I bought some."},
+    {"personaje": "Sofía", "linea": "The countryside is quieter than the city, but the city is more exciting. Next month I'm going to visit both!"},
+    {"personaje": "Abuela Carmen", "linea": "There were many people at my birthday party. Were you there? Next year I'm going to bake an even bigger cake!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "We were at the park yesterday."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She cooked dinner and then watched a film."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "The city is more exciting than the countryside."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "There is some milk in the fridge."},
+    {"id": "s5", "forma": "negativo", "oracion": "There weren't any people at the party."},
+    {"id": "s6", "forma": "negativo", "oracion": "He didn't buy any apples."},
+    {"id": "s7", "forma": "negativo", "oracion": "It wasn't raining when we arrived."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Were you at the party last night?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What were you doing when it started to rain?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Are you going to travel next month?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was the film good? Yes, it was."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is there any milk? No, there isn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Are they going to come? Yes, they are."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "While we watched the film, it was starting to rain.",
+        "opcion_b": "While we were watching the film, it started to rain.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "A2 checkpoint: choose the right past form (was/were, past simple, past continuous with when/while), compare with -er/more...than and the -est/the most, say what exists with there is/are, count with some/any/much/many, and talk about the future with going to.",
+      "tabla": {
+        "titulo": "A2 Grand Review Map",
+        "encabezados": ["Topic", "Key structure", "Example"],
+        "filas": [
+          ["Past simple", "verb-ed / irregular", "We walked. / She went."],
+          ["Past continuous", "was/were + -ing + when/while", "It was raining when we left."],
+          ["Comparatives", "-er / more + than", "The city is bigger than the town."],
+          ["There is/are + some/any", "is + incontable, are + contables", "There is some milk. There aren't any eggs."],
+          ["Going to", "be + going to + verb", "I'm going to travel next month."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "While I ___ in the park, it started to rain.", "opciones": ["walked", "was walking", "walk"], "respuesta": "was walking"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The countryside is ___ than the city.", "opciones": ["quiet", "quieter", "quietest"], "respuesta": "quieter"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "There ___ any milk in the fridge.", "opciones": ["aren't", "isn't", "wasn't"], "respuesta": "isn't"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We use 'some' in affirmative sentences and 'any' in negatives and questions.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Going to' is used for past actions.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "First we ___ (walk) in the park, then we ___ (watch) a film.", "respuesta": "walked, watched"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "This is ___ (good) cake in the world!", "respuesta": "the best"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["going to", "are", "travel", "you", "next month", "?"], "respuesta": "Are you going to travel next month?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "There wasn't some people at the party.", "respuesta": "There weren't any people at the party."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She bought some apples.", "instruccion": "Make it negative.", "respuesta": "She didn't buy any apples."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The city is exciting. The countryside is relaxing.", "instruccion": "Compare them with 'more...than'.", "respuesta": "The city is more exciting than the countryside."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell me about your last weekend and your plans for the next one. (One past sentence + one 'going to' sentence.)", "respuesta": "Last weekend I visited my friends. Next weekend I'm going to walk in the park."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: How was your weekend, Ben?",
+        "Ben: It was the best! First we walked in the park, then we watched a film.",
+        "Sofía: Was it raining?",
+        "Ben: Yes! While we were watching the film, it started to rain heavily.",
+        "Sofía: Were there many people in the park?",
+        "Ben: No, there weren't any people. It was quieter than the city centre.",
+        "Sofía: Nice! And what are you going to do next weekend?",
+        "Ben: I'm going to visit the countryside. It's more relaxing than the city."
+      ],
+      "gaps": ["park", "countryside"],
+      "comprension": [
+        {"pregunta": "What did Ben do first?", "opciones": ["Watched a film", "Walked in the park", "Bought milk"], "respuesta": "Walked in the park"},
+        {"pregunta": "What is Ben going to do next weekend?", "opciones": ["Visit the countryside", "Watch a film", "Stay in the city"], "respuesta": "Visit the countryside"}
+      ]
+    },
+    "reading": {
+      "texto": "Last Saturday was the best day of the month. First, Ben and Kenji walked in the park. There weren't many people because it was cloudy. While they were walking, it started to rain, so they went home and watched a film. Sofía cooked dinner and Abuela Carmen baked a cake. Next weekend they are going to visit the countryside, which is quieter and more relaxing than the city.",
+      "preguntas": [
+        {"afirmacion": "There were many people in the park.", "respuesta": "false"},
+        {"afirmacion": "It started to rain while they were walking.", "respuesta": "true"},
+        {"afirmacion": "They are going to visit the city next weekend.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-10 — Grand Review: A2 Checkpoint",
+    "partes": [
+      {
+        "parte": "A — Elige la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "While we ___ (walk / were walking), it started to rain."},
+          {"n": 2, "texto": "The countryside is ___ (quieter / quietest) than the city."},
+          {"n": 3, "texto": "There ___ (isn't / aren't) any milk."},
+          {"n": 4, "texto": "She ___ (didn't buy / doesn't buy) any apples yesterday."}
+        ]
+      },
+      {
+        "parte": "B — Completa y transforma",
+        "ejercicios": [
+          {"n": 5, "texto": "First we ___ (walk), then we ___ (watch) a film. (past simple)"},
+          {"n": 6, "texto": "This is ___ (good) cake in the world!"},
+          {"n": 7, "texto": "She bought some apples. → negativa:"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'There wasn't some people at the party.'"},
+          {"n": 9, "texto": "Corrige: 'What you are going to do next weekend?'"},
+          {"n": 10, "texto": "Escribe 4 frases: una en pasado simple, una en pasado continuo, una comparativa y una con going to."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. were walking",
+      "2. quieter",
+      "3. isn't",
+      "4. didn't buy",
+      "5. walked, watched",
+      "6. the best",
+      "7. She didn't buy any apples.",
+      "8. There weren't any people at the party.",
+      "9. What are you going to do next weekend?",
+      "10. Respuesta libre (ej. 'I walked in the park. / It was raining. / The city is bigger than the town. / I'm going to travel.')"
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "c1-participle-clauses-01",
+  "nivel": "C1",
+  "arquetipo": "estructuras_avanzadas",
+  "tema": "Participle Clauses — Walking, Having Taken, Fascinated by...",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🚶", "palabra": "walking through", "traduccion": "caminando por"},
+    {"bandera": "📸", "palabra": "forgotten studio", "traduccion": "estudio olvidado"},
+    {"bandera": "🚪", "palabra": "opening the door", "traduccion": "abriendo la puerta"},
+    {"bandera": "🖼️", "palabra": "portraits", "traduccion": "retratos"},
+    {"bandera": "🌫️", "palabra": "covered in dust", "traduccion": "cubiertos de polvo"},
+    {"bandera": "😍", "palabra": "fascinated by", "traduccion": "fascinado por"},
+    {"bandera": "🥺", "palabra": "touched by", "traduccion": "conmovido por"},
+    {"bandera": "📷", "palabra": "facing the camera", "traduccion": "frente a la cámara"},
+    {"bandera": "🕰️", "palabra": "having taken", "traduccion": "habiendo hecho (fotos)"},
+    {"bandera": "🧓", "palabra": "the owner", "traduccion": "el dueño"},
+    {"bandera": "🏘️", "palabra": "neighbourhood", "traduccion": "barrio"},
+    {"bandera": "🖼️", "palabra": "exhibit", "traduccion": "exponer"},
+    {"bandera": "🌆", "palabra": "old town", "traduccion": "casco antiguo"},
+    {"bandera": "👥", "palabra": "faces", "traduccion": "rostros"},
+    {"bandera": "💡", "palabra": "realizing", "traduccion": "dándose cuenta"},
+    {"bandera": "🤐", "palabra": "not knowing", "traduccion": "sin saber"},
+    {"bandera": "🏃", "palabra": "running late", "traduccion": "con prisa (tarde)"},
+    {"bandera": "🎞️", "palabra": "developed film", "traduccion": "película revelada"},
+    {"bandera": "🧹", "palabra": "cleaned of dust", "traduccion": "limpio de polvo"},
+    {"bandera": "📜", "palabra": "archive", "traduccion": "archivo"},
+    {"bandera": "🤲", "palabra": "donate", "traduccion": "donar"},
+    {"bandera": "🎙️", "palabra": "being interviewed", "traduccion": "siendo entrevistado"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Participle clauses compress time, heroes: two actions, one elegant sentence. 'Walking through the old town, Ben noticed a forgotten studio.'"},
+    {"personaje": "Ben", "linea": "Opening the door carefully, I found hundreds of portraits covered in dust. Fascinated by the faces, I asked the owner about them."},
+    {"personaje": "Kenji", "linea": "Having taken photographs for sixty years, the old man knew every family in the neighbourhood."},
+    {"personaje": "Sofía", "linea": "Touched by the story, Ben offered to exhibit the portraits. Not knowing what to say, the old man simply smiled."},
+    {"personaje": "Abuela Carmen", "linea": "Facing the camera once more, the neighbours smiled as in 1960. Being photographed by a friend is the warmest feeling, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Walking through the old town, Ben noticed a studio."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Having taken photos for sixty years, he knew every family."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Fascinated by the faces, Ben asked about them."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Being a friend of the family, he was welcomed."},
+    {"id": "s5", "forma": "negativo", "oracion": "Not knowing what to say, the old man smiled."},
+    {"id": "s6", "forma": "negativo", "oracion": "Not having seen the studio before, Ben was surprised."},
+    {"id": "s7", "forma": "negativo", "oracion": "Not wanting to disturb him, she waited outside."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Walking through the old town, what did Ben notice?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Having read the letter, how did she feel?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Touched by the story, what did Ben offer?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was he surprised? Yes, not having seen it before."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did she wait? Yes, not wanting to disturb him."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did he know the families? Yes, having worked there for years."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Walking through the old town, a forgotten studio was noticed by Ben.",
+        "opcion_b": "Walking through the old town, Ben noticed a forgotten studio.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Participle clauses join actions sharing the same subject: present participle (Walking...) for simultaneous actions, past participle (Fascinated by...) for passive meaning, perfect participle (Having taken...) for earlier actions. The implied subject MUST match the main clause's subject.",
+      "tabla": {
+        "titulo": "Participle Clauses",
+        "encabezados": ["Type", "Meaning", "Example"],
+        "filas": [
+          ["-ing clause", "while/because + same subject", "Walking home, I saw a fox."],
+          ["past participle", "passive meaning", "Touched by the story, he offered to help."],
+          ["having + pp", "earlier action", "Having eaten, we left."],
+          ["negative", "not + participle", "Not knowing the answer, she stayed quiet."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ through the old town, Ben noticed a forgotten studio.", "opciones": ["Walking", "Walked", "Walk"], "respuesta": "Walking"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ by the story, Ben offered to exhibit the portraits.", "opciones": ["Touched", "Touching", "Touch"], "respuesta": "Touched"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ photographs for sixty years, the old man knew every family.", "opciones": ["Having taken", "Taking", "Taken"], "respuesta": "Having taken"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In participle clauses, the implied subject must match the main clause's subject.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Having taken' refers to an action after the main clause.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ (not / know) what to say, the old man smiled.", "respuesta": "Not knowing"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ (fascinate) by the faces, Ben asked about them.", "respuesta": "Fascinated"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["through the old town,", "Walking", "Ben noticed a studio", "."], "respuesta": "Walking through the old town, Ben noticed a studio."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Walking through the old town, a forgotten studio was noticed by Ben.", "respuesta": "Walking through the old town, Ben noticed a forgotten studio."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Because he was fascinated by the faces, Ben asked about them.", "instruccion": "Rewrite with a participle clause.", "respuesta": "Fascinated by the faces, Ben asked about them."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "After he had taken photos for sixty years, he knew every family.", "instruccion": "Rewrite with a perfect participle.", "respuesta": "Having taken photos for sixty years, he knew every family."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe a discovery you made using two participle clauses (-ing and past participle).", "respuesta": "Walking along the beach, I found an old bottle. Surprised by the message inside, I sat down to read it."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben, how did you find that old photo studio?",
+        "Ben: Walking through the old town, I noticed a wooden door covered in dust.",
+        "Sofía: And you went in?",
+        "Ben: Yes. Opening the door carefully, I found hundreds of old portraits.",
+        "Sofía: Incredible! And the owner?",
+        "Ben: Having taken photographs for sixty years, he knew every family in the neighbourhood.",
+        "Sofía: What did you do?",
+        "Ben: Touched by the story, I offered to exhibit the portraits at my gallery."
+      ],
+      "gaps": ["old town", "sixty"],
+      "comprension": [
+        {"pregunta": "What was the door covered in?", "opciones": ["Paint", "Dust", "Posters"], "respuesta": "Dust"},
+        {"pregunta": "What did Ben offer to do with the portraits?", "opciones": ["Buy them", "Exhibit them", "Restore them"], "respuesta": "Exhibit them"}
+      ]
+    },
+    "reading": {
+      "texto": "Walking through the old town, Ben noticed a forgotten photo studio. Opening the door carefully, he found hundreds of portraits covered in dust. Fascinated by the faces, he asked the owner about them. Having taken photographs for sixty years, the old man knew every family in the neighbourhood. Touched by the story, Ben offered to exhibit the portraits. Facing the camera once more, the neighbours smiled as in 1960.",
+      "preguntas": [
+        {"afirmacion": "Ben found the studio by accident.", "respuesta": "true"},
+        {"afirmacion": "The owner had taken photos for thirty years.", "respuesta": "false"},
+        {"afirmacion": "Ben offered to exhibit the portraits.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha C1-3 — Participle Clauses",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta del participio",
+        "ejercicios": [
+          {"n": 1, "texto": "___ (walk) through the old town, Ben noticed a studio."},
+          {"n": 2, "texto": "___ (fascinate) by the faces, Ben asked about them."},
+          {"n": 3, "texto": "___ (take) photos for sixty years, he knew every family."},
+          {"n": 4, "texto": "___ (not / know) what to say, the old man smiled."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con cláusula de participio",
+        "ejercicios": [
+          {"n": 5, "texto": "Because he was fascinated by the faces, Ben asked about them."},
+          {"n": 6, "texto": "After he had taken photos for sixty years, he knew every family."},
+          {"n": 7, "texto": "Because she didn't want to disturb him, she waited outside."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Walking through the old town, a forgotten studio was noticed by Ben.'"},
+          {"n": 9, "texto": "Corrige: 'Having took photos for years, he knew everyone.'"},
+          {"n": 10, "texto": "Escribe 3 frases con cláusulas de participio: -ing, participio pasado y having + pp."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. Walking",
+      "2. Fascinated",
+      "3. Having taken",
+      "4. Not knowing",
+      "5. Fascinated by the faces, Ben asked about them.",
+      "6. Having taken photos for sixty years, he knew every family.",
+      "7. Not wanting to disturb him, she waited outside.",
+      "8. Walking through the old town, Ben noticed a forgotten studio.",
+      "9. Having taken photos for years, he knew everyone.",
+      "10. Respuesta libre (ej. 'Walking home, I saw a fox. Surprised by the noise, it ran away. Having eaten, we left.')"
+    ]
+  }
+}

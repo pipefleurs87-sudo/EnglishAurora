@@ -1,0 +1,155 @@
+{
+  "id": "a2-past-continuous-vs-simple-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Past Continuous vs Past Simple — Interrupted!",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "🚿", "palabra": "taking a shower", "traduccion": "duchándose"},
+    {"bandera": "🍳", "palabra": "cooking dinner", "traduccion": "cocinando la cena"},
+    {"bandera": "📺", "palabra": "watching TV", "traduccion": "viendo la tele"},
+    {"bandera": "📚", "palabra": "studying", "traduccion": "estudiando"},
+    {"bandera": "😴", "palabra": "sleeping", "traduccion": "durmiendo"},
+    {"bandera": "🚗", "palabra": "driving home", "traduccion": "conduciendo a casa"},
+    {"bandera": "🚶", "palabra": "walking in the park", "traduccion": "caminando por el parque"},
+    {"bandera": "🎧", "palabra": "listening to music", "traduccion": "escuchando música"},
+    {"bandera": "📞", "palabra": "the phone rang", "traduccion": "sonó el teléfono"},
+    {"bandera": "🚪", "palabra": "someone knocked", "traduccion": "alguien llamó (a la puerta)"},
+    {"bandera": "⏰", "palabra": "the alarm went off", "traduccion": "sonó la alarma"},
+    {"bandera": "🌧️", "palabra": "it started to rain", "traduccion": "empezó a llover"},
+    {"bandera": "💡", "palabra": "the lights went out", "traduccion": "se fue la luz"},
+    {"bandera": "🐕", "palabra": "the dog barked", "traduccion": "el perro ladró"},
+    {"bandera": "✉️", "palabra": "a message arrived", "traduccion": "llegó un mensaje"},
+    {"bandera": "🔗", "palabra": "while", "traduccion": "mientras"},
+    {"bandera": "⚡", "palabra": "when", "traduccion": "cuando"},
+    {"bandera": "🔀", "palabra": "while + past continuous", "traduccion": "mientras + acción larga"},
+    {"bandera": "⏱️", "palabra": "at eight o'clock", "traduccion": "a las ocho"},
+    {"bandera": "🌅", "palabra": "this morning", "traduccion": "esta mañana"},
+    {"bandera": "🌙", "palabra": "last night", "traduccion": "anoche"},
+    {"bandera": "😲", "palabra": "suddenly", "traduccion": "de repente"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Life is a long movie, heroes, and interruptions are the plot twists. 'While' runs the movie; 'when' fires the twist."},
+    {"personaje": "Ben", "linea": "I was taking a shower when the phone rang. Of course!"},
+    {"personaje": "Kenji", "linea": "While I was studying, my sister was playing loud music. Impossible to concentrate!"},
+    {"personaje": "Sofía", "linea": "I was walking in the park when it started to rain. I got completely wet."},
+    {"personaje": "Abuela Carmen", "linea": "I was cooking dinner when the lights went out. We ate by candlelight — it was romantic!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I was taking a shower when the phone rang."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "While I was studying, my sister was playing music."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "She was walking in the park when it started to rain."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They were sleeping when the alarm went off."},
+    {"id": "s5", "forma": "negativo", "oracion": "I wasn't sleeping when you called."},
+    {"id": "s6", "forma": "negativo", "oracion": "She wasn't watching TV when the lights went out."},
+    {"id": "s7", "forma": "negativo", "oracion": "We weren't driving when the accident happened."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What were you doing when I called?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Were you sleeping when the alarm went off?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What was she doing at eight o'clock?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Were you studying? Yes, I was."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was it raining? No, it wasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Were they watching TV? Yes, they were."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I took a shower when the phone was ringing.",
+        "opcion_b": "I was taking a shower when the phone rang.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "The past continuous (was/were + -ing) is the long background action; the past simple is the short interruption. 'While' + long action, 'when' + short action.",
+      "tabla": {
+        "titulo": "Long action vs interruption",
+        "encabezados": ["Role", "Tense", "Example"],
+        "filas": [
+          ["Background (long)", "past continuous", "I was cooking dinner..."],
+          ["Interruption (short)", "past simple", "...when the phone rang."],
+          ["while", "+ past continuous", "While I was cooking, he was reading."],
+          ["when", "+ past simple", "I was cooking when he arrived."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ a shower when the phone rang.", "opciones": ["took", "was taking", "take"], "respuesta": "was taking"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "While she ___ , he was reading.", "opciones": ["cooked", "was cooking", "cooks"], "respuesta": "was cooking"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "They were sleeping when the alarm ___.", "opciones": ["was going off", "went off", "goes off"], "respuesta": "went off"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'While' usually goes with the past continuous.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The short interruption uses the past continuous.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ in the park when it started to rain. (walk)", "respuesta": "was walking"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ when you called. (not/sleep)", "respuesta": "wasn't sleeping"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["was cooking", "She", "when", "the lights went out", "."], "respuesta": "She was cooking when the lights went out."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I watched TV when the lights were going out.", "respuesta": "I was watching TV when the lights went out."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I was sleeping when you called.", "instruccion": "Make it negative.", "respuesta": "I wasn't sleeping when you called."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "You were studying at eight.", "instruccion": "Turn it into a question with 'what'.", "respuesta": "What were you doing at eight?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What were you doing yesterday at nine in the evening? (Full sentence.)", "respuesta": "I was watching TV."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: You look tired, Ben. What happened?",
+        "Ben: I was sleeping when the neighbor's dog barked at 3 a.m.!",
+        "Sofía: Oh no! And then?",
+        "Ben: I couldn't sleep again. While I was trying to sleep, my phone rang.",
+        "Sofía: Who was it?",
+        "Ben: Nobody! A wrong number. What a night!"
+      ],
+      "gaps": ["barked", "rang"],
+      "comprension": [
+        {"pregunta": "What woke Ben up?", "opciones": ["The alarm", "A dog", "The phone"], "respuesta": "A dog"},
+        {"pregunta": "Who called Ben?", "opciones": ["Sofía", "His mother", "A wrong number"], "respuesta": "A wrong number"}
+      ]
+    },
+    "reading": {
+      "texto": "Last night was full of interruptions. Ben was sleeping when the neighbor's dog barked at 3 a.m. While he was trying to sleep again, his phone rang — a wrong number! Sofía was walking home when it started to rain, and she got completely wet. Abuela Carmen was cooking dinner when the lights went out, so they ate by candlelight. Sometimes, interruptions make the best stories.",
+      "preguntas": [
+        {"afirmacion": "The dog barked at 3 a.m.", "respuesta": "true"},
+        {"afirmacion": "Sofía was driving when it started to rain.", "respuesta": "false"},
+        {"afirmacion": "They ate by candlelight.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-5 — Past Continuous vs Past Simple",
+    "partes": [
+      {
+        "parte": "A — Elige la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "I (took / was taking) a shower when the phone rang."},
+          {"n": 2, "texto": "While she (studied / was studying), he was playing."},
+          {"n": 3, "texto": "They were sleeping when the alarm (went off / was going off)."},
+          {"n": 4, "texto": "What (did you do / were you doing) at eight?"}
+        ]
+      },
+      {
+        "parte": "B — Completa con while o when",
+        "ejercicios": [
+          {"n": 5, "texto": "___ I was cooking, he was reading."},
+          {"n": 6, "texto": "I was cooking ___ he arrived."},
+          {"n": 7, "texto": "She was walking ___ it started to rain."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I watched TV when the lights were going out.'"},
+          {"n": 9, "texto": "Corrige: 'While I studied, my sister was playing music.'"},
+          {"n": 10, "texto": "Escribe 3 oraciones sobre interrupciones de tu vida con when/while."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. was taking",
+      "2. was studying",
+      "3. went off",
+      "4. were you doing",
+      "5. While",
+      "6. when",
+      "7. when",
+      "8. I was watching TV when the lights went out.",
+      "9. While I was studying, my sister was playing music.",
+      "10. Respuesta libre (ej. 'I was sleeping when the alarm went off. While I was cooking, my friend arrived.')"
+    ]
+  }
+}

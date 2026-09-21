@@ -1,0 +1,156 @@
+{
+  "id": "b1-present-perfect-bucket-list-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Present Perfect — Life Experiences (Bucket List)",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "📝", "palabra": "bucket list", "traduccion": "lista de deseos"},
+    {"bandera": "🏔️", "palabra": "climb a mountain", "traduccion": "escalar una montaña"},
+    {"bandera": "🐬", "palabra": "swim with dolphins", "traduccion": "nadar con delfines"},
+    {"bandera": "🍜", "palabra": "cook ramen", "traduccion": "cocinar ramen"},
+    {"bandera": "🪂", "palabra": "go skydiving", "traduccion": "hacer paracaidismo"},
+    {"bandera": "🎸", "palabra": "play in a band", "traduccion": "tocar en una banda"},
+    {"bandera": "📸", "palabra": "take a photography course", "traduccion": "hacer un curso de fotografía"},
+    {"bandera": "🌍", "palabra": "travel abroad", "traduccion": "viajar al extranjero"},
+    {"bandera": "🗼", "palabra": "visit Tokyo", "traduccion": "visitar Tokio"},
+    {"bandera": "🎈", "palabra": "fly in a hot-air balloon", "traduccion": "volar en globo"},
+    {"bandera": "🏃", "palabra": "run a marathon", "traduccion": "correr un maratón"},
+    {"bandera": "📖", "palabra": "write a book", "traduccion": "escribir un libro"},
+    {"bandera": "🐎", "palabra": "ride a horse", "traduccion": "montar a caballo"},
+    {"bandera": "⛺", "palabra": "sleep under the stars", "traduccion": "dormir bajo las estrellas"},
+    {"bandera": "🤿", "palabra": "go scuba diving", "traduccion": "hacer submarinismo"},
+    {"bandera": "✅", "palabra": "already", "traduccion": "ya"},
+    {"bandera": "⏳", "palabra": "yet", "traduccion": "todavía / ya (neg. e interrog.)"},
+    {"bandera": "🔔", "palabra": "just", "traduccion": "acabar de"},
+    {"bandera": "🚫", "palabra": "never", "traduccion": "nunca"},
+    {"bandera": "🔁", "palabra": "twice", "traduccion": "dos veces"},
+    {"bandera": "🌟", "palabra": "dream", "traduccion": "sueño"},
+    {"bandera": "🎁", "palabra": "surprise trip", "traduccion": "viaje sorpresa"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The Present Perfect connects your past to who you are today. Your experiences are your treasure, heroes."},
+    {"personaje": "Ben", "linea": "I've just started a photography course. I've already taken hundreds of photos!"},
+    {"personaje": "Kenji", "linea": "I've visited Japan twice, but I haven't climbed Mount Fuji yet. It's on my bucket list."},
+    {"personaje": "Sofía", "linea": "I've already swum with dolphins in Mexico. I haven't run a marathon yet, but I'm training."},
+    {"personaje": "Abuela Carmen", "linea": "I've never flown in a plane, mis héroes. But life is long — I haven't finished my bucket list yet!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I have visited Japan twice."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She has already swum with dolphins."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We have just started a photography course."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They have written a bucket list."},
+    {"id": "s5", "forma": "negativo", "oracion": "I haven't climbed a mountain yet."},
+    {"id": "s6", "forma": "negativo", "oracion": "He has never flown in a plane."},
+    {"id": "s7", "forma": "negativo", "oracion": "We haven't finished the list yet."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Have you ever eaten octopus?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "How many countries have you visited?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Has she run a marathon yet?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Have you ever gone skydiving? Yes, I have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Has he visited Tokyo? No, he hasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Have they finished? Yes, they have."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I have visited Japan last year.",
+        "opcion_b": "I have visited Japan twice.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use 'have/has + past participle' for life experiences WITHOUT a finished time. Signal words: ever, never, already, just, yet. Never use it with finished time expressions like 'yesterday' or 'last year'.",
+      "tabla": {
+        "titulo": "Present Perfect — Experiences",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "have/has + participle", "I have visited Japan."],
+          ["Negative", "haven't/hasn't + participle", "He hasn't climbed Fuji yet."],
+          ["Question", "Have/Has + subject + participle?", "Have you ever tried ramen?"],
+          ["Signal words", "ever, never, already, just, yet", "She has just arrived."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ Japan twice.", "opciones": ["have visited", "visited last year", "visits"], "respuesta": "have visited"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She hasn't climbed a mountain ___.", "opciones": ["already", "yet", "ever"], "respuesta": "yet"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you ever ___ with dolphins?", "opciones": ["Did / swim", "Have / swum", "Has / swum"], "respuesta": "Have / swum"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We can say 'I have visited Japan last year'.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Already' usually goes between have/has and the participle.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He ___ (never / fly) in a plane.", "respuesta": "has never flown"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "We ___ (just / start) a photography course.", "respuesta": "have just started"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["ever", "Have", "you", "eaten", "octopus", "?"], "respuesta": "Have you ever eaten octopus?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I have visited Japan last year.", "respuesta": "I visited Japan last year. / I have visited Japan twice."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She has swum with dolphins.", "instruccion": "Make it negative.", "respuesta": "She hasn't swum with dolphins."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He has visited Tokyo.", "instruccion": "Turn it into a question with 'ever'.", "respuesta": "Has he ever visited Tokyo?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Name three things on your bucket list. What have you already done? What haven't you done yet?", "respuesta": "I have already travelled abroad. I haven't run a marathon yet. I have never gone skydiving."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Have you ever written a bucket list, Kenji?",
+        "Kenji: Yes! I've written ten dreams on it.",
+        "Sofía: What have you already done?",
+        "Kenji: I've visited Japan twice and I've learned to cook ramen.",
+        "Sofía: And what haven't you done yet?",
+        "Kenji: I haven't climbed a mountain yet. But I've bought new boots!",
+        "Sofía: Great! I've already swum with dolphins. Let's help Abuela Carmen with her list too."
+      ],
+      "gaps": ["bucket list", "boots"],
+      "comprension": [
+        {"pregunta": "How many times has Kenji visited Japan?", "opciones": ["Once", "Twice", "Never"], "respuesta": "Twice"},
+        {"pregunta": "What hasn't Kenji done yet?", "opciones": ["Cook ramen", "Climb a mountain", "Buy boots"], "respuesta": "Climb a mountain"}
+      ]
+    },
+    "reading": {
+      "texto": "Kenji has written a bucket list with ten dreams. He has already visited Japan twice, and he has learned to cook ramen. He hasn't climbed a mountain yet, but he has bought new boots for the adventure. Sofía has already swum with dolphins, and Ben has just started a photography course. Abuela Carmen has never flown in a plane, so the friends have planned a surprise trip for her next summer.",
+      "preguntas": [
+        {"afirmacion": "Kenji has already climbed a mountain.", "respuesta": "false"},
+        {"afirmacion": "Sofía has swum with dolphins.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen has flown many times.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-2 — Present Perfect: Bucket List",
+    "partes": [
+      {
+        "parte": "A — Completa con el Present Perfect",
+        "ejercicios": [
+          {"n": 1, "texto": "I ___ (visit) Japan twice."},
+          {"n": 2, "texto": "She ___ (already / swim) with dolphins."},
+          {"n": 3, "texto": "He ___ (never / fly) in a plane."},
+          {"n": 4, "texto": "We ___ (not / finish) the list yet."}
+        ]
+      },
+      {
+        "parte": "B — Elige la palabra señal correcta",
+        "ejercicios": [
+          {"n": 5, "texto": "I've ___ started the course. (just / yet)"},
+          {"n": 6, "texto": "Have you ___ eaten octopus? (ever / never)"},
+          {"n": 7, "texto": "She hasn't run a marathon ___. (already / yet)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I have visited Japan last year.'"},
+          {"n": 9, "texto": "Corrige: 'Have you ever swam with dolphins?'"},
+          {"n": 10, "texto": "Escribe tu bucket list: 3 cosas que has hecho y 3 que no has hecho todavía."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. have visited",
+      "2. has already swum",
+      "3. has never flown",
+      "4. haven't finished / have not finished",
+      "5. just",
+      "6. ever",
+      "7. yet",
+      "8. I visited Japan last year. (o: I have visited Japan twice.)",
+      "9. Have you ever swum with dolphins?",
+      "10. Respuesta libre (ej. 'I have travelled abroad. I have ridden a horse. I have written a poem. I haven't climbed a mountain yet...')"
+    ]
+  }
+}

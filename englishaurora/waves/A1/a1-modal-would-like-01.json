@@ -1,0 +1,155 @@
+{
+  "id": "a1-modal-would-like-01",
+  "nivel": "A1",
+  "arquetipo": "verbo_modal",
+  "tema": "Would Like — Polite Wishes & Ordering",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "☕", "palabra": "a coffee", "traduccion": "un café"},
+    {"bandera": "🍵", "palabra": "a tea", "traduccion": "un té"},
+    {"bandera": "🧃", "palabra": "a juice", "traduccion": "un jugo"},
+    {"bandera": "🥤", "palabra": "a soda", "traduccion": "un refresco"},
+    {"bandera": "💧", "palabra": "some water", "traduccion": "agua"},
+    {"bandera": "🍰", "palabra": "a piece of cake", "traduccion": "un trozo de pastel"},
+    {"bandera": "🥪", "palabra": "a sandwich", "traduccion": "un sándwich"},
+    {"bandera": "🍔", "palabra": "a hamburger", "traduccion": "una hamburguesa"},
+    {"bandera": "🍟", "palabra": "some fries", "traduccion": "papas fritas"},
+    {"bandera": "🍦", "palabra": "an ice cream", "traduccion": "un helado"},
+    {"bandera": "🥗", "palabra": "a salad", "traduccion": "una ensalada"},
+    {"bandera": "🍲", "palabra": "the soup of the day", "traduccion": "la sopa del día"},
+    {"bandera": "🧾", "palabra": "the bill", "traduccion": "la cuenta"},
+    {"bandera": "📋", "palabra": "the menu", "traduccion": "el menú"},
+    {"bandera": "🪑", "palabra": "a table for two", "traduccion": "una mesa para dos"},
+    {"bandera": "✈️", "palabra": "a window seat", "traduccion": "un asiento junto a la ventana"},
+    {"bandera": "🎫", "palabra": "a return ticket", "traduccion": "un boleto de ida y vuelta"},
+    {"bandera": "🏨", "palabra": "a double room", "traduccion": "una habitación doble"},
+    {"bandera": "🛍️", "palabra": "a medium size", "traduccion": "una talla mediana"},
+    {"bandera": "🎁", "palabra": "a gift for my mother", "traduccion": "un regalo para mi madre"},
+    {"bandera": "🌍", "palabra": "to travel the world", "traduccion": "viajar por el mundo"},
+    {"bandera": "🗣️", "palabra": "to speak English perfectly", "traduccion": "hablar inglés perfectamente"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Politeness is a superpower, heroes. 'Would like' opens doors that 'want' keeps closed."},
+    {"personaje": "Ben", "linea": "Good afternoon! I'd like a table for two, please."},
+    {"personaje": "Sofía", "linea": "I'd like the soup of the day and some water, please."},
+    {"personaje": "Kenji", "linea": "Would you like some fries with that? They're really good here."},
+    {"personaje": "Abuela Carmen", "linea": "I'd like a tea with honey, dear. And one day, I would like to travel the world!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I'd like a coffee, please."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She would like a table for two."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We would like the bill, please."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "He would like to travel the world."},
+    {"id": "s5", "forma": "negativo", "oracion": "I wouldn't like a soda, thanks."},
+    {"id": "s6", "forma": "negativo", "oracion": "She wouldn't like to sit outside."},
+    {"id": "s7", "forma": "negativo", "oracion": "They wouldn't like any fries."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Would you like some water?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What would you like to eat?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Would you like to come with us?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Would you like a tea? Yes, please."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Would you like some cake? No, thank you."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Would she like a window seat? Yes, she would."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I would like a coffee, please.",
+        "opcion_b": "I would like drink a coffee, please.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "'Would like' is the polite way to say 'want'. Use it with a noun ('I'd like a coffee') or with 'to + verb' ('I'd like to travel'). In offers: 'Would you like...?' → 'Yes, please / No, thank you'.",
+      "tabla": {
+        "titulo": "Would like",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["With a noun", "would like + noun", "I'd like a sandwich."],
+          ["With a verb", "would like + to + verb", "I'd like to sit outside."],
+          ["Offer", "Would you like + noun?", "Would you like some tea?"],
+          ["Invitation", "Would you like + to + verb?", "Would you like to come?"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I'd like ___ coffee, please.", "opciones": ["a", "drink", "drinking"], "respuesta": "a"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She would like ___ the world.", "opciones": ["travel", "to travel", "travelling"], "respuesta": "to travel"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Would you like some tea? — ___", "opciones": ["Yes, I like", "Yes, please", "Yes, I would like"], "respuesta": "Yes, please"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Would like' is more polite than 'want'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "With a verb, we say 'would like + verb-ing'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I'd like a table ___ two, please. (para)", "respuesta": "for"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Would you like ___ come with us? (to)", "respuesta": "to"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["like", "would", "What", "you", "?"], "respuesta": "What would you like?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I would like drink a tea.", "respuesta": "I would like a tea. / I would like to drink a tea."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "You would like some water.", "instruccion": "Turn it into an offer.", "respuesta": "Would you like some water?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I want the bill.", "instruccion": "Make it polite with 'would like'.", "respuesta": "I would like the bill, please."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "You are in a café. Order two things politely. (Use 'I'd like...')", "respuesta": "I'd like a coffee and a sandwich, please."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Waiter: Good afternoon! Would you like a table for two?",
+        "Ben: Yes, please. Near the window, if possible.",
+        "Waiter: Of course. Would you like something to drink?",
+        "Sofía: I'd like some water, please.",
+        "Ben: And I'd like a coffee. Can we see the menu?",
+        "Waiter: Right away. Enjoy your meal!"
+      ],
+      "gaps": ["window", "menu"],
+      "comprension": [
+        {"pregunta": "Where does Ben want the table?", "opciones": ["Outside", "Near the window", "Next to the kitchen"], "respuesta": "Near the window"},
+        {"pregunta": "What would Sofía like to drink?", "opciones": ["A coffee", "A tea", "Some water"], "respuesta": "Some water"}
+      ]
+    },
+    "reading": {
+      "texto": "It's Saturday and the friends are at a café. Ben would like a table for two near the window. Sofía would like the soup of the day and some water. Kenji would like a hamburger with fries, and Abuela Carmen would like a tea with honey. They all would like to travel together one day — Sofía would like to visit Japan. Dreams start with 'would like'.",
+      "preguntas": [
+        {"afirmacion": "Ben would like a table near the window.", "respuesta": "true"},
+        {"afirmacion": "Kenji would like a salad.", "respuesta": "false"},
+        {"afirmacion": "Sofía would like to visit Japan.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 22 — Would Like",
+    "partes": [
+      {
+        "parte": "A — Completa con would like + la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "I'd like ___ coffee, please. (a/an)"},
+          {"n": 2, "texto": "She would like ___ the world. (travel)"},
+          {"n": 3, "texto": "We would like ___ bill, please. (a/the)"},
+          {"n": 4, "texto": "Would you like ___ come? (to)"}
+        ]
+      },
+      {
+        "parte": "B — Responde a las ofertas con cortesía",
+        "ejercicios": [
+          {"n": 5, "texto": "Would you like some tea? (✓) → ___"},
+          {"n": 6, "texto": "Would you like some cake? (✗) → ___"},
+          {"n": 7, "texto": "Would you like to sit outside? (✓) → ___"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I would like drink a coffee.'"},
+          {"n": 9, "texto": "Corrige: 'Would you like coming with us?'"},
+          {"n": 10, "texto": "Escribe un mini-diálogo de restaurante: 2 pedidos con 'I'd like' y 1 oferta del camarero."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. a",
+      "2. to travel",
+      "3. the",
+      "4. to",
+      "5. Yes, please.",
+      "6. No, thank you.",
+      "7. Yes, please. / Yes, I'd love to.",
+      "8. I would like a coffee. / I would like to drink a coffee.",
+      "9. Would you like to come with us?",
+      "10. Respuesta libre (ej. '—Would you like something to drink? —I'd like a tea, please. —And I'd like a sandwich.')"
+    ]
+  }
+}

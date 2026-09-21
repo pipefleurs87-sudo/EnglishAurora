@@ -1,0 +1,156 @@
+{
+  "id": "b1-gerund-vs-infinitive-01",
+  "nivel": "B1",
+  "arquetipo": "patron_verbal",
+  "tema": "Gerunds vs Infinitives — Verb Partners",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "❤️", "palabra": "enjoy cooking", "traduccion": "disfrutar cocinando"},
+    {"bandera": "🚫", "palabra": "avoid driving", "traduccion": "evitar conducir"},
+    {"bandera": "🧠", "palabra": "mind waiting", "traduccion": "importar esperar"},
+    {"bandera": "🏁", "palabra": "finish studying", "traduccion": "terminar de estudiar"},
+    {"bandera": "🤔", "palabra": "consider moving", "traduccion": "considerar mudarse"},
+    {"bandera": "🎯", "palabra": "decide to go", "traduccion": "decidir ir"},
+    {"bandera": "🙏", "palabra": "hope to travel", "traduccion": "esperar viajar"},
+    {"bandera": "📚", "palabra": "learn to cook", "traduccion": "aprender a cocinar"},
+    {"bandera": "🤝", "palabra": "agree to help", "traduccion": "aceptar ayudar"},
+    {"bandera": "📋", "palabra": "plan to visit", "traduccion": "planear visitar"},
+    {"bandera": "💍", "palabra": "promise to call", "traduccion": "prometer llamar"},
+    {"bandera": "😰", "palabra": "afraid of flying", "traduccion": "miedo a volar"},
+    {"bandera": "😊", "palabra": "good at drawing", "traduccion": "bueno dibujando"},
+    {"bandera": "🎉", "palabra": "looking forward to meeting", "traduccion": "con ganas de conocer"},
+    {"bandera": "🛑", "palabra": "stop smoking", "traduccion": "dejar de fumar"},
+    {"bandera": "🚶", "palabra": "keep walking", "traduccion": "seguir caminando"},
+    {"bandera": "🎁", "palabra": "offer to carry", "traduccion": "ofrecerse a llevar"},
+    {"bandera": "⏰", "palabra": "forget to lock", "traduccion": "olvidar cerrar"},
+    {"bandera": "🔑", "palabra": "remember to bring", "traduccion": "recordar traer"},
+    {"bandera": "💭", "palabra": "dream of living", "traduccion": "soñar con vivir"},
+    {"bandera": "🏊", "palabra": "go swimming", "traduccion": "ir a nadar"},
+    {"bandera": "🛍️", "palabra": "go shopping", "traduccion": "ir de compras"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Every verb chooses its partner, heroes: some dance with -ing, others with 'to'. Learn the couples and you'll never step on toes."},
+    {"personaje": "Ben", "linea": "I enjoy taking photos, and I've decided to take a professional course."},
+    {"personaje": "Kenji", "linea": "I don't mind waiting for friends, but I avoid driving in the city. I hope to visit Kyoto this year."},
+    {"personaje": "Sofía", "linea": "I'm good at drawing and I'm looking forward to meeting the new teacher. I promised to help her."},
+    {"personaje": "Abuela Carmen", "linea": "I stopped smoking twenty years ago, and I learned to cook when I was ten. Remember to lock the door, mis héroes!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I enjoy taking photos."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She decided to take a course."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They agreed to help us."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "He keeps walking every morning."},
+    {"id": "s5", "forma": "negativo", "oracion": "I don't mind waiting."},
+    {"id": "s6", "forma": "negativo", "oracion": "She didn't forget to lock the door."},
+    {"id": "s7", "forma": "negativo", "oracion": "We avoid driving in the city."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Do you enjoy cooking?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did you remember to bring the keys?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Do they plan to visit us?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Do you mind waiting? No, I don't."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did she promise to call? Yes, she did."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Do you enjoy drawing? Yes, I do."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I enjoy to take photos.",
+        "opcion_b": "I enjoy taking photos.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Some verbs are followed by -ing (enjoy, avoid, mind, finish, keep, consider, stop). Others take 'to + verb' (decide, hope, learn, agree, plan, promise, offer, forget, remember). After prepositions, always -ing (good at drawing, afraid of flying).",
+      "tabla": {
+        "titulo": "Gerund vs Infinitive",
+        "encabezados": ["Pattern", "Verbs", "Example"],
+        "filas": [
+          ["verb + -ing", "enjoy, avoid, mind, finish, keep, stop", "I enjoy cooking."],
+          ["verb + to + verb", "decide, hope, learn, agree, plan, promise", "She decided to go."],
+          ["preposition + -ing", "good at, afraid of, dream of", "He's good at drawing."],
+          ["looking forward to + -ing", "fixed expression", "I'm looking forward to meeting you."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I enjoy ___ photos.", "opciones": ["taking", "to take", "take"], "respuesta": "taking"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She decided ___ a course.", "opciones": ["taking", "to take", "take"], "respuesta": "to take"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I'm looking forward to ___ you.", "opciones": ["meet", "meeting", "to meet"], "respuesta": "meeting"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After prepositions we use the -ing form.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'I enjoy to cook'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He keeps ___ (walk) every morning.", "respuesta": "walking"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Did you remember ___ (bring) the keys?", "respuesta": "to bring"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["mind", "don't", "I", "waiting", "."], "respuesta": "I don't mind waiting."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I enjoy to take photos.", "respuesta": "I enjoy taking photos."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She promised to call.", "instruccion": "Make it negative.", "respuesta": "She didn't promise to call."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They agreed to help.", "instruccion": "Turn it into a question.", "respuesta": "Did they agree to help?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write two things you enjoy doing and two things you hope to do this year.", "respuesta": "I enjoy reading and cooking. I hope to travel and to learn Japanese."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Do you enjoy cooking, Kenji?",
+        "Kenji: I love it! I learned to cook when I was fifteen.",
+        "Sofía: I've decided to take a cooking course. Do you mind helping me?",
+        "Kenji: Of course not! I don't mind waiting while you practise.",
+        "Sofía: Great! I promise to cook dinner for everyone on Friday.",
+        "Kenji: I'm looking forward to tasting it!",
+        "Sofía: And Ben offered to bring dessert. He hopes to learn too."
+      ],
+      "gaps": ["course", "dessert"],
+      "comprension": [
+        {"pregunta": "When did Kenji learn to cook?", "opciones": ["When he was ten", "When he was fifteen", "Last year"], "respuesta": "When he was fifteen"},
+        {"pregunta": "What did Ben offer to do?", "opciones": ["Cook dinner", "Bring dessert", "Wash the dishes"], "respuesta": "Bring dessert"}
+      ]
+    },
+    "reading": {
+      "texto": "The friends have different plans and habits. Ben enjoys taking photos and has decided to do a professional course. Kenji learned to cook as a teenager, and he doesn't mind waiting while others practise. Sofía is good at drawing and is looking forward to meeting the new art teacher. Abuela Carmen stopped smoking twenty years ago and keeps walking every morning. They all agreed to cook dinner together on Friday.",
+      "preguntas": [
+        {"afirmacion": "Ben has decided to do a photography course.", "respuesta": "true"},
+        {"afirmacion": "Kenji minds waiting for people.", "respuesta": "false"},
+        {"afirmacion": "Abuela Carmen still smokes.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-10 — Gerunds vs Infinitives",
+    "partes": [
+      {
+        "parte": "A — Completa con -ing o to + verbo",
+        "ejercicios": [
+          {"n": 1, "texto": "I enjoy ___ (take) photos."},
+          {"n": 2, "texto": "She decided ___ (take) a course."},
+          {"n": 3, "texto": "He keeps ___ (walk) every morning."},
+          {"n": 4, "texto": "Did you remember ___ (bring) the keys?"}
+        ]
+      },
+      {
+        "parte": "B — Clasifica el verbo: +ing o +to",
+        "ejercicios": [
+          {"n": 5, "texto": "enjoy, decide, avoid, hope"},
+          {"n": 6, "texto": "mind, learn, finish, promise"},
+          {"n": 7, "texto": "Completa: 'I'm looking forward to ___ you.' (meet)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I enjoy to take photos.'"},
+          {"n": 9, "texto": "Corrige: 'She decided taking a course.'"},
+          {"n": 10, "texto": "Escribe 4 frases: 2 con verbos +ing y 2 con verbos +to sobre tus planes."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. taking",
+      "2. to take",
+      "3. walking",
+      "4. to bring",
+      "5. enjoy +ing, decide +to, avoid +ing, hope +to",
+      "6. mind +ing, learn +to, finish +ing, promise +to",
+      "7. meeting",
+      "8. I enjoy taking photos.",
+      "9. She decided to take a course.",
+      "10. Respuesta libre (ej. 'I enjoy reading. I keep walking. I hope to travel. I plan to study.')"
+    ]
+  }
+}

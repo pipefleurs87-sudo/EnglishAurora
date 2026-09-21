@@ -1,0 +1,155 @@
+{
+  "id": "a1-present-simple-routines-01",
+  "nivel": "A1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Present Simple — Daily Routines",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "⏰", "palabra": "wake up", "traduccion": "despertarse"},
+    {"bandera": "🛏️", "palabra": "get up", "traduccion": "levantarse"},
+    {"bandera": "🚿", "palabra": "take a shower", "traduccion": "ducharse"},
+    {"bandera": "🦷", "palabra": "brush my teeth", "traduccion": "cepillarse los dientes"},
+    {"bandera": "👕", "palabra": "get dressed", "traduccion": "vestirse"},
+    {"bandera": "🍳", "palabra": "have breakfast", "traduccion": "desayunar"},
+    {"bandera": "☕", "palabra": "drink coffee", "traduccion": "tomar café"},
+    {"bandera": "🚌", "palabra": "take the bus", "traduccion": "tomar el autobús"},
+    {"bandera": "🏢", "palabra": "go to work", "traduccion": "ir al trabajo"},
+    {"bandera": "🏫", "palabra": "go to school", "traduccion": "ir a la escuela"},
+    {"bandera": "▶️", "palabra": "start / finish", "traduccion": "empezar / terminar"},
+    {"bandera": "🍽️", "palabra": "have lunch", "traduccion": "almorzar"},
+    {"bandera": "🏠", "palabra": "get home", "traduccion": "llegar a casa"},
+    {"bandera": "🍲", "palabra": "cook dinner", "traduccion": "cocinar la cena"},
+    {"bandera": "📺", "palabra": "watch TV", "traduccion": "ver televisión"},
+    {"bandera": "📖", "palabra": "read a book", "traduccion": "leer un libro"},
+    {"bandera": "🎧", "palabra": "listen to music", "traduccion": "escuchar música"},
+    {"bandera": "🏃", "palabra": "exercise", "traduccion": "hacer ejercicio"},
+    {"bandera": "😴", "palabra": "go to bed", "traduccion": "acostarse"},
+    {"bandera": "🕗", "palabra": "at eight o'clock", "traduccion": "a las ocho"},
+    {"bandera": "🌅", "palabra": "in the morning", "traduccion": "por la mañana"},
+    {"bandera": "🌆", "palabra": "in the evening", "traduccion": "por la tarde/noche"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Every day is a quest! Let's follow Sofía's routine and master the third-person '-s'."},
+    {"personaje": "Ben", "linea": "Sofía, what time do you wake up?"},
+    {"personaje": "Sofía", "linea": "I wake up at six. Then I take a shower and have breakfast."},
+    {"personaje": "Kenji", "linea": "Wow! I get up at eight. Do you take the bus to work?"},
+    {"personaje": "Abuela Carmen", "linea": "She works hard, that girl. She cooks dinner at seven and goes to bed early."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Sofía wakes up at six o'clock."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She takes the bus to work."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Kenji listens to music in the morning."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "They cook dinner together."},
+    {"id": "s5", "forma": "negativo", "oracion": "Sofía doesn't watch TV in the morning."},
+    {"id": "s6", "forma": "negativo", "oracion": "He doesn't drink coffee at night."},
+    {"id": "s7", "forma": "negativo", "oracion": "We don't work on Sundays."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Does she exercise every day?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What time do you get up?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Do they read books in the evening?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Does Sofía cook dinner? Yes, she does."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Do you take the bus? No, I don't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Does he go to bed early? Yes, he does."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Sofía wake up at six.",
+        "opcion_b": "Sofía wakes up at six.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "We use the present simple for routines and habits. With he/she/it, the verb takes '-s' or '-es'. Negatives and questions use 'do/does' + base verb.",
+      "tabla": {
+        "titulo": "Present Simple — the third-person '-s'",
+        "encabezados": ["Subject", "Verb", "Example"],
+        "filas": [
+          ["I / You / We / They", "base form", "I wake up at seven."],
+          ["He / She / It", "verb + s/es", "She wakes up at six."],
+          ["Negative", "don't / doesn't + base", "He doesn't drink coffee."],
+          ["Question", "Do / Does + subject + base", "Does she exercise?"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Sofía ___ up at six o'clock.", "opciones": ["wake", "wakes", "waking"], "respuesta": "wakes"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ she take the bus to work?", "opciones": ["Do", "Does", "Is"], "respuesta": "Does"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He ___ coffee at night.", "opciones": ["doesn't drink", "don't drink", "doesn't drinks"], "respuesta": "doesn't drink"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "With he/she/it we add '-s' to the verb in the present simple.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'doesn't', the verb keeps the '-s'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She ___ breakfast at seven. (have)", "respuesta": "has"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Kenji ___ to music in the morning. (listen)", "respuesta": "listens"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["the", "takes", "Sofía", "bus", "."], "respuesta": "Sofía takes the bus."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She go to work at eight.", "respuesta": "She goes to work at eight."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Sofía cooks dinner every night.", "instruccion": "Make it negative.", "respuesta": "Sofía doesn't cook dinner every night."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He exercises every day.", "instruccion": "Turn it into a question.", "respuesta": "Does he exercise every day?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What time do you wake up? (Answer with a full sentence.)", "respuesta": "I wake up at seven."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: What does Sofía do every day?",
+        "Ben: She wakes up at six and has breakfast.",
+        "Kenji: And then?",
+        "Ben: She takes the bus to work. She starts at eight.",
+        "Kenji: Does she cook dinner?",
+        "Ben: Yes, she does. Then she goes to bed early."
+      ],
+      "gaps": ["six", "eight"],
+      "comprension": [
+        {"pregunta": "What time does Sofía start work?", "opciones": ["At six", "At eight", "At nine"], "respuesta": "At eight"},
+        {"pregunta": "Does Sofía cook dinner?", "opciones": ["Yes, she does", "No, she doesn't", "Only on Sundays"], "respuesta": "Yes, she does"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía is a designer in Medellín. Every day she wakes up at six o'clock. She takes a shower, has breakfast, and then takes the bus to work. She starts at eight and finishes at five. In the evening, she cooks dinner and reads a book. She doesn't watch TV. She goes to bed early because her mornings start very soon.",
+      "preguntas": [
+        {"afirmacion": "Sofía wakes up at six o'clock.", "respuesta": "true"},
+        {"afirmacion": "She watches TV in the evening.", "respuesta": "false"},
+        {"afirmacion": "She goes to bed early.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 7 — Present Simple: Daily Routines",
+    "partes": [
+      {
+        "parte": "A — Escribe la tercera persona",
+        "ejercicios": [
+          {"n": 1, "texto": "wake up → she ___"},
+          {"n": 2, "texto": "watch → he ___"},
+          {"n": 3, "texto": "study → she ___"},
+          {"n": 4, "texto": "have → he ___"}
+        ]
+      },
+      {
+        "parte": "B — Completa con el presente simple",
+        "ejercicios": [
+          {"n": 5, "texto": "Sofía ___ (take) the bus to work."},
+          {"n": 6, "texto": "They ___ (not/work) on Sundays."},
+          {"n": 7, "texto": "___ (do) she exercise every day?"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'He don't drink coffee.'"},
+          {"n": 9, "texto": "Corrige: 'Does she watches TV?'"},
+          {"n": 10, "texto": "Escribe 4 oraciones sobre tu rutina diaria."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. wakes up",
+      "2. watches",
+      "3. studies",
+      "4. has",
+      "5. takes",
+      "6. don't work",
+      "7. Does",
+      "8. He doesn't drink coffee.",
+      "9. Does she watch TV?",
+      "10. Respuesta libre (ej. 'I wake up at seven. I have breakfast. I go to school. I go to bed at ten.')"
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "a2-going-to-future-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Going To — Future Plans & Predictions",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "📅", "palabra": "tomorrow", "traduccion": "mañana"},
+    {"bandera": "🗓️", "palabra": "next week", "traduccion": "la próxima semana"},
+    {"bandera": "📆", "palabra": "next month", "traduccion": "el próximo mes"},
+    {"bandera": "🎂", "palabra": "next year", "traduccion": "el próximo año"},
+    {"bandera": "🏖️", "palabra": "this weekend", "traduccion": "este fin de semana"},
+    {"bandera": "✈️", "palabra": "travel", "traduccion": "viajar"},
+    {"bandera": "🎓", "palabra": "study English", "traduccion": "estudiar inglés"},
+    {"bandera": "🏃", "palabra": "start running", "traduccion": "empezar a correr"},
+    {"bandera": "🎸", "palabra": "learn the guitar", "traduccion": "aprender la guitarra"},
+    {"bandera": "🏠", "palabra": "move house", "traduccion": "mudarse de casa"},
+    {"bandera": "💼", "palabra": "look for a job", "traduccion": "buscar trabajo"},
+    {"bandera": "🚗", "palabra": "buy a car", "traduccion": "comprar un coche"},
+    {"bandera": "🎉", "palabra": "have a party", "traduccion": "hacer una fiesta"},
+    {"bandera": "👰", "palabra": "get married", "traduccion": "casarse"},
+    {"bandera": "🐕", "palabra": "adopt a dog", "traduccion": "adoptar un perro"},
+    {"bandera": "📚", "palabra": "read more books", "traduccion": "leer más libros"},
+    {"bandera": "🥗", "palabra": "eat healthier", "traduccion": "comer más sano"},
+    {"bandera": "💰", "palabra": "save money", "traduccion": "ahorrar dinero"},
+    {"bandera": "🌧️", "palabra": "It's going to rain", "traduccion": "va a llover"},
+    {"bandera": "🌞", "palabra": "It's going to be sunny", "traduccion": "va a estar soleado"},
+    {"bandera": "😴", "palabra": "stay in bed", "traduccion": "quedarse en la cama"},
+    {"bandera": "🎬", "palabra": "watch a movie", "traduccion": "ver una película"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The future is an unwritten map, heroes. 'Going to' is the pen: your plans and your predictions."},
+    {"personaje": "Ben", "linea": "This weekend I'm going to visit my parents. And next year, I'm going to learn Japanese!"},
+    {"personaje": "Kenji", "linea": "Really? Then I'm going to teach you! This Saturday I'm going to have a party."},
+    {"personaje": "Sofía", "linea": "Look at those clouds — it's going to rain. I'm going to stay home and watch a movie."},
+    {"personaje": "Abuela Carmen", "linea": "I'm going to bake a cake for the party. And next month, we are all going to travel together!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "I'm going to visit my parents this weekend."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Kenji is going to have a party on Saturday."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "It's going to rain this afternoon."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "We are going to travel together next month."},
+    {"id": "s5", "forma": "negativo", "oracion": "I'm not going to go out tonight."},
+    {"id": "s6", "forma": "negativo", "oracion": "She isn't going to buy a car."},
+    {"id": "s7", "forma": "negativo", "oracion": "They aren't going to move house."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Are you going to come to the party?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What are you going to do this weekend?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Is it going to rain tomorrow?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Are you going to study English? Yes, I am."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Is she going to travel? No, she isn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Are they going to come? Yes, they are."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She going to have a party.",
+        "opcion_b": "She is going to have a party.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use 'be + going to + verb' for future plans (decided before speaking) and predictions with evidence ('Look at the clouds — it's going to rain'). Don't forget the verb 'to be'!",
+      "tabla": {
+        "titulo": "Going to",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "am/is/are + going to + verb", "She is going to travel."],
+          ["Negative", "am/is/are + not + going to", "I'm not going to go out."],
+          ["Question", "Am/Is/Are + subject + going to?", "Are you going to come?"],
+          ["Uses", "plans & predictions", "It's going to rain. (evidence)"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She ___ have a party on Saturday.", "opciones": ["going to", "is going to", "goes to"], "respuesta": "is going to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Look at the clouds! It ___ rain.", "opciones": ["is going to", "going to", "goes to"], "respuesta": "is going to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you going to come to the party?", "opciones": ["Is", "Are", "Do"], "respuesta": "Are"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Going to' needs the verb 'to be': 'I am going to...'", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We use 'going to' only for predictions, never for plans.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ visit my parents this weekend. (going to)", "respuesta": "'m going to / am going to"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ move house. (negative)", "respuesta": "aren't going to"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["going to", "are", "What", "you do", "?"], "respuesta": "What are you going to do?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She going to travel next month.", "respuesta": "She is going to travel next month."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She is going to buy a car.", "instruccion": "Make it negative.", "respuesta": "She isn't going to buy a car."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They are going to come to the party.", "instruccion": "Turn it into a question.", "respuesta": "Are they going to come to the party?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What are your plans for next weekend? (Answer with 'going to'.)", "respuesta": "I'm going to visit my grandmother and watch a movie."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: What are you going to do this weekend, Ben?",
+        "Ben: I'm going to visit my parents. And you?",
+        "Sofía: I'm going to stay home. Look at those clouds — it's going to rain!",
+        "Ben: Oh no. Are you going to Kenji's party on Saturday?",
+        "Sofía: Of course! We are all going to be there.",
+        "Ben: Great! I'm going to bring Abuela Carmen's cake."
+      ],
+      "gaps": ["parents", "cake"],
+      "comprension": [
+        {"pregunta": "What is Ben going to do this weekend?", "opciones": ["Stay home", "Visit his parents", "Watch a movie"], "respuesta": "Visit his parents"},
+        {"pregunta": "What is Ben going to bring to the party?", "opciones": ["Music", "A cake", "Drinks"], "respuesta": "A cake"}
+      ]
+    },
+    "reading": {
+      "texto": "The weekend is coming and everybody has plans. Ben is going to visit his parents and bring a cake to Kenji's party. Sofía is going to stay home because it's going to rain, but on Saturday she is going to the party too. Kenji is going to prepare music and games, and Abuela Carmen is going to bake a cake. They are all going to have a great time!",
+      "preguntas": [
+        {"afirmacion": "Ben is going to visit his parents.", "respuesta": "true"},
+        {"afirmacion": "Sofía is going to travel on Friday.", "respuesta": "false"},
+        {"afirmacion": "Carmen is going to bake a cake.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-9 — Going To: Future Plans",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta de going to",
+        "ejercicios": [
+          {"n": 1, "texto": "I ___ visit my parents. (plan)"},
+          {"n": 2, "texto": "She ___ have a party. (plan)"},
+          {"n": 3, "texto": "It ___ rain. Look at the clouds! (prediction)"},
+          {"n": 4, "texto": "They ___ move house. (negative)"}
+        ]
+      },
+      {
+        "parte": "B — Escribe la pregunta y la respuesta corta",
+        "ejercicios": [
+          {"n": 5, "texto": "(you / come to the party) → pregunta + respuesta ✓"},
+          {"n": 6, "texto": "(she / travel) → pregunta + respuesta ✗"},
+          {"n": 7, "texto": "(it / rain tomorrow) → pregunta + respuesta ✓"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She going to travel.'"},
+          {"n": 9, "texto": "Corrige: 'Are they going to comes?'"},
+          {"n": 10, "texto": "Escribe 4 planes para tu próximo fin de semana con going to."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. am going to",
+      "2. is going to",
+      "3. is going to",
+      "4. aren't going to",
+      "5. Are you going to come to the party? Yes, I am.",
+      "6. Is she going to travel? No, she isn't.",
+      "7. Is it going to rain tomorrow? Yes, it is.",
+      "8. She is going to travel.",
+      "9. Are they going to come?",
+      "10. Respuesta libre (ej. 'I'm going to sleep late. I'm going to see my friends. I'm going to watch a movie. I'm going to study English.')"
+    ]
+  }
+}

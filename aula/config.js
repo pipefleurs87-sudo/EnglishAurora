@@ -14,4 +14,4 @@ const firebaseConfig = {
 // URL base del sitio público (sin / al final)
 const SITE_BASE = "https://pipefleurs87-sudo.github.io/EnglishAurora";
 
-const TEACHER_NAME = "Felipe";
+const TEACHER_NAME = "Felipe Florez";

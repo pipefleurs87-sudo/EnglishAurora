@@ -1,0 +1,156 @@
+{
+  "id": "b1-past-perfect-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Past Perfect — The Timeline Detective",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🚂", "palabra": "miss the train", "traduccion": "perder el tren"},
+    {"bandera": "🎫", "palabra": "buy a ticket", "traduccion": "comprar un billete"},
+    {"bandera": "⏰", "palabra": "wake up late", "traduccion": "despertarse tarde"},
+    {"bandera": "🔑", "palabra": "forget the keys", "traduccion": "olvidar las llaves"},
+    {"bandera": "📞", "palabra": "call a friend", "traduccion": "llamar a un amigo"},
+    {"bandera": "🍽️", "palabra": "prepare dinner", "traduccion": "preparar la cena"},
+    {"bandera": "🧾", "palabra": "check the timetable", "traduccion": "consultar el horario"},
+    {"bandera": "💺", "palabra": "reserve a seat", "traduccion": "reservar un asiento"},
+    {"bandera": "🌧️", "palabra": "stop raining", "traduccion": "dejar de llover"},
+    {"bandera": "🏁", "palabra": "finish the race", "traduccion": "terminar la carrera"},
+    {"bandera": "📚", "palabra": "read the instructions", "traduccion": "leer las instrucciones"},
+    {"bandera": "🚪", "palabra": "close the door", "traduccion": "cerrar la puerta"},
+    {"bandera": "🎬", "palabra": "start the film", "traduccion": "empezar la película"},
+    {"bandera": "✈️", "palabra": "land at the airport", "traduccion": "aterrizar en el aeropuerto"},
+    {"bandera": "🧳", "palabra": "lose the luggage", "traduccion": "perder el equipaje"},
+    {"bandera": "💡", "palabra": "realize", "traduccion": "darse cuenta"},
+    {"bandera": "🕐", "palabra": "by the time", "traduccion": "para cuando"},
+    {"bandera": "⏪", "palabra": "before that", "traduccion": "antes de eso"},
+    {"bandera": "🔙", "palabra": "go back home", "traduccion": "volver a casa"},
+    {"bandera": "🤦", "palabra": "make a mistake", "traduccion": "cometer un error"},
+    {"bandera": "🧭", "palabra": "timeline", "traduccion": "línea de tiempo"},
+    {"bandera": "🕵️", "palabra": "detective", "traduccion": "detective"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Heroes, the past has layers. The Past Perfect is your detective lens: it shows which action happened first."},
+    {"personaje": "Ben", "linea": "When I arrived at the cinema, the film had already started. I had forgotten my wallet at home!"},
+    {"personaje": "Kenji", "linea": "That happened to me too. By the time I got to the station, the train had left."},
+    {"personaje": "Sofía", "linea": "I had never missed a flight until last year. The plane had taken off before I reached the gate."},
+    {"personaje": "Abuela Carmen", "linea": "When you came to dinner last Sunday, I had already prepared everything. The past perfect keeps the story in order, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The train had already left when we arrived."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "She had bought the ticket the night before."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They had finished dinner by eight o'clock."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I had never seen snow before that trip."},
+    {"id": "s5", "forma": "negativo", "oracion": "He hadn't checked the timetable."},
+    {"id": "s6", "forma": "negativo", "oracion": "We hadn't reserved a seat."},
+    {"id": "s7", "forma": "negativo", "oracion": "The film hadn't started when we arrived."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Had you ever flown before that trip?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What had happened before the police arrived?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Had she already eaten when you called?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Had the train left? Yes, it had."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Had they finished? No, they hadn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Had you seen the film before? No, I hadn't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "When I arrived, the train already left.",
+        "opcion_b": "When I arrived, the train had already left.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Use 'had + past participle' for the action that happened FIRST in a past story. It often goes with when, by the time, after, before, already, just, never. The Past Simple tells the second action.",
+      "tabla": {
+        "titulo": "Past Perfect",
+        "encabezados": ["Form", "Structure", "Example"],
+        "filas": [
+          ["Affirmative", "had + past participle", "The train had left."],
+          ["Negative", "hadn't + past participle", "We hadn't reserved seats."],
+          ["Question", "Had + subject + participle?", "Had you eaten?"],
+          ["Signal words", "already, just, never, by the time", "By the time she called, he had gone."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "When we arrived, the film ___.", "opciones": ["had already started", "has already started", "already started"], "respuesta": "had already started"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I ___ my keys, so I couldn't open the door.", "opciones": ["had forgotten", "have forgotten", "forget"], "respuesta": "had forgotten"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you ever ___ snow before that trip?", "opciones": ["Did / see", "Had / seen", "Have / seen"], "respuesta": "Had / seen"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The Past Perfect describes the action that happened first in the past.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We form the Past Perfect with 'has + past participle'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "By the time she called, he ___ (go) home.", "respuesta": "had gone"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They ___ (not / reserve) a seat, so they stood.", "respuesta": "hadn't reserved / had not reserved"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["had", "The train", "already", "left", "when we arrived", "."], "respuesta": "The train had already left when we arrived."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "When I arrived, the train already left.", "respuesta": "When I arrived, the train had already left."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She had bought the ticket.", "instruccion": "Make it negative.", "respuesta": "She hadn't bought the ticket."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "They had finished dinner.", "instruccion": "Turn it into a question.", "respuesta": "Had they finished dinner?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell me about a time you were late. What had happened before you arrived?", "respuesta": "When I arrived at the party, everybody had already eaten."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: You look tired, Ben. What happened?",
+        "Ben: I missed the train this morning.",
+        "Kenji: Oh no! Why?",
+        "Ben: I had woken up late because I had forgotten to set my alarm.",
+        "Kenji: Hadn't you checked the timetable?",
+        "Ben: I had, but by the time I got to the station, the train had already left.",
+        "Kenji: Poor Ben! Next time, call me and I'll pick you up."
+      ],
+      "gaps": ["train", "alarm"],
+      "comprension": [
+        {"pregunta": "Why did Ben wake up late?", "opciones": ["He was sick", "He had forgotten to set his alarm", "He had lost his keys"], "respuesta": "He had forgotten to set his alarm"},
+        {"pregunta": "What had the train done when Ben arrived?", "opciones": ["It had already left", "It had broken down", "It had just arrived"], "respuesta": "It had already left"}
+      ]
+    },
+    "reading": {
+      "texto": "When Sofía arrived at the station, the train had already left. She was upset because she had bought the ticket the night before. Ben had waited for her for an hour, but he had gone home by the time she called. Luckily, Kenji had checked the timetable and had reserved seats on the next train. After they had finally arrived in the city, they met Abuela Carmen, who had prepared dinner for everyone.",
+      "preguntas": [
+        {"afirmacion": "The train left before Sofía arrived.", "respuesta": "true"},
+        {"afirmacion": "Ben waited until Sofía called him.", "respuesta": "false"},
+        {"afirmacion": "Kenji had reserved seats on the next train.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-1 — Past Perfect: The Timeline Detective",
+    "partes": [
+      {
+        "parte": "A — Completa con el Past Perfect",
+        "ejercicios": [
+          {"n": 1, "texto": "When we arrived, the film ___ (already / start)."},
+          {"n": 2, "texto": "She ___ (buy) the ticket the night before."},
+          {"n": 3, "texto": "They ___ (not / reserve) a seat."},
+          {"n": 4, "texto": "I ___ (never / see) snow before that trip."}
+        ]
+      },
+      {
+        "parte": "B — Ordena la línea de tiempo (1 = primero)",
+        "ejercicios": [
+          {"n": 5, "texto": "The train left. / I arrived at the station. → Escribe la frase con 'when'."},
+          {"n": 6, "texto": "He finished dinner. / She called. → Escribe la frase con 'by the time'."},
+          {"n": 7, "texto": "Escribe la pregunta: (you / ever / fly / before that trip?)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'When I arrived, the train already left.'"},
+          {"n": 9, "texto": "Corrige: 'Had you ever flew before that trip?'"},
+          {"n": 10, "texto": "Escribe 3 frases sobre un día en que llegaste tarde, usando Past Perfect."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. had already started",
+      "2. had bought",
+      "3. hadn't reserved / had not reserved",
+      "4. had never seen",
+      "5. The train had left when I arrived at the station.",
+      "6. By the time she called, he had finished dinner.",
+      "7. Had you ever flown before that trip?",
+      "8. When I arrived, the train had already left.",
+      "9. Had you ever flown before that trip?",
+      "10. Respuesta libre (ej. 'I had woken up late. I had missed the bus. When I arrived, the class had started.')"
+    ]
+  }
+}

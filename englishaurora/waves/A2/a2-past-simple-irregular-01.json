@@ -1,0 +1,157 @@
+{
+  "id": "a2-past-simple-irregular-01",
+  "nivel": "A2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Past Simple Irregular — The Rebel Verbs",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "writing"],
+  "vocabulario": [
+    {"bandera": "🚶", "palabra": "go → went", "traduccion": "ir → fue"},
+    {"bandera": "🍽️", "palabra": "eat → ate", "traduccion": "comer → comió"},
+    {"bandera": "🥤", "palabra": "drink → drank", "traduccion": "beber → bebió"},
+    {"bandera": "👀", "palabra": "see → saw", "traduccion": "ver → vio"},
+    {"bandera": "✍️", "palabra": "write → wrote", "traduccion": "escribir → escribió"},
+    {"bandera": "📖", "palabra": "read → read", "traduccion": "leer → leyó"},
+    {"bandera": "🗣️", "palabra": "speak → spoke", "traduccion": "hablar → habló"},
+    {"bandera": "😴", "palabra": "sleep → slept", "traduccion": "dormir → durmió"},
+    {"bandera": "🏃", "palabra": "run → ran", "traduccion": "correr → corrió"},
+    {"bandera": "🏊", "palabra": "swim → swam", "traduccion": "nadar → nadó"},
+    {"bandera": "🎁", "palabra": "give → gave", "traduccion": "dar → dio"},
+    {"bandera": "🛒", "palabra": "buy → bought", "traduccion": "comprar → compró"},
+    {"bandera": "💰", "palabra": "pay → paid", "traduccion": "pagar → pagó"},
+    {"bandera": "🧠", "palabra": "think → thought", "traduccion": "pensar → pensó"},
+    {"bandera": "📚", "palabra": "teach → taught", "traduccion": "enseñar → enseñó"},
+    {"bandera": "🎓", "palabra": "learn → learnt/learned", "traduccion": "aprender → aprendió"},
+    {"bandera": "✈️", "palabra": "fly → flew", "traduccion": "volar → voló"},
+    {"bandera": "🚗", "palabra": "drive → drove", "traduccion": "conducir → condujo"},
+    {"bandera": "👕", "palabra": "wear → wore", "traduccion": "llevar puesto → llevó"},
+    {"bandera": "🏆", "palabra": "win → won", "traduccion": "ganar → ganó"},
+    {"bandera": "🔑", "palabra": "lose → lost", "traduccion": "perder → perdió"},
+    {"bandera": "🤝", "palabra": "meet → met", "traduccion": "conocer/quedar → conoció"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Some verbs refuse the rules, heroes. They don't take '-ed' — they transform. Meet the rebels."},
+    {"personaje": "Ben", "linea": "Last weekend I went to the coast and swam in the sea. The water was freezing!"},
+    {"personaje": "Kenji", "linea": "I ate sushi with my sister, and we saw a great movie. I slept ten hours!"},
+    {"personaje": "Sofía", "linea": "I met an old friend, we drank coffee and spoke for hours. I bought her a gift."},
+    {"personaje": "Abuela Carmen", "linea": "I won first prize at the dance competition in 1975. I wore a red dress and flew across the floor!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Ben went to the coast last weekend."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Kenji ate sushi with his sister."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Sofía met an old friend."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She bought her a gift."},
+    {"id": "s5", "forma": "negativo", "oracion": "I didn't go to the party."},
+    {"id": "s6", "forma": "negativo", "oracion": "He didn't sleep well."},
+    {"id": "s7", "forma": "negativo", "oracion": "We didn't see the movie."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did you go to the coast?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What did you eat?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Did she buy a gift?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did you swim? Yes, I did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did he win? No, he didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they fly? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "I goed to the coast last weekend.",
+        "opcion_b": "I went to the coast last weekend.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Irregular verbs don't take '-ed'; each has its own past form (go→went, eat→ate, see→saw). But negatives and questions still use 'did/didn't' + BASE form: 'Did you go?', never 'did you went'.",
+      "tabla": {
+        "titulo": "The most common rebels",
+        "encabezados": ["Base", "Past", "Meaning"],
+        "filas": [
+          ["go / come", "went / came", "ir / venir"],
+          ["eat / drink", "ate / drank", "comer / beber"],
+          ["see / meet / speak", "saw / met / spoke", "ver / conocer / hablar"],
+          ["buy / pay / think", "bought / paid / thought", "comprar / pagar / pensar"],
+          ["sleep / swim / run", "slept / swam / ran", "dormir / nadar / correr"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Last weekend I ___ to the coast.", "opciones": ["goed", "went", "go"], "respuesta": "went"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The past of 'buy' is ___.", "opciones": ["buyed", "bought", "buoght"], "respuesta": "bought"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ you see the movie?", "opciones": ["Did", "Do", "Were"], "respuesta": "Did"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'did', we use the base form: 'Did you go?'", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The past of 'eat' is 'eated'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Kenji ___ sushi with his sister. (eat)", "respuesta": "ate"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ well last night. (not/sleep)", "respuesta": "didn't sleep"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["met", "Sofía", "an old friend", "."], "respuesta": "Sofía met an old friend."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "Did you went to the party?", "respuesta": "Did you go to the party?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She bought a gift.", "instruccion": "Make it negative.", "respuesta": "She didn't buy a gift."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He won the prize.", "instruccion": "Turn it into a question.", "respuesta": "Did he win the prize?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What did you do last weekend? (Use two irregular verbs.)", "respuesta": "I went to the park and ate ice cream."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: How was your weekend, Kenji?",
+        "Kenji: Great! I ate sushi with my sister and we saw a movie.",
+        "Ben: Nice! Which movie did you see?",
+        "Kenji: The new superhero film. It was amazing. And you?",
+        "Ben: I went to the coast and swam in the sea.",
+        "Kenji: In this weather? You're crazy!",
+        "Ben: I know! The water was freezing."
+      ],
+      "gaps": ["sushi", "coast"],
+      "comprension": [
+        {"pregunta": "What did Kenji eat?", "opciones": ["Pizza", "Sushi", "Tacos"], "respuesta": "Sushi"},
+        {"pregunta": "Where did Ben go?", "opciones": ["To the mountains", "To the coast", "To London"], "respuesta": "To the coast"}
+      ]
+    },
+    "reading": {
+      "texto": "Last weekend was full of adventures. Ben went to the coast and swam in the freezing sea. Kenji ate sushi with his sister, and they saw a great superhero movie. Sofía met an old friend; they drank coffee and spoke for hours, and she bought her a small gift. Abuela Carmen stayed home, but she told us how she won a dance competition in 1975. She wore a red dress!",
+      "preguntas": [
+        {"afirmacion": "Ben swam in the sea.", "respuesta": "true"},
+        {"afirmacion": "Kenji saw a horror movie.", "respuesta": "false"},
+        {"afirmacion": "Carmen won a dance competition.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-3 — Past Simple Irregular",
+    "partes": [
+      {
+        "parte": "A — Escribe el pasado",
+        "ejercicios": [
+          {"n": 1, "texto": "go → ___"},
+          {"n": 2, "texto": "eat → ___"},
+          {"n": 3, "texto": "buy → ___"},
+          {"n": 4, "texto": "see → ___"}
+        ]
+      },
+      {
+        "parte": "B — Completa con el pasado simple",
+        "ejercicios": [
+          {"n": 5, "texto": "Kenji ___ (eat) sushi yesterday."},
+          {"n": 6, "texto": "I ___ (not/sleep) well last night."},
+          {"n": 7, "texto": "___ (did) she buy a gift?"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I goed to the park.'"},
+          {"n": 9, "texto": "Corrige: 'Did you went home?'"},
+          {"n": 10, "texto": "Escribe 4 oraciones sobre tu último fin de semana con verbos irregulares."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. went",
+      "2. ate",
+      "3. bought",
+      "4. saw",
+      "5. ate",
+      "6. didn't sleep",
+      "7. Did",
+      "8. I went to the park.",
+      "9. Did you go home?",
+      "10. Respuesta libre (ej. 'I went to the park. I ate pizza. I saw a movie. I slept late.')"
+    ]
+  }
+}

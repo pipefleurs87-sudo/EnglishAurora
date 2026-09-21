@@ -1,0 +1,156 @@
+{
+  "id": "a1-present-simple-wh-questions-01",
+  "nivel": "A1",
+  "arquetipo": "preguntas",
+  "tema": "Wh- Questions — The Detective's Toolkit",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "❓", "palabra": "what", "traduccion": "qué, cuál"},
+    {"bandera": "🧑", "palabra": "who", "traduccion": "quién"},
+    {"bandera": "📍", "palabra": "where", "traduccion": "dónde"},
+    {"bandera": "🕐", "palabra": "when", "traduccion": "cuándo"},
+    {"bandera": "🤔", "palabra": "why", "traduccion": "por qué"},
+    {"bandera": "🔧", "palabra": "how", "traduccion": "cómo"},
+    {"bandera": "🔢", "palabra": "how many", "traduccion": "cuántos/as (contable)"},
+    {"bandera": "💧", "palabra": "how much", "traduccion": "cuánto/a (incontable)"},
+    {"bandera": "👴", "palabra": "how old", "traduccion": "qué edad"},
+    {"bandera": "🎨", "palabra": "what color", "traduccion": "de qué color"},
+    {"bandera": "⏰", "palabra": "what time", "traduccion": "a qué hora"},
+    {"bandera": "🧳", "palabra": "whose", "traduccion": "de quién"},
+    {"bandera": "👉", "palabra": "which", "traduccion": "cuál (entre opciones)"},
+    {"bandera": "💼", "palabra": "job", "traduccion": "trabajo"},
+    {"bandera": "🏙️", "palabra": "address", "traduccion": "dirección"},
+    {"bandera": "📞", "palabra": "phone number", "traduccion": "número de teléfono"},
+    {"bandera": "🎂", "palabra": "age", "traduccion": "edad"},
+    {"bandera": "⭐", "palabra": "favorite", "traduccion": "favorito/a"},
+    {"bandera": "🎬", "palabra": "movie", "traduccion": "película"},
+    {"bandera": "🍽️", "palabra": "food", "traduccion": "comida"},
+    {"bandera": "🎵", "palabra": "song", "traduccion": "canción"},
+    {"bandera": "🦸", "palabra": "hero", "traduccion": "héroe"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "A detective never guesses — a detective asks. Six magic words open every mystery: what, who, where, when, why, how."},
+    {"personaje": "Ben", "linea": "What do you do, Sofía? And where do you work?"},
+    {"personaje": "Sofía", "linea": "I'm a designer. I work in Medellín. And who is your favorite singer, Ben?"},
+    {"personaje": "Kenji", "linea": "Wait, I have questions too! How old is Abuela Carmen, and why does she dive?"},
+    {"personaje": "Abuela Carmen", "linea": "How old am I? A lady never answers that, dear. But I dive because the sea is my home."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "Sofía works in Medellín."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Ben's favorite song is a rock classic."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Kenji studies because he loves languages."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "The class starts at nine."},
+    {"id": "s5", "forma": "negativo", "oracion": "I don't know where she lives."},
+    {"id": "s6", "forma": "negativo", "oracion": "He doesn't say why he is sad."},
+    {"id": "s7", "forma": "negativo", "oracion": "They don't remember when the exam is."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What do you do?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Where does she work?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Why do you study English?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "What time is it? It's nine o'clock."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Who is your hero? My grandmother."},
+    {"id": "s13", "forma": "short_answer", "oracion": "How many languages do you speak? Two."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Where she works?",
+        "opcion_b": "Where does she work?",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Wh- questions ask for information. Structure: Wh-word + do/does + subject + base verb. With 'to be', no 'do': 'Where is she?' Each Wh-word asks for a different type of answer.",
+      "tabla": {
+        "titulo": "The Wh- words",
+        "encabezados": ["Word", "Asks for", "Example"],
+        "filas": [
+          ["what / which", "things / options", "What do you do?"],
+          ["who / whose", "people / possession", "Who is your hero?"],
+          ["where / when", "place / time", "Where do you live?"],
+          ["why / how", "reason / manner", "Why do you study English?"],
+          ["how many / how much / how old", "quantity / age", "How old are you?"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ do you live? — In Medellín.", "opciones": ["What", "Where", "When"], "respuesta": "Where"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ is your hero? — My grandmother.", "opciones": ["Who", "What", "Whose"], "respuesta": "Who"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ languages do you speak? — Three.", "opciones": ["How much", "How many", "How old"], "respuesta": "How many"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In Wh- questions with normal verbs we need 'do/does'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "With 'to be' we say 'Where does she is?'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ do you study English? — Because I love it. (reason)", "respuesta": "Why"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "___ time does the class start? — At nine.", "respuesta": "What"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["does", "Where", "she", "work", "?"], "respuesta": "Where does she work?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "What you do?", "respuesta": "What do you do?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She lives in Medellín.", "instruccion": "Ask a question with 'where'.", "respuesta": "Where does she live?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He studies English because he loves languages.", "instruccion": "Ask a question with 'why'.", "respuesta": "Why does he study English?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Ask a classmate one question with 'what' and one with 'where'.", "respuesta": "What is your favorite food? Where do you live?"}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: Sofía, can I interview you for the school magazine?",
+        "Sofía: Of course! Ask me anything.",
+        "Kenji: What do you do?",
+        "Sofía: I'm a designer. I work in Medellín.",
+        "Kenji: And why do you study English?",
+        "Sofía: Because my clients are international. How many questions do you have?"
+      ],
+      "gaps": ["designer", "international"],
+      "comprension": [
+        {"pregunta": "What does Sofía do?", "opciones": ["She's a teacher", "She's a designer", "She's a journalist"], "respuesta": "She's a designer"},
+        {"pregunta": "Why does she study English?", "opciones": ["For travel", "For her clients", "For fun"], "respuesta": "For her clients"}
+      ]
+    },
+    "reading": {
+      "texto": "Today we interview Sofía for the school magazine. What does she do? She is a designer, and she works in Medellín. Why does she study English? Because her clients are international. What is her favorite food? Tacos, of course. And who is her hero? Her grandmother, Carmen, a wise woman who dives in the sea. How many languages does Sofía speak? Two: Spanish and English.",
+      "preguntas": [
+        {"afirmacion": "Sofía works in Medellín.", "respuesta": "true"},
+        {"afirmacion": "Her favorite food is sushi.", "respuesta": "false"},
+        {"afirmacion": "Sofía speaks two languages.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha 19 — Wh- Questions",
+    "partes": [
+      {
+        "parte": "A — Completa con la palabra Wh- correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "___ do you live? — In Madrid."},
+          {"n": 2, "texto": "___ is your hero? — My dad."},
+          {"n": 3, "texto": "___ do you study English? — Because I love it."},
+          {"n": 4, "texto": "___ time is it? — It's nine."}
+        ]
+      },
+      {
+        "parte": "B — Ordena la pregunta",
+        "ejercicios": [
+          {"n": 5, "texto": "do / What / you / do / ?"},
+          {"n": 6, "texto": "does / Where / she / work / ?"},
+          {"n": 7, "texto": "languages / How many / speak / you / do / ?"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'Where she lives?'"},
+          {"n": 9, "texto": "Corrige: 'How much brothers do you have?'"},
+          {"n": 10, "texto": "Escribe 4 preguntas para entrevistar a tu personaje favorito (what, who, where, why)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. Where",
+      "2. Who",
+      "3. Why",
+      "4. What",
+      "5. What do you do?",
+      "6. Where does she work?",
+      "7. How many languages do you speak?",
+      "8. Where does she live?",
+      "9. How many brothers do you have?",
+      "10. Respuesta libre (ej. 'What is your name? Who is your best friend? Where do you live? Why do you help people?')"
+    ]
+  }
+}

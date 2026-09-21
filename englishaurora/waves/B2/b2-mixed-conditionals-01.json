@@ -1,0 +1,156 @@
+{
+  "id": "b2-mixed-conditionals-01",
+  "nivel": "B2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Mixed Conditionals — Past Choices, Present Results",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🎓", "palabra": "study at university", "traduccion": "estudiar en la universidad"},
+    {"bandera": "🎨", "palabra": "famous artist", "traduccion": "artista famoso"},
+    {"bandera": "💼", "palabra": "accept a job", "traduccion": "aceptar un trabajo"},
+    {"bandera": "🏙️", "palabra": "live in Medellín", "traduccion": "vivir en Medellín"},
+    {"bandera": "🍜", "palabra": "own a restaurant", "traduccion": "tener un restaurante"},
+    {"bandera": "🧑‍🍳", "palabra": "learn to cook", "traduccion": "aprender a cocinar"},
+    {"bandera": "🏘️", "palabra": "move to this street", "traduccion": "mudarse a esta calle"},
+    {"bandera": "🤝", "palabra": "friendship", "traduccion": "amistad"},
+    {"bandera": "🛤️", "palabra": "path in life", "traduccion": "camino en la vida"},
+    {"bandera": "🌱", "palabra": "consequence", "traduccion": "consecuencia"},
+    {"bandera": "⏪", "palabra": "years ago", "traduccion": "hace años"},
+    {"bandera": "📍", "palabra": "today / now", "traduccion": "hoy / ahora"},
+    {"bandera": "🔀", "palabra": "crossroads", "traduccion": "encrucijada"},
+    {"bandera": "🧭", "palabra": "direction", "traduccion": "dirección"},
+    {"bandera": "💼", "palabra": "career", "traduccion": "carrera profesional"},
+    {"bandera": "🏡", "palabra": "settle down", "traduccion": "establecerse"},
+    {"bandera": "✈️", "palabra": "emigrate", "traduccion": "emigrar"},
+    {"bandera": "💍", "palabra": "marry", "traduccion": "casarse con"},
+    {"bandera": "🧑‍🎓", "palabra": "drop out", "traduccion": "abandonar los estudios"},
+    {"bandera": "🎭", "palabra": "talent", "traduccion": "talento"},
+    {"bandera": "🕰️", "palabra": "back then", "traduccion": "en aquel entonces"},
+    {"bandera": "🔮", "palabra": "destiny", "traduccion": "destino"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Mixed conditionals cross time, heroes: a past that didn't happen explains a present that isn't. 'If I had studied, I would be a doctor now.'"},
+    {"personaje": "Ben", "linea": "If I had studied photography at university, I would be a famous artist now. But I'm happy anyway."},
+    {"personaje": "Kenji", "linea": "If I hadn't learned to cook as a teenager, I wouldn't own a ramen restaurant today."},
+    {"personaje": "Sofía", "linea": "I wouldn't be living in Medellín if I had accepted that job in Bogotá. Best decision of my life!"},
+    {"personaje": "Abuela Carmen", "linea": "If I hadn't moved to this street in 1975, none of these friendships would exist. The past plants, the present harvests."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "If I had studied medicine, I would be a doctor now."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "If she had accepted the job, she would live in Bogotá today."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "If he had learned to cook, he would own a restaurant now."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I would be rich today if I had bought that house."},
+    {"id": "s5", "forma": "negativo", "oracion": "I wouldn't be living here if I had taken that job."},
+    {"id": "s6", "forma": "negativo", "oracion": "If he hadn't learned English, he wouldn't work abroad now."},
+    {"id": "s7", "forma": "negativo", "oracion": "She wouldn't be happy today if she had stayed."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Where would you be now if you had emigrated?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Would you be happier if you had chosen differently?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "If you had studied art, what would you be doing now?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Would you be here if you had moved? No, I wouldn't."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Would he be famous if he had signed that contract? Yes, he would."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Would we be friends if you hadn't moved here? Probably not."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "If I had studied medicine, I would have been a doctor now.",
+        "opcion_b": "If I had studied medicine, I would be a doctor now.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Mixed conditional: if + past perfect (unreal PAST) + would/wouldn't + infinitive (unreal PRESENT). One decision in the past changes who you are TODAY. Compare: third conditional = past condition, past result ('would have been').",
+      "tabla": {
+        "titulo": "Mixed vs Third Conditional",
+        "encabezados": ["Type", "Structure", "Example"],
+        "filas": [
+          ["Mixed (past→present)", "if + past perfect, would + verb", "If I had studied, I would be a doctor now."],
+          ["Third (past→past)", "if + past perfect, would have + pp", "If I had studied, I would have passed."],
+          ["Present result markers", "now, today, these days", "...I wouldn't live here today."],
+          ["Key", "past cause, present effect", "Back then → now"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If I had studied medicine, I ___ a doctor now.", "opciones": ["would be", "would have been", "will be"], "respuesta": "would be"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She wouldn't be living here if she ___ that job.", "opciones": ["had accepted", "accepted", "would accept"], "respuesta": "had accepted"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If he hadn't learned to cook, he ___ a restaurant today.", "opciones": ["wouldn't own", "wouldn't have owned", "didn't own"], "respuesta": "wouldn't own"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Mixed conditionals connect an unreal past with an unreal present.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In mixed conditionals the result uses 'would have + participle'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "If I had bought that house, I ___ (be) rich today.", "respuesta": "would be"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "If she hadn't moved here, none of these friendships ___ (exist).", "respuesta": "wouldn't exist / would not exist"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["would you be", "Where", "now", "if you had emigrated", "?"], "respuesta": "Where would you be now if you had emigrated?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "If I had studied medicine, I would have been a doctor now.", "respuesta": "If I had studied medicine, I would be a doctor now."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I didn't learn English, so I don't work abroad now.", "instruccion": "Rewrite with a mixed conditional.", "respuesta": "If I had learned English, I would work abroad now."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She accepted the job, so she lives in Bogotá today.", "instruccion": "Rewrite with a mixed conditional (negative condition).", "respuesta": "If she hadn't accepted the job, she wouldn't live in Bogotá today."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write two mixed conditionals about your own life: past choice → present result.", "respuesta": "If I had learned French, I would work in Paris now. If I hadn't moved here, I wouldn't know my best friend."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Do you ever think about the past, Ben?",
+        "Ben: Sometimes. If I had studied photography at university, I'd be a famous artist now.",
+        "Sofía: Maybe. But you're talented anyway. I wouldn't be living in Medellín if I had accepted that job in Bogotá.",
+        "Ben: Really? You never told me that!",
+        "Sofía: Yes. And Kenji wouldn't own a restaurant if he hadn't learned to cook as a teenager.",
+        "Ben: It's true. One decision years ago changes everything today.",
+        "Sofía: Exactly. And if Abuela Carmen hadn't moved to this street, we wouldn't be friends now."
+      ],
+      "gaps": ["photography", "Bogotá"],
+      "comprension": [
+        {"pregunta": "What would Ben be if he had studied photography?", "opciones": ["A teacher", "A famous artist", "A chef"], "respuesta": "A famous artist"},
+        {"pregunta": "Why doesn't Sofía live in Bogotá?", "opciones": ["She didn't accept the job", "She didn't like the city", "She never got the offer"], "respuesta": "She didn't accept the job"}
+      ]
+    },
+    "reading": {
+      "texto": "If Ben had studied photography at university, he would be a famous artist now. Sofía wouldn't be living in Medellín if she had accepted that job in Bogotá. And if Kenji hadn't learned to cook as a teenager, he wouldn't own a ramen restaurant today. The past shapes the present: one decision years ago, one life today. If Abuela Carmen hadn't moved to this street in 1975, none of these friendships would exist.",
+      "preguntas": [
+        {"afirmacion": "Ben studied photography at university.", "respuesta": "false"},
+        {"afirmacion": "Kenji owns a ramen restaurant today.", "respuesta": "true"},
+        {"afirmacion": "Abuela Carmen moved to this street in 1975.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-10 — Mixed Conditionals",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta (condicional mixto)",
+        "ejercicios": [
+          {"n": 1, "texto": "If I had studied medicine, I ___ (be) a doctor now."},
+          {"n": 2, "texto": "She wouldn't be living here if she ___ (accept) that job."},
+          {"n": 3, "texto": "If he hadn't learned to cook, he ___ (not own) a restaurant today."},
+          {"n": 4, "texto": "If I had bought that house, I ___ (be) rich today."}
+        ]
+      },
+      {
+        "parte": "B — ¿Condicional mixto (M) o tercero (3)?",
+        "ejercicios": [
+          {"n": 5, "texto": "'If I had studied, I would be a doctor now.'"},
+          {"n": 6, "texto": "'If I had studied, I would have passed the exam.'"},
+          {"n": 7, "texto": "Reescribe: 'I didn't learn English, so I don't work abroad now.'"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'If I had studied medicine, I would have been a doctor now.'"},
+          {"n": 9, "texto": "Corrige: 'If she would have accepted the job, she would live in Bogotá today.'"},
+          {"n": 10, "texto": "Escribe 3 condicionales mixtos sobre tu propia vida."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. would be",
+      "2. had accepted",
+      "3. wouldn't own / would not own",
+      "4. would be",
+      "5. M (pasado→presente)",
+      "6. 3 (pasado→pasado)",
+      "7. If I had learned English, I would work abroad now.",
+      "8. If I had studied medicine, I would be a doctor now.",
+      "9. If she had accepted the job, she would live in Bogotá today.",
+      "10. Respuesta libre (ej. 'If I had learned French, I would live in Paris. If I hadn't met Ana, I wouldn't be happy. If I had saved money, I would own a flat now.')"
+    ]
+  }
+}

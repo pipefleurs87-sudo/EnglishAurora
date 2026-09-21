@@ -1,0 +1,156 @@
+{
+  "id": "b2-third-conditional-01",
+  "nivel": "B2",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Third Conditional — Rewriting the Past",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "✈️", "palabra": "miss the flight", "traduccion": "perder el vuelo"},
+    {"bandera": "🚕", "palabra": "shortcut", "traduccion": "atajo"},
+    {"bandera": "🛂", "palabra": "gate", "traduccion": "puerta de embarque"},
+    {"bandera": "🗻", "palabra": "Mount Fuji", "traduccion": "Monte Fuji"},
+    {"bandera": "🌅", "palabra": "sunrise", "traduccion": "amanecer"},
+    {"bandera": "⏰", "palabra": "alarm clock", "traduccion": "despertador"},
+    {"bandera": "🧳", "palabra": "luggage", "traduccion": "equipaje"},
+    {"bandera": "🛫", "palabra": "take off", "traduccion": "despegar"},
+    {"bandera": "🛬", "palabra": "land", "traduccion": "aterrizar"},
+    {"bandera": "🎫", "palabra": "boarding pass", "traduccion": "tarjeta de embarque"},
+    {"bandera": "🚦", "palabra": "traffic jam", "traduccion": "atasco"},
+    {"bandera": "🏨", "palabra": "hotel reservation", "traduccion": "reserva de hotel"},
+    {"bandera": "🗺️", "palabra": "itinerary", "traduccion": "itinerario"},
+    {"bandera": "📱", "palabra": "charge the phone", "traduccion": "cargar el móvil"},
+    {"bandera": "🧾", "palabra": "check in", "traduccion": "facturar"},
+    {"bandera": "🚇", "palabra": "airport express", "traduccion": "tren al aeropuerto"},
+    {"bandera": "😰", "palabra": "panic", "traduccion": "pánico"},
+    {"bandera": "🍀", "palabra": "luck", "traduccion": "suerte"},
+    {"bandera": "🔄", "palabra": "alternative", "traduccion": "alternativa"},
+    {"bandera": "💭", "palabra": "imagine", "traduccion": "imaginar"},
+    {"bandera": "😮‍💨", "palabra": "relief", "traduccion": "alivio"},
+    {"bandera": "🎢", "palabra": "adventure", "traduccion": "aventura"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The third conditional rewrites history, heroes: if + past perfect, would have + participle. Pure imagination about a past that never changed."},
+    {"personaje": "Ben", "linea": "If we had left ten minutes later, we would have missed the flight to Tokyo."},
+    {"personaje": "Kenji", "linea": "If the taxi driver hadn't taken a shortcut, we wouldn't have arrived on time."},
+    {"personaje": "Sofía", "linea": "And if I hadn't checked the gate, we would have waited at the wrong one!"},
+    {"personaje": "Abuela Carmen", "linea": "If you had missed that flight, mis héroes, you would never have seen Mount Fuji at sunrise. Luck loves the brave!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "If we had left earlier, we would have arrived on time."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "If she had studied, she would have passed."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "If they had taken the taxi, they would have caught the flight."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "I would have called you if I had known."},
+    {"id": "s5", "forma": "negativo", "oracion": "If the driver hadn't taken a shortcut, we wouldn't have arrived."},
+    {"id": "s6", "forma": "negativo", "oracion": "If I hadn't checked the gate, we would have waited at the wrong one."},
+    {"id": "s7", "forma": "negativo", "oracion": "She wouldn't have fallen if she had been careful."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What would you have done if you had missed the flight?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Would you have come if I had invited you?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "If he had known, would he have helped?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Would you have passed if you had studied? Yes, I would have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Would she have come? No, she wouldn't have."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Would they have caught the train? Yes, they would have."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "If we would have left earlier, we would have arrived on time.",
+        "opcion_b": "If we had left earlier, we would have arrived on time.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Third conditional imagines an UNREAL past: if + past perfect, would have + past participle. Both halves describe things that did NOT happen. Never use 'would have' in the if-clause.",
+      "tabla": {
+        "titulo": "Third Conditional",
+        "encabezados": ["Part", "Structure", "Example"],
+        "filas": [
+          ["Condition (unreal past)", "if + past perfect", "If we had left earlier, ..."],
+          ["Result (imagined)", "would have + participle", "... we would have arrived."],
+          ["Negative condition", "if + hadn't + participle", "If he hadn't helped, ..."],
+          ["Warning", "no 'would have' after 'if'", "If we had ✅ / If we would have ❌"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If we ___ earlier, we would have arrived on time.", "opciones": ["had left", "would have left", "left"], "respuesta": "had left"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "If the driver hadn't taken a shortcut, we ___ on time.", "opciones": ["wouldn't have arrived", "hadn't arrived", "didn't arrive"], "respuesta": "wouldn't have arrived"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "What would you have done if you ___ the flight?", "opciones": ["had missed", "would have missed", "missed"], "respuesta": "had missed"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The third conditional talks about a past that really happened.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We never use 'would have' in the if-clause.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "If she had studied, she ___ (pass) the exam.", "respuesta": "would have passed"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ (call) you if I had known.", "respuesta": "would have called"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["would have done", "What", "you", "if you had missed the flight", "?"], "respuesta": "What would you have done if you had missed the flight?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "If we would have left earlier, we would have arrived on time.", "respuesta": "If we had left earlier, we would have arrived on time."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "We didn't leave early, so we missed the flight.", "instruccion": "Rewrite with the third conditional.", "respuesta": "If we had left early, we wouldn't have missed the flight."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She didn't study, so she didn't pass.", "instruccion": "Rewrite with the third conditional.", "respuesta": "If she had studied, she would have passed."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Rewrite two real moments of your life with the third conditional.", "respuesta": "If I had left earlier, I wouldn't have missed the bus. If I had known about the party, I would have come."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: I still can't believe we almost missed the Tokyo flight.",
+        "Ben: I know! If we had left ten minutes later, we would have missed it.",
+        "Sofía: And if the taxi driver hadn't taken that shortcut...",
+        "Ben: We wouldn't have arrived on time. Total disaster.",
+        "Sofía: What would you have done?",
+        "Ben: I would have cried! And you?",
+        "Sofía: I would have booked the next flight. But if we had missed it, we would never have seen Mount Fuji at sunrise."
+      ],
+      "gaps": ["shortcut", "Fuji"],
+      "comprension": [
+        {"pregunta": "What saved the friends from missing the flight?", "opciones": ["The alarm clock", "The taxi driver's shortcut", "The airport express"], "respuesta": "The taxi driver's shortcut"},
+        {"pregunta": "What would they have missed seeing?", "opciones": ["Tokyo Tower", "Mount Fuji at sunrise", "The hotel"], "respuesta": "Mount Fuji at sunrise"}
+      ]
+    },
+    "reading": {
+      "texto": "Last summer the friends almost missed their flight to Tokyo. If they had left home ten minutes later, they would have missed it completely. If the taxi driver hadn't taken a shortcut, they wouldn't have arrived on time. And if Kenji hadn't checked the gate, they would have waited at the wrong one. Sofía smiled: 'If we had missed that flight, we would never have seen Mount Fuji at sunrise.'",
+      "preguntas": [
+        {"afirmacion": "The friends missed their flight.", "respuesta": "false"},
+        {"afirmacion": "The taxi driver took a shortcut.", "respuesta": "true"},
+        {"afirmacion": "Kenji forgot to check the gate.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-9 — Third Conditional",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "If we ___ (leave) earlier, we would have arrived on time."},
+          {"n": 2, "texto": "If she had studied, she ___ (pass) the exam."},
+          {"n": 3, "texto": "If the driver hadn't taken a shortcut, we ___ (not arrive)."},
+          {"n": 4, "texto": "I ___ (call) you if I had known."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con el tercer condicional",
+        "ejercicios": [
+          {"n": 5, "texto": "We didn't leave early, so we missed the flight."},
+          {"n": 6, "texto": "She didn't study, so she didn't pass."},
+          {"n": 7, "texto": "He didn't check the gate, so he waited at the wrong one."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'If we would have left earlier, we would have arrived.'"},
+          {"n": 9, "texto": "Corrige: 'If she had studied, she would passed.'"},
+          {"n": 10, "texto": "Escribe 3 frases con el tercer condicional sobre momentos de tu vida."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. had left",
+      "2. would have passed",
+      "3. wouldn't have arrived / would not have arrived",
+      "4. would have called",
+      "5. If we had left early, we wouldn't have missed the flight.",
+      "6. If she had studied, she would have passed.",
+      "7. If he had checked the gate, he wouldn't have waited at the wrong one.",
+      "8. If we had left earlier, we would have arrived.",
+      "9. If she had studied, she would have passed.",
+      "10. Respuesta libre (ej. 'If I had left earlier, I wouldn't have missed the bus. If I had known, I would have helped. If we had booked earlier, we would have paid less.')"
+    ]
+  }
+}

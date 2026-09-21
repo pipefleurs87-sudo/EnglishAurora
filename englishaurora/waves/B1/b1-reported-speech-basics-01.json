@@ -1,0 +1,156 @@
+{
+  "id": "b1-reported-speech-basics-01",
+  "nivel": "B1",
+  "arquetipo": "estilo_indirecto",
+  "tema": "Reported Speech — Statements",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🗣️", "palabra": "say (said)", "traduccion": "decir"},
+    {"bandera": "📢", "palabra": "tell (told)", "traduccion": "decir/contar (a alguien)"},
+    {"bandera": "💬", "palabra": "message", "traduccion": "mensaje"},
+    {"bandera": "📞", "palabra": "phone call", "traduccion": "llamada"},
+    {"bandera": "✉️", "palabra": "letter", "traduccion": "carta"},
+    {"bandera": "🎉", "palabra": "party invitation", "traduccion": "invitación a una fiesta"},
+    {"bandera": "😷", "palabra": "feel ill", "traduccion": "sentirse enfermo"},
+    {"bandera": "🧑‍🍳", "palabra": "cook dinner", "traduccion": "cocinar la cena"},
+    {"bandera": "🚌", "palabra": "miss the bus", "traduccion": "perder el autobús"},
+    {"bandera": "💍", "palabra": "engaged", "traduccion": "comprometido (para casarse)"},
+    {"bandera": "🤫", "palabra": "secret", "traduccion": "secreto"},
+    {"bandera": "📰", "palabra": "news", "traduccion": "noticias"},
+    {"bandera": "🕐", "palabra": "that day", "traduccion": "ese día"},
+    {"bandera": "⏭️", "palabra": "the next day", "traduccion": "el día siguiente"},
+    {"bandera": "⏮️", "palabra": "the day before", "traduccion": "el día anterior"},
+    {"bandera": "📍", "palabra": "there", "traduccion": "allí (por 'here')"},
+    {"bandera": "🎁", "palabra": "present", "traduccion": "regalo"},
+    {"bandera": "😊", "palabra": "happy", "traduccion": "feliz"},
+    {"bandera": "🥱", "palabra": "tired", "traduccion": "cansado"},
+    {"bandera": "🏖️", "palabra": "holiday", "traduccion": "vacaciones"},
+    {"bandera": "📸", "palabra": "exhibition", "traduccion": "exposición"},
+    {"bandera": "🤝", "palabra": "meet later", "traduccion": "quedar luego"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Words travel, heroes, and when they travel, they change their clothes. Reported speech is the art of retelling."},
+    {"personaje": "Ben", "linea": "Sofía called. She said she was tired, and she told me she couldn't come today."},
+    {"personaje": "Kenji", "linea": "She told me yesterday that she had missed the bus. She said she would call you later."},
+    {"personaje": "Sofía", "linea": "And Ben told me that he was preparing an exhibition. He said it would open the next day!"},
+    {"personaje": "Abuela Carmen", "linea": "The neighbours said they were engaged. They told me they would celebrate here, in my garden!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "She said (that) she was tired."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He told me (that) he had missed the bus."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They said they would come later."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She told me she was cooking dinner."},
+    {"id": "s5", "forma": "negativo", "oracion": "She said she couldn't come."},
+    {"id": "s6", "forma": "negativo", "oracion": "He told me he didn't feel well."},
+    {"id": "s7", "forma": "negativo", "oracion": "They said they weren't ready."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "What did she say?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Did he tell you the news?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What did they tell you about the party?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did she say she was tired? Yes, she did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did he tell you? No, he didn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they say they would come? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "She said me that she was tired.",
+        "opcion_b": "She told me that she was tired.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Reporting what someone said: 'say' (no person) vs 'tell + person'. Shift tenses one step back: present→past, past→past perfect, will→would, can→could. Time words shift too: today→that day, tomorrow→the next day, yesterday→the day before, here→there.",
+      "tabla": {
+        "titulo": "Reported Speech — Statements",
+        "encabezados": ["Direct", "Reported", "Example"],
+        "filas": [
+          ["present simple", "past simple", "'I'm tired' → She said she was tired."],
+          ["past simple", "past perfect", "'I missed it' → He said he had missed it."],
+          ["will / can", "would / could", "'I'll call' → She said she would call."],
+          ["say vs tell", "say (that) / tell + person + (that)", "He said... / He told me..."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "She ___ me that she was tired.", "opciones": ["told", "said", "say"], "respuesta": "told"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "'I am happy' → He said he ___ happy.", "opciones": ["is", "was", "be"], "respuesta": "was"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "'I will call you' → She said she ___ call me.", "opciones": ["will", "would", "can"], "respuesta": "would"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We say 'She said me that...'.", "respuesta": "false"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In reported speech, 'today' becomes 'that day'.", "respuesta": "true"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "'I missed the bus' → He said he ___ (miss) the bus.", "respuesta": "had missed"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "'I can't come' → She said she ___ (not come).", "respuesta": "couldn't come / could not come"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["told", "He", "me", "the news", "."], "respuesta": "He told me the news."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "She said me that she was tired.", "respuesta": "She told me that she was tired. / She said that she was tired."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "'I am cooking dinner,' she said.", "instruccion": "Report it.", "respuesta": "She said she was cooking dinner."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "'I'll come tomorrow,' he told me.", "instruccion": "Report it.", "respuesta": "He told me he would come the next day."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Report three things a friend told you recently.", "respuesta": "My friend said she was busy. She told me she had finished her project. She said she would call me later."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: Did Sofía call, Ben?",
+        "Ben: Yes. She said she was tired, and she told me she couldn't come today.",
+        "Kenji: Oh no. Did she say why?",
+        "Ben: She said she had missed the bus and had walked home in the rain.",
+        "Kenji: Poor Sofía! Did she say anything about the party?",
+        "Ben: Yes. She told me she would bring the music.",
+        "Kenji: Great news! And Abuela Carmen said she would bake the cake."
+      ],
+      "gaps": ["bus", "cake"],
+      "comprension": [
+        {"pregunta": "Why couldn't Sofía come?", "opciones": ["She was at work", "She was tired", "She was ill"], "respuesta": "She was tired"},
+        {"pregunta": "What did Sofía say about the party?", "opciones": ["She would bring the music", "She would bake the cake", "She wouldn't come"], "respuesta": "She would bring the music"}
+      ]
+    },
+    "reading": {
+      "texto": "Sofía called Ben yesterday with news. She said she was tired because she had missed the bus and had walked home in the rain. She told him she couldn't meet them that day, but she would bring the music for the party. Ben told Kenji everything, and Kenji said he would cook ramen for everyone. Then Abuela Carmen phoned: she said she would bake her famous cake. Good news travels fast!",
+      "preguntas": [
+        {"afirmacion": "Sofía said she had missed the bus.", "respuesta": "true"},
+        {"afirmacion": "Sofía told Ben she would bake the cake.", "respuesta": "false"},
+        {"afirmacion": "Kenji said he would cook ramen.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-14 — Reported Speech: Statements",
+    "partes": [
+      {
+        "parte": "A — Reporta las frases",
+        "ejercicios": [
+          {"n": 1, "texto": "'I am tired,' she said."},
+          {"n": 2, "texto": "'I missed the bus,' he said."},
+          {"n": 3, "texto": "'I will call you,' she told me."},
+          {"n": 4, "texto": "'I can't come,' he said."}
+        ]
+      },
+      {
+        "parte": "B — Elige say o tell",
+        "ejercicios": [
+          {"n": 5, "texto": "She ___ me the news."},
+          {"n": 6, "texto": "He ___ that he was happy."},
+          {"n": 7, "texto": "They ___ me they would come."}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'She said me that she was tired.'"},
+          {"n": 9, "texto": "Corrige: 'He said he will come.'"},
+          {"n": 10, "texto": "Escribe 3 frases reportando cosas que te dijeron esta semana."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. She said (that) she was tired.",
+      "2. He said (that) he had missed the bus.",
+      "3. She told me (that) she would call me.",
+      "4. He said (that) he couldn't come.",
+      "5. told",
+      "6. said",
+      "7. told",
+      "8. She told me that she was tired. / She said that she was tired.",
+      "9. He said he would come.",
+      "10. Respuesta libre (ej. 'My boss said the meeting was cancelled. My friend told me she was engaged. My brother said he would visit.')"
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "c1-subjunctive-01",
+  "nivel": "C1",
+  "arquetipo": "estructuras_avanzadas",
+  "tema": "The Subjunctive — It is essential that... be",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🏆", "palabra": "award ceremony", "traduccion": "ceremonia de premios"},
+    {"bandera": "🎤", "palabra": "rehearsal", "traduccion": "ensayo"},
+    {"bandera": "💡", "palabra": "test the lights", "traduccion": "probar las luces"},
+    {"bandera": "🎛️", "palabra": "equipment", "traduccion": "equipo"},
+    {"bandera": "📋", "palabra": "insist", "traduccion": "insistir"},
+    {"bandera": "❗", "palabra": "essential", "traduccion": "esencial"},
+    {"bandera": "⚡", "palabra": "vital", "traduccion": "vital"},
+    {"bandera": "🔑", "palabra": "crucial", "traduccion": "crucial"},
+    {"bandera": "📌", "palabra": "demand", "traduccion": "exigir"},
+    {"bandera": "💡", "palabra": "suggest", "traduccion": "sugerir"},
+    {"bandera": "🗣️", "palabra": "recommend", "traduccion": "recomendar"},
+    {"bandera": "🙏", "palabra": "request", "traduccion": "solicitar"},
+    {"bandera": "📜", "palabra": "require", "traduccion": "requerir"},
+    {"bandera": "🚫", "palabra": "forbid", "traduccion": "prohibir"},
+    {"bandera": "⏰", "palabra": "arrive early", "traduccion": "llegar temprano"},
+    {"bandera": "🤵", "palabra": "dress code", "traduccion": "código de vestimenta"},
+    {"bandera": "🎟️", "palabra": "guest list", "traduccion": "lista de invitados"},
+    {"bandera": "🎭", "palabra": "stage", "traduccion": "escenario"},
+    {"bandera": "🕴️", "palabra": "host", "traduccion": "anfitrión"},
+    {"bandera": "📜", "palabra": "protocol", "traduccion": "protocolo"},
+    {"bandera": "🙌", "palabra": "in person", "traduccion": "en persona"},
+    {"bandera": "📉", "palabra": "cancelled", "traduccion": "cancelado"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The subjunctive is the grammar of formality and urgency, heroes: 'It is essential that every photographer BE present' — no -s, no 'is'. Pure base form."},
+    {"personaje": "Ben", "linea": "The director insisted that I attend the ceremony in person. It was essential that every photographer be at the rehearsal."},
+    {"personaje": "Kenji", "linea": "The organizers demanded that the lights be tested twice. It was vital that nobody touch the equipment."},
+    {"personaje": "Sofía", "linea": "I suggested that the speech be short, and Abuela Carmen recommended that everyone arrive early."},
+    {"personaje": "Abuela Carmen", "linea": "It is crucial that everything go perfectly, mis héroes. If the ceremony were cancelled, months of work would be lost."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The director insisted that Ben attend the ceremony."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "It is essential that every photographer be present."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "They demanded that the lights be tested twice."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She suggested that the speech be short."},
+    {"id": "s5", "forma": "negativo", "oracion": "It was vital that nobody touch the equipment."},
+    {"id": "s6", "forma": "negativo", "oracion": "He requested that they not be late."},
+    {"id": "s7", "forma": "negativo", "oracion": "It is essential that the door not be opened."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Did they insist that he attend in person?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Is it essential that everyone be present?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What did the organizers demand be tested?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did she suggest it be short? Yes, she did."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was it vital that he attend? Yes, it was."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did they recommend arriving early? Yes, they did."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "It is essential that every photographer is present.",
+        "opcion_b": "It is essential that every photographer be present.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "The subjunctive uses the BASE form for all persons after: insist, demand, suggest, recommend, request, require + that; and it is essential/vital/crucial/important + that. No 's' in third person, 'be' instead of is/are, and negation is 'not + verb' (no 'don't').",
+      "tabla": {
+        "titulo": "The Subjunctive",
+        "encabezados": ["Trigger", "Structure", "Example"],
+        "filas": [
+          ["Verbs of demand", "insist/demand/suggest + that + base form", "He insisted that she attend."],
+          ["Adjectives", "It is essential/vital + that + base form", "It is vital that he be present."],
+          ["'be' for all", "I be, you be, he be", "They demanded that he be fired."],
+          ["Negative", "that + subject + not + verb", "It is vital that nobody touch it."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It is essential that every photographer ___ present.", "opciones": ["be", "is", "will be"], "respuesta": "be"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "The director insisted that Ben ___ the ceremony.", "opciones": ["attend", "attends", "attended"], "respuesta": "attend"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It was vital that nobody ___ the equipment.", "opciones": ["touch", "touches", "touched"], "respuesta": "touch"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In the subjunctive, the third person does not take '-s'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "The negative subjunctive uses 'doesn't'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "She suggested that the speech ___ (be) short.", "respuesta": "be"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They demanded that the lights ___ (test) twice.", "respuesta": "be tested"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["that", "insisted", "The director", "Ben attend", "."], "respuesta": "The director insisted that Ben attend."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "It is essential that every photographer is present.", "respuesta": "It is essential that every photographer be present."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The speech must be short. (she suggested)", "instruccion": "Rewrite with subjunctive.", "respuesta": "She suggested that the speech be short."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Everyone must arrive early. (it is crucial)", "instruccion": "Rewrite with subjunctive.", "respuesta": "It is crucial that everyone arrive early."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write three formal rules for an event using the subjunctive.", "respuesta": "It is essential that guests arrive on time. The host requests that phones be silent. We recommend that everyone wear formal clothes."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: The award ceremony is next Friday. There are so many rules!",
+        "Sofía: Like what?",
+        "Ben: The director insisted that I attend in person. No video calls.",
+        "Sofía: That makes sense.",
+        "Ben: And it is essential that every photographer be at the rehearsal on Thursday.",
+        "Sofía: Anything else?",
+        "Ben: Yes — the organizers demanded that the lights be tested twice, and it is vital that nobody touch the equipment.",
+        "Sofía: Formal but fair. I suggested that the speech be short. Did they accept?",
+        "Ben: They did! Abuela Carmen also recommended that everyone arrive early."
+      ],
+      "gaps": ["rehearsal", "speech"],
+      "comprension": [
+        {"pregunta": "What did the director insist on?", "opciones": ["A video call", "Ben attending in person", "A long speech"], "respuesta": "Ben attending in person"},
+        {"pregunta": "What did Sofía suggest?", "opciones": ["A long speech", "A short speech", "No speech"], "respuesta": "A short speech"}
+      ]
+    },
+    "reading": {
+      "texto": "The director insisted that Ben attend the award ceremony in person. It was essential that every photographer be present at the rehearsal. The organizers demanded that the lights be tested twice, and it was vital that nobody touch the equipment. Sofía suggested that the speech be short, and Abuela Carmen recommended that everyone arrive early. If the ceremony were cancelled, months of work would be lost — so it was crucial that everything go perfectly.",
+      "preguntas": [
+        {"afirmacion": "Ben could attend by video call.", "respuesta": "false"},
+        {"afirmacion": "The lights had to be tested twice.", "respuesta": "true"},
+        {"afirmacion": "Sofía suggested a long speech.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha C1-5 — The Subjunctive",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma base correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "It is essential that every photographer ___ (be) present."},
+          {"n": 2, "texto": "The director insisted that Ben ___ (attend) the ceremony."},
+          {"n": 3, "texto": "They demanded that the lights ___ (be) tested twice."},
+          {"n": 4, "texto": "It was vital that nobody ___ (touch) the equipment."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con subjuntivo",
+        "ejercicios": [
+          {"n": 5, "texto": "The speech must be short. → (she suggested)"},
+          {"n": 6, "texto": "Everyone must arrive early. → (it is crucial)"},
+          {"n": 7, "texto": "He must not be late. → (they requested)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'It is essential that every photographer is present.'"},
+          {"n": 9, "texto": "Corrige: 'They demanded that the lights were tested twice.'"},
+          {"n": 10, "texto": "Escribe 3 reglas formales usando el subjuntivo (essential, recommend, insist)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. be",
+      "2. attend",
+      "3. be",
+      "4. touch",
+      "5. She suggested that the speech be short.",
+      "6. It is crucial that everyone arrive early.",
+      "7. They requested that he not be late.",
+      "8. It is essential that every photographer be present.",
+      "9. They demanded that the lights be tested twice.",
+      "10. Respuesta libre (ej. 'It is essential that guests be punctual. I recommend that phones be turned off. He insisted that the door remain closed.')"
+    ]
+  }
+}

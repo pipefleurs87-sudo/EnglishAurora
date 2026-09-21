@@ -1,0 +1,157 @@
+{
+  "id": "b2-linkers-01",
+  "nivel": "B2",
+  "arquetipo": "conectores",
+  "tema": "Advanced Linkers — Moreover, Nevertheless, Whereas, Provided That",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "➕", "palabra": "moreover", "traduccion": "además"},
+    {"bandera": "📎", "palabra": "furthermore", "traduccion": "es más / además"},
+    {"bandera": "⚖️", "palabra": "nevertheless", "traduccion": "no obstante"},
+    {"bandera": "🔄", "palabra": "whereas", "traduccion": "mientras que"},
+    {"bandera": "🔑", "palabra": "provided (that)", "traduccion": "siempre que"},
+    {"bandera": "📏", "palabra": "as long as", "traduccion": "mientras / con tal de que"},
+    {"bandera": "🛡️", "palabra": "in spite of", "traduccion": "a pesar de"},
+    {"bandera": "🎯", "palabra": "consequently", "traduccion": "en consecuencia"},
+    {"bandera": "⚠️", "palabra": "unless", "traduccion": "a menos que"},
+    {"bandera": "🤝", "palabra": "on the one hand", "traduccion": "por un lado"},
+    {"bandera": "🖐️", "palabra": "on the other hand", "traduccion": "por otro lado"},
+    {"bandera": "📉", "palabra": "even though", "traduccion": "aunque (énfasis)"},
+    {"bandera": "🔚", "palabra": "as a result", "traduccion": "como resultado"},
+    {"bandera": "🧭", "palabra": "otherwise", "traduccion": "de lo contrario"},
+    {"bandera": "📊", "palabra": "in contrast", "traduccion": "en contraste"},
+    {"bandera": "🌉", "palabra": "bridging ideas", "traduccion": "conectar ideas"},
+    {"bandera": "✍️", "palabra": "formal writing", "traduccion": "escritura formal"},
+    {"bandera": "🗣️", "palabra": "spoken English", "traduccion": "inglés hablado"},
+    {"bandera": "📄", "palabra": "essay", "traduccion": "ensayo"},
+    {"bandera": "💼", "palabra": "report", "traduccion": "informe"},
+    {"bandera": "🧩", "palabra": "cohesion", "traduccion": "cohesión"},
+    {"bandera": "🎓", "palabra": "academic tone", "traduccion": "tono académico"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "B1 linkers build bridges, heroes; B2 linkers build highways. 'Moreover', 'nevertheless', 'whereas' — the architecture of formal English."},
+    {"personaje": "Ben", "linea": "On the one hand, city life is fast; on the other hand, it's exciting. Moreover, the museums are free!"},
+    {"personaje": "Kenji", "linea": "You can succeed provided that you work hard — as long as you stay curious, of course."},
+    {"personaje": "Sofía", "linea": "Whereas some writers plan everything, I improvise. Nevertheless, I always meet my deadlines."},
+    {"personaje": "Abuela Carmen", "linea": "In spite of my age, I learn something new every day. Consequently, mis héroes, I never get bored."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The museum is free; moreover, it opens every day."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "You can come provided that you finish your work."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "Whereas some people plan, others improvise."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "In spite of the rain, the event was a success."},
+    {"id": "s5", "forma": "negativo", "oracion": "He didn't come; nevertheless, we had a great time."},
+    {"id": "s6", "forma": "negativo", "oracion": "You won't pass unless you study."},
+    {"id": "s7", "forma": "negativo", "oracion": "Even though she was tired, she didn't stop."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Can I come as long as I behave?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "Do you prefer the city or the countryside, and why?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What happens unless we act now?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was it raining? Yes; nevertheless, we went out."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Can I leave early? Yes, provided that you finish."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did she enjoy it? Yes, in spite of the weather."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "You can come provided that you will finish your work.",
+        "opcion_b": "You can come provided that you finish your work.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Advanced linkers for formal cohesion: addition (moreover, furthermore), contrast (nevertheless, whereas, in contrast), condition (provided that, as long as, unless — with present, not future!), concession (in spite of + noun/-ing, even though + clause) and result (consequently, as a result).",
+      "tabla": {
+        "titulo": "Advanced Linkers",
+        "encabezados": ["Function", "Linkers", "Example"],
+        "filas": [
+          ["Addition", "moreover, furthermore", "It's free; moreover, it's close."],
+          ["Contrast", "nevertheless, whereas", "He's young; nevertheless, he's wise."],
+          ["Condition", "provided that, as long as, unless", "You can come as long as you help."],
+          ["Concession", "in spite of, even though", "In spite of the rain, we played."],
+          ["Result", "consequently, as a result", "She worked hard; consequently, she passed."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "You can come provided that you ___ your work.", "opciones": ["finish", "will finish", "finished"], "respuesta": "finish"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ some writers plan everything, I improvise.", "opciones": ["Whereas", "Moreover", "Unless"], "respuesta": "Whereas"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ of the rain, the event was a success.", "opciones": ["In spite", "Despite of", "Although"], "respuesta": "In spite"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'provided that' and 'unless' we use the present, not 'will'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'In spite of' is followed by a full clause with subject and verb.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He didn't come; ___, we had a great time. (nevertheless)", "respuesta": "nevertheless"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "You won't pass ___ you study. (unless)", "respuesta": "unless"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["work hard,", "provided that", "You can succeed", "you work hard.", ""], "respuesta": "You can succeed provided that you work hard."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "You can come provided that you will finish your work.", "respuesta": "You can come provided that you finish your work."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "Although it rained, the event was a success.", "instruccion": "Rewrite with 'in spite of'.", "respuesta": "In spite of the rain, the event was a success."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "If you don't study, you won't pass.", "instruccion": "Rewrite with 'unless'.", "respuesta": "You won't pass unless you study."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write a 3-sentence opinion (city vs countryside) using whereas, moreover and consequently.", "respuesta": "Whereas the city is exciting, the countryside is peaceful. Moreover, the air is cleaner there. Consequently, I prefer the countryside."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben, would you ever live abroad?",
+        "Ben: On the one hand, it's a fantastic experience. On the other hand, you miss your family.",
+        "Sofía: True. Whereas you love change, I need my roots.",
+        "Ben: Nevertheless, you travelled a lot last year!",
+        "Sofía: Yes — provided that my work allows it, I'll keep travelling.",
+        "Ben: In spite of the distance, we always stay in touch.",
+        "Sofía: Exactly. And consequently, our friendship only grows stronger."
+      ],
+      "gaps": ["family", "travelling"],
+      "comprension": [
+        {"pregunta": "What is a disadvantage of living abroad for Ben?", "opciones": ["The language", "Missing his family", "The food"], "respuesta": "Missing his family"},
+        {"pregunta": "What condition does Sofía set for travelling?", "opciones": ["Having money", "Her work allowing it", "Good weather"], "respuesta": "Her work allowing it"}
+      ]
+    },
+    "reading": {
+      "texto": "Living abroad has advantages and disadvantages. On the one hand, you learn a language quickly; moreover, you discover new cultures. On the other hand, you miss your family; nevertheless, video calls help. You can succeed provided that you work hard, as long as you stay curious. In spite of the distance, Sofía never felt lonely. Whereas some people complain, she adapted. Consequently, she now calls Medellín and Tokyo home.",
+      "preguntas": [
+        {"afirmacion": "Sofía felt lonely abroad.", "respuesta": "false"},
+        {"afirmacion": "Sofía adapted to living abroad.", "respuesta": "true"},
+        {"afirmacion": "Sofía only calls Tokyo home now.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-17 — Advanced Linkers",
+    "partes": [
+      {
+        "parte": "A — Completa con el conector adecuado",
+        "ejercicios": [
+          {"n": 1, "texto": "The museum is free; ___, it opens every day. (addition)"},
+          {"n": 2, "texto": "___ some writers plan everything, I improvise. (contrast)"},
+          {"n": 3, "texto": "You can come ___ that you finish your work. (condition)"},
+          {"n": 4, "texto": "___ of the rain, the event was a success. (concession)"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con el conector indicado",
+        "ejercicios": [
+          {"n": 5, "texto": "Although it rained, the event was a success. → (in spite of)"},
+          {"n": 6, "texto": "If you don't study, you won't pass. → (unless)"},
+          {"n": 7, "texto": "She worked hard, so she passed. → (consequently)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'You can come provided that you will finish your work.'"},
+          {"n": 9, "texto": "Corrige: 'Despite of the rain, we played football.'"},
+          {"n": 10, "texto": "Escribe un mini-ensayo de 4 frases (ciudad vs campo) con moreover, whereas, nevertheless y consequently."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. moreover / furthermore",
+      "2. Whereas",
+      "3. provided",
+      "4. In spite",
+      "5. In spite of the rain, the event was a success.",
+      "6. You won't pass unless you study.",
+      "7. She worked hard; consequently, she passed.",
+      "8. You can come provided that you finish your work.",
+      "9. Despite the rain / In spite of the rain, we played football.",
+      "10. Respuesta libre (ej. 'Whereas the city is exciting, the countryside is calm. Moreover, it's cheaper. Nevertheless, I love the city. Consequently, I'll stay here.')"
+    ]
+  }
+}

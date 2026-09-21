@@ -1,0 +1,158 @@
+{
+  "id": "c1-future-in-the-past-01",
+  "nivel": "C1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Future in the Past — Was Going To, Would, Was About To, Was To",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🎓", "palabra": "study engineering", "traduccion": "estudiar ingeniería"},
+    {"bandera": "🏔️", "palabra": "trip to the mountains", "traduccion": "viaje a las montañas"},
+    {"bandera": "📝", "palabra": "enrol", "traduccion": "matricularse"},
+    {"bandera": "📷", "palabra": "old camera", "traduccion": "cámara vieja"},
+    {"bandera": "🏚️", "palabra": "attic", "traduccion": "desván"},
+    {"bandera": "🧓", "palabra": "grandfather", "traduccion": "abuelo"},
+    {"bandera": "🖼️", "palabra": "exhibition", "traduccion": "exposición"},
+    {"bandera": "🌟", "palabra": "become famous", "traduccion": "hacerse famoso"},
+    {"bandera": "🖊️", "palabra": "sign the papers", "traduccion": "firmar los papeles"},
+    {"bandera": "💭", "palabra": "follow his dream", "traduccion": "seguir su sueño"},
+    {"bandera": "🛤️", "palabra": "was going to", "traduccion": "iba a"},
+    {"bandera": "⏳", "palabra": "was about to", "traduccion": "estaba a punto de"},
+    {"bandera": "📜", "palabra": "was to become", "traduccion": "llegaría a ser (destino)"},
+    {"bandera": "🌊", "palabra": "on the verge of", "traduccion": "al borde de"},
+    {"bandera": "🔮", "palabra": "destiny", "traduccion": "destino"},
+    {"bandera": "↩️", "palabra": "change everything", "traduccion": "cambiarlo todo"},
+    {"bandera": "📅", "palabra": "ten years away", "traduccion": "a diez años de distancia"},
+    {"bandera": "🧭", "palabra": "path", "traduccion": "camino"},
+    {"bandera": "🎞️", "palabra": "in retrospect", "traduccion": "en retrospectiva"},
+    {"bandera": "🚦", "palabra": "turning point", "traduccion": "punto de inflexión"},
+    {"bandera": "🕊️", "palabra": "fate", "traduccion": "hado"},
+    {"bandera": "🗺️", "palabra": "uncharted", "traduccion": "inexplorado"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Stories look backwards at futures that were still asleep, heroes. 'He was about to sign when...' — the grammar of destiny."},
+    {"personaje": "Ben", "linea": "I was going to study engineering, but a trip to the mountains changed everything."},
+    {"personaje": "Kenji", "linea": "You were about to enrol when you found your grandfather's camera, right? That camera was to change your life."},
+    {"personaje": "Sofía", "linea": "The exhibition that would make him famous was still ten years away. Nobody knew it yet."},
+    {"personaje": "Abuela Carmen", "linea": "He was on the verge of signing the papers when he chose his dream, mis héroes. The bravest futures start as a 'no' to the expected path."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "He was going to study engineering."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "He was about to enrol when he found the camera."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "That day, he was to become a photographer."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "The exhibition would make him famous ten years later."},
+    {"id": "s5", "forma": "negativo", "oracion": "He wasn't going to study photography."},
+    {"id": "s6", "forma": "negativo", "oracion": "Nobody knew what was to come."},
+    {"id": "s7", "forma": "negativo", "oracion": "He wasn't on the verge of giving up."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Was he going to study engineering?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What was he about to do when he found the camera?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "What would make him famous?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was he going to sign? Yes, he was about to."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Did anyone know? No, nobody did."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Was that his destiny? Yes, it was to be."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "He was about to enrol when he found the camera.",
+        "opcion_b": "He was about of enrolling when he found the camera.",
+        "correcta": "a"
+      },
+      "definicion_pragmatica": "Looking at the future FROM the past: was/were going to (past plan), would (the future seen from then), was about to + verb (imminent), was to + verb (formal destiny, often for events that really happened later), on the verge of + -ing (at the edge).",
+      "tabla": {
+        "titulo": "Future in the Past",
+        "encabezados": ["Form", "Meaning", "Example"],
+        "filas": [
+          ["was going to", "past plan/intention", "He was going to study engineering."],
+          ["would", "future seen from the past", "The exhibition would make him famous."],
+          ["was about to", "imminent action", "He was about to sign when..."],
+          ["was to", "formal destiny (happened later)", "That camera was to change his life."],
+          ["on the verge of", "almost happening", "He was on the verge of signing."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He ___ study engineering, but a trip changed everything.", "opciones": ["was going to", "was about to", "would to"], "respuesta": "was going to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He was ___ enrol when he found the camera. (imminent)", "opciones": ["about to", "going to", "on the verge to"], "respuesta": "about to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "That camera ___ change his life. (formal destiny)", "opciones": ["was to", "was about", "would to"], "respuesta": "was to"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Was to become' is a formal way to express destiny viewed from the past.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'On the verge of' is followed by the infinitive.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "He was on the verge of ___ (sign) the papers when he stopped.", "respuesta": "signing"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "The exhibition that ___ (make) him famous was still ten years away.", "respuesta": "would make"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["about to", "He was", "enrol", "when he found the camera", "."], "respuesta": "He was about to enrol when he found the camera."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "He was about of enrolling when he found the camera.", "respuesta": "He was about to enrol when he found the camera."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "He planned to study engineering, but he didn't.", "instruccion": "Rewrite with 'was going to'.", "respuesta": "He was going to study engineering, but he didn't."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The camera later changed his life. (destiny, formal)", "instruccion": "Rewrite with 'was to'.", "respuesta": "The camera was to change his life."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Tell a turning point in your life using 'was going to' and 'was about to'.", "respuesta": "I was going to study law, but I changed my mind. I was about to enrol when I discovered my passion for design."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Ben, is it true you almost studied engineering?",
+        "Ben: Yes! I was going to study it at university. I had everything ready.",
+        "Sofía: So what happened?",
+        "Ben: I was about to enrol when I found my grandfather's old camera in the attic.",
+        "Sofía: Wow. And that changed everything?",
+        "Ben: Completely. That camera was to become my whole life.",
+        "Sofía: And the exhibition that would make you famous was still ten years away...",
+        "Ben: Exactly. I was on the verge of signing the papers when I chose photography instead."
+      ],
+      "gaps": ["attic", "papers"],
+      "comprension": [
+        {"pregunta": "What was Ben going to study?", "opciones": ["Photography", "Engineering", "Law"], "respuesta": "Engineering"},
+        {"pregunta": "Where did Ben find the camera?", "opciones": ["In the attic", "In a shop", "In the mountains"], "respuesta": "In the attic"}
+      ]
+    },
+    "reading": {
+      "texto": "Ben was going to study engineering, but a trip to the mountains changed everything. He was about to enrol when he discovered an old camera in his grandfather's attic. That day, he was to become a photographer, though nobody knew it yet. The exhibition that would make him famous was still ten years away. He was on the verge of signing the engineering papers when he decided to follow his dream instead.",
+      "preguntas": [
+        {"afirmacion": "Ben planned to study photography.", "respuesta": "false"},
+        {"afirmacion": "He found the camera before enrolling.", "respuesta": "true"},
+        {"afirmacion": "The famous exhibition happened one year later.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha C1-6 — Future in the Past",
+    "partes": [
+      {
+        "parte": "A — Completa con la forma correcta",
+        "ejercicios": [
+          {"n": 1, "texto": "He ___ (going to) study engineering, but he changed his mind."},
+          {"n": 2, "texto": "He was about ___ enrol when he found the camera. (imminent)"},
+          {"n": 3, "texto": "That camera was ___ change his life. (formal destiny)"},
+          {"n": 4, "texto": "He was on the verge of ___ (sign) the papers."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con la forma indicada",
+        "ejercicios": [
+          {"n": 5, "texto": "He planned to study engineering, but he didn't. → (was going to)"},
+          {"n": 6, "texto": "The camera later changed his life. → (was to)"},
+          {"n": 7, "texto": "She almost gave up, but she didn't. → (on the verge of)"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'He was about of enrolling when he found the camera.'"},
+          {"n": 9, "texto": "Corrige: 'The exhibition will to make him famous.' (visto desde el pasado)"},
+          {"n": 10, "texto": "Escribe 3 frases sobre un punto de inflexión de tu vida con was going to, was about to y would."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. was going to",
+      "2. to",
+      "3. to",
+      "4. signing",
+      "5. He was going to study engineering, but he didn't.",
+      "6. The camera was to change his life.",
+      "7. She was on the verge of giving up, but she didn't.",
+      "8. He was about to enrol when he found the camera.",
+      "9. The exhibition would make him famous.",
+      "10. Respuesta libre (ej. 'I was going to move abroad. I was about to sign the contract when I got another offer. That offer would change my career.')"
+    ]
+  }
+}

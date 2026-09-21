@@ -1,0 +1,155 @@
+{
+  "id": "a2-countables-some-any-01",
+  "nivel": "A2",
+  "arquetipo": "determinantes",
+  "tema": "Countables & Uncountables — Some, Any, Much, Many",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🍎", "palabra": "apple (countable)", "traduccion": "manzana (contable)"},
+    {"bandera": "🥚", "palabra": "egg (countable)", "traduccion": "huevo (contable)"},
+    {"bandera": "🍞", "palabra": "bread (uncountable)", "traduccion": "pan (incontable)"},
+    {"bandera": "🥛", "palabra": "milk (uncountable)", "traduccion": "leche (incontable)"},
+    {"bandera": "🧀", "palabra": "cheese (uncountable)", "traduccion": "queso (incontable)"},
+    {"bandera": "🍚", "palabra": "rice (uncountable)", "traduccion": "arroz (incontable)"},
+    {"bandera": "💧", "palabra": "water (uncountable)", "traduccion": "agua (incontable)"},
+    {"bandera": "☕", "palabra": "coffee (uncountable)", "traduccion": "café (incontable)"},
+    {"bandera": "🍬", "palabra": "sugar (uncountable)", "traduccion": "azúcar (incontable)"},
+    {"bandera": "🧂", "palabra": "salt (uncountable)", "traduccion": "sal (incontable)"},
+    {"bandera": "🍌", "palabra": "banana (countable)", "traduccion": "plátano (contable)"},
+    {"bandera": "🥕", "palabra": "carrot (countable)", "traduccion": "zanahoria (contable)"},
+    {"bandera": "🍊", "palabra": "orange (countable)", "traduccion": "naranja (contable)"},
+    {"bandera": "🥩", "palabra": "meat (uncountable)", "traduccion": "carne (incontable)"},
+    {"bandera": "🐟", "palabra": "fish (uncountable)", "traduccion": "pescado (incontable)"},
+    {"bandera": "🍫", "palabra": "chocolate (uncountable)", "traduccion": "chocolate (incontable)"},
+    {"bandera": "🧃", "palabra": "juice (uncountable)", "traduccion": "jugo (incontable)"},
+    {"bandera": "🥔", "palabra": "potato (countable)", "traduccion": "papa (contable)"},
+    {"bandera": "🍅", "palabra": "tomato (countable)", "traduccion": "tomate (contable)"},
+    {"bandera": "🧈", "palabra": "butter (uncountable)", "traduccion": "mantequilla (incontable)"},
+    {"bandera": "🍯", "palabra": "honey (uncountable)", "traduccion": "miel (incontable)"},
+    {"bandera": "🛒", "palabra": "shopping list", "traduccion": "lista de la compra"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Some things you can count, heroes — apples, eggs. Others flow like water and milk. Choose 'some', 'any', 'much' or 'many' wisely."},
+    {"personaje": "Ben", "linea": "I need some eggs and some milk for the cake. Are there any carrots?"},
+    {"personaje": "Kenji", "linea": "There are some carrots, but there isn't any rice. How much rice do we need?"},
+    {"personaje": "Sofía", "linea": "Not much. And how many tomatoes are there? I want to make a salad."},
+    {"personaje": "Abuela Carmen", "linea": "There are many tomatoes, dear. Take some honey too — there isn't much sugar in the house."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "There are some eggs in the fridge."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "There is some milk for the cake."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "We need some rice and some tomatoes."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "There are many apples on the table."},
+    {"id": "s5", "forma": "negativo", "oracion": "There isn't any rice."},
+    {"id": "s6", "forma": "negativo", "oracion": "There aren't any carrots."},
+    {"id": "s7", "forma": "negativo", "oracion": "There isn't much sugar in the house."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Is there any milk?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "How many tomatoes are there?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "How much rice do we need?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Is there any bread? Yes, there is."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are there any eggs? No, there aren't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "How much water is there? Not much."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "There isn't many milk in the fridge.",
+        "opcion_b": "There isn't much milk in the fridge.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Countable nouns (apples) use 'many' and 'how many'; uncountable nouns (milk, rice) use 'much' and 'how much'. 'Some' for affirmative, 'any' for negatives and questions.",
+      "tabla": {
+        "titulo": "Some / Any / Much / Many",
+        "encabezados": ["Word", "Use", "Example"],
+        "filas": [
+          ["some", "affirmative (+ & ?)", "There are some eggs. / Would you like some tea?"],
+          ["any", "negative & question", "There isn't any milk."],
+          ["many / how many", "countable", "How many apples?"],
+          ["much / how much", "uncountable", "How much rice?"]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "There isn't ___ milk in the fridge.", "opciones": ["many", "much", "some"], "respuesta": "much"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "How ___ tomatoes are there?", "opciones": ["much", "many", "any"], "respuesta": "many"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Are there ___ carrots?", "opciones": ["some", "much", "any"], "respuesta": "any"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "'Rice' is uncountable, so we say 'how much rice'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "We use 'any' in affirmative sentences.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "There are ___ eggs in the fridge. (affirmative)", "respuesta": "some"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "How ___ rice do we need? (uncountable)", "respuesta": "much"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["isn't", "There", "any", "bread", "."], "respuesta": "There isn't any bread."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "How much apples are there?", "respuesta": "How many apples are there?"},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "There is some milk.", "instruccion": "Make it negative.", "respuesta": "There isn't any milk."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "There are some carrots.", "instruccion": "Turn it into a question.", "respuesta": "Are there any carrots?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "What's in your fridge? (Answer with 'some' and 'any'.)", "respuesta": "There are some eggs and some cheese. There isn't any milk."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Let's make a cake! What do we need?",
+        "Kenji: We need some eggs, some milk and some sugar.",
+        "Ben: OK. Are there any eggs in the fridge?",
+        "Kenji: Yes, there are some. But there isn't much sugar.",
+        "Ben: How much sugar do we need?",
+        "Kenji: Two cups. And how many eggs? Three."
+      ],
+      "gaps": ["sugar", "Three"],
+      "comprension": [
+        {"pregunta": "Is there much sugar?", "opciones": ["Yes, a lot", "No, not much", "There isn't any"], "respuesta": "No, not much"},
+        {"pregunta": "How many eggs do they need?", "opciones": ["Two", "Three", "Four"], "respuesta": "Three"}
+      ]
+    },
+    "reading": {
+      "texto": "Today the friends want to make a cake. There are some eggs and some milk in the fridge. But there isn't much sugar, and there isn't any butter. There are many apples on the table, so they can make an apple cake. Kenji writes the shopping list: some sugar, some butter and some honey. How much honey? Just a little. The cake is going to be delicious!",
+      "preguntas": [
+        {"afirmacion": "There are some eggs in the fridge.", "respuesta": "true"},
+        {"afirmacion": "There is a lot of sugar.", "respuesta": "false"},
+        {"afirmacion": "They can make an apple cake.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha A2-8 — Countables: Some, Any, Much, Many",
+    "partes": [
+      {
+        "parte": "A — Clasifica: ¿contable (C) o incontable (U)?",
+        "ejercicios": [
+          {"n": 1, "texto": "rice / apple / milk / egg"},
+          {"n": 2, "texto": "Completa: There isn't ___ milk. (much/many)"},
+          {"n": 3, "texto": "Completa: How ___ tomatoes? (much/many)"},
+          {"n": 4, "texto": "Completa: There are ___ eggs. (some/any)"}
+        ]
+      },
+      {
+        "parte": "B — Escribe preguntas con how much / how many",
+        "ejercicios": [
+          {"n": 5, "texto": "(rice / we need) → ___"},
+          {"n": 6, "texto": "(tomatoes / there are) → ___"},
+          {"n": 7, "texto": "(water / there is) → ___"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'There isn't many milk.'"},
+          {"n": 9, "texto": "Corrige: 'Are there some carrots?'"},
+          {"n": 10, "texto": "Escribe tu lista de la compra: 3 cosas que hay (some) y 2 que no hay (any)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. rice: U / apple: C / milk: U / egg: C",
+      "2. much",
+      "3. many",
+      "4. some",
+      "5. How much rice do we need?",
+      "6. How many tomatoes are there?",
+      "7. How much water is there?",
+      "8. There isn't much milk.",
+      "9. Are there any carrots?",
+      "10. Respuesta libre (ej. 'There is some bread, some cheese and some milk. There isn't any butter or any juice.')"
+    ]
+  }
+}

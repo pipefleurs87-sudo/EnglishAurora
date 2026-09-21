@@ -1,0 +1,157 @@
+{
+  "id": "b1-will-vs-going-to-01",
+  "nivel": "B1",
+  "arquetipo": "tiempo_verbal",
+  "tema": "Future Decisions — Will vs Going To",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🤔", "palabra": "make a decision", "traduccion": "tomar una decisión"},
+    {"bandera": "📞", "palabra": "answer the phone", "traduccion": "contestar el teléfono"},
+    {"bandera": "🧳", "palabra": "pack the bags", "traduccion": "hacer las maletas"},
+    {"bandera": "🎟️", "palabra": "book tickets", "traduccion": "reservar billetes"},
+    {"bandera": "🤝", "palabra": "help a friend", "traduccion": "ayudar a un amigo"},
+    {"bandera": "🚪", "palabra": "open the door", "traduccion": "abrir la puerta"},
+    {"bandera": "💡", "palabra": "turn on the light", "traduccion": "encender la luz"},
+    {"bandera": "🍰", "palabra": "bake a cake", "traduccion": "hornear un pastel"},
+    {"bandera": "🌦️", "palabra": "weather forecast", "traduccion": "pronóstico del tiempo"},
+    {"bandera": "☔", "palabra": "take an umbrella", "traduccion": "llevar un paraguas"},
+    {"bandera": "🎯", "palabra": "plan", "traduccion": "plan"},
+    {"bandera": "⚡", "palabra": "instant decision", "traduccion": "decisión instantánea"},
+    {"bandera": "🔮", "palabra": "prediction", "traduccion": "predicción"},
+    {"bandera": "🙌", "palabra": "promise", "traduccion": "promesa"},
+    {"bandera": "🎓", "palabra": "study medicine", "traduccion": "estudiar medicina"},
+    {"bandera": "🏡", "palabra": "buy a house", "traduccion": "comprar una casa"},
+    {"bandera": "👀", "palabra": "watch out", "traduccion": "¡cuidado!"},
+    {"bandera": "🥛", "palabra": "spill the milk", "traduccion": "derramar la leche"},
+    {"bandera": "🧾", "palabra": "pay the bill", "traduccion": "pagar la cuenta"},
+    {"bandera": "🌟", "palabra": "be famous", "traduccion": "ser famoso"},
+    {"bandera": "🛒", "palabra": "do the shopping", "traduccion": "hacer la compra"},
+    {"bandera": "📅", "palabra": "arrange a meeting", "traduccion": "organizar una reunión"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Two futures, heroes: 'going to' for plans you already made, 'will' for decisions born in the moment and promises of the heart."},
+    {"personaje": "Ben", "linea": "The phone is ringing! I'll answer it. ... That was my boss — I'm going to work on Saturday."},
+    {"personaje": "Kenji", "linea": "Watch out! You're going to spill the milk. Don't worry, I'll clean it."},
+    {"personaje": "Sofía", "linea": "We've booked the tickets — we're going to travel in July. I think it will be the trip of our lives."},
+    {"personaje": "Abuela Carmen", "linea": "If you visit me, I'll bake your favourite cake. That's a promise, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "We're going to travel in July. (plan)"},
+    {"id": "s2", "forma": "afirmativo", "oracion": "I'll answer the phone. (instant decision)"},
+    {"id": "s3", "forma": "afirmativo", "oracion": "I think it will be a great trip. (prediction/opinion)"},
+    {"id": "s4", "forma": "afirmativo", "oracion": "Look at the clouds — it's going to rain. (evidence)"},
+    {"id": "s5", "forma": "negativo", "oracion": "I won't forget your birthday. (promise)"},
+    {"id": "s6", "forma": "negativo", "oracion": "We aren't going to stay long."},
+    {"id": "s7", "forma": "negativo", "oracion": "She won't be late, don't worry."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Will you help me with the bags?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What are you going to do this summer?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Will it rain tomorrow?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Will you come? Yes, I will."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Are you going to travel? No, I'm not."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Will she be late? No, she won't."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "— The phone is ringing! — I'm going to answer it.",
+        "opcion_b": "— The phone is ringing! — I'll answer it.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Going to: plans decided BEFORE speaking and predictions with present evidence. Will: instant decisions at the moment of speaking, promises, offers, and opinions about the future (I think / I hope / probably).",
+      "tabla": {
+        "titulo": "Will vs Going To",
+        "encabezados": ["Use", "Form", "Example"],
+        "filas": [
+          ["Plan (decided before)", "going to", "We're going to travel in July."],
+          ["Instant decision", "will", "I'll answer the phone."],
+          ["Promise / offer", "will / won't", "I'll help you. I won't forget."],
+          ["Prediction + evidence", "going to", "Look! It's going to rain."],
+          ["Prediction + opinion", "will", "I think it will be great."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "— The phone is ringing! — I ___ answer it.", "opciones": ["'ll", "'m going to", "going to"], "respuesta": "'ll"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "We've booked the tickets. We ___ travel in July.", "opciones": ["will", "are going to", "would"], "respuesta": "are going to"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "Watch out! You ___ spill the milk.", "opciones": ["will", "'re going to", "shall"], "respuesta": "'re going to"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For promises we normally use 'will'.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For plans made before speaking we normally use 'will'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I think it ___ (be) a great trip. (opinion)", "respuesta": "will be / 'll be"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "I ___ (not / forget) your birthday. I promise!", "respuesta": "won't forget / will not forget"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["going to", "are", "What", "you do", "this summer", "?"], "respuesta": "What are you going to do this summer?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "I will to help you with the bags.", "respuesta": "I will help you with the bags."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'll help you.", "instruccion": "Make it negative.", "respuesta": "I won't help you."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "She is going to study medicine.", "instruccion": "Turn it into a question.", "respuesta": "Is she going to study medicine?"},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Write one plan (going to), one promise (will) and one prediction (will/going to).", "respuesta": "I'm going to visit my grandmother. I'll call her every week. I think it will rain tomorrow."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Have you decided about the summer, Ben?",
+        "Ben: Yes! We're going to travel in July. We've already booked the tickets.",
+        "Sofía: Fantastic! I think it will be the trip of your lives.",
+        "Ben: I hope so. Oh — the phone is ringing. I'll answer it.",
+        "Sofía: Sure. And watch out with that coffee — you're going to spill it!",
+        "Ben: Oops, too late! Don't worry, I'll clean it.",
+        "Sofía: And I'll open the windows. Teamwork!"
+      ],
+      "gaps": ["tickets", "coffee"],
+      "comprension": [
+        {"pregunta": "What are Ben's plans for July?", "opciones": ["Work on Saturday", "Travel", "Study medicine"], "respuesta": "Travel"},
+        {"pregunta": "What does Ben spill?", "opciones": ["Milk", "Coffee", "Water"], "respuesta": "Coffee"}
+      ]
+    },
+    "reading": {
+      "texto": "The friends are planning the summer. Sofía and Ben have booked the tickets, so they are going to travel in July. Kenji thinks it will be the trip of their lives, and he promises he will take hundreds of photos. Abuela Carmen says she will bake a goodbye cake for them. Look at those dark clouds, though — it is going to rain before the party ends!",
+      "preguntas": [
+        {"afirmacion": "The trip in July is already decided.", "respuesta": "true"},
+        {"afirmacion": "Kenji promises to bake a cake.", "respuesta": "false"},
+        {"afirmacion": "There is evidence that it is going to rain.", "respuesta": "true"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B1-7 — Will vs Going To",
+    "partes": [
+      {
+        "parte": "A — Elige will o going to",
+        "ejercicios": [
+          {"n": 1, "texto": "— The phone is ringing! — I ___ answer it."},
+          {"n": 2, "texto": "We've booked the tickets. We ___ travel in July."},
+          {"n": 3, "texto": "Watch out! You ___ spill the milk."},
+          {"n": 4, "texto": "I think it ___ be a great trip. (opinion)"}
+        ]
+      },
+      {
+        "parte": "B — Clasifica: plan (P), decisión instantánea (D), promesa (PR) o predicción con evidencia (E)",
+        "ejercicios": [
+          {"n": 5, "texto": "'I'll help you with the bags.'"},
+          {"n": 6, "texto": "'We're going to buy a house next year.'"},
+          {"n": 7, "texto": "'Look at the clouds — it's going to rain.'"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'I will to help you.'"},
+          {"n": 9, "texto": "Corrige: 'I won't to forget your birthday.'"},
+          {"n": 10, "texto": "Escribe 4 frases: un plan, una promesa, una oferta y una predicción."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. 'll / will",
+      "2. are going to",
+      "3. 're going to / are going to",
+      "4. will / 'll",
+      "5. D (decisión instantánea / oferta)",
+      "6. P (plan)",
+      "7. E (predicción con evidencia)",
+      "8. I will help you.",
+      "9. I won't forget your birthday.",
+      "10. Respuesta libre (ej. 'I'm going to travel. I'll call you. I'll carry your bag. It will rain.')"
+    ]
+  }
+}

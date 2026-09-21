@@ -1,0 +1,157 @@
+{
+  "id": "c1-cleft-sentences-01",
+  "nivel": "C1",
+  "arquetipo": "estructuras_avanzadas",
+  "tema": "Cleft Sentences — It was... who/that & What... was",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🎉", "palabra": "surprise party", "traduccion": "fiesta sorpresa"},
+    {"bandera": "🎵", "palabra": "choose the music", "traduccion": "elegir la música"},
+    {"bandera": "📽️", "palabra": "photo projector", "traduccion": "proyector de fotos"},
+    {"bandera": "🫔", "palabra": "tamales", "traduccion": "tamales"},
+    {"bandera": "🎁", "palabra": "gifts", "traduccion": "regalos"},
+    {"bandera": "🎤", "palabra": "speech", "traduccion": "discurso"},
+    {"bandera": "🥂", "palabra": "toast", "traduccion": "brindis"},
+    {"bandera": "🕛", "palabra": "at midnight", "traduccion": "a medianoche"},
+    {"bandera": "😢", "palabra": "moved", "traduccion": "emocionado"},
+    {"bandera": "🤫", "palabra": "silence", "traduccion": "silencio"},
+    {"bandera": "🎯", "palabra": "emphasis", "traduccion": "énfasis"},
+    {"bandera": "🔦", "palabra": "highlight", "traduccion": "resaltar"},
+    {"bandera": "🧩", "palabra": "focus", "traduccion": "foco"},
+    {"bandera": "✍️", "palabra": "contribute", "traduccion": "aportar"},
+    {"bandera": "🍲", "palabra": "prepare food", "traduccion": "preparar comida"},
+    {"bandera": "🪑", "palabra": "arrange the chairs", "traduccion": "colocar las sillas"},
+    {"bandera": "💡", "palabra": "what matters", "traduccion": "lo que importa"},
+    {"bandera": "❤️", "palabra": "what we need", "traduccion": "lo que necesitamos"},
+    {"bandera": "🔑", "palabra": "the reason why", "traduccion": "la razón por la que"},
+    {"bandera": "📌", "palabra": "the thing is", "traduccion": "la cuestión es"},
+    {"bandera": "🎬", "palabra": "the moment when", "traduccion": "el momento en que"},
+    {"bandera": "🧑‍🤝‍🧑", "palabra": "the one who", "traduccion": "quien / el que"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "Sometimes a sentence needs a spotlight, heroes. Cleft sentences split the message to shine a light exactly where you want it."},
+    {"personaje": "Ben", "linea": "It was Kenji who organized the surprise party, not me. What I contributed was my old photo projector."},
+    {"personaje": "Kenji", "linea": "It was Sofía who chose the music. What Abuela Carmen prepared was a mountain of tamales!"},
+    {"personaje": "Sofía", "linea": "It wasn't the gifts that moved everyone — it was the speech that the old man gave at midnight."},
+    {"personaje": "Abuela Carmen", "linea": "What I remember now is the silence before the toast. It was that silence that said everything, mis héroes."}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "It was Kenji who organized the party."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "What Ben contributed was his projector."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "It was the speech that moved everyone."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "What we remember is the silence."},
+    {"id": "s5", "forma": "negativo", "oracion": "It wasn't the gifts that moved everyone."},
+    {"id": "s6", "forma": "negativo", "oracion": "It wasn't me who chose the music."},
+    {"id": "s7", "forma": "negativo", "oracion": "What I don't like is the noise."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Was it Kenji who organized the party?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What was it that moved everyone?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Was it the music that Sofía chose?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Was it Ben who brought the projector? Yes, it was."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was it the gifts that moved them? No, it wasn't."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Is it the silence that you remember? Yes, it is."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "It was Kenji which organized the party.",
+        "opcion_b": "It was Kenji who organized the party.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Cleft sentences create emphasis by splitting one idea in two: 'It + be + FOCUS + who/that...' (It was Kenji who...) or 'What-clause + be + FOCUS' (What we need is time). Use them to correct, contrast or highlight: 'It wasn't the gifts — it was the speech.'",
+      "tabla": {
+        "titulo": "Cleft Sentences",
+        "encabezados": ["Type", "Structure", "Example"],
+        "filas": [
+          ["It-cleft (person)", "It was + person + who/that", "It was Kenji who organized it."],
+          ["It-cleft (thing)", "It was + thing + that", "It was the speech that moved us."],
+          ["Wh-cleft", "What + clause + be + focus", "What we need is time."],
+          ["Correction", "It wasn't X... it was Y", "It wasn't the gifts; it was the speech."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ was Kenji who organized the party.", "opciones": ["It", "What", "There"], "respuesta": "It"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "___ we remember is the silence.", "opciones": ["What", "It", "That"], "respuesta": "What"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "It wasn't the gifts ___ moved everyone.", "opciones": ["that", "what", "who"], "respuesta": "that"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "Cleft sentences add emphasis by splitting one idea into two clauses.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "In it-clefts about people we use 'which'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "It was Sofía ___ chose the music. (person)", "respuesta": "who / that"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "What Abuela Carmen prepared ___ a mountain of tamales.", "respuesta": "was"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["who", "It was Kenji", "organized the party", "."], "respuesta": "It was Kenji who organized the party."},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "It was Kenji which organized the party.", "respuesta": "It was Kenji who organized the party."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "The speech moved everyone. (emphasize 'the speech')", "instruccion": "Rewrite as an it-cleft.", "respuesta": "It was the speech that moved everyone."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "We need time. (emphasize 'time')", "instruccion": "Rewrite as a wh-cleft.", "respuesta": "What we need is time."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Describe a memorable event using one it-cleft and one wh-cleft.", "respuesta": "It was my grandmother who taught me to cook. What I remember most is her kitchen in winter."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: The surprise party was perfect. Was it you who organized it, Ben?",
+        "Ben: No — it was Kenji who organized everything. I only brought my old projector.",
+        "Sofía: And the music?",
+        "Ben: It was me who chose it, actually. Do you liked it?",
+        "Sofía: I loved it! But it wasn't the gifts that moved me...",
+        "Ben: What was it, then?",
+        "Sofía: It was the speech that the old man gave at midnight.",
+        "Ben: You're right. What I'll always remember is the silence before the toast."
+      ],
+      "gaps": ["Kenji", "toast"],
+      "comprension": [
+        {"pregunta": "Who organized the party?", "opciones": ["Ben", "Kenji", "Sofía"], "respuesta": "Kenji"},
+        {"pregunta": "What moved Sofía most?", "opciones": ["The gifts", "The music", "The speech at midnight"], "respuesta": "The speech at midnight"}
+      ]
+    },
+    "reading": {
+      "texto": "It was Kenji who organized the surprise party, but it was Sofía who chose the music. What Ben contributed was his old photo projector, and what Abuela Carmen prepared was a mountain of tamales. It wasn't the gifts that moved everyone — it was the speech that the old man gave at midnight. What we all remember now is the silence before the toast, and it was that silence that said everything.",
+      "preguntas": [
+        {"afirmacion": "Ben organized the party.", "respuesta": "false"},
+        {"afirmacion": "Sofía chose the music.", "respuesta": "true"},
+        {"afirmacion": "The gifts moved everyone the most.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha C1-2 — Cleft Sentences",
+    "partes": [
+      {
+        "parte": "A — Completa con It o What",
+        "ejercicios": [
+          {"n": 1, "texto": "___ was Kenji who organized the party."},
+          {"n": 2, "texto": "___ we remember is the silence."},
+          {"n": 3, "texto": "___ wasn't the gifts that moved everyone."},
+          {"n": 4, "texto": "___ Ben contributed was his projector."}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con énfasis (cleft)",
+        "ejercicios": [
+          {"n": 5, "texto": "The speech moved everyone. → (it-cleft)"},
+          {"n": 6, "texto": "We need time. → (wh-cleft)"},
+          {"n": 7, "texto": "Sofía chose the music. → (it-cleft, enfatiza 'Sofía')"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'It was Kenji which organized the party.'"},
+          {"n": 9, "texto": "Corrige: 'What we need it is time.'"},
+          {"n": 10, "texto": "Escribe 3 frases hendidas sobre un evento memorable (2 it-clefts, 1 wh-cleft)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. It",
+      "2. What",
+      "3. It",
+      "4. What",
+      "5. It was the speech that moved everyone.",
+      "6. What we need is time.",
+      "7. It was Sofía who chose the music.",
+      "8. It was Kenji who organized the party.",
+      "9. What we need is time.",
+      "10. Respuesta libre (ej. 'It was my mother who called me. It was the news that changed everything. What I remember is her voice.')"
+    ]
+  }
+}

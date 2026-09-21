@@ -1,0 +1,156 @@
+{
+  "id": "b2-modals-deduction-past-01",
+  "nivel": "B2",
+  "arquetipo": "modales",
+  "tema": "Modals of Deduction — Past (Must Have, Can't Have, Might Have)",
+  "habilidades": ["grammar", "vocabulary", "listening", "reading", "speaking"],
+  "vocabulario": [
+    {"bandera": "🍰", "palabra": "the cake has disappeared", "traduccion": "el pastel ha desaparecido"},
+    {"bandera": "🐕", "palabra": "crumbs", "traduccion": "migas"},
+    {"bandera": "😇", "palabra": "innocent", "traduccion": "inocente"},
+    {"bandera": "😈", "palabra": "guilty", "traduccion": "culpable"},
+    {"bandera": "🕵️", "palabra": "mystery", "traduccion": "misterio"},
+    {"bandera": "🧩", "palabra": "solve", "traduccion": "resolver"},
+    {"bandera": "🚪", "palabra": "broken window", "traduccion": "ventana rota"},
+    {"bandera": "🌧️", "palabra": "wet footprints", "traduccion": "huellas mojadas"},
+    {"bandera": "🔦", "palabra": "flashlight", "traduccion": "linterna"},
+    {"bandera": "📱", "palabra": "missed call", "traduccion": "llamada perdida"},
+    {"bandera": "🧾", "palabra": "receipt", "traduccion": "recibo"},
+    {"bandera": "🎭", "palabra": "alibi", "traduccion": "coartada"},
+    {"bandera": "⏰", "palabra": "midnight", "traduccion": "medianoche"},
+    {"bandera": "🗝️", "palabra": "spare key", "traduccion": "llave de repuesto"},
+    {"bandera": "🍫", "palabra": "chocolate thief", "traduccion": "ladrón de chocolate"},
+    {"bandera": "😴", "palabra": "asleep", "traduccion": "dormido"},
+    {"bandera": "🌙", "palabra": "last night", "traduccion": "anoche"},
+    {"bandera": "🤫", "palabra": "suspicious", "traduccion": "sospechoso"},
+    {"bandera": "🔎", "palabra": "evidence", "traduccion": "evidencia"},
+    {"bandera": "💯", "palabra": "certain", "traduccion": "seguro"},
+    {"bandera": "🤔", "palabra": "perhaps", "traduccion": "quizás"},
+    {"bandera": "❌", "palabra": "impossible", "traduccion": "imposible"}
+  ],
+  "cast_dialogue": [
+    {"personaje": "Aurora", "linea": "The past leaves footprints, heroes. 'Must have' follows them with certainty, 'can't have' closes doors, and 'might have' keeps the mystery alive."},
+    {"personaje": "Ben", "linea": "The cake has disappeared and there are crumbs on the floor. The dog must have eaten it!"},
+    {"personaje": "Kenji", "linea": "It can't have been the dog — he was outside all afternoon. Look at these wet footprints..."},
+    {"personaje": "Sofía", "linea": "It might have been me... I was so hungry! But I can't have eaten the whole cake alone."},
+    {"personaje": "Abuela Carmen", "linea": "Someone must have used the spare key. Well, mis héroes, the thief must have been very happy — it was my best recipe!"}
+  ],
+  "banco_oraciones": [
+    {"id": "s1", "forma": "afirmativo", "oracion": "The dog must have eaten the cake."},
+    {"id": "s2", "forma": "afirmativo", "oracion": "Someone must have used the spare key."},
+    {"id": "s3", "forma": "afirmativo", "oracion": "It might have rained last night."},
+    {"id": "s4", "forma": "afirmativo", "oracion": "She could have left early."},
+    {"id": "s5", "forma": "negativo", "oracion": "It can't have been the dog — he was outside."},
+    {"id": "s6", "forma": "negativo", "oracion": "They can't have arrived yet."},
+    {"id": "s7", "forma": "negativo", "oracion": "He might not have seen the message."},
+    {"id": "s8", "forma": "interrogativo", "oracion": "Who could have opened the window?"},
+    {"id": "s9", "forma": "interrogativo", "oracion": "What must have happened here?"},
+    {"id": "s10", "forma": "interrogativo", "oracion": "Could she have forgotten the meeting?"},
+    {"id": "s11", "forma": "short_answer", "oracion": "Did he eat the cake? He must have."},
+    {"id": "s12", "forma": "short_answer", "oracion": "Was it the cat? It can't have been."},
+    {"id": "s13", "forma": "short_answer", "oracion": "Did she call? She might have — I had a missed call."}
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "The dog must has eaten the cake.",
+        "opcion_b": "The dog must have eaten the cake.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "Deductions about the PAST: must have + participle (almost certain it happened), can't have + participle (almost impossible), might/may/could have + participle (possibly). The modal never changes; the participle carries the tense.",
+      "tabla": {
+        "titulo": "Past Deductions",
+        "encabezados": ["Certainty", "Form", "Example"],
+        "filas": [
+          ["95% yes", "must have + participle", "The dog must have eaten it."],
+          ["95% no", "can't have + participle", "It can't have been the cat."],
+          ["50% possible", "might/may/could have + participle", "It might have rained."],
+          ["Structure", "modal + have + participle", "She must have left early."]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "There are crumbs everywhere. The dog ___ the cake.", "opciones": ["must have eaten", "must has eaten", "must have ate"], "respuesta": "must have eaten"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "He was outside all afternoon, so it ___ him.", "opciones": ["can't have been", "must have been", "might have been"], "respuesta": "can't have been"},
+        {"tipo": "multiple_choice", "etapa": "recognize", "pregunta": "I'm not sure, but it ___ rained last night. The ground is wet.", "opciones": ["must have", "might have", "can't have"], "respuesta": "might have"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "After 'must have' we use the past participle.", "respuesta": "true"},
+        {"tipo": "true_false", "etapa": "recognize", "afirmacion": "For negative past deduction we say 'mustn't have'.", "respuesta": "false"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "Someone must have ___ (use) the spare key.", "respuesta": "used"},
+        {"tipo": "gap_fill", "etapa": "manipulate", "texto": "They can't have ___ (arrive) yet — it's too early.", "respuesta": "arrived"},
+        {"tipo": "unscramble", "etapa": "manipulate", "palabras": ["have", "must", "What", "happened", "here", "?"], "respuesta": "What must have happened here?"},
+        {"tipo": "correct_mistake", "etapa": "manipulate", "texto_con_error": "The dog must has eaten the cake.", "respuesta": "The dog must have eaten the cake."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'm sure she left early.", "instruccion": "Rewrite with 'must have'.", "respuesta": "She must have left early."},
+        {"tipo": "transformation", "etapa": "transform", "oracion_base": "I'm sure it wasn't the cat.", "instruccion": "Rewrite with 'can't have'.", "respuesta": "It can't have been the cat."},
+        {"tipo": "short_answer_production", "etapa": "transform", "pregunta": "Your keys are not where you left them. Make three deductions: must have, can't have, might have.", "respuesta": "I must have left them at work. They can't have disappeared alone. My brother might have taken them."}
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Ben: Abuela Carmen! Your cake has disappeared!",
+        "Abuela Carmen: What?! It was on the table an hour ago.",
+        "Ben: The dog must have eaten it. Look at the crumbs!",
+        "Kenji: It can't have been the dog — he was outside with me all afternoon.",
+        "Sofía: Then who...? Wait. There are wet footprints near the window.",
+        "Kenji: Someone must have come in through the window.",
+        "Abuela Carmen: Or... it might have been me, sleepwalking again. Mystery solved, mis héroes!"
+      ],
+      "gaps": ["cake", "window"],
+      "comprension": [
+        {"pregunta": "Why can't it have been the dog?", "opciones": ["The dog was sleeping", "The dog was outside all afternoon", "The dog doesn't like cake"], "respuesta": "The dog was outside all afternoon"},
+        {"pregunta": "Who might have eaten the cake?", "opciones": ["Ben", "Abuela Carmen sleepwalking", "The cat"], "respuesta": "Abuela Carmen sleepwalking"}
+      ]
+    },
+    "reading": {
+      "texto": "The cake had disappeared from the table. 'The dog must have eaten it,' said Ben, pointing at the crumbs. 'It can't have been the dog — he was outside all afternoon,' replied Kenji. Sofía looked guilty: 'It might have been me... I was so hungry.' Everyone laughed. Someone might have saved a piece for Abuela Carmen, but nobody could remember. The mystery was never solved.",
+      "preguntas": [
+        {"afirmacion": "Ben blamed the dog.", "respuesta": "true"},
+        {"afirmacion": "The dog was inside all afternoon.", "respuesta": "false"},
+        {"afirmacion": "The mystery was solved in the end.", "respuesta": "false"}
+      ]
+    }
+  },
+  "ficha_pdf": {
+    "titulo": "Ficha B2-6 — Modals of Deduction: Past",
+    "partes": [
+      {
+        "parte": "A — Completa con must have, can't have o might have",
+        "ejercicios": [
+          {"n": 1, "texto": "There are crumbs everywhere. The dog ___ eaten the cake."},
+          {"n": 2, "texto": "He was outside all afternoon, so it ___ been him."},
+          {"n": 3, "texto": "The ground is wet. It ___ rained last night."},
+          {"n": 4, "texto": "Someone ___ used the spare key. (certainty)"}
+        ]
+      },
+      {
+        "parte": "B — Reescribe con un modal de deducción en pasado",
+        "ejercicios": [
+          {"n": 5, "texto": "I'm sure she left early. →"},
+          {"n": 6, "texto": "I'm sure it wasn't the cat. →"},
+          {"n": 7, "texto": "Perhaps he forgot the meeting. →"}
+        ]
+      },
+      {
+        "parte": "C — Corrige y produce",
+        "ejercicios": [
+          {"n": 8, "texto": "Corrige: 'The dog must has eaten the cake.'"},
+          {"n": 9, "texto": "Corrige: 'It mustn't have been the dog — he was outside.'"},
+          {"n": 10, "texto": "Escribe 3 deducciones sobre algo que pasó en tu casa esta mañana (must/can't/might have)."}
+        ]
+      }
+    ],
+    "answer_key": [
+      "1. must have",
+      "2. can't have",
+      "3. might have",
+      "4. must have",
+      "5. She must have left early.",
+      "6. It can't have been the cat.",
+      "7. He might have forgotten the meeting.",
+      "8. The dog must have eaten the cake.",
+      "9. It can't have been the dog — he was outside.",
+      "10. Respuesta libre (ej. 'Someone must have made coffee. The cat can't have opened the door. I might have left the window open.')"
+    ]
+  }
+}
