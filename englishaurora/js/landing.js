@@ -642,6 +642,7 @@ async function initStudentMode() {
 
 function applyStudentUI() {
   if (!isStudentMode || !studentData) return;
+  document.body.classList.add('student-mode');
   const firstName = (studentData.nombre || '').split(' ')[0] || 'Student';
 
   const taglineEl = $('hud-tagline');
@@ -665,7 +666,7 @@ function applyStudentUI() {
 
   const heroTitle = $('hero-title');
   if (heroTitle) {
-    heroTitle.innerHTML = `${firstName}'s Sky of English.<br><em>Every star ignited is mastery gained.</em>`;
+    heroTitle.style.display = 'none';
   }
   const heroSub = $('hero-sub');
   if (heroSub) {
