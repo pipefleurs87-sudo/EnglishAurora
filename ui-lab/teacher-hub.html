@@ -1639,7 +1639,7 @@ body.theme-glacial .aurora-layer {
         <img src="assets/aurora.png" id="cockpit-brand-avatar" alt="Aurora Mentor" onerror="handleImgError(this)" style="width:100%; height:100%; border-radius:12px; object-fit:cover;">
       </div>
       <div class="brand-titles">
-        <div class="brand-title" id="header-brand-title">TEACHER'S COCKPIT · FACULTY OBSERVATORY</div>
+        <div class="brand-title" id="header-brand-title">TEACHER'S COCKPIT · PROF. FELIPE FLOREZ</div>
         <div class="brand-subtitle">English Aurora · Faculty Astral Observatory</div>
       </div>
     </div>
@@ -1666,7 +1666,7 @@ body.theme-glacial .aurora-layer {
     <div class="cockpit-metrics">
       <div class="metric-pill">
         <span class="metric-label">Lead Instructor</span>
-        <span class="metric-val teal" id="header-instructor-name">Faculty Educator</span>
+        <span class="metric-val teal" id="header-instructor-name">Felipe Florez</span>
       </div>
       <div class="metric-pill">
         <span class="metric-label">Faculty Rank</span>
@@ -3580,7 +3580,7 @@ body.theme-glacial .aurora-layer {
     const rankEl = document.getElementById('header-faculty-rank');
     const badgeEl = document.getElementById('header-plan-badge');
     const instructorEl = document.getElementById('header-instructor-name');
-    const isFelipe = instructorEl ? instructorEl.textContent.includes('Felipe') : false;
+    const isFelipe = instructorEl ? (instructorEl.textContent.includes('Felipe') || instructorEl.textContent.includes('Florez')) : false;
 
     if (rankEl) {
       if (planName.includes('Starter')) {
@@ -3600,6 +3600,13 @@ body.theme-glacial .aurora-layer {
     }
   }
 
+  function isFelipeUser(user) {
+    if (!user) return false;
+    const em = (user.email || '').toLowerCase();
+    const dn = (user.displayName || '').toLowerCase();
+    return em.includes('felipe') || em.includes('pipe') || em.includes('moral') || dn.includes('felipe') || dn.includes('florez') || dn.includes('morales');
+  }
+
   async function updateFacultyAuthUI(user) {
     const btnLogin = document.getElementById('btn-faculty-login');
     const loggedBadge = document.getElementById('faculty-logged-badge');
@@ -3613,10 +3620,17 @@ body.theme-glacial .aurora-layer {
     if (user) {
       if (btnLogin) btnLogin.style.display = 'none';
       if (loggedBadge) loggedBadge.style.display = 'inline-flex';
-      const isFelipe = user.email && user.email.toLowerCase().includes('felipe');
-      const name = isFelipe ? 'Prof. Felipe Florez' : (user.displayName || user.email || 'Faculty Educator');
+      const isFelipe = isFelipeUser(user);
+      let cleanDisplayName = user.displayName ? user.displayName.replace(/morales/gi, 'Florez') : '';
+      if (isFelipe) {
+        cleanDisplayName = 'Felipe Florez';
+        if (user.updateProfile && user.displayName && /morales/i.test(user.displayName)) {
+          try { user.updateProfile({ displayName: 'Felipe Florez' }); } catch(e){}
+        }
+      }
+      const name = isFelipe ? 'Prof. Felipe Florez' : (cleanDisplayName || user.email || 'Faculty Educator');
       if (userNameEl) userNameEl.textContent = name;
-      if (headName) headName.textContent = name;
+      if (headName) headName.textContent = isFelipe ? 'Felipe Florez' : (cleanDisplayName || name);
       if (headTitle) headTitle.textContent = isFelipe ? "TEACHER'S COCKPIT · PROF. FELIPE FLOREZ" : `TEACHER'S COCKPIT · ${name.toUpperCase()}`;
       if (rosterTag) {
         rosterTag.textContent = 'Cloud Synced';
@@ -3808,6 +3822,14 @@ body.theme-glacial .aurora-layer {
   // --- FACULTY GATE SESSION CONTROLLER (ACCESS CONTROL) ---
   function checkFacultyGateSession() {
     const gate = document.getElementById('faculty-gate-overlay');
+    try {
+      ['englishaurora_faculty_session', 'englishaurora_faculty_user'].forEach(k => {
+        const val = localStorage.getItem(k);
+        if (val && /morales/i.test(val)) {
+          localStorage.setItem(k, val.replace(/morales/gi, 'Florez'));
+        }
+      });
+    } catch(e) {}
     const rawSession = localStorage.getItem('englishaurora_faculty_session');
 
     if (auth && auth.currentUser) {
@@ -4147,10 +4169,10 @@ body.theme-glacial .aurora-layer {
       // Listen to Auth State
       auth.onAuthStateChanged(user => {
         if (user) {
-          const isFelipe = user.email && user.email.toLowerCase().includes('felipe');
+          const isFelipe = isFelipeUser(user);
           const sessionUser = {
             email: user.email,
-            displayName: isFelipe ? 'Prof. Felipe Florez' : (user.displayName || user.email.split('@')[0]),
+            displayName: isFelipe ? 'Prof. Felipe Florez' : (user.displayName ? user.displayName.replace(/morales/gi, 'Florez') : user.email.split('@')[0]),
             uid: user.uid
           };
           localStorage.setItem('englishaurora_faculty_session', JSON.stringify(sessionUser));
@@ -4177,7 +4199,7 @@ body.theme-glacial .aurora-layer {
 
     unsubStudents = db.collection(COL_ESTUDIANTES).orderBy('nombre').onSnapshot(snap => {
       let docs = snap.docs;
-      const isFelipe = auth && auth.currentUser && auth.currentUser.email && auth.currentUser.email.toLowerCase().includes('felipe');
+      const isFelipe = auth && isFelipeUser(auth.currentUser);
       if (auth && auth.currentUser && !isFelipe) {
         // Multi-tenant roster isolation: educator sees their enrolled cohorts or demo students
         const myUid = auth.currentUser.uid;
@@ -4532,7 +4554,7 @@ body.theme-glacial .aurora-layer {
 
     // Check teacher subscription capacity
     const currentPlan = localStorage.getItem('englishaurora_faculty_plan') || 'Faculty Pro';
-    const isFelipe = auth && auth.currentUser && auth.currentUser.email && auth.currentUser.email.toLowerCase().includes('felipe');
+    const isFelipe = auth && isFelipeUser(auth.currentUser);
     let maxAllowed = 50;
     if (currentPlan.includes('Starter') || currentPlan.includes('trial')) maxAllowed = 15;
     else if (currentPlan.includes('Academy') || isFelipe) maxAllowed = 999999;
@@ -4545,7 +4567,7 @@ body.theme-glacial .aurora-layer {
 
     const token = nuevoToken();
     const teacherId = (auth && auth.currentUser) ? auth.currentUser.uid : 'felipe-florez-founder';
-    const teacherName = isFelipe ? 'Prof. Felipe Florez' : (auth && auth.currentUser ? (auth.currentUser.displayName || auth.currentUser.email || 'Faculty Educator') : 'Prof. Felipe Florez');
+    const teacherName = isFelipe ? 'Prof. Felipe Florez' : (auth && auth.currentUser ? (auth.currentUser.displayName ? auth.currentUser.displayName.replace(/morales/gi, 'Florez') : auth.currentUser.email || 'Faculty Educator') : 'Prof. Felipe Florez');
 
     const newStudent = {
       nombre,
