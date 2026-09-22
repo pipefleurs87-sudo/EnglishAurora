@@ -1935,6 +1935,64 @@ body.theme-glacial .aurora-layer {
                 <div class="cal-grid-7" id="dossier-cal-grid" style="margin-top:10px;">
                   <!-- Rendered dynamically by renderStudentCalendar() -->
                 </div>
+
+                <!-- ATTENDANCE SHEET & SESSION ADJUSTER -->
+                <div class="attendance-sheet-section" style="margin-top:20px; border-top:1px solid var(--line); padding-top:16px;">
+                  
+                  <!-- Quick Session Logger Toolbar (Log past / last week sessions) -->
+                  <div style="background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-bottom:14px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+                      <span style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--paper-muted); font-weight:700; letter-spacing:0.06em;">
+                        ✍️ Quick Session Logger · Log Past Dates / Last Week
+                      </span>
+                      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                        <button type="button" class="btn-redeem-mini" onclick="setAttendanceLoggerDate('today')">Today</button>
+                        <button type="button" class="btn-redeem-mini" onclick="setAttendanceLoggerDate('yesterday')">Yesterday</button>
+                        <button type="button" class="btn-redeem-mini" onclick="setAttendanceLoggerDate('last-week-mon')" title="Monday of last week">Last Wk Mon</button>
+                        <button type="button" class="btn-redeem-mini" onclick="setAttendanceLoggerDate('last-week-wed')" title="Wednesday of last week">Last Wk Wed</button>
+                        <button type="button" class="btn-redeem-mini" onclick="setAttendanceLoggerDate('last-week-fri')" title="Friday of last week">Last Wk Fri</button>
+                      </div>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                      <input type="date" id="sheet-input-date" class="form-ctrl" style="max-width:160px; font-family:var(--mono); font-size:12px;">
+                      <input type="text" id="sheet-input-topic" class="form-ctrl grow" placeholder="Lesson topic or focus (e.g. B1 Conditionals, Fluency Coaching)..." style="font-size:12px;">
+                      <button type="button" class="btn-redeem-mini" style="background:rgba(16,185,129,0.2); border-color:#10B981; color:#10B981; font-weight:700; padding:8px 16px; white-space:nowrap;" onclick="agregarClaseSheetHub()">
+                        ＋ Log Session (+1.0h)
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Attendance Sheet Table -->
+                  <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                      <span style="font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--paper); letter-spacing:0.05em;">
+                        📋 Attendance Sheet & Session Ledger (<span id="sheet-class-count">0</span> sessions)
+                      </span>
+                      <span style="font-size:11px; font-family:var(--mono); color:var(--paper-muted);" id="sheet-hours-summary">
+                        0h conducted / 24h contracted (24h balance)
+                      </span>
+                    </div>
+
+                    <div style="overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:rgba(0,0,0,0.15);">
+                      <table class="results-table-compact" style="width:100%; border-collapse:collapse;">
+                        <thead>
+                          <tr style="background:rgba(255,255,255,0.04);">
+                            <th style="width:45px; text-align:center;">#</th>
+                            <th style="width:160px;">Date</th>
+                            <th>Lesson / Topic Focus</th>
+                            <th style="width:90px; text-align:center;">Hours</th>
+                            <th style="width:110px; text-align:center;">Status</th>
+                            <th style="width:100px; text-align:center;">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody id="attendance-sheet-tbody">
+                          <tr><td colspan="6" style="text-align:center; color:var(--paper-muted); padding:16px;">No classes logged yet. Use the quick logger above or click calendar dates.</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
@@ -4497,6 +4555,153 @@ body.theme-glacial .aurora-layer {
         btnConf.style.color = 'var(--gold)';
       }
     }
+
+    renderAttendanceSheet();
+  }
+
+  function setAttendanceLoggerDate(preset) {
+    const input = document.getElementById('sheet-input-date');
+    if (!input) return;
+    const now = new Date();
+    let target = new Date();
+
+    if (preset === 'today') {
+      target = now;
+    } else if (preset === 'yesterday') {
+      target.setDate(now.getDate() - 1);
+    } else if (preset.startsWith('last-week-')) {
+      const dayOfWeek = (now.getDay() + 6) % 7; // 0=Mon, 6=Sun
+      const lastMon = new Date(now);
+      lastMon.setDate(now.getDate() - dayOfWeek - 7);
+      if (preset === 'last-week-mon') target = lastMon;
+      else if (preset === 'last-week-wed') { target = new Date(lastMon); target.setDate(lastMon.getDate() + 2); }
+      else if (preset === 'last-week-fri') { target = new Date(lastMon); target.setDate(lastMon.getDate() + 4); }
+    }
+    input.value = formatDateIso(target);
+    input.focus();
+  }
+
+  function renderAttendanceSheet() {
+    const tbody = document.getElementById('attendance-sheet-tbody');
+    const countEl = document.getElementById('sheet-class-count');
+    const summaryEl = document.getElementById('sheet-hours-summary');
+    if (!tbody || !selectedData) return;
+
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    const notas = selectedData.clases_notas || {};
+    const contracted = selectedData.horasContratadas || 0;
+    const given = clases.length;
+    const remaining = Math.max(0, contracted - given);
+
+    if (countEl) countEl.textContent = `${given}`;
+    if (summaryEl) {
+      summaryEl.innerHTML = `<b>${given}h</b> conducted / <b>${contracted}h</b> contracted (<b>${remaining}h</b> balance)`;
+    }
+
+    if (clases.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--paper-muted); padding:18px; font-family:var(--mono); font-size:12px;">No sessions logged yet. Select a date above to log sessions from today or last week.</td></tr>`;
+      return;
+    }
+
+    // Sort descending by date (most recent first)
+    const sorted = [...clases].sort().reverse();
+
+    tbody.innerHTML = sorted.map((iso, idx) => {
+      const sessionNum = sorted.length - idx;
+      let dateLabel = iso;
+      try {
+        const parts = iso.split('-');
+        const dObj = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        dateLabel = dObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      } catch(e){}
+
+      const topic = notas[iso] || '1-on-1 Personalized Session';
+
+      return `
+        <tr>
+          <td style="text-align:center; font-family:var(--mono); font-weight:700; color:var(--gold);">#${sessionNum}</td>
+          <td style="font-family:var(--mono); font-weight:600; color:var(--paper);">
+            ${dateLabel}
+          </td>
+          <td>
+            <span style="color:var(--paper);">${esc(topic)}</span>
+          </td>
+          <td style="text-align:center; font-family:var(--mono); color:var(--teal); font-weight:700;">1.0h</td>
+          <td style="text-align:center;">
+            <span class="tag ok" style="color:#10B981; border-color:#10B981; font-size:10px; padding:2px 6px;">✓ Conducted</span>
+          </td>
+          <td style="text-align:center;">
+            <button class="btn-redeem-mini" style="color:var(--ruby); border-color:rgba(225,29,72,0.4); padding:3px 8px; font-size:11px;" onclick="quitarClaseSheetHub('${iso}')" title="Undo and refund 1.0 hour">
+              🗑️ Refund
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  async function agregarClaseSheetHub() {
+    if (!selectedToken || !selectedData) {
+      showToast('Select a student first');
+      return;
+    }
+    const dateInput = document.getElementById('sheet-input-date');
+    const topicInput = document.getElementById('sheet-input-topic');
+    const dateVal = (dateInput ? dateInput.value : '').trim();
+    const topicVal = (topicInput ? topicInput.value : '').trim();
+
+    if (!dateVal) {
+      showToast('⚠️ Please select a date for the session');
+      if (dateInput) dateInput.focus();
+      return;
+    }
+
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    if (clases.includes(dateVal)) {
+      showToast(`⚠️ Session for ${dateVal} is already logged in the sheet`);
+      return;
+    }
+
+    clases.push(dateVal);
+    clases.sort();
+
+    const notas = Object.assign({}, selectedData.clases_notas || {});
+    if (topicVal) {
+      notas[dateVal] = topicVal;
+    }
+
+    selectedData.clases = clases;
+    selectedData.clases_notas = notas;
+    selectedData.horasDadas = clases.length;
+    selectedData.horasRestantes = Math.max(0, (selectedData.horasContratadas || 0) - clases.length);
+
+    if (topicInput) topicInput.value = '';
+
+    renderStudentCalendar();
+    selectStudentHub(selectedToken, false);
+    playDirectorChime(880);
+    showToast(`✨ Session on ${dateVal} added to attendance sheet (-1.0h)`);
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+          clases: clases,
+          clases_notas: notas,
+          horas_dadas: selectedData.horasDadas,
+          horas_restantes: selectedData.horasRestantes,
+          updated: new Date().toISOString()
+        }, { merge: true });
+      } catch (e) {
+        console.error('Error saving attendance session:', e);
+      }
+    }
+  }
+
+  async function quitarClaseSheetHub(dateStr) {
+    if (!selectedToken || !selectedData) return;
+    const conf = confirm(`¿Quitar la sesión del ${dateStr} de la planilla de ${selectedData.nombre}?\n\n• Se reembolsará 1.0 hora al saldo restante.`);
+    if (!conf) return;
+    await toggleAttendanceDateHub(dateStr);
   }
 
   function prevCalendarMonth() {
@@ -5225,6 +5430,10 @@ body.theme-glacial .aurora-layer {
   window.logTodayClassHub = logTodayClassHub;
   window.confirmarClaseRealizadaHub = confirmarClaseRealizadaHub;
   window.editarHorasEstudianteHub = editarHorasEstudianteHub;
+  window.setAttendanceLoggerDate = setAttendanceLoggerDate;
+  window.agregarClaseSheetHub = agregarClaseSheetHub;
+  window.quitarClaseSheetHub = quitarClaseSheetHub;
+  window.renderAttendanceSheet = renderAttendanceSheet;
   window.prevCalendarMonth = prevCalendarMonth;
   window.nextCalendarMonth = nextCalendarMonth;
   window.modoAsignarHub = modoAsignarHub;

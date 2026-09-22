@@ -284,20 +284,48 @@ function renderHorasCardBody(){
     `;
   }
 
-  const recentList = clases.slice().reverse().slice(0, 6);
+  const sortedClases = [...clases].sort().reverse();
   let listHtml = '';
-  if (recentList.length > 0) {
+  if (sortedClases.length > 0) {
+    const notas = EST.clases_notas || {};
     listHtml = `
-      <div style="margin-top:12px;">
-        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; letter-spacing:0.05em;">
-          Recent Completed Sessions:
+      <div style="margin-top:16px;">
+        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; letter-spacing:0.06em; font-weight:700;">
+          📋 Attendance Log & Completed Sessions (${sortedClases.length})
         </div>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
-          ${recentList.map(iso => `
-            <span class="tag ok" title="1.0 hr completed">
-              ✓ ${iso} (1.0h)
-            </span>
-          `).join('')}
+        <div style="overflow-x:auto; border:1px solid var(--line); border-radius:8px;">
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+            <thead>
+              <tr style="background:var(--paper); border-bottom:1px solid var(--line);">
+                <th style="padding:7px 10px; text-align:center; width:40px;">#</th>
+                <th style="padding:7px 10px; text-align:left; width:150px;">Date</th>
+                <th style="padding:7px 10px; text-align:left;">Topic / Focus</th>
+                <th style="padding:7px 10px; text-align:center; width:80px;">Hours</th>
+                <th style="padding:7px 10px; text-align:center; width:100px;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${sortedClases.map((iso, idx) => {
+                const num = sortedClases.length - idx;
+                let dateLabel = iso;
+                try {
+                  const parts = iso.split('-');
+                  const dObj = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+                  dateLabel = dObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+                } catch(e){}
+                const topic = notas[iso] || '1-on-1 Personalized Class Session';
+                return `
+                  <tr style="border-bottom:1px solid var(--line);">
+                    <td style="padding:8px 10px; text-align:center; font-family:var(--mono); font-weight:700; color:var(--gold);">#${num}</td>
+                    <td style="padding:8px 10px; font-family:var(--mono); font-weight:600;">${dateLabel}</td>
+                    <td style="padding:8px 10px; color:var(--ink);">${esc(topic)}</td>
+                    <td style="padding:8px 10px; text-align:center; font-family:var(--mono); color:#2E7D4F; font-weight:700;">1.0h</td>
+                    <td style="padding:8px 10px; text-align:center;"><span class="tag ok">✓ Conducted</span></td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
         </div>
       </div>
     `;
