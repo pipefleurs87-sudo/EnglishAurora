@@ -44,6 +44,15 @@ async function init(){
     EST = snap.data();
     render();
     cargarTareas(); cargarHistorial(); cargarComentarios();
+
+    // Sincronización en tiempo real de horas y clases impartidas
+    ref().onSnapshot(docSnap => {
+      if (docSnap && docSnap.exists) {
+        EST = docSnap.data();
+        const cont = document.getElementById('horasContenedor');
+        if (cont) cont.innerHTML = renderHorasCardBody();
+      }
+    });
   }catch(e){
     console.error(e);
     errorPage('Could not load classroom. Please check your internet connection and try again.');
@@ -63,6 +72,13 @@ function render(){
       <a class="btn" href="../index.html?t=${encodeURIComponent(token)}" style="background:var(--gold); color:#1B2A41; font-weight:700;">
         ✨ My 3D Progress Galaxy (English Aurora)
       </a>
+    </div>
+
+    <h2>⏱️ My Class Hours & Attendance</h2>
+    <div class="card" id="horasCard">
+      <div id="horasContenedor">
+        ${renderHorasCardBody()}
+      </div>
     </div>
 
     <h2>📌 Assigned Tasks</h2>
@@ -218,6 +234,120 @@ async function enviarComentario(){
     await ref().collection('comentarios').add({texto, autor:'estudiante', fecha: FV.serverTimestamp()});
     ta.value = ''; toast('Note sent'); cargarComentarios();
   }catch(e){ toast('Could not send note'); }
+// ---------- control de horas y confirmación de clase ----------
+function renderHorasCardBody(){
+  if(!EST) return '<div class="empty">Loading hours balance…</div>';
+
+  const tot = Number(EST.horas_contratadas) || 0;
+  const clases = Array.isArray(EST.clases) ? EST.clases : [];
+  const given = clases.length;
+  const rem = Math.max(0, tot - given);
+  const pct = tot > 0 ? Math.min(100, Math.round((given / tot) * 100)) : 0;
+
+  const remColor = rem <= 0 ? 'var(--red)' : rem <= 5 ? 'var(--gold)' : '#2E7D4F';
+  const barColor = rem <= 0 ? 'var(--red)' : rem <= 5 ? 'var(--gold)' : '#2E7D4F';
+
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isTodayConfirmed = clases.includes(todayStr);
+  const ackMap = EST.confirmaciones_estudiante || {};
+  const isAcked = !!ackMap[todayStr];
+
+  let todayBanner = '';
+  if (isTodayConfirmed) {
+    todayBanner = `
+      <div style="background:rgba(46,125,79,0.09); border:1.5px solid #2E7D4F; border-radius:8px; padding:12px 14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <div style="font-weight:700; color:#2E7D4F; display:flex; align-items:center; gap:6px;">
+            <span>✓</span> Today's Class Confirmed by Instructor (${todayStr})
+          </div>
+          <div style="font-size:13px; color:var(--muted); margin-top:3px;">
+            1.0 hour successfully completed and logged in your attendance record.
+          </div>
+        </div>
+        <div>
+          ${isAcked ? `
+            <span class="tag ok" style="padding:6px 12px; font-size:12px; font-weight:600;">✓ Verified by You</span>
+          ` : `
+            <button onclick="confirmarClaseEstudiante('${todayStr}')" style="background:#2E7D4F; color:#fff; font-size:13px; padding:8px 14px; cursor:pointer;">
+              ✓ Confirm Receipt of Class
+            </button>
+          `}
+        </div>
+      </div>
+    `;
+  } else {
+    todayBanner = `
+      <div style="background:var(--paper); border:1px dashed var(--line); border-radius:8px; padding:10px 14px; margin-bottom:14px; font-size:13px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+        <span>📅 No class logged yet today (${todayStr}).</span>
+        <span style="font-size:12px; font-family:var(--mono);">Next session will appear here once conducted.</span>
+      </div>
+    `;
+  }
+
+  const recentList = clases.slice().reverse().slice(0, 6);
+  let listHtml = '';
+  if (recentList.length > 0) {
+    listHtml = `
+      <div style="margin-top:12px;">
+        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; letter-spacing:0.05em;">
+          Recent Completed Sessions:
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          ${recentList.map(iso => `
+            <span class="tag ok" title="1.0 hr completed">
+              ✓ ${iso} (1.0h)
+            </span>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px; margin-bottom:14px;">
+      <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:12px; text-align:center;">
+        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:var(--ink);">${tot}h</div>
+        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Contracted Package</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:12px; text-align:center;">
+        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:var(--gold);">${given}h</div>
+        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Classes Completed</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:12px; text-align:center;">
+        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:${remColor};">${rem}h</div>
+        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Remaining Balance</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:12px; color:var(--muted); margin-bottom:5px;">
+        <span>Package Progress: <b>${pct}%</b></span>
+        <span><b>${rem}h</b> remaining</span>
+      </div>
+      <div style="background:var(--line); height:9px; border-radius:5px; overflow:hidden;">
+        <div style="background:${barColor}; width:${pct}%; height:100%; transition:width 0.5s ease;"></div>
+      </div>
+    </div>
+
+    ${todayBanner}
+    ${listHtml}
+  `;
+}
+
+async function confirmarClaseEstudiante(dateStr){
+  if(!dateStr) return;
+  try{
+    const ackMap = Object.assign({}, EST.confirmaciones_estudiante || {});
+    ackMap[dateStr] = new Date().toISOString();
+    await ref().set({ confirmaciones_estudiante: ackMap }, { merge: true });
+    EST.confirmaciones_estudiante = ackMap;
+    toast('✨ Class confirmed! Thank you for learning with us today.');
+    const cont = document.getElementById('horasContenedor');
+    if (cont) cont.innerHTML = renderHorasCardBody();
+  }catch(e){
+    console.error('Error confirming class:', e);
+    toast('Could not save confirmation. Please check connection.');
+  }
 }
 
 init();

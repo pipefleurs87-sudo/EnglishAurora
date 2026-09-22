@@ -1860,6 +1860,9 @@ body.theme-glacial .aurora-layer {
             <button class="header-action-btn" onclick="abrirPortalEstudiante()" title="Open student portal in new tab">
               <span>🔗</span> Student Portal
             </button>
+            <button class="header-action-btn" onclick="editarHorasEstudianteHub()" title="Adjust or add contracted hours package">
+              <span>⏱️</span> Adjust Hours
+            </button>
             <button class="header-action-btn" style="color:var(--ruby); border-color:rgba(225,29,72,0.3);" onclick="borrarEstudianteDoc()" title="Delete student from Firestore">
               <span>🗑️</span> Remove
             </button>
@@ -1867,9 +1870,9 @@ body.theme-glacial .aurora-layer {
 
           <!-- Live Metrics Grid -->
           <div class="dossier-metrics-grid">
-            <div class="dossier-stat-box">
+            <div class="dossier-stat-box" onclick="editarHorasEstudianteHub()" style="cursor:pointer;" title="Click to adjust contracted hours package">
               <div class="dossier-stat-num" id="dossier-contracted-hours">0h</div>
-              <div class="dossier-stat-desc">Contracted Hours</div>
+              <div class="dossier-stat-desc">Contracted Hours ✏️</div>
             </div>
             <div class="dossier-stat-box">
               <div class="dossier-stat-num" id="dossier-completed-classes">0</div>
@@ -1924,7 +1927,9 @@ body.theme-glacial .aurora-layer {
                     <button class="cal-nav-btn" onclick="prevCalendarMonth()">‹</button>
                     <span id="dossier-cal-month-title" style="min-width:110px; text-align:center;">August 2026</span>
                     <button class="cal-nav-btn" onclick="nextCalendarMonth()">›</button>
-                    <button class="btn-redeem-mini" style="margin-left:8px; background:var(--gold-dim); border-color:var(--gold); color:var(--gold);" onclick="logTodayClassHub()">✓ Log Today</button>
+                    <button class="btn-redeem-mini" id="btn-confirm-class" style="margin-left:8px; background:rgba(16,185,129,0.18); border-color:#10B981; color:#10B981; font-weight:700;" onclick="confirmarClaseRealizadaHub()" title="Check and confirm class completed today (+1 hr conducted)">
+                      ✓ Confirm Class (+1 hr)
+                    </button>
                   </div>
                 </div>
                 <div class="cal-grid-7" id="dossier-cal-grid" style="margin-top:10px;">
@@ -4476,6 +4481,22 @@ body.theme-glacial .aurora-layer {
     }
 
     grid.innerHTML = html;
+
+    const btnConf = document.getElementById('btn-confirm-class');
+    if (btnConf) {
+      const isTodayLogged = studentClases.has(todayStr);
+      if (isTodayLogged) {
+        btnConf.innerHTML = '✓ Today Confirmed (Tap to Unlog)';
+        btnConf.style.background = 'rgba(16, 185, 129, 0.25)';
+        btnConf.style.borderColor = '#10B981';
+        btnConf.style.color = '#10B981';
+      } else {
+        btnConf.innerHTML = '✓ Confirm Class (+1 hr)';
+        btnConf.style.background = 'rgba(217, 119, 6, 0.2)';
+        btnConf.style.borderColor = 'var(--gold)';
+        btnConf.style.color = 'var(--gold)';
+      }
+    }
   }
 
   function prevCalendarMonth() {
@@ -4533,6 +4554,98 @@ body.theme-glacial .aurora-layer {
     }
     const todayStr = formatDateIso(new Date());
     await toggleAttendanceDateHub(todayStr);
+  }
+
+  // --- CONFIRMAR CLASE CON BOTÓN CHECK (CONSECUTION DE CLASE) ---
+  async function confirmarClaseRealizadaHub() {
+    if (!selectedToken || !selectedData) {
+      showToast('Select a student first');
+      return;
+    }
+    const todayStr = formatDateIso(new Date());
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    const yaRegistrada = clases.includes(todayStr);
+
+    if (yaRegistrada) {
+      const resp = confirm(`La clase de hoy (${todayStr}) ya fue registrada y confirmada para ${selectedData.nombre}.\n\n¿Deseas desmarcarla (+1.0 hr de reembolso al saldo)?`);
+      if (resp) {
+        await toggleAttendanceDateHub(todayStr);
+      }
+      return;
+    }
+
+    const conf = confirm(`¿Confirmar la correcta consecución de la clase de hoy (${todayStr}) con ${selectedData.nombre}?\n\n• Se registrará 1.0 hora impartida.\n• Saldo restante: ${Math.max(0, (selectedData.horasRestantes || 1) - 1)} horas.`);
+    if (!conf) return;
+
+    await toggleAttendanceDateHub(todayStr);
+    playDirectorChime(880);
+    showToast(`✨ ¡Clase de hoy confirmada con éxito para ${selectedData.nombre}!`);
+  }
+
+  // --- ADJUST CONTRACTED HOURS PACKAGE ---
+  async function editarHorasEstudianteHub() {
+    if (!selectedToken || !selectedData) {
+      showToast('Select a student first');
+      return;
+    }
+    const current = selectedData.horasContratadas || 0;
+    const clases = Array.isArray(selectedData.clases) ? selectedData.clases : [];
+    const given = clases.length;
+    const resp = prompt(
+      `⏱️ Control de Horas · ${selectedData.nombre}\n\n` +
+      `• Horas contratadas actuales: ${current}h\n` +
+      `• Clases completadas: ${given}h\n` +
+      `• Horas restantes actuales: ${selectedData.horasRestantes}h\n\n` +
+      `Ingresa el nuevo total de horas contratadas (ej. 24):`,
+      current === 0 ? 24 : current
+    );
+
+    if (resp === null) return; // Cancelado
+    const newHours = parseFloat(resp.trim());
+    if (isNaN(newHours) || newHours < 0) {
+      showToast('⚠️ Por favor ingresa un número de horas válido');
+      return;
+    }
+
+    const newRemaining = Math.max(0, newHours - given);
+    selectedData.horasContratadas = newHours;
+    selectedData.horasRestantes = newRemaining;
+
+    // Actualizar UI del dossier
+    const dCont = document.getElementById('dossier-contracted-hours');
+    const dRem = document.getElementById('dossier-remaining-hours');
+    const modHours = document.getElementById('mod-summary-hours');
+    if (dCont) dCont.textContent = `${newHours}h`;
+    if (dRem) {
+      dRem.textContent = `${newRemaining}h`;
+      dRem.style.color = newRemaining <= 5 ? 'var(--ruby)' : newRemaining <= 15 ? 'var(--gold)' : 'var(--teal)';
+    }
+    if (modHours) {
+      modHours.textContent = `${given}h / ${newHours}h logged (${newRemaining}h remaining)`;
+    }
+
+    renderStudentsRoster();
+    updateTab6HoursLedger();
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+          horas_contratadas: newHours,
+          horas_restantes: newRemaining,
+          updated: new Date().toISOString()
+        }, { merge: true });
+        playDirectorChime(660);
+        showToast(`✨ ¡Paquete de ${selectedData.nombre} actualizado a ${newHours}h!`);
+      } catch (e) {
+        console.error('Error saving contracted hours:', e);
+        showToast('⚠️ Error al sincronizar con Firestore');
+      }
+    } else {
+      try {
+        localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+      } catch (e) {}
+      showToast(`Guardado localmente (${newHours}h)`);
+    }
   }
 
   // --- ENROLL NEW STUDENT ---
@@ -5110,6 +5223,8 @@ body.theme-glacial .aurora-layer {
   window.borrarEstudianteDoc = borrarEstudianteDoc;
   window.toggleAttendanceDateHub = toggleAttendanceDateHub;
   window.logTodayClassHub = logTodayClassHub;
+  window.confirmarClaseRealizadaHub = confirmarClaseRealizadaHub;
+  window.editarHorasEstudianteHub = editarHorasEstudianteHub;
   window.prevCalendarMonth = prevCalendarMonth;
   window.nextCalendarMonth = nextCalendarMonth;
   window.modoAsignarHub = modoAsignarHub;
