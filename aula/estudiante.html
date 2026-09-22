@@ -234,6 +234,8 @@ async function enviarComentario(){
     await ref().collection('comentarios').add({texto, autor:'estudiante', fecha: FV.serverTimestamp()});
     ta.value = ''; toast('Note sent'); cargarComentarios();
   }catch(e){ toast('Could not send note'); }
+}
+
 // ---------- control de horas y confirmación de clase ----------
 function renderHorasCardBody(){
   if(!EST) return '<div class="empty">Loading hours balance…</div>';
