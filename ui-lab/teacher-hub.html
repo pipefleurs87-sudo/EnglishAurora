@@ -1954,10 +1954,21 @@ body.theme-glacial .aurora-layer {
                       </div>
                     </div>
                     <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
-                      <input type="date" id="sheet-input-date" class="form-ctrl" style="max-width:160px; font-family:var(--mono); font-size:12px;">
+                      <input type="date" id="sheet-input-date" class="form-ctrl" style="max-width:145px; font-family:var(--mono); font-size:12px;">
+                      <div style="display:flex; align-items:center; gap:4px; background:rgba(0,0,0,0.25); border:1px solid var(--line); border-radius:6px; padding:2px 8px;">
+                        <span style="font-family:var(--mono); font-size:11px; color:var(--paper-muted); text-transform:uppercase;">Duration:</span>
+                        <select id="sheet-input-duration" style="background:transparent; border:none; color:var(--gold); font-family:var(--mono); font-size:12px; font-weight:700; cursor:pointer; outline:none;" title="Session Duration">
+                          <option value="1" style="background:var(--ink); color:var(--paper);">1.0 hr</option>
+                          <option value="1.5" style="background:var(--ink); color:var(--paper);">1.5 hrs</option>
+                          <option value="2" selected style="background:var(--ink); color:var(--gold);">2.0 hrs</option>
+                          <option value="2.5" style="background:var(--ink); color:var(--paper);">2.5 hrs</option>
+                          <option value="3" style="background:var(--ink); color:var(--paper);">3.0 hrs</option>
+                          <option value="4" style="background:var(--ink); color:var(--paper);">4.0 hrs</option>
+                        </select>
+                      </div>
                       <input type="text" id="sheet-input-topic" class="form-ctrl grow" placeholder="Lesson topic or focus (e.g. B1 Conditionals, Fluency Coaching)..." style="font-size:12px;">
                       <button type="button" class="btn-redeem-mini" style="background:rgba(16,185,129,0.2); border-color:#10B981; color:#10B981; font-weight:700; padding:8px 16px; white-space:nowrap;" onclick="agregarClaseSheetHub()">
-                        ＋ Log Session (+1.0h)
+                        ＋ Log Session
                       </button>
                     </div>
                   </div>
@@ -1968,9 +1979,14 @@ body.theme-glacial .aurora-layer {
                       <span style="font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--paper); letter-spacing:0.05em;">
                         📋 Attendance Sheet & Session Ledger (<span id="sheet-class-count">0</span> sessions)
                       </span>
-                      <span style="font-size:11px; font-family:var(--mono); color:var(--paper-muted);" id="sheet-hours-summary">
-                        0h conducted / 24h contracted (24h balance)
-                      </span>
+                      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                        <button type="button" class="btn-redeem-mini" onclick="setAllSessionsDurationHub(2)" style="font-size:11px; padding:3px 8px; border-color:var(--gold); color:var(--gold); font-weight:600;" title="Set all logged sessions for this student to 2.0 hours each">
+                          ⚡ Set all to 2.0h
+                        </button>
+                        <span style="font-size:11px; font-family:var(--mono); color:var(--paper-muted);" id="sheet-hours-summary">
+                          0h conducted / 24h contracted (24h balance)
+                        </span>
+                      </div>
                     </div>
 
                     <div style="overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:rgba(0,0,0,0.15);">
@@ -4276,8 +4292,14 @@ body.theme-glacial .aurora-layer {
         const x = d.data() || {};
         const contracted = Number(x.horas_contratadas) || 0;
         const clases = Array.isArray(x.clases) ? x.clases : [];
-        const given = clases.length;
-        const remaining = Math.max(0, contracted - given);
+        const horasMap = x.clases_horas || {};
+        let given = 0;
+        for (const c of clases) {
+          const h = Number(horasMap[c]);
+          given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+        }
+        given = Math.round(given * 10) / 10;
+        const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
         return {
           id: d.id,
           nombre: x.nombre || '(Unnamed)',
@@ -4287,6 +4309,8 @@ body.theme-glacial .aurora-layer {
           horasDadas: given,
           horasRestantes: remaining,
           clases: clases,
+          clases_notas: x.clases_notas || {},
+          clases_horas: horasMap,
           fecha_alta: x.fecha_alta,
           data: x
         };
@@ -4513,7 +4537,9 @@ body.theme-glacial .aurora-layer {
 
     const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
     const todayStr = formatDateIso(new Date());
-    const studentClases = new Set(selectedData.clases || []);
+    const allClases = Array.isArray(selectedData.clases) ? selectedData.clases : [];
+    const studentDatesSet = new Set(allClases.map(c => c.split('#')[0]));
+    const horasMap = selectedData.clases_horas || {};
 
     // Leading blanks
     for (let i = 0; i < startDayIndex; i++) {
@@ -4526,7 +4552,7 @@ body.theme-glacial .aurora-layer {
       const dateStr = formatDateIso(dateObj);
       const isToday = dateStr === todayStr;
       const isPast = dateStr <= todayStr;
-      const hasClass = studentClases.has(dateStr);
+      const hasClass = studentDatesSet.has(dateStr);
 
       const cellClass = [
         'cal-cell',
@@ -4535,21 +4561,34 @@ body.theme-glacial .aurora-layer {
         !isPast ? 'future' : ''
       ].filter(Boolean).join(' ');
 
-      html += `<div class="${cellClass}" onclick="toggleAttendanceDateHub('${dateStr}')" title="${dateStr}${hasClass ? ' (1.0 hr Logged)' : ''}">${day}</div>`;
+      let titleTip = dateStr;
+      if (hasClass) {
+        const matches = allClases.filter(c => c.split('#')[0] === dateStr);
+        let hTotal = 0;
+        matches.forEach(k => {
+          const h = Number(horasMap[k]);
+          hTotal += (h && !isNaN(h) && h > 0) ? h : 1.0;
+        });
+        titleTip += ` (${hTotal.toFixed(1)} hrs in ${matches.length} session${matches.length > 1 ? 's' : ''})`;
+      }
+
+      html += `<div class="${cellClass}" onclick="toggleAttendanceDateHub('${dateStr}')" title="${titleTip}">${day}</div>`;
     }
 
     grid.innerHTML = html;
 
     const btnConf = document.getElementById('btn-confirm-class');
     if (btnConf) {
-      const isTodayLogged = studentClases.has(todayStr);
+      const isTodayLogged = studentDatesSet.has(todayStr);
       if (isTodayLogged) {
         btnConf.innerHTML = '✓ Today Confirmed (Tap to Unlog)';
         btnConf.style.background = 'rgba(16, 185, 129, 0.25)';
         btnConf.style.borderColor = '#10B981';
         btnConf.style.color = '#10B981';
       } else {
-        btnConf.innerHTML = '✓ Confirm Class (+1 hr)';
+        const durInput = document.getElementById('sheet-input-duration');
+        const defaultH = durInput ? durInput.value : '2.0';
+        btnConf.innerHTML = `✓ Confirm Class (+${parseFloat(defaultH).toFixed(1)}h)`;
         btnConf.style.background = 'rgba(217, 119, 6, 0.2)';
         btnConf.style.borderColor = 'var(--gold)';
         btnConf.style.color = 'var(--gold)';
@@ -4589,13 +4628,20 @@ body.theme-glacial .aurora-layer {
 
     const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
     const notas = selectedData.clases_notas || {};
+    const horasMap = selectedData.clases_horas || {};
     const contracted = selectedData.horasContratadas || 0;
-    const given = clases.length;
-    const remaining = Math.max(0, contracted - given);
 
-    if (countEl) countEl.textContent = `${given}`;
+    let given = 0;
+    for (const c of clases) {
+      const h = Number(horasMap[c]);
+      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+    }
+    given = Math.round(given * 10) / 10;
+    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
+
+    if (countEl) countEl.textContent = `${clases.length}`;
     if (summaryEl) {
-      summaryEl.innerHTML = `<b>${given}h</b> conducted / <b>${contracted}h</b> contracted (<b>${remaining}h</b> balance)`;
+      summaryEl.innerHTML = `<b>${given.toFixed(1)}h</b> conducted in <b>${clases.length}</b> session${clases.length !== 1 ? 's' : ''} / <b>${contracted}h</b> contracted (<b>${remaining.toFixed(1)}h</b> balance)`;
     }
 
     if (clases.length === 0) {
@@ -4603,35 +4649,47 @@ body.theme-glacial .aurora-layer {
       return;
     }
 
-    // Sort descending by date (most recent first)
+    // Sort descending by date/key (most recent first)
     const sorted = [...clases].sort().reverse();
 
-    tbody.innerHTML = sorted.map((iso, idx) => {
+    tbody.innerHTML = sorted.map((sessionKey, idx) => {
       const sessionNum = sorted.length - idx;
-      let dateLabel = iso;
+      const baseDate = sessionKey.split('#')[0];
+      const sessionPart = sessionKey.includes('#') ? ` (Session #${sessionKey.split('#')[1]})` : '';
+      let dateLabel = baseDate;
       try {
-        const parts = iso.split('-');
+        const parts = baseDate.split('-');
         const dObj = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
         dateLabel = dObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
       } catch(e){}
 
-      const topic = notas[iso] || '1-on-1 Personalized Session';
+      const topic = notas[sessionKey] || '1-on-1 Personalized Session';
+      const dur = Number(horasMap[sessionKey]) || 1.0;
+
+      const durationOptions = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0].map(val => {
+        const sel = Math.abs(dur - val) < 0.01 ? 'selected' : '';
+        return `<option value="${val}" ${sel} style="background:var(--ink); color:var(--paper);">${val.toFixed(1)}h</option>`;
+      }).join('');
 
       return `
         <tr>
           <td style="text-align:center; font-family:var(--mono); font-weight:700; color:var(--gold);">#${sessionNum}</td>
           <td style="font-family:var(--mono); font-weight:600; color:var(--paper);">
-            ${dateLabel}
+            ${dateLabel}${sessionPart ? `<span style="font-size:10px; color:var(--paper-muted); display:block;">${sessionPart}</span>` : ''}
           </td>
           <td>
             <span style="color:var(--paper);">${esc(topic)}</span>
           </td>
-          <td style="text-align:center; font-family:var(--mono); color:var(--teal); font-weight:700;">1.0h</td>
+          <td style="text-align:center;">
+            <select class="form-ctrl" style="padding:2px 6px; font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); background:rgba(0,0,0,0.3); border:1px solid var(--line); border-radius:4px; cursor:pointer;" onchange="cambiarHorasClaseSheetHub('${sessionKey}', this.value)" title="Change duration for this session">
+              ${durationOptions}
+            </select>
+          </td>
           <td style="text-align:center;">
             <span class="tag ok" style="color:#10B981; border-color:#10B981; font-size:10px; padding:2px 6px;">✓ Conducted</span>
           </td>
           <td style="text-align:center;">
-            <button class="btn-redeem-mini" style="color:var(--ruby); border-color:rgba(225,29,72,0.4); padding:3px 8px; font-size:11px;" onclick="quitarClaseSheetHub('${iso}')" title="Undo and refund 1.0 hour">
+            <button class="btn-redeem-mini" style="color:var(--ruby); border-color:rgba(225,29,72,0.4); padding:3px 8px; font-size:11px;" onclick="quitarClaseSheetHub('${sessionKey}')" title="Undo and refund ${dur.toFixed(1)} hour(s)">
               🗑️ Refund
             </button>
           </td>
@@ -4647,8 +4705,10 @@ body.theme-glacial .aurora-layer {
     }
     const dateInput = document.getElementById('sheet-input-date');
     const topicInput = document.getElementById('sheet-input-topic');
+    const durInput = document.getElementById('sheet-input-duration');
     const dateVal = (dateInput ? dateInput.value : '').trim();
     const topicVal = (topicInput ? topicInput.value : '').trim();
+    const durVal = parseFloat(durInput ? durInput.value : '2.0') || 2.0;
 
     if (!dateVal) {
       showToast('⚠️ Please select a date for the session');
@@ -4657,38 +4717,57 @@ body.theme-glacial .aurora-layer {
     }
 
     const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
-    if (clases.includes(dateVal)) {
-      showToast(`⚠️ Session for ${dateVal} is already logged in the sheet`);
-      return;
+    let sessionKey = dateVal;
+    if (clases.includes(sessionKey)) {
+      let counter = 2;
+      while (clases.includes(`${dateVal}#${counter}`)) {
+        counter++;
+      }
+      sessionKey = `${dateVal}#${counter}`;
     }
 
-    clases.push(dateVal);
+    clases.push(sessionKey);
     clases.sort();
 
     const notas = Object.assign({}, selectedData.clases_notas || {});
     if (topicVal) {
-      notas[dateVal] = topicVal;
+      notas[sessionKey] = topicVal;
     }
+
+    const horasMap = Object.assign({}, selectedData.clases_horas || {});
+    horasMap[sessionKey] = durVal;
+
+    let given = 0;
+    for (const c of clases) {
+      const h = Number(horasMap[c]);
+      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+    }
+    given = Math.round(given * 10) / 10;
+    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
 
     selectedData.clases = clases;
     selectedData.clases_notas = notas;
-    selectedData.horasDadas = clases.length;
-    selectedData.horasRestantes = Math.max(0, (selectedData.horasContratadas || 0) - clases.length);
+    selectedData.clases_horas = horasMap;
+    selectedData.horasDadas = given;
+    selectedData.horasRestantes = remaining;
 
     if (topicInput) topicInput.value = '';
 
     renderStudentCalendar();
     selectStudentHub(selectedToken, false);
+    renderStudentsRoster();
+    updateTab6HoursLedger();
     playDirectorChime(880);
-    showToast(`✨ Session on ${dateVal} added to attendance sheet (-1.0h)`);
+    showToast(`✨ Session on ${dateVal} logged (-${durVal.toFixed(1)}h)`);
 
     if (db && cloudMode) {
       try {
         await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
           clases: clases,
           clases_notas: notas,
-          horas_dadas: selectedData.horasDadas,
-          horas_restantes: selectedData.horasRestantes,
+          clases_horas: horasMap,
+          horas_dadas: given,
+          horas_restantes: remaining,
           updated: new Date().toISOString()
         }, { merge: true });
       } catch (e) {
@@ -4697,11 +4776,139 @@ body.theme-glacial .aurora-layer {
     }
   }
 
-  async function quitarClaseSheetHub(dateStr) {
+  async function cambiarHorasClaseSheetHub(sessionKey, newHoursVal) {
     if (!selectedToken || !selectedData) return;
-    const conf = confirm(`¿Quitar la sesión del ${dateStr} de la planilla de ${selectedData.nombre}?\n\n• Se reembolsará 1.0 hora al saldo restante.`);
+    const h = parseFloat(newHoursVal);
+    if (isNaN(h) || h <= 0) return;
+
+    const horasMap = Object.assign({}, selectedData.clases_horas || {});
+    horasMap[sessionKey] = h;
+
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    let given = 0;
+    for (const c of clases) {
+      const v = Number(horasMap[c]);
+      given += (v && !isNaN(v) && v > 0) ? v : 1.0;
+    }
+    given = Math.round(given * 10) / 10;
+    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+
+    selectedData.clases_horas = horasMap;
+    selectedData.horasDadas = given;
+    selectedData.horasRestantes = remaining;
+
+    renderStudentCalendar();
+    selectStudentHub(selectedToken, false);
+    renderStudentsRoster();
+    updateTab6HoursLedger();
+    showToast(`⚡ Session duration updated to ${h.toFixed(1)}h (Total: ${given.toFixed(1)}h)`);
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+          clases_horas: horasMap,
+          horas_dadas: given,
+          horas_restantes: remaining,
+          updated: new Date().toISOString()
+        }, { merge: true });
+      } catch (e) {
+        console.error('Error saving session hours:', e);
+      }
+    }
+  }
+
+  async function setAllSessionsDurationHub(hoursVal) {
+    if (!selectedToken || !selectedData) {
+      showToast('Select a student first');
+      return;
+    }
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    if (clases.length === 0) {
+      showToast('No sessions logged yet to adjust');
+      return;
+    }
+    const h = parseFloat(hoursVal) || 2.0;
+    const totalH = Math.round(clases.length * h * 10) / 10;
+    const remH = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - totalH) * 10) / 10);
+    const conf = confirm(`¿Ajustar todas las ${clases.length} sesiones de ${selectedData.nombre} a ${h.toFixed(1)} horas cada una?\n\n• Total conducido pasará a: ${totalH.toFixed(1)}h\n• Saldo restante pasará a: ${remH.toFixed(1)}h`);
     if (!conf) return;
-    await toggleAttendanceDateHub(dateStr);
+
+    const horasMap = Object.assign({}, selectedData.clases_horas || {});
+    for (const c of clases) {
+      horasMap[c] = h;
+    }
+
+    selectedData.clases_horas = horasMap;
+    selectedData.horasDadas = totalH;
+    selectedData.horasRestantes = remH;
+
+    renderStudentCalendar();
+    selectStudentHub(selectedToken, false);
+    renderStudentsRoster();
+    updateTab6HoursLedger();
+    playDirectorChime(880);
+    showToast(`✨ All ${clases.length} sessions set to ${h.toFixed(1)}h (Total: ${totalH.toFixed(1)}h)`);
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+          clases_horas: horasMap,
+          horas_dadas: totalH,
+          horas_restantes: remH,
+          updated: new Date().toISOString()
+        }, { merge: true });
+      } catch (e) {
+        console.error('Error saving all session hours:', e);
+      }
+    }
+  }
+
+  async function quitarClaseSheetHub(sessionKey) {
+    if (!selectedToken || !selectedData) return;
+    const horasMap = Object.assign({}, selectedData.clases_horas || {});
+    const dur = Number(horasMap[sessionKey]) || 1.0;
+    const conf = confirm(`¿Quitar la sesión ${sessionKey} de la planilla de ${selectedData.nombre}?\n\n• Se reembolsarán ${dur.toFixed(1)} hora(s) al saldo restante.`);
+    if (!conf) return;
+
+    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+    const idx = clases.indexOf(sessionKey);
+    if (idx >= 0) {
+      clases.splice(idx, 1);
+    }
+    delete horasMap[sessionKey];
+
+    let given = 0;
+    for (const c of clases) {
+      const h = Number(horasMap[c]);
+      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+    }
+    given = Math.round(given * 10) / 10;
+    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+
+    selectedData.clases = clases;
+    selectedData.clases_horas = horasMap;
+    selectedData.horasDadas = given;
+    selectedData.horasRestantes = remaining;
+
+    renderStudentCalendar();
+    selectStudentHub(selectedToken, false);
+    renderStudentsRoster();
+    updateTab6HoursLedger();
+    showToast(`Session unlogged (+${dur.toFixed(1)} hr refunded)`);
+
+    if (db && cloudMode) {
+      try {
+        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+          clases: clases,
+          clases_horas: horasMap,
+          horas_dadas: given,
+          horas_restantes: remaining,
+          updated: new Date().toISOString()
+        }, { merge: true });
+      } catch (e) {
+        console.error('Error removing session:', e);
+      }
+    }
   }
 
   function prevCalendarMonth() {
@@ -4719,31 +4926,52 @@ body.theme-glacial .aurora-layer {
   async function toggleAttendanceDateHub(dateStr) {
     if (!selectedData || !selectedToken) return;
     const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
-    const idx = clases.indexOf(dateStr);
+    const horasMap = Object.assign({}, selectedData.clases_horas || {});
+    const matches = clases.filter(c => c.split('#')[0] === dateStr);
 
-    if (idx >= 0) {
-      clases.splice(idx, 1);
-      showToast(`Class on ${dateStr} unlogged (+1.0 hr refunded)`);
+    if (matches.length > 0) {
+      // Remove the last session on this date
+      const keyToRemove = matches[matches.length - 1];
+      const idx = clases.indexOf(keyToRemove);
+      const dur = Number(horasMap[keyToRemove]) || 1.0;
+      if (idx >= 0) clases.splice(idx, 1);
+      delete horasMap[keyToRemove];
+      showToast(`Class on ${keyToRemove} unlogged (+${dur.toFixed(1)} hr refunded)`);
     } else {
+      const durInput = document.getElementById('sheet-input-duration');
+      const dur = parseFloat(durInput ? durInput.value : '2') || 2.0;
       clases.push(dateStr);
       clases.sort();
+      horasMap[dateStr] = dur;
       playDirectorChime(528);
-      showToast(`Class on ${dateStr} logged (-1.0 hr deducted)`);
+      showToast(`Class on ${dateStr} logged (-${dur.toFixed(1)} hr deducted)`);
     }
 
+    let given = 0;
+    for (const c of clases) {
+      const h = Number(horasMap[c]);
+      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+    }
+    given = Math.round(given * 10) / 10;
+    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+
     selectedData.clases = clases;
-    selectedData.horasDadas = clases.length;
-    selectedData.horasRestantes = Math.max(0, selectedData.horasContratadas - clases.length);
+    selectedData.clases_horas = horasMap;
+    selectedData.horasDadas = given;
+    selectedData.horasRestantes = remaining;
 
     renderStudentCalendar();
     selectStudentHub(selectedToken, false);
+    renderStudentsRoster();
+    updateTab6HoursLedger();
 
     if (db && cloudMode) {
       try {
         await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
           clases: clases,
-          horas_dadas: selectedData.horasDadas,
-          horas_restantes: selectedData.horasRestantes,
+          clases_horas: horasMap,
+          horas_dadas: given,
+          horas_restantes: remaining,
           updated: new Date().toISOString()
         }, { merge: true });
       } catch (e) {
@@ -4769,7 +4997,7 @@ body.theme-glacial .aurora-layer {
     }
     const todayStr = formatDateIso(new Date());
     const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
-    const yaRegistrada = clases.includes(todayStr);
+    const yaRegistrada = clases.some(c => c.split('#')[0] === todayStr);
 
     if (yaRegistrada) {
       const resp = confirm(`La clase de hoy (${todayStr}) ya fue registrada y confirmada para ${selectedData.nombre}.\n\n¿Deseas desmarcarla (+1.0 hr de reembolso al saldo)?`);
@@ -4779,12 +5007,15 @@ body.theme-glacial .aurora-layer {
       return;
     }
 
-    const conf = confirm(`¿Confirmar la correcta consecución de la clase de hoy (${todayStr}) con ${selectedData.nombre}?\n\n• Se registrará 1.0 hora impartida.\n• Saldo restante: ${Math.max(0, (selectedData.horasRestantes || 1) - 1)} horas.`);
+    const durInput = document.getElementById('sheet-input-duration');
+    const dur = parseFloat(durInput ? durInput.value : '2') || 2.0;
+
+    const conf = confirm(`¿Confirmar la correcta consecución de la clase de hoy (${todayStr}) con ${selectedData.nombre}?\n\n• Se registrará ${dur.toFixed(1)} hora(s) impartida(s).\n• Saldo restante estimado: ${Math.max(0, (selectedData.horasRestantes || dur) - dur).toFixed(1)} horas.`);
     if (!conf) return;
 
     await toggleAttendanceDateHub(todayStr);
     playDirectorChime(880);
-    showToast(`✨ ¡Clase de hoy confirmada con éxito para ${selectedData.nombre}!`);
+    showToast(`✨ ¡Clase de hoy confirmada con éxito para ${selectedData.nombre}! (-${dur.toFixed(1)}h)`);
   }
 
   // --- ADJUST CONTRACTED HOURS PACKAGE ---
@@ -4794,12 +5025,11 @@ body.theme-glacial .aurora-layer {
       return;
     }
     const current = selectedData.horasContratadas || 0;
-    const clases = Array.isArray(selectedData.clases) ? selectedData.clases : [];
-    const given = clases.length;
+    const given = selectedData.horasDadas || 0;
     const resp = prompt(
       `⏱️ Control de Horas · ${selectedData.nombre}\n\n` +
       `• Horas contratadas actuales: ${current}h\n` +
-      `• Clases completadas: ${given}h\n` +
+      `• Horas completadas: ${given}h\n` +
       `• Horas restantes actuales: ${selectedData.horasRestantes}h\n\n` +
       `Ingresa el nuevo total de horas contratadas (ej. 24):`,
       current === 0 ? 24 : current
@@ -4812,7 +5042,7 @@ body.theme-glacial .aurora-layer {
       return;
     }
 
-    const newRemaining = Math.max(0, newHours - given);
+    const newRemaining = Math.max(0, Math.round((newHours - given) * 10) / 10);
     selectedData.horasContratadas = newHours;
     selectedData.horasRestantes = newRemaining;
 
@@ -5311,7 +5541,10 @@ body.theme-glacial .aurora-layer {
 
   <h3 style="font-size: 14px; margin-bottom: 8px;">📅 Interactive Attendance Log</h3>
   <p style="font-size: 12px; color: #5A7B87;">
-    ${(student.clases && student.clases.length) ? student.clases.map(c => `<code style="background:#EBF3F6; padding:2px 6px; border-radius:4px; margin:2px;">${c}</code>`).join(' ') : 'No classes recorded in ledger yet.'}
+    ${(student.clases && student.clases.length) ? student.clases.map(c => {
+      const dur = (student.clases_horas && student.clases_horas[c]) ? Number(student.clases_horas[c]).toFixed(1) + 'h' : '1.0h';
+      return `<code style="background:#EBF3F6; padding:2px 6px; border-radius:4px; margin:2px;">${c} (${dur})</code>`;
+    }).join(' ') : 'No classes recorded in ledger yet.'}
   </p>
 
   <div class="footer">

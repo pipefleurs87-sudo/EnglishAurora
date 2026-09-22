@@ -242,15 +242,28 @@ function renderHorasCardBody(){
 
   const tot = Number(EST.horas_contratadas) || 0;
   const clases = Array.isArray(EST.clases) ? EST.clases : [];
-  const given = clases.length;
-  const rem = Math.max(0, tot - given);
+  const horasMap = EST.clases_horas || {};
+
+  let given = 0;
+  for (const c of clases) {
+    const h = Number(horasMap[c]);
+    given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+  }
+  given = Math.round(given * 10) / 10;
+  const rem = Math.max(0, Math.round((tot - given) * 10) / 10);
   const pct = tot > 0 ? Math.min(100, Math.round((given / tot) * 100)) : 0;
 
   const remColor = rem <= 0 ? 'var(--red)' : rem <= 5 ? 'var(--gold)' : '#2E7D4F';
   const barColor = rem <= 0 ? 'var(--red)' : rem <= 5 ? 'var(--gold)' : '#2E7D4F';
 
   const todayStr = new Date().toISOString().split('T')[0];
-  const isTodayConfirmed = clases.includes(todayStr);
+  const todaySessions = clases.filter(c => c.split('#')[0] === todayStr);
+  const isTodayConfirmed = todaySessions.length > 0;
+  let todayHours = 0;
+  for (const k of todaySessions) {
+    const h = Number(horasMap[k]);
+    todayHours += (h && !isNaN(h) && h > 0) ? h : 1.0;
+  }
   const ackMap = EST.confirmaciones_estudiante || {};
   const isAcked = !!ackMap[todayStr];
 
@@ -263,7 +276,7 @@ function renderHorasCardBody(){
             <span>✓</span> Today's Class Confirmed by Instructor (${todayStr})
           </div>
           <div style="font-size:13px; color:var(--muted); margin-top:3px;">
-            1.0 hour successfully completed and logged in your attendance record.
+            ${todayHours.toFixed(1)} hour(s) successfully completed and logged in your attendance record (${todaySessions.length} session${todaySessions.length > 1 ? 's' : ''}).
           </div>
         </div>
         <div>
@@ -309,19 +322,22 @@ function renderHorasCardBody(){
             <tbody>
               ${sortedClases.map((iso, idx) => {
                 const num = sortedClases.length - idx;
-                let dateLabel = iso;
+                const baseDate = iso.split('#')[0];
+                const sessionPart = iso.includes('#') ? ` (Session #${iso.split('#')[1]})` : '';
+                let dateLabel = baseDate;
                 try {
-                  const parts = iso.split('-');
+                  const parts = baseDate.split('-');
                   const dObj = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
                   dateLabel = dObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
                 } catch(e){}
                 const topic = notas[iso] || '1-on-1 Personalized Class Session';
+                const dur = Number(horasMap[iso]) || 1.0;
                 return `
                   <tr style="border-bottom:1px solid var(--line);">
                     <td style="padding:8px 10px; text-align:center; font-family:var(--mono); font-weight:700; color:var(--gold);">#${num}</td>
-                    <td style="padding:8px 10px; font-family:var(--mono); font-weight:600;">${dateLabel}</td>
+                    <td style="padding:8px 10px; font-family:var(--mono); font-weight:600;">${dateLabel}${sessionPart ? `<span style="font-size:10px; color:var(--muted); display:block;">${sessionPart}</span>` : ''}</td>
                     <td style="padding:8px 10px; color:var(--ink);">${esc(topic)}</td>
-                    <td style="padding:8px 10px; text-align:center; font-family:var(--mono); color:#2E7D4F; font-weight:700;">1.0h</td>
+                    <td style="padding:8px 10px; text-align:center; font-family:var(--mono); color:#2E7D4F; font-weight:700;">${dur.toFixed(1)}h</td>
                     <td style="padding:8px 10px; text-align:center;"><span class="tag ok">✓ Conducted</span></td>
                   </tr>
                 `;
@@ -340,11 +356,11 @@ function renderHorasCardBody(){
         <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Contracted Package</div>
       </div>
       <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:12px; text-align:center;">
-        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:var(--gold);">${given}h</div>
-        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Classes Completed</div>
+        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:var(--gold);">${given.toFixed(1)}h</div>
+        <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Hours Conducted (${clases.length} sessions)</div>
       </div>
       <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:12px; text-align:center;">
-        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:${remColor};">${rem}h</div>
+        <div style="font-family:var(--serif); font-size:26px; font-weight:700; color:${remColor};">${rem.toFixed(1)}h</div>
         <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--muted); margin-top:2px;">Remaining Balance</div>
       </div>
     </div>
@@ -352,7 +368,7 @@ function renderHorasCardBody(){
     <div style="margin-bottom:14px;">
       <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:12px; color:var(--muted); margin-bottom:5px;">
         <span>Package Progress: <b>${pct}%</b></span>
-        <span><b>${rem}h</b> remaining</span>
+        <span><b>${rem.toFixed(1)}h</b> remaining</span>
       </div>
       <div style="background:var(--line); height:9px; border-radius:5px; overflow:hidden;">
         <div style="background:${barColor}; width:${pct}%; height:100%; transition:width 0.5s ease;"></div>
