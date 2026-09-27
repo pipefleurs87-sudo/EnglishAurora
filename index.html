@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EXMWV3HGG');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>English Aurora — Your Sky of English | 85 Stars & CEFR Curriculum</title>
@@ -205,6 +214,7 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
   background:rgba(242,193,78,.07);box-shadow:0 0 18px rgba(242,193,78,.2);
   text-shadow:0 0 10px rgba(242,193,78,.7)}
 @media (max-width:640px){.levels-rail{display:none}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
@@ -278,6 +288,29 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
   <div class="skill-desc" id="skill-desc"></div>
   <div class="skills" id="skills"></div>
 </div>
+
+<nav class="sr-only" aria-label="Curriculum directory and navigation">
+  <h2>English Aurora Navigation & Curriculum Directory</h2>
+  <p>Explore 85 complete interactive English sequences from CEFR level A1 to C1, complete with video lessons, cognitive practice, native listening, reading, tests, and printable worksheets.</p>
+  <ul>
+    <li><a href="curriculum.html">Complete CEFR Curriculum (A1, A2, B1, B2, C1)</a></li>
+    <li><a href="ludoteca.html">Arcade Ludoteca (17 Educational Vocabulary & Grammar Games)</a></li>
+    <li><a href="verbos-irregulares.html">Irregular Verbs Master Matrix</a></li>
+    <li><a href="contrastes-gramaticales.html">English Grammar Battles & Confusions Solved</a></li>
+    <li><a href="cambridge-preparation.html">Cambridge Exam Preparation (A2 Key, B1 PET, B2 First, C1 CAE)</a></li>
+    <li><a href="herramientas/fichas-imprimibles.html">Printable PDF Grammar Worksheets</a></li>
+    <li><a href="herramientas/generador-ejercicios.html">Custom Exercise Worksheet Generator</a></li>
+    <li><a href="herramientas/generador-clases.html">Class Lesson Plan Generator</a></li>
+    <li><a href="herramientas/placement.html">2-Minute Quick Placement Test</a></li>
+    <li><a href="herramientas/mapa-3d.html">3D Interactive Grammar Cosmos Map</a></li>
+  </ul>
+</nav>
+<noscript>
+  <div style="padding:20px;background:#0A101C;color:#EFF1EC;font-family:sans-serif;text-align:center">
+    <h2>Welcome to English Aurora</h2>
+    <p>English Aurora is an interactive universe with 85 complete grammar sequences from A1 to C1. Please enable JavaScript to explore the dynamic celestial sky or browse directly via our <a href="curriculum.html" style="color:#2DD4BF">Full Curriculum Page</a>.</p>
+  </div>
+</noscript>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
