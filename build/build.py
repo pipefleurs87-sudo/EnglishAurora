@@ -92,7 +92,8 @@ def area_de(data):
         ("will vs going to","Will vs Going To"),("going to","Going To"),("have got","Have Got"),
         ("conditional","Conditionals"),("countable","Countable & Uncountable"),
         ("gerund","Gerund vs Infinitive"),("infinitive","Gerund vs Infinitive"),
-        ("imperative","Imperatives"),("passive","Passive Voice"),("used to","Used To")]
+        ("imperative","Imperatives"),("passive","Passive Voice"),("used to","Used To"),
+        ("number","Numbers"),("introducing","Introducing Yourself"),("introduce","Introducing Yourself")]
     for k,v in pairs:
         if k in t: return v
     return data.get("nivel","")
@@ -119,7 +120,8 @@ AREA_ES = {"Present Simple":"presente simple","Present Continuous":"presente con
     "Inversion":"inversion enfatica","Gerund Clauses as Subject":"gerundio como sujeto",
     "Participle Clauses":"clausulas de participio","Emphatic Structures":"estructuras enfaticas",
     "Future in the Past":"futuro en el pasado","Ellipsis & Substitution":"elipsis y sustitucion",
-    "Register & Style":"registro y estilo en ingles"}
+    "Register & Style":"registro y estilo en ingles",
+    "Numbers":"números en ingles","Introducing Yourself":"presentaciones personales en ingles"}
 
 def titulo_hibrido(tema, area):
     es = AREA_ES.get(area)

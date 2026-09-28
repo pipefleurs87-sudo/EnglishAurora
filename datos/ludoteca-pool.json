@@ -38,6 +38,12 @@
    "area": "Imperatives"
   },
   {
+   "id": "a1-introducing-yourself-01",
+   "nivel": "A1",
+   "tema": "Introducing Yourself — Greetings & Personal Information",
+   "area": "Introducing Yourself"
+  },
+  {
    "id": "a1-modal-can-ability-01",
    "nivel": "A1",
    "tema": "Modal Verb 'Can' — Ability & the Body",
@@ -66,6 +72,12 @@
    "nivel": "A1",
    "tema": "Would like — Wishes & Polite Offers",
    "area": "Wishes & Regrets"
+  },
+  {
+   "id": "a1-numbers-01",
+   "nivel": "A1",
+   "tema": "Numbers — Counting, Age & Time",
+   "area": "Numbers"
   },
   {
    "id": "a1-object-pronouns-01",
@@ -791,6 +803,59 @@
   },
   {
    "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "q": "When someone says 'Nice to meet you!', the most natural reply is: ___",
+   "o": [
+    "Nice to meet you too!",
+    "Equally!",
+    "I call myself too!"
+   ],
+   "a": "Nice to meet you too!"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "q": "To state your occupation correctly, you say: 'I am ___ architect.'",
+   "o": [
+    "an",
+    "a",
+    "the"
+   ],
+   "a": "an"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "q": "Where ___ you from?",
+   "o": [
+    "are",
+    "is",
+    "am"
+   ],
+   "a": "are"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "q": "In English, it is natural to introduce yourself by saying: 'I call myself John.'",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "False"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "q": "When introducing yourself, 'I am Sofía' and 'My name is Sofía' are both correct and natural.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "True"
+  },
+  {
+   "n": "A1",
    "t": "a1-modal-can-ability-01",
    "q": "A bird ___ fly.",
    "o": [
@@ -893,6 +958,59 @@
     "False"
    ],
    "a": "True"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "q": "Sofía ___ 28 years old.",
+   "o": [
+    "has",
+    "is",
+    "have"
+   ],
+   "a": "is"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "q": "Be careful with spelling: the number 40 is written ___.",
+   "o": [
+    "forty",
+    "fourty",
+    "fourtee"
+   ],
+   "a": "forty"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "q": "The number 15 is pronounced with stress at the end: fif-___.",
+   "o": [
+    "teen",
+    "ty",
+    "th"
+   ],
+   "a": "teen"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "q": "In English, we say telephone numbers digit by digit, and 0 is often pronounced 'oh'.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "True"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "q": "It is correct to say: 'My brother has 18 years.'",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "False"
   },
   {
    "n": "A1",
@@ -5191,6 +5309,104 @@
   },
   {
    "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "My name is...",
+   "tr": "Mi nombre es...",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "I am...",
+   "tr": "Yo soy...",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Nice to meet you",
+   "tr": "Mucho gusto",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Where are you from?",
+   "tr": "¿De dónde eres?",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "I am from...",
+   "tr": "Soy de...",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "I live in...",
+   "tr": "Vivo en...",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "What do you do?",
+   "tr": "¿A qué te dedicas?",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "I am a / an...",
+   "tr": "Soy un/una...",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Pleased to meet you",
+   "tr": "Encantado de conocerte",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Good morning",
+   "tr": "Buenos días",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "How do you spell that?",
+   "tr": "¿Cómo se deletrea eso?",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "First name",
+   "tr": "Nombre de pila",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Last name",
+   "tr": "Apellido",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Hometown",
+   "tr": "Ciudad natal",
+   "f": ""
+  },
+  {
+   "n": "A1",
    "t": "a1-modal-can-ability-01",
    "w": "eyes",
    "tr": "see (ver)",
@@ -5397,6 +5613,146 @@
    "t": "a1-modal-should-advice-01",
    "w": "leave a tip",
    "tr": "dejar propina",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "one",
+   "tr": "uno",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "two",
+   "tr": "dos",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "three",
+   "tr": "tres",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "four",
+   "tr": "cuatro",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "five",
+   "tr": "cinco",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "six",
+   "tr": "seis",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "seven",
+   "tr": "siete",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "eight",
+   "tr": "ocho",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "nine",
+   "tr": "nueve",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "ten",
+   "tr": "diez",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "eleven",
+   "tr": "once",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "twelve",
+   "tr": "doce",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "thirteen",
+   "tr": "trece",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "fourteen",
+   "tr": "catorce",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "fifteen",
+   "tr": "quince",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "twenty",
+   "tr": "veinte",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "thirty",
+   "tr": "treinta",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "forty",
+   "tr": "cuarenta",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "fifty",
+   "tr": "cincuenta",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "one hundred",
+   "tr": "cien",
    "f": ""
   },
   {
@@ -9117,6 +9473,66 @@
   },
   {
    "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Hello, my name is Sofía and I am a designer from Colombia."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Nice to meet you! I am Kenji, and I live in Tokyo."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Ben is an English travel writer traveling in South America."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "I am not from the United States; I am from Canada."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "His name is not David; his name is Ben."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "We are not strangers anymore; we are classmates."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "What is your name, and where are you from?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Are you an architect or a software developer?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "How do you spell your last name, please?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Is your name Sofía? Yes, it is."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Are you from Colombia? Yes, I am."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "s": "Is he an exchange student? Yes, he is."
+  },
+  {
+   "n": "A1",
    "t": "a1-modal-can-ability-01",
    "s": "I can see with my eyes and hear with my ears."
   },
@@ -9314,6 +9730,66 @@
    "n": "A1",
    "t": "a1-modal-would-like-01",
    "s": "Would you like to dance? No, I wouldn't."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Sofía is twenty-eight years old and lives on 4th Avenue."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Ben has three backpacks and two cameras in Cartagena."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Kenji bought fifteen postcards at the museum shop."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "I am not thirty years old; I am twenty-four."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "There are not fifty students in this classroom."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "The bus ticket is not twelve dollars; it is ten."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "How old are you, and what is your lucky number?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Is Ben twenty-six or twenty-seven years old?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "How many tickets do we need for the museum?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Are you twenty-five years old? Yes, I am."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Is the total fifty dollars? No, it isn't."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "s": "Does Kenji have four tickets? Yes, he does."
   },
   {
    "n": "A1",
@@ -13844,6 +14320,30 @@
   },
   {
    "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": [
+    "name",
+    "My",
+    "is",
+    "Kenji",
+    "Sato"
+   ],
+   "a": "My name is Kenji Sato."
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": [
+    "meet",
+    "to",
+    "Nice",
+    "you",
+    "too"
+   ],
+   "a": "Nice to meet you too!"
+  },
+  {
+   "n": "A1",
    "t": "a1-modal-must-duties-01",
    "w": [
     "must",
@@ -13853,6 +14353,29 @@
     "desk"
    ],
    "a": "You must tidy your desk."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": [
+    "am",
+    "I",
+    "twenty",
+    "years",
+    "old"
+   ],
+   "a": "I am twenty years old."
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": [
+    "has",
+    "Kenji",
+    "three",
+    "notebooks"
+   ],
+   "a": "Kenji has three notebooks."
   },
   {
    "n": "A1",
@@ -15802,6 +16325,30 @@
   },
   {
    "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Nice to meet you",
+   "c": "______! I am Kenji, and I live in Tokyo.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "I am a",
+   "c": "Hello, my name is Sofía and ______ designer from Colombia.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-introducing-yourself-01",
+   "w": "Last name",
+   "c": "How do you spell your ______, please?",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
    "t": "a1-modal-can-ability-01",
    "w": "eyes",
    "c": "I can see with my ______ and hear with my ears.",
@@ -15917,6 +16464,110 @@
    "t": "a1-modal-should-advice-01",
    "w": "ask the waiter",
    "c": "Should we ______ for a recommendation?",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "two",
+   "c": "Ben has three backpacks and ______ cameras in Cartagena.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "three",
+   "c": "Ben has ______ backpacks and two cameras in Cartagena.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "four",
+   "c": "I am not thirty years old; I am twenty-______.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "five",
+   "c": "Are you twenty-______ years old? Yes, I am.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "six",
+   "c": "Is Ben twenty-______ or twenty-seven years old?",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "seven",
+   "c": "Is Ben twenty-six or twenty-______ years old?",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "eight",
+   "c": "Sofía is twenty-______ years old and lives on 4th Avenue.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "ten",
+   "c": "The bus ticket is not twelve dollars; it is ______.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "twelve",
+   "c": "The bus ticket is not ______ dollars; it is ten.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "fifteen",
+   "c": "Kenji bought ______ postcards at the museum shop.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "twenty",
+   "c": "I am not thirty years old; I am ______-four.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "thirty",
+   "c": "I am not ______ years old; I am twenty-four.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-numbers-01",
+   "w": "fifty",
+   "c": "Is the total ______ dollars? No, it isn't.",
    "k": "sent",
    "u": 0
   },

@@ -1,0 +1,303 @@
+{
+  "id": "a1-introducing-yourself-01",
+  "nivel": "A1",
+  "arquetipo": "funcional_skills",
+  "tema": "Introducing Yourself — Greetings & Personal Information",
+  "habilidades": [
+    "grammar",
+    "vocabulary",
+    "listening",
+    "reading",
+    "writing",
+    "speaking"
+  ],
+  "vocabulario": [
+    {"palabra": "My name is...", "traduccion": "Mi nombre es...", "categoria": "greetings", "ejemplo": "My name is Sofía."},
+    {"palabra": "I am...", "traduccion": "Yo soy...", "categoria": "greetings", "ejemplo": "I am Kenji from Tokyo."},
+    {"palabra": "Nice to meet you", "traduccion": "Mucho gusto", "categoria": "greetings", "ejemplo": "Nice to meet you, Ben!"},
+    {"palabra": "Where are you from?", "traduccion": "¿De dónde eres?", "categoria": "questions", "ejemplo": "Where are you from, Kenji?"},
+    {"palabra": "I am from...", "traduccion": "Soy de...", "categoria": "answers", "ejemplo": "I am from Colombia."},
+    {"palabra": "I live in...", "traduccion": "Vivo en...", "categoria": "answers", "ejemplo": "I live in Medellín."},
+    {"palabra": "What do you do?", "traduccion": "¿A qué te dedicas?", "categoria": "questions", "ejemplo": "What do you do in London?"},
+    {"palabra": "I am a / an...", "traduccion": "Soy un/una...", "categoria": "answers", "ejemplo": "I am a graphic designer."},
+    {"palabra": "Pleased to meet you", "traduccion": "Encantado de conocerte", "categoria": "greetings", "ejemplo": "Pleased to meet you, Carmen."},
+    {"palabra": "Good morning", "traduccion": "Buenos días", "categoria": "greetings", "ejemplo": "Good morning, everyone!"},
+    {"palabra": "How do you spell that?", "traduccion": "¿Cómo se deletrea eso?", "categoria": "questions", "ejemplo": "How do you spell your name?"},
+    {"palabra": "First name", "traduccion": "Nombre de pila", "categoria": "info", "ejemplo": "My first name is Ben."},
+    {"palabra": "Last name", "traduccion": "Apellido", "categoria": "info", "ejemplo": "My last name is Whitfield."},
+    {"palabra": "Hometown", "traduccion": "Ciudad natal", "categoria": "info", "ejemplo": "Medellín is my hometown."}
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Hello, my name is Sofía and I am a designer from Colombia."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Nice to meet you! I am Kenji, and I live in Tokyo."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Ben is an English travel writer traveling in South America."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "I am not from the United States; I am from Canada."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "His name is not David; his name is Ben."
+    },
+    {
+      "id": "s6",
+      "forma": "negativo",
+      "oracion": "We are not strangers anymore; we are classmates."
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "What is your name, and where are you from?"
+    },
+    {
+      "id": "s8",
+      "forma": "interrogativo",
+      "oracion": "Are you an architect or a software developer?"
+    },
+    {
+      "id": "s9",
+      "forma": "interrogativo",
+      "oracion": "How do you spell your last name, please?"
+    },
+    {
+      "id": "s10",
+      "forma": "short_answer",
+      "oracion": "Is your name Sofía? Yes, it is."
+    },
+    {
+      "id": "s11",
+      "forma": "short_answer",
+      "oracion": "Are you from Colombia? Yes, I am."
+    },
+    {
+      "id": "s12",
+      "forma": "short_answer",
+      "oracion": "Is he an exchange student? Yes, he is."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "banner_diagnostico": {
+        "opcion_a": "Hello, I call myself Ben and I have 24 years.",
+        "opcion_b": "Hello, my name is Ben and I am 24 years old.",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "We introduce ourselves to share our name, origin, age, and occupation when connecting with someone for the first time.",
+      "tabla": {
+        "titulo": "Essential Introduction Formulas",
+        "encabezados": [
+          "Question",
+          "Natural Response",
+          "Spanish Trap to Avoid"
+        ],
+        "filas": [
+          [
+            "What is your name?",
+            "My name is... / I'm...",
+            "Don't say: 'I call myself...'"
+          ],
+          [
+            "Where are you from?",
+            "I'm from + [Country / City]",
+            "Don't omit 'from': 'I am Colombia' (X)"
+          ],
+          [
+            "What do you do?",
+            "I'm a / an + [Profession]",
+            "Don't omit article: 'I am doctor' (X)"
+          ],
+          [
+            "Nice to meet you!",
+            "Nice to meet you too!",
+            "Say 'too', never 'equally' or 'the same'"
+          ]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "When someone says 'Nice to meet you!', the most natural reply is: ___",
+          "opciones": [
+            "Nice to meet you too!",
+            "Equally!",
+            "I call myself too!"
+          ],
+          "respuesta": "Nice to meet you too!"
+        },
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "To state your occupation correctly, you say: 'I am ___ architect.'",
+          "opciones": [
+            "an",
+            "a",
+            "the"
+          ],
+          "respuesta": "an"
+        },
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "Where ___ you from?",
+          "opciones": [
+            "are",
+            "is",
+            "am"
+          ],
+          "respuesta": "are"
+        },
+        {
+          "tipo": "true_false",
+          "afirmacion": "In English, it is natural to introduce yourself by saying: 'I call myself John.'",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "true_false",
+          "afirmacion": "When introducing yourself, 'I am Sofía' and 'My name is Sofía' are both correct and natural.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "gap_fill",
+          "texto": "Hello! My ___ (name / write the word) is Kenji.",
+          "respuesta": "name"
+        },
+        {
+          "tipo": "gap_fill",
+          "texto": "I am from Japan, but I ___ (live) in Medellín now.",
+          "respuesta": "live"
+        },
+        {
+          "tipo": "gap_fill",
+          "texto": "Sofía is ___ (a / an) graphic designer.",
+          "respuesta": "a"
+        },
+        {
+          "tipo": "unscramble",
+          "palabras": [
+            "name",
+            "My",
+            "is",
+            "Kenji",
+            "Sato",
+            "."
+          ],
+          "respuesta": "My name is Kenji Sato."
+        },
+        {
+          "tipo": "unscramble",
+          "palabras": [
+            "meet",
+            "to",
+            "Nice",
+            "you",
+            "too",
+            "!"
+          ],
+          "respuesta": "Nice to meet you too!"
+        },
+        {
+          "tipo": "correct_mistake",
+          "texto_con_error": "Hello, I call myself Carlos.",
+          "respuesta": "Hello, my name is Carlos."
+        },
+        {
+          "tipo": "correct_mistake",
+          "texto_con_error": "I am from Colombia and I am designer.",
+          "respuesta": "I am from Colombia and I am a designer."
+        },
+        {
+          "tipo": "transformation",
+          "oracion_base": "My name is Ben.",
+          "instruccion": "Turn it into a question asking for someone's name.",
+          "respuesta": "What is your name?"
+        },
+        {
+          "tipo": "transformation",
+          "oracion_base": "I am an exchange student.",
+          "instruccion": "Make it negative (use 'not').",
+          "respuesta": "I am not an exchange student."
+        },
+        {
+          "tipo": "short_answer_production",
+          "pregunta": "Are you from Colombia? (Short answer: Yes)",
+          "respuesta": "Yes, I am."
+        },
+        {
+          "tipo": "short_answer_production",
+          "pregunta": "Is your name Sofía? (Short answer: Yes)",
+          "respuesta": "Yes, it is."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Kenji: Good morning! Is this seat taken?",
+        "Sofía: No, it is free. Please, sit down! I am Sofía.",
+        "Kenji: Nice to meet you, Sofía. My name is Kenji.",
+        "Sofía: Nice to meet you too! Where are you from, Kenji?",
+        "Kenji: I am from Japan, from Tokyo. What about you?",
+        "Sofía: I am from Medellín. I am a graphic designer here."
+      ],
+      "gaps": [
+        "Kenji",
+        "Medellín"
+      ],
+      "comprension": [
+        {
+          "pregunta": "Where is Kenji from?",
+          "opciones": [
+            "Tokyo, Japan",
+            "London, UK",
+            "Bogotá, Colombia"
+          ],
+          "respuesta": "Tokyo, Japan"
+        },
+        {
+          "pregunta": "What is Sofía's job?",
+          "opciones": [
+            "Graphic designer",
+            "English teacher",
+            "Photographer"
+          ],
+          "respuesta": "Graphic designer"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Today is the first day of the language exchange club in Medellín. Sofía welcomes the new members. Kenji introduces himself first: he is twenty-two years old and studies international business. Next is Ben, a twenty-six-year-old travel writer from London who loves South American music. Finally, Sofía introduces herself: she is twenty-eight, works as a designer, and loves showing her city to visitors. Everyone feels welcome and ready to learn.",
+      "preguntas": [
+        {
+          "afirmacion": "Kenji studies international business.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Ben is from the United States.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "Sofía is twenty-eight years old.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "The club is meeting in London.",
+          "respuesta": "false"
+        }
+      ]
+    }
+  }
+}

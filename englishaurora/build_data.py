@@ -51,11 +51,16 @@ for d in topics:
         "waves": ["a"] + sorted(waves.get(d["_base"], {}).keys()),
     })
 
+ROOT_OUT = os.path.join(ROOT, "..", "js", "data.js")
+
 payload = {"index": index, "topics": topics, "waves": waves}
 js = "/* GENERADO por build_data.py — no editar a mano */\n"
 js += "window.EA_DATA = " + json.dumps(payload, ensure_ascii=False) + ";\n"
 with open(OUT, "w", encoding="utf-8") as f:
     f.write(js)
+if os.path.exists(os.path.dirname(ROOT_OUT)):
+    with open(ROOT_OUT, "w", encoding="utf-8") as f:
+        f.write(js)
 
 # verificación anti-truncado: el archivo debe re-parsear como JS válido de una línea de datos
 with open(OUT, encoding="utf-8") as f:
@@ -66,4 +71,5 @@ print(f"OK · {len(topics)} temas (ola A) · "
       f"{sum(len(v) for v in waves.values())} olas B/C · "
       f"{len(index)} estrellas · {os.path.getsize(OUT)//1024} KB")
 for b, w in sorted(waves.items()):
-    print("  olas extra:", b, "→", ",".join(sorted(w.keys())))
+    print("  olas extra:", b, "->", ",".join(sorted(w.keys())))
+
