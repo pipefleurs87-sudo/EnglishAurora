@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sincronización en la Nube · English Aurora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1B2A41;
+  --ink-card: #243550;
+  --paper: #EFF1EC;
+  --paper-muted: #9BA3AF;
+  --gold: #C9962F;
+  --teal: #10B981;
+  --ruby: #E11D48;
+  --line: rgba(255, 255, 255, 0.12);
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "IBM Plex Sans", -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  min-height: 100vh;
+  padding: 30px 20px 60px;
+}
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.btn {
+  background: var(--gold);
+  color: #1B2A41;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-google { background: #4285F4; color: #fff; }
+.btn-outline { background: transparent; border: 1px solid var(--line); color: var(--paper); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.auth-bar {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.card {
+  background: var(--ink-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.card-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+}
+.token-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: rgba(0,0,0,0.3);
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--paper-muted);
+  border: 1px solid var(--line);
+}
+.status-pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.status-ok { background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid #10B981; }
+.status-pend { background: rgba(217, 119, 6, 0.2); color: var(--gold); border: 1px solid var(--gold); }
+.status-err { background: rgba(225, 29, 72, 0.2); color: var(--ruby); border: 1px solid var(--ruby); }
+.sessions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 12px;
+}
+.sessions-table th, .sessions-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.sessions-table th {
+  background: rgba(0,0,0,0.2);
+  color: var(--paper-muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #10B981;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+.toast.active { transform: translateY(0); opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header">
+    <div>
+      <div class="kicker">English Aurora · Consola de Recuperación</div>
+      <h1>Sincronización en la Nube (Firestore)</h1>
+      <p style="color:var(--paper-muted); font-size:14px; margin-top:4px;">
+        Sube los perfiles y clases de Doc y Mariana directamente a la base de datos de producción.
+      </p>
+    </div>
+    <a href="teacher-hub.html" class="btn btn-outline">← Ir al Teacher Hub</a>
+  </div>
+
+  <div class="auth-bar" id="authBar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:24px;">☁️</span>
+      <div>
+        <div style="font-weight:700;" id="authStatusText">Conectando con Firebase...</div>
+        <div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);" id="authSubText">Inicia sesión con Google para escribir en la nube</div>
+      </div>
+    </div>
+    <div id="authActions">
+      <button class="btn btn-google" id="btnLogin" onclick="loginGoogle()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#fff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#fff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#fff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#fff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        Entrar con Google (Prof. Felipe)
+      </button>
+      <button class="btn btn-outline" id="btnLogout" style="display:none;" onclick="logout()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+    <h2 style="font-family:var(--serif); font-size:22px;">Alumnos a Sincronizar</h2>
+    <button class="btn" id="btnSyncAll" onclick="sincronizarTodo()">
+      🚀 Sincronizar Todo a Firestore
+    </button>
+  </div>
+
+  <!-- CARD DOC -->
+  <div class="card" id="cardDoc">
+    <div class="card-header">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <h3 class="card-title">Doc</h3>
+          <span class="token-badge">Token: TUAFxr6SWGQBN5SYBarq3td2</span>
+          <span class="status-pill status-pend" id="statusDoc">⏳ Verificando...</span>
+        </div>
+        <p style="color:var(--paper-muted); font-size:13px; margin-top:4px;">
+          Correo: <b>luisreduardo@hotmail.com</b> · Nivel: <b>B1</b> · Paquete: <b>24.0h contratadas</b> · Saldo: <b>16.0h restantes</b>
+        </p>
+      </div>
+      <button class="btn" style="padding:6px 14px; font-size:12px;" onclick="sincronizarDoc()">Subir Doc</button>
+    </div>
+
+    <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; font-weight:700;">
+      📋 4 Sesiones Registradas (8.0 Horas Completadas):
+    </div>
+    <table class="sessions-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Fecha</th>
+          <th>Tema / Enfoque</th>
+          <th>Duración</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#4</td>
+          <td><b>Tue, Sep 22, 2026</b></td>
+          <td>Colocations</td>
+          <td style="color:#10B981; font-weight:700;">2.0h</td>
+          <td><span class="status-pill status-ok">✓ Impartida</span></td>
+        </tr>
+        <tr>
+          <td>#3</td>
+          <td><b>Mon, Sep 21, 2026</b></td>
+          <td>B2 Start</td>
+          <td style="color:#10B981; font-weight:700;">2.0h</td>
+          <td><span class="status-pill status-ok">✓ Impartida</span></td>
+        </tr>
+        <tr>
+          <td>#2</td>
+          <td><b>Thu, Sep 17, 2026</b></td>
+          <td>B1 Consolidation: Passive voice</td>
+          <td style="color:#10B981; font-weight:700;">2.0h</td>
+          <td><span class="status-pill status-ok">✓ Impartida</span></td>
+        </tr>
+        <tr>
+          <td>#1</td>
+          <td><b>Wed, Sep 16, 2026</b></td>
+          <td>B1 Consolidation: Present Perfect</td>
+          <td style="color:#10B981; font-weight:700;">2.0h</td>
+          <td><span class="status-pill status-ok">✓ Impartida</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <a href="../aula/estudiante.html?t=TUAFxr6SWGQBN5SYBarq3td2" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">
+        🔗 Probar Aula de Doc en vivo ↗
+      </a>
+      <span style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);" id="liveCheckDoc"></span>
+    </div>
+  </div>
+
+  <!-- CARD MARIANA -->
+  <div class="card" id="cardMariana">
+    <div class="card-header">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <h3 class="card-title">Mariana Muñoz Morales</h3>
+          <span class="token-badge">Token: ThDvw4pjkFyrCS6jQYPf7pY</span>
+          <span class="status-pill status-pend" id="statusMariana">⏳ Verificando...</span>
+        </div>
+        <p style="color:var(--paper-muted); font-size:13px; margin-top:4px;">
+          Correo: <b>munozmariana70@gmail.com</b> · Nivel: <b>B2</b> · Paquete: <b>24.0h contratadas</b>
+        </p>
+      </div>
+      <button class="btn" style="padding:6px 14px; font-size:12px;" onclick="sincronizarMariana()">Subir Mariana</button>
+    </div>
+
+    <div style="background:rgba(0,0,0,0.2); border:1px solid var(--line); border-radius:8px; padding:12px; margin-top:8px;">
+      <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--paper-muted); margin-bottom:8px; font-weight:700;">
+        ✍️ Clases de Mariana a registrar:
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+        <input type="date" id="marianaDate" style="background:rgba(0,0,0,0.3); border:1px solid var(--line); color:var(--paper); padding:6px 10px; border-radius:6px; font-family:var(--mono); font-size:12px;">
+        <select id="marianaDur" style="background:rgba(0,0,0,0.3); border:1px solid var(--line); color:var(--gold); padding:6px 10px; border-radius:6px; font-family:var(--mono); font-weight:700; font-size:12px;">
+          <option value="1">1.0 hr</option>
+          <option value="1.5">1.5 hrs</option>
+          <option value="2" selected>2.0 hrs</option>
+          <option value="2.5">2.5 hrs</option>
+          <option value="3">3.0 hrs</option>
+        </select>
+        <input type="text" id="marianaTopic" placeholder="Tema de la clase (ej. Present Perfect & Fluency)..." style="flex:1; min-width:180px; background:rgba(0,0,0,0.3); border:1px solid var(--line); color:var(--paper); padding:6px 10px; border-radius:6px; font-size:12px;">
+        <button class="btn" style="padding:6px 14px; font-size:12px; background:#10B981; color:#fff;" onclick="agregarClaseMariana()">＋ Agregar a la lista</button>
+      </div>
+      <div id="marianaClasesList" style="margin-top:10px;">
+        <!-- Se renderizan las clases añadidas -->
+      </div>
+    </div>
+
+    <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <a href="../aula/estudiante.html?t=ThDvw4pjkFyrCS6jQYPf7pY" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">
+        🔗 Probar Aula de Mariana en vivo ↗
+      </a>
+      <span style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);" id="liveCheckMariana"></span>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">Operación exitosa</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM",
+  authDomain: "sanguine-fusion-403621.firebaseapp.com",
+  projectId: "sanguine-fusion-403621",
+  storageBucket: "sanguine-fusion-403621.firebasestorage.app",
+  messagingSenderId: "1048421550101",
+  appId: "1:1048421550101:web:c068b31ef9873cd525a61c",
+  measurementId: "G-Q9PWY206RY"
+};
+
+let db = null, auth = null;
+firebase.initializeApp(FIREBASE_CONFIG);
+db = firebase.firestore();
+auth = firebase.auth();
+
+const DOC_DATA = {
+  nombre: "Doc",
+  correo: "luisreduardo@hotmail.com",
+  nivel: "B1",
+  horas_contratadas: 24,
+  horas_dadas: 8.0,
+  horas_restantes: 16.0,
+  clases: ["2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22"],
+  clases_horas: {
+    "2026-09-16": 2.0,
+    "2026-09-17": 2.0,
+    "2026-09-21": 2.0,
+    "2026-09-22": 2.0
+  },
+  clases_notas: {
+    "2026-09-16": "B1 Consolidation: Present Perfect",
+    "2026-09-17": "B1 Consolidation: Passive voice",
+    "2026-09-21": "B2 Start",
+    "2026-09-22": "Colocations"
+  },
+  student_token: "TUAFxr6SWGQBN5SYBarq3td2",
+  profesor_id: "tOyysKSwJ8pMrn4Omqe5thDGSGh63",
+  profesor_nombre: "Prof. Felipe Florez"
+};
+
+let marianaClases = [];
+let marianaHoras = {};
+let marianaNotas = {};
+
+// Cargar clases de Mariana desde el caché local si existen
+try {
+  const cached = localStorage.getItem('englishaurora_students_cache');
+  if (cached) {
+    const list = JSON.parse(cached);
+    const m = list.find(s => s.id === "ThDvw4pjkFyrCS6jQYPf7pY");
+    if (m && Array.isArray(m.clases) && m.clases.length > 0) {
+      marianaClases = [...m.clases];
+      marianaHoras = Object.assign({}, m.clases_horas || {});
+      marianaNotas = Object.assign({}, m.clases_notas || {});
+    }
+  }
+} catch(e){}
+
+function renderMarianaClasesList() {
+  const cont = document.getElementById('marianaClasesList');
+  if (!marianaClases.length) {
+    cont.innerHTML = '<span style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Sin sesiones registradas aún. Elige fecha arriba y pulsa "＋ Agregar".</span>';
+    return;
+  }
+  cont.innerHTML = `
+    <table class="sessions-table">
+      <thead><tr><th>#</th><th>Fecha</th><th>Tema</th><th>Horas</th><th></th></tr></thead>
+      <tbody>
+        ${marianaClases.map((c, i) => `
+          <tr>
+            <td>#${i+1}</td>
+            <td><b>${c}</b></td>
+            <td>${marianaNotas[c] || '1-on-1 Class'}</td>
+            <td style="color:#10B981; font-weight:700;">${marianaHoras[c] || 2.0}h</td>
+            <td><button class="btn btn-outline" style="padding:2px 6px; font-size:11px; color:var(--ruby);" onclick="quitarClaseMariana('${c}')">Quitar</button></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+function agregarClaseMariana() {
+  const d = document.getElementById('marianaDate').value;
+  const dur = parseFloat(document.getElementById('marianaDur').value) || 2.0;
+  const topic = document.getElementById('marianaTopic').value.trim() || '1-on-1 Personalized Session';
+  if (!d) return showToast('⚠️ Elige una fecha');
+  let k = d;
+  if (marianaClases.includes(k)) {
+    let c = 2;
+    while(marianaClases.includes(`${d}#${c}`)) c++;
+    k = `${d}#${c}`;
+  }
+  marianaClases.push(k);
+  marianaClases.sort();
+  marianaHoras[k] = dur;
+  marianaNotas[k] = topic;
+  document.getElementById('marianaTopic').value = '';
+  renderMarianaClasesList();
+  showToast(`Sesión añadida (${d})`);
+}
+
+function quitarClaseMariana(k) {
+  marianaClases = marianaClases.filter(c => c !== k);
+  delete marianaHoras[k];
+  delete marianaNotas[k];
+  renderMarianaClasesList();
+}
+
+auth.onAuthStateChanged(u => {
+  const text = document.getElementById('authStatusText');
+  const sub = document.getElementById('authSubText');
+  const btnLogin = document.getElementById('btnLogin');
+  const btnLogout = document.getElementById('btnLogout');
+
+  if (u) {
+    text.textContent = 'Sesión activa: ' + (u.displayName || u.email);
+    text.style.color = '#10B981';
+    sub.textContent = 'UID: ' + u.uid + ' · Permiso de escritura concedido';
+    btnLogin.style.display = 'none';
+    btnLogout.style.display = 'inline-flex';
+  } else {
+    text.textContent = 'No has iniciado sesión en Firebase';
+    text.style.color = 'var(--gold)';
+    sub.textContent = 'Pulsa el botón de abajo para autorizar la subida a Firestore';
+    btnLogin.style.display = 'inline-flex';
+    btnLogout.style.display = 'none';
+  }
+  verificarEnVivo();
+});
+
+async function loginGoogle() {
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    await auth.signInWithPopup(provider);
+    showToast('☁️ Sesión iniciada con éxito');
+  } catch(e) {
+    alert('Error al iniciar sesión: ' + e.message + '\n\nNota: Si abres este archivo como file://, corre un servidor local como "python -m http.server 8000" o usa GitHub Pages.');
+  }
+}
+
+function logout() {
+  auth.signOut();
+}
+
+async function verificarEnVivo() {
+  // Verificar Doc
+  try {
+    const resDoc = await fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/TUAFxr6SWGQBN5SYBarq3td2');
+    const badgeDoc = document.getElementById('statusDoc');
+    const liveDoc = document.getElementById('liveCheckDoc');
+    if (resDoc.status === 200) {
+      badgeDoc.className = 'status-pill status-ok';
+      badgeDoc.textContent = '✓ En Firestore (Nube Activa)';
+      liveDoc.innerHTML = '<span style="color:#10B981;">✓ Alumno visible en la nube</span>';
+    } else {
+      badgeDoc.className = 'status-pill status-err';
+      badgeDoc.textContent = '✗ No está en Firestore (404)';
+      liveDoc.innerHTML = '<span style="color:var(--ruby);">✗ Alumno offline (no visible para el estudiante)</span>';
+    }
+  }catch(e){}
+
+  // Verificar Mariana
+  try {
+    const resM = await fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/ThDvw4pjkFyrCS6jQYPf7pY');
+    const badgeM = document.getElementById('statusMariana');
+    const liveM = document.getElementById('liveCheckMariana');
+    if (resM.status === 200) {
+      badgeM.className = 'status-pill status-ok';
+      badgeM.textContent = '✓ En Firestore (Nube Activa)';
+      liveM.innerHTML = '<span style="color:#10B981;">✓ Alumna visible en la nube</span>';
+    } else {
+      badgeM.className = 'status-pill status-err';
+      badgeM.textContent = '✗ No está en Firestore (404)';
+      liveM.innerHTML = '<span style="color:var(--ruby);">✗ Alumna offline (no visible para la estudiante)</span>';
+    }
+  }catch(e){}
+}
+
+async function sincronizarDoc() {
+  if (!auth.currentUser) {
+    alert('Primero debes iniciar sesión con Google.');
+    return;
+  }
+  try {
+    await db.collection('estudiantes').doc('TUAFxr6SWGQBN5SYBarq3td2').set({
+      ...DOC_DATA,
+      profesor_id: auth.currentUser.uid,
+      profesor_nombre: auth.currentUser.displayName || 'Prof. Felipe Florez',
+      updated: new Date().toISOString()
+    }, { merge: true });
+    showToast('✨ Doc subido con éxito a Firestore');
+    verificarEnVivo();
+  } catch(e) {
+    alert('Error al subir a Doc: ' + e.message);
+  }
+}
+
+async function sincronizarMariana() {
+  if (!auth.currentUser) {
+    alert('Primero debes iniciar sesión con Google.');
+    return;
+  }
+  let given = 0;
+  for (const c of marianaClases) {
+    const h = Number(marianaHoras[c]);
+    given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+  }
+  const rem = Math.max(0, 24 - given);
+
+  const payload = {
+    nombre: "Mariana Muñoz Morales",
+    correo: "munozmariana70@gmail.com",
+    nivel: "B2",
+    horas_contratadas: 24,
+    horas_dadas: given,
+    horas_restantes: rem,
+    clases: marianaClases,
+    clases_horas: marianaHoras,
+    clases_notas: marianaNotas,
+    student_token: "ThDvw4pjkFyrCS6jQYPf7pY",
+    profesor_id: auth.currentUser.uid,
+    profesor_nombre: auth.currentUser.displayName || 'Prof. Felipe Florez',
+    updated: new Date().toISOString()
+  };
+
+  try {
+    await db.collection('estudiantes').doc('ThDvw4pjkFyrCS6jQYPf7pY').set(payload, { merge: true });
+    showToast('✨ Mariana subida con éxito a Firestore');
+    verificarEnVivo();
+  } catch(e) {
+    alert('Error al subir a Mariana: ' + e.message);
+  }
+}
+
+async function sincronizarTodo() {
+  if (!auth.currentUser) {
+    alert('Primero debes iniciar sesión con Google arriba.');
+    return;
+  }
+  await sincronizarDoc();
+  await sincronizarMariana();
+  showToast('🚀 Doc y Mariana han sido sincronizados en la nube');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('active');
+  setTimeout(() => t.classList.remove('active'), 3500);
+}
+
+// Inicializar fecha de hoy en el datepicker de Mariana
+document.getElementById('marianaDate').value = new Date().toISOString().split('T')[0];
+renderMarianaClasesList();
+verificarEnVivo();
+</script>
+
+</body>
+</html>
