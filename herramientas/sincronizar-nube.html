@@ -211,18 +211,18 @@ h1 {
       <div>
         <div style="display:flex; align-items:center; gap:10px;">
           <h3 class="card-title">Doc</h3>
-          <span class="token-badge">Token: TUAFxr6SWGQBN5SYBarq3td2</span>
+          <span class="token-badge">Token: UAFxr6SWGQBN5SYBarq3td</span>
           <span class="status-pill status-pend" id="statusDoc">⏳ Verificando...</span>
         </div>
         <p style="color:var(--paper-muted); font-size:13px; margin-top:4px;">
-          Correo: <b>luisreduardo@hotmail.com</b> · Nivel: <b>B1</b> · Paquete: <b>24.0h contratadas</b> · Saldo: <b>16.0h restantes</b>
+          Correo: <b>luisreduardo@hotmail.com</b> · Nivel: <b>B1</b> · Paquete: <b>24.0h contratadas</b> · Saldo: <b>12.0h restantes</b> (50% completado)
         </p>
       </div>
       <button class="btn" style="padding:6px 14px; font-size:12px;" onclick="sincronizarDoc()">Subir Doc</button>
     </div>
 
     <div style="font-family:var(--mono); font-size:11px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; font-weight:700;">
-      📋 4 Sesiones Registradas (8.0 Horas Completadas):
+      📋 6 Sesiones Registradas (12.0 Horas Impartidas):
     </div>
     <table class="sessions-table">
       <thead>
@@ -235,6 +235,20 @@ h1 {
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>#6</td>
+          <td><b>Tue, Sep 29, 2026</b></td>
+          <td>Free conversation</td>
+          <td style="color:#10B981; font-weight:700;">2.0h</td>
+          <td><span class="status-pill status-ok">✓ Impartida</span></td>
+        </tr>
+        <tr>
+          <td>#5</td>
+          <td><b>Wed, Sep 23, 2026</b></td>
+          <td>Underminate pronouns</td>
+          <td style="color:#10B981; font-weight:700;">2.0h</td>
+          <td><span class="status-pill status-ok">✓ Impartida</span></td>
+        </tr>
         <tr>
           <td>#4</td>
           <td><b>Tue, Sep 22, 2026</b></td>
@@ -267,7 +281,7 @@ h1 {
     </table>
 
     <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-      <a href="../aula/estudiante.html?t=TUAFxr6SWGQBN5SYBarq3td2" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">
+      <a href="../aula/estudiante.html?t=UAFxr6SWGQBN5SYBarq3td" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">
         🔗 Probar Aula de Doc en vivo ↗
       </a>
       <span style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);" id="liveCheckDoc"></span>
@@ -280,7 +294,7 @@ h1 {
       <div>
         <div style="display:flex; align-items:center; gap:10px;">
           <h3 class="card-title">Mariana Muñoz Morales</h3>
-          <span class="token-badge">Token: ThDvw4pjkFyrCS6jQYPf7pY</span>
+          <span class="token-badge">Token: hDvw4pjkFyrCS6jQYPf7pY</span>
           <span class="status-pill status-pend" id="statusMariana">⏳ Verificando...</span>
         </div>
         <p style="color:var(--paper-muted); font-size:13px; margin-top:4px;">
@@ -312,7 +326,7 @@ h1 {
     </div>
 
     <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-      <a href="../aula/estudiante.html?t=ThDvw4pjkFyrCS6jQYPf7pY" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">
+      <a href="../aula/estudiante.html?t=hDvw4pjkFyrCS6jQYPf7pY" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">
         🔗 Probar Aula de Mariana en vivo ↗
       </a>
       <span style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);" id="liveCheckMariana"></span>
@@ -348,23 +362,27 @@ const DOC_DATA = {
   correo: "luisreduardo@hotmail.com",
   nivel: "B1",
   horas_contratadas: 24,
-  horas_dadas: 8.0,
-  horas_restantes: 16.0,
-  clases: ["2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22"],
+  horas_dadas: 12.0,
+  horas_restantes: 12.0,
+  clases: ["2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-29"],
   clases_horas: {
     "2026-09-16": 2.0,
     "2026-09-17": 2.0,
     "2026-09-21": 2.0,
-    "2026-09-22": 2.0
+    "2026-09-22": 2.0,
+    "2026-09-23": 2.0,
+    "2026-09-29": 2.0
   },
   clases_notas: {
     "2026-09-16": "B1 Consolidation: Present Perfect",
     "2026-09-17": "B1 Consolidation: Passive voice",
     "2026-09-21": "B2 Start",
-    "2026-09-22": "Colocations"
+    "2026-09-22": "Colocations",
+    "2026-09-23": "Underminate pronouns",
+    "2026-09-29": "Free conversation"
   },
-  student_token: "TUAFxr6SWGQBN5SYBarq3td2",
-  profesor_id: "tOyysKSwJ8pMrn4Omqe5thDGSGh63",
+  student_token: "UAFxr6SWGQBN5SYBarq3td",
+  profesor_id: "OyysKSwJ8pMrn4Omqe5thDGSGh63",
   profesor_nombre: "Prof. Felipe Florez"
 };
 
@@ -377,12 +395,13 @@ try {
   const cached = localStorage.getItem('englishaurora_students_cache');
   if (cached) {
     const list = JSON.parse(cached);
-    const m = list.find(s => s.id === "ThDvw4pjkFyrCS6jQYPf7pY");
+    const m = list.find(s => (s.id === "hDvw4pjkFyrCS6jQYPf7pY" || s.id === "ThDvw4pjkFyrCS6jQYPf7pY"));
     if (m && Array.isArray(m.clases) && m.clases.length > 0) {
       marianaClases = [...m.clases];
       marianaHoras = Object.assign({}, m.clases_horas || {});
       marianaNotas = Object.assign({}, m.clases_notas || {});
     }
+  }
   }
 } catch(e){}
 
@@ -476,13 +495,13 @@ function logout() {
 async function verificarEnVivo() {
   // Verificar Doc
   try {
-    const resDoc = await fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/TUAFxr6SWGQBN5SYBarq3td2');
+    const resDoc = await fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/UAFxr6SWGQBN5SYBarq3td');
     const badgeDoc = document.getElementById('statusDoc');
     const liveDoc = document.getElementById('liveCheckDoc');
     if (resDoc.status === 200) {
       badgeDoc.className = 'status-pill status-ok';
       badgeDoc.textContent = '✓ En Firestore (Nube Activa)';
-      liveDoc.innerHTML = '<span style="color:#10B981;">✓ Alumno visible en la nube</span>';
+      liveDoc.innerHTML = '<span style="color:#10B981;">✓ Alumno visible en la nube (Token Canónico)</span>';
     } else {
       badgeDoc.className = 'status-pill status-err';
       badgeDoc.textContent = '✗ No está en Firestore (404)';
@@ -492,13 +511,13 @@ async function verificarEnVivo() {
 
   // Verificar Mariana
   try {
-    const resM = await fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/ThDvw4pjkFyrCS6jQYPf7pY');
+    const resM = await fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/hDvw4pjkFyrCS6jQYPf7pY');
     const badgeM = document.getElementById('statusMariana');
     const liveM = document.getElementById('liveCheckMariana');
     if (resM.status === 200) {
       badgeM.className = 'status-pill status-ok';
       badgeM.textContent = '✓ En Firestore (Nube Activa)';
-      liveM.innerHTML = '<span style="color:#10B981;">✓ Alumna visible en la nube</span>';
+      liveM.innerHTML = '<span style="color:#10B981;">✓ Alumna visible en la nube (Token Canónico)</span>';
     } else {
       badgeM.className = 'status-pill status-err';
       badgeM.textContent = '✗ No está en Firestore (404)';
@@ -513,13 +532,20 @@ async function sincronizarDoc() {
     return;
   }
   try {
-    await db.collection('estudiantes').doc('TUAFxr6SWGQBN5SYBarq3td2').set({
+    // Escribir en token canónico con las 6 clases e historial completo
+    await db.collection('estudiantes').doc('UAFxr6SWGQBN5SYBarq3td').set({
       ...DOC_DATA,
       profesor_id: auth.currentUser.uid,
       profesor_nombre: auth.currentUser.displayName || 'Prof. Felipe Florez',
       updated: new Date().toISOString()
     }, { merge: true });
-    showToast('✨ Doc subido con éxito a Firestore');
+
+    // Eliminar token duplicado obsoleto si existe
+    try {
+      await db.collection('estudiantes').doc('TUAFxr6SWGQBN5SYBarq3td2').delete();
+    } catch(e){}
+
+    showToast('✨ Doc subido con éxito a Firestore (6 clases, 12h dadas / 12h restantes)');
     verificarEnVivo();
   } catch(e) {
     alert('Error al subir a Doc: ' + e.message);
@@ -548,14 +574,21 @@ async function sincronizarMariana() {
     clases: marianaClases,
     clases_horas: marianaHoras,
     clases_notas: marianaNotas,
-    student_token: "ThDvw4pjkFyrCS6jQYPf7pY",
+    student_token: "hDvw4pjkFyrCS6jQYPf7pY",
     profesor_id: auth.currentUser.uid,
     profesor_nombre: auth.currentUser.displayName || 'Prof. Felipe Florez',
     updated: new Date().toISOString()
   };
 
   try {
-    await db.collection('estudiantes').doc('ThDvw4pjkFyrCS6jQYPf7pY').set(payload, { merge: true });
+    // Escribir en token canónico
+    await db.collection('estudiantes').doc('hDvw4pjkFyrCS6jQYPf7pY').set(payload, { merge: true });
+
+    // Eliminar token duplicado obsoleto si existe
+    try {
+      await db.collection('estudiantes').doc('ThDvw4pjkFyrCS6jQYPf7pY').delete();
+    } catch(e){}
+
     showToast('✨ Mariana subida con éxito a Firestore');
     verificarEnVivo();
   } catch(e) {
@@ -568,9 +601,20 @@ async function sincronizarTodo() {
     alert('Primero debes iniciar sesión con Google arriba.');
     return;
   }
+
+  // Limpiar cualquier residuo de duplicados en localStorage
+  try {
+    const cached = localStorage.getItem('englishaurora_students_cache');
+    if (cached) {
+      const list = JSON.parse(cached);
+      const cleaned = list.filter(s => s && s.id !== 'TUAFxr6SWGQBN5SYBarq3td2' && s.id !== 'ThDvw4pjkFyrCS6jQYPf7pY');
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(cleaned));
+    }
+  } catch(e){}
+
   await sincronizarDoc();
   await sincronizarMariana();
-  showToast('🚀 Doc y Mariana han sido sincronizados en la nube');
+  showToast('🚀 Doc y Mariana sincronizados con tokens unificados');
 }
 
 function showToast(msg) {

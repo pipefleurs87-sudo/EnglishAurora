@@ -135,7 +135,12 @@
 (async function(){
   if(document.readyState==='loading') await new Promise(r=>document.addEventListener('DOMContentLoaded',r));
   const P=new URLSearchParams(location.search);
-  const token=P.get('t'), temaId=P.get('tema'), tareaId=P.get('tarea');
+  let token=P.get('t'), temaId=P.get('tema'), tareaId=P.get('tarea');
+  const TOKEN_ALIASES = {
+    "TUAFxr6SWGQBN5SYBarq3td2": "UAFxr6SWGQBN5SYBarq3td",
+    "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
+  };
+  if (token && TOKEN_ALIASES[token]) token = TOKEN_ALIASES[token];
   const app=document.getElementById('app');
   const fail=m=>{app.innerHTML='<div style="padding:30px;color:var(--muted);font-style:italic">'+m+'</div>';};
   if(!token||!temaId) return fail('Link inválido — vuelve a tu aula y abre el ejercicio desde ahí.');

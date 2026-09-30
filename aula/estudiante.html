@@ -32,14 +32,31 @@
 <script src="config.js"></script>
 <script src="comun.js"></script>
 <script>
-const token = new URLSearchParams(location.search).get('t');
+let token = new URLSearchParams(location.search).get('t');
+const TOKEN_ALIASES = {
+  "TUAFxr6SWGQBN5SYBarq3td2": "UAFxr6SWGQBN5SYBarq3td",
+  "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
+};
+if (token && TOKEN_ALIASES[token]) {
+  token = TOKEN_ALIASES[token];
+}
+
 let EST = null, modalCtx = null;
 const ref = () => db.collection('estudiantes').doc(token);
 
 async function init(){
   if(!token){ return errorPage('This link is not valid. Please ask Prof. Felipe Florez for your personal link.'); }
   try{
-    const [snap] = await Promise.all([ ref().get(), cargarCatalogo() ]);
+    let snap = await ref().get();
+    if (!snap.exists && token.startsWith('T')) {
+      const stripped = token.replace(/^T/, '').replace(/2$/, '');
+      const altSnap = await db.collection('estudiantes').doc(stripped).get();
+      if (altSnap.exists) {
+        token = stripped;
+        snap = altSnap;
+      }
+    }
+    const [catalogoData] = await Promise.all([ cargarCatalogo() ]);
     if(!snap.exists) return errorPage('We could not find your classroom. Please verify that you copied the complete link.');
     EST = snap.data();
     render();

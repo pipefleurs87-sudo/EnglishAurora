@@ -3575,25 +3575,34 @@ body.theme-glacial .aurora-layer {
   // Inviolable preloaded seed for rescued students (Doc and Mariana)
   const CORE_RESCUED_STUDENTS = [
     {
-      id: "TUAFxr6SWGQBN5SYBarq3td2",
+      id: "UAFxr6SWGQBN5SYBarq3td",
       nombre: "Doc",
       correo: "luisreduardo@hotmail.com",
       nivel: "B1",
       horasContratadas: 24,
-      horasDadas: 8.0,
-      horasRestantes: 16.0,
-      clases: ["2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22"],
-      clases_horas: { "2026-09-16": 2.0, "2026-09-17": 2.0, "2026-09-21": 2.0, "2026-09-22": 2.0 },
+      horasDadas: 12.0,
+      horasRestantes: 12.0,
+      clases: ["2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-29"],
+      clases_horas: {
+        "2026-09-16": 2.0,
+        "2026-09-17": 2.0,
+        "2026-09-21": 2.0,
+        "2026-09-22": 2.0,
+        "2026-09-23": 2.0,
+        "2026-09-29": 2.0
+      },
       clases_notas: {
         "2026-09-16": "B1 Consolidation: Present Perfect",
         "2026-09-17": "B1 Consolidation: Passive voice",
         "2026-09-21": "B2 Start",
-        "2026-09-22": "Colocations"
+        "2026-09-22": "Colocations",
+        "2026-09-23": "Underminate pronouns",
+        "2026-09-29": "Free conversation"
       },
       fecha_alta: "2026-07-21T07:39:00Z"
     },
     {
-      id: "ThDvw4pjkFyrCS6jQYPf7pY",
+      id: "hDvw4pjkFyrCS6jQYPf7pY",
       nombre: "Mariana Muñoz Morales",
       correo: "munozmariana70@gmail.com",
       nivel: "B2",
@@ -3606,6 +3615,16 @@ body.theme-glacial .aurora-layer {
       fecha_alta: "2026-09-22T10:00:00Z"
     }
   ];
+
+  const STUDENT_TOKEN_ALIASES = {
+    "TUAFxr6SWGQBN5SYBarq3td2": "UAFxr6SWGQBN5SYBarq3td",
+    "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
+  };
+
+  function resolveStudentToken(tok) {
+    if (!tok) return tok;
+    return STUDENT_TOKEN_ALIASES[tok] || tok;
+  }
 
   let ALL_STUDENTS = [];
   let selectedToken = null, selectedData = null;
@@ -3650,8 +3669,9 @@ body.theme-glacial .aurora-layer {
   }
 
   function linkEstudiante(token) {
+    const canId = resolveStudentToken(token);
     const base = location.href.replace(/\/ui-lab\/.*$/, '').replace(/\/herramientas\/.*$/, '').replace(/\?.*$/, '').replace(/\/$/, '');
-    return `${base}/aula/estudiante.html?t=${token}`;
+    return `${base}/aula/estudiante.html?t=${canId}`;
   }
 
   function urlTemaHub(id, tipo) {
@@ -4393,22 +4413,64 @@ body.theme-glacial .aurora-layer {
           const x = d.data() || {};
           return x.profesor_id === myUid || !x.profesor_id;
         });
+
+        // Auto-purge stale duplicate document tokens in Firestore
+        docs.forEach(d => {
+          if (STUDENT_TOKEN_ALIASES[d.id]) {
+            db.collection(COL_ESTUDIANTES).doc(d.id).delete().catch(()=>{});
+          }
+        });
+      }
+
+      function mergeStudentRecord(base, incoming) {
+        if (!base) return Object.assign({}, incoming);
+        if (!incoming) return Object.assign({}, base);
+
+        const canonicalId = resolveStudentToken(incoming.id || base.id);
+        const merged = Object.assign({}, base, incoming);
+        merged.id = canonicalId;
+        merged.student_token = canonicalId;
+
+        // Union of classes so classes are never lost
+        const baseClases = Array.isArray(base.clases) ? base.clases : [];
+        const inClases = Array.isArray(incoming.clases) ? incoming.clases : [];
+        const setClases = new Set([...baseClases, ...inClases]);
+        merged.clases = Array.from(setClases).sort();
+
+        // Union of horas and notas
+        merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {});
+        merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {});
+
+        const contracted = Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 24);
+        let given = 0;
+        for (const c of merged.clases) {
+          const h = Number(merged.clases_horas[c]);
+          given += (h && !isNaN(h) && h > 0) ? h : 2.0;
+        }
+        given = Math.round(given * 10) / 10;
+        const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
+
+        merged.horasContratadas = contracted;
+        merged.horasDadas = given;
+        merged.horasRestantes = remaining;
+        return merged;
       }
 
       const cloudStudents = docs.map(d => {
         const x = d.data() || {};
-        const contracted = Number(x.horas_contratadas) || 0;
+        const id = resolveStudentToken(d.id || x.student_token);
+        const contracted = Number(x.horas_contratadas || x.horasContratadas) || 24;
         const clases = Array.isArray(x.clases) ? x.clases : [];
         const horasMap = x.clases_horas || {};
         let given = 0;
         for (const c of clases) {
           const h = Number(horasMap[c]);
-          given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+          given += (h && !isNaN(h) && h > 0) ? h : 2.0;
         }
         given = Math.round(given * 10) / 10;
         const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
         return {
-          id: d.id,
+          id: id,
           nombre: x.nombre || '(Unnamed)',
           correo: x.correo || '',
           nivel: x.nivel || 'A1',
@@ -4434,44 +4496,61 @@ body.theme-glacial .aurora-layer {
           const parsed = JSON.parse(cached);
           if (Array.isArray(parsed)) {
             parsed.forEach(s => {
-              if (s && s.id) rosterMap.set(s.id, Object.assign({}, rosterMap.get(s.id) || {}, s));
+              if (s && s.id) {
+                const canId = resolveStudentToken(s.id);
+                s.id = canId;
+                rosterMap.set(canId, mergeStudentRecord(rosterMap.get(canId), s));
+              }
             });
           }
         } catch(e) {}
       }
 
-      // Cloud data is authoritative for docs that exist in Firestore
-      cloudStudents.forEach(s => rosterMap.set(s.id, s));
+      // Cloud data is merged smartly (union of classes so 0-class docs don't erase existing sessions)
+      cloudStudents.forEach(s => {
+        const canId = resolveStudentToken(s.id);
+        s.id = canId;
+        rosterMap.set(canId, mergeStudentRecord(rosterMap.get(canId), s));
+      });
 
-      ALL_STUDENTS = Array.from(rosterMap.values());
+      // Deduplicate by email address across students to ensure strictly 1 card per human
+      const emailMap = new Map();
+      rosterMap.forEach(st => {
+        const emailKey = (st.correo || '').toLowerCase().trim();
+        if (emailKey && emailMap.has(emailKey)) {
+          const prev = emailMap.get(emailKey);
+          emailMap.set(emailKey, mergeStudentRecord(prev, st));
+        } else {
+          if (emailKey) emailMap.set(emailKey, st);
+        }
+      });
+
+      ALL_STUDENTS = emailMap.size > 0 ? Array.from(emailMap.values()) : Array.from(rosterMap.values());
       localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
 
-      // Auto-upload any missing students to Firestore if authenticated
+      // Auto-upload any missing students to Firestore if authenticated, and sync Doc's full 6 classes
       if (auth && auth.currentUser) {
-        const missingInCloud = ALL_STUDENTS.filter(s => !docs.some(d => d.id === s.id));
-        if (missingInCloud.length > 0) {
-          missingInCloud.forEach(async ms => {
-            try {
-              await db.collection(COL_ESTUDIANTES).doc(ms.id).set({
-                nombre: ms.nombre || '',
-                correo: ms.correo || '',
-                nivel: ms.nivel || 'A1',
-                horas_contratadas: Number(ms.horasContratadas || ms.horas_contratadas) || 0,
-                horas_dadas: Number(ms.horasDadas || ms.horas_dadas) || 0,
-                horas_restantes: Number(ms.horasRestantes || ms.horas_restantes) || 0,
-                clases: Array.isArray(ms.clases) ? ms.clases : [],
-                clases_horas: ms.clases_horas || {},
-                clases_notas: ms.clases_notas || {},
-                student_token: ms.id,
-                profesor_id: auth.currentUser.uid,
-                profesor_nombre: 'Prof. Felipe Florez',
-                fecha_alta: ms.fecha_alta || new Date().toISOString()
-              }, { merge: true });
-              console.log('Auto-synchronized to Firestore:', ms.nombre);
-            } catch(e) {
-              console.warn('Auto-sync error for', ms.nombre, e);
-            }
-          });
+        const docStudent = ALL_STUDENTS.find(s => s.id === 'UAFxr6SWGQBN5SYBarq3td');
+        if (docStudent && docStudent.clases && docStudent.clases.length >= 6) {
+          const cloudDoc = docs.find(d => d.id === 'UAFxr6SWGQBN5SYBarq3td');
+          const cloudClassesCount = cloudDoc && cloudDoc.data() && Array.isArray(cloudDoc.data().clases) ? cloudDoc.data().clases.length : 0;
+          if (cloudClassesCount < docStudent.clases.length) {
+            db.collection(COL_ESTUDIANTES).doc('UAFxr6SWGQBN5SYBarq3td').set({
+              clases: docStudent.clases,
+              clases_horas: docStudent.clases_horas,
+              clases_notas: docStudent.clases_notas,
+              horas_contratadas: docStudent.horasContratadas,
+              horas_dadas: docStudent.horasDadas,
+              horas_restantes: docStudent.horasRestantes,
+              nombre: 'Doc',
+              correo: 'luisreduardo@hotmail.com',
+              nivel: 'B1',
+              student_token: 'UAFxr6SWGQBN5SYBarq3td',
+              profesor_id: auth.currentUser.uid,
+              profesor_nombre: 'Prof. Felipe Florez',
+              updated: new Date().toISOString()
+            }, { merge: true }).catch(()=>{});
+          }
         }
       }
 
@@ -4492,6 +4571,31 @@ body.theme-glacial .aurora-layer {
   }
 
   function loadOfflineFallback() {
+    function mergeStudentRecord(base, incoming) {
+      if (!base) return Object.assign({}, incoming);
+      if (!incoming) return Object.assign({}, base);
+      const canonicalId = resolveStudentToken(incoming.id || base.id);
+      const merged = Object.assign({}, base, incoming);
+      merged.id = canonicalId;
+      merged.student_token = canonicalId;
+      const baseClases = Array.isArray(base.clases) ? base.clases : [];
+      const inClases = Array.isArray(incoming.clases) ? incoming.clases : [];
+      merged.clases = Array.from(new Set([...baseClases, ...inClases])).sort();
+      merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {});
+      merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {});
+      const contracted = Number(incoming.horasContratadas || base.horasContratadas || 24);
+      let given = 0;
+      for (const c of merged.clases) {
+        const h = Number(merged.clases_horas[c]);
+        given += (h && !isNaN(h) && h > 0) ? h : 2.0;
+      }
+      given = Math.round(given * 10) / 10;
+      merged.horasContratadas = contracted;
+      merged.horasDadas = given;
+      merged.horasRestantes = Math.max(0, Math.round((contracted - given) * 10) / 10);
+      return merged;
+    }
+
     const rosterMap = new Map();
     CORE_RESCUED_STUDENTS.forEach(s => rosterMap.set(s.id, { ...s }));
 
@@ -4501,13 +4605,29 @@ body.theme-glacial .aurora-layer {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed)) {
           parsed.forEach(s => {
-            if (s && s.id) rosterMap.set(s.id, Object.assign({}, rosterMap.get(s.id) || {}, s));
+            if (s && s.id) {
+              const canId = resolveStudentToken(s.id);
+              s.id = canId;
+              rosterMap.set(canId, mergeStudentRecord(rosterMap.get(canId), s));
+            }
           });
         }
       } catch (e) {}
     }
 
-    ALL_STUDENTS = Array.from(rosterMap.values());
+    // Deduplicate by email
+    const emailMap = new Map();
+    rosterMap.forEach(st => {
+      const emailKey = (st.correo || '').toLowerCase().trim();
+      if (emailKey && emailMap.has(emailKey)) {
+        const prev = emailMap.get(emailKey);
+        emailMap.set(emailKey, mergeStudentRecord(prev, st));
+      } else {
+        if (emailKey) emailMap.set(emailKey, st);
+      }
+    });
+
+    ALL_STUDENTS = emailMap.size > 0 ? Array.from(emailMap.values()) : Array.from(rosterMap.values());
     localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
     renderStudentsRoster();
     updateTab6HoursLedger();
@@ -4648,6 +4768,7 @@ body.theme-glacial .aurora-layer {
 
   async function loadStudentMiniTelemetry(token) {
     if (!db) return;
+    token = resolveStudentToken(token);
     try {
       const ref = db.collection(COL_ESTUDIANTES).doc(token);
       const [resSnap, taskSnap] = await Promise.all([
@@ -4676,6 +4797,7 @@ body.theme-glacial .aurora-layer {
 
   // --- SELECT STUDENT & DOSSIER CONTROLLER ---
   async function selectStudentHub(token, doScroll = true) {
+    token = resolveStudentToken(token);
     selectedToken = token;
     selectedData = ALL_STUDENTS.find(s => s.id === token);
 
@@ -5447,7 +5569,8 @@ body.theme-glacial .aurora-layer {
 
     if (db && cloudMode) {
       try {
-        await db.collection(COL_ESTUDIANTES).doc(selectedToken).collection('tareas').add({
+        const canToken = resolveStudentToken(selectedToken);
+        await db.collection(COL_ESTUDIANTES).doc(canToken).collection('tareas').add({
           ...tarea,
           fecha: firebase.firestore.FieldValue.serverTimestamp()
         });
@@ -5469,6 +5592,7 @@ body.theme-glacial .aurora-layer {
   async function loadStudentTasksHub(token) {
     const listEl = document.getElementById('dTareasList');
     if (!listEl) return;
+    token = resolveStudentToken(token);
 
     if (!db || !cloudMode) {
       listEl.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Connect to cloud to view synced tasks.</div>`;
@@ -5515,10 +5639,11 @@ body.theme-glacial .aurora-layer {
 
   async function borrarTareaHub(taskId) {
     if (!db || !selectedToken) return;
+    const canToken = resolveStudentToken(selectedToken);
     try {
-      await db.collection(COL_ESTUDIANTES).doc(selectedToken).collection('tareas').doc(taskId).delete();
+      await db.collection(COL_ESTUDIANTES).doc(canToken).collection('tareas').doc(taskId).delete();
       showToast('Task removed');
-      loadStudentTasksHub(selectedToken);
+      loadStudentTasksHub(canToken);
     } catch (e) {
       console.error(e);
     }
@@ -5531,6 +5656,7 @@ body.theme-glacial .aurora-layer {
     const avgScoreEl = document.getElementById('dossier-avg-score');
     const weakAreaEl = document.getElementById('dossier-weak-area');
     if (!tbody || !areasEl) return;
+    token = resolveStudentToken(token);
 
     if (!db || !cloudMode) {
       tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--paper-muted);">Cloud sync required to load full history.</td></tr>`;
@@ -5603,6 +5729,7 @@ body.theme-glacial .aurora-layer {
   async function loadStudentCommentsHub(token) {
     const stream = document.getElementById('dComentariosStream');
     if (!stream) return;
+    token = resolveStudentToken(token);
 
     if (!db || !cloudMode) {
       stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Cloud sync required for live messaging.</div>`;
@@ -5645,7 +5772,8 @@ body.theme-glacial .aurora-layer {
 
     if (db && cloudMode) {
       try {
-        await db.collection(COL_ESTUDIANTES).doc(selectedToken).collection('comentarios').add({
+        const canToken = resolveStudentToken(selectedToken);
+        await db.collection(COL_ESTUDIANTES).doc(canToken).collection('comentarios').add({
           texto,
           autor: 'profesor',
           fecha: firebase.firestore.FieldValue.serverTimestamp()
