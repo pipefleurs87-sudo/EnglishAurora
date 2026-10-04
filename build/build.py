@@ -6,7 +6,7 @@
 # + index.html con buscador instantaneo, + sitemap.xml + robots.txt.
 # Uso:  python3 build/build.py
 """
-import json, pathlib, argparse, html, datetime, re, subprocess, shutil, sys, tempfile
+import json, pathlib, argparse, html, datetime, re, subprocess, shutil, sys, tempfile, collections
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MOTOR_EJ = ROOT / "motor" / "motor-generico.html"
@@ -93,7 +93,8 @@ def area_de(data):
         ("conditional","Conditionals"),("countable","Countable & Uncountable"),
         ("gerund","Gerund vs Infinitive"),("infinitive","Gerund vs Infinitive"),
         ("imperative","Imperatives"),("passive","Passive Voice"),("used to","Used To"),
-        ("number","Numbers"),("introducing","Introducing Yourself"),("introduce","Introducing Yourself")]
+        ("number","Numbers"),("introducing","Introducing Yourself"),("introduce","Introducing Yourself"),
+        ("past perfect","Past Perfect"),("collocation","Collocations"),("advanced verbs","Advanced Verbs")]
     for k,v in pairs:
         if k in t: return v
     return data.get("nivel","")
@@ -121,13 +122,83 @@ AREA_ES = {"Present Simple":"presente simple","Present Continuous":"presente con
     "Participle Clauses":"clausulas de participio","Emphatic Structures":"estructuras enfaticas",
     "Future in the Past":"futuro en el pasado","Ellipsis & Substitution":"elipsis y sustitucion",
     "Register & Style":"registro y estilo en ingles",
-    "Numbers":"números en ingles","Introducing Yourself":"presentaciones personales en ingles"}
+    "Numbers":"números en ingles","Introducing Yourself":"presentaciones personales en ingles",
+    "Past Perfect":"pasado perfecto","Collocations":"colocaciones en ingles",
+    "Advanced Verbs":"verbos avanzados en ingles"}
 
 def titulo_hibrido(tema, area):
     es = AREA_ES.get(area)
     if es and es.lower() not in tema.lower():
         return tema + " (" + es + ")"
     return tema
+
+# --- Presupuesto SEO -------------------------------------------------------------
+# Google corta el titulo hacia ~60 caracteres y la descripcion hacia ~155. Antes la
+# mediana era 94 (solo 1 de 87 cabia). Se generan candidatos en orden de valor y se
+# elige el primero que cabe. Prioridad: tema + keyword en espanol > nivel/tipo >
+# marca (Google ya muestra el nombre del sitio sobre el resultado) > subtitulo.
+TITLE_MAX = 60
+DESC_MAX = 155
+
+def _cabe(cands, limite):
+    for c in cands:
+        if c and len(c) <= limite:
+            return c
+    c = cands[-1]
+    corte = c[:limite - 1].rsplit(" ", 1)[0].rstrip(" ,;:—-(")
+    return corte + "…"
+
+def partes_tema(tema):
+    """'Passive Voice — Present, Past & Perfect' -> ('Passive Voice', 'Present, Past & Perfect')"""
+    if " — " in tema:
+        core, sub = tema.split(" — ", 1)
+        return core.strip(), sub.strip()
+    return tema.strip(), ""
+
+def titulo_seo(tema, area, niv, tipo, brand, con_sub=False):
+    core, sub = partes_tema(tema)
+    es = AREA_ES.get(area, "")
+    base = tema if con_sub else core
+    kw = (" (" + es + ")") if es and es.lower() not in base.lower() else ""
+    cola = " — " + niv + " " + tipo
+    cands = [base + kw + cola + " | " + brand,
+             base + kw + cola]
+    if con_sub and sub:
+        # colision: el subtitulo es lo que distingue la pagina; se recorta por palabras
+        # completas y, si no cabe junto a la keyword con >=2 palabras, gana el subtitulo
+        pal = sub.replace("—", " ").replace(":", " ").split()
+        VACIAS = {"of", "and", "&", "with", "the", "a", "an", "to", "vs", "in", "for", "/", "-"}
+        def recorte(n):
+            if n >= len(pal):
+                return sub
+            w = pal[:n]
+            while len(w) > 1 and w[-1].lower().strip(",;") in VACIAS:
+                w.pop()
+            s = " ".join(w).rstrip(" ,;:&(/-")
+            if s.count("(") > s.count(")"):
+                s = s[:s.rfind("(")].rstrip(" ,;:&/-")
+            return s
+        cands += [core + ": " + recorte(n) + kw + cola for n in range(len(pal), 1, -1)]
+        cands += [core + ": " + recorte(n) + cola for n in range(len(pal), 0, -1)]
+    cands += [base + cola + " | " + brand, base + cola, core + kw + cola, core + cola]
+    core_np = re.sub(r"\s*\([^)]*\)?", "", core).strip()
+    if core_np and core_np != core:
+        cands += [core_np + kw + cola, core_np + cola]
+    return _cabe(cands, TITLE_MAX)
+
+def desc_seo(tema, niv, es, tipo):
+    core, _ = partes_tema(tema)
+    gratis = {"ex": "Ejercicios de ", "le": "Lección de ", "ev": "Examen de "}[tipo] + (es if es else "inglés") + " gratis."
+    cuerpo = {"ex": ["English exercises: grammar, listening and reading in one sequence.",
+                     "Grammar, listening and reading exercises.", "Interactive exercises."],
+              "le": ["Lesson with clear rules, examples and guided practice.",
+                     "Clear rules, examples and guided practice.", "Interactive lesson."],
+              "ev": ["Test your grammar with instant scoring.", "Instant-scored test.", "Online test."]}[tipo]
+    cands = []
+    for nombre in (tema, core):
+        for c in cuerpo:
+            cands.append(nombre + " (" + niv + "). " + c + " " + gratis)
+    return _cabe(cands, DESC_MAX)
 
 def esc(s):
     return html.escape(str(s), quote=True)
@@ -267,6 +338,9 @@ def inyectar(motor_txt, data, title, desc, keywords, jsonld, modo="ejercicios", 
     ld = json.dumps(jsonld, ensure_ascii=False)
     head = seo_head(title, desc, keywords, ld, canonical)
     page = re.sub(r"<title>.*?</title>", lambda m: head, motor_txt, count=1)
+    # SEO: las plantillas traen lang="en" fijo; el build de Spanish Aurora debe declarar "es"
+    if LANG == "es":
+        page = page.replace('<html lang="en"', '<html lang="es"', 1)
     data_to_embed = data
     if modo == "ejercicios" and data.get("id"):
         seq_id = data["id"]
@@ -316,6 +390,13 @@ def build_por_tema():
     m_ev = MOTOR_EV.read_text(encoding="utf-8")
     seqs = []
     brand_name = CONFIG.get("name", "English Aurora")
+    # temas cuyo nombre corto se repite en el mismo nivel -> su titulo necesita el subtitulo
+    _cores = collections.Counter()
+    for jf in CONTENIDO.rglob("*.json"):
+        if jf.name != "index.json":
+            _d = json.loads(jf.read_text(encoding="utf-8"))
+            _cores[(_d["nivel"], partes_tema(_d["tema"])[0])] += 1
+    colisiones = {k for k, v in _cores.items() if v > 1}
     for jf in sorted(CONTENIDO.rglob("*.json")):
         if jf.name == "index.json":
             continue
@@ -335,12 +416,13 @@ def build_por_tema():
             de_ev = tema + " — " + niv + " Examen de español: autoevaluación con calificación instantánea gratis."
         else:
             kw = tema + " exercises, English grammar, " + area + ", " + niv + " English, ESL, ejercicios de ingles" + ((", ejercicios " + es + ", " + es) if es else "")
-            t_ej = th + " — " + niv + " Exercises | " + brand_name
-            de_ej = tema + " — " + niv + " English exercises: grammar, listening and reading in one sequence. Ejercicios de " + (es if es else "ingles") + " gratis."
-            t_le = th + " — " + niv + " Video Lesson | " + brand_name
-            de_le = "Video lesson: " + tema + " (" + niv + "). Clear rules, examples and guided practice. Leccion de " + (es if es else "ingles") + " gratis."
-            t_ev = th + " — " + niv + " Test | " + brand_name
-            de_ev = tema + " — " + niv + " test: check your grammar with instant scoring. Examen de " + (es if es else "ingles") + " gratis."
+            con_sub = (niv, partes_tema(tema)[0]) in colisiones
+            t_ej = titulo_seo(tema, area, niv, "Exercises", brand_name, con_sub)
+            de_ej = desc_seo(tema, niv, es, "ex")
+            t_le = titulo_seo(tema, area, niv, "Lesson", brand_name, con_sub)
+            de_le = desc_seo(tema, niv, es, "le")
+            t_ev = titulo_seo(tema, area, niv, "Test", brand_name, con_sub)
+            de_ev = desc_seo(tema, niv, es, "ev")
 
         (PREVIEW/(data["id"]+".html")).write_text(inyectar(m_ej,data,t_ej,de_ej,kw,jsonld_for(data,area,"exercise"),"ejercicios",BASE_URL+"/preview/"+data["id"]+".html"),encoding="utf-8")
         (LECCION/(data["id"]+".html")).write_text(inyectar(m_le,data,t_le,de_le,kw,jsonld_for(data,area,"lesson"),"leccion",BASE_URL+"/leccion/"+data["id"]+".html"),encoding="utf-8")
