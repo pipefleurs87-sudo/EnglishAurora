@@ -80,10 +80,10 @@ def update_root_index():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>English Aurora — Your Sky of English | 87 Stars & CEFR Curriculum</title>
-<meta name="description" content="Explore English Aurora: an interactive 2.5D grammar universe. 87 complete sequences from A1 to C1 with diagnostic challenges, native audio, printable worksheets, and arcade missions.">
+<title>English Aurora — Your Sky of English | 88 Stars & CEFR Curriculum</title>
+<meta name="description" content="Explore English Aurora: an interactive 2.5D grammar universe. 88 complete sequences from A1 to C1 with diagnostic challenges, native audio, printable worksheets, and arcade missions.">
 <meta name="keywords" content="English grammar exercises, ESL worksheets, irregular verbs, A1 A2 B1 B2 C1 English, learning English, English Aurora">
-<meta property="og:title" content="English Aurora — Your Sky of English | 87 Stars & CEFR Curriculum">
+<meta property="og:title" content="English Aurora — Your Sky of English | 88 Stars & CEFR Curriculum">
 <meta property="og:description" content="Complete English exercise sequences by CEFR level — grammar, listening and reading. Guided by Aurora.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/og-image.png">
@@ -109,7 +109,7 @@ def update_root_index():
       "@type": "EducationalOccupationalProgram",
       "name": "English Aurora CEFR Curriculum",
       "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/",
-      "description": "87 complete English sequences from A1 to C1: lesson, practice, video, and printable worksheet for each topic.",
+      "description": "88 complete English sequences from A1 to C1: lesson, practice, video, and printable worksheet for each topic.",
       "educationalProgramMode": "online",
       "inLanguage": "en",
       "isAccessibleForFree": true
@@ -288,7 +288,7 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
 <div class="hud">
   <div>
     <a href="index.html" class="brand">ENGLISH <em>AURORA</em></a>
-    <div class="tagline" id="hud-tagline">87 stars · A1 → C1 · the arcane academy of English</div>
+    <div class="tagline" id="hud-tagline">88 stars · A1 → C1 · the arcane academy of English</div>
   </div>
   <div class="hud-right">
     <a class="btn-hud gold" id="btn-back-aula" href="#" style="display:none;" title="Volver a mi aula">← Mi Aula</a>

@@ -26,6 +26,12 @@
    "area": "Possessives"
   },
   {
+   "id": "a1-greetings-and-farewells-01",
+   "nivel": "A1",
+   "tema": "Greetings & Farewells — Daily Salutations & Partings",
+   "area": "Greetings & Farewells"
+  },
+  {
    "id": "a1-have-got-01",
    "nivel": "A1",
    "tema": "Have got — Possessions",
@@ -689,6 +695,70 @@
    "n": "A1",
    "t": "a1-family-possessive-s-01",
    "q": "We use 's to show a relationship: 'Sofía's brother' means the brother of Sofía.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "True"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "q": "You arrive at a dinner party at 7:30 PM. The polite greeting is: ___",
+   "o": [
+    "Good evening!",
+    "Good night!",
+    "Good afternoon!"
+   ],
+   "a": "Good evening!"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "q": "When a colleague asks 'How are you doing?', the most natural response is: ___",
+   "o": [
+    "I am doing well, thanks!",
+    "I have very good!",
+    "Until tomorrow!"
+   ],
+   "a": "I am doing well, thanks!"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "q": "It is Friday at 5:00 PM and everyone is leaving work. You say: ___",
+   "o": [
+    "Have a great weekend!",
+    "Good morning!",
+    "Pleased to meet you!"
+   ],
+   "a": "Have a great weekend!"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "q": "You say goodbye to a classmate you will see again the next morning: ___",
+   "o": [
+    "See you tomorrow!",
+    "Until the morning!",
+    "Good evening!"
+   ],
+   "a": "See you tomorrow!"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "q": "'Good night' is a greeting used when you enter a room in the evening.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "False"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "q": "'See you later' and 'Take care' are natural ways to say goodbye to a friend.",
    "o": [
     "True",
     "False"
@@ -5197,6 +5267,104 @@
   },
   {
    "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good morning",
+   "tr": "Buenos días (hasta las 12 PM)",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good afternoon",
+   "tr": "Buenas tardes (12 PM a 6 PM)",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good evening",
+   "tr": "Buenas noches al llegar (saludo)",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good night",
+   "tr": "Buenas noches al despedirse o ir a dormir",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "How are you doing?",
+   "tr": "¿Cómo te va? / ¿Cómo estás?",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "I am doing well, thanks",
+   "tr": "Estoy muy bien, gracias",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Not bad, and you?",
+   "tr": "Nada mal, ¿y tú?",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "How is it going?",
+   "tr": "¿Qué tal? / ¿Cómo van las cosas?",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "See you later",
+   "tr": "Hasta luego / Nos vemos luego",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "See you tomorrow",
+   "tr": "Hasta mañana / Nos vemos mañana",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Have a nice day",
+   "tr": "Que tengas un buen día",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Take care",
+   "tr": "Cuídate / Que te vaya bien",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Nice seeing you",
+   "tr": "Qué gusto verte",
+   "f": ""
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Have a great weekend",
+   "tr": "Que tengas un buen fin de semana",
+   "f": ""
+  },
+  {
+   "n": "A1",
    "t": "a1-have-got-01",
    "w": "laptop",
    "tr": "portátil",
@@ -9340,6 +9508,66 @@
    "n": "A1",
    "t": "a1-family-possessive-s-01",
    "s": "Is Abuela Carmen Ben's grandmother? No, she isn't."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Good morning, my name is Sofía and I am glad to see you."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Good evening is the polite greeting when arriving after six o'clock."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Have a wonderful day at the design studio, Kenji."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Good night is not a greeting when you enter a party."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "We do not say 'until tomorrow' in natural English conversations."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "I am not doing well today because I have a cold."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "How are you doing this morning, Ben?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Are you having a good afternoon so far?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Shall we say goodbye now or wait for the teacher?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Are you doing well today? Yes, I am."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Is 'Good evening' used when you arrive at night? Yes, it is."
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "s": "Do native speakers say 'Good night' when saying hello? No, they do not."
   },
   {
    "n": "A1",
@@ -14273,6 +14501,29 @@
   },
   {
    "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": [
+    "How",
+    "are",
+    "you",
+    "doing",
+    "today"
+   ],
+   "a": "How are you doing today?"
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": [
+    "Have",
+    "a",
+    "wonderful",
+    "day"
+   ],
+   "a": "Have a wonderful day!"
+  },
+  {
+   "n": "A1",
    "t": "a1-have-got-01",
    "w": [
     "I",
@@ -16194,6 +16445,38 @@
    "t": "a1-family-possessive-s-01",
    "w": "uncle",
    "c": "That is not Kenji's father; it is his ______.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good morning",
+   "c": "______, my name is Sofía and I am glad to see you.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good afternoon",
+   "c": "Are you having a ______ so far?",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good evening",
+   "c": "Is '______' used when you arrive at night? Yes, it is.",
+   "k": "sent",
+   "u": 0
+  },
+  {
+   "n": "A1",
+   "t": "a1-greetings-and-farewells-01",
+   "w": "Good night",
+   "c": "______ is not a greeting when you enter a party.",
    "k": "sent",
    "u": 0
   },

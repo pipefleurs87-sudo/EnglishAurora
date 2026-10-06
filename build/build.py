@@ -94,6 +94,7 @@ def area_de(data):
         ("gerund","Gerund vs Infinitive"),("infinitive","Gerund vs Infinitive"),
         ("imperative","Imperatives"),("passive","Passive Voice"),("used to","Used To"),
         ("number","Numbers"),("introducing","Introducing Yourself"),("introduce","Introducing Yourself"),
+        ("greeting","Greetings & Farewells"),("farewell","Greetings & Farewells"),
         ("past perfect","Past Perfect"),("collocation","Collocations"),("advanced verbs","Advanced Verbs")]
     for k,v in pairs:
         if k in t: return v
@@ -123,6 +124,7 @@ AREA_ES = {"Present Simple":"presente simple","Present Continuous":"presente con
     "Future in the Past":"futuro en el pasado","Ellipsis & Substitution":"elipsis y sustitucion",
     "Register & Style":"registro y estilo en ingles",
     "Numbers":"números en ingles","Introducing Yourself":"presentaciones personales en ingles",
+    "Greetings & Farewells":"saludos y despedidas en ingles",
     "Past Perfect":"pasado perfecto","Collocations":"colocaciones en ingles",
     "Advanced Verbs":"verbos avanzados en ingles"}
 

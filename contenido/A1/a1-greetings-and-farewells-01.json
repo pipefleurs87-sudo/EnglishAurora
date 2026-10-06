@@ -1,0 +1,398 @@
+{
+  "id": "a1-greetings-and-farewells-01",
+  "nivel": "A1",
+  "arquetipo": "funcional_skills",
+  "tema": "Greetings & Farewells — Daily Salutations & Partings",
+  "habilidades": [
+    "vocabulary",
+    "speaking",
+    "listening",
+    "reading",
+    "writing",
+    "grammar"
+  ],
+  "vocabulario": [
+    {
+      "palabra": "Good morning",
+      "traduccion": "Buenos días (hasta las 12 PM)",
+      "categoria": "formal_greeting",
+      "ejemplo": "Good morning, Ms. Reyes!"
+    },
+    {
+      "palabra": "Good afternoon",
+      "traduccion": "Buenas tardes (12 PM a 6 PM)",
+      "categoria": "formal_greeting",
+      "ejemplo": "Good afternoon, class!"
+    },
+    {
+      "palabra": "Good evening",
+      "traduccion": "Buenas noches al llegar (saludo)",
+      "categoria": "formal_greeting",
+      "ejemplo": "Good evening, welcome to the event."
+    },
+    {
+      "palabra": "Good night",
+      "traduccion": "Buenas noches al despedirse o ir a dormir",
+      "categoria": "farewell",
+      "ejemplo": "Good night, have sweet dreams!"
+    },
+    {
+      "palabra": "How are you doing?",
+      "traduccion": "¿Cómo te va? / ¿Cómo estás?",
+      "categoria": "inquiry",
+      "ejemplo": "Hi Kenji, how are you doing?"
+    },
+    {
+      "palabra": "I am doing well, thanks",
+      "traduccion": "Estoy muy bien, gracias",
+      "categoria": "response",
+      "ejemplo": "I am doing well, thanks for asking."
+    },
+    {
+      "palabra": "Not bad, and you?",
+      "traduccion": "Nada mal, ¿y tú?",
+      "categoria": "response",
+      "ejemplo": "Not bad, and you, Ben?"
+    },
+    {
+      "palabra": "How is it going?",
+      "traduccion": "¿Qué tal? / ¿Cómo van las cosas?",
+      "categoria": "informal_greeting",
+      "ejemplo": "Hey Ben, how is it going?"
+    },
+    {
+      "palabra": "See you later",
+      "traduccion": "Hasta luego / Nos vemos luego",
+      "categoria": "farewell",
+      "ejemplo": "See you later at the cafe!"
+    },
+    {
+      "palabra": "See you tomorrow",
+      "traduccion": "Hasta mañana / Nos vemos mañana",
+      "categoria": "farewell",
+      "ejemplo": "Class is finished, see you tomorrow."
+    },
+    {
+      "palabra": "Have a nice day",
+      "traduccion": "Que tengas un buen día",
+      "categoria": "farewell",
+      "ejemplo": "Thank you, have a nice day too!"
+    },
+    {
+      "palabra": "Take care",
+      "traduccion": "Cuídate / Que te vaya bien",
+      "categoria": "farewell",
+      "ejemplo": "Goodbye Sofía, take care!"
+    },
+    {
+      "palabra": "Nice seeing you",
+      "traduccion": "Qué gusto verte",
+      "categoria": "salutation",
+      "ejemplo": "Nice seeing you again, Carmen."
+    },
+    {
+      "palabra": "Have a great weekend",
+      "traduccion": "Que tengas un buen fin de semana",
+      "categoria": "farewell",
+      "ejemplo": "Bye everyone, have a great weekend!"
+    }
+  ],
+  "banco_oraciones": [
+    {
+      "id": "s1",
+      "forma": "afirmativo",
+      "oracion": "Good morning, my name is Sofía and I am glad to see you."
+    },
+    {
+      "id": "s2",
+      "forma": "afirmativo",
+      "oracion": "Good evening is the polite greeting when arriving after six o'clock."
+    },
+    {
+      "id": "s3",
+      "forma": "afirmativo",
+      "oracion": "Have a wonderful day at the design studio, Kenji."
+    },
+    {
+      "id": "s4",
+      "forma": "negativo",
+      "oracion": "Good night is not a greeting when you enter a party."
+    },
+    {
+      "id": "s5",
+      "forma": "negativo",
+      "oracion": "We do not say 'until tomorrow' in natural English conversations."
+    },
+    {
+      "id": "s6",
+      "forma": "negativo",
+      "oracion": "I am not doing well today because I have a cold."
+    },
+    {
+      "id": "s7",
+      "forma": "interrogativo",
+      "oracion": "How are you doing this morning, Ben?"
+    },
+    {
+      "id": "s8",
+      "forma": "interrogativo",
+      "oracion": "Are you having a good afternoon so far?"
+    },
+    {
+      "id": "s9",
+      "forma": "interrogativo",
+      "oracion": "Shall we say goodbye now or wait for the teacher?"
+    },
+    {
+      "id": "s10",
+      "forma": "short_answer",
+      "oracion": "Are you doing well today? Yes, I am."
+    },
+    {
+      "id": "s11",
+      "forma": "short_answer",
+      "oracion": "Is 'Good evening' used when you arrive at night? Yes, it is."
+    },
+    {
+      "id": "s12",
+      "forma": "short_answer",
+      "oracion": "Do native speakers say 'Good night' when saying hello? No, they do not."
+    }
+  ],
+  "fases": {
+    "inicio": {
+      "interaccion": [
+        "Sofía: **Good morning**, Ben! **How are you doing** today?",
+        "Ben: **Good morning**, Sofía! **I am doing well, thanks**. **How is it going** with the studio?",
+        "Sofía: Fantastic! Look at the time, I must go to my meeting. **See you later**!",
+        "Ben: **Have a nice day**, Sofía! **Take care**!"
+      ],
+      "banner_diagnostico": {
+        "opcion_a": "Good night everyone! I just arrived at the evening class, how are you?",
+        "opcion_b": "Good evening everyone! I just arrived at the evening class, how are you?",
+        "correcta": "b"
+      },
+      "definicion_pragmatica": "We use greetings to open social interactions politely and farewells to close them warmly depending on the time of day and formality.",
+      "tabla": {
+        "titulo": "Mastering Greetings & Farewells by Time of Day",
+        "encabezados": [
+          "Moment / Context",
+          "Natural English Expression",
+          "Spanish Trap to Avoid"
+        ],
+        "filas": [
+          [
+            "Morning (until 12:00 PM)",
+            "Good morning! / Morning!",
+            "Don't say 'good days' (calque of 'buenos días')"
+          ],
+          [
+            "Afternoon (12:00 PM to 6:00 PM)",
+            "Good afternoon!",
+            "Don't confuse afternoon with evening"
+          ],
+          [
+            "Arriving at Night (after 6:00 PM)",
+            "Good evening! (greeting)",
+            "NEVER say 'Good night' when arriving (X)"
+          ],
+          [
+            "Departing at Night / Bedtime",
+            "Good night! / Sleep well! (farewell)",
+            "Only use to say goodbye or go to sleep"
+          ],
+          [
+            "Asking Well-Being",
+            "How are you? / How are you doing?",
+            "Don't answer 'I have good' (calque of 'tengo')"
+          ],
+          [
+            "Leaving for Tomorrow",
+            "See you tomorrow!",
+            "Don't say 'Until tomorrow' (calque of 'hasta mañana')"
+          ]
+        ]
+      },
+      "vocab_warmup": true
+    },
+    "practica": {
+      "ejercicios": [
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "You arrive at a dinner party at 7:30 PM. The polite greeting is: ___",
+          "opciones": [
+            "Good evening!",
+            "Good night!",
+            "Good afternoon!"
+          ],
+          "respuesta": "Good evening!"
+        },
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "When a colleague asks 'How are you doing?', the most natural response is: ___",
+          "opciones": [
+            "I am doing well, thanks!",
+            "I have very good!",
+            "Until tomorrow!"
+          ],
+          "respuesta": "I am doing well, thanks!"
+        },
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "It is Friday at 5:00 PM and everyone is leaving work. You say: ___",
+          "opciones": [
+            "Have a great weekend!",
+            "Good morning!",
+            "Pleased to meet you!"
+          ],
+          "respuesta": "Have a great weekend!"
+        },
+        {
+          "tipo": "multiple_choice",
+          "pregunta": "You say goodbye to a classmate you will see again the next morning: ___",
+          "opciones": [
+            "See you tomorrow!",
+            "Until the morning!",
+            "Good evening!"
+          ],
+          "respuesta": "See you tomorrow!"
+        },
+        {
+          "tipo": "true_false",
+          "afirmacion": "'Good night' is a greeting used when you enter a room in the evening.",
+          "respuesta": "false"
+        },
+        {
+          "tipo": "true_false",
+          "afirmacion": "'See you later' and 'Take care' are natural ways to say goodbye to a friend.",
+          "respuesta": "true"
+        },
+        {
+          "tipo": "gap_fill",
+          "texto": "It is 9:00 AM at the academy. 'Good ___ (morning / night), everyone!'",
+          "respuesta": "morning"
+        },
+        {
+          "tipo": "gap_fill",
+          "texto": "I am leaving the library at 10:00 PM. 'Good ___ (night / evening), sleep well!'",
+          "respuesta": "night"
+        },
+        {
+          "tipo": "gap_fill",
+          "texto": "Kenji smiled and said, 'See you ___ (later / after) at the cafe!'",
+          "respuesta": "later"
+        },
+        {
+          "tipo": "unscramble",
+          "palabras": [
+            "How",
+            "are",
+            "you",
+            "doing",
+            "today",
+            "?"
+          ],
+          "respuesta": "How are you doing today?"
+        },
+        {
+          "tipo": "unscramble",
+          "palabras": [
+            "Have",
+            "a",
+            "wonderful",
+            "day",
+            "!"
+          ],
+          "respuesta": "Have a wonderful day!"
+        },
+        {
+          "tipo": "correct_mistake",
+          "texto_con_error": "Good night! I just arrived at the conference.",
+          "respuesta": "Good evening! I just arrived at the conference."
+        },
+        {
+          "tipo": "correct_mistake",
+          "texto_con_error": "How are you? — I have good, thanks.",
+          "respuesta": "How are you? — I am good, thanks."
+        },
+        {
+          "tipo": "transformation",
+          "oracion_base": "Good morning.",
+          "instruccion": "Change this greeting for arriving at 7:00 PM.",
+          "respuesta": "Good evening."
+        },
+        {
+          "tipo": "transformation",
+          "oracion_base": "Goodbye, see you.",
+          "instruccion": "Transform it into a warm wish for someone's day (use 'Have a nice day!').",
+          "respuesta": "Have a nice day!"
+        },
+        {
+          "tipo": "short_answer_production",
+          "pregunta": "Is 'Good evening' a greeting when you arrive after 6 PM? (Short answer: Yes)",
+          "respuesta": "Yes, it is."
+        },
+        {
+          "tipo": "short_answer_production",
+          "pregunta": "Do native speakers say 'Good night' when they say hello? (Short answer: No)",
+          "respuesta": "No, they do not."
+        }
+      ]
+    },
+    "listening": {
+      "guion": [
+        "Sofía: Good morning, Kenji! How is your English class going?",
+        "Kenji: Good morning, Sofía! It is going great. How are you doing today?",
+        "Sofía: I am doing very well, thanks! Ben is joining us for coffee this afternoon.",
+        "Kenji: Wonderful! What time should we meet at the cafe?",
+        "Sofía: Let us meet at three o'clock. See you later!",
+        "Kenji: See you later, Sofía! Have a nice afternoon!"
+      ],
+      "gaps": [
+        "Kenji",
+        "afternoon"
+      ],
+      "comprension": [
+        {
+          "pregunta": "When are Sofía and Kenji meeting Ben for coffee?",
+          "opciones": [
+            "This afternoon at three o'clock",
+            "Tomorrow morning at nine o'clock",
+            "Tonight at ten o'clock"
+          ],
+          "respuesta": "This afternoon at three o'clock"
+        },
+        {
+          "pregunta": "How does Kenji say goodbye to Sofía at the end?",
+          "opciones": [
+            "See you later, Sofía! Have a nice afternoon!",
+            "Good night, sleep well!",
+            "How do you do?"
+          ],
+          "respuesta": "See you later, Sofía! Have a nice afternoon!"
+        }
+      ]
+    },
+    "reading": {
+      "texto": "Every morning at eight o'clock, Sofía arrives at her design studio in Medellín and says, 'Good morning everyone!' Her colleagues reply warmly, 'Morning, Sofía!' During the day, clients visit the studio, and Sofía always greets them politely with, 'Good afternoon, welcome to our studio.' When leaving the office in the late afternoon, she never says 'good night' to people who are still arriving. Instead, she smiles and says, 'See you tomorrow, take care!' In English, choosing the right greeting for each moment of the day builds trust and strong relationships.",
+      "preguntas": [
+        {
+          "afirmacion": "Sofía arrives at her design studio in the morning.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "Sofía says 'Good night' to clients when they arrive in the afternoon.",
+          "respuesta": "false"
+        },
+        {
+          "afirmacion": "Sofía says 'See you tomorrow, take care!' when leaving the office.",
+          "respuesta": "true"
+        },
+        {
+          "afirmacion": "In English, greetings change depending on the time of day.",
+          "respuesta": "true"
+        }
+      ]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "2.0.0",
-    "total_lessons": 85,
+    "total_lessons": 88,
     "generated_at": "2026-08-27"
   },
   "by_level": {
@@ -40,6 +40,14 @@
           "sentence_count": 8
         },
         {
+          "id": "a1-greetings-and-farewells-01",
+          "level": "A1",
+          "title": "Greetings & Farewells — Daily Salutations & Partings",
+          "archetype": "funcional_skills",
+          "vocab_count": 14,
+          "sentence_count": 12
+        },
+        {
           "id": "a1-have-got-01",
           "level": "A1",
           "title": "Have got — Possessions",
@@ -54,6 +62,14 @@
           "archetype": "funcional_skills",
           "vocab_count": 8,
           "sentence_count": 13
+        },
+        {
+          "id": "a1-introducing-yourself-01",
+          "level": "A1",
+          "title": "Introducing Yourself — Greetings & Personal Information",
+          "archetype": "funcional_skills",
+          "vocab_count": 14,
+          "sentence_count": 12
         },
         {
           "id": "a1-modal-can-ability-01",
@@ -94,6 +110,14 @@
           "archetype": "modales",
           "vocab_count": 0,
           "sentence_count": 8
+        },
+        {
+          "id": "a1-numbers-01",
+          "level": "A1",
+          "title": "Numbers — Counting, Age & Time",
+          "archetype": "vocabulario",
+          "vocab_count": 20,
+          "sentence_count": 12
         },
         {
           "id": "a1-object-pronouns-01",
@@ -426,6 +450,118 @@
           "topic_title": "Family & Possessive 's"
         },
         {
+          "word": "Good morning",
+          "es": "Buenos días (hasta las 12 PM)",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Good afternoon",
+          "es": "Buenas tardes (12 PM a 6 PM)",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Good evening",
+          "es": "Buenas noches al llegar (saludo)",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Good night",
+          "es": "Buenas noches al despedirse o ir a dormir",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "How are you doing?",
+          "es": "¿Cómo te va? / ¿Cómo estás?",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "I am doing well, thanks",
+          "es": "Estoy muy bien, gracias",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Not bad, and you?",
+          "es": "Nada mal, ¿y tú?",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "How is it going?",
+          "es": "¿Qué tal? / ¿Cómo van las cosas?",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "See you later",
+          "es": "Hasta luego / Nos vemos luego",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "See you tomorrow",
+          "es": "Hasta mañana / Nos vemos mañana",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Have a nice day",
+          "es": "Que tengas un buen día",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Take care",
+          "es": "Cuídate / Que te vaya bien",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Nice seeing you",
+          "es": "Qué gusto verte",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "word": "Have a great weekend",
+          "es": "Que tengas un buen fin de semana",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
           "word": "laptop",
           "es": "portátil",
           "icon": "💻",
@@ -552,6 +688,118 @@
           "level": "A1",
           "topic_id": "a1-imperatives-01",
           "topic_title": "Imperatives — Instructions & Directions"
+        },
+        {
+          "word": "My name is...",
+          "es": "Mi nombre es...",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "I am...",
+          "es": "Yo soy...",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "Nice to meet you",
+          "es": "Mucho gusto",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "Where are you from?",
+          "es": "¿De dónde eres?",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "I am from...",
+          "es": "Soy de...",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "I live in...",
+          "es": "Vivo en...",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "What do you do?",
+          "es": "¿A qué te dedicas?",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "I am a / an...",
+          "es": "Soy un/una...",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "Pleased to meet you",
+          "es": "Encantado de conocerte",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "Good morning",
+          "es": "Buenos días",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "How do you spell that?",
+          "es": "¿Cómo se deletrea eso?",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "First name",
+          "es": "Nombre de pila",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "Last name",
+          "es": "Apellido",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "word": "Hometown",
+          "es": "Ciudad natal",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
         },
         {
           "word": "eyes",
@@ -792,6 +1040,166 @@
           "level": "A1",
           "topic_id": "a1-modal-should-advice-01",
           "topic_title": "Modal Verb 'Should' — Advice & Suggestions"
+        },
+        {
+          "word": "one",
+          "es": "uno",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "two",
+          "es": "dos",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "three",
+          "es": "tres",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "four",
+          "es": "cuatro",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "five",
+          "es": "cinco",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "six",
+          "es": "seis",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "seven",
+          "es": "siete",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "eight",
+          "es": "ocho",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "nine",
+          "es": "nueve",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "ten",
+          "es": "diez",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "eleven",
+          "es": "once",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "twelve",
+          "es": "doce",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "thirteen",
+          "es": "trece",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "fourteen",
+          "es": "catorce",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "fifteen",
+          "es": "quince",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "twenty",
+          "es": "veinte",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "thirty",
+          "es": "treinta",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "forty",
+          "es": "cuarenta",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "fifty",
+          "es": "cincuenta",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "word": "one hundred",
+          "es": "cien",
+          "icon": "✨",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
         },
         {
           "word": "book → books",
@@ -1930,6 +2338,90 @@
           "topic_title": "Family & Possessive 's"
         },
         {
+          "sentence": "Good morning, my name is Sofía and I am glad to see you.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Good evening is the polite greeting when arriving after six o'clock.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Have a wonderful day at the design studio, Kenji.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Good night is not a greeting when you enter a party.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "We do not say 'until tomorrow' in natural English conversations.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "I am not doing well today because I have a cold.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "How are you doing this morning, Ben?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Are you having a good afternoon so far?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Shall we say goodbye now or wait for the teacher?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Are you doing well today? Yes, I am.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Is 'Good evening' used when you arrive at night? Yes, it is.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
+          "sentence": "Do native speakers say 'Good night' when saying hello? No, they do not.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-greetings-and-farewells-01",
+          "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+        },
+        {
           "sentence": "Sofía has got a laptop and two cameras.",
           "form": "afirmativo",
           "level": "A1",
@@ -2110,6 +2602,90 @@
           "level": "A1",
           "topic_id": "a1-imperatives-01",
           "topic_title": "Imperatives — Instructions & Directions"
+        },
+        {
+          "sentence": "Hello, my name is Sofía and I am a designer from Colombia.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "Nice to meet you! I am Kenji, and I live in Tokyo.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "Ben is an English travel writer traveling in South America.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "I am not from the United States; I am from Canada.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "His name is not David; his name is Ben.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "We are not strangers anymore; we are classmates.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "What is your name, and where are you from?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "Are you an architect or a software developer?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "How do you spell your last name, please?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "Is your name Sofía? Yes, it is.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "Are you from Colombia? Yes, I am.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
+        },
+        {
+          "sentence": "Is he an exchange student? Yes, he is.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-introducing-yourself-01",
+          "topic_title": "Introducing Yourself — Greetings & Personal Information"
         },
         {
           "sentence": "I can see with my eyes and hear with my ears.",
@@ -2390,6 +2966,90 @@
           "level": "A1",
           "topic_id": "a1-modal-would-like-01",
           "topic_title": "Would like — Wishes & Polite Offers"
+        },
+        {
+          "sentence": "Sofía is twenty-eight years old and lives on 4th Avenue.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "Ben has three backpacks and two cameras in Cartagena.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "Kenji bought fifteen postcards at the museum shop.",
+          "form": "afirmativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "I am not thirty years old; I am twenty-four.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "There are not fifty students in this classroom.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "The bus ticket is not twelve dollars; it is ten.",
+          "form": "negativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "How old are you, and what is your lucky number?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "Is Ben twenty-six or twenty-seven years old?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "How many tickets do we need for the museum?",
+          "form": "interrogativo",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "Are you twenty-five years old? Yes, I am.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "Is the total fifty dollars? No, it isn't.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
+        },
+        {
+          "sentence": "Does Kenji have four tickets? Yes, he does.",
+          "form": "short_answer",
+          "level": "A1",
+          "topic_id": "a1-numbers-01",
+          "topic_title": "Numbers — Counting, Age & Time"
         },
         {
           "sentence": "Sofía knows me, and I love her.",
@@ -7974,192 +8634,192 @@
         },
         {
           "word": "make a decision",
-          "es": "tomar una decisión",
-          "icon": "tomar una decisión",
+          "es": "choose a course of action",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "make an effort",
-          "es": "hacer un esfuerzo",
-          "icon": "esforzarse",
+          "es": "try as hard as possible",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "make progress",
-          "es": "progresar",
-          "icon": "progresar",
+          "es": "develop or improve",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "make a mistake",
-          "es": "cometer un error",
-          "icon": "cometer un error",
+          "es": "do something incorrect",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "do homework",
-          "es": "hacer la tarea",
-          "icon": "hacer la tarea",
+          "es": "complete school assignments",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "do research",
-          "es": "hacer investigación",
-          "icon": "investigar",
+          "es": "investigate in depth",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "do your best",
-          "es": "dar lo mejor de ti",
-          "icon": "dar lo mejor",
+          "es": "try with all your energy",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "do business",
-          "es": "hacer negocios",
-          "icon": "hacer negocios",
+          "es": "engage in commercial trade",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "take a break",
-          "es": "tomar un descanso",
-          "icon": "tomar un descanso",
+          "es": "pause and rest briefly",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "take notes",
-          "es": "tomar apuntes",
-          "icon": "tomar apuntes",
+          "es": "record key information",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "take responsibility",
-          "es": "asumir responsabilidad",
-          "icon": "asumir responsabilidad",
+          "es": "accept duty or accountability",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "take an opportunity",
-          "es": "aprovechar una oportunidad",
-          "icon": "aprovechar una oportunidad",
+          "es": "seize a favorable chance",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "meet a deadline",
-          "es": "cumplir un plazo",
-          "icon": "cumplir un plazo",
+          "es": "finish by the required time",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "achieve a goal",
-          "es": "alcanzar una meta",
-          "icon": "alcanzar una meta",
+          "es": "reach a desired objective",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "gain experience",
-          "es": "ganar experiencia",
-          "icon": "ganar experiencia",
+          "es": "acquire practical knowledge",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "apply for a job",
-          "es": "postularse a un trabajo",
-          "icon": "postularse a un trabajo",
+          "es": "formally seek employment",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "attend a lecture",
-          "es": "asistir a una conferencia/clase",
-          "icon": "asistir a una clase/conferencia",
+          "es": "listen to an academic talk",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "hand in an assignment",
-          "es": "entregar un trabajo/tarea",
-          "icon": "entregar un trabajo",
+          "es": "submit completed coursework",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "fail an exam",
-          "es": "reprobar un examen",
-          "icon": "reprobar un examen",
+          "es": "not obtain a passing grade",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "pass with flying colours",
-          "es": "aprobar con honores",
-          "icon": "aprobar con nota alta",
+          "es": "pass with distinction",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "run a team",
-          "es": "dirigir/gestionar un equipo",
-          "icon": "dirigir un equipo",
+          "es": "lead and manage colleagues",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "set a goal",
-          "es": "fijar una meta",
-          "icon": "fijar una meta",
+          "es": "establish a clear target",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "solve a problem",
-          "es": "resolver un problema",
-          "icon": "resolver un problema",
+          "es": "find an effective solution",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
         },
         {
           "word": "raise a question",
-          "es": "plantear una pregunta",
-          "icon": "plantear una pregunta",
+          "es": "bring up a query or doubt",
+          "icon": "✨",
           "level": "B2",
           "topic_id": "b2-collocations-work-study-01",
           "topic_title": "Collocations — Work & Study Power Combos"
@@ -12284,6 +12944,162 @@
         }
       ]
     },
+    "a1-greetings-and-farewells-01": {
+      "id": "a1-greetings-and-farewells-01",
+      "level": "A1",
+      "title": "Greetings & Farewells — Daily Salutations & Partings",
+      "archetype": "funcional_skills",
+      "vocab_count": 14,
+      "sentence_count": 12,
+      "vocab": [
+        {
+          "palabra": "Good morning",
+          "traduccion": "Buenos días (hasta las 12 PM)",
+          "categoria": "formal_greeting",
+          "ejemplo": "Good morning, Ms. Reyes!"
+        },
+        {
+          "palabra": "Good afternoon",
+          "traduccion": "Buenas tardes (12 PM a 6 PM)",
+          "categoria": "formal_greeting",
+          "ejemplo": "Good afternoon, class!"
+        },
+        {
+          "palabra": "Good evening",
+          "traduccion": "Buenas noches al llegar (saludo)",
+          "categoria": "formal_greeting",
+          "ejemplo": "Good evening, welcome to the event."
+        },
+        {
+          "palabra": "Good night",
+          "traduccion": "Buenas noches al despedirse o ir a dormir",
+          "categoria": "farewell",
+          "ejemplo": "Good night, have sweet dreams!"
+        },
+        {
+          "palabra": "How are you doing?",
+          "traduccion": "¿Cómo te va? / ¿Cómo estás?",
+          "categoria": "inquiry",
+          "ejemplo": "Hi Kenji, how are you doing?"
+        },
+        {
+          "palabra": "I am doing well, thanks",
+          "traduccion": "Estoy muy bien, gracias",
+          "categoria": "response",
+          "ejemplo": "I am doing well, thanks for asking."
+        },
+        {
+          "palabra": "Not bad, and you?",
+          "traduccion": "Nada mal, ¿y tú?",
+          "categoria": "response",
+          "ejemplo": "Not bad, and you, Ben?"
+        },
+        {
+          "palabra": "How is it going?",
+          "traduccion": "¿Qué tal? / ¿Cómo van las cosas?",
+          "categoria": "informal_greeting",
+          "ejemplo": "Hey Ben, how is it going?"
+        },
+        {
+          "palabra": "See you later",
+          "traduccion": "Hasta luego / Nos vemos luego",
+          "categoria": "farewell",
+          "ejemplo": "See you later at the cafe!"
+        },
+        {
+          "palabra": "See you tomorrow",
+          "traduccion": "Hasta mañana / Nos vemos mañana",
+          "categoria": "farewell",
+          "ejemplo": "Class is finished, see you tomorrow."
+        },
+        {
+          "palabra": "Have a nice day",
+          "traduccion": "Que tengas un buen día",
+          "categoria": "farewell",
+          "ejemplo": "Thank you, have a nice day too!"
+        },
+        {
+          "palabra": "Take care",
+          "traduccion": "Cuídate / Que te vaya bien",
+          "categoria": "farewell",
+          "ejemplo": "Goodbye Sofía, take care!"
+        },
+        {
+          "palabra": "Nice seeing you",
+          "traduccion": "Qué gusto verte",
+          "categoria": "salutation",
+          "ejemplo": "Nice seeing you again, Carmen."
+        },
+        {
+          "palabra": "Have a great weekend",
+          "traduccion": "Que tengas un buen fin de semana",
+          "categoria": "farewell",
+          "ejemplo": "Bye everyone, have a great weekend!"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s1",
+          "forma": "afirmativo",
+          "oracion": "Good morning, my name is Sofía and I am glad to see you."
+        },
+        {
+          "id": "s2",
+          "forma": "afirmativo",
+          "oracion": "Good evening is the polite greeting when arriving after six o'clock."
+        },
+        {
+          "id": "s3",
+          "forma": "afirmativo",
+          "oracion": "Have a wonderful day at the design studio, Kenji."
+        },
+        {
+          "id": "s4",
+          "forma": "negativo",
+          "oracion": "Good night is not a greeting when you enter a party."
+        },
+        {
+          "id": "s5",
+          "forma": "negativo",
+          "oracion": "We do not say 'until tomorrow' in natural English conversations."
+        },
+        {
+          "id": "s6",
+          "forma": "negativo",
+          "oracion": "I am not doing well today because I have a cold."
+        },
+        {
+          "id": "s7",
+          "forma": "interrogativo",
+          "oracion": "How are you doing this morning, Ben?"
+        },
+        {
+          "id": "s8",
+          "forma": "interrogativo",
+          "oracion": "Are you having a good afternoon so far?"
+        },
+        {
+          "id": "s9",
+          "forma": "interrogativo",
+          "oracion": "Shall we say goodbye now or wait for the teacher?"
+        },
+        {
+          "id": "s10",
+          "forma": "short_answer",
+          "oracion": "Are you doing well today? Yes, I am."
+        },
+        {
+          "id": "s11",
+          "forma": "short_answer",
+          "oracion": "Is 'Good evening' used when you arrive at night? Yes, it is."
+        },
+        {
+          "id": "s12",
+          "forma": "short_answer",
+          "oracion": "Do native speakers say 'Good night' when saying hello? No, they do not."
+        }
+      ]
+    },
     "a1-have-got-01": {
       "id": "a1-have-got-01",
       "level": "A1",
@@ -12515,6 +13331,162 @@
           "id": "s13",
           "forma": "short_answer",
           "oracion": "Can you cook tonight? No, I can't. Sorry!"
+        }
+      ]
+    },
+    "a1-introducing-yourself-01": {
+      "id": "a1-introducing-yourself-01",
+      "level": "A1",
+      "title": "Introducing Yourself — Greetings & Personal Information",
+      "archetype": "funcional_skills",
+      "vocab_count": 14,
+      "sentence_count": 12,
+      "vocab": [
+        {
+          "palabra": "My name is...",
+          "traduccion": "Mi nombre es...",
+          "categoria": "greetings",
+          "ejemplo": "My name is Sofía."
+        },
+        {
+          "palabra": "I am...",
+          "traduccion": "Yo soy...",
+          "categoria": "greetings",
+          "ejemplo": "I am Kenji from Tokyo."
+        },
+        {
+          "palabra": "Nice to meet you",
+          "traduccion": "Mucho gusto",
+          "categoria": "greetings",
+          "ejemplo": "Nice to meet you, Ben!"
+        },
+        {
+          "palabra": "Where are you from?",
+          "traduccion": "¿De dónde eres?",
+          "categoria": "questions",
+          "ejemplo": "Where are you from, Kenji?"
+        },
+        {
+          "palabra": "I am from...",
+          "traduccion": "Soy de...",
+          "categoria": "answers",
+          "ejemplo": "I am from Colombia."
+        },
+        {
+          "palabra": "I live in...",
+          "traduccion": "Vivo en...",
+          "categoria": "answers",
+          "ejemplo": "I live in Medellín."
+        },
+        {
+          "palabra": "What do you do?",
+          "traduccion": "¿A qué te dedicas?",
+          "categoria": "questions",
+          "ejemplo": "What do you do in London?"
+        },
+        {
+          "palabra": "I am a / an...",
+          "traduccion": "Soy un/una...",
+          "categoria": "answers",
+          "ejemplo": "I am a graphic designer."
+        },
+        {
+          "palabra": "Pleased to meet you",
+          "traduccion": "Encantado de conocerte",
+          "categoria": "greetings",
+          "ejemplo": "Pleased to meet you, Carmen."
+        },
+        {
+          "palabra": "Good morning",
+          "traduccion": "Buenos días",
+          "categoria": "greetings",
+          "ejemplo": "Good morning, everyone!"
+        },
+        {
+          "palabra": "How do you spell that?",
+          "traduccion": "¿Cómo se deletrea eso?",
+          "categoria": "questions",
+          "ejemplo": "How do you spell your name?"
+        },
+        {
+          "palabra": "First name",
+          "traduccion": "Nombre de pila",
+          "categoria": "info",
+          "ejemplo": "My first name is Ben."
+        },
+        {
+          "palabra": "Last name",
+          "traduccion": "Apellido",
+          "categoria": "info",
+          "ejemplo": "My last name is Whitfield."
+        },
+        {
+          "palabra": "Hometown",
+          "traduccion": "Ciudad natal",
+          "categoria": "info",
+          "ejemplo": "Medellín is my hometown."
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s1",
+          "forma": "afirmativo",
+          "oracion": "Hello, my name is Sofía and I am a designer from Colombia."
+        },
+        {
+          "id": "s2",
+          "forma": "afirmativo",
+          "oracion": "Nice to meet you! I am Kenji, and I live in Tokyo."
+        },
+        {
+          "id": "s3",
+          "forma": "afirmativo",
+          "oracion": "Ben is an English travel writer traveling in South America."
+        },
+        {
+          "id": "s4",
+          "forma": "negativo",
+          "oracion": "I am not from the United States; I am from Canada."
+        },
+        {
+          "id": "s5",
+          "forma": "negativo",
+          "oracion": "His name is not David; his name is Ben."
+        },
+        {
+          "id": "s6",
+          "forma": "negativo",
+          "oracion": "We are not strangers anymore; we are classmates."
+        },
+        {
+          "id": "s7",
+          "forma": "interrogativo",
+          "oracion": "What is your name, and where are you from?"
+        },
+        {
+          "id": "s8",
+          "forma": "interrogativo",
+          "oracion": "Are you an architect or a software developer?"
+        },
+        {
+          "id": "s9",
+          "forma": "interrogativo",
+          "oracion": "How do you spell your last name, please?"
+        },
+        {
+          "id": "s10",
+          "forma": "short_answer",
+          "oracion": "Is your name Sofía? Yes, it is."
+        },
+        {
+          "id": "s11",
+          "forma": "short_answer",
+          "oracion": "Are you from Colombia? Yes, I am."
+        },
+        {
+          "id": "s12",
+          "forma": "short_answer",
+          "oracion": "Is he an exchange student? Yes, he is."
         }
       ]
     },
@@ -12894,6 +13866,198 @@
           "id": "s8",
           "forma": "short_answer",
           "oracion": "Would you like to dance? No, I wouldn't."
+        }
+      ]
+    },
+    "a1-numbers-01": {
+      "id": "a1-numbers-01",
+      "level": "A1",
+      "title": "Numbers — Counting, Age & Time",
+      "archetype": "vocabulario",
+      "vocab_count": 20,
+      "sentence_count": 12,
+      "vocab": [
+        {
+          "palabra": "one",
+          "traduccion": "uno",
+          "categoria": "units",
+          "ejemplo": "I have one brother."
+        },
+        {
+          "palabra": "two",
+          "traduccion": "dos",
+          "categoria": "units",
+          "ejemplo": "There are two books on the desk."
+        },
+        {
+          "palabra": "three",
+          "traduccion": "tres",
+          "categoria": "units",
+          "ejemplo": "She has three cats."
+        },
+        {
+          "palabra": "four",
+          "traduccion": "cuatro",
+          "categoria": "units",
+          "ejemplo": "We need four chairs."
+        },
+        {
+          "palabra": "five",
+          "traduccion": "cinco",
+          "categoria": "units",
+          "ejemplo": "High five!"
+        },
+        {
+          "palabra": "six",
+          "traduccion": "seis",
+          "categoria": "units",
+          "ejemplo": "He works six days a week."
+        },
+        {
+          "palabra": "seven",
+          "traduccion": "siete",
+          "categoria": "units",
+          "ejemplo": "Seven days in a week."
+        },
+        {
+          "palabra": "eight",
+          "traduccion": "ocho",
+          "categoria": "units",
+          "ejemplo": "Class begins at eight."
+        },
+        {
+          "palabra": "nine",
+          "traduccion": "nueve",
+          "categoria": "units",
+          "ejemplo": "It costs nine dollars."
+        },
+        {
+          "palabra": "ten",
+          "traduccion": "diez",
+          "categoria": "units",
+          "ejemplo": "Count from one to ten."
+        },
+        {
+          "palabra": "eleven",
+          "traduccion": "once",
+          "categoria": "teens",
+          "ejemplo": "My sister is eleven years old."
+        },
+        {
+          "palabra": "twelve",
+          "traduccion": "doce",
+          "categoria": "teens",
+          "ejemplo": "Twelve months in a year."
+        },
+        {
+          "palabra": "thirteen",
+          "traduccion": "trece",
+          "categoria": "teens",
+          "ejemplo": "The flight was thirteen hours."
+        },
+        {
+          "palabra": "fourteen",
+          "traduccion": "catorce",
+          "categoria": "teens",
+          "ejemplo": "Room fourteen is down the hall."
+        },
+        {
+          "palabra": "fifteen",
+          "traduccion": "quince",
+          "categoria": "teens",
+          "ejemplo": "Fifteen minutes until departure."
+        },
+        {
+          "palabra": "twenty",
+          "traduccion": "veinte",
+          "categoria": "tens",
+          "ejemplo": "I am twenty years old."
+        },
+        {
+          "palabra": "thirty",
+          "traduccion": "treinta",
+          "categoria": "tens",
+          "ejemplo": "Thirty days in November."
+        },
+        {
+          "palabra": "forty",
+          "traduccion": "cuarenta",
+          "categoria": "tens",
+          "ejemplo": "Room forty-two is upstairs."
+        },
+        {
+          "palabra": "fifty",
+          "traduccion": "cincuenta",
+          "categoria": "tens",
+          "ejemplo": "The ticket is fifty dollars."
+        },
+        {
+          "palabra": "one hundred",
+          "traduccion": "cien",
+          "categoria": "hundreds",
+          "ejemplo": "One hundred percent score!"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s1",
+          "forma": "afirmativo",
+          "oracion": "Sofía is twenty-eight years old and lives on 4th Avenue."
+        },
+        {
+          "id": "s2",
+          "forma": "afirmativo",
+          "oracion": "Ben has three backpacks and two cameras in Cartagena."
+        },
+        {
+          "id": "s3",
+          "forma": "afirmativo",
+          "oracion": "Kenji bought fifteen postcards at the museum shop."
+        },
+        {
+          "id": "s4",
+          "forma": "negativo",
+          "oracion": "I am not thirty years old; I am twenty-four."
+        },
+        {
+          "id": "s5",
+          "forma": "negativo",
+          "oracion": "There are not fifty students in this classroom."
+        },
+        {
+          "id": "s6",
+          "forma": "negativo",
+          "oracion": "The bus ticket is not twelve dollars; it is ten."
+        },
+        {
+          "id": "s7",
+          "forma": "interrogativo",
+          "oracion": "How old are you, and what is your lucky number?"
+        },
+        {
+          "id": "s8",
+          "forma": "interrogativo",
+          "oracion": "Is Ben twenty-six or twenty-seven years old?"
+        },
+        {
+          "id": "s9",
+          "forma": "interrogativo",
+          "oracion": "How many tickets do we need for the museum?"
+        },
+        {
+          "id": "s10",
+          "forma": "short_answer",
+          "oracion": "Are you twenty-five years old? Yes, I am."
+        },
+        {
+          "id": "s11",
+          "forma": "short_answer",
+          "oracion": "Is the total fifty dollars? No, it isn't."
+        },
+        {
+          "id": "s12",
+          "forma": "short_answer",
+          "oracion": "Does Kenji have four tickets? Yes, he does."
         }
       ]
     },
@@ -17513,124 +18677,100 @@
       "sentence_count": 15,
       "vocab": [
         {
-          "bandera": "tomar una decisión",
           "palabra": "make a decision",
-          "traduccion": "tomar una decisión"
+          "traduccion": "choose a course of action"
         },
         {
-          "bandera": "esforzarse",
           "palabra": "make an effort",
-          "traduccion": "hacer un esfuerzo"
+          "traduccion": "try as hard as possible"
         },
         {
-          "bandera": "progresar",
           "palabra": "make progress",
-          "traduccion": "progresar"
+          "traduccion": "develop or improve"
         },
         {
-          "bandera": "cometer un error",
           "palabra": "make a mistake",
-          "traduccion": "cometer un error"
+          "traduccion": "do something incorrect"
         },
         {
-          "bandera": "hacer la tarea",
           "palabra": "do homework",
-          "traduccion": "hacer la tarea"
+          "traduccion": "complete school assignments"
         },
         {
-          "bandera": "investigar",
           "palabra": "do research",
-          "traduccion": "hacer investigación"
+          "traduccion": "investigate in depth"
         },
         {
-          "bandera": "dar lo mejor",
           "palabra": "do your best",
-          "traduccion": "dar lo mejor de ti"
+          "traduccion": "try with all your energy"
         },
         {
-          "bandera": "hacer negocios",
           "palabra": "do business",
-          "traduccion": "hacer negocios"
+          "traduccion": "engage in commercial trade"
         },
         {
-          "bandera": "tomar un descanso",
           "palabra": "take a break",
-          "traduccion": "tomar un descanso"
+          "traduccion": "pause and rest briefly"
         },
         {
-          "bandera": "tomar apuntes",
           "palabra": "take notes",
-          "traduccion": "tomar apuntes"
+          "traduccion": "record key information"
         },
         {
-          "bandera": "asumir responsabilidad",
           "palabra": "take responsibility",
-          "traduccion": "asumir responsabilidad"
+          "traduccion": "accept duty or accountability"
         },
         {
-          "bandera": "aprovechar una oportunidad",
           "palabra": "take an opportunity",
-          "traduccion": "aprovechar una oportunidad"
+          "traduccion": "seize a favorable chance"
         },
         {
-          "bandera": "cumplir un plazo",
           "palabra": "meet a deadline",
-          "traduccion": "cumplir un plazo"
+          "traduccion": "finish by the required time"
         },
         {
-          "bandera": "alcanzar una meta",
           "palabra": "achieve a goal",
-          "traduccion": "alcanzar una meta"
+          "traduccion": "reach a desired objective"
         },
         {
-          "bandera": "ganar experiencia",
           "palabra": "gain experience",
-          "traduccion": "ganar experiencia"
+          "traduccion": "acquire practical knowledge"
         },
         {
-          "bandera": "postularse a un trabajo",
           "palabra": "apply for a job",
-          "traduccion": "postularse a un trabajo"
+          "traduccion": "formally seek employment"
         },
         {
-          "bandera": "asistir a una clase/conferencia",
           "palabra": "attend a lecture",
-          "traduccion": "asistir a una conferencia/clase"
+          "traduccion": "listen to an academic talk"
         },
         {
-          "bandera": "entregar un trabajo",
           "palabra": "hand in an assignment",
-          "traduccion": "entregar un trabajo/tarea"
+          "traduccion": "submit completed coursework"
         },
         {
-          "bandera": "reprobar un examen",
           "palabra": "fail an exam",
-          "traduccion": "reprobar un examen"
+          "traduccion": "not obtain a passing grade"
         },
         {
-          "bandera": "aprobar con nota alta",
           "palabra": "pass with flying colours",
-          "traduccion": "aprobar con honores"
+          "traduccion": "pass with distinction"
         },
         {
-          "bandera": "dirigir un equipo",
           "palabra": "run a team",
-          "traduccion": "dirigir/gestionar un equipo"
+          "traduccion": "lead and manage colleagues"
         },
         {
-          "bandera": "fijar una meta",
           "palabra": "set a goal",
-          "traduccion": "fijar una meta"
+          "traduccion": "establish a clear target"
         },
         {
-          "bandera": "resolver un problema",
           "palabra": "solve a problem",
-          "traduccion": "resolver un problema"
+          "traduccion": "find an effective solution"
         },
         {
-          "bandera": "plantear una pregunta",
           "palabra": "raise a question",
-          "traduccion": "plantear una pregunta"
+          "traduccion": "bring up a query or doubt"
         }
       ],
       "sentences": [
@@ -20595,6 +21735,118 @@
       "topic_title": "Family & Possessive 's"
     },
     {
+      "word": "Good morning",
+      "es": "Buenos días (hasta las 12 PM)",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Good afternoon",
+      "es": "Buenas tardes (12 PM a 6 PM)",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Good evening",
+      "es": "Buenas noches al llegar (saludo)",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Good night",
+      "es": "Buenas noches al despedirse o ir a dormir",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "How are you doing?",
+      "es": "¿Cómo te va? / ¿Cómo estás?",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "I am doing well, thanks",
+      "es": "Estoy muy bien, gracias",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Not bad, and you?",
+      "es": "Nada mal, ¿y tú?",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "How is it going?",
+      "es": "¿Qué tal? / ¿Cómo van las cosas?",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "See you later",
+      "es": "Hasta luego / Nos vemos luego",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "See you tomorrow",
+      "es": "Hasta mañana / Nos vemos mañana",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Have a nice day",
+      "es": "Que tengas un buen día",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Take care",
+      "es": "Cuídate / Que te vaya bien",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Nice seeing you",
+      "es": "Qué gusto verte",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "word": "Have a great weekend",
+      "es": "Que tengas un buen fin de semana",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
       "word": "laptop",
       "es": "portátil",
       "icon": "💻",
@@ -20721,6 +21973,118 @@
       "level": "A1",
       "topic_id": "a1-imperatives-01",
       "topic_title": "Imperatives — Instructions & Directions"
+    },
+    {
+      "word": "My name is...",
+      "es": "Mi nombre es...",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "I am...",
+      "es": "Yo soy...",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "Nice to meet you",
+      "es": "Mucho gusto",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "Where are you from?",
+      "es": "¿De dónde eres?",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "I am from...",
+      "es": "Soy de...",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "I live in...",
+      "es": "Vivo en...",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "What do you do?",
+      "es": "¿A qué te dedicas?",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "I am a / an...",
+      "es": "Soy un/una...",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "Pleased to meet you",
+      "es": "Encantado de conocerte",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "Good morning",
+      "es": "Buenos días",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "How do you spell that?",
+      "es": "¿Cómo se deletrea eso?",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "First name",
+      "es": "Nombre de pila",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "Last name",
+      "es": "Apellido",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "word": "Hometown",
+      "es": "Ciudad natal",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
     },
     {
       "word": "eyes",
@@ -20961,6 +22325,166 @@
       "level": "A1",
       "topic_id": "a1-modal-should-advice-01",
       "topic_title": "Modal Verb 'Should' — Advice & Suggestions"
+    },
+    {
+      "word": "one",
+      "es": "uno",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "two",
+      "es": "dos",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "three",
+      "es": "tres",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "four",
+      "es": "cuatro",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "five",
+      "es": "cinco",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "six",
+      "es": "seis",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "seven",
+      "es": "siete",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "eight",
+      "es": "ocho",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "nine",
+      "es": "nueve",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "ten",
+      "es": "diez",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "eleven",
+      "es": "once",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "twelve",
+      "es": "doce",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "thirteen",
+      "es": "trece",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "fourteen",
+      "es": "catorce",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "fifteen",
+      "es": "quince",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "twenty",
+      "es": "veinte",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "thirty",
+      "es": "treinta",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "forty",
+      "es": "cuarenta",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "fifty",
+      "es": "cincuenta",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "word": "one hundred",
+      "es": "cien",
+      "icon": "✨",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
     },
     {
       "word": "book → books",
@@ -23612,192 +25136,192 @@
     },
     {
       "word": "make a decision",
-      "es": "tomar una decisión",
-      "icon": "tomar una decisión",
+      "es": "choose a course of action",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "make an effort",
-      "es": "hacer un esfuerzo",
-      "icon": "esforzarse",
+      "es": "try as hard as possible",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "make progress",
-      "es": "progresar",
-      "icon": "progresar",
+      "es": "develop or improve",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "make a mistake",
-      "es": "cometer un error",
-      "icon": "cometer un error",
+      "es": "do something incorrect",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "do homework",
-      "es": "hacer la tarea",
-      "icon": "hacer la tarea",
+      "es": "complete school assignments",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "do research",
-      "es": "hacer investigación",
-      "icon": "investigar",
+      "es": "investigate in depth",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "do your best",
-      "es": "dar lo mejor de ti",
-      "icon": "dar lo mejor",
+      "es": "try with all your energy",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "do business",
-      "es": "hacer negocios",
-      "icon": "hacer negocios",
+      "es": "engage in commercial trade",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "take a break",
-      "es": "tomar un descanso",
-      "icon": "tomar un descanso",
+      "es": "pause and rest briefly",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "take notes",
-      "es": "tomar apuntes",
-      "icon": "tomar apuntes",
+      "es": "record key information",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "take responsibility",
-      "es": "asumir responsabilidad",
-      "icon": "asumir responsabilidad",
+      "es": "accept duty or accountability",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "take an opportunity",
-      "es": "aprovechar una oportunidad",
-      "icon": "aprovechar una oportunidad",
+      "es": "seize a favorable chance",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "meet a deadline",
-      "es": "cumplir un plazo",
-      "icon": "cumplir un plazo",
+      "es": "finish by the required time",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "achieve a goal",
-      "es": "alcanzar una meta",
-      "icon": "alcanzar una meta",
+      "es": "reach a desired objective",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "gain experience",
-      "es": "ganar experiencia",
-      "icon": "ganar experiencia",
+      "es": "acquire practical knowledge",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "apply for a job",
-      "es": "postularse a un trabajo",
-      "icon": "postularse a un trabajo",
+      "es": "formally seek employment",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "attend a lecture",
-      "es": "asistir a una conferencia/clase",
-      "icon": "asistir a una clase/conferencia",
+      "es": "listen to an academic talk",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "hand in an assignment",
-      "es": "entregar un trabajo/tarea",
-      "icon": "entregar un trabajo",
+      "es": "submit completed coursework",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "fail an exam",
-      "es": "reprobar un examen",
-      "icon": "reprobar un examen",
+      "es": "not obtain a passing grade",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "pass with flying colours",
-      "es": "aprobar con honores",
-      "icon": "aprobar con nota alta",
+      "es": "pass with distinction",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "run a team",
-      "es": "dirigir/gestionar un equipo",
-      "icon": "dirigir un equipo",
+      "es": "lead and manage colleagues",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "set a goal",
-      "es": "fijar una meta",
-      "icon": "fijar una meta",
+      "es": "establish a clear target",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "solve a problem",
-      "es": "resolver un problema",
-      "icon": "resolver un problema",
+      "es": "find an effective solution",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
     },
     {
       "word": "raise a question",
-      "es": "plantear una pregunta",
-      "icon": "plantear una pregunta",
+      "es": "bring up a query or doubt",
+      "icon": "✨",
       "level": "B2",
       "topic_id": "b2-collocations-work-study-01",
       "topic_title": "Collocations — Work & Study Power Combos"
@@ -25003,6 +26527,90 @@
       "topic_title": "Family & Possessive 's"
     },
     {
+      "sentence": "Good morning, my name is Sofía and I am glad to see you.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Good evening is the polite greeting when arriving after six o'clock.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Have a wonderful day at the design studio, Kenji.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Good night is not a greeting when you enter a party.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "We do not say 'until tomorrow' in natural English conversations.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "I am not doing well today because I have a cold.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "How are you doing this morning, Ben?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Are you having a good afternoon so far?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Shall we say goodbye now or wait for the teacher?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Are you doing well today? Yes, I am.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Is 'Good evening' used when you arrive at night? Yes, it is.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
+      "sentence": "Do native speakers say 'Good night' when saying hello? No, they do not.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-greetings-and-farewells-01",
+      "topic_title": "Greetings & Farewells — Daily Salutations & Partings"
+    },
+    {
       "sentence": "Sofía has got a laptop and two cameras.",
       "form": "afirmativo",
       "level": "A1",
@@ -25183,6 +26791,90 @@
       "level": "A1",
       "topic_id": "a1-imperatives-01",
       "topic_title": "Imperatives — Instructions & Directions"
+    },
+    {
+      "sentence": "Hello, my name is Sofía and I am a designer from Colombia.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "Nice to meet you! I am Kenji, and I live in Tokyo.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "Ben is an English travel writer traveling in South America.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "I am not from the United States; I am from Canada.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "His name is not David; his name is Ben.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "We are not strangers anymore; we are classmates.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "What is your name, and where are you from?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "Are you an architect or a software developer?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "How do you spell your last name, please?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "Is your name Sofía? Yes, it is.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "Are you from Colombia? Yes, I am.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
+    },
+    {
+      "sentence": "Is he an exchange student? Yes, he is.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-introducing-yourself-01",
+      "topic_title": "Introducing Yourself — Greetings & Personal Information"
     },
     {
       "sentence": "I can see with my eyes and hear with my ears.",
@@ -25463,6 +27155,90 @@
       "level": "A1",
       "topic_id": "a1-modal-would-like-01",
       "topic_title": "Would like — Wishes & Polite Offers"
+    },
+    {
+      "sentence": "Sofía is twenty-eight years old and lives on 4th Avenue.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "Ben has three backpacks and two cameras in Cartagena.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "Kenji bought fifteen postcards at the museum shop.",
+      "form": "afirmativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "I am not thirty years old; I am twenty-four.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "There are not fifty students in this classroom.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "The bus ticket is not twelve dollars; it is ten.",
+      "form": "negativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "How old are you, and what is your lucky number?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "Is Ben twenty-six or twenty-seven years old?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "How many tickets do we need for the museum?",
+      "form": "interrogativo",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "Are you twenty-five years old? Yes, I am.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "Is the total fifty dollars? No, it isn't.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
+    },
+    {
+      "sentence": "Does Kenji have four tickets? Yes, he does.",
+      "form": "short_answer",
+      "level": "A1",
+      "topic_id": "a1-numbers-01",
+      "topic_title": "Numbers — Counting, Age & Time"
     },
     {
       "sentence": "Sofía knows me, and I love her.",

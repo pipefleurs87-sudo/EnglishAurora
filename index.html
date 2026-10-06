@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6EXMWV3HGG');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>English Aurora — Your Sky of English | 87 Stars & CEFR Curriculum</title>
-<meta name="description" content="Explore English Aurora: an interactive 2.5D grammar universe. 87 complete sequences from A1 to C1 with diagnostic challenges, native audio, printable worksheets, and arcade missions.">
+<title>English Aurora — Your Sky of English | 88 Stars & CEFR Curriculum</title>
+<meta name="description" content="Explore English Aurora: an interactive 2.5D grammar universe. 88 complete sequences from A1 to C1 with diagnostic challenges, native audio, printable worksheets, and arcade missions.">
 <meta name="keywords" content="English grammar exercises, ESL worksheets, irregular verbs, A1 A2 B1 B2 C1 English, learning English, English Aurora">
-<meta property="og:title" content="English Aurora — Your Sky of English | 87 Stars & CEFR Curriculum">
+<meta property="og:title" content="English Aurora — Your Sky of English | 88 Stars & CEFR Curriculum">
 <meta property="og:description" content="Complete English exercise sequences by CEFR level — grammar, listening and reading. Guided by Aurora.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/og-image.png">
@@ -41,7 +32,7 @@
       "@type": "EducationalOccupationalProgram",
       "name": "English Aurora CEFR Curriculum",
       "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/",
-      "description": "87 complete English sequences from A1 to C1: lesson, practice, video, and printable worksheet for each topic.",
+      "description": "88 complete English sequences from A1 to C1: lesson, practice, video, and printable worksheet for each topic.",
       "educationalProgramMode": "online",
       "inLanguage": "en",
       "isAccessibleForFree": true
@@ -117,8 +108,6 @@ body{font-family:var(--serif);background:var(--ink);color:var(--paper)}
   text-shadow:0 0 18px rgba(45,212,191,.5);animation:breathe 3.2s ease-in-out infinite}
 @keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
 body.zoomed .hero, body.zoomed .hud .tagline{opacity:0;transform:translate(-50%,-58%)}
-body.student-mode #hero-title{display:none!important}
-body.student-mode .hero{top:20%}
 
 /* ---------- star tooltip ---------- */
 .tip{position:fixed;z-index:12;pointer-events:none;font-family:var(--mono);font-size:11.5px;
@@ -214,7 +203,6 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
   background:rgba(242,193,78,.07);box-shadow:0 0 18px rgba(242,193,78,.2);
   text-shadow:0 0 10px rgba(242,193,78,.7)}
 @media (max-width:640px){.levels-rail{display:none}}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
@@ -223,17 +211,14 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
 <div class="hud">
   <div>
     <a href="index.html" class="brand">ENGLISH <em>AURORA</em></a>
-    <div class="tagline" id="hud-tagline">87 stars · A1 → C1 · the arcane academy of English</div>
+    <div class="tagline" id="hud-tagline">88 stars · A1 → C1 · the arcane academy of English</div>
   </div>
   <div class="hud-right">
-    <a class="btn-hud gold" id="btn-back-aula" href="#" style="display:none;" title="Back to My Classroom">← My Classroom</a>
+    <a class="btn-hud gold" id="btn-back-aula" href="#" style="display:none;" title="Volver a mi aula">← Mi Aula</a>
     <div class="esencia" id="esencia">✦ 0 ESSENCE</div>
     <a class="btn-hud" id="btn-arcade" href="ludoteca.html">🎮 Games</a>
-    <a class="btn-hud gold" id="btn-verbs" href="verbos-irregulares.html">⚡ Irregular Verbs</a>
-    <a class="btn-hud" id="btn-contrasts" href="contrastes-gramaticales.html">⚔️ Grammar Battles</a>
-    <a class="btn-hud gold" id="btn-cambridge" href="cambridge-preparation.html">🎓 Cambridge</a>
-    <a class="btn-hud" id="btn-worksheets" href="herramientas/fichas-imprimibles.html">📄 PDF Worksheets</a>
-    <a class="btn-hud" id="btn-curriculum" href="curriculum.html">📜 Curriculum</a>
+    <a class="btn-hud gold" id="btn-verbs" href="verbos-irregulares.html">⚡ Verbos</a>
+    <a class="btn-hud" id="btn-curriculum" href="curriculum.html">📜 Catálogo</a>
     <a class="btn-hud gold" id="btn-teacher-hub" href="herramientas/teacher-hub.html" title="Access Teacher's Hub & Live Classroom">🔭 Teacher's Hub</a>
     <button class="btn-hud gold" id="btn-ignite">✨ My galaxy</button>
   </div>
@@ -267,7 +252,7 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
     <div id="p-student-pend" style="display:none; margin-top:6px; font-family:var(--mono); font-size:10.5px; color:#B45309; background:rgba(242,193,78,.2); padding:4px 8px; border-radius:4px;">📌 Assigned Quest by Felipe</div>
   </div>
 
-  <p class="p-desc">A complete mini-lesson, not a loose worksheet: you start with the diagnostic contrast trap, learn the rule, practice across three cognitive stages, and close with listening, reading and a test.</p>
+  <p class="p-desc">A complete mini-lesson, not a loose worksheet: you start with the typical Spanish-speaker mistake, learn the rule, practice across three cognitive stages, and close with listening, reading and a test.</p>
   <div class="p-chips" id="p-chips"></div>
   <div class="p-waves-label">Wave — same structure, new vocabulary</div>
   <div class="p-waves" id="p-waves"></div>
@@ -288,29 +273,6 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
   <div class="skill-desc" id="skill-desc"></div>
   <div class="skills" id="skills"></div>
 </div>
-
-<nav class="sr-only" aria-label="Curriculum directory and navigation">
-  <h2>English Aurora Navigation & Curriculum Directory</h2>
-  <p>Explore 87 complete interactive English sequences from CEFR level A1 to C1, complete with video lessons, cognitive practice, native listening, reading, tests, and printable worksheets.</p>
-  <ul>
-    <li><a href="curriculum.html">Complete CEFR Curriculum (A1, A2, B1, B2, C1)</a></li>
-    <li><a href="ludoteca.html">Arcade Ludoteca (17 Educational Vocabulary & Grammar Games)</a></li>
-    <li><a href="verbos-irregulares.html">Irregular Verbs Master Matrix</a></li>
-    <li><a href="contrastes-gramaticales.html">English Grammar Battles & Confusions Solved</a></li>
-    <li><a href="cambridge-preparation.html">Cambridge Exam Preparation (A2 Key, B1 PET, B2 First, C1 CAE)</a></li>
-    <li><a href="herramientas/fichas-imprimibles.html">Printable PDF Grammar Worksheets</a></li>
-    <li><a href="herramientas/generador-ejercicios.html">Custom Exercise Worksheet Generator</a></li>
-    <li><a href="herramientas/generador-clases.html">Class Lesson Plan Generator</a></li>
-    <li><a href="herramientas/placement.html">2-Minute Quick Placement Test</a></li>
-    <li><a href="herramientas/mapa-3d.html">3D Interactive Grammar Cosmos Map</a></li>
-  </ul>
-</nav>
-<noscript>
-  <div style="padding:20px;background:#0A101C;color:#EFF1EC;font-family:sans-serif;text-align:center">
-    <h2>Welcome to English Aurora</h2>
-    <p>English Aurora is an interactive universe with 87 complete grammar sequences from A1 to C1. Please enable JavaScript to explore the dynamic celestial sky or browse directly via our <a href="curriculum.html" style="color:#2DD4BF">Full Curriculum Page</a>.</p>
-  </div>
-</noscript>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>

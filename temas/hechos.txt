@@ -52,6 +52,7 @@ A1 | Have got — Possessions | tiempo_verbal, estructura britanica de Ben, sin 
 A1 | Imperatives — Instructions & Directions | funcional_skills, Don't+verbo vs calco 'No touch', interrogativo via 'Can you...please?', receta de arepas
 A1 | Numbers — Counting, Age & Time | vocabulario, números 1-100, edad con to be, teléfonos y precios
 A1 | Introducing Yourself — Greetings & Personal Information | funcional_skills, nombre, origen, profesión, saludos y respuestas naturales
+A1 | Greetings & Farewells — Daily Salutations & Partings | funcional_skills, saludos formales e informales, despedidas, error Good night al llegar
 A2 | Past Simple — Negatives & Questions | TACHADO 2026-07-10 por decisión de Felipe: ya cubierto por a2-past-simple-regular-01 e irregular-01 (regla de formas completa), no se genera aparte
 A2 | A2 Grand Review — All Topics Together | joined_exercise, 1 review por nivel (no sub-clusters), Ben pierde el teléfono en la ola de Cartagena, 18 ejercicios (5/8/5), primer uso de 'interaccion' en motor de lección
 B1 | B1 Grand Review — All Topics Together | joined_exercise, historia de Abuela Carmen (mangos a García Márquez 1982, concurso de cumbia 1975), 18 ejercicios (5/8/5), cierre de nivel
