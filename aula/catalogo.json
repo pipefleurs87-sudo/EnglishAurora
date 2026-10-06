@@ -24,6 +24,12 @@
   "tema": "Family & Possessive 's"
  },
  {
+  "id": "a1-greetings-and-farewells-01",
+  "nivel": "A1",
+  "area": "Greetings & Farewells",
+  "tema": "Greetings & Farewells — Daily Salutations & Partings"
+ },
+ {
   "id": "a1-have-got-01",
   "nivel": "A1",
   "area": "Have Got",
@@ -34,6 +40,12 @@
   "nivel": "A1",
   "area": "Imperatives",
   "tema": "Imperatives — Instructions & Directions"
+ },
+ {
+  "id": "a1-introducing-yourself-01",
+  "nivel": "A1",
+  "area": "Introducing Yourself",
+  "tema": "Introducing Yourself — Greetings & Personal Information"
  },
  {
   "id": "a1-modal-can-ability-01",
@@ -64,6 +76,12 @@
   "nivel": "A1",
   "area": "Wishes & Regrets",
   "tema": "Would like — Wishes & Polite Offers"
+ },
+ {
+  "id": "a1-numbers-01",
+  "nivel": "A1",
+  "area": "Numbers",
+  "tema": "Numbers — Counting, Age & Time"
  },
  {
   "id": "a1-object-pronouns-01",
@@ -270,10 +288,22 @@
   "tema": "Gerund vs Infinitive — enjoy reading, want to read"
  },
  {
+  "id": "b1-indefinite-pronouns-01",
+  "nivel": "B1",
+  "area": "Pronouns & Possessives",
+  "tema": "Indefinite Pronouns — Someone, Anyone, No One, Everyone"
+ },
+ {
   "id": "b1-passive-voice-01",
   "nivel": "B1",
   "area": "Passive Voice",
   "tema": "Passive Voice — Present, Past & Perfect"
+ },
+ {
+  "id": "b1-past-perfect-01",
+  "nivel": "B1",
+  "area": "Past Perfect",
+  "tema": "Past Perfect — The Timeline Detective"
  },
  {
   "id": "b1-present-perfect-bucket-list-01",
@@ -322,6 +352,12 @@
   "nivel": "B2",
   "area": "Causative",
   "tema": "Causative — Have / Get Something Done"
+ },
+ {
+  "id": "b2-collocations-work-study-01",
+  "nivel": "B2",
+  "area": "Collocations",
+  "tema": "Collocations — Work & Study Power Combos"
  },
  {
   "id": "b2-idioms-money-01",
@@ -424,6 +460,12 @@
   "nivel": "C1",
   "area": "Passive Voice",
   "tema": "Advanced Passive — Reporting Verbs & Passive Infinitives"
+ },
+ {
+  "id": "c1-advanced-verbs-nuance-01",
+  "nivel": "C1",
+  "area": "Advanced Verbs",
+  "tema": "Advanced Verbs — Precision & Nuance (The Scholar's Arsenal)"
  },
  {
   "id": "c1-cleft-sentences-01",
