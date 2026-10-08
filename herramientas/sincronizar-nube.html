@@ -562,13 +562,13 @@ async function sincronizarMariana() {
     const h = Number(marianaHoras[c]);
     given += (h && !isNaN(h) && h > 0) ? h : 1.0;
   }
-  const rem = Math.max(0, 24 - given);
+  const rem = Math.max(0, 40 - given);
 
   const payload = {
     nombre: "Mariana Muñoz Morales",
-    correo: "munozmariana70@gmail.com",
-    nivel: "B2",
-    horas_contratadas: 24,
+    correo: "marianamunozmorales70@gmail.com",
+    nivel: "A1",
+    horas_contratadas: 40,
     horas_dadas: given,
     horas_restantes: rem,
     clases: marianaClases,

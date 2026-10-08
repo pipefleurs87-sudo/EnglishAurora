@@ -1873,6 +1873,9 @@ body.theme-glacial .aurora-layer {
             <button class="header-action-btn" onclick="abrirPortalEstudiante()" title="Open student portal in new tab">
               <span>🔗</span> Student Portal
             </button>
+            <button class="header-action-btn" id="btn-sync-student-cloud" onclick="sincronizarEstudianteSeleccionadoHub()" title="Sincronizar asistencias y saldo de este alumno a la nube (para que lo vea en su portal)" style="background:rgba(14,165,233,0.15); border-color:#0EA5E9; color:#0EA5E9; font-weight:700;">
+              <span>☁️</span> Sync Cloud
+            </button>
             <button class="header-action-btn" onclick="editarHorasEstudianteHub()" title="Adjust or add contracted hours package">
               <span>⏱️</span> Adjust Hours
             </button>
@@ -3606,15 +3609,29 @@ body.theme-glacial .aurora-layer {
     {
       id: "hDvw4pjkFyrCS6jQYPf7pY",
       nombre: "Mariana Muñoz Morales",
-      correo: "munozmariana70@gmail.com",
-      nivel: "B2",
-      horasContratadas: 24,
-      horasDadas: 0,
-      horasRestantes: 24,
-      clases: [],
-      clases_horas: {},
-      clases_notas: {},
-      fecha_alta: "2026-09-22T10:00:00Z"
+      correo: "marianamunozmorales70@gmail.com",
+      nivel: "A1",
+      horasContratadas: 40,
+      horasDadas: 6.0,
+      horasRestantes: 34.0,
+      clases: ["2026-10-01", "2026-10-02", "2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08"],
+      clases_horas: {
+        "2026-10-01": 1.0,
+        "2026-10-02": 1.0,
+        "2026-10-05": 1.0,
+        "2026-10-06": 1.0,
+        "2026-10-07": 1.0,
+        "2026-10-08": 1.0
+      },
+      clases_notas: {
+        "2026-10-01": "Diagnostic & Foundations",
+        "2026-10-02": "A1 Verb To Be & Identity",
+        "2026-10-05": "A1 Articles & Demonstratives",
+        "2026-10-06": "A1 Singular & Plural Nouns",
+        "2026-10-07": "A1 Routine & Present Simple",
+        "2026-10-08": "A1 Speaking & Consolidation"
+      },
+      fecha_alta: "2026-09-28T15:41:00Z"
     }
   ];
 
@@ -4386,8 +4403,8 @@ body.theme-glacial .aurora-layer {
           localStorage.setItem('englishaurora_faculty_session', JSON.stringify(sessionUser));
           const gate = document.getElementById('faculty-gate-overlay');
           if (gate) gate.style.display = 'none';
-          updateFacultyAuthUI(user);
           cloudMode = true;
+          updateFacultyAuthUI(user);
           startRealtimeRosterListener();
         } else {
           checkFacultyGateSession();
@@ -4443,11 +4460,12 @@ body.theme-glacial .aurora-layer {
         merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {});
         merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {});
 
-        const contracted = Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 24);
+        const contracted = Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 40);
         let given = 0;
         for (const c of merged.clases) {
           const h = Number(merged.clases_horas[c]);
-          given += (h && !isNaN(h) && h > 0) ? h : 2.0;
+          const defaultH = (canonicalId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+          given += (h && !isNaN(h) && h > 0) ? h : defaultH;
         }
         given = Math.round(given * 10) / 10;
         const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
@@ -4461,13 +4479,14 @@ body.theme-glacial .aurora-layer {
       const cloudStudents = docs.map(d => {
         const x = d.data() || {};
         const id = resolveStudentToken(d.id || x.student_token);
-        const contracted = Number(x.horas_contratadas || x.horasContratadas) || 24;
+        const contracted = Number(x.horas_contratadas || x.horasContratadas) || 40;
         const clases = Array.isArray(x.clases) ? x.clases : [];
         const horasMap = x.clases_horas || {};
         let given = 0;
         for (const c of clases) {
           const h = Number(horasMap[c]);
-          given += (h && !isNaN(h) && h > 0) ? h : 2.0;
+          const defaultH = (id === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+          given += (h && !isNaN(h) && h > 0) ? h : defaultH;
         }
         given = Math.round(given * 10) / 10;
         const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
@@ -4530,30 +4549,43 @@ body.theme-glacial .aurora-layer {
       ALL_STUDENTS = emailMap.size > 0 ? Array.from(emailMap.values()) : Array.from(rosterMap.values());
       localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
 
-      // Auto-upload any missing students to Firestore if authenticated, and sync Doc's full 6 classes
+      // Auto-upload and sync students whose local records have more classes/hours than Firestore cloud
       if (auth && auth.currentUser) {
-        const docStudent = ALL_STUDENTS.find(s => s.id === 'UAFxr6SWGQBN5SYBarq3td');
-        if (docStudent && docStudent.clases && docStudent.clases.length >= 6) {
-          const cloudDoc = docs.find(d => d.id === 'UAFxr6SWGQBN5SYBarq3td');
-          const cloudClassesCount = cloudDoc && cloudDoc.data() && Array.isArray(cloudDoc.data().clases) ? cloudDoc.data().clases.length : 0;
-          if (cloudClassesCount < docStudent.clases.length) {
-            db.collection(COL_ESTUDIANTES).doc('UAFxr6SWGQBN5SYBarq3td').set({
-              clases: docStudent.clases,
-              clases_horas: docStudent.clases_horas,
-              clases_notas: docStudent.clases_notas,
-              horas_contratadas: docStudent.horasContratadas,
-              horas_dadas: docStudent.horasDadas,
-              horas_restantes: docStudent.horasRestantes,
-              nombre: 'Doc',
-              correo: 'luisreduardo@hotmail.com',
-              nivel: 'B1',
-              student_token: 'UAFxr6SWGQBN5SYBarq3td',
+        ALL_STUDENTS.forEach(st => {
+          if (!st || !st.id) return;
+          const canId = resolveStudentToken(st.id);
+          const cloudDoc = docs.find(d => resolveStudentToken(d.id) === canId);
+          const cloudData = cloudDoc ? (cloudDoc.data() || {}) : null;
+          const cloudClasses = (cloudData && Array.isArray(cloudData.clases)) ? cloudData.clases : [];
+          const localClasses = Array.isArray(st.clases) ? st.clases : [];
+
+          // Sync if cloud is missing classes or local has higher class count
+          if (localClasses.length > cloudClasses.length || (localClasses.length > 0 && cloudClasses.length === 0)) {
+            const contracted = Number(st.horasContratadas || st.horas_contratadas) || 40;
+            const given = Number(st.horasDadas || st.horas_dadas) || 0;
+            const remaining = Number(st.horasRestantes || st.horas_restantes) || Math.max(0, contracted - given);
+
+            db.collection(COL_ESTUDIANTES).doc(canId).set({
+              clases: localClasses,
+              clases_horas: st.clases_horas || {},
+              clases_notas: st.clases_notas || {},
+              horas_contratadas: contracted,
+              horas_dadas: given,
+              horas_restantes: remaining,
+              nombre: st.nombre || 'Student',
+              correo: st.correo || '',
+              nivel: st.nivel || 'A1',
+              student_token: canId,
               profesor_id: auth.currentUser.uid,
               profesor_nombre: 'Prof. Felipe Florez',
               updated: new Date().toISOString()
-            }, { merge: true }).catch(()=>{});
+            }, { merge: true }).then(() => {
+              console.log(`[Auto-Sync Cloud] Synced ${st.nombre} (${localClasses.length} classes, ${given}h) to Firestore`);
+            }).catch(e => {
+              console.warn('[Auto-Sync Cloud] Error syncing student', canId, e);
+            });
           }
-        }
+        });
       }
 
       renderStudentsRoster();
@@ -4585,11 +4617,12 @@ body.theme-glacial .aurora-layer {
       merged.clases = Array.from(new Set([...baseClases, ...inClases])).sort();
       merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {});
       merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {});
-      const contracted = Number(incoming.horasContratadas || base.horasContratadas || 24);
+      const contracted = Number(incoming.horasContratadas || base.horasContratadas || 40);
       let given = 0;
       for (const c of merged.clases) {
         const h = Number(merged.clases_horas[c]);
-        given += (h && !isNaN(h) && h > 0) ? h : 2.0;
+        const defaultH = (canonicalId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+        given += (h && !isNaN(h) && h > 0) ? h : defaultH;
       }
       given = Math.round(given * 10) / 10;
       merged.horasContratadas = contracted;
@@ -5325,21 +5358,30 @@ body.theme-glacial .aurora-layer {
 
     localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
 
+    const canToken = resolveStudentToken(selectedToken);
     if (db && cloudMode && auth && auth.currentUser) {
       try {
-        await db.collection(COL_ESTUDIANTES).doc(selectedToken).set({
+        await db.collection(COL_ESTUDIANTES).doc(canToken).set({
           clases: clases,
           clases_horas: horasMap,
           horas_dadas: given,
           horas_restantes: remaining,
+          nombre: selectedData.nombre || 'Student',
+          correo: selectedData.correo || '',
+          nivel: selectedData.nivel || 'A1',
+          horas_contratadas: Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40,
+          student_token: canToken,
+          profesor_id: auth.currentUser.uid,
+          profesor_nombre: 'Prof. Felipe Florez',
           updated: new Date().toISOString()
         }, { merge: true });
+        showToast(`✨ ${matches.length > 0 ? 'Clase desmarcada' : 'Clase registrada'} · Sincronizado en la nube (el alumno ya lo ve)`);
       } catch (e) {
         console.error('Error saving attendance:', e);
         showToast('⚠️ Guardado localmente. Error al sincronizar con Firestore.');
       }
     } else {
-      showToast('⚠️ Guardado localmente. Inicia sesión en la nube para sincronizar.');
+      showToast('⚠️ Guardado localmente. Inicia sesión en la nube con Google para que tu alumno lo vea en su portal.');
     }
   }
 
@@ -5815,6 +5857,53 @@ body.theme-glacial .aurora-layer {
   window.abrirPortalEstudiante = function() {
     if (!selectedToken) return showToast('Select a student first');
     window.open(linkEstudiante(selectedToken), '_blank', 'noopener');
+  };
+
+  window.sincronizarEstudianteSeleccionadoHub = async function() {
+    if (!selectedToken || !selectedData) return showToast('Select a student first');
+    if (!auth || !auth.currentUser) {
+      showToast('⚠️ Inicia sesión en la nube con Google para sincronizar con Firestore.');
+      openFacultyPortalModal('signin');
+      return;
+    }
+    if (!db) return showToast('⚠️ Base de datos no disponible.');
+
+    const canId = resolveStudentToken(selectedToken);
+    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40;
+    const given = Number(selectedData.horasDadas || selectedData.horas_dadas) || 0;
+    const remaining = Number(selectedData.horasRestantes || selectedData.horas_restantes) || Math.max(0, contracted - given);
+
+    const btn = document.getElementById('btn-sync-student-cloud');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sincronizando… ⏳'; }
+
+    try {
+      await db.collection(COL_ESTUDIANTES).doc(canId).set({
+        clases: Array.isArray(selectedData.clases) ? selectedData.clases : [],
+        clases_horas: selectedData.clases_horas || {},
+        clases_notas: selectedData.clases_notas || {},
+        horas_contratadas: contracted,
+        horas_dadas: given,
+        horas_restantes: remaining,
+        nombre: selectedData.nombre || 'Student',
+        correo: selectedData.correo || '',
+        nivel: selectedData.nivel || 'A1',
+        student_token: canId,
+        profesor_id: auth.currentUser.uid,
+        profesor_nombre: 'Prof. Felipe Florez',
+        updated: new Date().toISOString()
+      }, { merge: true });
+
+      playDirectorChime(880);
+      showToast(`☁️ ¡${selectedData.nombre} sincronizado en Firestore! El estudiante ya ve sus ${given}h.`);
+    } catch(err) {
+      console.error('Error syncing selected student:', err);
+      showToast('⚠️ Error al sincronizar: ' + (err.message || err.code));
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = '<span>☁️</span> Sync Cloud';
+      }
+    }
   };
 
   window.abrirInviteModal = function() {

@@ -564,8 +564,13 @@ function frame(now){
 /* ---------- Student Mode Initialization (Firebase Firestore) ---------- */
 async function initStudentMode() {
   const params = new URLSearchParams(window.location.search);
-  const token = params.get('t') || params.get('token') || params.get('student');
+  const TOKEN_ALIASES = {
+    "TUAFxr6SWGQBN5SYBarq3td2": "UAFxr6SWGQBN5SYBarq3td",
+    "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
+  };
+  let token = params.get('t') || params.get('token') || params.get('student');
   if (!token) return;
+  if (TOKEN_ALIASES[token]) token = TOKEN_ALIASES[token];
   studentToken = token;
 
   try {
@@ -633,6 +638,40 @@ async function initStudentMode() {
         studentPending.add(tr.temaId);
       }
     });
+
+    // Also read and incorporate local progress from exercises/exams completed on this device
+    try {
+      const localP = JSON.parse(localStorage.getItem('ea_progreso') || '{}');
+      for (const tId of Object.keys(localP)) {
+        const item = localP[tId];
+        const s = Number(item.pct != null ? item.pct : item.score);
+        if (!isNaN(s) && s >= 0) {
+          const prev = studentBest[tId] || 0;
+          if (!(tId in studentBest) || s > prev) {
+            studentBest[tId] = s;
+            studentCounts[tId] = (studentCounts[tId] || 0) + 1;
+            // Sync to Firestore resultados so it is permanently recorded in the student's cloud profile
+            docRef.collection('resultados').add({
+              temaId: tId,
+              score: s,
+              tipo: 'evaluacion',
+              fecha: firebase.firestore.FieldValue.serverTimestamp(),
+              origen: 'evaluacion'
+            }).catch(()=>{});
+
+            // If there's an assigned task for this topic, resolve it
+            tq.docs.forEach(td => {
+              const taskData = td.data() || {};
+              if (taskData.temaId === tId && taskData.estado !== 'hecha') {
+                docRef.collection('tareas').doc(td.id).update({ estado: 'hecha' }).catch(()=>{});
+                studentPending.delete(tId);
+                studentCompleted.add(tId);
+              }
+            });
+          }
+        }
+      }
+    } catch(e) {}
 
     applyStudentUI();
   } catch (err) {
