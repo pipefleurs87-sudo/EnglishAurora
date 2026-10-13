@@ -4484,11 +4484,16 @@ body.theme-glacial .aurora-layer {
         const setClases = new Set([...baseClases, ...inClases]);
         merged.clases = Array.from(setClases).sort();
 
-        // Union of horas and notas
-        merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {});
-        merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {});
+        // Union of horas and notas (local changes take priority over stale incoming cloud)
+        merged.clases_horas = Object.assign({}, incoming.clases_horas || {}, base.clases_horas || {});
+        merged.clases_notas = Object.assign({}, incoming.clases_notas || {}, base.clases_notas || {});
 
-        const contracted = Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 40);
+        // Check if teacher explicitly adjusted hours locally
+        const overrideHours = localStorage.getItem('ea_student_hours_' + canonicalId);
+        let contracted = (overrideHours !== null && !isNaN(Number(overrideHours)))
+          ? Number(overrideHours)
+          : Number(base.horasContratadas || base.horas_contratadas || incoming.horasContratadas || incoming.horas_contratadas || 40);
+
         let given = 0;
         for (const c of merged.clases) {
           const h = Number(merged.clases_horas[c]);
@@ -4499,8 +4504,11 @@ body.theme-glacial .aurora-layer {
         const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
 
         merged.horasContratadas = contracted;
+        merged.horas_contratadas = contracted;
         merged.horasDadas = given;
+        merged.horas_dadas = given;
         merged.horasRestantes = remaining;
+        merged.horas_restantes = remaining;
         return merged;
       }
 
@@ -4606,9 +4614,15 @@ body.theme-glacial .aurora-layer {
       const baseClases = Array.isArray(base.clases) ? base.clases : [];
       const inClases = Array.isArray(incoming.clases) ? incoming.clases : [];
       merged.clases = Array.from(new Set([...baseClases, ...inClases])).sort();
-      merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {});
-      merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {});
-      const contracted = Number(incoming.horasContratadas || base.horasContratadas || 40);
+      merged.clases_horas = Object.assign({}, incoming.clases_horas || {}, base.clases_horas || {});
+      merged.clases_notas = Object.assign({}, incoming.clases_notas || {}, base.clases_notas || {});
+
+      // Check if teacher explicitly adjusted hours locally
+      const overrideHours = localStorage.getItem('ea_student_hours_' + canonicalId);
+      let contracted = (overrideHours !== null && !isNaN(Number(overrideHours)))
+        ? Number(overrideHours)
+        : Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 40);
+
       let given = 0;
       for (const c of merged.clases) {
         const h = Number(merged.clases_horas[c]);
@@ -4617,8 +4631,11 @@ body.theme-glacial .aurora-layer {
       }
       given = Math.round(given * 10) / 10;
       merged.horasContratadas = contracted;
+      merged.horas_contratadas = contracted;
       merged.horasDadas = given;
+      merged.horas_dadas = given;
       merged.horasRestantes = Math.max(0, Math.round((contracted - given) * 10) / 10);
+      merged.horas_restantes = merged.horasRestantes;
       return merged;
     }
 
@@ -4665,7 +4682,10 @@ body.theme-glacial .aurora-layer {
   async function pushStudentToCloudHub(st) {
     if (!st || !st.id) return false;
     const canId = resolveStudentToken(st.id);
-    const contracted = Number(st.horasContratadas || st.horas_contratadas) || 40;
+    const overrideHours = localStorage.getItem('ea_student_hours_' + canId);
+    const contracted = (overrideHours !== null && !isNaN(Number(overrideHours)))
+      ? Number(overrideHours)
+      : (Number(st.horasContratadas || st.horas_contratadas) || 40);
     const given = Number(st.horasDadas || st.horas_dadas) || 0;
     const remaining = Number(st.horasRestantes || st.horas_restantes) || Math.max(0, contracted - given);
     const payloadData = {
@@ -4819,6 +4839,13 @@ body.theme-glacial .aurora-layer {
     stack.innerHTML = filtered.map(s => {
       const canId = resolveStudentToken(s.id);
       s.id = canId;
+      const overrideHours = localStorage.getItem('ea_student_hours_' + canId);
+      if (overrideHours !== null && !isNaN(Number(overrideHours))) {
+        s.horasContratadas = Number(overrideHours);
+        s.horas_contratadas = Number(overrideHours);
+        s.horasRestantes = Math.max(0, Math.round((Number(overrideHours) - (Number(s.horasDadas) || 0)) * 10) / 10);
+        s.horas_restantes = s.horasRestantes;
+      }
       const isSel = canId === selectedToken;
       const pct = s.horasContratadas > 0 ? Math.min(100, Math.round((s.horasDadas / s.horasContratadas) * 100)) : 0;
       const lvlClass = (s.nivel || 'a1').toLowerCase();
@@ -5050,10 +5077,20 @@ body.theme-glacial .aurora-layer {
         dBadge.className = `cefr-badge ${(selectedData.nivel || 'a1').toLowerCase()}`;
       }
 
+      // Check if teacher explicitly set hours locally
+      const canToken = resolveStudentToken(selectedData.id || token);
+      const overrideHours = localStorage.getItem('ea_student_hours_' + canToken);
+      if (overrideHours !== null && !isNaN(Number(overrideHours))) {
+        selectedData.horasContratadas = Number(overrideHours);
+        selectedData.horas_contratadas = Number(overrideHours);
+      }
+
       // Populate Metrics
       const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40;
       const given = Number(selectedData.horasDadas || selectedData.horas_dadas) || 0;
       const remaining = Number(selectedData.horasRestantes || selectedData.horas_restantes) || Math.max(0, contracted - given);
+      selectedData.horasRestantes = remaining;
+      selectedData.horas_restantes = remaining;
 
       const dCont = document.getElementById('dossier-contracted-hours');
       const dGiven = document.getElementById('dossier-completed-classes');
@@ -5631,9 +5668,18 @@ body.theme-glacial .aurora-layer {
       return;
     }
 
+    const canId = resolveStudentToken(selectedData.id || selectedToken);
     const newRemaining = Math.max(0, Math.round((newHours - given) * 10) / 10);
     selectedData.horasContratadas = newHours;
+    selectedData.horas_contratadas = newHours;
     selectedData.horasRestantes = newRemaining;
+    selectedData.horas_restantes = newRemaining;
+    selectedData.updated = new Date().toISOString();
+
+    try {
+      localStorage.setItem('ea_student_hours_' + canId, String(newHours));
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    } catch(e) {}
 
     // Actualizar UI del dossier
     const dCont = document.getElementById('dossier-contracted-hours');
