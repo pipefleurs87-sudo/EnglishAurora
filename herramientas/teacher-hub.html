@@ -3654,6 +3654,7 @@ body.theme-glacial .aurora-layer {
 
   let ALL_STUDENTS = [];
   let selectedToken = null, selectedData = null;
+  let firestoreThrottled = false;
   let calYear = new Date().getFullYear(), calMonth = new Date().getMonth();
   let rosterSearchQuery = '';
   let rosterLevelFilter = 'ALL';
@@ -4466,13 +4467,6 @@ body.theme-glacial .aurora-layer {
           const x = d.data() || {};
           return x.profesor_id === myUid || !x.profesor_id;
         });
-
-        // Auto-purge stale duplicate document tokens in Firestore
-        docs.forEach(d => {
-          if (STUDENT_TOKEN_ALIASES[d.id]) {
-            db.collection(COL_ESTUDIANTES).doc(d.id).delete().catch(()=>{});
-          }
-        });
       }
 
       function mergeStudentRecord(base, incoming) {
@@ -4584,45 +4578,6 @@ body.theme-glacial .aurora-layer {
       ALL_STUDENTS = Array.from(emailMap.values());
       localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
 
-      // Auto-upload and sync students whose local records have more classes/hours than Firestore cloud
-      if (auth && auth.currentUser) {
-        ALL_STUDENTS.forEach(st => {
-          if (!st || !st.id) return;
-          const canId = resolveStudentToken(st.id);
-          const cloudDoc = docs.find(d => resolveStudentToken(d.id) === canId);
-          const cloudData = cloudDoc ? (cloudDoc.data() || {}) : null;
-          const cloudClasses = (cloudData && Array.isArray(cloudData.clases)) ? cloudData.clases : [];
-          const localClasses = Array.isArray(st.clases) ? st.clases : [];
-
-          // Sync if cloud is missing classes or local has higher class count
-          if (localClasses.length > cloudClasses.length || (localClasses.length > 0 && cloudClasses.length === 0)) {
-            const contracted = Number(st.horasContratadas || st.horas_contratadas) || 40;
-            const given = Number(st.horasDadas || st.horas_dadas) || 0;
-            const remaining = Number(st.horasRestantes || st.horas_restantes) || Math.max(0, contracted - given);
-
-            db.collection(COL_ESTUDIANTES).doc(canId).set({
-              clases: localClasses,
-              clases_horas: st.clases_horas || {},
-              clases_notas: st.clases_notas || {},
-              horas_contratadas: contracted,
-              horas_dadas: given,
-              horas_restantes: remaining,
-              nombre: st.nombre || 'Student',
-              correo: st.correo || '',
-              nivel: st.nivel || 'A1',
-              student_token: canId,
-              profesor_id: auth.currentUser.uid,
-              profesor_nombre: 'Prof. Felipe Florez',
-              updated: new Date().toISOString()
-            }, { merge: true }).then(() => {
-              console.log(`[Auto-Sync Cloud] Synced ${st.nombre} (${localClasses.length} classes, ${given}h) to Firestore`);
-            }).catch(e => {
-              console.warn('[Auto-Sync Cloud] Error syncing student', canId, e);
-            });
-          }
-        });
-      }
-
       renderStudentsRoster();
       updateTab6HoursLedger();
       updateTab7Diagnostics();
@@ -4634,7 +4589,8 @@ body.theme-glacial .aurora-layer {
       }
     }, err => {
       console.warn('Firestore snapshot error:', err);
-      showToast('Firestore offline or restricted — using local cache');
+      firestoreThrottled = true;
+      showToast('Modo local activo — usando datos del dispositivo');
       loadOfflineFallback();
     });
   }
@@ -4773,6 +4729,9 @@ body.theme-glacial .aurora-layer {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fields })
       });
+      if (res.status === 429) {
+        firestoreThrottled = true;
+      }
       return res.ok;
     } catch(restErr) {
       console.warn('REST fallback failed:', restErr);
@@ -4783,6 +4742,7 @@ body.theme-glacial .aurora-layer {
   window.syncOfflineRosterToCloudHub = async function() {
     const btn = document.getElementById('btn-sync-cloud');
     if (btn) { btn.disabled = true; btn.textContent = 'Sincronizando… ⏳'; }
+    firestoreThrottled = false;
     try {
       let count = 0;
       for (const st of ALL_STUDENTS) {
@@ -4888,22 +4848,10 @@ body.theme-glacial .aurora-layer {
       `;
     }).join('');
 
-    // Ensure persistent click delegation on roster stack
-    if (!stack._hasCardClickListener) {
-      stack._hasCardClickListener = true;
-      stack.addEventListener('click', (e) => {
-        const card = e.target.closest('.student-card');
-        if (card) {
-          const tokenId = card.getAttribute('data-token-id') || (card.id ? card.id.replace('scard-', '') : null);
-          if (tokenId) {
-            selectStudentHub(tokenId);
-          }
-        }
-      });
-    }
-
     // Fetch async subcollection telemetry for filtered students
-    filtered.forEach(s => loadStudentMiniTelemetry(s.id));
+    if (!firestoreThrottled) {
+      filtered.forEach(s => loadStudentMiniTelemetry(s.id));
+    }
   }
 
   const CORE_STUDENT_FALLBACK_TASKS = {
@@ -4969,6 +4917,7 @@ body.theme-glacial .aurora-layer {
     }
 
     // 2. Query Firestore / REST with timeout to update if live data is available
+    if (firestoreThrottled) return;
     const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
     try {
       let resDocs = [];
@@ -5868,7 +5817,7 @@ body.theme-glacial .aurora-layer {
     token = resolveStudentToken(token);
 
     let taskDocs = [];
-    if (db) {
+    if (db && !firestoreThrottled) {
       try {
         const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
         const q = await Promise.race([
@@ -5884,11 +5833,13 @@ body.theme-glacial .aurora-layer {
     }
 
     // Direct REST API fallback
-    if (taskDocs.length === 0) {
+    if (taskDocs.length === 0 && !firestoreThrottled) {
       try {
         const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
         const r = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(token)}/tareas?key=${fbKey}`);
-        if (r.ok) {
+        if (r.status === 429) {
+          firestoreThrottled = true;
+        } else if (r.ok) {
           const data = await r.json();
           if (data.documents) {
             taskDocs = data.documents.map(d => {
@@ -5969,7 +5920,7 @@ body.theme-glacial .aurora-layer {
     token = resolveStudentToken(token);
 
     let results = [];
-    if (db) {
+    if (db && !firestoreThrottled) {
       try {
         const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
         const q = await Promise.race([
@@ -5985,11 +5936,13 @@ body.theme-glacial .aurora-layer {
     }
 
     // Direct REST API fallback
-    if (results.length === 0) {
+    if (results.length === 0 && !firestoreThrottled) {
       try {
         const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
         const r = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(token)}/resultados?key=${fbKey}`);
-        if (r.ok) {
+        if (r.status === 429) {
+          firestoreThrottled = true;
+        } else if (r.ok) {
           const data = await r.json();
           if (data.documents) {
             results = data.documents.map(d => {
@@ -6074,7 +6027,7 @@ body.theme-glacial .aurora-layer {
     if (!stream) return;
     token = resolveStudentToken(token);
 
-    if (!db) {
+    if (!db || firestoreThrottled) {
       stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Live messaging offline.</div>`;
       return;
     }
@@ -6450,7 +6403,8 @@ body.theme-glacial .aurora-layer {
     });
   }
 
-  // Initialize Cloud Connection & Catalog
+  // Initialize Offline Roster immediately (0ms synchronous boot)
+  loadOfflineFallback();
   cargarCatalogoHub();
   initAulaCloud();
 
