@@ -538,14 +538,15 @@
           }
         };
         if (sTarea) payload.fields.tareaId = { stringValue: sTarea };
-        fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/' + encodeURIComponent(sTok) + '/resultados', {
+        const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
+        fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/' + encodeURIComponent(sTok) + '/resultados?key=' + fbKey, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         }).catch(()=>{});
 
         if (sTarea) {
-          fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/' + encodeURIComponent(sTok) + '/tareas/' + encodeURIComponent(sTarea) + '?updateMask.fieldPaths=estado', {
+          fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/' + encodeURIComponent(sTok) + '/tareas/' + encodeURIComponent(sTarea) + '?updateMask.fieldPaths=estado&key=' + fbKey, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ fields: { estado: { stringValue: 'hecha' } } })

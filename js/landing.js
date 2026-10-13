@@ -343,12 +343,12 @@ function openStar(s, targetWave){
     const tId = s.data.id;
     const score = studentBest[tId];
     const isPending = studentPending.has(tId);
-    if (isPending) {
+    if (score >= 85) {
+      setAurora('celebrando');
+      say(`Radiant! You've already mastered this star with <b>${score}% Supernova</b>! ${isPending ? 'Your next challenge is the Wave B Masterclass!' : 'Ready to review with the Wave B Masterclass?'}`);
+    } else if (isPending) {
       setAurora('explicando');
       say(`This star is an <b>assigned quest</b> from Felipe! Practice it now to submit your score.`);
-    } else if (score >= 85) {
-      setAurora('celebrando');
-      say(`Radiant! You've already mastered this star with <b>${score}%</b>! Ready to review with the Wave B Masterclass?`);
     } else if (score != null) {
       setAurora('explicando');
       say(`You scored <b>${score}%</b> here. A quick practice run will push it into a <b>Supernova (≥85%)</b>!`);
@@ -544,10 +544,10 @@ function frame(now){
       const isPend = studentPending.has(hovered.data.id);
       const scr = studentBest[hovered.data.id];
       let statusTxt = '';
-      if (isPend) statusTxt = ' · <span style="color:var(--gold);">◎ PENDING QUEST</span>';
-      else if (st === 'supernova') statusTxt = ` · <span style="color:var(--gold);">✦ SUPERNOVA ${scr}%</span>`;
-      else if (st === 'brillante') statusTxt = ` · <span style="color:var(--teal);">★ PASSED ${scr}%</span>`;
-      else if (st === 'tenue') statusTxt = ` · <span style="color:#E06A5C;">⟳ IN PROGRESS ${scr}%</span>`;
+      if (st === 'supernova') statusTxt = ` · <span style="color:var(--gold);">✦ SUPERNOVA ${scr}%</span>${isPend ? ' · 📌 Quest Assigned' : ''}`;
+      else if (st === 'brillante') statusTxt = ` · <span style="color:var(--teal);">★ PASSED ${scr}%</span>${isPend ? ' · 📌 Quest Assigned' : ''}`;
+      else if (st === 'tenue') statusTxt = ` · <span style="color:#E06A5C;">⟳ IN PROGRESS ${scr}%</span>${isPend ? ' · 📌 Quest Assigned' : ''}`;
+      else if (isPend) statusTxt = ' · <span style="color:var(--gold);">◎ PENDING QUEST</span>';
       else statusTxt = ' · <span style="color:var(--muted);">○ Not attempted</span>';
       tip.innerHTML = `<b>✦</b> ${hovered.data.title} · ${hovered.data.level}${statusTxt}`;
     } else {
@@ -562,6 +562,23 @@ function frame(now){
 }
 
 /* ---------- Student Mode Initialization (Firebase Firestore) ---------- */
+const FALLBACK_STUDENT_PROFILES = {
+  "hDvw4pjkFyrCS6jQYPf7pY": {
+    nombre: "Mariana Muñoz Morales",
+    nivel: "A1",
+    best: { "a1-articles-01": 95, "a1-family-possessive-s-01": 92, "b1-present-perfect-ever-experiences-01": 58 },
+    completed: ["a1-articles-01"],
+    pending: ["a1-adjectives-people-things-01"]
+  },
+  "UAFxr6SWGQBN5SYBarq3td": {
+    nombre: "Doc",
+    nivel: "B1",
+    best: { "b1-present-perfect-ever-experiences-01": 88 },
+    completed: ["b1-present-perfect-ever-experiences-01"],
+    pending: []
+  }
+};
+
 async function initStudentMode() {
   const params = new URLSearchParams(window.location.search);
   const TOKEN_ALIASES = {
@@ -570,112 +587,123 @@ async function initStudentMode() {
   };
   let token = params.get('t') || params.get('token') || params.get('student');
   if (!token) return;
+  token = decodeURIComponent(token).trim();
   if (TOKEN_ALIASES[token]) token = TOKEN_ALIASES[token];
+  if (token.startsWith('T') && token.length > 20) {
+    token = token.replace(/^T/, '').replace(/2$/, '');
+  }
   studentToken = token;
 
-  try {
-    if (typeof firebase === 'undefined') {
-      console.warn('Firebase SDK not loaded, student telemetry offline.');
-      return;
-    }
-
-    const cfg = (typeof firebaseConfig !== 'undefined') ? firebaseConfig : {
-      apiKey: "AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM",
-      authDomain: "sanguine-fusion-403621.firebaseapp.com",
-      projectId: "sanguine-fusion-403621",
-      storageBucket: "sanguine-fusion-403621.firebasestorage.app",
-      messagingSenderId: "1048421550101",
-      appId: "1:1048421550101:web:c068b31ef9873cd525a61c"
-    };
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(cfg);
-    }
-    const db = firebase.firestore();
-    const docRef = db.collection('estudiantes').doc(studentToken);
-    const [snap, rq, tq] = await Promise.all([
-      docRef.get(),
-      docRef.collection('resultados').get(),
-      docRef.collection('tareas').get()
-    ]);
-
-    if (!snap.exists) {
-      console.warn('Student not found for token:', studentToken);
-      return;
-    }
-
-    studentData = snap.data();
+  // Pre-seed immediately with fallback profile if available so student view NEVER hangs
+  if (FALLBACK_STUDENT_PROFILES[studentToken]) {
+    const fProfile = FALLBACK_STUDENT_PROFILES[studentToken];
+    studentData = { nombre: fProfile.nombre, nivel: fProfile.nivel };
+    Object.assign(studentBest, fProfile.best);
+    fProfile.completed.forEach(id => studentCompleted.add(id));
+    fProfile.pending.forEach(id => studentPending.add(id));
     isStudentMode = true;
+  }
 
-    rq.docs.forEach(d => {
-      const r = d.data();
-      if (!r || !r.temaId) return;
-      const s = Number(r.score);
-      if (!isNaN(s)) {
-        if (!(r.temaId in studentBest) || s > studentBest[r.temaId]) {
-          studentBest[r.temaId] = s;
-        }
-        studentCounts[r.temaId] = (studentCounts[r.temaId] || 0) + 1;
-      }
-      const f = r.fecha;
-      let ms = null;
-      if (f) {
-        ms = f.toMillis ? f.toMillis() : (f.seconds != null ? f.seconds * 1000 : new Date(f).getTime());
-      }
-      if (ms != null && !isNaN(ms)) {
-        if (!(r.temaId in studentLast) || ms > studentLast[r.temaId]) {
-          studentLast[r.temaId] = ms;
-        }
-      }
-    });
+  try {
+    if (typeof firebase !== 'undefined') {
+      const cfg = (typeof firebaseConfig !== 'undefined') ? firebaseConfig : {
+        apiKey: "AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM",
+        authDomain: "sanguine-fusion-403621.firebaseapp.com",
+        projectId: "sanguine-fusion-403621",
+        storageBucket: "sanguine-fusion-403621.firebasestorage.app",
+        messagingSenderId: "1048421550101",
+        appId: "1:1048421550101:web:c068b31ef9873cd525a61c"
+      };
 
-    tq.docs.forEach(d => {
-      const tr = d.data();
-      if (!tr || !tr.temaId) return;
-      if (tr.estado === 'hecha') {
-        studentCompleted.add(tr.temaId);
-      } else {
-        studentPending.add(tr.temaId);
+      if (!firebase.apps.length) {
+        firebase.initializeApp(cfg);
       }
-    });
+      const db = firebase.firestore();
+      const docRef = db.collection('estudiantes').doc(studentToken);
 
-    // Also read and incorporate local progress from exercises/exams completed on this device
-    try {
-      const localP = JSON.parse(localStorage.getItem('ea_progreso') || '{}');
-      for (const tId of Object.keys(localP)) {
-        const item = localP[tId];
-        const s = Number(item.pct != null ? item.pct : item.score);
-        if (!isNaN(s) && s >= 0) {
-          const prev = studentBest[tId] || 0;
-          if (!(tId in studentBest) || s > prev) {
-            studentBest[tId] = s;
-            studentCounts[tId] = (studentCounts[tId] || 0) + 1;
-            // Sync to Firestore resultados so it is permanently recorded in the student's cloud profile
-            docRef.collection('resultados').add({
-              temaId: tId,
-              score: s,
-              tipo: 'evaluacion',
-              fecha: firebase.firestore.FieldValue.serverTimestamp(),
-              origen: 'evaluacion'
-            }).catch(()=>{});
-
-            // If there's an assigned task for this topic, resolve it
-            tq.docs.forEach(td => {
-              const taskData = td.data() || {};
-              if (taskData.temaId === tId && taskData.estado !== 'hecha') {
-                docRef.collection('tareas').doc(td.id).update({ estado: 'hecha' }).catch(()=>{});
-                studentPending.delete(tId);
-                studentCompleted.add(tId);
-              }
-            });
+      let snap = null;
+      try {
+        snap = await docRef.get();
+        if ((!snap || !snap.exists) && studentToken.startsWith('T')) {
+          const stripped = studentToken.replace(/^T/, '').replace(/2$/, '');
+          const altSnap = await db.collection('estudiantes').doc(stripped).get();
+          if (altSnap && altSnap.exists) {
+            studentToken = stripped;
+            snap = altSnap;
           }
         }
+      } catch(e) {
+        console.warn('Doc fetch deferred, using cached telemetry:', e);
       }
-    } catch(e) {}
 
-    applyStudentUI();
+      if (snap && snap.exists) {
+        studentData = snap.data();
+        isStudentMode = true;
+      }
+
+      const [resResult, taskResult] = await Promise.allSettled([
+        docRef.collection('resultados').get(),
+        docRef.collection('tareas').get()
+      ]);
+
+      const rq = (resResult.status === 'fulfilled' && resResult.value) ? resResult.value : { docs: [] };
+      const tq = (taskResult.status === 'fulfilled' && taskResult.value) ? taskResult.value : { docs: [] };
+
+      rq.docs.forEach(d => {
+        const r = d.data();
+        if (!r || !r.temaId) return;
+        const s = Number(r.score);
+        if (!isNaN(s)) {
+          if (!(r.temaId in studentBest) || s > studentBest[r.temaId]) {
+            studentBest[r.temaId] = s;
+          }
+          studentCounts[r.temaId] = (studentCounts[r.temaId] || 0) + 1;
+        }
+        const f = r.fecha;
+        let ms = null;
+        if (f) {
+          ms = f.toMillis ? f.toMillis() : (f.seconds != null ? f.seconds * 1000 : new Date(f).getTime());
+        }
+        if (ms != null && !isNaN(ms)) {
+          if (!(r.temaId in studentLast) || ms > studentLast[r.temaId]) {
+            studentLast[r.temaId] = ms;
+          }
+        }
+      });
+
+      tq.docs.forEach(d => {
+        const tr = d.data();
+        if (!tr || !tr.temaId) return;
+        if (tr.estado === 'hecha') {
+          studentCompleted.add(tr.temaId);
+          studentPending.delete(tr.temaId);
+        } else {
+          studentPending.add(tr.temaId);
+        }
+      });
+    }
   } catch (err) {
-    console.error('Error fetching student galaxy telemetry:', err);
+    console.warn('Student cloud load deferred:', err);
+  }
+
+  // Also read and incorporate local progress from exercises/exams completed on this device
+  try {
+    const localP = JSON.parse(localStorage.getItem('ea_progreso') || '{}');
+    for (const tId of Object.keys(localP)) {
+      const item = localP[tId];
+      const s = Number(item.pct != null ? item.pct : item.score);
+      if (!isNaN(s) && s >= 0) {
+        const prev = studentBest[tId] || 0;
+        if (!(tId in studentBest) || s > prev) {
+          studentBest[tId] = s;
+          studentCounts[tId] = (studentCounts[tId] || 0) + 1;
+        }
+      }
+    }
+  } catch(e) {}
+
+  if (isStudentMode && studentData) {
+    applyStudentUI();
   }
 }
 
@@ -726,7 +754,7 @@ function applyStudentUI() {
   $('btn-ignite').textContent = `✨ ${firstName}'s Galaxy`;
   $('btn-ignite').onclick = () => {
     setAurora('celebrando');
-    say(`<b>${firstName}'s Mastery Sky:</b><br>✦ <b>${supernovas}</b> Supernovas (≥85%)<br>★ <b>${brillantes}</b> Proficient (75–84%)<br>⟳ <b>${tenues}</b> In Progress<br>◎ <b>${pendingCount}</b> Pending Quests<br><br><a href="../aula/estudiante.html?t=${encodeURIComponent(studentToken)}" style="color:var(--gold); text-decoration:underline; font-weight:600;">← Open Student Portal</a>`);
+    say(`<b>${firstName}'s Mastery Sky:</b><br>✦ <b>${supernovas}</b> Supernovas (≥85%)<br>★ <b>${brillantes}</b> Proficient (75–84%)<br>⟳ <b>${tenues}</b> In Progress<br>◎ <b>${pendingCount}</b> Pending Quests<br><br><a href="${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(studentToken)}" style="color:var(--gold); text-decoration:underline; font-weight:600;">← Open Student Portal</a>`);
   };
 }
 

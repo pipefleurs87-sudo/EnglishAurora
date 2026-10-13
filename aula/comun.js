@@ -11,8 +11,13 @@ async function cargarCatalogo(){
     const d = await r.json();
     CATALOGO = d.map(t => ({id:t.id, nivel:t.nivel, area:t.area||'', tema:t.tema}));
   }catch(e){
-    const r = await fetch('catalogo.json');
-    CATALOGO = await r.json();
+    try{
+      const r = await fetch('catalogo.json');
+      if(r.ok) CATALOGO = await r.json();
+    }catch(err){
+      console.warn('Could not load catalog, continuing with empty catalog:', err);
+      CATALOGO = [];
+    }
   }
   return CATALOGO;
 }
