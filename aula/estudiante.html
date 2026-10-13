@@ -114,42 +114,90 @@ const ref = () => db.collection('estudiantes').doc(token);
 
 async function init(){
   if(!token){ return errorPage('This link is not valid. Please ask Prof. Felipe Florez for your personal link.'); }
-  try{
+
+  // 1. Instant zero-latency pre-render from fallback seed or localStorage cache
+  if (FALLBACK_STUDENTS[token]) {
+    EST = Object.assign({}, FALLBACK_STUDENTS[token]);
+  } else {
+    const cached = localStorage.getItem('englishaurora_students_cache');
+    if (cached) {
+      try {
+        const list = JSON.parse(cached);
+        const found = list.find(s => s.id === token || s.student_token === token);
+        if (found) EST = Object.assign({}, found);
+      } catch(e){}
+    }
+  }
+
+  if (EST) {
+    try { render(); } catch(e){}
+    if (FALLBACK_TAREAS[token]) renderTareasList(FALLBACK_TAREAS[token]);
+    if (FALLBACK_HISTORIAL[token]) renderHistorialTable(FALLBACK_HISTORIAL[token]);
+  }
+
+  // 2. Fetch fresh updates from Firestore (with fast 2500ms timeout & REST fallback)
+  const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
+  try {
+    const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
     let snap = null;
     try {
-      snap = await ref().get();
-      if ((!snap || !snap.exists) && token.startsWith('T')) {
-        const stripped = token.replace(/^T/, '').replace(/2$/, '');
-        const altSnap = await db.collection('estudiantes').doc(stripped).get();
-        if (altSnap && altSnap.exists) {
-          token = stripped;
-          snap = altSnap;
+      snap = await Promise.race([ref().get(), timeoutPromise]);
+    } catch(sdkErr) {
+      // Direct REST fallback if SDK hangs or quota limits
+      try {
+        const res = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(token)}?key=${fbKey}`);
+        if (res.ok) {
+          const doc = await res.json();
+          if (doc && doc.fields) {
+            const f = doc.fields;
+            const clasesArr = f.clases?.arrayValue?.values ? f.clases.arrayValue.values.map(v => v.stringValue) : [];
+            const horasMap = {};
+            if (f.clases_horas?.mapValue?.fields) {
+              for (const [k, v] of Object.entries(f.clases_horas.mapValue.fields)) {
+                horasMap[k] = Number(v.integerValue || v.stringValue || 1.0);
+              }
+            }
+            const notasMap = {};
+            if (f.clases_notas?.mapValue?.fields) {
+              for (const [k, v] of Object.entries(f.clases_notas.mapValue.fields)) {
+                notasMap[k] = v.stringValue || '';
+              }
+            }
+            const liveData = {
+              nombre: f.nombre?.stringValue || EST?.nombre,
+              correo: f.correo?.stringValue || EST?.correo,
+              nivel: f.nivel?.stringValue || EST?.nivel,
+              horas_contratadas: Number(f.horas_contratadas?.integerValue || EST?.horas_contratadas || 40),
+              horas_dadas: Number(f.horas_dadas?.integerValue || EST?.horas_dadas || 0),
+              horas_restantes: Number(f.horas_restantes?.integerValue || EST?.horas_restantes || 0),
+              clases: clasesArr,
+              clases_horas: horasMap,
+              clases_notas: notasMap
+            };
+            EST = Object.assign({}, EST || {}, liveData);
+            const cont = document.getElementById('horasContenedor');
+            if (cont) cont.innerHTML = renderHorasCardBody();
+          }
         }
-      }
-    } catch(cloudErr) {
-      console.warn('Firestore cloud fetch deferred, falling back to cache/seed:', cloudErr);
+      } catch(restErr){}
+    }
+
+    if (snap && snap.exists) {
+      EST = Object.assign({}, EST || {}, snap.data());
+      const cont = document.getElementById('horasContenedor');
+      if (cont) cont.innerHTML = renderHorasCardBody();
     }
 
     try { await cargarCatalogo(); } catch(e){}
 
-    if (snap && snap.exists) {
-      EST = snap.data();
-    } else if (FALLBACK_STUDENTS[token]) {
-      EST = Object.assign({}, FALLBACK_STUDENTS[token]);
-    } else {
-      const cached = localStorage.getItem('englishaurora_students_cache');
-      if (cached) {
-        try {
-          const list = JSON.parse(cached);
-          const found = list.find(s => s.id === token || s.student_token === token);
-          if (found) EST = found;
-        } catch(e){}
-      }
+    if (!document.getElementById('horasCard')) {
+      if(!EST) return errorPage('We could not find your classroom. Please verify that you copied the complete link.');
+      render();
     }
 
-    if(!EST) return errorPage('We could not find your classroom. Please verify that you copied the complete link.');
-    render();
-    cargarTareas(); cargarHistorial(); cargarComentarios();
+    cargarTareas();
+    cargarHistorial();
+    cargarComentarios();
 
     // Sincronización en tiempo real de horas y clases impartidas si la conexión está activa
     try {
@@ -163,14 +211,16 @@ async function init(){
         console.warn('Realtime hours listener deferred:', err);
       });
     } catch(e){}
-  }catch(e){
+  } catch(e){
     console.error(e);
-    if (FALLBACK_STUDENTS[token]) {
-      EST = Object.assign({}, FALLBACK_STUDENTS[token]);
-      render();
-      cargarTareas(); cargarHistorial(); cargarComentarios();
-    } else {
-      errorPage('Could not load classroom. Please check your internet connection and try again.');
+    if (!EST) {
+      if (FALLBACK_STUDENTS[token]) {
+        EST = Object.assign({}, FALLBACK_STUDENTS[token]);
+        render();
+        cargarTareas(); cargarHistorial(); cargarComentarios();
+      } else {
+        errorPage('Could not load classroom. Please check your internet connection and try again.');
+      }
     }
   }
 }
@@ -229,27 +279,13 @@ function render(){
 }
 
 // ---------- tareas ----------
-async function cargarTareas(){
+function renderTareasList(taskList){
   const cont = document.getElementById('tareas');
-  let taskList = [];
-  try{
-    const q = await ref().collection('tareas').orderBy('fecha','desc').get();
-    if(!q.empty) {
-      taskList = q.docs.map(d => Object.assign({ id: d.id }, d.data()));
-    }
-  }catch(e){
-    console.warn('cargarTareas query deferred, using fallback/cached tasks:', e);
-  }
-
-  if (taskList.length === 0 && FALLBACK_TAREAS[token]) {
-    taskList = FALLBACK_TAREAS[token];
-  }
-
-  if(taskList.length === 0){
+  if (!cont) return;
+  if (!taskList || taskList.length === 0) {
     cont.innerHTML = '<div class="empty">No tasks assigned at the moment.</div>';
     return;
   }
-
   cont.innerHTML = taskList.map(t => {
     const hecha = t.estado === 'hecha';
     const taskId = t.id || 'task-' + Math.random().toString(36).slice(2, 7);
@@ -281,6 +317,58 @@ async function cargarTareas(){
     </div>`;
   }).join('');
   window._tareas = Object.fromEntries(taskList.map(d => [d.id, d]));
+}
+
+async function cargarTareas(){
+  const cont = document.getElementById('tareas');
+  if (!cont) return;
+  if (FALLBACK_TAREAS[token]) {
+    renderTareasList(FALLBACK_TAREAS[token]);
+  }
+
+  let taskList = [];
+  const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
+  try{
+    const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
+    const q = await Promise.race([ref().collection('tareas').orderBy('fecha','desc').get(), timeoutPromise]);
+    if(!q.empty) {
+      taskList = q.docs.map(d => Object.assign({ id: d.id }, d.data()));
+    }
+  }catch(e){
+    // REST API fallback
+    try {
+      const res = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(token)}/tareas?key=${fbKey}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.documents) {
+          taskList = data.documents.map(d => {
+            const f = d.fields || {};
+            return {
+              id: d.name.split('/').pop(),
+              titulo: f.titulo?.stringValue || 'Task',
+              tipo: f.tipo?.stringValue || 'practica',
+              nivel: f.nivel?.stringValue || 'A1',
+              area: f.area?.stringValue || '',
+              estado: f.estado?.stringValue || 'pendiente',
+              fecha: f.fecha?.timestampValue || d.createTime,
+              url: f.url?.stringValue || '#',
+              temaId: f.temaId?.stringValue || ''
+            };
+          });
+        }
+      }
+    } catch(restErr){}
+  }
+
+  if (taskList.length > 0) {
+    // Merge with fallback tasks
+    const map = new Map();
+    (FALLBACK_TAREAS[token] || []).forEach(t => map.set(t.id, t));
+    taskList.forEach(t => map.set(t.id, Object.assign({}, map.get(t.id) || {}, t)));
+    renderTareasList(Array.from(map.values()));
+  } else if (!FALLBACK_TAREAS[token]) {
+    cont.innerHTML = '<div class="empty">No tasks assigned at the moment.</div>';
+  }
 }
 
 // ---------- modal registrar ----------
@@ -341,27 +429,13 @@ function abrirLibre(){
 }
 
 // ---------- historial ----------
-async function cargarHistorial(){
+function renderHistorialTable(items){
   const cont = document.getElementById('historial');
-  let items = [];
-  try{
-    const q = await ref().collection('resultados').orderBy('fecha','desc').limit(40).get();
-    if(!q.empty) {
-      items = q.docs.map(d => d.data());
-    }
-  }catch(e){
-    console.warn('cargarHistorial query deferred, using fallback/cached results:', e);
-  }
-
-  if (items.length === 0 && FALLBACK_HISTORIAL[token]) {
-    items = FALLBACK_HISTORIAL[token];
-  }
-
-  if(items.length === 0){
+  if (!cont) return;
+  if (!items || items.length === 0) {
     cont.innerHTML = '<div class="empty">No results recorded yet. Your first score awaits!</div>';
     return;
   }
-
   cont.innerHTML = '<div class="card" style="padding:6px 10px;overflow-x:auto"><table><thead><tr><th>Date</th><th>Topic</th><th>Type</th><th>Score</th></tr></thead><tbody>' +
     items.map(r => `<tr>
       <td class="mono">${fmtFecha(r.fecha)}</td>
@@ -369,6 +443,57 @@ async function cargarHistorial(){
       <td><span class="tag">${esc(r.tipo || 'exercise')}</span></td>
       <td><span class="score ${scoreClass(Number(r.score)||0)}">${r.score}%</span></td>
     </tr>`).join('') + '</tbody></table></div>';
+}
+
+async function cargarHistorial(){
+  const cont = document.getElementById('historial');
+  if (!cont) return;
+  if (FALLBACK_HISTORIAL[token]) {
+    renderHistorialTable(FALLBACK_HISTORIAL[token]);
+  }
+
+  let items = [];
+  const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
+  try{
+    const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
+    const q = await Promise.race([ref().collection('resultados').orderBy('fecha','desc').limit(40).get(), timeoutPromise]);
+    if(!q.empty) {
+      items = q.docs.map(d => d.data());
+    }
+  }catch(e){
+    // REST API fallback
+    try {
+      const res = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(token)}/resultados?key=${fbKey}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.documents) {
+          items = data.documents.map(d => {
+            const f = d.fields || {};
+            return {
+              tema: f.tema?.stringValue || f.temaId?.stringValue || 'Topic',
+              temaId: f.temaId?.stringValue || '',
+              tipo: f.tipo?.stringValue || 'exercise',
+              score: Number(f.score?.integerValue || f.score?.stringValue || 0),
+              fecha: f.fecha?.timestampValue || d.createTime,
+              comentario: f.comentario?.stringValue || ''
+            };
+          });
+        }
+      }
+    } catch(restErr){}
+  }
+
+  if (items.length > 0) {
+    // Union with fallback results by topic/date
+    const existing = new Set(items.map(i => (i.temaId || i.tema) + String(i.score)));
+    (FALLBACK_HISTORIAL[token] || []).forEach(f => {
+      const k = (f.temaId || f.tema) + String(f.score);
+      if (!existing.has(k)) items.push(f);
+    });
+    renderHistorialTable(items);
+  } else if (!FALLBACK_HISTORIAL[token]) {
+    cont.innerHTML = '<div class="empty">No results recorded yet. Your first score awaits!</div>';
+  }
 }
 
 // ---------- comentarios ----------

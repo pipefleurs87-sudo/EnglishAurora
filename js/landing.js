@@ -602,12 +602,14 @@ async function initStudentMode() {
     fProfile.completed.forEach(id => studentCompleted.add(id));
     fProfile.pending.forEach(id => studentPending.add(id));
     isStudentMode = true;
+    try { applyStudentUI(); } catch(e){}
   }
 
+  const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
   try {
     if (typeof firebase !== 'undefined') {
       const cfg = (typeof firebaseConfig !== 'undefined') ? firebaseConfig : {
-        apiKey: "AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM",
+        apiKey: fbKey,
         authDomain: "sanguine-fusion-403621.firebaseapp.com",
         projectId: "sanguine-fusion-403621",
         storageBucket: "sanguine-fusion-403621.firebasestorage.app",
@@ -623,17 +625,23 @@ async function initStudentMode() {
 
       let snap = null;
       try {
-        snap = await docRef.get();
-        if ((!snap || !snap.exists) && studentToken.startsWith('T')) {
-          const stripped = studentToken.replace(/^T/, '').replace(/2$/, '');
-          const altSnap = await db.collection('estudiantes').doc(stripped).get();
-          if (altSnap && altSnap.exists) {
-            studentToken = stripped;
-            snap = altSnap;
-          }
-        }
+        const timeoutDoc = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
+        snap = await Promise.race([docRef.get(), timeoutDoc]);
       } catch(e) {
-        console.warn('Doc fetch deferred, using cached telemetry:', e);
+        // Direct REST fallback for root doc
+        try {
+          const res = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(studentToken)}?key=${fbKey}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.fields) {
+              studentData = {
+                nombre: data.fields.nombre?.stringValue || studentData?.nombre,
+                nivel: data.fields.nivel?.stringValue || studentData?.nivel
+              };
+              isStudentMode = true;
+            }
+          }
+        } catch(restErr){}
       }
 
       if (snap && snap.exists) {
@@ -641,46 +649,92 @@ async function initStudentMode() {
         isStudentMode = true;
       }
 
-      const [resResult, taskResult] = await Promise.allSettled([
-        docRef.collection('resultados').get(),
-        docRef.collection('tareas').get()
-      ]);
+      // Query subcollections with timeout & REST fallback
+      const fetchResultsPromise = (async () => {
+        try {
+          const t = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
+          return await Promise.race([docRef.collection('resultados').get(), t]);
+        } catch(e) {
+          try {
+            const r = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(studentToken)}/resultados?key=${fbKey}`);
+            if (r.ok) {
+              const resJson = await r.json();
+              return {
+                docs: (resJson.documents || []).map(d => ({
+                  data: () => ({
+                    temaId: d.fields?.temaId?.stringValue,
+                    score: Number(d.fields?.score?.integerValue || d.fields?.score?.stringValue || 0),
+                    fecha: d.fields?.fecha?.timestampValue || d.createTime
+                  })
+                }))
+              };
+            }
+          } catch(err){}
+          return { docs: [] };
+        }
+      })();
 
-      const rq = (resResult.status === 'fulfilled' && resResult.value) ? resResult.value : { docs: [] };
-      const tq = (taskResult.status === 'fulfilled' && taskResult.value) ? taskResult.value : { docs: [] };
+      const fetchTasksPromise = (async () => {
+        try {
+          const t = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
+          return await Promise.race([docRef.collection('tareas').get(), t]);
+        } catch(e) {
+          try {
+            const r = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(studentToken)}/tareas?key=${fbKey}`);
+            if (r.ok) {
+              const resJson = await r.json();
+              return {
+                docs: (resJson.documents || []).map(d => ({
+                  data: () => ({
+                    temaId: d.fields?.temaId?.stringValue,
+                    estado: d.fields?.estado?.stringValue || 'pendiente'
+                  })
+                }))
+              };
+            }
+          } catch(err){}
+          return { docs: [] };
+        }
+      })();
 
-      rq.docs.forEach(d => {
-        const r = d.data();
-        if (!r || !r.temaId) return;
-        const s = Number(r.score);
-        if (!isNaN(s)) {
-          if (!(r.temaId in studentBest) || s > studentBest[r.temaId]) {
-            studentBest[r.temaId] = s;
+      const [rq, tq] = await Promise.all([fetchResultsPromise, fetchTasksPromise]);
+
+      if (rq && rq.docs) {
+        rq.docs.forEach(d => {
+          const r = d.data();
+          if (!r || !r.temaId) return;
+          const s = Number(r.score);
+          if (!isNaN(s)) {
+            if (!(r.temaId in studentBest) || s > studentBest[r.temaId]) {
+              studentBest[r.temaId] = s;
+            }
+            studentCounts[r.temaId] = (studentCounts[r.temaId] || 0) + 1;
           }
-          studentCounts[r.temaId] = (studentCounts[r.temaId] || 0) + 1;
-        }
-        const f = r.fecha;
-        let ms = null;
-        if (f) {
-          ms = f.toMillis ? f.toMillis() : (f.seconds != null ? f.seconds * 1000 : new Date(f).getTime());
-        }
-        if (ms != null && !isNaN(ms)) {
-          if (!(r.temaId in studentLast) || ms > studentLast[r.temaId]) {
-            studentLast[r.temaId] = ms;
+          const f = r.fecha;
+          let ms = null;
+          if (f) {
+            ms = f.toMillis ? f.toMillis() : (f.seconds != null ? f.seconds * 1000 : new Date(f).getTime());
           }
-        }
-      });
+          if (ms != null && !isNaN(ms)) {
+            if (!(r.temaId in studentLast) || ms > studentLast[r.temaId]) {
+              studentLast[r.temaId] = ms;
+            }
+          }
+        });
+      }
 
-      tq.docs.forEach(d => {
-        const tr = d.data();
-        if (!tr || !tr.temaId) return;
-        if (tr.estado === 'hecha') {
-          studentCompleted.add(tr.temaId);
-          studentPending.delete(tr.temaId);
-        } else {
-          studentPending.add(tr.temaId);
-        }
-      });
+      if (tq && tq.docs) {
+        tq.docs.forEach(d => {
+          const tr = d.data();
+          if (!tr || !tr.temaId) return;
+          if (tr.estado === 'hecha') {
+            studentCompleted.add(tr.temaId);
+            studentPending.delete(tr.temaId);
+          } else {
+            studentPending.add(tr.temaId);
+          }
+        });
+      }
     }
   } catch (err) {
     console.warn('Student cloud load deferred:', err);
