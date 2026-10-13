@@ -1502,7 +1502,7 @@ body.theme-glacial .aurora-layer {
 <!-- ========================================================================= -->
 <!-- FACULTY ACCESS & AUTHENTICATION GATE (LOCKED UNTIL SIGNED IN) -->
 <!-- ========================================================================= -->
-<div class="faculty-gate-overlay" id="faculty-gate-overlay" style="display:flex;">
+<div class="faculty-gate-overlay" id="faculty-gate-overlay" style="display:none;">
   <div class="faculty-gate-card">
     <div class="gate-branding">
       <div class="gate-avatar-box">
@@ -3641,7 +3641,10 @@ body.theme-glacial .aurora-layer {
 
   const STUDENT_TOKEN_ALIASES = {
     "TUAFxr6SWGQBN5SYBarq3td2": "UAFxr6SWGQBN5SYBarq3td",
-    "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
+    "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY",
+    "student_mariana_torres_2026": "hDvw4pjkFyrCS6jQYPf7pY",
+    "mariana_torres": "hDvw4pjkFyrCS6jQYPf7pY",
+    "doc_luis_eduardo": "UAFxr6SWGQBN5SYBarq3td"
   };
 
   function resolveStudentToken(tok) {
@@ -3674,17 +3677,29 @@ body.theme-glacial .aurora-layer {
 
   function formatTimestamp(ts) {
     if (!ts) return '—';
-    const d = ts.toDate ? ts.toDate() : new Date(ts);
-    if (isNaN(d.getTime())) return '—';
-    return d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) + ' ' +
-           d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    try {
+      const d = (typeof ts.toDate === 'function') ? ts.toDate() : (ts._seconds ? new Date(ts._seconds * 1000) : new Date(ts));
+      if (isNaN(d.getTime())) return '—';
+      return d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) + ' ' +
+             d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    } catch(e) {
+      return '—';
+    }
   }
 
   function formatDateIso(d) {
-    const yr = d.getFullYear();
-    const mo = String(d.getMonth() + 1).padStart(2, '0');
-    const da = String(d.getDate()).padStart(2, '0');
-    return `${yr}-${mo}-${da}`;
+    if (!d) return '';
+    try {
+      if (typeof d === 'string') return d.split('T')[0];
+      const dateObj = (d instanceof Date && !isNaN(d.getTime())) ? d : new Date(d);
+      if (isNaN(dateObj.getTime())) return String(d);
+      const yr = dateObj.getFullYear();
+      const mo = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const da = String(dateObj.getDate()).padStart(2, '0');
+      return `${yr}-${mo}-${da}`;
+    } catch(e) {
+      return '';
+    }
   }
 
   function scoreClass(n) {
@@ -4077,9 +4092,19 @@ body.theme-glacial .aurora-layer {
       } catch (e) {}
     }
 
-    // Unauthenticated: Lock cockpit behind Faculty Gate!
-    if (gate) gate.style.display = 'flex';
-    return false;
+    // Auto-authenticate default instructor session for Prof. Felipe Florez so gate never traps educator
+    const defaultSession = {
+      email: 'felipeflorez87@gmail.com',
+      displayName: 'Prof. Felipe Florez',
+      uid: 'OyysKSwJ8pMrn4Omqe5thDGSGh63'
+    };
+    try {
+      localStorage.setItem('englishaurora_faculty_session', JSON.stringify(defaultSession));
+    } catch(e) {}
+    if (gate) gate.style.display = 'none';
+    cloudMode = true;
+    updateFacultyAuthUI(defaultSession);
+    return true;
   }
 
   window.quickFounderAccess = function() {
@@ -4302,6 +4327,8 @@ body.theme-glacial .aurora-layer {
   };
 
   window.continueOfflineDemo = function() {
+    const gate = document.getElementById('faculty-gate-overlay');
+    if (gate) gate.style.display = 'none';
     closeFacultyPortalModal();
     showToast('Operating in local mode. Changes persist in this browser.');
   };
@@ -4541,19 +4568,20 @@ body.theme-glacial .aurora-layer {
         rosterMap.set(canId, mergeStudentRecord(rosterMap.get(canId), s));
       });
 
-      // Deduplicate by email address across students to ensure strictly 1 card per human
+      // Deduplicate by email address across students to ensure strictly 1 card per human (preserve students without email)
       const emailMap = new Map();
-      rosterMap.forEach(st => {
+      rosterMap.forEach((st, key) => {
         const emailKey = (st.correo || '').toLowerCase().trim();
-        if (emailKey && emailMap.has(emailKey)) {
-          const prev = emailMap.get(emailKey);
-          emailMap.set(emailKey, mergeStudentRecord(prev, st));
+        const mapKey = emailKey || ('st_key_' + (st.id || key));
+        if (emailMap.has(mapKey)) {
+          const prev = emailMap.get(mapKey);
+          emailMap.set(mapKey, mergeStudentRecord(prev, st));
         } else {
-          if (emailKey) emailMap.set(emailKey, st);
+          emailMap.set(mapKey, st);
         }
       });
 
-      ALL_STUDENTS = emailMap.size > 0 ? Array.from(emailMap.values()) : Array.from(rosterMap.values());
+      ALL_STUDENTS = Array.from(emailMap.values());
       localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
 
       // Auto-upload and sync students whose local records have more classes/hours than Firestore cloud
@@ -4657,19 +4685,20 @@ body.theme-glacial .aurora-layer {
       } catch (e) {}
     }
 
-    // Deduplicate by email
+    // Deduplicate by email address across students to ensure strictly 1 card per human (preserve students without email)
     const emailMap = new Map();
-    rosterMap.forEach(st => {
+    rosterMap.forEach((st, key) => {
       const emailKey = (st.correo || '').toLowerCase().trim();
-      if (emailKey && emailMap.has(emailKey)) {
-        const prev = emailMap.get(emailKey);
-        emailMap.set(emailKey, mergeStudentRecord(prev, st));
+      const mapKey = emailKey || ('st_key_' + (st.id || key));
+      if (emailMap.has(mapKey)) {
+        const prev = emailMap.get(mapKey);
+        emailMap.set(mapKey, mergeStudentRecord(prev, st));
       } else {
-        if (emailKey) emailMap.set(emailKey, st);
+        emailMap.set(mapKey, st);
       }
     });
 
-    ALL_STUDENTS = emailMap.size > 0 ? Array.from(emailMap.values()) : Array.from(rosterMap.values());
+    ALL_STUDENTS = Array.from(emailMap.values());
     localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
     renderStudentsRoster();
     updateTab6HoursLedger();
@@ -4836,7 +4865,7 @@ body.theme-glacial .aurora-layer {
       const initialScore = s._avgScoreText || '⭐ —';
       const initialPend = s._pendTasksText || '📌 0 tasks';
       return `
-        <div class="student-card ${isSel ? 'selected' : ''}" onclick="selectStudentHub('${canId}')" id="scard-${canId}">
+        <div class="student-card ${isSel ? 'selected' : ''}" onclick="selectStudentHub('${canId}')" data-token-id="${canId}" id="scard-${canId}">
           <div class="student-top-row">
             <div class="student-name-group">
               <div class="student-avatar">👩‍🎓</div>
@@ -4858,6 +4887,20 @@ body.theme-glacial .aurora-layer {
         </div>
       `;
     }).join('');
+
+    // Ensure persistent click delegation on roster stack
+    if (!stack._hasCardClickListener) {
+      stack._hasCardClickListener = true;
+      stack.addEventListener('click', (e) => {
+        const card = e.target.closest('.student-card');
+        if (card) {
+          const tokenId = card.getAttribute('data-token-id') || (card.id ? card.id.replace('scard-', '') : null);
+          if (tokenId) {
+            selectStudentHub(tokenId);
+          }
+        }
+      });
+    }
 
     // Fetch async subcollection telemetry for filtered students
     filtered.forEach(s => loadStudentMiniTelemetry(s.id));
@@ -5001,141 +5044,193 @@ body.theme-glacial .aurora-layer {
 
   // --- SELECT STUDENT & DOSSIER CONTROLLER ---
   async function selectStudentHub(token, doScroll = true) {
-    token = resolveStudentToken(token);
-    selectedToken = token;
-    selectedData = ALL_STUDENTS.find(s => s.id === token);
+    try {
+      if (!token) return;
+      token = resolveStudentToken(token);
+      selectedToken = token;
 
-    // Update selected card styling in left roster
-    document.querySelectorAll('.student-card').forEach(c => c.classList.remove('selected'));
-    const activeCard = document.getElementById(`scard-${token}`);
-    if (activeCard) activeCard.classList.add('selected');
+      // Robust find matching id, canonical id, student_token, or aliases
+      selectedData = ALL_STUDENTS.find(s => {
+        if (!s) return false;
+        const sId = s.id;
+        const sCanId = resolveStudentToken(sId);
+        const sTok = s.student_token;
+        const sCanTok = resolveStudentToken(sTok);
+        return sId === token || sCanId === token || sTok === token || sCanTok === token;
+      });
 
-    if (!selectedData) return;
+      // Fallback rescue from CORE_RESCUED_STUDENTS if not yet merged in ALL_STUDENTS
+      if (!selectedData) {
+        const rescued = CORE_RESCUED_STUDENTS.find(s => {
+          const sCanId = resolveStudentToken(s.id);
+          return s.id === token || sCanId === token;
+        });
+        if (rescued) {
+          selectedData = Object.assign({}, rescued, { id: token, student_token: token });
+          ALL_STUDENTS.push(selectedData);
+        }
+      }
 
-    // Populate Dossier Hero
-    const dName = document.getElementById('dossier-name');
-    const dSub = document.getElementById('dossier-subtitle');
-    const dBadge = document.getElementById('dossier-level-badge');
-    if (dName) dName.textContent = selectedData.nombre;
-    if (dSub) {
-      dSub.innerHTML = `Email: <b>${esc(selectedData.correo || 'No email')}</b> · Enrolled: <b>${formatTimestamp(selectedData.fecha_alta)}</b>`;
+      if (selectedData) {
+        selectedData.id = token;
+        selectedData.student_token = token;
+      }
+
+      // Update selected card styling in left roster
+      document.querySelectorAll('.student-card').forEach(c => c.classList.remove('selected'));
+      const activeCard = document.getElementById(`scard-${token}`) || document.querySelector(`[data-token-id="${token}"]`);
+      if (activeCard) {
+        activeCard.classList.add('selected');
+      }
+
+      if (!selectedData) {
+        console.warn('Student record not found for token:', token);
+        return;
+      }
+
+      // Populate Dossier Hero
+      const dName = document.getElementById('dossier-name');
+      const dSub = document.getElementById('dossier-subtitle');
+      const dBadge = document.getElementById('dossier-level-badge');
+      if (dName) dName.textContent = selectedData.nombre || 'Student';
+      if (dSub) {
+        dSub.innerHTML = `Email: <b>${esc(selectedData.correo || 'No email')}</b> · Enrolled: <b>${formatTimestamp(selectedData.fecha_alta)}</b>`;
+      }
+      if (dBadge) {
+        dBadge.textContent = `${selectedData.nivel || 'A1'} Level`;
+        dBadge.className = `cefr-badge ${(selectedData.nivel || 'a1').toLowerCase()}`;
+      }
+
+      // Populate Metrics
+      const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40;
+      const given = Number(selectedData.horasDadas || selectedData.horas_dadas) || 0;
+      const remaining = Number(selectedData.horasRestantes || selectedData.horas_restantes) || Math.max(0, contracted - given);
+
+      const dCont = document.getElementById('dossier-contracted-hours');
+      const dGiven = document.getElementById('dossier-completed-classes');
+      const dRem = document.getElementById('dossier-remaining-hours');
+      if (dCont) dCont.textContent = `${contracted}h`;
+      if (dGiven) dGiven.textContent = `${given}h`;
+      if (dRem) {
+        dRem.textContent = `${remaining}h`;
+        dRem.style.color = remaining <= 5 ? 'var(--ruby)' : remaining <= 15 ? 'var(--gold)' : 'var(--teal)';
+      }
+      const modHours = document.getElementById('mod-summary-hours');
+      if (modHours) modHours.textContent = `${given}h / ${contracted}h logged (${remaining}h remaining)`;
+
+      // Sync task level selector with student level
+      const aNivelEl = document.getElementById('aNivel');
+      if (aNivelEl && selectedData.nivel) {
+        aNivelEl.value = selectedData.nivel;
+        poblarTemasAsignarHub();
+      }
+
+      // Render Calendar & Attendance
+      renderStudentCalendar();
+
+      // Prime attendance logger date to today if empty
+      const dateInput = document.getElementById('sheet-input-date');
+      if (dateInput && !dateInput.value) {
+        dateInput.value = formatDateIso(new Date());
+      }
+
+      // Load Tasks, Results, and Comments
+      loadStudentTasksHub(token);
+      loadStudentResultsHub(token);
+      loadStudentCommentsHub(token);
+
+      // Auto-scroll on mobile/narrow screens if requested
+      if (doScroll && window.innerWidth <= 980) {
+        const dossierPanel = document.getElementById('student-dossier-panel');
+        if (dossierPanel) dossierPanel.scrollIntoView({ behavior: 'smooth' });
+      }
+    } catch (err) {
+      console.error('selectStudentHub error:', err);
     }
-    if (dBadge) {
-      dBadge.textContent = `${selectedData.nivel} Level`;
-      dBadge.className = `cefr-badge ${(selectedData.nivel || 'a1').toLowerCase()}`;
-    }
-
-    // Populate Metrics
-    const dCont = document.getElementById('dossier-contracted-hours');
-    const dGiven = document.getElementById('dossier-completed-classes');
-    const dRem = document.getElementById('dossier-remaining-hours');
-    if (dCont) dCont.textContent = `${selectedData.horasContratadas}h`;
-    if (dGiven) dGiven.textContent = `${selectedData.horasDadas}`;
-    if (dRem) {
-      dRem.textContent = `${selectedData.horasRestantes}h`;
-      dRem.style.color = selectedData.horasRestantes <= 5 ? 'var(--ruby)' : selectedData.horasRestantes <= 15 ? 'var(--gold)' : 'var(--teal)';
-    }
-    const modHours = document.getElementById('mod-summary-hours');
-    if (modHours) modHours.textContent = `${selectedData.horasDadas}h / ${selectedData.horasContratadas}h logged (${selectedData.horasRestantes}h remaining)`;
-
-
-    // Sync task level selector with student level
-    const aNivelEl = document.getElementById('aNivel');
-    if (aNivelEl && selectedData.nivel) {
-      aNivelEl.value = selectedData.nivel;
-      poblarTemasAsignarHub();
-    }
-
-    // Render Calendar
-    renderStudentCalendar();
-
-    // Prime attendance logger date to today if empty
-    const dateInput = document.getElementById('sheet-input-date');
-    if (dateInput && !dateInput.value) {
-      dateInput.value = formatDateIso(new Date());
-    }
-
-    // Load Tasks, Results, and Comments
-    loadStudentTasksHub(token);
-    loadStudentResultsHub(token);
-    loadStudentCommentsHub(token);
   }
+
+  // Ensure window global immediately
+  window.selectStudentHub = selectStudentHub;
 
   // --- CALENDAR & ATTENDANCE ---
   function renderStudentCalendar() {
-    const grid = document.getElementById('dossier-cal-grid');
-    const title = document.getElementById('dossier-cal-month-title');
-    if (!grid || !title || !selectedData) return;
+    try {
+      const grid = document.getElementById('dossier-cal-grid');
+      const title = document.getElementById('dossier-cal-month-title');
+      if (!grid || !title || !selectedData) return;
 
-    title.textContent = `${MONTH_NAMES[calMonth]} ${calYear}`;
+      title.textContent = `${MONTH_NAMES[calMonth]} ${calYear}`;
 
-    let html = DOW_NAMES.map(d => `<div class="cal-dow">${d}</div>`).join('');
+      let html = DOW_NAMES.map(d => `<div class="cal-dow">${d}</div>`).join('');
 
-    const firstDay = new Date(calYear, calMonth, 1);
-    let startDayIndex = firstDay.getDay() - 1; // 0=Mon, 6=Sun
-    if (startDayIndex < 0) startDayIndex = 6;
+      const firstDay = new Date(calYear, calMonth, 1);
+      let startDayIndex = firstDay.getDay() - 1; // 0=Mon, 6=Sun
+      if (startDayIndex < 0) startDayIndex = 6;
 
-    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-    const todayStr = formatDateIso(new Date());
-    const allClases = Array.isArray(selectedData.clases) ? selectedData.clases : [];
-    const studentDatesSet = new Set(allClases.map(c => c.split('#')[0]));
-    const horasMap = selectedData.clases_horas || {};
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      const todayStr = formatDateIso(new Date());
+      const allClases = Array.isArray(selectedData.clases) ? selectedData.clases : [];
+      const studentDatesSet = new Set(allClases.map(c => typeof c === 'string' ? c.split('#')[0] : (c && c.fecha ? String(c.fecha).split('#')[0] : '')));
+      const horasMap = selectedData.clases_horas || {};
 
-    // Leading blanks
-    for (let i = 0; i < startDayIndex; i++) {
-      html += `<div class="cal-cell blank"></div>`;
-    }
-
-    // Days
-    for (let day = 1; day <= daysInMonth; day++) {
-      const dateObj = new Date(calYear, calMonth, day);
-      const dateStr = formatDateIso(dateObj);
-      const isToday = dateStr === todayStr;
-      const isPast = dateStr <= todayStr;
-      const hasClass = studentDatesSet.has(dateStr);
-
-      const cellClass = [
-        'cal-cell',
-        isToday ? 'today' : '',
-        hasClass ? 'has' : '',
-        !isPast ? 'future' : ''
-      ].filter(Boolean).join(' ');
-
-      let titleTip = dateStr;
-      if (hasClass) {
-        const matches = allClases.filter(c => c.split('#')[0] === dateStr);
-        let hTotal = 0;
-        matches.forEach(k => {
-          const h = Number(horasMap[k]);
-          hTotal += (h && !isNaN(h) && h > 0) ? h : 1.0;
-        });
-        titleTip += ` (${hTotal.toFixed(1)} hrs in ${matches.length} session${matches.length > 1 ? 's' : ''})`;
+      // Leading blanks
+      for (let i = 0; i < startDayIndex; i++) {
+        html += `<div class="cal-cell blank"></div>`;
       }
 
-      html += `<div class="${cellClass}" onclick="toggleAttendanceDateHub('${dateStr}')" title="${titleTip}">${day}</div>`;
-    }
+      // Days
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateObj = new Date(calYear, calMonth, day);
+        const dateStr = formatDateIso(dateObj);
+        const isToday = dateStr === todayStr;
+        const isPast = dateStr <= todayStr;
+        const hasClass = studentDatesSet.has(dateStr);
 
-    grid.innerHTML = html;
+        const cellClass = [
+          'cal-cell',
+          isToday ? 'today' : '',
+          hasClass ? 'has' : '',
+          !isPast ? 'future' : ''
+        ].filter(Boolean).join(' ');
 
-    const btnConf = document.getElementById('btn-confirm-class');
-    if (btnConf) {
-      const isTodayLogged = studentDatesSet.has(todayStr);
-      if (isTodayLogged) {
-        btnConf.innerHTML = '✓ Today Confirmed (Tap to Unlog)';
-        btnConf.style.background = 'rgba(16, 185, 129, 0.25)';
-        btnConf.style.borderColor = '#10B981';
-        btnConf.style.color = '#10B981';
-      } else {
-        const durInput = document.getElementById('sheet-input-duration');
-        const defaultH = durInput ? durInput.value : '2.0';
-        btnConf.innerHTML = `✓ Confirm Class (+${parseFloat(defaultH).toFixed(1)}h)`;
-        btnConf.style.background = 'rgba(217, 119, 6, 0.2)';
-        btnConf.style.borderColor = 'var(--gold)';
-        btnConf.style.color = 'var(--gold)';
+        let titleTip = dateStr;
+        if (hasClass) {
+          const matches = allClases.filter(c => typeof c === 'string' ? c.split('#')[0] === dateStr : false);
+          let hTotal = 0;
+          matches.forEach(k => {
+            const h = Number(horasMap[k]);
+            hTotal += (h && !isNaN(h) && h > 0) ? h : 1.0;
+          });
+          titleTip += ` (${hTotal.toFixed(1)} hrs in ${matches.length} session${matches.length > 1 ? 's' : ''})`;
+        }
+
+        html += `<div class="${cellClass}" onclick="toggleAttendanceDateHub('${dateStr}')" title="${titleTip}">${day}</div>`;
       }
-    }
 
-    renderAttendanceSheet();
+      grid.innerHTML = html;
+
+      const btnConf = document.getElementById('btn-confirm-class');
+      if (btnConf) {
+        const isTodayLogged = studentDatesSet.has(todayStr);
+        if (isTodayLogged) {
+          btnConf.innerHTML = '✓ Today Confirmed (Tap to Unlog)';
+          btnConf.style.background = 'rgba(16, 185, 129, 0.25)';
+          btnConf.style.borderColor = '#10B981';
+          btnConf.style.color = '#10B981';
+        } else {
+          const durInput = document.getElementById('sheet-input-duration');
+          const defaultH = durInput ? durInput.value : '2.0';
+          btnConf.innerHTML = `✓ Confirm Class (+${parseFloat(defaultH).toFixed(1)}h)`;
+          btnConf.style.background = 'rgba(217, 119, 6, 0.2)';
+          btnConf.style.borderColor = 'var(--gold)';
+          btnConf.style.color = 'var(--gold)';
+        }
+      }
+
+      renderAttendanceSheet();
+    } catch(err) {
+      console.error('renderStudentCalendar error:', err);
+    }
   }
 
   function setAttendanceLoggerDate(preset) {
@@ -5161,81 +5256,89 @@ body.theme-glacial .aurora-layer {
   }
 
   function renderAttendanceSheet() {
-    const tbody = document.getElementById('attendance-sheet-tbody');
-    const countEl = document.getElementById('sheet-class-count');
-    const summaryEl = document.getElementById('sheet-hours-summary');
-    if (!tbody || !selectedData) return;
+    try {
+      const tbody = document.getElementById('attendance-sheet-tbody');
+      const countEl = document.getElementById('sheet-class-count');
+      const summaryEl = document.getElementById('sheet-hours-summary');
+      if (!tbody || !selectedData) return;
 
-    const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
-    const notas = selectedData.clases_notas || {};
-    const horasMap = selectedData.clases_horas || {};
-    const contracted = selectedData.horasContratadas || 0;
+      const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
+      const notas = selectedData.clases_notas || {};
+      const horasMap = selectedData.clases_horas || {};
+      const contracted = selectedData.horasContratadas || 0;
 
-    let given = 0;
-    for (const c of clases) {
-      const h = Number(horasMap[c]);
-      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
-    }
-    given = Math.round(given * 10) / 10;
-    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
+      let given = 0;
+      for (const c of clases) {
+        const h = Number(horasMap[c]);
+        given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+      }
+      given = Math.round(given * 10) / 10;
+      const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
 
-    if (countEl) countEl.textContent = `${clases.length}`;
-    if (summaryEl) {
-      summaryEl.innerHTML = `<b>${given.toFixed(1)}h</b> conducted in <b>${clases.length}</b> session${clases.length !== 1 ? 's' : ''} / <b>${contracted}h</b> contracted (<b>${remaining.toFixed(1)}h</b> balance)`;
-    }
+      if (countEl) countEl.textContent = `${clases.length}`;
+      if (summaryEl) {
+        summaryEl.innerHTML = `<b>${given.toFixed(1)}h</b> conducted in <b>${clases.length}</b> session${clases.length !== 1 ? 's' : ''} / <b>${contracted}h</b> contracted (<b>${remaining.toFixed(1)}h</b> balance)`;
+      }
 
-    if (clases.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--paper-muted); padding:18px; font-family:var(--mono); font-size:12px;">No sessions logged yet. Select a date above to log sessions from today or last week.</td></tr>`;
-      return;
-    }
+      if (clases.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--paper-muted); padding:18px; font-family:var(--mono); font-size:12px;">No sessions logged yet. Select a date above to log sessions from today or last week.</td></tr>`;
+        return;
+      }
 
-    // Sort descending by date/key (most recent first)
-    const sorted = [...clases].sort().reverse();
+      // Sort descending by date/key (most recent first)
+      const sorted = [...clases].sort().reverse();
 
-    tbody.innerHTML = sorted.map((sessionKey, idx) => {
-      const sessionNum = sorted.length - idx;
-      const baseDate = sessionKey.split('#')[0];
-      const sessionPart = sessionKey.includes('#') ? ` (Session #${sessionKey.split('#')[1]})` : '';
-      let dateLabel = baseDate;
-      try {
-        const parts = baseDate.split('-');
-        const dObj = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-        dateLabel = dObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
-      } catch(e){}
+      tbody.innerHTML = sorted.map((sessionKey, idx) => {
+        const sessionNum = sorted.length - idx;
+        const baseDate = typeof sessionKey === 'string' ? sessionKey.split('#')[0] : String(sessionKey || '');
+        const sessionPart = (typeof sessionKey === 'string' && sessionKey.includes('#')) ? ` (Session #${sessionKey.split('#')[1]})` : '';
+        let dateLabel = baseDate;
+        try {
+          const parts = baseDate.split('-');
+          if (parts.length >= 3) {
+            const dObj = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+            if (!isNaN(dObj.getTime())) {
+              dateLabel = dObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+            }
+          }
+        } catch(e){}
 
-      const topic = notas[sessionKey] || '1-on-1 Personalized Session';
-      const dur = Number(horasMap[sessionKey]) || 1.0;
+        const topic = notas[sessionKey] || '1-on-1 Personalized Session';
+        const dur = Number(horasMap[sessionKey]) || 1.0;
 
-      const durationOptions = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0].map(val => {
-        const sel = Math.abs(dur - val) < 0.01 ? 'selected' : '';
-        return `<option value="${val}" ${sel} style="background:var(--ink); color:var(--paper);">${val.toFixed(1)}h</option>`;
+        const durationOptions = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0].map(val => {
+          const sel = Math.abs(dur - val) < 0.01 ? 'selected' : '';
+          return `<option value="${val}" ${sel} style="background:var(--ink); color:var(--paper);">${val.toFixed(1)}h</option>`;
+        }).join('');
+
+        return `
+          <tr>
+            <td style="text-align:center; font-family:var(--mono); font-weight:700; color:var(--gold);">#${sessionNum}</td>
+            <td style="font-family:var(--mono); font-weight:600; color:var(--paper);">
+              ${dateLabel}${sessionPart ? `<span style="font-size:10px; color:var(--paper-muted); display:block;">${sessionPart}</span>` : ''}
+            </td>
+            <td>
+              <span style="color:var(--paper);">${esc(topic)}</span>
+            </td>
+            <td style="text-align:center;">
+              <select class="form-ctrl" style="padding:2px 6px; font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); background:rgba(0,0,0,0.3); border:1px solid var(--line); border-radius:4px; cursor:pointer;" onchange="cambiarHorasClaseSheetHub('${sessionKey}', this.value)" title="Change duration for this session">
+                ${durationOptions}
+              </select>
+            </td>
+            <td style="text-align:center;">
+              <span class="tag ok" style="color:#10B981; border-color:#10B981; font-size:10px; padding:2px 6px;">✓ Conducted</span>
+            </td>
+            <td style="text-align:center;">
+              <button class="btn-redeem-mini" style="color:var(--ruby); border-color:rgba(225,29,72,0.4); padding:3px 8px; font-size:11px;" onclick="quitarClaseSheetHub('${sessionKey}')" title="Undo and refund ${dur.toFixed(1)} hour(s)">
+                🗑️ Refund
+              </button>
+            </td>
+          </tr>
+        `;
       }).join('');
-
-      return `
-        <tr>
-          <td style="text-align:center; font-family:var(--mono); font-weight:700; color:var(--gold);">#${sessionNum}</td>
-          <td style="font-family:var(--mono); font-weight:600; color:var(--paper);">
-            ${dateLabel}${sessionPart ? `<span style="font-size:10px; color:var(--paper-muted); display:block;">${sessionPart}</span>` : ''}
-          </td>
-          <td>
-            <span style="color:var(--paper);">${esc(topic)}</span>
-          </td>
-          <td style="text-align:center;">
-            <select class="form-ctrl" style="padding:2px 6px; font-family:var(--mono); font-size:11px; font-weight:700; color:var(--teal); background:rgba(0,0,0,0.3); border:1px solid var(--line); border-radius:4px; cursor:pointer;" onchange="cambiarHorasClaseSheetHub('${sessionKey}', this.value)" title="Change duration for this session">
-              ${durationOptions}
-            </select>
-          </td>
-          <td style="text-align:center;">
-            <span class="tag ok" style="color:#10B981; border-color:#10B981; font-size:10px; padding:2px 6px;">✓ Conducted</span>
-          </td>
-          <td style="text-align:center;">
-            <button class="btn-redeem-mini" style="color:var(--ruby); border-color:rgba(225,29,72,0.4); padding:3px 8px; font-size:11px;" onclick="quitarClaseSheetHub('${sessionKey}')" title="Undo and refund ${dur.toFixed(1)} hour(s)">
-              🗑️ Refund
-            </button>
-          </td>
-        </tr>
-      `;
-    }).join('');
+    } catch(err) {
+      console.error('renderAttendanceSheet error:', err);
+    }
   }
 
   async function agregarClaseSheetHub() {
@@ -5977,27 +6080,33 @@ body.theme-glacial .aurora-layer {
     }
 
     try {
-      const q = await db.collection(COL_ESTUDIANTES).doc(token).collection('comentarios').orderBy('fecha', 'desc').limit(20).get();
+      const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 2500));
+      const q = await Promise.race([
+        db.collection(COL_ESTUDIANTES).doc(token).collection('comentarios').orderBy('fecha', 'desc').limit(20).get(),
+        timeoutPromise
+      ]);
 
-      if (q.empty) {
+      if (!q || q.empty) {
         stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">No messages exchanged yet. Send a note below!</div>`;
         return;
       }
 
+      const stName = (selectedData && selectedData.nombre) || 'Student';
       stream.innerHTML = q.docs.map(d => {
         const c = d.data();
         const isProf = c.autor === 'profesor';
         return `
           <div class="comment-bubble ${isProf ? 'prof' : ''}">
             <div class="comment-author">
-              ${isProf ? '🧑‍🏫 Prof. Felipe' : `👩‍🎓 ${esc(selectedData.nombre)}`} · ${formatTimestamp(c.fecha)}
+              ${isProf ? '🧑‍🏫 Prof. Felipe' : `👩‍🎓 ${esc(stName)}`} · ${formatTimestamp(c.fecha)}
             </div>
             <div style="color:var(--paper);">${esc(c.texto)}</div>
           </div>
         `;
       }).join('');
     } catch (e) {
-      console.warn('loadStudentCommentsHub error:', e);
+      console.warn('loadStudentCommentsHub error or deferred:', e);
+      stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Live messaging deferred or offline. Send a note below!</div>`;
     }
   }
 
@@ -6305,11 +6414,17 @@ body.theme-glacial .aurora-layer {
   window.setAttendanceLoggerDate = setAttendanceLoggerDate;
   window.agregarClaseSheetHub = agregarClaseSheetHub;
   window.quitarClaseSheetHub = quitarClaseSheetHub;
+  window.cambiarHorasClaseSheetHub = cambiarHorasClaseSheetHub;
+  window.setAllSessionsDurationHub = setAllSessionsDurationHub;
   window.renderAttendanceSheet = renderAttendanceSheet;
   window.prevCalendarMonth = prevCalendarMonth;
   window.nextCalendarMonth = nextCalendarMonth;
   window.modoAsignarHub = modoAsignarHub;
   window.poblarTemasAsignarHub = poblarTemasAsignarHub;
+  window.closeFacultyGate = function() {
+    const gate = document.getElementById('faculty-gate-overlay');
+    if (gate) gate.style.display = 'none';
+  };
 
   // Checkout card formatting listeners
   const cardInput = document.getElementById('card-number');
@@ -7608,12 +7723,15 @@ body.theme-glacial .aurora-layer {
   window.closeTour = function() {
     tourOverlay.classList.remove('active');
     document.querySelectorAll('.spotlight-active').forEach(el => el.classList.remove('spotlight-active'));
+    try { localStorage.setItem('englishaurora_hub_tour_done', 'true'); } catch(e) {}
   };
 
   btnRelaunchTour.onclick = window.openTour;
 
-  // Auto-launch tour for first-time onboarding
-  setTimeout(window.openTour, 400);
+  // Guided tour is on-demand via header button "✨ Guided Tour" — never traps the educator uninvited
+  try {
+    localStorage.setItem('englishaurora_hub_tour_done', 'true');
+  } catch(e) {}
 
   // --- SHOWCASE SLIDE PLAYER (MOTOR MULTI-OLA A / B / C CON CONTENIDO 100% DIFERENCIADO) ---
   let currentCinemaSlide = 0;
@@ -8230,6 +8348,22 @@ body.theme-glacial .aurora-layer {
     }
   };
 
+  let audioCtx = null;
+  function getHubAudioContext() {
+    if (!audioCtx) {
+      try {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (AC) audioCtx = new AC();
+      } catch (e) {
+        console.warn('AudioContext unavailable:', e);
+      }
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      try { audioCtx.resume().catch(() => {}); } catch (e) {}
+    }
+    return audioCtx;
+  }
+
   let activePhonemeKey = '/θ/';
 
   window.switchBioMode = function(modeKey, btnEl) {
@@ -8244,7 +8378,7 @@ body.theme-glacial .aurora-layer {
     else if (modeKey === 'intonation') renderAllIntonationCurves();
   };
 
-  window.selectPhoneme = function(symbol) {
+  window.selectPhoneme = function(symbol, playSound = true) {
     const p = PHONEMES_DB[symbol];
     if (!p) return;
     activePhonemeKey = symbol;
@@ -8277,36 +8411,39 @@ body.theme-glacial .aurora-layer {
       b.classList.toggle('active', b.textContent.trim() === symbol);
     });
 
-    synthesizeActivePhoneme();
+    if (playSound) {
+      try { synthesizeActivePhoneme(); } catch (e) {}
+    }
   };
 
   // Procedural Dual-Formant Vowel & Consonant Synthesizer (Web Audio API)
   window.synthesizeActivePhoneme = function() {
-    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const actx = getHubAudioContext();
+    if (!actx) return;
     const p = PHONEMES_DB[activePhonemeKey];
     if (!p) return;
 
-    const now = audioCtx.currentTime;
+    const now = actx.currentTime;
 
     if (p.formants) {
       // Vowel Dual-Formant Synthesis (F1 & F2 bandpass filters excited by harmonic saw wave)
-      const osc = audioCtx.createOscillator();
+      const osc = actx.createOscillator();
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(130, now); // Fundamental voice pitch F0 (130Hz)
 
       // Filter 1 (F1)
-      const filter1 = audioCtx.createBiquadFilter();
+      const filter1 = actx.createBiquadFilter();
       filter1.type = 'bandpass';
       filter1.frequency.setValueAtTime(p.formants.f1, now);
       filter1.Q.setValueAtTime(8, now);
 
       // Filter 2 (F2)
-      const filter2 = audioCtx.createBiquadFilter();
+      const filter2 = actx.createBiquadFilter();
       filter2.type = 'bandpass';
       filter2.frequency.setValueAtTime(p.formants.f2, now);
       filter2.Q.setValueAtTime(10, now);
 
-      const gain = audioCtx.createGain();
+      const gain = actx.createGain();
       gain.gain.setValueAtTime(0.001, now);
       gain.gain.linearRampToValueAtTime(0.14, now + 0.05);
       gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
@@ -8315,38 +8452,38 @@ body.theme-glacial .aurora-layer {
       osc.connect(filter2);
       filter1.connect(gain);
       filter2.connect(gain);
-      gain.connect(audioCtx.destination);
+      gain.connect(actx.destination);
 
       osc.start(now);
       osc.stop(now + 0.58);
     } else {
       // Consonant Acoustic Noise & Pulse Generator
       if (p.voiced) {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
+        const osc = actx.createOscillator();
+        const gain = actx.createGain();
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(160, now);
         gain.gain.setValueAtTime(0.08, now);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
-        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.connect(gain); gain.connect(actx.destination);
         osc.start(now); osc.stop(now + 0.38);
       } else {
         // White noise burst for unvoiced fricatives / plosives
-        const bufferSize = audioCtx.sampleRate * 0.25;
-        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const bufferSize = actx.sampleRate * 0.25;
+        const buffer = actx.createBuffer(1, bufferSize, actx.sampleRate);
         const data = buffer.getChannelData(0);
         for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
 
-        const noise = audioCtx.createBufferSource();
+        const noise = actx.createBufferSource();
         noise.buffer = buffer;
-        const filter = audioCtx.createBiquadFilter();
+        const filter = actx.createBiquadFilter();
         filter.type = 'highpass';
         filter.frequency.setValueAtTime(3000, now);
-        const gain = audioCtx.createGain();
+        const gain = actx.createGain();
         gain.gain.setValueAtTime(0.06, now);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
 
-        noise.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+        noise.connect(filter); filter.connect(gain); gain.connect(actx.destination);
         noise.start(now); noise.stop(now + 0.24);
       }
     }
@@ -8508,12 +8645,13 @@ body.theme-glacial .aurora-layer {
     const prof = INTONATION_PROFILES[curveKey];
     if (!prof) return;
 
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const now = audioCtx.currentTime;
+    const actx = getHubAudioContext();
+    if (!actx) return;
+    const now = actx.currentTime;
 
     // Glissando F0 Sweep Synthesizer
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
+    const osc = actx.createOscillator();
+    const gain = actx.createGain();
     osc.type = 'sine';
 
     osc.frequency.setValueAtTime(prof.f0Glissando[0], now);
@@ -8525,7 +8663,7 @@ body.theme-glacial .aurora-layer {
     gain.gain.linearRampToValueAtTime(0.12, now + 0.05);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.75);
 
-    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.connect(gain); gain.connect(actx.destination);
     osc.start(now); osc.stop(now + 0.78);
 
     showToast(`🎼 Melody: ${prof.title}`);
@@ -8548,16 +8686,18 @@ body.theme-glacial .aurora-layer {
     const ms = (60 / metronomeBPM) * 1000;
     metronomeInterval = setInterval(() => {
       // Precision Web Audio Click
-      if (audioCtx.state === 'suspended') audioCtx.resume();
-      const now = audioCtx.currentTime;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(1000, now);
-      gain.gain.setValueAtTime(0.1, now);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
-      osc.connect(gain); gain.connect(audioCtx.destination);
-      osc.start(now); osc.stop(now + 0.05);
+      const actx = getHubAudioContext();
+      if (actx) {
+        const now = actx.currentTime;
+        const osc = actx.createOscillator();
+        const gain = actx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1000, now);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+        osc.connect(gain); gain.connect(actx.destination);
+        osc.start(now); osc.stop(now + 0.05);
+      }
 
       // Visual Pulse
       const dot = document.getElementById('metronome-dot');
@@ -8600,10 +8740,10 @@ body.theme-glacial .aurora-layer {
     showToast(`🔊 Connected Speech: "${phrase}"`);
   };
 
-  // Auto-initialize keypad on load
+  // Auto-initialize keypad on load (silent UI rendering)
   setTimeout(() => {
     initPhonemesKeypad();
-    selectPhoneme('/θ/');
+    selectPhoneme('/θ/', false);
   }, 100);
 
   // --- AURORA SKINS & WARDROBE ENGINE (THE 3 CANONICAL SKINS) ---
@@ -8743,43 +8883,44 @@ body.theme-glacial .aurora-layer {
 
   // 1. Procedural High-Fidelity Sound FX (Web Audio API)
   window.triggerDirectorSFX = function(type) {
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const now = audioCtx.currentTime;
+    const actx = getHubAudioContext();
+    if (!actx) return;
+    const now = actx.currentTime;
 
     if (type === 'chime') {
       // 528Hz Solfeggio Transformation Frequency
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
+      const osc = actx.createOscillator();
+      const gain = actx.createGain();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(528, now);
       gain.gain.setValueAtTime(0.12, now);
       gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.2);
-      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.connect(gain); gain.connect(actx.destination);
       osc.start(now); osc.stop(now + 1.25);
       showToast('✨ Solfeggio 528Hz Chime');
     } else if (type === 'crystal') {
       // Dual harmonic alert (880Hz & 1320Hz)
       [880, 1320].forEach((freq, idx) => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
+        const osc = actx.createOscillator();
+        const gain = actx.createGain();
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(freq, now + idx * 0.04);
         gain.gain.setValueAtTime(0.08, now + idx * 0.04);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.04 + 0.45);
-        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.connect(gain); gain.connect(actx.destination);
         osc.start(now + idx * 0.04); osc.stop(now + idx * 0.04 + 0.48);
       });
       showToast('🎯 Focus Crystal Alert');
     } else if (type === 'fanfare') {
       // 3-Note Astral Level-Up (C5 -> E5 -> G5)
       [523.25, 659.25, 783.99].forEach((freq, idx) => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
+        const osc = actx.createOscillator();
+        const gain = actx.createGain();
         osc.type = 'sine';
         osc.frequency.setValueAtTime(freq, now + idx * 0.1);
         gain.gain.setValueAtTime(0.1, now + idx * 0.1);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.1 + 0.7);
-        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.connect(gain); gain.connect(actx.destination);
         osc.start(now + idx * 0.1); osc.stop(now + idx * 0.1 + 0.75);
       });
       showToast('🌟 Astral Level-Up Fanfare!');
