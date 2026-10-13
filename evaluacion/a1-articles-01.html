@@ -536,6 +536,44 @@
       localStorage.setItem('ea_progreso',JSON.stringify(P));
       if(pct>=75)res.innerHTML+=' <span style="color:var(--gold);font-weight:600">· ' + (isEs ? '✦ estrella encendida en el mapa 3D' : '✦ star lit on the 3D map') + '</span>';
     }}catch(e){}
+
+    // Cloud Bridge: Sync assessment result directly to student's cloud profile if accessed with token
+    try {
+      const qParams = new URLSearchParams(window.location.search);
+      let sTok = qParams.get('t');
+      const sTarea = qParams.get('tarea');
+      const aliases = {
+        "TUAFxr6SWGQBN5SYBarq3td2": "UAFxr6SWGQBN5SYBarq3td",
+        "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
+      };
+      if (sTok && aliases[sTok]) sTok = aliases[sTok];
+      if (sTok && D.id && pct != null) {
+        const payload = {
+          fields: {
+            temaId: { stringValue: D.id },
+            tema: { stringValue: D.tema || 'Test' },
+            score: { integerValue: String(pct) },
+            tipo: { stringValue: 'examen' },
+            origen: { stringValue: 'evaluacion' },
+            fecha: { timestampValue: new Date().toISOString() }
+          }
+        };
+        if (sTarea) payload.fields.tareaId = { stringValue: sTarea };
+        fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/' + encodeURIComponent(sTok) + '/resultados', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(()=>{});
+
+        if (sTarea) {
+          fetch('https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/' + encodeURIComponent(sTok) + '/tareas/' + encodeURIComponent(sTarea) + '?updateMask.fieldPaths=estado', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fields: { estado: { stringValue: 'hecha' } } })
+          }).catch(()=>{});
+        }
+      }
+    } catch(e) {}
     window.scrollTo({top:0,behavior:'smooth'});
   };
   again.onclick=()=>location.reload();

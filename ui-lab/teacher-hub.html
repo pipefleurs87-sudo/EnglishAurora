@@ -3612,10 +3612,12 @@ body.theme-glacial .aurora-layer {
       correo: "marianamunozmorales70@gmail.com",
       nivel: "A1",
       horasContratadas: 40,
-      horasDadas: 6.0,
-      horasRestantes: 34.0,
-      clases: ["2026-10-01", "2026-10-02", "2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08"],
+      horasDadas: 10.0,
+      horasRestantes: 30.0,
+      clases: ["2026-09-28", "2026-09-30", "2026-10-01", "2026-10-02", "2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08"],
       clases_horas: {
+        "2026-09-28": 2.0,
+        "2026-09-30": 2.0,
         "2026-10-01": 1.0,
         "2026-10-02": 1.0,
         "2026-10-05": 1.0,
@@ -3624,12 +3626,14 @@ body.theme-glacial .aurora-layer {
         "2026-10-08": 1.0
       },
       clases_notas: {
+        "2026-09-28": "Intro",
+        "2026-09-30": "Introduce yourself",
         "2026-10-01": "Diagnostic & Foundations",
         "2026-10-02": "A1 Verb To Be & Identity",
         "2026-10-05": "A1 Articles & Demonstratives",
-        "2026-10-06": "A1 Singular & Plural Nouns",
+        "2026-10-06": "Alphabet and spelling",
         "2026-10-07": "A1 Routine & Present Simple",
-        "2026-10-08": "A1 Speaking & Consolidation"
+        "2026-10-08": "Exam articles"
       },
       fecha_alta: "2026-09-28T15:41:00Z"
     }
@@ -4067,6 +4071,7 @@ body.theme-glacial .aurora-layer {
       try {
         const u = JSON.parse(rawSession);
         if (gate) gate.style.display = 'none';
+        cloudMode = true;
         updateFacultyAuthUI(u);
         return true;
       } catch (e) {}
@@ -4094,10 +4099,12 @@ body.theme-glacial .aurora-layer {
       };
       localStorage.setItem('englishaurora_faculty_session', JSON.stringify(founder));
       localStorage.setItem('englishaurora_faculty_plan', 'Faculty Pro');
+      cloudMode = true;
       const gate = document.getElementById('faculty-gate-overlay');
       if (gate) gate.style.display = 'none';
       updateFacultyAuthUI(founder);
       showToast('✨ Welcome back, Professor Felipe Florez! Observatory unlocked.');
+      startRealtimeRosterListener();
     } else {
       if (passField) passField.value = pin;
       gateSignIn();
@@ -4671,32 +4678,33 @@ body.theme-glacial .aurora-layer {
   }
 
   window.syncOfflineRosterToCloudHub = async function() {
-    if (!auth || !auth.currentUser) {
-      showToast('⚠️ Inicia sesión en la nube primero para sincronizar con Firestore.');
-      openFacultyPortalModal('signin');
-      return;
-    }
-    if (!db) {
-      showToast('⚠️ Base de datos no disponible.');
-      return;
-    }
     const btn = document.getElementById('btn-sync-cloud');
     if (btn) { btn.disabled = true; btn.textContent = 'Sincronizando… ⏳'; }
     try {
+      if (!auth || !auth.currentUser) {
+        showToast('⚠️ Inicia sesión en la nube con tu cuenta de educador para sincronizar Firestore.');
+        openFacultyPortalModal('signin');
+        return;
+      }
+      if (!db) {
+        showToast('⚠️ Base de datos no disponible.');
+        return;
+      }
       let count = 0;
       for (const st of ALL_STUDENTS) {
         if (!st.id) continue;
-        await db.collection(COL_ESTUDIANTES).doc(st.id).set({
+        const canId = resolveStudentToken(st.id);
+        await db.collection(COL_ESTUDIANTES).doc(canId).set({
           nombre: st.nombre || '',
           correo: st.correo || '',
           nivel: st.nivel || 'A1',
-          horas_contratadas: Number(st.horasContratadas || st.horas_contratadas) || 0,
+          horas_contratadas: Number(st.horasContratadas || st.horas_contratadas) || 40,
           horas_dadas: Number(st.horasDadas || st.horas_dadas) || 0,
           horas_restantes: Number(st.horasRestantes || st.horas_restantes) || 0,
           clases: Array.isArray(st.clases) ? st.clases : [],
           clases_horas: st.clases_horas || {},
           clases_notas: st.clases_notas || {},
-          student_token: st.id,
+          student_token: canId,
           profesor_id: auth.currentUser.uid,
           profesor_nombre: 'Prof. Felipe Florez',
           actualizado: new Date().toISOString()
@@ -4770,11 +4778,15 @@ body.theme-glacial .aurora-layer {
     }
 
     stack.innerHTML = filtered.map(s => {
-      const isSel = s.id === selectedToken;
+      const canId = resolveStudentToken(s.id);
+      s.id = canId;
+      const isSel = canId === selectedToken;
       const pct = s.horasContratadas > 0 ? Math.min(100, Math.round((s.horasDadas / s.horasContratadas) * 100)) : 0;
       const lvlClass = (s.nivel || 'a1').toLowerCase();
+      const initialScore = s._avgScoreText || '⭐ —';
+      const initialPend = s._pendTasksText || '📌 0 tasks';
       return `
-        <div class="student-card ${isSel ? 'selected' : ''}" onclick="selectStudentHub('${s.id}')" id="scard-${s.id}">
+        <div class="student-card ${isSel ? 'selected' : ''}" onclick="selectStudentHub('${canId}')" id="scard-${canId}">
           <div class="student-top-row">
             <div class="student-name-group">
               <div class="student-avatar">👩‍🎓</div>
@@ -4789,9 +4801,9 @@ body.theme-glacial .aurora-layer {
             <div class="student-progress-fill" style="width: ${pct}%;"></div>
           </div>
           <div class="student-stats-row">
-            <span id="st-score-${s.id}">⭐ Loading...</span>
+            <span id="st-score-${canId}">${initialScore}</span>
             <span>⏱️ ${s.horasDadas}/${s.horasContratadas}h</span>
-            <span id="st-pend-${s.id}">📌 0 tasks</span>
+            <span id="st-pend-${canId}">${initialPend}</span>
           </div>
         </div>
       `;
@@ -4802,31 +4814,52 @@ body.theme-glacial .aurora-layer {
   }
 
   async function loadStudentMiniTelemetry(token) {
-    if (!db) return;
-    token = resolveStudentToken(token);
+    const origToken = token;
+    const canToken = resolveStudentToken(token);
+    const getScEl = () => document.getElementById(`st-score-${canToken}`) || document.getElementById(`st-score-${origToken}`);
+    const getPendEl = () => document.getElementById(`st-pend-${canToken}`) || document.getElementById(`st-pend-${origToken}`);
+
+    if (!db) {
+      const sc = getScEl(); if (sc && sc.textContent.includes('Loading')) sc.textContent = '⭐ —';
+      return;
+    }
+
     try {
-      const ref = db.collection(COL_ESTUDIANTES).doc(token);
-      const [resSnap, taskSnap] = await Promise.all([
+      const ref = db.collection(COL_ESTUDIANTES).doc(canToken);
+      const timeoutPromise = new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 3500));
+      const workPromise = Promise.all([
         ref.collection('resultados').orderBy('fecha', 'desc').limit(20).get().catch(() => ({ docs: [], empty: true })),
         ref.collection('tareas').where('estado', '==', 'pendiente').get().catch(() => ({ size: 0 }))
       ]);
 
-      const scEl = document.getElementById(`st-score-${token}`);
-      const pendEl = document.getElementById(`st-pend-${token}`);
+      const [resSnap, taskSnap] = await Promise.race([workPromise, timeoutPromise]);
 
-      if (pendEl) pendEl.textContent = `📌 ${taskSnap.size || 0} pend`;
+      const scEl = getScEl();
+      const pendEl = getPendEl();
 
-      if (scEl) {
-        if (resSnap.empty || !resSnap.docs.length) {
-          scEl.textContent = `⭐ No quiz yet`;
-        } else {
-          const scores = resSnap.docs.map(d => Number(d.data().score) || 0);
-          const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
-          scEl.textContent = `⭐ ${avg}% avg`;
-        }
+      const pendCount = taskSnap.size || 0;
+      const pendText = `📌 ${pendCount} pend`;
+      if (pendEl) pendEl.textContent = pendText;
+
+      let scoreText = '⭐ No quiz yet';
+      if (resSnap && resSnap.docs && resSnap.docs.length > 0) {
+        const scores = resSnap.docs.map(d => Number(d.data().score) || 0);
+        const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+        scoreText = `⭐ ${avg}% avg`;
+      }
+      if (scEl) scEl.textContent = scoreText;
+
+      const targetSt = ALL_STUDENTS.find(s => resolveStudentToken(s.id) === canToken);
+      if (targetSt) {
+        targetSt._avgScoreText = scoreText;
+        targetSt._pendTasksText = pendText;
       }
     } catch (e) {
-      console.warn('loadStudentMiniTelemetry error:', e);
+      console.warn('loadStudentMiniTelemetry fallback for', canToken, e);
+      const scEl = getScEl();
+      const pendEl = getPendEl();
+      if (scEl && scEl.textContent.includes('Loading')) scEl.textContent = '⭐ —';
+      if (pendEl && pendEl.textContent.includes('Loading')) pendEl.textContent = '📌 0 tasks';
     }
   }
 
@@ -5638,8 +5671,8 @@ body.theme-glacial .aurora-layer {
     if (!listEl) return;
     token = resolveStudentToken(token);
 
-    if (!db || !cloudMode) {
-      listEl.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Connect to cloud to view synced tasks.</div>`;
+    if (!db) {
+      listEl.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Database offline. Tasks require internet connection.</div>`;
       return;
     }
 
@@ -5678,6 +5711,7 @@ body.theme-glacial .aurora-layer {
       }).join('');
     } catch (e) {
       console.warn('loadStudentTasksHub error:', e);
+      listEl.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">No assigned tasks found or network error.</div>`;
     }
   }
 
@@ -5702,8 +5736,8 @@ body.theme-glacial .aurora-layer {
     if (!tbody || !areasEl) return;
     token = resolveStudentToken(token);
 
-    if (!db || !cloudMode) {
-      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--paper-muted);">Cloud sync required to load full history.</td></tr>`;
+    if (!db) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--paper-muted);">Database offline. Results require connection.</td></tr>`;
       return;
     }
 
@@ -5766,6 +5800,7 @@ body.theme-glacial .aurora-layer {
       }).join('');
     } catch (e) {
       console.warn('loadStudentResultsHub error:', e);
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--paper-muted);">No submissions found or network error.</td></tr>`;
     }
   }
 
@@ -5775,8 +5810,8 @@ body.theme-glacial .aurora-layer {
     if (!stream) return;
     token = resolveStudentToken(token);
 
-    if (!db || !cloudMode) {
-      stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Cloud sync required for live messaging.</div>`;
+    if (!db) {
+      stream.innerHTML = `<div style="font-size:12px; color:var(--paper-muted); font-family:var(--mono);">Live messaging offline.</div>`;
       return;
     }
 
@@ -5861,22 +5896,22 @@ body.theme-glacial .aurora-layer {
 
   window.sincronizarEstudianteSeleccionadoHub = async function() {
     if (!selectedToken || !selectedData) return showToast('Select a student first');
-    if (!auth || !auth.currentUser) {
-      showToast('⚠️ Inicia sesión en la nube con Google para sincronizar con Firestore.');
-      openFacultyPortalModal('signin');
-      return;
-    }
-    if (!db) return showToast('⚠️ Base de datos no disponible.');
-
-    const canId = resolveStudentToken(selectedToken);
-    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40;
-    const given = Number(selectedData.horasDadas || selectedData.horas_dadas) || 0;
-    const remaining = Number(selectedData.horasRestantes || selectedData.horas_restantes) || Math.max(0, contracted - given);
-
     const btn = document.getElementById('btn-sync-student-cloud');
     if (btn) { btn.disabled = true; btn.textContent = 'Sincronizando… ⏳'; }
 
     try {
+      if (!auth || !auth.currentUser) {
+        showToast('⚠️ Inicia sesión en la nube con Google para sincronizar con Firestore.');
+        openFacultyPortalModal('signin');
+        return;
+      }
+      if (!db) return showToast('⚠️ Base de datos no disponible.');
+
+      const canId = resolveStudentToken(selectedToken);
+      const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40;
+      const given = Number(selectedData.horasDadas || selectedData.horas_dadas) || 0;
+      const remaining = Number(selectedData.horasRestantes || selectedData.horas_restantes) || Math.max(0, contracted - given);
+
       await db.collection(COL_ESTUDIANTES).doc(canId).set({
         clases: Array.isArray(selectedData.clases) ? selectedData.clases : [],
         clases_horas: selectedData.clases_horas || {},
