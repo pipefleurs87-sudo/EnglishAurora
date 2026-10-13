@@ -3585,16 +3585,24 @@ body.theme-glacial .aurora-layer {
       correo: "luisreduardo@hotmail.com",
       nivel: "B1",
       horasContratadas: 24,
-      horasDadas: 12.0,
-      horasRestantes: 12.0,
-      clases: ["2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-29"],
+      horasDadas: 20.0,
+      horasRestantes: 4.0,
+      clases: [
+        "2026-09-16", "2026-09-17", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-29",
+        "2026-09-30", "2026-10-01", "2026-10-05", "2026-10-07", "2026-10-08"
+      ],
       clases_horas: {
         "2026-09-16": 2.0,
         "2026-09-17": 2.0,
         "2026-09-21": 2.0,
         "2026-09-22": 2.0,
         "2026-09-23": 2.0,
-        "2026-09-29": 2.0
+        "2026-09-29": 2.0,
+        "2026-09-30": 2.0,
+        "2026-10-01": 2.0,
+        "2026-10-05": 2.0,
+        "2026-10-07": 1.0,
+        "2026-10-08": 1.0
       },
       clases_notas: {
         "2026-09-16": "B1 Consolidation: Present Perfect",
@@ -3602,7 +3610,12 @@ body.theme-glacial .aurora-layer {
         "2026-09-21": "B2 Start",
         "2026-09-22": "Colocations",
         "2026-09-23": "Underminate pronouns",
-        "2026-09-29": "Free conversation"
+        "2026-09-29": "Free conversation",
+        "2026-09-30": "Get Phrasal Verbs",
+        "2026-10-01": "Continuation Get",
+        "2026-10-05": "On and off",
+        "2026-10-07": "Prhasal verbs Out",
+        "2026-10-08": "Norway's Health Care System"
       },
       fecha_alta: "2026-07-21T07:39:00Z"
     },
@@ -3668,6 +3681,46 @@ body.theme-glacial .aurora-layer {
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
+
+  let audioCtx = null;
+  function playDirectorChime(freq = 880) {
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!audioCtx) audioCtx = new AC();
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => {});
+      }
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq || 880, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    } catch (e) {
+      // Audio autoplay policy or hardware muted, ignore safely
+    }
+  }
+  window.playDirectorChime = playDirectorChime;
+
+  function saveStudentSessionsLocally(canId, st) {
+    if (!canId || !st) return;
+    try {
+      const data = {
+        clases: Array.isArray(st.clases) ? [...st.clases] : [],
+        clases_horas: Object.assign({}, st.clases_horas || {}),
+        clases_notas: Object.assign({}, st.clases_notas || {})
+      };
+      localStorage.setItem('ea_student_sessions_' + canId, JSON.stringify(data));
+    } catch (e) {
+      console.warn('Error caching student sessions locally:', e);
+    }
+  }
+  window.saveStudentSessionsLocally = saveStudentSessionsLocally;
 
   function nuevoToken() {
     const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
@@ -4453,6 +4506,54 @@ body.theme-glacial .aurora-layer {
     }
   }
 
+  function mergeStudentRecord(base, incoming) {
+    if (!base) return Object.assign({}, incoming);
+    if (!incoming) return Object.assign({}, base);
+
+    const canonicalId = resolveStudentToken(incoming.id || base.id);
+    const merged = Object.assign({}, base, incoming);
+    merged.id = canonicalId;
+    merged.student_token = canonicalId;
+
+    // Check if teacher logged sessions locally in dedicated key
+    let localSessions = null;
+    try {
+      const sessRaw = localStorage.getItem('ea_student_sessions_' + canonicalId);
+      if (sessRaw) localSessions = JSON.parse(sessRaw);
+    } catch (e) {}
+
+    const baseClases = Array.isArray(base.clases) ? base.clases : [];
+    const inClases = Array.isArray(incoming.clases) ? incoming.clases : [];
+    const locClases = (localSessions && Array.isArray(localSessions.clases)) ? localSessions.clases : [];
+
+    merged.clases = Array.from(new Set([...baseClases, ...inClases, ...locClases])).sort();
+    merged.clases_horas = Object.assign({}, base.clases_horas || {}, incoming.clases_horas || {}, (localSessions && localSessions.clases_horas) || {});
+    merged.clases_notas = Object.assign({}, base.clases_notas || {}, incoming.clases_notas || {}, (localSessions && localSessions.clases_notas) || {});
+
+    // Check if teacher explicitly adjusted hours locally
+    const overrideHours = localStorage.getItem('ea_student_hours_' + canonicalId);
+    let contracted = (overrideHours !== null && !isNaN(Number(overrideHours)))
+      ? Number(overrideHours)
+      : Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 40);
+
+    let given = 0;
+    for (const c of merged.clases) {
+      const h = Number(merged.clases_horas[c]);
+      const defaultH = (canonicalId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+      given += (h && !isNaN(h) && h > 0) ? h : defaultH;
+    }
+    given = Math.round(given * 10) / 10;
+    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
+
+    merged.horasContratadas = contracted;
+    merged.horas_contratadas = contracted;
+    merged.horasDadas = given;
+    merged.horas_dadas = given;
+    merged.horasRestantes = remaining;
+    merged.horas_restantes = remaining;
+    return merged;
+  }
+
   function startRealtimeRosterListener() {
     if (!db) return;
     if (unsubStudents) { unsubStudents(); unsubStudents = null; }
@@ -4467,49 +4568,6 @@ body.theme-glacial .aurora-layer {
           const x = d.data() || {};
           return x.profesor_id === myUid || !x.profesor_id;
         });
-      }
-
-      function mergeStudentRecord(base, incoming) {
-        if (!base) return Object.assign({}, incoming);
-        if (!incoming) return Object.assign({}, base);
-
-        const canonicalId = resolveStudentToken(incoming.id || base.id);
-        const merged = Object.assign({}, base, incoming);
-        merged.id = canonicalId;
-        merged.student_token = canonicalId;
-
-        // Union of classes so classes are never lost
-        const baseClases = Array.isArray(base.clases) ? base.clases : [];
-        const inClases = Array.isArray(incoming.clases) ? incoming.clases : [];
-        const setClases = new Set([...baseClases, ...inClases]);
-        merged.clases = Array.from(setClases).sort();
-
-        // Union of horas and notas (local changes take priority over stale incoming cloud)
-        merged.clases_horas = Object.assign({}, incoming.clases_horas || {}, base.clases_horas || {});
-        merged.clases_notas = Object.assign({}, incoming.clases_notas || {}, base.clases_notas || {});
-
-        // Check if teacher explicitly adjusted hours locally
-        const overrideHours = localStorage.getItem('ea_student_hours_' + canonicalId);
-        let contracted = (overrideHours !== null && !isNaN(Number(overrideHours)))
-          ? Number(overrideHours)
-          : Number(base.horasContratadas || base.horas_contratadas || incoming.horasContratadas || incoming.horas_contratadas || 40);
-
-        let given = 0;
-        for (const c of merged.clases) {
-          const h = Number(merged.clases_horas[c]);
-          const defaultH = (canonicalId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
-          given += (h && !isNaN(h) && h > 0) ? h : defaultH;
-        }
-        given = Math.round(given * 10) / 10;
-        const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
-
-        merged.horasContratadas = contracted;
-        merged.horas_contratadas = contracted;
-        merged.horasDadas = given;
-        merged.horas_dadas = given;
-        merged.horasRestantes = remaining;
-        merged.horas_restantes = remaining;
-        return merged;
       }
 
       const cloudStudents = docs.map(d => {
@@ -4604,41 +4662,6 @@ body.theme-glacial .aurora-layer {
   }
 
   function loadOfflineFallback() {
-    function mergeStudentRecord(base, incoming) {
-      if (!base) return Object.assign({}, incoming);
-      if (!incoming) return Object.assign({}, base);
-      const canonicalId = resolveStudentToken(incoming.id || base.id);
-      const merged = Object.assign({}, base, incoming);
-      merged.id = canonicalId;
-      merged.student_token = canonicalId;
-      const baseClases = Array.isArray(base.clases) ? base.clases : [];
-      const inClases = Array.isArray(incoming.clases) ? incoming.clases : [];
-      merged.clases = Array.from(new Set([...baseClases, ...inClases])).sort();
-      merged.clases_horas = Object.assign({}, incoming.clases_horas || {}, base.clases_horas || {});
-      merged.clases_notas = Object.assign({}, incoming.clases_notas || {}, base.clases_notas || {});
-
-      // Check if teacher explicitly adjusted hours locally
-      const overrideHours = localStorage.getItem('ea_student_hours_' + canonicalId);
-      let contracted = (overrideHours !== null && !isNaN(Number(overrideHours)))
-        ? Number(overrideHours)
-        : Number(incoming.horasContratadas || incoming.horas_contratadas || base.horasContratadas || base.horas_contratadas || 40);
-
-      let given = 0;
-      for (const c of merged.clases) {
-        const h = Number(merged.clases_horas[c]);
-        const defaultH = (canonicalId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
-        given += (h && !isNaN(h) && h > 0) ? h : defaultH;
-      }
-      given = Math.round(given * 10) / 10;
-      merged.horasContratadas = contracted;
-      merged.horas_contratadas = contracted;
-      merged.horasDadas = given;
-      merged.horas_dadas = given;
-      merged.horasRestantes = Math.max(0, Math.round((contracted - given) * 10) / 10);
-      merged.horas_restantes = merged.horasRestantes;
-      return merged;
-    }
-
     const rosterMap = new Map();
     CORE_RESCUED_STUDENTS.forEach(s => rosterMap.set(s.id, { ...s }));
 
@@ -4704,26 +4727,32 @@ body.theme-glacial .aurora-layer {
       updated: new Date().toISOString()
     };
 
-    // Try 1: Firestore JS SDK
+    if (firestoreThrottled) return false;
+
+    // Try 1: Firestore JS SDK (with 1800ms timeout)
     try {
       if (db) {
-        await db.collection(COL_ESTUDIANTES).doc(canId).set(payloadData, { merge: true });
+        const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore SDK timeout')), 1800));
+        await Promise.race([
+          db.collection(COL_ESTUDIANTES).doc(canId).set(payloadData, { merge: true }),
+          timeoutPromise
+        ]);
         return true;
       }
     } catch(sdkErr) {
       console.warn('Firestore SDK set error, trying REST API fallback:', sdkErr);
     }
 
-    // Try 2: Direct REST API with API Key
+    // Try 2: Direct REST API with API Key (with 2000ms abort timeout)
     try {
       const fbKey = 'AIzaSyB3-Zld9m5cskqIj1h3Dmf4qfy52rVtEqM';
       const fields = {
         nombre: { stringValue: payloadData.nombre },
         correo: { stringValue: payloadData.correo },
         nivel: { stringValue: payloadData.nivel },
-        horas_contratadas: { integerValue: String(contracted) },
-        horas_dadas: { integerValue: String(given) },
-        horas_restantes: { integerValue: String(remaining) },
+        horas_contratadas: { doubleValue: Number(contracted) || 0 },
+        horas_dadas: { doubleValue: Number(given) || 0 },
+        horas_restantes: { doubleValue: Number(remaining) || 0 },
         student_token: { stringValue: canId },
         profesor_id: { stringValue: payloadData.profesor_id },
         profesor_nombre: { stringValue: payloadData.profesor_nombre },
@@ -4735,7 +4764,7 @@ body.theme-glacial .aurora-layer {
         },
         clases_horas: {
           mapValue: {
-            fields: Object.fromEntries(Object.entries(payloadData.clases_horas || {}).map(([k, v]) => [k, { integerValue: String(v) }]))
+            fields: Object.fromEntries(Object.entries(payloadData.clases_horas || {}).map(([k, v]) => [k, { doubleValue: Number(v) || 0 }]))
           }
         },
         clases_notas: {
@@ -4744,11 +4773,15 @@ body.theme-glacial .aurora-layer {
           }
         }
       };
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
       const res = await fetch(`https://firestore.googleapis.com/v1/projects/sanguine-fusion-403621/databases/(default)/documents/estudiantes/${encodeURIComponent(canId)}?key=${fbKey}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields })
+        body: JSON.stringify({ fields }),
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
       if (res.status === 429) {
         firestoreThrottled = true;
       }
@@ -5085,10 +5118,32 @@ body.theme-glacial .aurora-layer {
         selectedData.horas_contratadas = Number(overrideHours);
       }
 
+      // Check if teacher logged sessions locally in dedicated key
+      const localSessRaw = localStorage.getItem('ea_student_sessions_' + canToken);
+      if (localSessRaw) {
+        try {
+          const locSess = JSON.parse(localSessRaw);
+          if (locSess && Array.isArray(locSess.clases)) {
+            const curClases = Array.isArray(selectedData.clases) ? selectedData.clases : [];
+            selectedData.clases = Array.from(new Set([...curClases, ...locSess.clases])).sort();
+            selectedData.clases_horas = Object.assign({}, selectedData.clases_horas || {}, locSess.clases_horas || {});
+            selectedData.clases_notas = Object.assign({}, selectedData.clases_notas || {}, locSess.clases_notas || {});
+          }
+        } catch (e) {}
+      }
+
       // Populate Metrics
       const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas) || 40;
-      const given = Number(selectedData.horasDadas || selectedData.horas_dadas) || 0;
-      const remaining = Number(selectedData.horasRestantes || selectedData.horas_restantes) || Math.max(0, contracted - given);
+      let given = 0;
+      for (const c of (selectedData.clases || [])) {
+        const h = Number((selectedData.clases_horas || {})[c]);
+        const defaultH = (canToken === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+        given += (h && !isNaN(h) && h > 0) ? h : defaultH;
+      }
+      given = Math.round(given * 10) / 10;
+      selectedData.horasDadas = given;
+      selectedData.horas_dadas = given;
+      const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
       selectedData.horasRestantes = remaining;
       selectedData.horas_restantes = remaining;
 
@@ -5332,6 +5387,7 @@ body.theme-glacial .aurora-layer {
       showToast('Select a student first');
       return;
     }
+    const canId = resolveStudentToken(selectedData.id || selectedToken);
     const dateInput = document.getElementById('sheet-input-date');
     const topicInput = document.getElementById('sheet-input-topic');
     const durInput = document.getElementById('sheet-input-duration');
@@ -5359,9 +5415,7 @@ body.theme-glacial .aurora-layer {
     clases.sort();
 
     const notas = Object.assign({}, selectedData.clases_notas || {});
-    if (topicVal) {
-      notas[sessionKey] = topicVal;
-    }
+    notas[sessionKey] = topicVal || '1-on-1 Personalized Session';
 
     const horasMap = Object.assign({}, selectedData.clases_horas || {});
     horasMap[sessionKey] = durVal;
@@ -5369,42 +5423,64 @@ body.theme-glacial .aurora-layer {
     let given = 0;
     for (const c of clases) {
       const h = Number(horasMap[c]);
-      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+      const defaultH = (canId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+      given += (h && !isNaN(h) && h > 0) ? h : defaultH;
     }
     given = Math.round(given * 10) / 10;
-    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas || 40);
+    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
 
     selectedData.clases = clases;
     selectedData.clases_notas = notas;
     selectedData.clases_horas = horasMap;
     selectedData.horasDadas = given;
+    selectedData.horas_dadas = given;
     selectedData.horasRestantes = remaining;
+    selectedData.horas_restantes = remaining;
+
+    const stIdx = ALL_STUDENTS.findIndex(s => resolveStudentToken(s?.id) === canId);
+    if (stIdx >= 0) {
+      ALL_STUDENTS[stIdx] = Object.assign({}, ALL_STUDENTS[stIdx], {
+        clases: clases,
+        clases_notas: notas,
+        clases_horas: horasMap,
+        horasDadas: given,
+        horas_dadas: given,
+        horasRestantes: remaining,
+        horas_restantes: remaining
+      });
+    }
+
+    saveStudentSessionsLocally(canId, selectedData);
+    try {
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    } catch (e) {}
 
     if (topicInput) topicInput.value = '';
 
     renderStudentCalendar();
-    selectStudentHub(selectedToken, false);
+    selectStudentHub(canId, false);
     renderStudentsRoster();
     updateTab6HoursLedger();
-    playDirectorChime(880);
 
-    localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    try { playDirectorChime(880); } catch(e) {}
 
     try {
       const synced = await pushStudentToCloudHub(selectedData);
       if (synced) {
         showToast(`✨ Session on ${dateVal} logged (-${durVal.toFixed(1)}h) · Cloud Synced`);
       } else {
-        showToast(`💾 Guardado localmente (-${durVal.toFixed(1)}h).`);
+        showToast(`💾 Sesión guardada localmente (-${durVal.toFixed(1)}h).`);
       }
     } catch (e) {
       console.error('Error saving attendance session:', e);
-      showToast(`💾 Guardado localmente (-${durVal.toFixed(1)}h).`);
+      showToast(`💾 Sesión guardada localmente (-${durVal.toFixed(1)}h).`);
     }
   }
 
   async function cambiarHorasClaseSheetHub(sessionKey, newHoursVal) {
     if (!selectedToken || !selectedData) return;
+    const canId = resolveStudentToken(selectedData.id || selectedToken);
     const h = parseFloat(newHoursVal);
     if (isNaN(h) || h <= 0) return;
 
@@ -5415,21 +5491,41 @@ body.theme-glacial .aurora-layer {
     let given = 0;
     for (const c of clases) {
       const v = Number(horasMap[c]);
-      given += (v && !isNaN(v) && v > 0) ? v : 1.0;
+      const defaultH = (canId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+      given += (v && !isNaN(v) && v > 0) ? v : defaultH;
     }
     given = Math.round(given * 10) / 10;
-    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas || 40);
+    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
 
     selectedData.clases_horas = horasMap;
     selectedData.horasDadas = given;
+    selectedData.horas_dadas = given;
     selectedData.horasRestantes = remaining;
+    selectedData.horas_restantes = remaining;
+
+    const stIdx = ALL_STUDENTS.findIndex(s => resolveStudentToken(s?.id) === canId);
+    if (stIdx >= 0) {
+      ALL_STUDENTS[stIdx] = Object.assign({}, ALL_STUDENTS[stIdx], {
+        clases_horas: horasMap,
+        horasDadas: given,
+        horas_dadas: given,
+        horasRestantes: remaining,
+        horas_restantes: remaining
+      });
+    }
+
+    saveStudentSessionsLocally(canId, selectedData);
+    try {
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    } catch (e) {}
 
     renderStudentCalendar();
-    selectStudentHub(selectedToken, false);
+    selectStudentHub(canId, false);
     renderStudentsRoster();
     updateTab6HoursLedger();
 
-    localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    try { playDirectorChime(880); } catch(e) {}
 
     try {
       const synced = await pushStudentToCloudHub(selectedData);
@@ -5449,6 +5545,7 @@ body.theme-glacial .aurora-layer {
       showToast('Select a student first');
       return;
     }
+    const canId = resolveStudentToken(selectedData.id || selectedToken);
     const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
     if (clases.length === 0) {
       showToast('No sessions logged yet to adjust');
@@ -5456,7 +5553,8 @@ body.theme-glacial .aurora-layer {
     }
     const h = parseFloat(hoursVal) || 2.0;
     const totalH = Math.round(clases.length * h * 10) / 10;
-    const remH = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - totalH) * 10) / 10);
+    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas || 40);
+    const remH = Math.max(0, Math.round((contracted - totalH) * 10) / 10);
     const conf = confirm(`¿Ajustar todas las ${clases.length} sesiones de ${selectedData.nombre} a ${h.toFixed(1)} horas cada una?\n\n• Total conducido pasará a: ${totalH.toFixed(1)}h\n• Saldo restante pasará a: ${remH.toFixed(1)}h`);
     if (!conf) return;
 
@@ -5467,15 +5565,32 @@ body.theme-glacial .aurora-layer {
 
     selectedData.clases_horas = horasMap;
     selectedData.horasDadas = totalH;
+    selectedData.horas_dadas = totalH;
     selectedData.horasRestantes = remH;
+    selectedData.horas_restantes = remH;
+
+    const stIdx = ALL_STUDENTS.findIndex(s => resolveStudentToken(s?.id) === canId);
+    if (stIdx >= 0) {
+      ALL_STUDENTS[stIdx] = Object.assign({}, ALL_STUDENTS[stIdx], {
+        clases_horas: horasMap,
+        horasDadas: totalH,
+        horas_dadas: totalH,
+        horasRestantes: remH,
+        horas_restantes: remH
+      });
+    }
+
+    saveStudentSessionsLocally(canId, selectedData);
+    try {
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    } catch (e) {}
 
     renderStudentCalendar();
-    selectStudentHub(selectedToken, false);
+    selectStudentHub(canId, false);
     renderStudentsRoster();
     updateTab6HoursLedger();
-    playDirectorChime(880);
 
-    localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    try { playDirectorChime(880); } catch(e) {}
 
     try {
       const synced = await pushStudentToCloudHub(selectedData);
@@ -5492,6 +5607,7 @@ body.theme-glacial .aurora-layer {
 
   async function quitarClaseSheetHub(sessionKey) {
     if (!selectedToken || !selectedData) return;
+    const canId = resolveStudentToken(selectedData.id || selectedToken);
     const horasMap = Object.assign({}, selectedData.clases_horas || {});
     const dur = Number(horasMap[sessionKey]) || 1.0;
     const conf = confirm(`¿Quitar la sesión ${sessionKey} de la planilla de ${selectedData.nombre}?\n\n• Se reembolsarán ${dur.toFixed(1)} hora(s) al saldo restante.`);
@@ -5504,25 +5620,51 @@ body.theme-glacial .aurora-layer {
     }
     delete horasMap[sessionKey];
 
+    const notas = Object.assign({}, selectedData.clases_notas || {});
+    delete notas[sessionKey];
+
     let given = 0;
     for (const c of clases) {
       const h = Number(horasMap[c]);
-      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+      const defaultH = (canId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+      given += (h && !isNaN(h) && h > 0) ? h : defaultH;
     }
     given = Math.round(given * 10) / 10;
-    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas || 40);
+    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
 
     selectedData.clases = clases;
+    selectedData.clases_notas = notas;
     selectedData.clases_horas = horasMap;
     selectedData.horasDadas = given;
+    selectedData.horas_dadas = given;
     selectedData.horasRestantes = remaining;
+    selectedData.horas_restantes = remaining;
+
+    const stIdx = ALL_STUDENTS.findIndex(s => resolveStudentToken(s?.id) === canId);
+    if (stIdx >= 0) {
+      ALL_STUDENTS[stIdx] = Object.assign({}, ALL_STUDENTS[stIdx], {
+        clases: clases,
+        clases_notas: notas,
+        clases_horas: horasMap,
+        horasDadas: given,
+        horas_dadas: given,
+        horasRestantes: remaining,
+        horas_restantes: remaining
+      });
+    }
+
+    saveStudentSessionsLocally(canId, selectedData);
+    try {
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    } catch (e) {}
 
     renderStudentCalendar();
-    selectStudentHub(selectedToken, false);
+    selectStudentHub(canId, false);
     renderStudentsRoster();
     updateTab6HoursLedger();
 
-    localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    try { playDirectorChime(660); } catch(e) {}
 
     try {
       const synced = await pushStudentToCloudHub(selectedData);
@@ -5551,58 +5693,85 @@ body.theme-glacial .aurora-layer {
 
   async function toggleAttendanceDateHub(dateStr) {
     if (!selectedData || !selectedToken) return;
+    const canId = resolveStudentToken(selectedData.id || selectedToken);
     const clases = Array.isArray(selectedData.clases) ? [...selectedData.clases] : [];
     const horasMap = Object.assign({}, selectedData.clases_horas || {});
+    const notas = Object.assign({}, selectedData.clases_notas || {});
     const matches = clases.filter(c => c.split('#')[0] === dateStr);
 
+    let toastMsg = '';
     if (matches.length > 0) {
       // Remove the last session on this date
       const keyToRemove = matches[matches.length - 1];
       const idx = clases.indexOf(keyToRemove);
-      const dur = Number(horasMap[keyToRemove]) || 1.0;
+      const dur = Number(horasMap[keyToRemove]) || ((canId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0);
       if (idx >= 0) clases.splice(idx, 1);
       delete horasMap[keyToRemove];
-      showToast(`Class on ${keyToRemove} unlogged (+${dur.toFixed(1)} hr refunded)`);
+      delete notas[keyToRemove];
+      toastMsg = `Class on ${keyToRemove} unlogged (+${dur.toFixed(1)} hr refunded)`;
     } else {
       const durInput = document.getElementById('sheet-input-duration');
-      const dur = parseFloat(durInput ? durInput.value : '2') || 2.0;
+      const dur = parseFloat(durInput ? durInput.value : (canId === 'UAFxr6SWGQBN5SYBarq3td' ? '2.0' : '1.0')) || 2.0;
       clases.push(dateStr);
       clases.sort();
       horasMap[dateStr] = dur;
-      playDirectorChime(528);
-      showToast(`Class on ${dateStr} logged (-${dur.toFixed(1)} hr deducted)`);
+      if (!notas[dateStr]) notas[dateStr] = '1-on-1 Personalized Session';
+      toastMsg = `Class on ${dateStr} logged (-${dur.toFixed(1)} hr deducted)`;
     }
 
     let given = 0;
     for (const c of clases) {
       const h = Number(horasMap[c]);
-      given += (h && !isNaN(h) && h > 0) ? h : 1.0;
+      const defaultH = (canId === 'UAFxr6SWGQBN5SYBarq3td') ? 2.0 : 1.0;
+      given += (h && !isNaN(h) && h > 0) ? h : defaultH;
     }
     given = Math.round(given * 10) / 10;
-    const remaining = Math.max(0, Math.round(((selectedData.horasContratadas || 0) - given) * 10) / 10);
+    const contracted = Number(selectedData.horasContratadas || selectedData.horas_contratadas || 40);
+    const remaining = Math.max(0, Math.round((contracted - given) * 10) / 10);
 
     selectedData.clases = clases;
+    selectedData.clases_notas = notas;
     selectedData.clases_horas = horasMap;
     selectedData.horasDadas = given;
+    selectedData.horas_dadas = given;
     selectedData.horasRestantes = remaining;
+    selectedData.horas_restantes = remaining;
+
+    const stIdx = ALL_STUDENTS.findIndex(s => resolveStudentToken(s?.id) === canId);
+    if (stIdx >= 0) {
+      ALL_STUDENTS[stIdx] = Object.assign({}, ALL_STUDENTS[stIdx], {
+        clases: clases,
+        clases_notas: notas,
+        clases_horas: horasMap,
+        horasDadas: given,
+        horas_dadas: given,
+        horasRestantes: remaining,
+        horas_restantes: remaining
+      });
+    }
+
+    saveStudentSessionsLocally(canId, selectedData);
+    try {
+      localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    } catch (e) {}
 
     renderStudentCalendar();
-    selectStudentHub(selectedToken, false);
+    selectStudentHub(canId, false);
     renderStudentsRoster();
     updateTab6HoursLedger();
 
-    localStorage.setItem('englishaurora_students_cache', JSON.stringify(ALL_STUDENTS));
+    try { playDirectorChime(matches.length > 0 ? 660 : 528); } catch (e) {}
 
     try {
       const synced = await pushStudentToCloudHub(selectedData);
       if (synced) {
-        showToast(`✨ ${matches.length > 0 ? 'Clase desmarcada' : 'Clase registrada'} · Sincronizado en la nube (el alumno ya lo ve)`);
+        showToast(`✨ ${toastMsg} · Cloud Synced`);
       } else {
-        showToast('💾 Guardado localmente.');
+        showToast(`💾 ${toastMsg} · Guardado localmente.`);
       }
     } catch (e) {
       console.error('Error saving attendance:', e);
-      showToast('💾 Guardado localmente.');
+      showToast(`💾 ${toastMsg} · Guardado localmente.`);
     }
   }
 
@@ -8348,7 +8517,6 @@ body.theme-glacial .aurora-layer {
     }
   };
 
-  let audioCtx = null;
   function getHubAudioContext() {
     if (!audioCtx) {
       try {
