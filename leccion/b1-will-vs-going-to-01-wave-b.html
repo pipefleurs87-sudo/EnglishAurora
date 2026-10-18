@@ -196,6 +196,31 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between 'will' and 'be going to'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 'will' for spontaneous decisions made at the moment of speaking ('Wait, I will help you with those bags!') and promises. Use 'be going to' for pre-planned decisions or intentions decided before speaking ('I am going to study medicine next year')."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do predictions differ with 'will' vs 'going to'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 'going to' when there is clear physical evidence right now in front of you ('Look at those black clouds! It is going to rain'). Use 'will' for general beliefs, opinions, or intuition ('I think humanity will colonize Mars one day')."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +559,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

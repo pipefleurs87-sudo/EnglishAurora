@@ -12,22 +12,23 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free English Grammar Exercises by Level (A1–B1) | English Aurora</title>
-<meta name="description" content="Free English exercises in complete sequences by CEFR level: grammar, listening, reading. Made by a teacher, not random worksheets. Ejercicios de inglés gratis.">
-<meta name="keywords" content="English grammar exercises, ESL worksheets, present simple exercises, verb to be exercises, modal verbs exercises, A1 A2 English, ejercicios de inglés, English Aurora">
-<meta property="og:title" content="Free English Grammar Exercises by Level (A1–B1) | English Aurora">
-<meta property="og:description" content="Complete English exercise sequences by CEFR level — grammar, listening and reading. Guided by Aurora.">
+<title>Free English Grammar Exercises by Level (A1–C1) | English Aurora</title>
+<meta name="description" content="Free English exercises in {{TOTAL}} complete sequences by CEFR level (A1–C1): grammar, listening, reading, video lessons, and printable PDF worksheets. Ejercicios de inglés gratis.">
+<meta name="keywords" content="English grammar exercises, ESL worksheets, present simple exercises, verb to be exercises, modal verbs exercises, A1 A2 B1 B2 C1 English, ejercicios de inglés, English Aurora">
+<meta property="og:title" content="Free English Grammar Exercises by Level (A1–C1) | English Aurora">
+<meta property="og:description" content="Complete English exercise sequences by CEFR level (A1–C1) — grammar, listening, reading, masterclasses and printable worksheets. Guided by Aurora.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{BASE_URL}}/og-image.png">
-<meta property="og:url" content="{{BASE_URL}}/">
+<meta property="og:url" content="{{BASE_URL}}/curriculum.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="{{BASE_URL}}/">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{BASE_URL}}/curriculum.html">
 <!-- JSON-LD: English Aurora -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebSite","@id":"{{BASE_URL}}/#website","url":"{{BASE_URL}}/","name":"English Aurora","description":"Free English exercises in complete sequences by CEFR level: grammar, listening, reading.","inLanguage":"en","publisher":{"@id":"{{BASE_URL}}/#person"}},
 {"@type":"Person","@id":"{{BASE_URL}}/#person","name":"Felipe - English Aurora","jobTitle":"English teacher"},
-{"@type":"EducationalOccupationalProgram","name":"English Aurora CEFR curriculum","url":"{{BASE_URL}}/","description":"81 complete English sequences from A1 to C1: lesson, practice and assessment for each topic.","educationalProgramMode":"online","inLanguage":"en","provider":{"@id":"{{BASE_URL}}/#person"},"educationalCredentialAwarded":"None - free practice material","occupationalCategory":"Language learning"}
+{"@type":"EducationalOccupationalProgram","name":"English Aurora CEFR curriculum","url":"{{BASE_URL}}/curriculum.html","description":"{{TOTAL}} complete English sequences from A1 to C1: lesson, practice, masterclass and assessment for each topic.","educationalProgramMode":"online","inLanguage":"en","provider":{"@id":"{{BASE_URL}}/#person"},"educationalCredentialAwarded":"None - free practice material","occupationalCategory":"Language learning"}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +40,12 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
   .wrap{max-width:960px;margin:0 auto;padding:0 20px 80px}
-  .hero{border-bottom:2px solid var(--ink);padding:40px 0 22px;margin-bottom:8px;position:relative}
+  .hero{border-bottom:2px solid var(--ink);padding:32px 0 22px;margin-bottom:8px;position:relative}
+  .top-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .top-nav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 11px;transition:border-color .15s,background .15s}
+  .top-nav a:hover{border-color:var(--teal);color:var(--teal)}
+  .top-nav a.galaxy-btn{background:var(--ink);color:var(--gold);border-color:var(--ink);font-weight:600}
+  .top-nav a.galaxy-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
   .brand-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--rpg-font);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);background:rgba(15,76,92,0.08);padding:4px 12px;border-radius:6px;border:1px solid rgba(15,76,92,0.2)}
   h1{font-family:var(--rpg-font);font-weight:700;font-size:clamp(26px,5vw,42px);line-height:1.15;margin:12px 0 12px;color:var(--ink)}
   .sub{font-size:17px;color:var(--muted);max-width:640px}
@@ -76,6 +82,15 @@
 <body>
 <div class="wrap">
   <header class="hero">
+    <nav class="top-nav" aria-label="Primary site navigation">
+      <a href="index.html" class="galaxy-btn">🌌 2.5D Sky Galaxy</a>
+      <a href="ludoteca.html">🎮 17 Arcade Games</a>
+      <a href="verbos-irregulares.html">⚡ Irregular Verbs</a>
+      <a href="contrastes-gramaticales.html">⚔️ Grammar Battles</a>
+      <a href="cambridge-preparation.html">🎓 Cambridge Prep</a>
+      <a href="herramientas/fichas-imprimibles.html">📄 Printable PDFs</a>
+      <a href="herramientas/teacher-hub.html">🔭 Teacher's Hub</a>
+    </nav>
     <div class="brand-badge">✨ English Aurora · Academia Arcana</div>
     <h1>Free English grammar exercises — complete sequences, not random worksheets.</h1>
     <p class="sub">Every topic is a full mini-lesson: <b>diagnosis → rule → practice → listening → reading</b>, plus a video lesson and a test. Guided by Aurora, with recurring characters.</p>
@@ -87,7 +102,7 @@
     <p class="sub" style="margin-top:14px"><a href="herramientas/generador-ejercicios.html" style="color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:3px">🎲 Build your own worksheet</a> — pick a level, a topic and an exercise type, and get a custom sheet from everything already on this site. Or <a href="herramientas/generador-clases.html" style="color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:3px">🧩 build a full class</a> by combining two or three topics into one session. Or explore the whole curriculum as a <a href="herramientas/mapa-3d.html" style="color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:3px">✦ 3D Grammar Universe</a> — every topic is a star, every level a galaxy. Not sure where to start? Take the <a href="herramientas/placement.html" style="color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:3px">◎ placement test</a> and find your level in two minutes. Or see how one wave in Cartagena becomes <a href="herramientas/la-ola.html" style="color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:3px">🌊 ten grammar lessons</a>.</p>
   </header>
   <div class="toolbar">
-    <input id="q" class="search" type="search" placeholder="Search a topic…  e.g. present simple, modal must, relative clauses, prepositions" autocomplete="off">
+    <input id="q" class="search" type="search" placeholder="Search in English or Spanish (press / to focus)… e.g. present simple, pasado, modal must, condicionales" autocomplete="off">
     <div class="filters">
       {{CHIPS}}
       <span class="count" id="count"></span>
@@ -105,19 +120,76 @@
   var cards=[].slice.call(document.querySelectorAll('.card'));
   var chips=[].slice.call(document.querySelectorAll('.chip-f'));
   var level='all';
-  function apply(){
-    var t=q.value.trim().toLowerCase(), n=0;
-    cards.forEach(function(c){
-      var okL = level==='all' || c.getAttribute('data-level')===level;
-      var okT = !t || c.getAttribute('data-search').indexOf(t)>=0;
-      var show = okL && okT; c.style.display = show?'':'none'; if(show)n++;
-    });
-    count.textContent = n+(n===1?' topic':' topics');
-    nores.style.display = n===0?'block':'none';
+
+  function normSearch(s){
+    return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s/-]/g,' ').replace(/\s+/g,' ').trim();
   }
+
+  // Pre-index all cards once in memory for sub-millisecond tokenized browser search
+  var cardIndex = cards.map(function(c){
+    return {
+      el: c,
+      lvl: c.getAttribute('data-level') || '',
+      haystack: normSearch((c.getAttribute('data-search') || '') + ' ' + (c.textContent || ''))
+    };
+  });
+
+  function apply(){
+    var raw = normSearch(q.value);
+    var tokens = raw ? raw.split(' ') : [];
+    var n = 0;
+    for(var i=0; i<cardIndex.length; i++){
+      var item = cardIndex[i];
+      var okL = (level === 'all' || item.lvl === level);
+      var okT = true;
+      for(var j=0; j<tokens.length; j++){
+        if(item.haystack.indexOf(tokens[j]) === -1){ okT = false; break; }
+      }
+      var show = okL && okT;
+      item.el.style.display = show ? '' : 'none';
+      if(show) n++;
+    }
+    count.textContent = n + (n===1 ? ' topic' : ' topics');
+    nores.style.display = n===0 ? 'block' : 'none';
+  }
+
   q.addEventListener('input', apply);
-  chips.forEach(function(ch){ ch.addEventListener('click', function(){ chips.forEach(function(x){x.classList.remove('on');}); ch.classList.add('on'); level=ch.getAttribute('data-level'); apply(); }); });
-  apply();
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      chips.forEach(function(x){x.classList.remove('on');});
+      ch.classList.add('on');
+      level = ch.getAttribute('data-level');
+      apply();
+    });
+  });
+
+  // Support URL query params (?q=...&level=...) and "/" keyboard shortcut
+  (function initSearchParams(){
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var qParam = params.get('q') || params.get('search') || '';
+      var lvlParam = (params.get('level') || params.get('nivel') || '').toUpperCase();
+      if(qParam) q.value = qParam;
+      if(lvlParam){
+        chips.forEach(function(ch){
+          if(ch.getAttribute('data-level') === lvlParam){
+            chips.forEach(function(x){x.classList.remove('on');});
+            ch.classList.add('on');
+            level = lvlParam;
+          }
+        });
+      }
+    } catch(e){}
+    apply();
+  })();
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === '/' && document.activeElement !== q && !e.ctrlKey && !e.metaKey && !e.altKey){
+      e.preventDefault();
+      q.focus();
+      q.select();
+    }
+  });
 
   // Dynamic Aurora greetings by hour of day
   (function(){

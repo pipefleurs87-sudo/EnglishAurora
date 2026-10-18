@@ -196,6 +196,31 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many irregular verbs are there in English?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are roughly 200 commonly used irregular verbs in modern English. Instead of memorizing alphabetical lists, the most effective method is learning them in 7 mnemonic patterns (e.g. no-change verbs like cut/cut/cut, vowel melody verbs like sing/sang/sung, -ought/-aught verbs like buy/bought/bought)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do irregular verbs change in negative sentences or questions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No! In negatives and questions, the auxiliary 'did / didn't' takes the past tense, so the main verb stays in the base infinitive: 'Did you see Ben?' (not 'did you saw') and 'I didn't go' (not 'I didn't went')."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +559,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

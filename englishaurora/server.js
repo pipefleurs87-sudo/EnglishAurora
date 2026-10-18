@@ -23,17 +23,13 @@ const MIME = {
   '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8',
   '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8',
   '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml',
+  '.webp':'image/webp', '.gif':'image/gif', '.woff2':'font/woff2', '.woff':'font/woff',
   '.mp3':'audio/mpeg', '.ico':'image/x-icon', '.txt':'text/plain; charset=utf-8',
   '.xml':'application/xml; charset=utf-8', '.md':'text/plain; charset=utf-8'
 };
 
 http.createServer((req, res) => {
   let urlPath = decodeURIComponent(req.url.split('?')[0]);
-  if (urlPath === '/') {
-    res.writeHead(302, { 'Location': '/englishaurora/' });
-    res.end();
-    return;
-  }
   if (urlPath.endsWith('/')) urlPath += 'index.html';
   const file = path.normalize(path.join(ROOT, urlPath));
   if (!file.startsWith(ROOT)) { res.writeHead(403); res.end('Forbidden'); return; }
@@ -44,5 +40,5 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(PORT, HOST, () => {
-  console.log('English Aurora dev server → http://' + HOST + ':' + PORT + '/');
+  console.log('English Aurora local prototype server → http://' + HOST + ':' + PORT + '/');
 });

@@ -24,7 +24,7 @@ def process_wave_b_lessons():
         # 1. Clean topic & level
         m_title = re.search(r'<title>(.*?)</title>', txt)
         raw_title = m_title.group(1) if m_title else ''
-        clean_topic = re.sub(r'\s*[·|]\s*Wave B Master Session.*', '', raw_title).strip()
+        clean_topic = re.sub(r'\s*(?:[·|]\s*Wave B Master Session|—\s*Printable PDF Worksheet).*', '', raw_title).strip()
         level = f.name[:2].upper()
         
         # 2. Optimized Title & Meta Description
@@ -148,6 +148,94 @@ def update_sitemap():
     else:
         print('[Sitemap] Todas las URLs ya estaban presentes.')
 
+def process_arcade_games_and_prototypes():
+    arcade_games = [
+        'arcane-duel.html', 'astral-wordle.html', 'constellation-match.html',
+        'cosmic-wordsearch.html', 'echo-chamber.html', 'gravity-sort.html',
+        'meteor-words-pilot.html', 'pilots-cabin.html', 'rapid-eclipse.html',
+        'riddles.html', 'rune-shifter.html', 'signal-hunter.html',
+        'sound-catch.html', 'star-hangman.html', 'time-portal.html',
+        'unscramble-sentence.html', 'void-breaker.html'
+    ]
+    for gname in arcade_games:
+        f = ROOT / 'juegos' / gname
+        if not f.exists():
+            continue
+        txt = f.read_text(encoding='utf-8')
+        m_t = re.search(r'<title>(.*?)</title>', txt, re.I | re.S)
+        title_str = m_t.group(1).strip() if m_t else gname.replace('.html', '').replace('-', ' ').title()
+        short_title = title_str.split('|')[0].strip()
+        canon_url = f'https://pipefleurs87-sudo.github.io/EnglishAurora/juegos/{gname}'
+        desc_str = f'Play {short_title} — free interactive CEFR English learning game with audio and instant feedback on English Aurora.'
+
+        insert_tags = []
+        if not re.search(r'<meta\s+name=["\']description["\']', txt, re.I):
+            insert_tags.append(f'<meta name="description" content="{desc_str}">')
+        if not re.search(r'<meta\s+name=["\']robots["\']', txt, re.I):
+            insert_tags.append('<meta name="robots" content="index, follow">')
+        if not re.search(r'<link\s+rel=["\']canonical["\']', txt, re.I):
+            insert_tags.append(f'<link rel="canonical" href="{canon_url}">')
+            insert_tags.append('<meta property="og:type" content="website">')
+            insert_tags.append(f'<meta property="og:url" content="{canon_url}">')
+            insert_tags.append(f'<meta property="og:title" content="{title_str}">')
+            insert_tags.append(f'<meta property="og:description" content="{desc_str}">')
+            insert_tags.append('<meta property="og:image" content="https://pipefleurs87-sudo.github.io/EnglishAurora/assets/aurora.png">')
+            insert_tags.append('<meta name="twitter:card" content="summary_large_image">')
+        if 'application/ld+json' not in txt:
+            insert_tags.append(f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{short_title}",
+  "url": "{canon_url}",
+  "description": "{desc_str}",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All modern web browsers",
+  "isAccessibleForFree": true,
+  "inLanguage": ["en", "es"]
+}}
+</script>''')
+        if insert_tags:
+            block = '\n'.join(insert_tags)
+            txt = re.sub(r'(</title>)', r'\1\n' + block, txt, count=1, flags=re.I)
+            f.write_text(txt, encoding='utf-8')
+
+    # Mark unlinked prototypes / internal templates as noindex, nofollow
+    proto_files = [
+        ROOT / 'motor-generico.html',
+        ROOT / 'prototipo-b1-adverbs-rpg.html',
+        ROOT / 'juegos' / 'cosmic-compass.html',
+        ROOT / 'juegos' / 'mystery-box.html',
+        ROOT / 'juegos' / 'orbit-builder.html',
+        ROOT / 'herramientas' / 'sincronizar-nube.html',
+        ROOT / 'herramientas' / 'voice-casting.html',
+    ]
+    for pf in proto_files:
+        if not pf.exists():
+            continue
+        ptxt = pf.read_text(encoding='utf-8')
+        if 'noindex' not in ptxt[:4000].lower():
+            if re.search(r'<meta\s+name=["\']robots["\'][^>]*>', ptxt, re.I):
+                ptxt = re.sub(r'<meta\s+name=["\']robots["\'][^>]*>', '<meta name="robots" content="noindex, nofollow">', ptxt, count=1, flags=re.I)
+            else:
+                ptxt = re.sub(r'(<head[^>]*>)', r'\1\n<meta name="robots" content="noindex, nofollow">', ptxt, count=1, flags=re.I)
+            pf.write_text(ptxt, encoding='utf-8')
+
+    # Mark es-* prototype files in EnglishAurora as noindex, nofollow and fix SpanishAurora canonicals
+    for sub in ['leccion', 'preview', 'evaluacion', 'juegos']:
+        subdir = ROOT / sub
+        if not subdir.exists():
+            continue
+        for ef in subdir.glob('es-*.html'):
+            etxt = ef.read_text(encoding='utf-8')
+            etxt = etxt.replace('https://pipefleurs87-sudo.github.io/SpanishAurora/', 'https://pipefleurs87-sudo.github.io/EnglishAurora/')
+            etxt = etxt.replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, nofollow">')
+            ef.write_text(etxt, encoding='utf-8')
+    print('[SEO] 17 juegos arcade enriquecidos y prototipos marcados como noindex.')
+
+
 if __name__ == '__main__':
     process_wave_b_lessons()
+    process_arcade_games_and_prototypes()
     update_sitemap()
+

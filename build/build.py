@@ -334,11 +334,73 @@ def prerender_texto(data):
                 parts.append("<li>" + esc(pr.get("afirmacion", "")) + "</li>")
             parts.append("</ul>")
 
+    seq_id = data.get("id", "")
+    faqs_db = _get_faqs_db()
+    if seq_id and seq_id in faqs_db:
+        parts.append("<h2>Frequently Asked Questions</h2>")
+        for fq in faqs_db[seq_id]:
+            parts.append("<h3>" + esc(fq.get("q", "")) + "</h3><p>" + esc(fq.get("a", "")) + "</p>")
+
+    bridges_db = _get_bridges_db()
+    if seq_id:
+        nav_links = [
+            '<a href="../leccion/' + esc(seq_id) + '.html">Lesson</a>',
+            '<a href="../preview/' + esc(seq_id) + '.html">Practice Exercises</a>',
+            '<a href="../evaluacion/' + esc(seq_id) + '.html">Assessment Test</a>'
+        ]
+        if (LECCION / (seq_id + "-wave-b.html")).exists():
+            nav_links.append('<a href="../leccion/' + esc(seq_id) + '-wave-b.html">Wave B Masterclass &amp; Printable PDF Worksheet</a>')
+        if (JUEGOS / (seq_id + ".html")).exists():
+            nav_links.append('<a href="../juegos/' + esc(seq_id) + '.html">Interactive Topic Game</a>')
+        if seq_id in bridges_db:
+            br = bridges_db[seq_id]
+            nxt_id = br.get("nextId", "")
+            nxt_title = br.get("nextTitle", "Next Topic")
+            if nxt_id:
+                nxt_href = ("../" + nxt_id) if ".html" in nxt_id else ("../leccion/" + nxt_id + ".html")
+                nav_links.append('Next Topic: <a href="' + esc(nxt_href) + '">' + esc(nxt_title) + '</a>')
+        nav_links.append('<a href="../curriculum.html">Full CEFR Curriculum</a>')
+        parts.append("<nav><p>" + " · ".join(nav_links) + "</p></nav>")
+
     return "".join(parts)
+
+_FAQS_CACHE = None
+_BRIDGES_CACHE = None
+
+def _get_faqs_db():
+    global _FAQS_CACHE
+    if _FAQS_CACHE is None:
+        p = DATOS / "faq-database.json"
+        _FAQS_CACHE = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    return _FAQS_CACHE
+
+def _get_bridges_db():
+    global _BRIDGES_CACHE
+    if _BRIDGES_CACHE is None:
+        p = DATOS / "curriculum-bridges.json"
+        _BRIDGES_CACHE = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    return _BRIDGES_CACHE
 
 def inyectar(motor_txt, data, title, desc, keywords, jsonld, modo="ejercicios", canonical=""):
     ld = json.dumps(jsonld, ensure_ascii=False)
     head = seo_head(title, desc, keywords, ld, canonical)
+    seq_id = data.get("id", "")
+    faqs_db = _get_faqs_db()
+    if modo in ("ejercicios", "leccion") and seq_id in faqs_db:
+        entities = [
+            {
+                "@type": "Question",
+                "name": it["q"],
+                "acceptedAnswer": {"@type": "Answer", "text": it["a"]}
+            }
+            for it in faqs_db[seq_id]
+        ]
+        faq_schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": entities
+        }
+        head += '\n<script type="application/ld+json">\n' + json.dumps(faq_schema, ensure_ascii=False, indent=2) + '\n</script>'
     page = re.sub(r"<title>.*?</title>", lambda m: head, motor_txt, count=1)
     # SEO: las plantillas traen lang="en" fijo; el build de Spanish Aurora debe declarar "es"
     if LANG == "es":
@@ -613,6 +675,8 @@ def inyectar_pool(motor_txt, pool, prerender, title, desc, keywords, jsonld, can
     ld = json.dumps(jsonld, ensure_ascii=False)
     head = seo_head(title, desc, keywords, ld, canonical)
     page = re.sub(r"<title>.*?</title>", lambda m: head, motor_txt, count=1)
+    if LANG == "es":
+        page = page.replace('<html lang="en"', '<html lang="es"', 1)
     payload = json.dumps(pool, ensure_ascii=False, separators=(",", ":"))
     page = page.replace("<body>", "<body>\n<script>window.EA_POOL = " + payload + ";</script>", 1)
     anchor = '<div class="wrap" id="app"><div class="empty">No content loaded.</div></div>'
@@ -702,19 +766,36 @@ def build_index(seqs):
     seqs_sorted = sorted(seqs, key=lambda s:(NIVEL_ORDEN.index(s["nivel"]), s["_area"], s["tema"]))
     cards = []
     for s in seqs_sorted:
+        sid = s["id"]
+        area = s["_area"]
+        es_area = AREA_ES.get(area, "")
+        has_wave_b = (LECCION / (sid + "-wave-b.html")).exists()
+        has_game = (JUEGOS / (sid + ".html")).exists()
+        has_fluency = (ROOT / "fluency" / (sid + ".html")).exists()
         habs = "".join('<span class="chip">'+html.escape(h)+'</span>' for h in s.get("habilidades",[]))
         n_ej = len(s.get("fases",{}).get("practica",{}).get("ejercicios",[]))
-        search = " ".join([s["tema"], s["_area"], s.get("arquetipo",""), s["nivel"], "exercises"] + s.get("habilidades",[])).lower()
+        extra_tokens = [es_area, sid]
+        if has_wave_b:
+            extra_tokens.append("wave b masterclass worksheet pdf ficha imprimible")
+        if has_fluency:
+            extra_tokens.append("fluency speaking fluidez")
+        if has_game:
+            extra_tokens.append("game juego")
+        search = " ".join([s["tema"], area, s.get("arquetipo",""), s["nivel"], "exercises"] + s.get("habilidades",[]) + extra_tokens).lower()
+        wave_b_btn = ('<a class="act" href="leccion/'+sid+'-wave-b.html" title="Wave B Masterclass &amp; Printable PDF">&#10022; Wave B</a>' if has_wave_b else '')
+        game_btn = ('<a class="act" href="juegos/'+sid+'.html" title="Practice game">&#127918; Game</a>' if has_game else '')
         cards.append(
             '<div class="card" data-level="'+s["nivel"]+'" data-search="'+html.escape(search)+'">'
-            '<div class="card-area">'+html.escape(s["_area"])+' · '+s["nivel"]+'</div>'
+            '<div class="card-area">'+html.escape(area)+' · '+s["nivel"]+'</div>'
             '<div class="card-tema">'+html.escape(s["tema"])+'</div>'
             '<div class="card-meta">'+str(n_ej)+' exercises · sequence + video + test</div>'
             '<div class="chips">'+habs+'</div>'
             '<div class="actions">'
-            '<a class="act primary" href="preview/'+s["id"]+'.html">Exercises</a>'
-            '<a class="act" href="leccion/'+s["id"]+'.html">&#9654; Lesson</a>'
-            '<a class="act" href="evaluacion/'+s["id"]+'.html">&#9998; Test</a>'
+            '<a class="act primary" href="preview/'+sid+'.html">Exercises</a>'
+            '<a class="act" href="leccion/'+sid+'.html">&#9654; Lesson</a>'
+            + wave_b_btn +
+            '<a class="act" href="evaluacion/'+sid+'.html">&#9998; Test</a>'
+            + game_btn +
             '</div></div>')
     doc = TEMPLATE.read_text(encoding="utf-8")
     doc = doc.replace("{{CHIPS}}", chips).replace("{{CARDS}}", "".join(cards))
@@ -783,48 +864,87 @@ def build_temas_completos(seqs):
     (HERRAMIENTAS/"generador-clases.html").write_text(gen, encoding="utf-8")
     print("  OK  herramientas/generador-clases.html (datos incrustados)")
 
+def _is_indexable_html(filepath):
+    if not filepath.exists():
+        return False
+    try:
+        head_chunk = filepath.read_text(encoding="utf-8", errors="ignore").split("</head>")[0]
+        if re.search(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex', head_chunk, re.I):
+            return False
+    except Exception:
+        return False
+    return True
+
 def build_sitemap(seqs):
     """
-    El sitemap debe listar TODO lo publicado, no solo lo que genera el bucle de
-    secuencias. Hasta el 2026-07-28 emitia 249 urls y dejaba fuera 122 paginas
-    reales: ludoteca.html, /juegos/ (81), /fluency/ (39) y pronunciacion.html.
-    Justo las que compiten por "juegos para aprender ingles". Si anades un
-    artefacto nuevo al sitio, anadelo tambien aqui o nace invisible.
-
-    /fluency y /juegos se leen del disco, no de `seqs`: fluency no se deriva de
-    /contenido (ningun JSON tiene fases.fluency) y juegos solo existe para los
-    temas que superan el umbral de datos. Listar por glob evita meter 404s en el
-    sitemap, que es peor que no listarlos.
+    El sitemap debe listar TODO lo publicado e indexable (excluyendo archivos con noindex):
+    - hubs principales y herramientas
+    - preview/, leccion/ (incluyendo las 94 masterclasses *-wave-b.html), evaluacion/
+    - ludoteca.html, juegos/ (excluyendo prototipos obsoletos/no enlazados) y fluency/.
     """
-    urls = [BASE_URL + "/", BASE_URL + "/herramientas/generador-ejercicios.html", BASE_URL + "/herramientas/generador-clases.html", BASE_URL + "/herramientas/mapa-3d.html", BASE_URL + "/herramientas/placement.html", BASE_URL + "/herramientas/la-ola.html"]
-    extra_hubs = [
+    raw_urls = [BASE_URL + "/"]
+    hub_candidates = [
         "curriculum.html",
+        "ludoteca.html",
+        "verbos-irregulares.html",
         "contrastes-gramaticales.html",
         "cambridge-preparation.html",
-        "verbos-irregulares.html",
         "herramientas/fichas-imprimibles.html",
-        "herramientas/teacher-hub.html"
+        "herramientas/teacher-hub.html",
+        "herramientas/generador-ejercicios.html",
+        "herramientas/generador-clases.html",
+        "herramientas/mapa-3d.html",
+        "herramientas/placement.html",
+        "herramientas/la-ola.html",
+        "pronunciacion.html"
     ]
-    for hub in extra_hubs:
-        if (ROOT / hub).exists():
-            urls.append(BASE_URL + "/" + hub)
-    if (ROOT / "ludoteca.html").exists():
-        urls.append(BASE_URL + "/ludoteca.html")
-    if (ROOT / "pronunciacion.html").exists():
-        urls.append(BASE_URL + "/pronunciacion.html")
+    for hub in hub_candidates:
+        hp = ROOT / hub
+        if _is_indexable_html(hp):
+            raw_urls.append(BASE_URL + "/" + hub)
+
     for s in seqs:
-        for d in ("preview","leccion","evaluacion"):
-            urls.append(BASE_URL + "/" + d + "/" + s["id"] + ".html")
+        for d in ("preview", "leccion", "evaluacion"):
+            p = ROOT / d / (s["id"] + ".html")
+            if _is_indexable_html(p):
+                raw_urls.append(BASE_URL + "/" + d + "/" + s["id"] + ".html")
+
+    # Incluir todas las Masterclasses Wave B indexables en leccion/*-wave-b.html
+    for wb in sorted(LECCION.glob("*-wave-b.html")):
+        if _is_indexable_html(wb):
+            raw_urls.append(BASE_URL + "/leccion/" + wb.name)
+
+    LEGACY_JUEGOS_SKIP = {"cosmic-compass.html", "orbit-builder.html", "mystery-box.html"}
     for carpeta in ("juegos", "fluency"):
         for f in sorted((ROOT / carpeta).glob("*.html")):
-            urls.append(BASE_URL + "/" + carpeta + "/" + f.name)
+            if carpeta == "juegos" and f.name in LEGACY_JUEGOS_SKIP:
+                continue
+            if f.name.startswith("es-"):
+                continue
+            if _is_indexable_html(f):
+                raw_urls.append(BASE_URL + "/" + carpeta + "/" + f.name)
+
+    # Deduplicar preservando orden
+    urls = list(dict.fromkeys(raw_urls))
     today = datetime.date.today().isoformat()
     x = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         x.append("  <url><loc>"+html.escape(u)+"</loc><lastmod>"+today+"</lastmod></url>")
     x.append("</urlset>")
     (ROOT/"sitemap.xml").write_text("\n".join(x), encoding="utf-8")
-    (ROOT/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+BASE_URL+"/sitemap.xml\n", encoding="utf-8")
+    robots_txt = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /motor/\n"
+        "Disallow: /englishaurora/\n"
+        "Disallow: /ui-lab/\n"
+        "Disallow: /aula/\n"
+        "Disallow: /build/\n"
+        "Disallow: /motor-generico.html\n"
+        "Disallow: /prototipo-b1-adverbs-rpg.html\n"
+        "Sitemap: " + BASE_URL + "/sitemap.xml\n"
+    )
+    (ROOT/"robots.txt").write_text(robots_txt, encoding="utf-8")
     print("  OK  sitemap.xml ("+str(len(urls))+" urls) + robots.txt")
 
 def verificar_integridad(seqs):

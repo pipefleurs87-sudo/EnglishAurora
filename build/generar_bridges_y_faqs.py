@@ -146,11 +146,11 @@ FAQS = {
 BRIDGES = {
     # A1 - Foundations
     "a1-to-be-nationalities-01": {
-        "nextId": "a1-to-be-identities-01",
-        "nextTitle": "Verb To Be — Identities & Professions",
+        "nextId": "a1-to-be-neg-questions-01",
+        "nextTitle": "Verb To Be — Negative & Questions",
         "nextLevel": "A1",
         "relation": "Next Milestone",
-        "note": "Now that you can state where people are from, learn how to describe who they are and what they do.",
+        "note": "Now that you can state where people are from, learn how to form negatives and ask questions with To Be.",
         "challenge": {
             "q": "Sofía ___ from Colombia and she ___ a brilliant graphic designer.",
             "options": ["is / is", "is / are", "am / is"],
@@ -158,7 +158,7 @@ BRIDGES = {
             "hint": "Sofía is singular (she), so use 'is' in both slots."
         }
     },
-    "a1-to-be-identities-01": {
+    "a1-to-be-neg-questions-01": {
         "nextId": "a1-have-got-01",
         "nextTitle": "Have got — Possessions & Family",
         "nextLevel": "A1",
@@ -568,7 +568,7 @@ def build_client_bridge_js(bridges, faqs):
       return window.SEQUENCE_DATA.id;
     }
     var m = window.location.pathname.match(/([a-c][1-2]-[a-z0-9-]+(?:-01|-wave-b))/);
-    return m ? m[1] : null;
+    return m ? m[1].replace(/-wave-b$/, '') : null;
   }
 
   function renderConnectedBridge() {
@@ -1084,7 +1084,7 @@ def inject_static_faq_and_bridge_html(bridges, faqs):
             continue
         for f in dir_path.glob("*.html"):
             txt = f.read_text(encoding="utf-8")
-            stem = f.stem
+            stem = f.stem.replace("-wave-b", "")
             modified = False
             
             # 1. Check FAQ

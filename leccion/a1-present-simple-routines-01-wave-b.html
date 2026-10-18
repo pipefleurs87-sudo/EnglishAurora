@@ -196,6 +196,39 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When do we add -s or -es in the Present Simple?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only in the affirmative form with third-person singular subjects (He, She, It). For example: 'She works', 'He watches', 'It rains'. For I, You, We, They, the verb stays in its base form ('I work', 'They watch')."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do we add -s to the verb in negative sentences or questions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No! The auxiliary 'does' already carries the third-person marker: 'Does she work here?' (not 'does she works') and 'He doesn't like coffee' (not 'doesn't likes')."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you know whether to use Present Simple or Present Continuous?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Present Simple is for habits, routines, and permanent truths ('I drink coffee every morning'). Present Continuous is for actions happening right now at this exact moment ('I am drinking coffee right now')."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +567,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

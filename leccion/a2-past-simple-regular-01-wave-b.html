@@ -196,6 +196,31 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you pronounce the -ed ending in regular past simple verbs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "-ed has 3 distinct pronunciations: 1) /ɪd/ after /t/ and /d/ sounds ('started', 'decided'); 2) /t/ after voiceless sounds /p, k, f, s, ʃ, tʃ/ ('worked', 'laughed', 'watched'); 3) /d/ after all voiced vowel and consonant sounds ('played', 'lived', 'cleaned')."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the rule for spelling regular verbs with -ed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most verbs simply add -ed ('walk' -> 'walked'). Verbs ending in -e just add -d ('live' -> 'lived'). Consonant + y changes to -ied ('study' -> 'studied'). Single vowel + single consonant doubles the consonant ('stop' -> 'stopped')."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +559,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

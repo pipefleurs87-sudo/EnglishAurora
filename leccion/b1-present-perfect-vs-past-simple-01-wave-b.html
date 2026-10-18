@@ -196,6 +196,47 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the main difference between Past Simple and Present Perfect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Past Simple when the time period is finished (yesterday, last year, in 2020) and the action is completed. Use the Present Perfect when the time is unfinished (today, this week, in my life) or when a past action has a direct result in the present moment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which time expressions signal the Past Simple vs Present Perfect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Past Simple uses definite past time markers: yesterday, ago, last night, in 1999, when I was a child. Present Perfect uses indefinite or open time markers: already, yet, just, ever, never, since, for, so far, recently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is 'I have lived here for 3 years' correct, but 'I lived here for 3 years' means something else?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'I have lived here for 3 years' (Present Perfect) means you moved here 3 years ago and you STILL live here today. 'I lived here for 3 years' (Past Simple) means the period is finished and you no longer live there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the #1 mistake Spanish speakers make with Present Perfect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spanish speakers often translate directly from 'He visto a María ayer' and say 'I have seen Maria yesterday' (*incorrect). In English, as soon as you say 'yesterday', the rule forces Past Simple: 'I saw Maria yesterday'."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +575,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

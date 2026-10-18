@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /motor/
+Disallow: /englishaurora/
+Disallow: /ui-lab/
+Disallow: /aula/
+Disallow: /build/
+Disallow: /motor-generico.html
+Disallow: /prototipo-b1-adverbs-rpg.html
 Sitemap: https://pipefleurs87-sudo.github.io/EnglishAurora/sitemap.xml

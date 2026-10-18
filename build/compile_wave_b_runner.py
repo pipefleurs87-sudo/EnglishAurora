@@ -212,11 +212,39 @@ def generate_lesson_html(data, lesson_audio_dir_rel):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EXMWV3HGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-6EXMWV3HGG');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{title} · Wave B Master Session | English Aurora</title>
-<meta name="description" content="Wave B 1-Hour Masterclass on {title} ({level}). Featuring Aurora AI Host, recurrent character dialogues, 4 grammatical forms, 3 cognitive stages, reading comprehension and printable PDF worksheet.">
-<meta name="robots" content="noindex, nofollow">
+<title>{title} — Printable PDF Worksheet (with Answer Key) & Lesson | English Aurora</title>
+<meta name="description" content="Free printable PDF worksheet with answer key for {title} ({level}). Complete masterclass lesson with audio pronunciation, character dialogues, and CEFR practice.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="{title}, English Worksheet PDF, Printable English exercises, English Aurora">
+<link rel="canonical" href="https://pipefleurs87-sudo.github.io/EnglishAurora/leccion/{lesson_id}-wave-b.html">
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "{title} Printable Worksheet and Master Lesson",
+  "description": "Free printable PDF worksheet with answer key for {title} ({level}).",
+  "educationalLevel": "{level}",
+  "inLanguage": "en",
+  "learningResourceType": "Worksheet",
+  "educationalUse": "Worksheet, Practice, Assessment",
+  "isAccessibleForFree": true,
+  "provider": {{
+    "@type": "Organization",
+    "name": "English Aurora",
+    "url": "https://pipefleurs87-sudo.github.io/EnglishAurora/"
+  }}
+}}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

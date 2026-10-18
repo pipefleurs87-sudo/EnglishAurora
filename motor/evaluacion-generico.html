@@ -290,10 +290,10 @@
     return {p:p,inputs:inputs};
   }
   if(!D) return; app.innerHTML='';
-  function normalize(s){ if(s==null)return''; s=String(s).toLowerCase().trim();
+  function normalize(s){ if(s==null)return''; s=String(s).toLowerCase().trim().replace(/[‘’`]/g,"'");
     const c={"i'm":"i am","you're":"you are","he's":"he is","she's":"she is","it's":"it is","we're":"we are","they're":"they are","isn't":"is not","aren't":"are not","don't":"do not","doesn't":"does not","didn't":"did not","can't":"cannot","won't":"will not","that's":"that is","what's":"what is"};
     for(const k in c){s=s.replace(new RegExp("\\b"+k.replace("'","'?")+"\\b","g"),c[k]);}
-    s=s.replace(/[‘’`]/g,"'").normalize('NFD').replace(/[̀-ͯ]/g,'');
+    s=s.normalize('NFD').replace(/[̀-ͯ]/g,'');
     return s.replace(/[.,;:!?]/g,'').replace(/\s+/g,' ').trim(); }
   function eq(a,b){return normalize(a)===normalize(b);}
   function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
@@ -311,7 +311,7 @@
       const a=el('a',on?'on':null,lbl);a.href=dir+D.id+'.html';mb.appendChild(a);});
     mb.appendChild(el('a',null, isEs ? '🎲 Generador' : '🎲 Exercise Generator')).href='../herramientas/generador-ejercicios.html';
     mb.appendChild(el('a',null, isEs ? '🎮 Juegos' : '🎮 Games')).href='../ludoteca.html';
-    mb.appendChild(el('a',null, isEs ? '🌌 Galaxia' : '🌌 Galaxy')).href='../englishaurora/index.html';
+    mb.appendChild(el('a',null, isEs ? '🌌 Galaxia' : '🌌 Galaxy')).href='../index.html';
     mh.appendChild(mb);}
   app.appendChild(mh);
   app.appendChild(el('div','instr', isEs ? 'Sin pistas. Responde todo y presiona <b>Calificar examen</b>. Verás tu puntaje y las respuestas correctas al final.' : 'No hints. Answer everything and press <b>Submit</b>. You will see your score and the correct answers at the end.'));

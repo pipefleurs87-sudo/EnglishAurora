@@ -196,6 +196,31 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between the First and Second Conditional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The First Conditional (If + Present Simple, will + verb) talks about real, possible future situations: 'If it rains, I will take an umbrella'. The Second Conditional (If + Past Simple, would + verb) talks about imaginary, hypothetical, or improbable present/future situations: 'If I won the lottery, I would buy an island'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do we say 'If I were you' instead of 'If I was you'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'Were' is the traditional subjunctive mood used for hypothetical conditions with all subjects (I, he, she, it). While 'If I was you' is heard in informal conversation, 'If I were you' is the standard, grammatically formal English tested on Cambridge and IELTS exams."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +559,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

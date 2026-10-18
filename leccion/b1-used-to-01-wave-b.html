@@ -196,6 +196,31 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between 'used to + verb' and 'be used to + -ing'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'Used to + base verb' describes past habits or states that no longer exist ('I used to play tennis when I was young'). 'Be used to + noun/-ing' means being accustomed to something familiar ('I am used to waking up early, it is normal for me')."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you form negative and question sentences with 'used to'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drop the 'd' because 'did' takes the past: 'I didn't use to like olives' and 'Did you use to live in London?'"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +559,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">

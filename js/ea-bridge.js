@@ -7,11 +7,11 @@
   
   window.EA_BRIDGES_DATA = {
   "a1-to-be-nationalities-01": {
-    "nextId": "a1-to-be-identities-01",
-    "nextTitle": "Verb To Be — Identities & Professions",
+    "nextId": "a1-to-be-neg-questions-01",
+    "nextTitle": "Verb To Be — Negative & Questions",
     "nextLevel": "A1",
     "relation": "Next Milestone",
-    "note": "Now that you can state where people are from, learn how to describe who they are and what they do.",
+    "note": "Now that you can state where people are from, learn how to form negatives and ask questions with To Be.",
     "challenge": {
       "q": "Sofía ___ from Colombia and she ___ a brilliant graphic designer.",
       "options": [
@@ -23,7 +23,7 @@
       "hint": "Sofía is singular (she), so use 'is' in both slots."
     }
   },
-  "a1-to-be-identities-01": {
+  "a1-to-be-neg-questions-01": {
     "nextId": "a1-have-got-01",
     "nextTitle": "Have got — Possessions & Family",
     "nextLevel": "A1",
@@ -481,7 +481,39 @@
       "hint": "Press forward to claim more Aurora essence!"
     }
   },
+  "a1-greetings-and-farewells-01": {
+    "nextId": "a1-have-got-01",
+    "nextTitle": "Have got — Possessions",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Have got — Possessions.",
+    "challenge": {
+      "q": "Ready to master Have got — Possessions? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
   "a1-imperatives-01": {
+    "nextId": "a1-introducing-yourself-01",
+    "nextTitle": "Introducing Yourself — Greetings & Personal Information",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Introducing Yourself — Greetings & Personal Information.",
+    "challenge": {
+      "q": "Ready to master Introducing Yourself — Greetings & Personal Information? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-introducing-yourself-01": {
     "nextId": "a1-modal-can-ability-01",
     "nextTitle": "Modal Verb 'Can' — Ability & the Body",
     "nextLevel": "A1",
@@ -562,6 +594,22 @@
     }
   },
   "a1-modal-would-like-01": {
+    "nextId": "a1-numbers-01",
+    "nextTitle": "Numbers — Counting, Age & Time",
+    "nextLevel": "A1",
+    "relation": "Next Milestone",
+    "note": "Continue your journey in A1: deepen your fluency with Numbers — Counting, Age & Time.",
+    "challenge": {
+      "q": "Ready to master Numbers — Counting, Age & Time? Click below to explore its rule and practice.",
+      "options": [
+        "Let's go!",
+        "Explore Star"
+      ],
+      "answer": "Let's go!",
+      "hint": "Press forward to claim more Aurora essence!"
+    }
+  },
+  "a1-numbers-01": {
     "nextId": "a1-object-pronouns-01",
     "nextTitle": "Object Pronouns (me, him, her, us, them)",
     "nextLevel": "A1",
@@ -745,22 +793,6 @@
     "note": "Continue your journey in A1: deepen your fluency with Verb To Be — Nationalities.",
     "challenge": {
       "q": "Ready to master Verb To Be — Nationalities? Click below to explore its rule and practice.",
-      "options": [
-        "Let's go!",
-        "Explore Star"
-      ],
-      "answer": "Let's go!",
-      "hint": "Press forward to claim more Aurora essence!"
-    }
-  },
-  "a1-to-be-neg-questions-01": {
-    "nextId": "a1-wh-questions-bank-01",
-    "nextTitle": "Wh- Questions — Question Bank (you / he-she)",
-    "nextLevel": "A1",
-    "relation": "Next Milestone",
-    "note": "Continue your journey in A1: deepen your fluency with Wh- Questions — Question Bank (you / he-she).",
-    "challenge": {
-      "q": "Ready to master Wh- Questions — Question Bank (you / he-she)? Click below to explore its rule and practice.",
       "options": [
         "Let's go!",
         "Explore Star"
@@ -1542,7 +1574,7 @@
       return window.SEQUENCE_DATA.id;
     }
     var m = window.location.pathname.match(/([a-c][1-2]-[a-z0-9-]+(?:-01|-wave-b))/);
-    return m ? m[1] : null;
+    return m ? m[1].replace(/-wave-b$/, '') : null;
   }
 
   function renderConnectedBridge() {

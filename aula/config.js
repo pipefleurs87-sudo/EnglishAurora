@@ -11,7 +11,9 @@ const firebaseConfig = {
   measurementId: "G-6EXMWV3HGG"
 };
 
-// URL base del sitio público (sin / al final)
-const SITE_BASE = "https://pipefleurs87-sudo.github.io/EnglishAurora";
+// URL base del sitio público (sin / al final) — resuelve en local nativo automáticamente
+const SITE_BASE = (typeof window !== "undefined" && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"))
+  ? window.location.origin
+  : "https://pipefleurs87-sudo.github.io/EnglishAurora";
 
 const TEACHER_NAME = "Felipe Florez";

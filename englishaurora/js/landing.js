@@ -370,12 +370,155 @@ function closeStar(){
   setAurora('saludo');
 }
 $('p-close').addEventListener('click', closeStar);
-addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeStar(); }});
+addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    const sr = $('star-search-results');
+    if (sr && sr.classList.contains('open')) {
+      sr.classList.remove('open');
+      return;
+    }
+    closeStar();
+  } else if (e.key === '/' && document.activeElement && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+    const inp = $('star-search');
+    if (inp) {
+      e.preventDefault();
+      inp.focus();
+      inp.select();
+    }
+  }
+});
 $('btn-ignite').addEventListener('click', ()=>{
   setAurora('celebrando');
   const n = Object.keys(localStorage).filter(k=>k.startsWith('ea_best_')).length;
   say(`You carry <b>${esenciaTotal()} Aurora Essence</b> ✦ and <b>${n}</b> completed paths. <b>Sign up to keep your students' progress!</b> <a href="${ROOT_PREFIX}herramientas/teacher-hub.html" style="color:var(--gold); text-decoration:underline; font-weight:600; display:inline-block; margin-top:4px;">Open Teacher's Hub ↗</a>`);
 });
+
+/* ---------- Instant Star Search (Browser Indexing) ---------- */
+function normQuery(s){
+  return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+}
+const AREA_ES_MAP = {
+  'Grammar':'gramatica grammar',
+  'Vocabulary':'vocabulario vocabulary',
+  'Reading':'lectura reading',
+  'Listening':'escucha listening audio',
+  'Speaking':'habla speaking conversacion',
+  'Writing':'escritura writing'
+};
+const starSearchPool = [];
+const seenTopicIds = new Set();
+stars.forEach(s => {
+  if (seenTopicIds.has(s.data.id)) return;
+  seenTopicIds.add(s.data.id);
+  const raw = [
+    s.data.id,
+    s.data.title,
+    s.data.level,
+    s.data.area,
+    AREA_ES_MAP[s.data.area] || '',
+    (s.data.chips || []).join(' '),
+    s.data.meta || ''
+  ].join(' ');
+  starSearchPool.push({
+    star: s,
+    id: s.data.id,
+    title: s.data.title,
+    level: s.data.level,
+    area: s.data.area,
+    skill: s.skill,
+    norm: normQuery(raw)
+  });
+});
+const searchMatches = new Set();
+
+(function initStarSearch(){
+  const inp = $('star-search');
+  const box = $('star-search-results');
+  if (!inp || !box) return;
+  let currentMatches = [];
+  let activeIdx = -1;
+
+  function renderDropdown(tokens){
+    searchMatches.clear();
+    if (!tokens.length) {
+      box.innerHTML = '';
+      box.classList.remove('open');
+      currentMatches = [];
+      activeIdx = -1;
+      return;
+    }
+    const matched = starSearchPool.filter(item => {
+      for (let i = 0; i < tokens.length; i++) {
+        if (item.norm.indexOf(tokens[i]) === -1) return false;
+      }
+      return true;
+    });
+    matched.forEach(m => searchMatches.add(m.id));
+    currentMatches = matched.slice(0, 8);
+    activeIdx = currentMatches.length ? 0 : -1;
+
+    if (!currentMatches.length) {
+      box.innerHTML = `<div class="sr-empty">No stars match "${inp.value.trim()}"</div>`;
+      box.classList.add('open');
+      return;
+    }
+    box.innerHTML = currentMatches.map((m, idx) => `
+      <button type="button" class="sr-item${idx === activeIdx ? ' active' : ''}" data-idx="${idx}">
+        <span class="sr-lv">${m.level}</span>
+        <span class="sr-txt">
+          <strong>${m.title}</strong>
+          <small>${m.area} · ${m.skill}</small>
+        </span>
+      </button>
+    `).join('');
+    box.classList.add('open');
+    box.querySelectorAll('.sr-item').forEach(btn => {
+      btn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        const item = currentMatches[Number(btn.dataset.idx)];
+        if (item) {
+          openStar(item.star);
+          box.classList.remove('open');
+        }
+      });
+    });
+  }
+
+  inp.addEventListener('input', () => {
+    const q = normQuery(inp.value);
+    const tokens = q ? q.split(/\s+/).filter(Boolean) : [];
+    renderDropdown(tokens);
+  });
+  inp.addEventListener('focus', () => {
+    const q = normQuery(inp.value);
+    if (q) renderDropdown(q.split(/\s+/).filter(Boolean));
+  });
+  inp.addEventListener('keydown', (e) => {
+    if (!box.classList.contains('open') || !currentMatches.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = (activeIdx + 1) % currentMatches.length;
+      box.querySelectorAll('.sr-item').forEach((el, i) => el.classList.toggle('active', i === activeIdx));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = (activeIdx - 1 + currentMatches.length) % currentMatches.length;
+      box.querySelectorAll('.sr-item').forEach((el, i) => el.classList.toggle('active', i === activeIdx));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const chosen = currentMatches[activeIdx >= 0 ? activeIdx : 0];
+      if (chosen) {
+        openStar(chosen.star);
+        box.classList.remove('open');
+        inp.blur();
+      }
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.star-search-wrap')) {
+      box.classList.remove('open');
+    }
+  });
+})();
 
 /* ---------- night → dawn ---------- */
 function skyMix(t){ return [lerp(6,42,t),lerp(11,66,t),lerp(22,84,t)]; }
@@ -393,7 +536,20 @@ function drawSkyLayer(img, parallax, alpha, offsetX, offsetY, scaleUp){
 
 /* ---------- main loop ---------- */
 const t0 = performance.now();
+let rafRunning = false;
+function scheduleFrame(){
+  if (!rafRunning && !document.hidden) {
+    rafRunning = true;
+    requestAnimationFrame(frame);
+  }
+}
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) scheduleFrame();
+});
+
 function frame(now){
+  rafRunning = false;
+  if (document.hidden) return;
   const t = (now - t0)/1000;
   cam.x = lerp(cam.x, cam.tx, .06); cam.y = lerp(cam.y, cam.ty, .06);
   cam.z = lerp(cam.z, cam.tz, .055);
@@ -443,6 +599,7 @@ function frame(now){
 
   hovered = null;
   let bestD = 1e9;
+  const hasSearch = searchMatches.size > 0;
   for(const s of stars){
     const d = Math.hypot(s.wx-mouse.wx, s.wy-mouse.wy);
     const prox = clamp(1 - d/160, 0, 1);
@@ -450,6 +607,8 @@ function frame(now){
     const dimOther  = activeSkill && s.skill!==activeSkill.key ? .12 : 0;
     const lvlBoost  = activeLevel && s.lv===activeLevel ? .30 : 0;
     const lvlDim    = activeLevel && s.lv!==activeLevel ? .16 : 0;
+    const srchBoost = hasSearch && searchMatches.has(s.data.id) ? .45 : 0;
+    const srchDim   = hasSearch && !searchMatches.has(s.data.id) ? .20 : 0;
 
     let baseLit = 0.30;
     if (isStudentMode) {
@@ -459,7 +618,7 @@ function frame(now){
       else if (st === 'tenue') baseLit = 0.40;
       else baseLit = 0.12;
     }
-    s.lit = lerp(s.lit, baseLit + prox*.7 + skillBoost + lvlBoost - dimOther - lvlDim + (s===selected?.9:0), .09);
+    s.lit = lerp(s.lit, baseLit + prox*.7 + skillBoost + lvlBoost + srchBoost - dimOther - lvlDim - srchDim + (s===selected?.9:0), .09);
     if(d < bestD && d < 22/cam.z){ bestD = d; hovered = s; }
   }
 
@@ -558,7 +717,7 @@ function frame(now){
     tip.style.opacity=0;
   }
 
-  requestAnimationFrame(frame);
+  scheduleFrame();
 }
 
 /* ---------- Student Mode Initialization (Firebase Firestore) ---------- */
@@ -816,7 +975,7 @@ function applyStudentUI() {
 skillDesc.textContent = 'Six skills. One sky. Pick a constellation or touch a star.';
 say('Hi, I\'m <b>Aurora</b> ✨ This sky is asleep… <b>drift toward a star</b> and watch it wake up.');
 initStudentMode();
-requestAnimationFrame(frame);
+scheduleFrame();
 
 /* ---------- URL Deep-Linking (Search Engines & Teacher's Hub) ---------- */
 (function handleUrlDeepLink(){

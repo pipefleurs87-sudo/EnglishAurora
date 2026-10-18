@@ -196,6 +196,39 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is the Present Continuous formed in English?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It always requires two elements: the auxiliary verb 'to be' (am/is/are) + the main verb with '-ing' (e.g., 'Sofía is typing an email'). Never omit the verb to be!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What verbs cannot be used in the Present Continuous?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stative verbs (verbs of thinking, feeling, and possession) are usually not used in continuous forms: like, love, hate, know, understand, believe, want, need. Say 'I understand now', not 'I am understanding now'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Present Continuous be used to talk about the future?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! When you have a confirmed personal arrangement or appointment in the diary: 'I am meeting Kenji tomorrow at 5 PM'."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -534,7 +567,13 @@ html, body { width: 100%; min-height: 100%; background: var(--bg-main); color: v
             </div>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
               <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn-hud-control" style="background:#25D366; color:#fff; border-color:#25D366; font-weight:700;" onclick="shareTeacherWorksheet()">📲 Asignar por WhatsApp</button>
               <button class="btn-hud-control" style="background:var(--teal); color:#fff;" onclick="window.print()">🖨️ Print to PDF</button>
+            </div>
+            </div>
             </div>
           </div>
           <div class="sheet-meta-fields">
