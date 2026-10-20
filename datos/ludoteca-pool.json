@@ -6841,1583 +6841,1583 @@
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "good · better · the best",
-   "tr": "bueno",
+   "tr": "high quality · superior · highest quality",
    "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "bad · worse · the worst",
-   "tr": "malo",
+   "tr": "poor quality · inferior · lowest quality",
    "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "cheap · cheaper · the cheapest",
-   "tr": "barato",
+   "tr": "low in price · costing very little",
    "f": "-er"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "fast · faster · the fastest",
-   "tr": "rápido",
+   "tr": "moving with high speed and velocity",
    "f": "-er"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "big · bigger · the biggest",
-   "tr": "grande",
+   "tr": "large in dimensions or extent",
    "f": "-er ×2"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "healthy · healthier · the healthiest",
-   "tr": "saludable",
+   "tr": "beneficial to physical wellbeing",
    "f": "-ier"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "easy · easier · the easiest",
-   "tr": "fácil",
+   "tr": "simple · requiring little effort",
    "f": "-ier"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "delicious · more delicious · the most delicious",
-   "tr": "delicioso",
+   "tr": "delightful and pleasing to taste",
    "f": "more"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "entertaining · more entertaining · the most entertaining",
-   "tr": "entretenido",
+   "tr": "providing sustained amusement and interest",
    "f": "more"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "fun · more fun · the most fun",
-   "tr": "divertido",
+   "tr": "enjoyable · bringing joy and laughter",
    "f": "more"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "relaxing · more relaxing · the most relaxing",
-   "tr": "relajante",
+   "tr": "bringing calm, peace, and restful ease",
    "f": "more"
   },
   {
    "n": "A2",
    "t": "a2-comparatives-superlatives-01",
    "w": "interesting · more interesting · the most interesting",
-   "tr": "interesante",
+   "tr": "capturing curiosity and attention",
    "f": "more"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "milk",
-   "tr": "leche · incontable",
+   "tr": "uncountable dairy liquid",
    "f": "🥛"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "eggs",
-   "tr": "huevos · contable",
+   "tr": "countable food items",
    "f": "🥚"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "cheese",
-   "tr": "queso · incontable",
+   "tr": "uncountable dairy food",
    "f": "🧀"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "apples",
-   "tr": "manzanas · contable",
+   "tr": "countable sweet fruit",
    "f": "🍎"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "bread",
-   "tr": "pan · incontable",
+   "tr": "uncountable baked staple",
    "f": "🍞"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "butter",
-   "tr": "mantequilla · incontable",
+   "tr": "uncountable dairy spread",
    "f": "🧈"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "rice",
-   "tr": "arroz · incontable",
+   "tr": "uncountable grain food",
    "f": "🍚"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "water",
-   "tr": "agua · incontable",
+   "tr": "uncountable essential drink",
    "f": "💧"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "onions",
-   "tr": "cebollas · contable",
+   "tr": "countable savory bulbs",
    "f": "🧅"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "tomatoes",
-   "tr": "tomates · contable",
+   "tr": "countable juicy red fruit",
    "f": "🍅"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "bananas",
-   "tr": "bananos · contable",
+   "tr": "countable curved yellow fruit",
    "f": "🍌"
   },
   {
    "n": "A2",
    "t": "a2-countables-some-any-01",
    "w": "carrots",
-   "tr": "zanahorias · contable",
+   "tr": "countable orange root vegetable",
    "f": "🥕"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
    "w": "tonight",
-   "tr": "esta noche",
+   "tr": "the evening and night of today",
    "f": "🌙"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
    "w": "tomorrow",
-   "tr": "mañana",
+   "tr": "the calendar day after today",
    "f": "☀️"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
    "w": "tomorrow morning",
-   "tr": "mañana por la mañana",
+   "tr": "the early hours of tomorrow",
    "f": "🌅"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
    "w": "this weekend",
-   "tr": "este fin de semana",
+   "tr": "the upcoming Saturday and Sunday",
    "f": "🎉"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
    "w": "on Saturday",
-   "tr": "el sábado",
-   "f": "📆"
-  },
-  {
-   "n": "A2",
-   "t": "a2-going-to-future-01",
-   "w": "next week",
-   "tr": "la próxima semana",
+   "tr": "the upcoming sixth day of the week",
    "f": "📅"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
+   "w": "next week",
+   "tr": "the week directly following this one",
+   "f": "📆"
+  },
+  {
+   "n": "A2",
+   "t": "a2-going-to-future-01",
    "w": "next month",
-   "tr": "el próximo mes",
+   "tr": "the calendar month directly following this one",
    "f": "🗓️"
   },
   {
    "n": "A2",
    "t": "a2-going-to-future-01",
    "w": "next year",
-   "tr": "el próximo año",
+   "tr": "the calendar year following this one",
    "f": "🎆"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "drink · drank · drunk",
-   "tr": "beber",
+   "tr": "consume a liquid",
    "f": "i-a-u"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "sing · sang · sung",
-   "tr": "cantar",
+   "tr": "produce musical tones with voice",
    "f": "i-a-u"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "swim · swam · swum",
-   "tr": "nadar",
+   "tr": "propel through water",
    "f": "i-a-u"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "begin · began · begun",
-   "tr": "empezar",
+   "tr": "start or initiate an action",
    "f": "i-a-u"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "drive · drove · driven",
-   "tr": "conducir",
+   "tr": "operate a motor vehicle",
    "f": "i-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "write · wrote · written",
-   "tr": "escribir",
+   "tr": "inscribe words on a surface",
    "f": "i-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "ride · rode · ridden",
-   "tr": "montar",
+   "tr": "sit on and control a bike or animal",
    "f": "i-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "freeze · froze · frozen",
-   "tr": "congelar",
+   "tr": "solidify into ice from cold",
    "f": "i-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "buy · bought · bought",
-   "tr": "comprar",
+   "tr": "purchase goods with money",
    "f": "-ought"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "bring · brought · brought",
-   "tr": "traer",
+   "tr": "carry or accompany to a location",
    "f": "-ought"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "think · thought · thought",
-   "tr": "pensar",
+   "tr": "hold an opinion or mental idea",
    "f": "-ought"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "teach · taught · taught",
-   "tr": "enseñar",
+   "tr": "educate or guide someone in skills",
    "f": "-ought"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "keep · kept · kept",
-   "tr": "guardar / mantener",
+   "tr": "retain in custody or possession",
    "f": "-ept"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "sleep · slept · slept",
-   "tr": "dormir",
+   "tr": "rest in natural unconscious state",
    "f": "-ept"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "feel · felt · felt",
-   "tr": "sentir",
+   "tr": "sense emotionally or physically",
    "f": "-ept"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "leave · left · left",
-   "tr": "irse / dejar",
+   "tr": "depart or abandon a place",
    "f": "-ept"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "cut · cut · cut",
-   "tr": "cortar",
-   "f": "="
+   "w": "speak · spoke · spoken",
+   "tr": "express words vocally",
+   "f": "o-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "put · put · put",
-   "tr": "poner",
-   "f": "="
+   "w": "break · broke · broken",
+   "tr": "fracture into parts by force",
+   "f": "o-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "quit · quit · quit",
-   "tr": "renunciar",
-   "f": "="
+   "w": "wake · woke · woken",
+   "tr": "awaken from sleep",
+   "f": "o-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "cost · cost · cost",
-   "tr": "costar",
-   "f": "="
+   "w": "choose · chose · chosen",
+   "tr": "select by preference",
+   "f": "o-o-en"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "know · knew · known",
-   "tr": "saber / conocer",
-   "f": "ew/own"
+   "tr": "have facts or certainty in mind",
+   "f": "ew-own"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "grow · grew · grown",
-   "tr": "crecer",
-   "f": "ew/own"
+   "tr": "expand in size or maturity",
+   "f": "ew-own"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "throw · threw · thrown",
-   "tr": "lanzar",
-   "f": "ew/own"
+   "tr": "launch through the air with arm",
+   "f": "ew-own"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "fly · flew · flown",
-   "tr": "volar",
-   "f": "ew/own"
+   "tr": "travel through skies with wings",
+   "f": "ew-own"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-irregular-01",
+   "w": "put · put · put",
+   "tr": "place in a particular position",
+   "f": "no change"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-irregular-01",
+   "w": "cut · cut · cut",
+   "tr": "slice or divide with a blade",
+   "f": "no change"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-irregular-01",
+   "w": "cost · cost · cost",
+   "tr": "require a set price or amount",
+   "f": "no change"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-irregular-01",
+   "w": "hit · hit · hit",
+   "tr": "make forceful contact with",
+   "f": "no change"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "go · went · gone",
-   "tr": "ir",
-   "f": "★"
+   "tr": "move or travel to a place",
+   "f": "irreg"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-irregular-01",
+   "w": "have · had · had",
+   "tr": "possess, hold, or experience",
+   "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "do · did · done",
-   "tr": "hacer",
-   "f": "★"
+   "tr": "perform or complete an activity",
+   "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "see · saw · seen",
-   "tr": "ver",
-   "f": "★"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-irregular-01",
-   "w": "take · took · taken",
-   "tr": "tomar",
-   "f": "★"
+   "tr": "view with the physical eyes",
+   "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
    "w": "eat · ate · eaten",
-   "tr": "comer",
-   "f": "★"
+   "tr": "consume solid nourishment",
+   "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "make · made · made",
-   "tr": "hacer / fabricar",
-   "f": "★"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-irregular-01",
-   "w": "get · got · got",
-   "tr": "conseguir",
-   "f": "★"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-irregular-01",
-   "w": "give · gave · given",
-   "tr": "dar",
-   "f": "★"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-irregular-01",
-   "w": "can → could / was able to",
-   "tr": "poder (pasado)",
-   "f": "modal"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-irregular-01",
-   "w": "must / have to → had to",
-   "tr": "tener que (pasado)",
-   "f": "modal"
+   "w": "take · took · taken",
+   "tr": "reach out, seize, or carry",
+   "f": "irreg"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-narrative-01",
    "w": "go · went · gone",
-   "tr": "ir",
+   "tr": "journey to an exciting destination",
    "f": "★"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-narrative-01",
    "w": "take · took · taken",
-   "tr": "tomar",
-   "f": "★"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-narrative-01",
-   "w": "eat · ate · eaten",
-   "tr": "comer",
+   "tr": "board transport or carry items",
    "f": "★"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-narrative-01",
    "w": "fall · fell · fallen",
-   "tr": "caer",
-   "f": "irreg"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-narrative-01",
-   "w": "buy · bought · bought",
-   "tr": "comprar",
-   "f": "-ought"
+   "tr": "drop down by accident",
+   "f": "★"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-narrative-01",
    "w": "lose · lost · lost",
-   "tr": "perder",
-   "f": "2 forms"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-narrative-01",
-   "w": "find · found · found",
-   "tr": "encontrar",
-   "f": "2 forms"
+   "tr": "misplace or be deprived of",
+   "f": "★"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-narrative-01",
    "w": "meet · met · met",
-   "tr": "conocer",
-   "f": "2 forms"
+   "tr": "make the acquaintance of someone",
+   "f": "★"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-narrative-01",
+   "w": "eat · ate · eaten",
+   "tr": "share food and meals together",
+   "f": "★"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-narrative-01",
+   "w": "have · had · had",
+   "tr": "experience a wonderful period",
+   "f": "★"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-narrative-01",
+   "w": "see · saw · seen",
+   "tr": "perceive or look at landmarks",
+   "f": "★"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "worked",
-   "tr": "trabajó",
+   "tr": "/t/ sound: engaged in employment",
    "f": "/t/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "watched",
-   "tr": "vio / miró",
+   "tr": "/t/ sound: viewed with visual attention",
    "f": "/t/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "danced",
-   "tr": "bailó",
+   "tr": "/t/ sound: moved body to rhythmic music",
    "f": "/t/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
-   "w": "finished",
-   "tr": "terminó",
+   "w": "talked",
+   "tr": "/t/ sound: shared words in conversation",
    "f": "/t/"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-regular-01",
-   "w": "played",
-   "tr": "jugó / tocó",
-   "f": "/d/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "lived",
-   "tr": "vivió",
+   "tr": "/d/ sound: had permanent residence",
+   "f": "/d/"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-regular-01",
+   "w": "called",
+   "tr": "/d/ sound: rang someone via phone",
+   "f": "/d/"
+  },
+  {
+   "n": "A2",
+   "t": "a2-past-simple-regular-01",
+   "w": "stayed",
+   "tr": "/d/ sound: lodged temporarily",
    "f": "/d/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "enjoyed",
-   "tr": "disfrutó",
+   "tr": "/d/ sound: experienced happiness from",
    "f": "/d/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
-   "w": "studied",
-   "tr": "estudió",
-   "f": "/d/"
+   "w": "waited",
+   "tr": "/ɪd/ sound: delayed movement until someone came",
+   "f": "/ɪd/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "visited",
-   "tr": "visitó",
+   "tr": "/ɪd/ sound: journeyed to explore sights",
    "f": "/ɪd/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
-   "w": "wanted",
-   "tr": "quiso",
-   "f": "/ɪd/"
-  },
-  {
-   "n": "A2",
-   "t": "a2-past-simple-regular-01",
-   "w": "needed",
-   "tr": "necesitó",
+   "w": "invited",
+   "tr": "/ɪd/ sound: warmly requested attendance",
    "f": "/ɪd/"
   },
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
    "w": "decided",
-   "tr": "decidió",
+   "tr": "/ɪd/ sound: settled a choice firmly",
    "f": "/ɪd/"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "kitchen",
-   "tr": "cocina",
+   "tr": "room where meals are cooked",
    "f": "🍳"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "living room",
-   "tr": "sala",
+   "tr": "room for family relaxation",
    "f": "🛋️"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "bedroom",
-   "tr": "habitación",
+   "tr": "private room with a sleeping bed",
    "f": "🛏️"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "bathroom",
-   "tr": "baño",
-   "f": "🛁"
+   "tr": "room with sink, shower and toilet",
+   "f": "🚿"
+  },
+  {
+   "n": "A2",
+   "t": "a2-there-is-there-are-01",
+   "w": "balcony",
+   "tr": "elevated outdoor terrace platform",
+   "f": "🪴"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "garden",
-   "tr": "jardín",
-   "f": "🌳"
-  },
-  {
-   "n": "A2",
-   "t": "a2-there-is-there-are-01",
-   "w": "garage",
-   "tr": "garaje",
-   "f": "🚗"
-  },
-  {
-   "n": "A2",
-   "t": "a2-there-is-there-are-01",
-   "w": "oven",
-   "tr": "horno",
-   "f": "🔥"
+   "tr": "outdoor plot with plants and green lawn",
+   "f": "🏡"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "fridge",
-   "tr": "nevera",
+   "tr": "chilled cabinet for food preservation",
    "f": "🧊"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
-   "w": "mirror",
-   "tr": "espejo",
-   "f": "🪞"
+   "w": "sofa",
+   "tr": "comfortable cushioned long seat",
+   "f": "🛋️"
+  },
+  {
+   "n": "A2",
+   "t": "a2-there-is-there-are-01",
+   "w": "table",
+   "tr": "flat raised surface on sturdy legs",
+   "f": "🪵"
+  },
+  {
+   "n": "A2",
+   "t": "a2-there-is-there-are-01",
+   "w": "chair",
+   "tr": "seat with support for one person",
+   "f": "🪑"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "window",
-   "tr": "ventana",
+   "tr": "transparent wall glass for natural light",
    "f": "🪟"
   },
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
    "w": "door",
-   "tr": "puerta",
+   "tr": "swinging entry panel to enter a room",
    "f": "🚪"
-  },
-  {
-   "n": "A2",
-   "t": "a2-there-is-there-are-01",
-   "w": "stairs",
-   "tr": "escaleras",
-   "f": "🪜"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
    "w": "difficult",
-   "tr": "difícil",
-   "f": ""
+   "tr": "not easy / requiring serious effort",
+   "f": "⚡"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
    "w": "unfair",
-   "tr": "injusto",
-   "f": ""
+   "tr": "not just, equal, or balanced",
+   "f": "⚖️"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "peaceful",
-   "tr": "tranquilo / pacífico",
-   "f": ""
+   "w": "funny",
+   "tr": "causing laughter and amusement",
+   "f": "😄"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "dangerous",
-   "tr": "peligroso",
-   "f": ""
+   "w": "crowded",
+   "tr": "full of dense groups of people",
+   "f": "👥"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "exciting",
-   "tr": "emocionante",
-   "f": ""
+   "w": "noisy",
+   "tr": "emitting loud, distracting sounds",
+   "f": "📢"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "boring",
-   "tr": "aburrido",
-   "f": ""
+   "w": "quiet",
+   "tr": "calm with very low auditory sound",
+   "f": "🤫"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "safe",
-   "tr": "seguro",
-   "f": ""
+   "w": "cheap",
+   "tr": "low in monetary cost",
+   "f": "🪙"
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "proud",
-   "tr": "orgulloso",
-   "f": ""
+   "w": "expensive",
+   "tr": "demanding a high monetary price",
+   "f": "💎"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "quick → quickly",
-   "tr": "rápido → rápidamente",
+   "tr": "at high speed / rapidly",
    "f": "-ly"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "slow → slowly",
-   "tr": "lento → lentamente",
+   "tr": "at low speed / taking time",
    "f": "-ly"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "careful → carefully",
-   "tr": "cuidadoso → cuidadosamente",
-   "f": "-ly"
-  },
-  {
-   "n": "B1",
-   "t": "b1-adverbs-01",
-   "w": "loud → loudly",
-   "tr": "fuerte → fuertemente (volumen)",
-   "f": "-ly"
-  },
-  {
-   "n": "B1",
-   "t": "b1-adverbs-01",
-   "w": "bad → badly",
-   "tr": "malo → mal",
-   "f": "-ly"
-  },
-  {
-   "n": "B1",
-   "t": "b1-adverbs-01",
-   "w": "dangerous → dangerously",
-   "tr": "peligroso → peligrosamente",
+   "tr": "with caution, attention and precision",
    "f": "-ly"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "easy → easily",
-   "tr": "fácil → fácilmente",
-   "f": "-ily"
+   "tr": "with no difficulty / effortlessly",
+   "f": "-ly"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
-   "w": "happy → happily",
-   "tr": "feliz → felizmente",
-   "f": "-ily"
+   "w": "hard → hard",
+   "tr": "with great physical or mental effort (no -ly)",
+   "f": "irreg"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "good → well",
-   "tr": "bueno → bien",
+   "tr": "in an admirable or satisfactory manner",
    "f": "irreg"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "fast → fast",
-   "tr": "rápido (no cambia)",
-   "f": "="
+   "tr": "swiftly / at high velocity (no -ly)",
+   "f": "irreg"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
-   "w": "hard → hard",
-   "tr": "duro / con esfuerzo (no cambia)",
-   "f": "="
+   "w": "late → late",
+   "tr": "after the expected or agreed time",
+   "f": "irreg"
   },
   {
    "n": "B1",
    "t": "b1-adverbs-01",
    "w": "early → early",
-   "tr": "temprano (no cambia)",
-   "f": "="
+   "tr": "before the expected or usual hour",
+   "f": "irreg"
+  },
+  {
+   "n": "B1",
+   "t": "b1-adverbs-01",
+   "w": "bad → badly",
+   "tr": "in an unsatisfactory or unpleasant way",
+   "f": "-ly"
+  },
+  {
+   "n": "B1",
+   "t": "b1-adverbs-01",
+   "w": "quiet → quietly",
+   "tr": "with very little or no sound",
+   "f": "-ly"
+  },
+  {
+   "n": "B1",
+   "t": "b1-adverbs-01",
+   "w": "loud → loudly",
+   "tr": "with powerful auditory volume",
+   "f": "-ly"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "enjoy",
-   "tr": "disfrutar",
+   "tr": "take pleasure in doing (+ gerund)",
    "f": "+ing"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "avoid",
-   "tr": "evitar",
-   "f": "+ing"
-  },
-  {
-   "n": "B1",
-   "t": "b1-gerund-vs-infinitive-01",
-   "w": "finish",
-   "tr": "terminar",
-   "f": "+ing"
-  },
-  {
-   "n": "B1",
-   "t": "b1-gerund-vs-infinitive-01",
-   "w": "keep",
-   "tr": "seguir (haciendo)",
+   "tr": "keep away from doing (+ gerund)",
    "f": "+ing"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "mind",
-   "tr": "importar / molestar",
+   "tr": "object or feel bothered by (+ gerund)",
+   "f": "+ing"
+  },
+  {
+   "n": "B1",
+   "t": "b1-gerund-vs-infinitive-01",
+   "w": "finish",
+   "tr": "complete doing an activity (+ gerund)",
    "f": "+ing"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "suggest",
-   "tr": "sugerir",
+   "tr": "propose doing an activity (+ gerund)",
+   "f": "+ing"
+  },
+  {
+   "n": "B1",
+   "t": "b1-gerund-vs-infinitive-01",
+   "w": "practice",
+   "tr": "perform an exercise repeatedly (+ gerund)",
    "f": "+ing"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "want",
-   "tr": "querer",
-   "f": "+to"
-  },
-  {
-   "n": "B1",
-   "t": "b1-gerund-vs-infinitive-01",
-   "w": "need",
-   "tr": "necesitar",
+   "tr": "desire to do (+ to-infinitive)",
    "f": "+to"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "decide",
-   "tr": "decidir",
+   "tr": "make a choice to do (+ to-infinitive)",
    "f": "+to"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "hope",
-   "tr": "esperar (anhelar)",
+   "tr": "wish expectantly to do (+ to-infinitive)",
    "f": "+to"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "promise",
-   "tr": "prometer",
+   "tr": "pledge solemnly to do (+ to-infinitive)",
+   "f": "+to"
+  },
+  {
+   "n": "B1",
+   "t": "b1-gerund-vs-infinitive-01",
+   "w": "need",
+   "tr": "require to do (+ to-infinitive)",
    "f": "+to"
   },
   {
    "n": "B1",
    "t": "b1-gerund-vs-infinitive-01",
    "w": "learn",
-   "tr": "aprender",
+   "tr": "acquire the skill to do (+ to-infinitive)",
    "f": "+to"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "somebody / someone",
-   "tr": "alguien",
-   "f": "alguien (afirmativo)"
+   "tr": "an unspecified person (affirmative)",
+   "f": "some-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "something",
-   "tr": "algo",
-   "f": "algo (afirmativo)"
+   "tr": "an unspecified thing (affirmative)",
+   "f": "some-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "somewhere",
-   "tr": "en/a algún lugar",
-   "f": "en algún lugar"
+   "tr": "an unspecified place (affirmative)",
+   "f": "some-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "anybody / anyone",
-   "tr": "alguien / nadie (en preguntas y negativos)",
-   "f": "alguien (pregunta/negativo)"
+   "tr": "any person (questions and negatives)",
+   "f": "any-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "anything",
-   "tr": "algo / nada",
-   "f": "algo / nada (pregunta/negativo)"
+   "tr": "any object (questions and negatives)",
+   "f": "any-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "anywhere",
-   "tr": "en/a cualquier lugar / ningún lugar",
-   "f": "en algún/ningún lugar"
+   "tr": "any place (questions and negatives)",
+   "f": "any-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "nobody / no one",
-   "tr": "nadie",
-   "f": "nadie"
+   "tr": "zero persons (negative meaning, positive verb)",
+   "f": "no-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "nothing",
-   "tr": "nada",
-   "f": "nada"
+   "tr": "not anything / zero items",
+   "f": "no-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "nowhere",
-   "tr": "en/a ningún lugar",
-   "f": "en ningún lugar"
+   "tr": "in or to no place",
+   "f": "no-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "everybody / everyone",
-   "tr": "todos",
-   "f": "todos (personas)"
+   "tr": "all people considered together",
+   "f": "every-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "everything",
-   "tr": "todo",
-   "f": "todo"
+   "tr": "all items / totality of things",
+   "f": "every-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "everywhere",
-   "tr": "en todas partes",
-   "f": "en todas partes"
+   "tr": "in all possible places",
+   "f": "every-"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "something else",
-   "tr": "otra cosa",
-   "f": "otra cosa más"
+   "tr": "an additional or alternative thing",
+   "f": "-else"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "somewhere else",
-   "tr": "en otro lugar",
-   "f": "en otro lugar"
+   "tr": "in a different location",
+   "f": "-else"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "anything at all",
-   "tr": "cualquier cosa (énfasis)",
-   "f": "cualquier cosa (da igual)"
+   "tr": "whatever thing without limitation",
+   "f": "-else"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "nobody else",
-   "tr": "nadie más",
-   "f": "nadie más"
+   "tr": "no other person",
+   "f": "-else"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "everything else",
-   "tr": "todo lo demás",
-   "f": "todo lo demás"
+   "tr": "all the remaining items",
+   "f": "-else"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "someplace (AmE)",
-   "tr": "algún lugar (inglés americano)",
-   "f": "algún sitio concreto (desconocido)"
+   "tr": "informal synonym for somewhere",
+   "f": "colloquial"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "each person",
-   "tr": "cada persona (alternativa formal)",
-   "f": "cada persona (formal)"
+   "tr": "every individual considered distinctly",
+   "f": "formal"
   },
   {
    "n": "B1",
    "t": "b1-indefinite-pronouns-01",
    "w": "whoever",
-   "tr": "quien sea (introducción a -ever)",
-   "f": "quien sea"
+   "tr": "any person who / anyone at all",
+   "f": "-ever"
   },
   {
    "n": "B1",
    "t": "b1-passive-voice-01",
    "w": "grow · grew · grown",
-   "tr": "cultivar / crecer",
+   "tr": "cultivate crops or develop",
    "f": "ew/own"
   },
   {
    "n": "B1",
    "t": "b1-passive-voice-01",
    "w": "make · made · made",
-   "tr": "hacer / fabricar",
+   "tr": "manufacture or construct goods",
    "f": "2 forms"
   },
   {
    "n": "B1",
    "t": "b1-passive-voice-01",
    "w": "build · built · built",
-   "tr": "construir",
-   "f": "2 forms"
-  },
-  {
-   "n": "B1",
-   "t": "b1-passive-voice-01",
-   "w": "sell · sold · sold",
-   "tr": "vender",
-   "f": "2 forms"
-  },
-  {
-   "n": "B1",
-   "t": "b1-passive-voice-01",
-   "w": "find · found · found",
-   "tr": "encontrar",
-   "f": "2 forms"
-  },
-  {
-   "n": "B1",
-   "t": "b1-passive-voice-01",
-   "w": "steal · stole · stolen",
-   "tr": "robar",
-   "f": "i-o-en"
-  },
-  {
-   "n": "B1",
-   "t": "b1-passive-voice-01",
-   "w": "speak · spoke · spoken",
-   "tr": "hablar",
-   "f": "i-o-en"
-  },
-  {
-   "n": "B1",
-   "t": "b1-passive-voice-01",
-   "w": "break · broke · broken",
-   "tr": "romper",
-   "f": "i-o-en"
+   "tr": "erect a house, bridge, or museum",
+   "f": "d → t"
   },
   {
    "n": "B1",
    "t": "b1-passive-voice-01",
    "w": "write · wrote · written",
-   "tr": "escribir",
-   "f": "i-o-en"
+   "tr": "compose a novel, book, or article",
+   "f": "o/en"
+  },
+  {
+   "n": "B1",
+   "t": "b1-passive-voice-01",
+   "w": "paint · painted · painted",
+   "tr": "create a portrait or artwork",
+   "f": "regular"
+  },
+  {
+   "n": "B1",
+   "t": "b1-passive-voice-01",
+   "w": "discover · discovered · discovered",
+   "tr": "find something previously unknown",
+   "f": "regular"
   },
   {
    "n": "B1",
    "t": "b1-passive-voice-01",
    "w": "invent · invented · invented",
-   "tr": "inventar",
-   "f": "-ed"
+   "tr": "create a brand new device or system",
+   "f": "regular"
+  },
+  {
+   "n": "B1",
+   "t": "b1-passive-voice-01",
+   "w": "speak · spoke · spoken",
+   "tr": "communicate in a language",
+   "f": "o/en"
+  },
+  {
+   "n": "B1",
+   "t": "b1-passive-voice-01",
+   "w": "design · designed · designed",
+   "tr": "plan the form or structure of an object",
+   "f": "regular"
+  },
+  {
+   "n": "B1",
+   "t": "b1-passive-voice-01",
+   "w": "direct · directed · directed",
+   "tr": "manage the creation of a film",
+   "f": "regular"
+  },
+  {
+   "n": "B1",
+   "t": "b1-passive-voice-01",
+   "w": "win · won · won",
+   "tr": "gain a victory, award, or medal",
+   "f": "1 form"
   },
   {
    "n": "B1",
    "t": "b1-passive-voice-01",
    "w": "produce · produced · produced",
-   "tr": "producir",
-   "f": "-ed"
-  },
-  {
-   "n": "B1",
-   "t": "b1-passive-voice-01",
-   "w": "export · exported · exported",
-   "tr": "exportar",
-   "f": "-ed"
+   "tr": "manufacture in commercial quantities",
+   "f": "regular"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "realize",
-   "tr": "darse cuenta",
-   "f": "darse cuenta"
+   "tr": "become fully conscious of a fact",
+   "f": "🧠"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "recognize",
-   "tr": "reconocer",
-   "f": "reconocer"
+   "tr": "identify someone or something previously known",
+   "f": "👁️"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "discover",
-   "tr": "descubrir",
-   "f": "descubrir"
+   "tr": "uncover unexpected information or items",
+   "f": "🧭"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "miss (the bus/train)",
-   "tr": "perder (el bus/tren)",
-   "f": "perder (transporte)"
+   "tr": "arrive too late to catch transport",
+   "f": "⏰"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "forget → forgot → forgotten",
-   "tr": "olvidar",
-   "f": "olvidar"
+   "tr": "fail to remember or leave behind",
+   "f": "❓"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "lock",
-   "tr": "cerrar con llave",
-   "f": "cerrar con llave"
+   "tr": "secure with a deadbolt or key",
+   "f": "🔑"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "turn off",
-   "tr": "apagar",
-   "f": "apagar"
+   "tr": "deactivate appliances or lights",
+   "f": "🔌"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "fall asleep",
-   "tr": "quedarse dormido",
-   "f": "quedarse dormido"
+   "tr": "drift into unconscious natural sleep",
+   "f": "😴"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "arrive",
-   "tr": "llegar",
-   "f": "llegar"
+   "tr": "reach an intended destination",
+   "f": "📍"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "leave → left → left",
-   "tr": "irse / partir",
-   "f": "irse / partir"
+   "tr": "depart or exit from a location",
+   "f": "🚪"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "finish",
-   "tr": "terminar",
-   "f": "terminar"
+   "tr": "bring an action to completion",
+   "f": "🏁"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "hide → hid → hidden",
-   "tr": "esconder",
-   "f": "esconder"
+   "tr": "conceal deliberately out of sight",
+   "f": "📦"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "steal → stole → stolen",
-   "tr": "robar",
-   "f": "robar"
+   "tr": "take without permission or right",
+   "f": "🕵️"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "already",
-   "tr": "ya",
-   "f": "ya (afirmativo)"
+   "tr": "prior to the expected past moment",
+   "f": "already"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "just",
-   "tr": "recién, acabar de",
-   "f": "recién / acabar de"
+   "tr": "only an instant before another past action",
+   "f": "just"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "never ... before",
-   "tr": "nunca antes",
-   "f": "nunca antes"
+   "tr": "at zero times in previous life history",
+   "f": "never"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "by the time",
-   "tr": "para cuando",
-   "f": "para cuando"
+   "tr": "prior to a specific reference point",
+   "f": "by"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "yet",
-   "tr": "aún (no)",
-   "f": "aún no (negativo)"
+   "tr": "up until that specific moment",
+   "f": "yet"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "previously",
-   "tr": "previamente",
-   "f": "previamente"
+   "tr": "at an earlier occasion",
+   "f": "prior"
   },
   {
    "n": "B1",
    "t": "b1-past-perfect-01",
    "w": "earlier that day",
-   "tr": "esa misma mañana / más temprano ese día",
-   "f": "esa misma mañana"
+   "tr": "during an earlier part of the same date",
+   "f": "earlier"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-bucket-list-01",
    "w": "be · was/were · been",
-   "tr": "ser / estar",
+   "tr": "experience being in or visiting a place",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-bucket-list-01",
    "w": "do · did · done",
-   "tr": "hacer",
+   "tr": "carry out or complete an activity",
+   "f": "★"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-bucket-list-01",
+   "w": "go · went · gone/been",
+   "tr": "travel to a foreign or exciting destination",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-bucket-list-01",
    "w": "see · saw · seen",
-   "tr": "ver",
+   "tr": "perceive or witness with your own eyes",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-bucket-list-01",
    "w": "eat · ate · eaten",
-   "tr": "comer",
+   "tr": "sample or consume exotic foods",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-bucket-list-01",
-   "w": "get · got · gotten",
-   "tr": "conseguir",
+   "w": "try · tried · tried",
+   "tr": "test out a new life experience",
+   "f": "★"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-bucket-list-01",
+   "w": "climb · climbed · climbed",
+   "tr": "ascend a peak or famous mountain",
+   "f": "★"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-bucket-list-01",
+   "w": "swim · swam · swum",
+   "tr": "propel through open water or the ocean",
+   "f": "★"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-bucket-list-01",
+   "w": "visit · visited · visited",
+   "tr": "travel to see landmarks and cultural sites",
+   "f": "★"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-bucket-list-01",
+   "w": "meet · met · met",
+   "tr": "get acquainted with an inspiring person",
+   "f": "★"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-bucket-list-01",
+   "w": "win · won · won",
+   "tr": "achieve victory or gain a special prize",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-bucket-list-01",
    "w": "write · wrote · written",
-   "tr": "escribir",
-   "f": "i-o-en"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-bucket-list-01",
-   "w": "ride · rode · ridden",
-   "tr": "montar",
-   "f": "i-o-en"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-bucket-list-01",
-   "w": "swim · swam · swum",
-   "tr": "nadar",
-   "f": "i-a-u"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-bucket-list-01",
-   "w": "fly · flew · flown",
-   "tr": "volar",
-   "f": "ew/own"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-bucket-list-01",
-   "w": "win · won · won",
-   "tr": "ganar",
-   "f": "2 forms"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-bucket-list-01",
-   "w": "try · tried · tried",
-   "tr": "intentar / probar",
-   "f": "-ed"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-bucket-list-01",
-   "w": "climb · climbed · climbed",
-   "tr": "escalar",
-   "f": "-ed"
+   "tr": "author words, stories, or a personal list",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-continuous-01",
    "w": "since 2020",
-   "tr": "desde 2020 (punto de inicio)",
+   "tr": "starting at a specific year until now",
    "f": "since"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-continuous-01",
    "w": "since Monday",
-   "tr": "desde el lunes",
+   "tr": "starting on Monday until the present moment",
    "f": "since"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-continuous-01",
-   "w": "since 8 a.m.",
-   "tr": "desde las 8 a.m.",
-   "f": "since"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-continuous-01",
-   "w": "since I was a child",
-   "tr": "desde que era niño/a",
+   "w": "since 9 AM",
+   "tr": "starting at 9 o'clock until now",
    "f": "since"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-continuous-01",
    "w": "for two hours",
-   "tr": "durante dos horas (rango)",
+   "tr": "duration of 120 continuous minutes",
    "f": "for"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-continuous-01",
-   "w": "for three days",
-   "tr": "durante tres días",
-   "f": "for"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-continuous-01",
-   "w": "for ten years",
-   "tr": "durante diez años",
+   "w": "for three years",
+   "tr": "duration of 36 continuous months",
    "f": "for"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-continuous-01",
    "w": "for a long time",
-   "tr": "durante mucho tiempo",
+   "tr": "duration spanning an extensive period",
    "f": "for"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-continuous-01",
+   "w": "all morning",
+   "tr": "throughout the entire morning without pause",
+   "f": "duration"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-continuous-01",
+   "w": "recently",
+   "tr": "in the nearest days or past hours",
+   "f": "time"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
    "w": "be · was/were · been",
-   "tr": "estar / haber estado",
+   "tr": "experience being in or visiting a destination",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
    "w": "see · saw · seen",
-   "tr": "ver",
+   "tr": "view or witness with your own eyes",
    "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
-   "w": "break · broke · broken",
-   "tr": "romper(se)",
-   "f": "i-o-en"
+   "w": "eat · ate · eaten",
+   "tr": "sample or consume unusual cuisine",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
-   "w": "drive · drove · driven",
-   "tr": "conducir",
-   "f": "i-o-en"
+   "w": "travel · traveled · traveled",
+   "tr": "journey to different cities or countries",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
-   "w": "sing · sang · sung",
-   "tr": "cantar",
-   "f": "i-a-u"
+   "w": "try · tried · tried",
+   "tr": "attempt or sample an unfamiliar activity",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
    "w": "meet · met · met",
-   "tr": "conocer",
-   "f": "2 forms"
+   "tr": "encounter and get to know a person",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
-   "w": "win · won · won",
-   "tr": "ganar",
-   "f": "2 forms"
+   "w": "fly · flew · flown",
+   "tr": "travel high through the air in an aircraft",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-ever-experiences-01",
-   "w": "lose · lost · lost",
-   "tr": "perder",
-   "f": "2 forms"
+   "w": "ride · rode · ridden",
+   "tr": "sit on and control a bike, horse, or vehicle",
+   "f": "★"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
    "w": "yesterday",
-   "tr": "ayer",
+   "tr": "the completed day preceding today (past simple)",
    "f": "past"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
    "w": "last year",
-   "tr": "el año pasado",
-   "f": "past"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "two days ago",
-   "tr": "hace dos días",
+   "tr": "the previous calendar year (past simple)",
    "f": "past"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
    "w": "in 2020",
-   "tr": "en 2020",
+   "tr": "a closed historical year (past simple)",
    "f": "past"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "when I was a child",
-   "tr": "cuando era niño/a",
+   "w": "two days ago",
+   "tr": "forty-eight hours before now (past simple)",
    "f": "past"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "last night",
-   "tr": "anoche",
-   "f": "past"
+   "w": "already",
+   "tr": "sooner than anticipated (present perfect)",
+   "f": "present perf"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "ever / never",
-   "tr": "alguna vez / nunca",
-   "f": "perfect"
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "already / yet",
-   "tr": "ya / todavía",
-   "f": "perfect"
+   "w": "yet",
+   "tr": "up to this moment in questions / negatives",
+   "f": "present perf"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
    "w": "just",
-   "tr": "recién / hace un momento",
-   "f": "perfect"
+   "tr": "an immediate moment before now (present perfect)",
+   "f": "present perf"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "for / since",
-   "tr": "durante / desde",
-   "f": "perfect"
+   "w": "ever",
+   "tr": "at any point in lifetime up to now",
+   "f": "present perf"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "twice / three times",
-   "tr": "dos / tres veces (en la vida)",
-   "f": "perfect"
+   "w": "never",
+   "tr": "at zero points in lifetime up to now",
+   "f": "present perf"
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "this week",
-   "tr": "esta semana (aún abierta)",
-   "f": "perfect"
+   "w": "for 5 years",
+   "tr": "duration continuing up to the present moment",
+   "f": "duration"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-vs-past-simple-01",
+   "w": "since May",
+   "tr": "starting point anchored in May until now",
+   "f": "start point"
+  },
+  {
+   "n": "B1",
+   "t": "b1-present-perfect-vs-past-simple-01",
+   "w": "this morning",
+   "tr": "open or finished depending on time of day",
+   "f": "time window"
   },
   {
    "n": "B2",
    "t": "b2-causative-01",
    "w": "have your hair cut",
-   "tr": "cortarse el pelo (te lo hace otra persona)",
-   "f": "servicio"
+   "tr": "pay a professional to cut your hair",
+   "f": "service"
   },
   {
    "n": "B2",
    "t": "b2-causative-01",
    "w": "get your car fixed",
-   "tr": "hacer arreglar el carro",
-   "f": "servicio"
+   "tr": "have a mechanic repair your car",
+   "f": "service"
   },
   {
    "n": "B2",
    "t": "b2-causative-01",
    "w": "have your logo designed",
-   "tr": "mandar a diseñar el logo",
-   "f": "servicio"
+   "tr": "commission a designer to make a logo",
+   "f": "service"
   },
   {
    "n": "B2",
    "t": "b2-causative-01",
    "w": "get your teeth checked",
-   "tr": "hacerse revisar los dientes",
-   "f": "servicio"
+   "tr": "have a dentist examine your teeth",
+   "f": "service"
   },
   {
    "n": "B2",
@@ -8591,792 +8591,792 @@
    "n": "B2",
    "t": "b2-idioms-money-01",
    "w": "cost an arm and a leg",
-   "tr": "costar un ojo de la cara",
-   "f": "muy caro"
+   "tr": "be extremely expensive",
+   "f": "💸"
   },
   {
    "n": "B2",
    "t": "b2-idioms-money-01",
    "w": "cut corners",
-   "tr": "recortar gastos/calidad de forma riesgosa",
-   "f": "recortar de forma riesgosa"
+   "tr": "take shortcuts that compromise quality",
+   "f": "✂️"
   },
   {
    "n": "B2",
    "t": "b2-idioms-money-01",
    "w": "go bust / go under",
-   "tr": "quebrar (un negocio)",
-   "f": "quebrar"
+   "tr": "fail financially or become bankrupt",
+   "f": "📉"
   },
   {
    "n": "B2",
    "t": "b2-idioms-money-01",
    "w": "safe bet",
-   "tr": "apuesta segura",
-   "f": "opción segura"
+   "tr": "a low-risk, reliable choice",
+   "f": "🎯"
   },
   {
    "n": "B2",
    "t": "b2-idioms-money-01",
    "w": "pay through the nose",
-   "tr": "pagar un dineral",
-   "f": "pagar de más"
+   "tr": "pay far more than something is worth",
+   "f": "💳"
   },
   {
    "n": "B2",
    "t": "b2-idioms-money-01",
    "w": "make ends meet",
-   "tr": "llegar a fin de mes (financieramente)",
-   "f": "llegar a fin de mes"
+   "tr": "earn just enough to cover essential costs",
+   "f": "⚖️"
   },
   {
    "n": "B2",
    "t": "b2-idioms-time-effort-01",
    "w": "against the clock",
-   "tr": "contra el tiempo / con poco tiempo",
-   "f": "contra el tiempo"
+   "tr": "working rapidly to finish before a deadline",
+   "f": "⏱️"
   },
   {
    "n": "B2",
    "t": "b2-idioms-time-effort-01",
    "w": "once in a blue moon",
-   "tr": "muy de vez en cuando",
-   "f": "muy raramente"
+   "tr": "very rarely / almost never",
+   "f": "🌙"
   },
   {
    "n": "B2",
    "t": "b2-idioms-time-effort-01",
    "w": "burn the midnight oil",
-   "tr": "quemarse las pestañas / trabajar hasta tarde",
-   "f": "trabajar hasta tarde"
+   "tr": "work or study late into the night",
+   "f": "🕯️"
   },
   {
    "n": "B2",
    "t": "b2-idioms-time-effort-01",
    "w": "in the nick of time",
-   "tr": "justo a tiempo",
-   "f": "justo a tiempo"
+   "tr": "at the last possible moment before disaster",
+   "f": "⚡"
   },
   {
    "n": "B2",
    "t": "b2-idioms-time-effort-01",
    "w": "from scratch",
-   "tr": "desde cero",
-   "f": "desde cero"
+   "tr": "from the very beginning with no head start",
+   "f": "🌱"
   },
   {
    "n": "B2",
    "t": "b2-idioms-time-effort-01",
    "w": "time flies",
-   "tr": "el tiempo vuela",
-   "f": "pasa rápido"
+   "tr": "time appears to pass very rapidly",
+   "f": "🕊️"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "although / even though",
-   "tr": "aunque",
-   "f": "contraste"
+   "tr": "in spite of the fact that",
+   "f": "contrast"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "however / nevertheless",
-   "tr": "sin embargo",
-   "f": "contraste"
+   "tr": "in spite of that / on the other hand",
+   "f": "contrast"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "moreover / furthermore",
-   "tr": "además",
-   "f": "adición"
+   "tr": "in addition to what has been said",
+   "f": "addition"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "for example / such as",
-   "tr": "por ejemplo / tal como",
-   "f": "ejemplificación"
+   "tr": "to mention a specific instance",
+   "f": "example"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "because of / due to",
-   "tr": "debido a / por causa de",
-   "f": "causa"
+   "tr": "as a direct result of",
+   "f": "cause"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "therefore / as a result",
-   "tr": "por lo tanto / como resultado",
-   "f": "consecuencia"
+   "tr": "for that reason / consequently",
+   "f": "result"
   },
   {
    "n": "B2",
    "t": "b2-linkers-01",
    "w": "in conclusion / to sum up",
-   "tr": "en conclusión / en resumen",
-   "f": "cierre"
+   "tr": "to briefly state the main points",
+   "f": "summary"
   },
   {
    "n": "B2",
    "t": "b2-modals-deduction-past-01",
-   "w": "must have + participio",
-   "tr": "debió haber (casi seguro)",
-   "f": "~95% seguro (pasado)"
+   "w": "must have + participle",
+   "tr": "deduced that an action definitely occurred",
+   "f": "~95% sure"
   },
   {
    "n": "B2",
    "t": "b2-modals-deduction-past-01",
-   "w": "can't have + participio",
-   "tr": "no puede haber (casi seguro que no)",
-   "f": "~95% seguro que no (pasado)"
+   "w": "can't have + participle",
+   "tr": "deduced that an action was impossible",
+   "f": "~95% sure not"
   },
   {
    "n": "B2",
    "t": "b2-modals-deduction-past-01",
-   "w": "might / could have + participio",
-   "tr": "puede que haya / podría haber",
-   "f": "~50% posible (pasado)"
+   "w": "might / could have + participle",
+   "tr": "possible that an action took place",
+   "f": "~50% possible"
   },
   {
    "n": "B2",
    "t": "b2-modals-deduction-present-01",
    "w": "must",
-   "tr": "debe ser (casi seguro)",
-   "f": "~95% seguro"
+   "tr": "almost certain a statement is true",
+   "f": "~95% sure"
   },
   {
    "n": "B2",
    "t": "b2-modals-deduction-present-01",
    "w": "can't",
-   "tr": "no puede ser (casi seguro que no)",
-   "f": "~95% seguro que no"
+   "tr": "almost certain a statement is false",
+   "f": "~95% sure not"
   },
   {
    "n": "B2",
    "t": "b2-modals-deduction-present-01",
    "w": "might / could / may",
-   "tr": "puede que / podría ser",
-   "f": "~50% posible"
+   "tr": "moderately possible right now",
+   "f": "~50% possible"
   },
   {
    "n": "B2",
    "t": "b2-modals-obligation-past-01",
    "w": "had to",
-   "tr": "tuvo que (era obligatorio)",
-   "f": "obligación pasada"
+   "tr": "was required or necessary in the past",
+   "f": "obligation"
   },
   {
    "n": "B2",
    "t": "b2-modals-obligation-past-01",
    "w": "didn't have to",
-   "tr": "no tuvo que (no era necesario)",
-   "f": "no era necesario"
+   "tr": "was not required in the past",
+   "f": "no obligation"
   },
   {
    "n": "B2",
    "t": "b2-modals-obligation-past-01",
-   "w": "needn't have + participio",
-   "tr": "no hacía falta que (lo hizo, mas fue innecesario)",
-   "f": "lo hizo pero no hacía falta"
+   "w": "needn't have + participle",
+   "tr": "did an action that was actually not needed",
+   "f": "unnecessary"
   },
   {
    "n": "B2",
    "t": "b2-modals-obligation-past-01",
    "w": "couldn't / wasn't allowed to",
-   "tr": "no se le permitió / no pudo",
-   "f": "prohibición pasada"
+   "tr": "was forbidden or lacked permission",
+   "f": "prohibition"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-down-01",
    "w": "calm down",
-   "tr": "calmarse",
-   "f": "relajarse"
+   "tr": "relax after anger or stress",
+   "f": "🧘"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-down-01",
    "w": "let down",
-   "tr": "decepcionar / fallarle a alguien",
-   "f": "decepcionar"
+   "tr": "disappoint someone",
+   "f": "😞"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-down-01",
    "w": "break down",
-   "tr": "averiarse (máquina) / venirse abajo",
-   "f": "averiarse / venirse abajo"
+   "tr": "stop functioning (machine) or collapse emotionally",
+   "f": "⚙️"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-down-01",
    "w": "turn down",
-   "tr": "rechazar (una oferta)",
-   "f": "rechazar una oferta"
+   "tr": "refuse or reject an offer",
+   "f": "🙅"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-down-01",
    "w": "write down",
-   "tr": "anotar",
-   "f": "anotar"
+   "tr": "record information on paper",
+   "f": "✍️"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-down-01",
    "w": "slow down",
-   "tr": "ir más despacio",
-   "f": "ir más despacio"
+   "tr": "reduce speed or pace",
+   "f": "🐢"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get up",
-   "tr": "levantarse (de la cama)",
-   "f": "levantarse"
+   "tr": "rise from bed or stand",
+   "f": "🌅"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get away with",
-   "tr": "salirse con la suya",
-   "f": "librarse sin consecuencias"
+   "tr": "escape without punishment",
+   "f": "🏃"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get on (with)",
-   "tr": "llevarse bien / progresar",
-   "f": "llevarse bien / progresar"
+   "tr": "have a friendly relationship with someone",
+   "f": "🤝"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get over",
-   "tr": "superar (algo difícil)",
-   "f": "superar algo difícil"
+   "tr": "recover from illness or disappointment",
+   "f": "🩹"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get through",
-   "tr": "terminar / lograr pasar por algo",
-   "f": "terminar/sobrevivir algo"
+   "tr": "finish or survive a difficult situation",
+   "f": "🏁"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get by",
-   "tr": "arreglárselas (con poco)",
-   "f": "arreglárselas con poco"
+   "tr": "manage to survive with little money",
+   "f": "🪙"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-get-01",
    "w": "get it",
-   "tr": "entenderlo",
-   "f": "entender"
+   "tr": "understand clearly",
+   "f": "💡"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-on-off-01",
    "w": "turn on",
-   "tr": "encender",
-   "f": "encender"
+   "tr": "activate power or light",
+   "f": "💡"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-on-off-01",
    "w": "turn off",
-   "tr": "apagar",
-   "f": "apagar"
+   "tr": "deactivate power or light",
+   "f": "🔌"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-on-off-01",
    "w": "carry on / go on",
-   "tr": "continuar",
-   "f": "continuar"
+   "tr": "continue an action or journey",
+   "f": "➡️"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-on-off-01",
    "w": "call off",
-   "tr": "cancelar",
-   "f": "cancelar"
+   "tr": "cancel a scheduled event",
+   "f": "❌"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-on-off-01",
    "w": "depend on / count on",
-   "tr": "depender de / contar con",
-   "f": "depender/contar con"
+   "tr": "rely with confidence on someone",
+   "f": "🤝"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-on-off-01",
    "w": "put off",
-   "tr": "posponer",
-   "f": "posponer"
+   "tr": "postpone to a later time",
+   "f": "⏳"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-out-01",
    "w": "find out",
-   "tr": "descubrir / enterarse",
-   "f": "descubrir"
+   "tr": "discover or learn new information",
+   "f": "🔍"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-out-01",
    "w": "work out / figure out",
-   "tr": "resolver / entender",
-   "f": "resolver/entender"
+   "tr": "solve or understand a problem",
+   "f": "🧩"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-out-01",
    "w": "run out (of)",
-   "tr": "quedarse sin (algo)",
-   "f": "quedarse sin algo"
+   "tr": "have no more left in supply",
+   "f": "🪫"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-out-01",
    "w": "hand out",
-   "tr": "repartir",
-   "f": "repartir"
+   "tr": "distribute to each person in a group",
+   "f": "🤲"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-out-01",
    "w": "stand out",
-   "tr": "destacar / sobresalir",
-   "f": "destacar"
+   "tr": "be clearly noticeable or distinguished",
+   "f": "🌟"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-up-01",
    "w": "wake up",
-   "tr": "despertarse",
-   "f": "despertar"
+   "tr": "stop sleeping",
+   "f": "⏰"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-up-01",
    "w": "grow up",
-   "tr": "crecer / madurar",
-   "f": "crecer/madurar"
+   "tr": "become an adult",
+   "f": "🌱"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-up-01",
    "w": "give up",
-   "tr": "rendirse",
-   "f": "rendirse"
+   "tr": "stop trying",
+   "f": "🏳️"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-up-01",
    "w": "look up",
-   "tr": "buscar (diccionario/internet)",
-   "f": "buscar información"
+   "tr": "search for information",
+   "f": "🔍"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-up-01",
    "w": "show up",
-   "tr": "aparecer / llegar",
-   "f": "aparecer/llegar"
+   "tr": "arrive or appear",
+   "f": "🚪"
   },
   {
    "n": "B2",
    "t": "b2-phrasal-verbs-up-01",
    "w": "end up",
-   "tr": "terminar (en algo inesperado)",
-   "f": "terminar inesperadamente"
+   "tr": "reach an unexpected outcome",
+   "f": "🎯"
   },
   {
    "n": "B2",
    "t": "b2-relative-clauses-01",
    "w": "who",
-   "tr": "que / quien (sujeto, persona)",
-   "f": "people (subject)"
+   "tr": "refers to people as subject or object",
+   "f": "people"
   },
   {
    "n": "B2",
    "t": "b2-relative-clauses-01",
    "w": "which",
-   "tr": "que / el cual (cosa)",
+   "tr": "refers to things, ideas and animals",
    "f": "things"
   },
   {
    "n": "B2",
    "t": "b2-relative-clauses-01",
    "w": "whose",
-   "tr": "cuyo/a",
+   "tr": "shows belonging or ownership",
    "f": "possession"
   },
   {
    "n": "B2",
    "t": "b2-relative-clauses-01",
    "w": "where",
-   "tr": "donde",
+   "tr": "refers to a physical location",
    "f": "place"
   },
   {
    "n": "B2",
    "t": "b2-relative-clauses-01",
    "w": "when",
-   "tr": "cuando",
+   "tr": "refers to a specific time or moment",
    "f": "time"
   },
   {
    "n": "B2",
    "t": "b2-relative-clauses-01",
    "w": "that",
-   "tr": "que (personas o cosas, sin comas)",
-   "f": "defining only, no commas"
+   "tr": "used for people or things in defining clauses",
+   "f": "defining"
   },
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
    "w": "say",
-   "tr": "decir",
-   "f": "say (that) — no personal object"
+   "tr": "report words without naming the listener",
+   "f": "statement"
   },
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
    "w": "tell",
-   "tr": "decirle a alguien",
-   "f": "tell + person (that)"
+   "tr": "report words directly to a specific listener",
+   "f": "statement"
   },
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
-   "w": "ask",
-   "tr": "preguntar (sí/no)",
-   "f": "ask + if/whether"
+   "w": "ask + if/whether",
+   "tr": "report a yes/no inquiry",
+   "f": "question"
   },
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
-   "w": "ask",
-   "tr": "preguntar (qué/dónde/cuándo)",
-   "f": "ask + wh-word"
+   "w": "ask + wh-word",
+   "tr": "report an information query",
+   "f": "question"
   },
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
    "w": "explain",
-   "tr": "explicar",
-   "f": "explain (that)"
+   "tr": "give reasons or clarify details",
+   "f": "statement"
   },
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
    "w": "warn",
-   "tr": "advertir",
-   "f": "warn + person + not to"
+   "tr": "advise someone of potential risks or dangers",
+   "f": "warning"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "imply",
-   "tr": "dar a entender (el hablante sugiere)",
-   "f": "implicar / dar a entender"
+   "tr": "suggest or express indirectly without stating outright",
+   "f": "💡"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "infer",
-   "tr": "deducir (el oyente concluye)",
-   "f": "inferir"
+   "tr": "deduce conclusions from evidence or hints provided",
+   "f": "🔍"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "convey",
-   "tr": "transmitir, comunicar (una idea)",
-   "f": "transmitir (idea)"
+   "tr": "communicate an idea, impression, or feeling effectively",
+   "f": "📢"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "articulate",
-   "tr": "articular, expresar con claridad",
-   "f": "articular"
+   "tr": "express ideas clearly and distinctly in speech or writing",
+   "f": "🗣️"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "assert",
-   "tr": "afirmar con convicción",
-   "f": "afirmar con firmeza"
+   "tr": "state a fact or belief with confidence and authority",
+   "f": "💪"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "refute",
-   "tr": "refutar, rebatir",
-   "f": "refutar"
+   "tr": "prove a statement, theory, or argument to be false",
+   "f": "❌"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "undermine",
-   "tr": "socavar, debilitar",
-   "f": "socavar"
+   "tr": "weaken or damage authority, confidence, or stability",
+   "f": "⚠️"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "facilitate",
-   "tr": "facilitar (registro formal)",
-   "f": "facilitar"
+   "tr": "make an action or process smooth, easier, or possible",
+   "f": "🤝"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "hinder",
-   "tr": "obstaculizar, dificultar",
-   "f": "obstaculizar"
+   "tr": "create obstacles or delay progress and development",
+   "f": "🚧"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "alleviate",
-   "tr": "aliviar, mitigar",
-   "f": "aliviar"
+   "tr": "make suffering, hardship, or pain less severe",
+   "f": "🌿"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "exacerbate",
-   "tr": "exacerbar, agravar",
-   "f": "exacerbar"
+   "tr": "make an already bad situation, problem, or pain worse",
+   "f": "🔥"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "scrutinize",
-   "tr": "escudriñar, examinar minuciosamente",
-   "f": "escudriñar"
+   "tr": "examine or inspect with thorough, critical care",
+   "f": "🔬"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "contemplate",
-   "tr": "contemplar, considerar seriamente",
-   "f": "contemplar (considerar)"
+   "tr": "think about or view with deep, sustained attention",
+   "f": "🤔"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "endeavour",
-   "tr": "esforzarse (registro formal)",
-   "f": "esforzarse (formal)"
+   "tr": "strive earnestly towards achieving a challenging goal",
+   "f": "🎯"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "prevail",
-   "tr": "prevalecer, imponerse",
-   "f": "prevalecer"
+   "tr": "prove superior or triumph over resistance or difficulty",
+   "f": "👑"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "deteriorate",
-   "tr": "deteriorarse, empeorar",
-   "f": "deteriorarse"
+   "tr": "worsen in quality, condition, or health over time",
+   "f": "📉"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "flourish",
-   "tr": "prosperar, florecer",
-   "f": "prosperar"
+   "tr": "thrive, develop successfully, and display vitality",
+   "f": "🌸"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "arise → arose → arisen",
-   "tr": "surgir (problema/situación)",
-   "f": "surgir"
+   "tr": "emerge, originate, or come into noticeable being",
+   "f": "⚡"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "spark (debate/outrage)",
-   "tr": "suscitar, provocar (debate/indignación)",
-   "f": "suscitar"
+   "tr": "trigger or ignite an immediate, intense public reaction",
+   "f": "💬"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "address (an issue)",
-   "tr": "abordar, tratar (un problema)",
-   "f": "abordar (problema)"
+   "tr": "confront, focus on, and deal with a pressing matter",
+   "f": "📋"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "gather (evidence)",
-   "tr": "reunir, recopilar (evidencia)",
-   "f": "reunir (evidencia)"
+   "tr": "collect and assemble information systematically",
+   "f": "📁"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "rule out",
-   "tr": "descartar (una posibilidad)",
-   "f": "descartar"
+   "tr": "exclude or dismiss from further consideration",
+   "f": "🚫"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "point out",
-   "tr": "señalar, hacer notar",
-   "f": "señalar / destacar"
+   "tr": "draw specific attention to an important fact",
+   "f": "👉"
   },
   {
    "n": "C1",
    "t": "c1-advanced-verbs-nuance-01",
    "w": "carry out",
-   "tr": "llevar a cabo (estudio/plan)",
-   "f": "llevar a cabo"
+   "tr": "execute, conduct, or perform an experiment or plan",
+   "f": "⚙️"
   },
   {
    "n": "C1",
    "t": "c1-inversion-01",
    "w": "never",
-   "tr": "nunca (+ inversión)",
-   "f": "nunca"
+   "tr": "at no point in the past or future (+ subject-verb inversion)",
+   "f": "negative"
   },
   {
    "n": "C1",
    "t": "c1-inversion-01",
    "w": "not only... but also",
-   "tr": "no solo... sino también",
-   "f": "no solo... sino también"
+   "tr": "fronted correlative emphasizing multiple complementary points",
+   "f": "addition"
   },
   {
    "n": "C1",
    "t": "c1-inversion-01",
    "w": "rarely / seldom",
-   "tr": "rara vez",
-   "f": "rara vez"
+   "tr": "almost never / with exceptional infrequency",
+   "f": "frequency"
   },
   {
    "n": "C1",
    "t": "c1-inversion-01",
    "w": "should you / had I",
-   "tr": "si usted / si yo hubiera (formal)",
-   "f": "condicional formal"
+   "tr": "formal elevated hypothetical omitting the word 'if'",
+   "f": "conditional"
   },
   {
    "n": "C1",
    "t": "c1-inversion-01",
    "w": "no sooner... than / hardly... when",
-   "tr": "apenas... cuando",
-   "f": "apenas"
+   "tr": "describes an event happening directly after another",
+   "f": "immediate"
   },
   {
    "n": "C1",
    "t": "c1-register-style-01",
    "w": "get → receive / obtain",
-   "tr": "conseguir → recibir / obtener",
+   "tr": "everyday verb elevated to scholarly/professional register",
    "f": "informal → formal"
   },
   {
    "n": "C1",
    "t": "c1-register-style-01",
    "w": "a lot of → a great deal of / numerous",
-   "tr": "mucho → una gran cantidad de",
+   "tr": "casual quantifier replaced by rigorous academic measure",
    "f": "informal → formal"
   },
   {
    "n": "C1",
    "t": "c1-register-style-01",
    "w": "find out → discover / ascertain",
-   "tr": "descubrir → averiguar (formal)",
+   "tr": "conversational phrasal upgraded to analytical investigation",
    "f": "informal → formal"
   },
   {
    "n": "C1",
    "t": "c1-register-style-01",
    "w": "but → however",
-   "tr": "pero → sin embargo",
+   "tr": "simple coordination elevated to discourse adverbial",
    "f": "informal → formal"
   },
   {
    "n": "C1",
    "t": "c1-register-style-01",
    "w": "kids → children",
-   "tr": "chicos → niños (formal)",
+   "tr": "colloquial noun upgraded to standard formal terminology",
    "f": "informal → formal"
   },
   {
    "n": "C1",
    "t": "c1-subjunctive-01",
    "w": "suggest (that)",
-   "tr": "sugerir que",
-   "f": "sugerir (subjuntivo)"
+   "tr": "propose a course of action with bare base verb",
+   "f": "mandative"
   },
   {
    "n": "C1",
    "t": "c1-subjunctive-01",
    "w": "demand (that)",
-   "tr": "exigir que",
-   "f": "exigir (subjuntivo)"
+   "tr": "insist authoritatively on an action with base verb",
+   "f": "mandative"
   },
   {
    "n": "C1",
    "t": "c1-subjunctive-01",
    "w": "recommend (that)",
-   "tr": "recomendar que",
-   "f": "recomendar (subjuntivo)"
+   "tr": "advise strongly with uninflected bare verb",
+   "f": "mandative"
   },
   {
    "n": "C1",
    "t": "c1-subjunctive-01",
    "w": "insist (that)",
-   "tr": "insistir en que",
-   "f": "insistir (subjuntivo)"
+   "tr": "stand firm on a requirement using base verb",
+   "f": "mandative"
   },
   {
    "n": "C1",
    "t": "c1-subjunctive-01",
    "w": "if I were you / so be it",
-   "tr": "expresiones fijas en subjuntivo",
-   "f": "formulaico"
+   "tr": "fixed idiomatic and expressive subjunctive formulas",
+   "f": "formulaic"
   },
   {
    "n": "C1",
    "t": "c1-would-rather-prefer-01",
    "w": "would rather + bare infinitive",
-   "tr": "preferiría (+ verbo sin 'to')",
-   "f": "preferencia propia (infinitivo sin to)"
+   "tr": "express personal preference for one's own action",
+   "f": "own choice"
   },
   {
    "n": "C1",
    "t": "c1-would-rather-prefer-01",
    "w": "would rather + subject + past simple",
-   "tr": "preferiría que (alguien) hiciera algo",
-   "f": "preferencia sobre otra persona (pasado simple)"
+   "tr": "express a preference regarding someone else's action",
+   "f": "other's action"
   },
   {
    "n": "C1",
    "t": "c1-would-rather-prefer-01",
    "w": "would prefer + to-infinitive",
-   "tr": "preferiría (+ 'to' + verbo)",
-   "f": "preferencia formal"
+   "tr": "polite formal preference followed by full to-infinitive",
+   "f": "formal choice"
   }
  ],
  "s": [
@@ -17970,17 +17970,16 @@
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "cost",
-   "c": "Ben flew to Cartagena last winter. The ticket ______ a fortune!",
+   "w": "fly",
+   "c": "Did Ben ______ to Cartagena? Yes, he did.",
    "k": "sent",
-   "f": "=",
    "u": 0
   },
   {
    "n": "A2",
    "t": "a2-past-simple-irregular-01",
-   "w": "fly",
-   "c": "Did Ben ______ to Cartagena? Yes, he did.",
+   "w": "cost",
+   "c": "Ben flew to Cartagena last winter. The ticket ______ a fortune!",
    "k": "sent",
    "u": 0
   },
@@ -17990,7 +17989,6 @@
    "w": "go",
    "c": "Where did Ben ______ last winter?",
    "k": "sent",
-   "f": "★",
    "u": 0
   },
   {
@@ -17999,7 +17997,6 @@
    "w": "eat",
    "c": "What did you ______ yesterday?",
    "k": "sent",
-   "f": "★",
    "u": 0
   },
   {
@@ -18050,10 +18047,10 @@
   {
    "n": "A2",
    "t": "a2-past-simple-regular-01",
-   "w": "finished",
-   "c": "Sofía ______ a big design project a week ago.",
+   "w": "stayed",
+   "c": "I didn't work last Sunday. I ______ at home.",
    "k": "sent",
-   "f": "/t/",
+   "f": "/d/",
    "u": 0
   },
   {
@@ -18089,7 +18086,7 @@
    "w": "bathroom",
    "c": "Is there a shower in the ______?",
    "k": "sent",
-   "f": "🛁",
+   "f": "🚿",
    "u": 0
   },
   {
@@ -18098,25 +18095,7 @@
    "w": "garden",
    "c": "Is there a ______? Yes, there is.",
    "k": "sent",
-   "f": "🌳",
-   "u": 0
-  },
-  {
-   "n": "A2",
-   "t": "a2-there-is-there-are-01",
-   "w": "garage",
-   "c": "There isn't a ______ in Sofía's building.",
-   "k": "sent",
-   "f": "🚗",
-   "u": 0
-  },
-  {
-   "n": "A2",
-   "t": "a2-there-is-there-are-01",
-   "w": "oven",
-   "c": "There is an ______ and a fridge in the kitchen.",
-   "k": "sent",
-   "f": "🔥",
+   "f": "🏡",
    "u": 0
   },
   {
@@ -18131,10 +18110,10 @@
   {
    "n": "A2",
    "t": "a2-there-is-there-are-01",
-   "w": "stairs",
-   "c": "There isn't an elevator, but there are ______.",
+   "w": "sofa",
+   "c": "There is a big ______ in the living room.",
    "k": "sent",
-   "f": "🪜",
+   "f": "🛋️",
    "u": 0
   },
   {
@@ -18143,6 +18122,7 @@
    "w": "difficult",
    "c": "Was the exam ______? Yes, it was.",
    "k": "sent",
+   "f": "⚡",
    "u": 0
   },
   {
@@ -18151,14 +18131,16 @@
    "w": "unfair",
    "c": "Life for the slaves was very difficult and ______.",
    "k": "sent",
+   "f": "⚖️",
    "u": 0
   },
   {
    "n": "A2",
    "t": "a2-verb-to-be-past-01",
-   "w": "safe",
-   "c": "When Abuela Carmen was young, the streets were quiet and ______.",
+   "w": "quiet",
+   "c": "When Abuela Carmen was young, the streets were ______ and safe.",
    "k": "sent",
+   "f": "🤫",
    "u": 0
   },
   {
@@ -18167,7 +18149,6 @@
    "w": "hard",
    "c": "They didn't work ______ on this project.",
    "k": "sent",
-   "f": "=",
    "u": 0
   },
   {
@@ -18176,7 +18157,6 @@
    "w": "early",
    "c": "I can't wake up ______ on Mondays.",
    "k": "sent",
-   "f": "=",
    "u": 0
   },
   {
@@ -18262,6 +18242,7 @@
    "w": "anybody",
    "c": "Is there ______ inside the ancient tower?",
    "k": "sent",
+   "f": "any-",
    "u": 0
   },
   {
@@ -18270,6 +18251,7 @@
    "w": "anyone",
    "c": "Did ______ call for me? No, nobody did.",
    "k": "sent",
+   "f": "any-",
    "u": 0
   },
   {
@@ -18278,6 +18260,7 @@
    "w": "anything",
    "c": "Did ______ strange happen last night?",
    "k": "sent",
+   "f": "any-",
    "u": 0
   },
   {
@@ -18286,6 +18269,7 @@
    "w": "anywhere",
    "c": "We couldn't find the key ______.",
    "k": "sent",
+   "f": "any-",
    "u": 0
   },
   {
@@ -18294,6 +18278,7 @@
    "w": "nobody",
    "c": "______ answered the telephone call.",
    "k": "sent",
+   "f": "no-",
    "u": 0
   },
   {
@@ -18302,7 +18287,7 @@
    "w": "nothing",
    "c": "There is ______ in the wooden box.",
    "k": "sent",
-   "f": "nada",
+   "f": "no-",
    "u": 0
   },
   {
@@ -18335,6 +18320,7 @@
    "w": "by the time",
    "c": "______ we woke up, Ben had prepared breakfast.",
    "k": "sent",
+   "f": "by",
    "u": 0
   },
   {
@@ -18358,23 +18344,6 @@
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "last night",
-   "c": "I didn't see the movie ______.",
-   "k": "sent",
-   "f": "past",
-   "u": 0
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "ever",
-   "c": "Have you ______ been to Madrid?",
-   "k": "sent",
-   "u": 0
-  },
-  {
-   "n": "B1",
-   "t": "b1-present-perfect-vs-past-simple-01",
    "w": "already",
    "c": "Sofía has ______ sent the email. She sent it this morning.",
    "k": "sent",
@@ -18391,16 +18360,16 @@
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "twice",
-   "c": "I have been to Madrid ______. I went there in 2020 and 2023.",
+   "w": "ever",
+   "c": "Have you ______ been to Madrid?",
    "k": "sent",
    "u": 0
   },
   {
    "n": "B1",
    "t": "b1-present-perfect-vs-past-simple-01",
-   "w": "three times",
-   "c": "Ben has broken his arm ______ in his life.",
+   "w": "this morning",
+   "c": "Sofía has already sent the email. She sent it ______.",
    "k": "sent",
    "u": 0
   },
@@ -18458,6 +18427,7 @@
    "w": "cost an arm and a leg",
    "c": "Did that renovation ______?",
    "k": "sent",
+   "f": "💸",
    "u": 0
   },
   {
@@ -18466,6 +18436,7 @@
    "w": "cut corners",
    "c": "Sofía doesn't ______, even when a client is in a hurry.",
    "k": "sent",
+   "f": "✂️",
    "u": 0
   },
   {
@@ -18474,6 +18445,7 @@
    "w": "go bust",
    "c": "Did the business ______? No, it didn't.",
    "k": "sent",
+   "f": "📉",
    "u": 0
   },
   {
@@ -18482,6 +18454,7 @@
    "w": "go under",
    "c": "The business didn't ______, despite the hard year.",
    "k": "sent",
+   "f": "📉",
    "u": 0
   },
   {
@@ -18490,6 +18463,7 @@
    "w": "safe bet",
    "c": "Is it a ______ to invest in her studio?",
    "k": "sent",
+   "f": "🎯",
    "u": 0
   },
   {
@@ -18498,6 +18472,7 @@
    "w": "pay through the nose",
    "c": "Did you ______ for the flight? Yes, I did.",
    "k": "sent",
+   "f": "💳",
    "u": 0
   },
   {
@@ -18506,6 +18481,7 @@
    "w": "make ends meet",
    "c": "How do freelancers ______ in a slow month?",
    "k": "sent",
+   "f": "⚖️",
    "u": 0
   },
   {
@@ -18514,6 +18490,7 @@
    "w": "against the clock",
    "c": "Ben doesn't work ______; he just runs out of time naturally.",
    "k": "sent",
+   "f": "⏱️",
    "u": 0
   },
   {
@@ -18522,6 +18499,7 @@
    "w": "once in a blue moon",
    "c": "How often do you see snow — ______?",
    "k": "sent",
+   "f": "🌙",
    "u": 0
   },
   {
@@ -18530,6 +18508,7 @@
    "w": "burn the midnight oil",
    "c": "Did Kenji ______? Yes, he did.",
    "k": "sent",
+   "f": "🕯️",
    "u": 0
   },
   {
@@ -18538,6 +18517,7 @@
    "w": "in the nick of time",
    "c": "Ben arrived ______, as always.",
    "k": "sent",
+   "f": "⚡",
    "u": 0
   },
   {
@@ -18546,6 +18526,7 @@
    "w": "from scratch",
    "c": "Did you build this ______?",
    "k": "sent",
+   "f": "🌱",
    "u": 0
   },
   {
@@ -18554,6 +18535,7 @@
    "w": "time flies",
    "c": "______ when you're with good friends.",
    "k": "sent",
+   "f": "🕊️",
    "u": 0
   },
   {
@@ -18690,6 +18672,7 @@
    "w": "calm down",
    "c": "Can you ______ for a second?",
    "k": "sent",
+   "f": "🧘",
    "u": 0
   },
   {
@@ -18698,6 +18681,7 @@
    "w": "break down",
    "c": "Did the car ______ again?",
    "k": "sent",
+   "f": "⚙️",
    "u": 0
   },
   {
@@ -18706,6 +18690,7 @@
    "w": "turn down",
    "c": "Why did she ______ such a good offer?",
    "k": "sent",
+   "f": "🙅",
    "u": 0
   },
   {
@@ -18714,6 +18699,7 @@
    "w": "write down",
    "c": "I didn't ______ the address.",
    "k": "sent",
+   "f": "✍️",
    "u": 0
   },
   {
@@ -18722,6 +18708,7 @@
    "w": "slow down",
    "c": "You should ______ before the curve.",
    "k": "sent",
+   "f": "🐢",
    "u": 0
   },
   {
@@ -18730,6 +18717,7 @@
    "w": "get up",
    "c": "What time do you usually ______?",
    "k": "sent",
+   "f": "🌅",
    "u": 0
   },
   {
@@ -18738,6 +18726,7 @@
    "w": "get away with",
    "c": "Ben didn't ______ forgetting the meeting again.",
    "k": "sent",
+   "f": "🏃",
    "u": 0
   },
   {
@@ -18746,6 +18735,7 @@
    "w": "get over",
    "c": "Did Ben ever ______ losing that first phone?",
    "k": "sent",
+   "f": "🩹",
    "u": 0
   },
   {
@@ -18754,6 +18744,7 @@
    "w": "get through",
    "c": "Did you ______ the exam? Yes, I did.",
    "k": "sent",
+   "f": "🏁",
    "u": 0
   },
   {
@@ -18762,6 +18753,7 @@
    "w": "get by",
    "c": "Kenji doesn't ______ on his Spanish alone; he still needs English.",
    "k": "sent",
+   "f": "🪙",
    "u": 0
   },
   {
@@ -18770,6 +18762,7 @@
    "w": "get it",
    "c": "Do you ______ now? Yes, I do.",
    "k": "sent",
+   "f": "💡",
    "u": 0
   },
   {
@@ -18778,6 +18771,7 @@
    "w": "turn off",
    "c": "Did you ______ the lights before leaving?",
    "k": "sent",
+   "f": "🔌",
    "u": 0
   },
   {
@@ -18786,6 +18780,7 @@
    "w": "carry on",
    "c": "They decided to ______ with the project despite the delay.",
    "k": "sent",
+   "f": "➡️",
    "u": 0
   },
   {
@@ -18794,6 +18789,7 @@
    "w": "call off",
    "c": "Why did they ______ the event?",
    "k": "sent",
+   "f": "❌",
    "u": 0
   },
   {
@@ -18802,6 +18798,7 @@
    "w": "count on",
    "c": "Can I ______ you tomorrow?",
    "k": "sent",
+   "f": "🤝",
    "u": 0
   },
   {
@@ -18810,6 +18807,7 @@
    "w": "put off",
    "c": "Sofía doesn't ______ important decisions.",
    "k": "sent",
+   "f": "⏳",
    "u": 0
   },
   {
@@ -18818,6 +18816,7 @@
    "w": "find out",
    "c": "Did you ______ what happened?",
    "k": "sent",
+   "f": "🔍",
    "u": 0
   },
   {
@@ -18826,6 +18825,7 @@
    "w": "work out",
    "c": "I couldn't ______ the answer alone.",
    "k": "sent",
+   "f": "🧩",
    "u": 0
   },
   {
@@ -18834,6 +18834,7 @@
    "w": "figure out",
    "c": "We didn't ______ the problem in time.",
    "k": "sent",
+   "f": "🧩",
    "u": 0
   },
   {
@@ -18842,6 +18843,7 @@
    "w": "hand out",
    "c": "Sofía didn't ______ the flyers yet.",
    "k": "sent",
+   "f": "🤲",
    "u": 0
   },
   {
@@ -18850,6 +18852,7 @@
    "w": "stand out",
    "c": "Ben's designs always ______.",
    "k": "sent",
+   "f": "🌟",
    "u": 0
   },
   {
@@ -18858,6 +18861,7 @@
    "w": "wake up",
    "c": "What time did you ______?",
    "k": "sent",
+   "f": "⏰",
    "u": 0
   },
   {
@@ -18866,6 +18870,7 @@
    "w": "give up",
    "c": "Why did you ______ so quickly?",
    "k": "sent",
+   "f": "🏳️",
    "u": 0
   },
   {
@@ -18874,6 +18879,7 @@
    "w": "show up",
    "c": "Did Ben ______ eventually?",
    "k": "sent",
+   "f": "🚪",
    "u": 0
   },
   {
@@ -18927,16 +18933,8 @@
   {
    "n": "B2",
    "t": "b2-reported-speech-01",
-   "w": "ask",
-   "c": "Did Kenji ______ where the market was? Yes, he did.",
-   "k": "sent",
-   "u": 0
-  },
-  {
-   "n": "B2",
-   "t": "b2-reported-speech-01",
-   "w": "ask",
-   "c": "Did Kenji ______ where the market was? Yes, he did.",
+   "w": "whether",
+   "c": "Abuela Carmen asked ______ Ben had found his phone.",
    "k": "sent",
    "u": 0
   },
@@ -18946,6 +18944,7 @@
    "w": "imply",
    "c": "Did the speaker ______ that the current measures are inadequate?",
    "k": "sent",
+   "f": "💡",
    "u": 0
   },
   {
@@ -18954,6 +18953,7 @@
    "w": "articulate",
    "c": "Did they ______ the proposal clearly? Yes, they did.",
    "k": "sent",
+   "f": "🗣️",
    "u": 0
   },
   {
@@ -18962,6 +18962,7 @@
    "w": "refute",
    "c": "Did the evidence ______ the original thesis? Yes, it did.",
    "k": "sent",
+   "f": "❌",
    "u": 0
   },
   {
@@ -18970,6 +18971,7 @@
    "w": "undermine",
    "c": "Such unverified claims will not ______ the integrity of the institution.",
    "k": "sent",
+   "f": "⚠️",
    "u": 0
   },
   {
@@ -18978,6 +18980,7 @@
    "w": "facilitate",
    "c": "How can academic institutions ______ interdisciplinary dialogue?",
    "k": "sent",
+   "f": "🤝",
    "u": 0
   },
   {
@@ -18986,6 +18989,7 @@
    "w": "alleviate",
    "c": "The new policy helped ______ the severe housing shortage in urban areas.",
    "k": "sent",
+   "f": "🌿",
    "u": 0
   },
   {
@@ -18994,6 +18998,7 @@
    "w": "exacerbate",
    "c": "What factors might ______ the diplomatic tension between the nations?",
    "k": "sent",
+   "f": "🔥",
    "u": 0
   },
   {
@@ -19002,6 +19007,7 @@
    "w": "scrutinize",
    "c": "Scholars must ______ primary sources before publishing their theses.",
    "k": "sent",
+   "f": "🔬",
    "u": 0
   },
   {
@@ -19010,6 +19016,7 @@
    "w": "prevail",
    "c": "Will rational discourse ______ over sensationalist narratives?",
    "k": "sent",
+   "f": "👑",
    "u": 0
   },
   {
@@ -19018,6 +19025,7 @@
    "w": "rule out",
    "c": "Can we ______ human error entirely? No, we cannot.",
    "k": "sent",
+   "f": "🚫",
    "u": 0
   },
   {

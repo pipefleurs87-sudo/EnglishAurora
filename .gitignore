@@ -1,4 +1,5 @@
-﻿# Archivos temporales
+# Archivos temporales
+scratch/
 *.zip
 *.pyc
 __pycache__/

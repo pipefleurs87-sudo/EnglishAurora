@@ -98,6 +98,7 @@
   .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
   .vcard{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center}
   .vcard .flag{font-size:30px;line-height:1}
+  .vcard .flag.tag{font-size:11px;font-family:var(--mono);color:var(--red);background:#faeeec;border:1px solid var(--line);border-radius:4px;padding:2px 6px;display:inline-block;margin-bottom:6px;line-height:1.4}
   .vcard .pais{font-family:var(--serif);font-weight:600;font-size:16px;margin-top:4px}
   .vcard .nac{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:2px}
   .vcard .word{font-family:var(--serif);font-weight:600;font-size:17px}
@@ -494,7 +495,10 @@
     if(F.inicio.vocab_warmup && Array.isArray(D.vocabulario) && D.vocabulario.length){
       const grid=el('div','vocab-grid');
       D.vocabulario.forEach(v=>{const card=el('div','vcard');
-        if(v.bandera) card.appendChild(el('div','flag',v.bandera));
+        if(v.bandera){
+          const isTag = (typeof v.bandera === 'string') && v.bandera.length > 2 && !/^\p{Emoji}+$/u.test(v.bandera.trim());
+          card.appendChild(el('div', isTag ? 'flag tag' : 'flag', v.bandera));
+        }
         if(v.pais){card.appendChild(el('div','pais',esc(v.pais)));if(v.nacionalidad)card.appendChild(el('div','nac',esc(v.nacionalidad)));}
         else if(v.palabra){card.appendChild(el('div','word',esc(v.palabra)));if(v.traduccion)card.appendChild(el('div','trad',esc(v.traduccion)));}
         grid.appendChild(card);});

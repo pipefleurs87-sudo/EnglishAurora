@@ -82,6 +82,7 @@
   .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.6vw;margin-top:3vh}
   .vc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:3vh 1.2vw;text-align:center;display:flex;flex-direction:column;justify-content:center}
   .vc .fl{font-size:clamp(30px,3.8vw,54px);line-height:1}
+  .vc .fl.tag{font-size:clamp(11px,1.3vw,16px);font-family:var(--mono);color:var(--red);background:#faeeec;border:1px solid var(--line);border-radius:4px;padding:2px 8px;display:inline-block;line-height:1.4}
   .vc .p{font-family:var(--serif);font-weight:600;font-size:clamp(16px,1.9vw,25px);margin-top:.5vh}
   .vc .n{font-family:var(--mono);font-size:clamp(11px,1.3vw,16px);color:var(--red);margin-top:.3vh}
   .vc .w{font-family:var(--serif);font-weight:600;font-size:clamp(18px,2.1vw,28px)}
@@ -182,7 +183,10 @@
     balanced(D.vocabulario,8).forEach((grp,i)=>{
       const cards=grp.map(v=>{
         if(v.pais) return `<div class="vc"><div class="fl">${v.bandera||''}</div><div class="p">${esc(v.pais)}</div><div class="n">${esc(v.nacionalidad||'')}</div></div>`;
-        if(v.bandera) return `<div class="vc"><div class="fl">${v.bandera}</div><div class="w">${esc(v.palabra||'')}</div><div class="t">${esc(v.traduccion||'')}</div></div>`;
+        if(v.bandera){
+          const isTag = (typeof v.bandera === "string") && v.bandera.length > 2 && !/^\p{Emoji}+$/u.test(v.bandera.trim());
+          return `<div class="vc"><div class="${isTag ? "fl tag" : "fl"}">${esc(v.bandera)}</div><div class="w">${esc(v.palabra||"")}</div><div class="t">${esc(v.traduccion||"")}</div></div>`;
+        }
         return `<div class="vc"><div class="w">${esc(v.palabra||'')}</div><div class="t">${esc(v.traduccion||'')}</div></div>`;
       }).join('');
       const cols=grp.length<=4?grp.length:(grp.length%3===0&&grp.length<=9?3:4);

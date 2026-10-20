@@ -14,42 +14,42 @@
     {
       "bandera": "★",
       "palabra": "go · went · gone",
-      "traduccion": "ir"
+      "traduccion": "journey to an exciting destination"
     },
     {
       "bandera": "★",
       "palabra": "take · took · taken",
-      "traduccion": "tomar"
+      "traduccion": "board transport or carry items"
+    },
+    {
+      "bandera": "★",
+      "palabra": "fall · fell · fallen",
+      "traduccion": "drop down by accident"
+    },
+    {
+      "bandera": "★",
+      "palabra": "lose · lost · lost",
+      "traduccion": "misplace or be deprived of"
+    },
+    {
+      "bandera": "★",
+      "palabra": "meet · met · met",
+      "traduccion": "make the acquaintance of someone"
     },
     {
       "bandera": "★",
       "palabra": "eat · ate · eaten",
-      "traduccion": "comer"
+      "traduccion": "share food and meals together"
     },
     {
-      "bandera": "irreg",
-      "palabra": "fall · fell · fallen",
-      "traduccion": "caer"
+      "bandera": "★",
+      "palabra": "have · had · had",
+      "traduccion": "experience a wonderful period"
     },
     {
-      "bandera": "-ought",
-      "palabra": "buy · bought · bought",
-      "traduccion": "comprar"
-    },
-    {
-      "bandera": "2 forms",
-      "palabra": "lose · lost · lost",
-      "traduccion": "perder"
-    },
-    {
-      "bandera": "2 forms",
-      "palabra": "find · found · found",
-      "traduccion": "encontrar"
-    },
-    {
-      "bandera": "2 forms",
-      "palabra": "meet · met · met",
-      "traduccion": "conocer"
+      "bandera": "★",
+      "palabra": "see · saw · seen",
+      "traduccion": "perceive or look at landmarks"
     }
   ],
   "banco_oraciones": [
