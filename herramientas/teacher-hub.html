@@ -1511,7 +1511,7 @@ body.theme-glacial .aurora-layer {
       <div>
         <div class="gate-kicker">ASTRAL CLOUD · FACULTY ACCESS CONTROL</div>
         <h1 class="gate-title">🧑‍🏫 Teacher's Command Cockpit</h1>
-        <p class="gate-subtitle">Private classroom management, student telemetry &amp; 85 CEFR curriculum sequences.</p>
+        <p class="gate-subtitle">Private classroom management, student telemetry &amp; 89 CEFR curriculum sequences.</p>
       </div>
     </div>
 
@@ -1603,7 +1603,7 @@ body.theme-glacial .aurora-layer {
           <div class="pricing-val-box"><span class="pricing-price">$19</span><span class="pricing-period">/ mo</span></div>
           <ul class="pricing-feat-list" style="font-size:11px;">
             <li><span>✓</span> Up to 15 active students</li>
-            <li><span>✓</span> 85 CEFR curriculum lessons</li>
+            <li><span>✓</span> 89 CEFR curriculum lessons</li>
             <li><span>✓</span> 3D Galaxy progress tracking</li>
           </ul>
           <button class="btn-select-plan" onclick="openCheckoutModal('Starter Educator', 19)">Select Starter ($19)</button>
@@ -1682,7 +1682,7 @@ body.theme-glacial .aurora-layer {
       </div>
       <div class="metric-pill">
         <span class="metric-label">Active Curriculum</span>
-        <span class="metric-val gold">85 Lessons A1–C1</span>
+        <span class="metric-val gold">89 Lessons A1–C1</span>
       </div>
       <div class="metric-pill">
         <span class="metric-label">Synced Arcade</span>
@@ -1731,7 +1731,7 @@ body.theme-glacial .aurora-layer {
       <span>👥</span> Cohorts & Students
     </button>
     <button class="cockpit-tab" data-tab="tab-planner" id="tab-btn-planner">
-      <span>📖</span> Lesson Planner (85 Lessons)
+      <span>📖</span> Lesson Planner (89 Lessons)
     </button>
     <button class="cockpit-tab" data-tab="tab-missions" id="tab-btn-missions">
       <span>🚀</span> Mission Dispatcher (Arcade)
@@ -1779,7 +1779,7 @@ body.theme-glacial .aurora-layer {
             <span class="cefr-badge gold" id="current-faculty-plan-badge" style="font-size:9.5px; padding:2px 8px;">Faculty Pro ⭐</span>
           </div>
           <p style="font-size:11.5px; color:var(--paper-muted); margin:6px 0 10px; line-height:1.45;">
-            Manage cohorts, assign 85 CEFR topics, dispatch automated AI reinforcement, and provide private 3D galaxies for your students.
+            Manage cohorts, assign 89 CEFR topics, dispatch automated AI reinforcement, and provide private 3D galaxies for your students.
           </p>
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
             <button class="btn-redeem-mini" onclick="openFacultyPortalModal('signin')">🔑 Sign In</button>
@@ -2130,132 +2130,138 @@ body.theme-glacial .aurora-layer {
       <div class="glass-panel" id="panel-planner-selector">
         <div class="panel-header-row">
           <h2 class="panel-title"><span>📚</span> Curriculum Index</h2>
-          <span class="panel-tag">85 Lessons</span>
+          <span class="panel-tag" id="planner-lessons-count-tag">89 Lessons</span>
         </div>
 
         <div class="topic-selector-card">
-          <label style="font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:uppercase;">Select Level & Topic:</label>
+          <!-- Level Quick Filter Tabs -->
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label style="font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:uppercase;">Select Level & Topic:</label>
+              <span id="planner-visible-count" style="font-family:var(--mono); font-size:10.5px; color:var(--teal); font-weight:600;">89 sessions available</span>
+            </div>
+            <div class="planner-level-chips" style="display:flex; flex-wrap:wrap; gap:6px;">
+              <button type="button" class="filter-chip active" data-planner-level="all" onclick="filterPlannerByLevel('all', this)">All (89)</button>
+              <button type="button" class="filter-chip" data-planner-level="A1" onclick="filterPlannerByLevel('A1', this)">A1 Spark (35)</button>
+              <button type="button" class="filter-chip" data-planner-level="A2" onclick="filterPlannerByLevel('A2', this)">A2 Horizon (10)</button>
+              <button type="button" class="filter-chip" data-planner-level="B1" onclick="filterPlannerByLevel('B1', this)">B1 Odyssey (14)</button>
+              <button type="button" class="filter-chip" data-planner-level="B2" onclick="filterPlannerByLevel('B2', this)">B2 Apex (18)</button>
+              <button type="button" class="filter-chip" data-planner-level="C1" onclick="filterPlannerByLevel('C1', this)">C1 Mastery (12)</button>
+            </div>
+            <!-- Live Search Input -->
+            <div style="position:relative;">
+              <input type="text" id="planner-search-filter" placeholder="🔍 Search topic or grammar... (e.g. tag questions, modals, past)" 
+                style="width:100%; background:var(--ink-surface); border:1px solid var(--line); border-radius:8px; padding:7px 28px 7px 11px; font-size:12px; color:var(--paper); font-family:var(--sans); outline:none;"
+                oninput="handlePlannerSearch(this.value)">
+              <button id="planner-search-clear" type="button" onclick="clearPlannerSearch()" style="display:none; position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--paper-muted); cursor:pointer; font-size:12px; padding:2px 4px;">✕</button>
+            </div>
+          </div>
+
           <select class="topic-select-input" id="planner-topic-select">
-                        <optgroup label="🌟 WAVE B LESSONS (100% ENGLISH · RPG IMMERSION)">
-              <option value="a1-adjectives-people-things-01">✨ A1 · Adjectives — Describing People & Things [Wave B]</option>
-              <option value="a1-articles-01" selected>✨ A1 · Articles — A, An, The [Wave B]</option>
-              <option value="a1-demonstratives-01">✨ A1 · Demonstratives — This, That, These, Those [Wave B]</option>
-              <option value="a1-family-possessive-s-01">✨ A1 · Family & Possessive 's — Whose Is It? [Wave B]</option>
-              <option value="a1-have-got-01">✨ A1 · Have Got — Possessions & Descriptions [Wave B]</option>
-              <option value="a1-imperatives-01">✨ A1 · Imperatives — Instructions & Classroom Language [Wave B]</option>
-              <option value="a1-modal-can-ability-01">✨ A1 · Modal Can — Abilities & Superpowers [Wave B]</option>
-              <option value="a1-modal-have-to-01">✨ A1 · Have To — Obligations & Daily Duties [Wave B]</option>
-              <option value="a1-modal-must-duties-01">✨ A1 · Modal Must — Rules & Duties [Wave B]</option>
-              <option value="a1-modal-should-advice-01">✨ A1 · Modal Should — Advice & Remedies [Wave B]</option>
-              <option value="a1-modal-would-like-01">✨ A1 · Would Like — Polite Wishes & Ordering [Wave B]</option>
-              <option value="a1-object-pronouns-01">✨ A1 · Object Pronouns — Me, You, Him, Her, It, Us, Them [Wave B]</option>
-              <option value="a1-plural-nouns-01">✨ A1 · Plural Nouns — Regular & Irregular [Wave B]</option>
-              <option value="a1-prepositions-place-01">✨ A1 · Prepositions of Place — Where Is Everything? [Wave B]</option>
-              <option value="a1-prepositions-time-01">✨ A1 · Prepositions of Time — In, On, At [Wave B]</option>
-              <option value="a1-present-continuous-01">✨ A1 · Present Continuous — Right Now! [Wave B]</option>
-              <option value="a1-present-simple-frequency-01">✨ A1 · Present Simple — Adverbs of Frequency [Wave B]</option>
-              <option value="a1-present-simple-likes-01">✨ A1 · Present Simple — Likes & Dislikes [Wave B]</option>
-              <option value="a1-present-simple-neg-questions-01">✨ A1 · Present Simple — Negatives & Questions (Do/Does) [Wave B]</option>
-              <option value="a1-present-simple-routines-01">✨ A1 · Present Simple — Daily Routines [Wave B]</option>
-              <option value="a1-present-simple-wh-questions-01">✨ A1 · Wh- Questions — The Detective's Toolkit [Wave B]</option>
-              <option value="a1-pronouns-possessives-01">✨ A1 · Subject Pronouns & Possessive Adjectives [Wave B]</option>
-              <option value="a1-relative-clauses-objects-01">✨ A1 · Relative Clauses — Things & Objects (Which/That) [Wave B]</option>
-              <option value="a1-relative-clauses-places-01">✨ A1 · Relative Clauses — Places (Where) [Wave B]</option>
-              <option value="a1-relative-clauses-professions-01">✨ A1 · Relative Clauses — People & Professions (Who/That) [Wave B]</option>
-              <option value="a1-review-grand-01">✨ A1 · Grand Review A1 — The Final Trial [Wave B]</option>
-              <option value="a1-review-identity-01">✨ A1 · Review 1 — Identity: To Be, Pronouns, Articles, Plurals & Demonstratives [Wave B]</option>
-              <option value="a1-review-modals-preps-01">✨ A1 · Review 3 — Modals & Prepositions: Can, Must, Should, Have To, Would Like, In/On/At [Wave B]</option>
-              <option value="a1-review-present-simple-01">✨ A1 · Review 2 — Present Simple: Routines, Frequency, Likes & Questions [Wave B]</option>
-              <option value="a1-introducing-yourself-01">✨ A1 · Introducing Yourself — Greetings & Personal Information [Wave B]</option>
-              <option value="a1-greetings-and-farewells-01">✨ A1 · Greetings & Farewells — Daily Salutations & Partings [Wave B]</option>
-              <option value="a1-numbers-01">✨ A1 · Numbers — Counting, Age & Time [Wave B]</option>
-              <option value="a1-to-be-nationalities-01">✨ A1 · Verb To Be — Identity & Nationalities [Wave B]</option>
-              <option value="a1-to-be-neg-questions-01">✨ A1 · Verb To Be — Negatives & Questions [Wave B]</option>
-              <option value="a1-wh-questions-bank-01">✨ A1 · Wh- Questions Bank — The Interview Challenge [Wave B]</option>
-              <option value="a2-comparatives-superlatives-01">✨ A2 · Comparatives & Superlatives — The Tournament of Adjectives [Wave B]</option>
-              <option value="a2-countables-some-any-01">✨ A2 · Countables & Uncountables — Some, Any, Much, Many [Wave B]</option>
-              <option value="a2-going-to-future-01">✨ A2 · Going To — Future Plans & Predictions [Wave B]</option>
-              <option value="a2-past-continuous-vs-simple-01">✨ A2 · Past Continuous vs Past Simple — Interrupted! [Wave B]</option>
-              <option value="a2-past-simple-irregular-01">✨ A2 · Past Simple Irregular — The Rebel Verbs [Wave B]</option>
-              <option value="a2-past-simple-narrative-01">✨ A2 · Past Simple Narrative — Tell Me a Story [Wave B]</option>
-              <option value="a2-past-simple-regular-01">✨ A2 · Past Simple Regular — The -ed Adventure [Wave B]</option>
-              <option value="a2-review-grand-01">✨ A2 · Grand Review — A2 Checkpoint (Past, Comparatives, There is/are, Some/Any, Going to) [Wave B]</option>
-              <option value="a2-there-is-there-are-01">✨ A2 · There Is / There Are — Mapping the World [Wave B]</option>
-              <option value="a2-verb-to-be-past-01">✨ A2 · To Be Past — Was & Were: Yesterday's Heroes [Wave B]</option>
-              <option value="b1-adverbs-01">✨ B1 · Adverbs of Manner, Degree & Probability [Wave B]</option>
-              <option value="b1-conditionals-0-1-2-01">✨ B1 · Conditionals 0, 1 & 2 — Facts, Futures and Dreams [Wave B]</option>
-              <option value="b1-connectors-transition-01">✨ B1 · Linkers & Discourse Markers — Weaving Ideas [Wave B]</option>
-              <option value="b1-gerund-vs-infinitive-01">✨ B1 · Gerunds vs Infinitives — Verb Partners [Wave B]</option>
-              <option value="b1-indefinite-pronouns-01">✨ B1 · Indefinite Pronouns — Someone, Anyone, No One, Everyone [Wave B]</option>
-              <option value="b1-modal-deduction-01">✨ B1 · Modals of Deduction — Must, Can't, Might [Wave B]</option>
-              <option value="b1-modal-permission-advice-01">✨ B1 · Modals of Permission & Strong Advice [Wave B]</option>
-              <option value="b1-passive-voice-01">✨ B1 · Passive Voice — Present & Past [Wave B]</option>
-              <option value="b1-past-perfect-01">✨ B1 · Past Perfect — The Timeline Detective [Wave B]</option>
-              <option value="b1-present-perfect-bucket-list-01">✨ B1 · Present Perfect — Life Experiences (Bucket List) [Wave B]</option>
-              <option value="b1-present-perfect-continuous-01">✨ B1 · Present Perfect Continuous — Unfinished Actions [Wave B]</option>
-              <option value="b1-present-perfect-ever-experiences-01">✨ B1 · Present Perfect with Ever / Never — Have You Ever...? [Wave B]</option>
-              <option value="b1-present-perfect-vs-past-simple-01">✨ B1 · Present Perfect vs Past Simple — Connected or Finished? [Wave B]</option>
-              <option value="b1-relative-clauses-defining-01">✨ B1 · Defining Relative Clauses — Who, Which, That [Wave B]</option>
-              <option value="b1-relative-clauses-non-defining-01">✨ B1 · Non-Defining Relative Clauses — Extra Information Between Commas [Wave B]</option>
-              <option value="b1-reported-speech-basics-01">✨ B1 · Reported Speech — Statements [Wave B]</option>
-              <option value="b1-review-grand-01">✨ B1 · Grand Review — B1 Checkpoint (Perfect Tenses, Conditionals, Passives, Modals, Linkers) [Wave B]</option>
-              <option value="b1-used-to-01">✨ B1 · Used To — Past Habits & States [Wave B]</option>
-              <option value="b1-will-vs-going-to-01">✨ B1 · Future Decisions — Will vs Going To [Wave B]</option>
-              <option value="b2-causative-01">✨ B2 · Causative — Have / Get Something Done [Wave B]</option>
-              <option value="b2-collocations-work-study-01">✨ B2 · Collocations — Work & Study [Wave B]</option>
-              <option value="b2-idioms-money-01">✨ B2 · Money Idioms — The Language of the Wallet [Wave B]</option>
-              <option value="b2-idioms-time-effort-01">✨ B2 · Time & Effort Idioms — Racing the Clock [Wave B]</option>
-              <option value="b2-linkers-01">✨ B2 · Advanced Linkers — Moreover, Nevertheless, Whereas, Provided That [Wave B]</option>
-              <option value="b2-mixed-conditionals-01">✨ B2 · Mixed Conditionals — Past Choices, Present Results [Wave B]</option>
-              <option value="b2-modals-deduction-past-01">✨ B2 · Modals of Deduction — Past (Must Have, Can't Have, Might Have) [Wave B]</option>
-              <option value="b2-modals-deduction-present-01">✨ B2 · Modals of Deduction — Present (Must Be, Can't Be, Must Be Doing) [Wave B]</option>
-              <option value="b2-modals-obligation-past-01">✨ B2 · Obligation in the Past — Had To, Should Have, Was Supposed To, Needn't Have [Wave B]</option>
-              <option value="b2-phrasal-verbs-down-01">✨ B2 · Phrasal Verbs with DOWN [Wave B]</option>
-              <option value="b2-phrasal-verbs-get-01">✨ B2 · Phrasal Verbs with GET [Wave B]</option>
-              <option value="b2-phrasal-verbs-on-off-01">✨ B2 · Phrasal Verbs with ON & OFF [Wave B]</option>
-              <option value="b2-phrasal-verbs-out-01">✨ B2 · Phrasal Verbs with OUT [Wave B]</option>
-              <option value="b2-phrasal-verbs-up-01">✨ B2 · Phrasal Verbs with UP [Wave B]</option>
-              <option value="b2-relative-clauses-01">✨ B2 · Advanced Relative Clauses — Whose, Where, When, Whom & Omission [Wave B]</option>
-              <option value="b2-reported-speech-01">✨ B2 · Reported Speech — Questions, Commands & Reporting Verbs [Wave B]</option>
-              <option value="b2-third-conditional-01">✨ B2 · Third Conditional — Rewriting the Past [Wave B]</option>
-              <option value="b2-wish-if-only-01">✨ B2 · Wish & If Only — Regrets and Desires [Wave B]</option>
-              <option value="c1-advanced-passive-01">✨ C1 · Advanced Passive — It is said that... / He is believed to... [Wave B]</option>
-              <option value="c1-advanced-verbs-nuance-01">✨ C1 · Advanced Verbs — Precision & Nuance (The Scholar's Arsenal) [Wave B]</option>
-              <option value="c1-cleft-sentences-01">✨ C1 · Cleft Sentences — It was... who/that & What... was [Wave B]</option>
-              <option value="c1-ellipsis-substitution-01">✨ C1 · Ellipsis & Substitution [Wave B]</option>
-              <option value="c1-emphatic-structures-01">✨ C1 · Emphatic Structures — do/does/did & so/such [Wave B]</option>
-              <option value="c1-future-in-the-past-01">✨ C1 · Future in the Past — Was Going To, Would, Was About To, Was To [Wave B]</option>
-              <option value="c1-gerund-clauses-subject-01">✨ C1 · Gerund Clauses as Subject [Wave B]</option>
-              <option value="c1-inversion-01">✨ C1 · Inversion — Never, Rarely, Not Only, Little [Wave B]</option>
-              <option value="c1-participle-clauses-01">✨ C1 · Participle Clauses — Walking, Having Taken, Fascinated by... [Wave B]</option>
-              <option value="c1-register-style-01">✨ C1 · Register & Style — Formal vs Informal Rewriting (C1–C2, capstone) [Wave B]</option>
-              <option value="c1-subjunctive-01">✨ C1 · The Subjunctive — It is essential that... be [Wave B]</option>
-              <option value="c1-would-rather-prefer-01">✨ C1 · Would Rather / Would Prefer [Wave B]</option>
+            <optgroup label="✨ A1 SPARK — BEGINNER (35 LESSONS)" data-level="A1">
+              <option value="a1-adjectives-people-things-01">✨ A1 · Adjectives — Describing People & Things</option>
+              <option value="a1-articles-01" selected>✨ A1 · Articles — A, An, The</option>
+              <option value="a1-demonstratives-01">✨ A1 · Demonstratives — This, That, These, Those</option>
+              <option value="a1-family-possessive-s-01">✨ A1 · Family & Possessive 's — Whose Is It?</option>
+              <option value="a1-greetings-and-farewells-01">✨ A1 · Greetings & Farewells — Daily Salutations & Partings</option>
+              <option value="a1-have-got-01">✨ A1 · Have Got — Possessions & Descriptions</option>
+              <option value="a1-imperatives-01">✨ A1 · Imperatives — Instructions & Classroom Language</option>
+              <option value="a1-introducing-yourself-01">✨ A1 · Introducing Yourself — Greetings & Personal Information</option>
+              <option value="a1-modal-can-ability-01">✨ A1 · Modal Can — Abilities & Superpowers</option>
+              <option value="a1-modal-have-to-01">✨ A1 · Have To — Obligations & Daily Duties</option>
+              <option value="a1-modal-must-duties-01">✨ A1 · Modal Must — Rules & Duties</option>
+              <option value="a1-modal-should-advice-01">✨ A1 · Modal Should — Advice & Remedies</option>
+              <option value="a1-modal-would-like-01">✨ A1 · Would Like — Polite Wishes & Ordering</option>
+              <option value="a1-numbers-01">✨ A1 · Numbers — Counting, Age & Time</option>
+              <option value="a1-object-pronouns-01">✨ A1 · Object Pronouns — Me, You, Him, Her, It, Us, Them</option>
+              <option value="a1-plural-nouns-01">✨ A1 · Plural Nouns — Regular & Irregular</option>
+              <option value="a1-prepositions-place-01">✨ A1 · Prepositions of Place — Where Is Everything?</option>
+              <option value="a1-prepositions-time-01">✨ A1 · Prepositions of Time — In, On, At</option>
+              <option value="a1-present-continuous-01">✨ A1 · Present Continuous — Right Now!</option>
+              <option value="a1-present-simple-frequency-01">✨ A1 · Present Simple — Adverbs of Frequency</option>
+              <option value="a1-present-simple-likes-01">✨ A1 · Present Simple — Likes & Dislikes</option>
+              <option value="a1-present-simple-neg-questions-01">✨ A1 · Present Simple — Negatives & Questions (Do/Does)</option>
+              <option value="a1-present-simple-routines-01">✨ A1 · Present Simple — Daily Routines</option>
+              <option value="a1-present-simple-wh-questions-01">✨ A1 · Wh- Questions — The Detective's Toolkit</option>
+              <option value="a1-pronouns-possessives-01">✨ A1 · Subject Pronouns & Possessive Adjectives</option>
+              <option value="a1-relative-clauses-objects-01">✨ A1 · Relative Clauses — Things & Objects (Which/That)</option>
+              <option value="a1-relative-clauses-places-01">✨ A1 · Relative Clauses — Places (Where)</option>
+              <option value="a1-relative-clauses-professions-01">✨ A1 · Relative Clauses — People & Professions (Who/That)</option>
+              <option value="a1-review-grand-01">✨ A1 · Grand Review A1 — The Final Trial</option>
+              <option value="a1-review-identity-01">✨ A1 · Review 1 — Identity: To Be, Pronouns, Articles, Plurals & Demonstratives</option>
+              <option value="a1-review-modals-preps-01">✨ A1 · Review 3 — Modals & Prepositions</option>
+              <option value="a1-review-present-simple-01">✨ A1 · Review 2 — Present Simple: Routines, Frequency, Likes & Questions</option>
+              <option value="a1-to-be-nationalities-01">✨ A1 · Verb To Be — Identity & Nationalities</option>
+              <option value="a1-to-be-neg-questions-01">✨ A1 · Verb To Be — Negatives & Questions</option>
+              <option value="a1-wh-questions-bank-01">✨ A1 · Wh- Questions Bank — The Interview Challenge</option>
             </optgroup>
-            <optgroup label="MORE A1 LESSONS (General Curriculum)">
-              <option value="a1-adjectives-people-things-01">A1 · Adjectives — Describing People & Things</option>
-              <option value="a1-family-possessive-s-01">A1 · Family & Possessive 's</option>
-              <option value="a1-relative-clauses-professions-01">A1 · Professions & Workplaces</option>
+            <optgroup label="🌟 A2 HORIZON — ELEMENTARY (10 LESSONS)" data-level="A2">
+              <option value="a2-comparatives-superlatives-01">🌟 A2 · Comparatives & Superlatives — The Tournament of Adjectives</option>
+              <option value="a2-countables-some-any-01">🌟 A2 · Countables & Uncountables — Some, Any, Much, Many</option>
+              <option value="a2-going-to-future-01">🌟 A2 · Going To — Future Plans & Predictions</option>
+              <option value="a2-past-continuous-vs-simple-01">🌟 A2 · Past Continuous vs Past Simple — Interrupted!</option>
+              <option value="a2-past-simple-irregular-01">🌟 A2 · Past Simple Irregular — The Rebel Verbs</option>
+              <option value="a2-past-simple-narrative-01">🌟 A2 · Past Simple Narrative — Tell Me a Story</option>
+              <option value="a2-past-simple-regular-01">🌟 A2 · Past Simple Regular — The -ed Adventure</option>
+              <option value="a2-review-grand-01">🌟 A2 · Grand Review — A2 Checkpoint</option>
+              <option value="a2-there-is-there-are-01">🌟 A2 · There Is / There Are — Mapping the World</option>
+              <option value="a2-verb-to-be-past-01">🌟 A2 · To Be Past — Was & Were: Yesterday's Heroes</option>
             </optgroup>
-            <optgroup label="A2 LEVEL (10 Lessons)">
-              <option value="a2-past-simple-irregular-01">A2 · Past Simple — Irregular Verbs</option>
-              <option value="a2-comparatives-superlatives-01">A2 · Comparatives & Superlatives</option>
-              <option value="a2-going-to-future-01">A2 · Going to — Future Plans</option>
+            <optgroup label="🔥 B1 ODYSSEY — INTERMEDIATE (14 LESSONS)" data-level="B1">
+              <option value="b1-adverbs-01">🔥 B1 · Adverbs of Manner, Degree & Probability</option>
+              <option value="b1-conditionals-0-1-2-01">🔥 B1 · Conditionals 0, 1 & 2 — Facts, Futures and Dreams</option>
+              <option value="b1-connectors-transition-01">🔥 B1 · Linkers & Discourse Markers — Weaving Ideas</option>
+              <option value="b1-gerund-vs-infinitive-01">🔥 B1 · Gerunds vs Infinitives — Verb Partners</option>
+              <option value="b1-indefinite-pronouns-01">🔥 B1 · Indefinite Pronouns — Someone, Anyone, No One, Everyone</option>
+              <option value="b1-modal-deduction-01">🔥 B1 · Modals of Deduction — Must, Can't, Might</option>
+              <option value="b1-modal-permission-advice-01">🔥 B1 · Modals of Permission & Strong Advice</option>
+              <option value="b1-passive-voice-01">🔥 B1 · Passive Voice — Present & Past</option>
+              <option value="b1-past-perfect-01">🔥 B1 · Past Perfect — The Timeline Detective</option>
+              <option value="b1-present-perfect-bucket-list-01">🔥 B1 · Present Perfect — Life Experiences (Bucket List)</option>
+              <option value="b1-present-perfect-continuous-01">🔥 B1 · Present Perfect Continuous — Unfinished Actions</option>
+              <option value="b1-present-perfect-ever-experiences-01">🔥 B1 · Present Perfect with Ever / Never — Have You Ever...?</option>
+              <option value="b1-present-perfect-vs-past-simple-01">🔥 B1 · Present Perfect vs Past Simple — Connected or Finished?</option>
+              <option value="b1-relative-clauses-defining-01">🔥 B1 · Defining Relative Clauses — Who, Which, That</option>
+              <option value="b1-relative-clauses-non-defining-01">🔥 B1 · Non-Defining Relative Clauses — Extra Information Between Commas</option>
+              <option value="b1-reported-speech-basics-01">🔥 B1 · Reported Speech — Statements</option>
+              <option value="b1-review-grand-01">🔥 B1 · Grand Review — B1 Checkpoint</option>
+              <option value="b1-tag-questions-01">🔥 B1 · Tag Questions — Checking & Confirming (aren't you? / do you?)</option>
+              <option value="b1-used-to-01">🔥 B1 · Used To — Past Habits & States</option>
+              <option value="b1-will-vs-going-to-01">🔥 B1 · Future Decisions — Will vs Going To</option>
             </optgroup>
-            <optgroup label="B1 LEVEL (13 Lessons)">
-              <option value="b1-indefinite-pronouns-01">B1 · Indefinite Pronouns — Someone, Anywhere</option>
-              <option value="b1-conditionals-0-1-2-01">B1 · Conditionals — Zero, First & Second</option>
-              <option value="b1-passive-voice-01">B1 · Passive Voice — Present & Past</option>
+            <optgroup label="⚡ B2 APEX — UPPER INTERMEDIATE (18 LESSONS)" data-level="B2">
+              <option value="b2-causative-01">⚡ B2 · Causative — Have / Get Something Done</option>
+              <option value="b2-collocations-work-study-01">⚡ B2 · Collocations — Work & Study</option>
+              <option value="b2-idioms-money-01">⚡ B2 · Money Idioms — The Language of the Wallet</option>
+              <option value="b2-idioms-time-effort-01">⚡ B2 · Time & Effort Idioms — Racing the Clock</option>
+              <option value="b2-linkers-01">⚡ B2 · Advanced Linkers — Moreover, Nevertheless, Whereas</option>
+              <option value="b2-mixed-conditionals-01">⚡ B2 · Mixed Conditionals — Past Choices, Present Results</option>
+              <option value="b2-modals-deduction-past-01">⚡ B2 · Modals of Deduction — Past (Must Have, Can't Have, Might Have)</option>
+              <option value="b2-modals-deduction-present-01">⚡ B2 · Modals of Deduction — Present (Must Be, Can't Be, Must Be Doing)</option>
+              <option value="b2-modals-obligation-past-01">⚡ B2 · Obligation in the Past — Had To, Should Have, Needn't Have</option>
+              <option value="b2-phrasal-verbs-down-01">⚡ B2 · Phrasal Verbs with DOWN</option>
+              <option value="b2-phrasal-verbs-get-01">⚡ B2 · Phrasal Verbs with GET</option>
+              <option value="b2-phrasal-verbs-on-off-01">⚡ B2 · Phrasal Verbs with ON & OFF</option>
+              <option value="b2-phrasal-verbs-out-01">⚡ B2 · Phrasal Verbs with OUT</option>
+              <option value="b2-phrasal-verbs-up-01">⚡ B2 · Phrasal Verbs with UP</option>
+              <option value="b2-relative-clauses-01">⚡ B2 · Advanced Relative Clauses — Whose, Where, When, Whom & Omission</option>
+              <option value="b2-reported-speech-01">⚡ B2 · Reported Speech — Questions, Commands & Reporting Verbs</option>
+              <option value="b2-third-conditional-01">⚡ B2 · Third Conditional — Rewriting the Past</option>
+              <option value="b2-wish-if-only-01">⚡ B2 · Wish & If Only — Regrets and Desires</option>
             </optgroup>
-            <optgroup label="B2 LEVEL (18 Lessons)">
-              <option value="b2-collocations-work-study-01">B2 · Collocations — Work & Study</option>
-              <option value="b2-phrasal-verbs-get-01">B2 · Phrasal Verbs with GET</option>
-              <option value="b2-mixed-conditionals-01">B2 · Mixed Conditionals</option>
-            </optgroup>
-            <optgroup label="C1 LEVEL (12 Lessons)">
-              <option value="c1-advanced-verbs-nuance-01">C1 · Advanced Verbs & Subtle Nuances</option>
-              <option value="c1-inversion-01">C1 · Inversion for Emphasis</option>
-              <option value="c1-cleft-sentences-01">C1 · Cleft Sentences</option>
+            <optgroup label="👑 C1 MASTERY — ADVANCED (12 LESSONS)" data-level="C1">
+              <option value="c1-advanced-passive-01">👑 C1 · Advanced Passive — It is said that... / He is believed to...</option>
+              <option value="c1-advanced-verbs-nuance-01">👑 C1 · Advanced Verbs — Precision & Nuance (The Scholar's Arsenal)</option>
+              <option value="c1-cleft-sentences-01">👑 C1 · Cleft Sentences — It was... who/that & What... was</option>
+              <option value="c1-ellipsis-substitution-01">👑 C1 · Ellipsis & Substitution</option>
+              <option value="c1-emphatic-structures-01">👑 C1 · Emphatic Structures — do/does/did & so/such</option>
+              <option value="c1-future-in-the-past-01">👑 C1 · Future in the Past — Was Going To, Would, Was About To</option>
+              <option value="c1-gerund-clauses-subject-01">👑 C1 · Gerund Clauses as Subject</option>
+              <option value="c1-inversion-01">👑 C1 · Inversion — Never, Rarely, Not Only, Little</option>
+              <option value="c1-participle-clauses-01">👑 C1 · Participle Clauses — Walking, Having Taken, Fascinated by...</option>
+              <option value="c1-register-style-01">👑 C1 · Register & Style — Formal vs Informal Rewriting</option>
+              <option value="c1-subjunctive-01">👑 C1 · The Subjunctive — It is essential that... be</option>
+              <option value="c1-would-rather-prefer-01">👑 C1 · Would Rather / Would Prefer</option>
             </optgroup>
           </select>
         </div>
@@ -2541,6 +2547,7 @@ body.theme-glacial .aurora-layer {
               <option value="b1-relative-clauses-non-defining-01">B1 · Non-Defining Relative Clauses — Extra Information Between Commas</option>
               <option value="b1-reported-speech-basics-01">B1 · Reported Speech — Statements</option>
               <option value="b1-review-grand-01">B1 · Grand Review — B1 Checkpoint (Perfect Tenses, Conditionals, Passives, Modals, Linkers)</option>
+              <option value="b1-tag-questions-01">B1 · Tag Questions — Checking & Confirming (aren't you? / do you?)</option>
               <option value="b1-used-to-01">B1 · Used To — Past Habits & States</option>
               <option value="b1-will-vs-going-to-01">B1 · Future Decisions — Will vs Going To</option>
             </optgroup>
@@ -3348,7 +3355,7 @@ body.theme-glacial .aurora-layer {
           </div>
           <ul class="pricing-feat-list">
             <li><span>✓</span> Up to 15 active students</li>
-            <li><span>✓</span> Full 85 CEFR curriculum lessons</li>
+            <li><span>✓</span> Full 89 CEFR curriculum lessons</li>
             <li><span>✓</span> Personal 3D Galaxy for each student</li>
             <li><span>✓</span> 1-Click WhatsApp onboarding invites</li>
             <li><span>✓</span> Realtime quiz submission telemetry</li>
@@ -6624,7 +6631,7 @@ body.theme-glacial .aurora-layer {
   initAulaCloud();
 
     // --- PEDAGOGICAL CURRICULUM DATABASE (WAVE B & STANDARD) ---
-  const ALL_WAVE_B_KEYS = new Set(["a1-adjectives-people-things-01","a1-articles-01","a1-demonstratives-01","a1-family-possessive-s-01","a1-have-got-01","a1-imperatives-01","a1-greetings-and-farewells-01","a1-introducing-yourself-01","a1-modal-can-ability-01","a1-modal-have-to-01","a1-modal-must-duties-01","a1-modal-should-advice-01","a1-modal-would-like-01","a1-numbers-01","a1-object-pronouns-01","a1-plural-nouns-01","a1-prepositions-place-01","a1-prepositions-time-01","a1-present-continuous-01","a1-present-simple-frequency-01","a1-present-simple-likes-01","a1-present-simple-neg-questions-01","a1-present-simple-routines-01","a1-present-simple-wh-questions-01","a1-pronouns-possessives-01","a1-relative-clauses-objects-01","a1-relative-clauses-places-01","a1-relative-clauses-professions-01","a1-review-grand-01","a1-review-identity-01","a1-review-modals-preps-01","a1-review-present-simple-01","a1-to-be-nationalities-01","a1-to-be-neg-questions-01","a1-wh-questions-bank-01","a2-comparatives-superlatives-01","a2-countables-some-any-01","a2-going-to-future-01","a2-past-continuous-vs-simple-01","a2-past-simple-irregular-01","a2-past-simple-narrative-01","a2-past-simple-regular-01","a2-review-grand-01","a2-there-is-there-are-01","a2-verb-to-be-past-01","b1-adverbs-01","b1-conditionals-0-1-2-01","b1-connectors-transition-01","b1-gerund-vs-infinitive-01","b1-indefinite-pronouns-01","b1-modal-deduction-01","b1-modal-permission-advice-01","b1-passive-voice-01","b1-past-perfect-01","b1-present-perfect-bucket-list-01","b1-present-perfect-continuous-01","b1-present-perfect-ever-experiences-01","b1-present-perfect-vs-past-simple-01","b1-relative-clauses-defining-01","b1-relative-clauses-non-defining-01","b1-reported-speech-basics-01","b1-review-grand-01","b1-used-to-01","b1-will-vs-going-to-01","b2-causative-01","b2-collocations-work-study-01","b2-idioms-money-01","b2-idioms-time-effort-01","b2-linkers-01","b2-mixed-conditionals-01","b2-modals-deduction-past-01","b2-modals-deduction-present-01","b2-modals-obligation-past-01","b2-phrasal-verbs-down-01","b2-phrasal-verbs-get-01","b2-phrasal-verbs-on-off-01","b2-phrasal-verbs-out-01","b2-phrasal-verbs-up-01","b2-relative-clauses-01","b2-reported-speech-01","b2-third-conditional-01","b2-wish-if-only-01","c1-advanced-passive-01","c1-advanced-verbs-nuance-01","c1-cleft-sentences-01","c1-ellipsis-substitution-01","c1-emphatic-structures-01","c1-future-in-the-past-01","c1-gerund-clauses-subject-01","c1-inversion-01","c1-participle-clauses-01","c1-register-style-01","c1-subjunctive-01","c1-would-rather-prefer-01"]);
+  const ALL_WAVE_B_KEYS = new Set(["a1-adjectives-people-things-01","a1-articles-01","a1-demonstratives-01","a1-family-possessive-s-01","a1-have-got-01","a1-imperatives-01","a1-greetings-and-farewells-01","a1-introducing-yourself-01","a1-modal-can-ability-01","a1-modal-have-to-01","a1-modal-must-duties-01","a1-modal-should-advice-01","a1-modal-would-like-01","a1-numbers-01","a1-object-pronouns-01","a1-plural-nouns-01","a1-prepositions-place-01","a1-prepositions-time-01","a1-present-continuous-01","a1-present-simple-frequency-01","a1-present-simple-likes-01","a1-present-simple-neg-questions-01","a1-present-simple-routines-01","a1-present-simple-wh-questions-01","a1-pronouns-possessives-01","a1-relative-clauses-objects-01","a1-relative-clauses-places-01","a1-relative-clauses-professions-01","a1-review-grand-01","a1-review-identity-01","a1-review-modals-preps-01","a1-review-present-simple-01","a1-to-be-nationalities-01","a1-to-be-neg-questions-01","a1-wh-questions-bank-01","a2-comparatives-superlatives-01","a2-countables-some-any-01","a2-going-to-future-01","a2-past-continuous-vs-simple-01","a2-past-simple-irregular-01","a2-past-simple-narrative-01","a2-past-simple-regular-01","a2-review-grand-01","a2-there-is-there-are-01","a2-verb-to-be-past-01","b1-adverbs-01","b1-conditionals-0-1-2-01","b1-connectors-transition-01","b1-gerund-vs-infinitive-01","b1-indefinite-pronouns-01","b1-modal-deduction-01","b1-modal-permission-advice-01","b1-passive-voice-01","b1-past-perfect-01","b1-present-perfect-bucket-list-01","b1-present-perfect-continuous-01","b1-present-perfect-ever-experiences-01","b1-present-perfect-vs-past-simple-01","b1-relative-clauses-defining-01","b1-relative-clauses-non-defining-01","b1-reported-speech-basics-01","b1-review-grand-01","b1-tag-questions-01","b1-used-to-01","b1-will-vs-going-to-01","b2-causative-01","b2-collocations-work-study-01","b2-idioms-money-01","b2-idioms-time-effort-01","b2-linkers-01","b2-mixed-conditionals-01","b2-modals-deduction-past-01","b2-modals-deduction-present-01","b2-modals-obligation-past-01","b2-phrasal-verbs-down-01","b2-phrasal-verbs-get-01","b2-phrasal-verbs-on-off-01","b2-phrasal-verbs-out-01","b2-phrasal-verbs-up-01","b2-relative-clauses-01","b2-reported-speech-01","b2-third-conditional-01","b2-wish-if-only-01","c1-advanced-passive-01","c1-advanced-verbs-nuance-01","c1-cleft-sentences-01","c1-ellipsis-substitution-01","c1-emphatic-structures-01","c1-future-in-the-past-01","c1-gerund-clauses-subject-01","c1-inversion-01","c1-participle-clauses-01","c1-register-style-01","c1-subjunctive-01","c1-would-rather-prefer-01"]);
   const WAVE_B_CURRICULUM_DB = {
     'a1-greetings-and-farewells-01': {
       title: "Greetings & Farewells — Daily Salutations & Partings",
@@ -7308,6 +7315,17 @@ body.theme-glacial .aurora-layer {
       sentences: [{"en":"I have been preparing this for months.","type":"Afirmativo"},{"en":"When I arrived, he had already finished.","type":"Afirmativo"},{"en":"If it opens on Friday, I'll invite everyone.","type":"Afirmativo"},{"en":"The photos, which were taken on the road, tell our story.","type":"Afirmativo"}],
       slides: [{"kicker":"WAVE B · GRAND REVIEW · SCENE 1","title":"Aurora's Dialogue","body":"<strong>Aurora:</strong> <em>\"This is your B1 checkpoint, heroes. Every tense, every modal, every linker you've mastered now fights by your side.\"</em>","quote":"Immerse in live conversation with Aurora! ✨"},{"kicker":"WAVE B · GRAND REVIEW · SCENE 2","title":"Ben's Perspective","body":"<strong>Ben:</strong> <em>\"I've been preparing my exhibition for months. If it opens on Friday, I'll invite everyone. My photos, which were taken on the road, tell our story.\"</em>","quote":"Notice natural expression and authentic rhythm!"},{"kicker":"WAVE B · GRAND REVIEW · SCENE 3","title":"Kenji's Insight","body":"<strong>Kenji:</strong> <em>\"When I arrived, Ben had already hung the pictures. Although I was tired, I helped. The exhibition, which looks amazing, will definitely be a success.\"</em>","quote":"100% English immersion through genuine context! 🌟"}]
     },
+    'b1-tag-questions-01': {
+      title: "Tag Questions — Checking & Confirming",
+      code: 'b1-tag-questions-01',
+      badge: 'B1 Odyssey · Wave B',
+      waveBUrl: '../leccion/b1-tag-questions-01.html',
+      isWaveB: true,
+      tip: "Tag questions turn statements into mini-questions to confirm information. Invert polarity: positive statement + negative tag ('You drink coffee, don't you?'), negative statement + positive tag ('He didn't call, did he?'). Falling tone ↘ checks; rising tone ↗ asks for real info.",
+      vocab: [{"icon":"☕","word":"drink black coffee","ipa":"","es":"tomar café solo"},{"icon":"🎨","word":"graphic designer","ipa":"","es":"diseñador gráfico"},{"icon":"🎫","word":"book train tickets","ipa":"","es":"reservar billetes de tren"},{"icon":"🧥","word":"pack a warm jacket","ipa":"","es":"empacar una chaqueta de abrigo"},{"icon":"🌤️","word":"check the weather","ipa":"","es":"mirar el tiempo"},{"icon":"🔑","word":"leave keys in a taxi","ipa":"","es":"dejar las llaves en un taxi"},{"icon":"⏰","word":"arrive on time","ipa":"","es":"llegar a tiempo"},{"icon":"🗣️","word":"speak three languages","ipa":"","es":"hablar tres idiomas"}],
+      sentences: [{"en":"Sofía is a graphic designer in Medellín, isn't she?","type":"Afirmativo"},{"en":"You drink black coffee every morning, don't you?","type":"Afirmativo"},{"en":"Ben doesn't like waking up early, does he?","type":"Negativo"},{"en":"Kenji bought the train tickets yesterday, didn't he?","type":"Afirmativo"}],
+      slides: [{"kicker":"WAVE B · TAG QUESTIONS · SCENE 1","title":"Aurora's Dialogue","body":"<strong>Aurora:</strong> <em>\"Tag questions turn simple statements into a shared bridge of conversation, heroes. Don't use a flat 'isn't it?' for everything!\"</em>","quote":"Mirror the auxiliary, invert the polarity! ✨"},{"kicker":"WAVE B · TAG QUESTIONS · SCENE 2","title":"Sofía & Ben's Exchange","body":"<strong>Sofía:</strong> <em>\"Ben, you packed your warm jacket for the mountain lake, didn't you?\"</em><br><strong>Ben:</strong> <em>\"Er... jacket? It doesn't freeze in Colombia, does it?\"</em>","quote":"Authentic conversational rhythm in action! 🧥"},{"kicker":"WAVE B · TAG QUESTIONS · SCENE 3","title":"Kenji's Precision","body":"<strong>Kenji:</strong> <em>\"The train departs at eight sharp, doesn't it? We aren't going to be late again, are we?\"</em>","quote":"100% English immersion through genuine context! 🌟"}]
+    },
     'b1-used-to-01': {
       title: "Used To — Past Habits & States",
       code: 'b1-used-to-01',
@@ -7768,6 +7786,85 @@ body.theme-glacial .aurora-layer {
     });
   }
 
+  // --- PLANNER CURRICULUM FILTERING CONTROLLER ---
+  let currentPlannerLevel = 'all';
+  let currentPlannerSearch = '';
+
+  window.filterPlannerByLevel = function(lvl, btn) {
+    currentPlannerLevel = lvl;
+    document.querySelectorAll('.planner-level-chips .filter-chip').forEach(c => c.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    applyPlannerCurriculumFilter();
+  };
+
+  window.handlePlannerSearch = function(query) {
+    currentPlannerSearch = (query || '').trim().toLowerCase();
+    const clearBtn = document.getElementById('planner-search-clear');
+    if (clearBtn) clearBtn.style.display = currentPlannerSearch ? 'block' : 'none';
+    applyPlannerCurriculumFilter();
+  };
+
+  window.clearPlannerSearch = function() {
+    const inp = document.getElementById('planner-search-filter');
+    if (inp) inp.value = '';
+    handlePlannerSearch('');
+  };
+
+  function applyPlannerCurriculumFilter() {
+    if (!topicSelect) return;
+    let visibleCount = 0;
+    let firstVisibleOpt = null;
+    let currentSelectedStillVisible = false;
+    const currentVal = topicSelect.value;
+
+    const optgroups = topicSelect.querySelectorAll('optgroup');
+    optgroups.forEach(og => {
+      const ogLevel = og.getAttribute('data-level');
+      const levelMatches = (currentPlannerLevel === 'all') || (ogLevel === currentPlannerLevel);
+      let groupVisibleCount = 0;
+
+      og.querySelectorAll('option').forEach(opt => {
+        const text = opt.textContent.toLowerCase();
+        const val = opt.value.toLowerCase();
+        const searchMatches = !currentPlannerSearch || text.includes(currentPlannerSearch) || val.includes(currentPlannerSearch);
+
+        if (levelMatches && searchMatches) {
+          opt.style.display = '';
+          opt.disabled = false;
+          groupVisibleCount++;
+          visibleCount++;
+          if (!firstVisibleOpt) firstVisibleOpt = opt;
+          if (opt.value === currentVal) currentSelectedStillVisible = true;
+        } else {
+          opt.style.display = 'none';
+          opt.disabled = true;
+        }
+      });
+
+      if (groupVisibleCount > 0) {
+        og.style.display = '';
+      } else {
+        og.style.display = 'none';
+      }
+    });
+
+    const countTag = document.getElementById('planner-visible-count');
+    if (countTag) {
+      if (currentPlannerSearch) {
+        countTag.textContent = `${visibleCount} match${visibleCount === 1 ? '' : 'es'}`;
+      } else if (currentPlannerLevel !== 'all') {
+        countTag.textContent = `${visibleCount} in ${currentPlannerLevel}`;
+      } else {
+        countTag.textContent = `${visibleCount} sessions available`;
+      }
+    }
+
+    if (!currentSelectedStillVisible && firstVisibleOpt) {
+      topicSelect.value = firstVisibleOpt.value;
+      updatePlannerTopic(firstVisibleOpt.value);
+    }
+  }
+
   // Inicializar con la primera lección Wave B
   setTimeout(() => {
     updatePlannerTopic('a1-articles-01');
@@ -7802,7 +7899,7 @@ body.theme-glacial .aurora-layer {
     },
     {
       title: '2. 10-Second Lesson Planner 📖',
-      text: 'No more building slides from scratch. Choose any of our <strong>85 official CEFR sequences (A1 to C1)</strong> to immediately project IPA phonetic breakdowns, sentence banks for spoken modeling, neural audio samples, and direct links to interactive lessons.',
+      text: 'No more building slides from scratch. Choose any of our <strong>89 official CEFR sequences (A1 to C1)</strong> to immediately project IPA phonetic breakdowns, sentence banks for spoken modeling, neural audio samples, and direct links to interactive lessons.',
       tabId: 'tab-planner',
       spotlightId: 'panel-planner-selector',
       btnLabel: 'Next: Mission Dispatcher ▶'

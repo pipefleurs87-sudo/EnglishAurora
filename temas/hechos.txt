@@ -84,3 +84,5 @@ C1 | Future in the Past | tiempo_verbal, was going to, would como futuro-en-pasa
 C1 | Ellipsis & Substitution | tiempo_verbal, so can I, I think so / I hope not
 C1 | Would Rather / Would Prefer | modales, bare infinitive vs subject+past simple, to-infinitive
 C1 | Register & Style — Formal vs Informal Rewriting (C1–C2, capstone) | funcional_skills, reescribir el mismo texto en registro distinto
+
+B1 | Tag Questions — Checking & Confirming (aren't you? / do you?) | tiempo_verbal, polaridad opuesta (+/- y -/+), auxiliares do/be/have/did/modales, aren't I?, entonacion de confirmacion vs pregunta real

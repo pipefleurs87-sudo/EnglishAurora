@@ -338,6 +338,12 @@
    "area": "Review"
   },
   {
+   "id": "b1-tag-questions-01",
+   "nivel": "B1",
+   "tema": "Tag Questions — Checking & Confirming (aren't you? / do you?)",
+   "area": "Questions"
+  },
+  {
    "id": "b1-used-to-01",
    "nivel": "B1",
    "tema": "Used to — Past Habits That Are Gone",
@@ -3086,6 +3092,81 @@
    "n": "B1",
    "t": "b1-review-grand-01",
    "q": "We use 'going to' for a decision made at the moment of speaking.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "False"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "Sofía is a graphic designer in Medellín, ___?",
+   "o": [
+    "isn't she",
+    "doesn't she",
+    "is she"
+   ],
+   "a": "isn't she"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "You don't like pineapple on pizza, ___?",
+   "o": [
+    "do you",
+    "don't you",
+    "are you"
+   ],
+   "a": "do you"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "Kenji can speak three languages fluently, ___?",
+   "o": [
+    "can't he",
+    "doesn't he",
+    "isn't he"
+   ],
+   "a": "can't he"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "Ben lost his hat in Cartagena, ___?",
+   "o": [
+    "didn't he",
+    "wasn't he",
+    "doesn't he"
+   ],
+   "a": "didn't he"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "I'm invited to the party tonight, ___?",
+   "o": [
+    "aren't I",
+    "am not I",
+    "amn't I"
+   ],
+   "a": "aren't I"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "When the main statement is affirmative, the tag question is normally negative.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": "True"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "q": "In English, you can simply add 'isn't it?' to any statement to make a question tag.",
    "o": [
     "True",
     "False"
@@ -12331,6 +12412,86 @@
   },
   {
    "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "Sofía is a graphic designer in Medellín, isn't she?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "You drink black coffee every morning, don't you?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "Kenji bought the train tickets yesterday, didn't he?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "You have visited Cartagena before, haven't you?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "I'm on time for the meeting, aren't I?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "Ben doesn't like waking up early, does he?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "We aren't late for the flight, are we?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "She didn't forget her passport, did she?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "You haven't seen my keys anywhere, have you?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "It won't rain this afternoon, will it?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "Kenji can speak three languages, can't he?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "They were at the library yesterday, weren't they?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "Ben lost his sunglasses again, didn't he?"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "You're coming to dinner tonight, aren't you? Yes, I am."
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "He doesn't eat spicy food, does he? No, he doesn't."
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "s": "Kenji finished his project, didn't he? Yes, he did."
+  },
+  {
+   "n": "B1",
    "t": "b1-used-to-01",
    "s": "Abuela Carmen used to live in the countryside."
   },
@@ -15391,6 +15552,34 @@
     "passed"
    ],
    "a": "The winning dance was passed down"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "w": [
+    "it",
+    "is",
+    "a",
+    "beautiful",
+    "day",
+    "isn't",
+    "it"
+   ],
+   "a": "It is a beautiful day isn't it"
+  },
+  {
+   "n": "B1",
+   "t": "b1-tag-questions-01",
+   "w": [
+    "you",
+    "didn't",
+    "lock",
+    "the",
+    "door",
+    "did",
+    "you"
+   ],
+   "a": "You didn't lock the door did you"
   },
   {
    "n": "B1",
