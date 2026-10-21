@@ -8,3 +8,4 @@ Disallow: /build/
 Disallow: /motor-generico.html
 Disallow: /prototipo-b1-adverbs-rpg.html
 Sitemap: https://pipefleurs87-sudo.github.io/EnglishAurora/sitemap.xml
+Sitemap: https://pipefleurs87-sudo.github.io/EnglishAurora/sitemap-aurora.xml

@@ -931,7 +931,9 @@ def build_sitemap(seqs):
     for u in urls:
         x.append("  <url><loc>"+html.escape(u)+"</loc><lastmod>"+today+"</lastmod></url>")
     x.append("</urlset>")
-    (ROOT/"sitemap.xml").write_text("\n".join(x), encoding="utf-8")
+    xml_out = "\n".join(x) + "\n"
+    (ROOT/"sitemap.xml").write_text(xml_out, encoding="utf-8", newline="\n")
+    (ROOT/"sitemap-aurora.xml").write_text(xml_out, encoding="utf-8", newline="\n")
     robots_txt = (
         "User-agent: *\n"
         "Allow: /\n"
@@ -943,9 +945,10 @@ def build_sitemap(seqs):
         "Disallow: /motor-generico.html\n"
         "Disallow: /prototipo-b1-adverbs-rpg.html\n"
         "Sitemap: " + BASE_URL + "/sitemap.xml\n"
+        "Sitemap: " + BASE_URL + "/sitemap-aurora.xml\n"
     )
-    (ROOT/"robots.txt").write_text(robots_txt, encoding="utf-8")
-    print("  OK  sitemap.xml ("+str(len(urls))+" urls) + robots.txt")
+    (ROOT/"robots.txt").write_text(robots_txt, encoding="utf-8", newline="\n")
+    print("  OK  sitemap.xml + sitemap-aurora.xml ("+str(len(urls))+" urls) + robots.txt")
 
 def verificar_integridad(seqs):
     """
