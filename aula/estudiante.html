@@ -114,6 +114,7 @@ const ref = () => db.collection('estudiantes').doc(token);
 
 async function init(){
   if(!token){ return errorPage('This link is not valid. Please ask Prof. Felipe Florez for your personal link.'); }
+  try { localStorage.setItem('ea_student_token', token); } catch(e){}
 
   // 1. Instant zero-latency pre-render from fallback seed or localStorage cache
   if (FALLBACK_STUDENTS[token]) {

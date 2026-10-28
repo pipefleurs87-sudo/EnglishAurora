@@ -86,6 +86,7 @@ body{background:radial-gradient(ellipse at 50% 35%, #14213A 0%, var(--space) 70%
  <div id="counts"></div>
 </div>
 <div class="ui" id="searchbox">
+ <a id="btn-mi-link-personal" href="estudiante.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#14213A;background:var(--gold);padding:7px 12px;border-radius:18px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:5px;box-shadow:0 4px 14px rgba(201,150,47,.35);white-space:nowrap;" title="Ir a mi link personal de estudiante">👤 Mi Link Personal</a>
  <a id="btn-switch-aurora" href="#" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#14213A;background:var(--gold);padding:7px 12px;border-radius:18px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:5px;box-shadow:0 4px 14px rgba(201,150,47,.35);white-space:nowrap;">✨ Ver en English Aurora 2.5D →</a>
  <input id="search" type="text" placeholder="Buscar un tema… ⏎" autocomplete="off">
 </div>
@@ -166,13 +167,21 @@ const ORDER_ALL=['A1','A2','B1','B2','C1','C2'];
 const LVLNAME={A1:'A1',A2:'A2',B1:'B1',B2:'B2',C1:'C1',C2:'C2'};
 const ARQ={tiempo_verbal:0xC9962F,modales:0xCC4A3C,vocabulario:0x4FA3A5,joined_exercise:0x8E7CC3,determinantes:0x5B8DBE,funcional_skills:0xC97BA0,clausulas_relativas:0x7FA65A,pronombres:0xD98E4A,preposiciones:0x3FB6C9,comparativos:0xA8B44A};
 
+let activeToken = token;
+
 async function boot(){
-  if(!token){ return fail('Este link no es válido. Pídele a Felipe tu link personal.'); }
-  $('backlink').href='estudiante.html?t='+encodeURIComponent(token);
-  if($('btn-switch-aurora')) $('btn-switch-aurora').href='../englishaurora/index.html?t='+encodeURIComponent(token);
+  if(!activeToken){
+    try { activeToken = localStorage.getItem('ea_student_token'); } catch(e){}
+  }
+  if(!activeToken){ return fail('Este link no es válido. Pídele a Felipe tu link personal.'); }
+  try { localStorage.setItem('ea_student_token', activeToken); } catch(e){}
+  const studentHref = 'estudiante.html?t='+encodeURIComponent(activeToken);
+  $('backlink').href = studentHref;
+  if($('btn-mi-link-personal')) $('btn-mi-link-personal').href = studentHref;
+  if($('btn-switch-aurora')) $('btn-switch-aurora').href='../englishaurora/index.html?t='+encodeURIComponent(activeToken);
   let est, temas, bestById={}, lastById={}, countById={}, pendingById=new Set(), completedById=new Set();
   try{
-    const ref=db.collection('estudiantes').doc(token);
+    const ref=db.collection('estudiantes').doc(activeToken);
     const [snap, tj, rq, tq]=await Promise.all([
       ref.get(),
       fetch(SITE_BASE+'/datos/temas-completos.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null),
@@ -392,8 +401,9 @@ function build(est, TEMAS, bestById, pendingById, lastById, countById, completed
    $('p-score').innerHTML=nd.completedOnly?'<span class="sc-'+nd.scoreState+'">Tarea completada</span><br><span class="ns" style="font-style:normal">Aún no hay un puntaje registrado.</span>':(nd.score==null?'<span class="ns">Nunca practicado — ¡tu primera estrella te espera!</span>':('Tu mejor score: <b class="sc-'+nd.scoreState+'">'+nd.score+'%</b>'+(nd.reviewed?' <span style="color:var(--teal)">· ✦ repasado</span>':'')+(nd.days!=null?'<br><span class="ns" style="font-style:normal;color:'+(nd.days>FRESH_COLD?'#e06a5c':'#8b94a0')+'">'+freshLabel(nd.days)+'</span>':'')));
    $('p-pend').style.display=nd.pending?'block':'none';
    $('p-skills').innerHTML=(t.h||[]).map(s=>'<span>'+s+'</span>').join('');
-   $('p-practice').href='ejercicio.html?t='+encodeURIComponent(token)+'&tema='+encodeURIComponent(t.id);
-   $('p-aula').href='estudiante.html?t='+encodeURIComponent(token);
+   $('p-practice').href='ejercicio.html?t='+encodeURIComponent(activeToken)+'&tema='+encodeURIComponent(t.id);
+   $('p-aula').href='estudiante.html?t='+encodeURIComponent(activeToken);
+   $('p-aula').textContent='👤 Ir a mi link personal';
    panel.classList.add('open');flyTo(nd.base,46);}
   function closePanel(){panel.classList.remove('open');}
   $('pclose').addEventListener('click',closePanel);

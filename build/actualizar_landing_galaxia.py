@@ -393,7 +393,15 @@ body.zoomed .levels-rail{{opacity:0;pointer-events:none;transform:translateY(-50
 .level-item.on{{color:#fff;border-color:rgba(242,193,78,.45);border-right-color:var(--gold);
   background:rgba(242,193,78,.07);box-shadow:0 0 18px rgba(242,193,78,.2);
   text-shadow:0 0 10px rgba(242,193,78,.7)}}
-@media (max-width:640px){{.levels-rail{{display:none}}}}
+@media (max-width:640px){{
+  .levels-rail{{display:none}}
+  .hud{{padding:10px 14px;}}
+  .brand{{font-size:18px;}}
+  .tagline{{font-size:9px;}}
+  .btn-hud{{padding:6px 10px;font-size:10px;}}
+  .star-search-wrap #star-search{{width:125px;padding:6px 10px;font-size:10px;}}
+  .esencia{{padding:6px 10px;font-size:10px;}}
+}}
 </style>
 </head>
 <body>
@@ -405,7 +413,6 @@ body.zoomed .levels-rail{{opacity:0;pointer-events:none;transform:translateY(-50
     <div class="tagline" id="hud-tagline">88 stars · A1 → C1 · the arcane academy of English</div>
   </div>
   <div class="hud-right">
-    <a class="btn-hud gold" id="btn-back-aula" href="#" style="display:none;" title="Back to My Classroom">← My Classroom</a>
     <div class="esencia" id="esencia">✦ 0 ESSENCE</div>
     <div class="star-search-wrap">
       <input type="search" id="star-search" placeholder="🔎 Find star (/)" autocomplete="off" aria-label="Search stars by topic or CEFR level">
@@ -417,6 +424,7 @@ body.zoomed .levels-rail{{opacity:0;pointer-events:none;transform:translateY(-50
     <a class="btn-hud gold" id="btn-cambridge" href="{prefix}cambridge-preparation.html">🎓 Cambridge</a>
     <a class="btn-hud" id="btn-worksheets" href="{prefix}herramientas/fichas-imprimibles.html">📄 PDF Worksheets</a>
     <a class="btn-hud" id="btn-curriculum" href="{prefix}curriculum.html">📜 Curriculum</a>
+    <a class="btn-hud gold" id="btn-back-aula" href="{prefix}aula/estudiante.html" title="Ir a mi link personal de estudiante">👤 Mi Link Personal</a>
     <a class="btn-hud gold" id="btn-teacher-hub" href="{prefix}herramientas/teacher-hub.html" title="Access Teacher's Hub & Live Classroom">🔭 Teacher's Hub</a>
     <button class="btn-hud gold" id="btn-ignite">✨ My galaxy</button>
   </div>

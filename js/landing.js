@@ -745,6 +745,43 @@ async function initStudentMode() {
     "ThDvw4pjkFyrCS6jQYPf7pY": "hDvw4pjkFyrCS6jQYPf7pY"
   };
   let token = params.get('t') || params.get('token') || params.get('student');
+  if (!token) {
+    try { token = localStorage.getItem('ea_student_token'); } catch(e){}
+  }
+
+  const backAulaBtn = $('btn-back-aula');
+  if (backAulaBtn && !backAulaBtn._boundClick) {
+    backAulaBtn._boundClick = true;
+    backAulaBtn.addEventListener('click', (e) => {
+      let t = studentToken;
+      if (!t) {
+        try { t = localStorage.getItem('ea_student_token'); } catch(err){}
+      }
+      if (t) {
+        backAulaBtn.href = `${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(t)}`;
+        return;
+      }
+      e.preventDefault();
+      const input = prompt('Ingresa tu código o link personal de estudiante proporcionado por el profesor Felipe:');
+      if (input) {
+        let clean = input.trim();
+        if (clean.includes('t=')) {
+          try {
+            const u = new URL(clean, window.location.href);
+            clean = u.searchParams.get('t') || clean;
+          } catch(err){
+            clean = clean.replace(/^.*[?&]t=/, '').replace(/&.*$/, '');
+          }
+        }
+        clean = clean.replace(/^.*[?&]t=/, '').replace(/&.*$/, '').trim();
+        if (clean) {
+          try { localStorage.setItem('ea_student_token', clean); } catch(err){}
+          window.location.href = `${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(clean)}`;
+        }
+      }
+    });
+  }
+
   if (!token) return;
   token = decodeURIComponent(token).trim();
   if (TOKEN_ALIASES[token]) token = TOKEN_ALIASES[token];
@@ -752,6 +789,15 @@ async function initStudentMode() {
     token = token.replace(/^T/, '').replace(/2$/, '');
   }
   studentToken = token;
+  try { localStorage.setItem('ea_student_token', studentToken); } catch(e){}
+  isStudentMode = true;
+
+  if (backAulaBtn) {
+    backAulaBtn.href = `${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(studentToken)}`;
+    backAulaBtn.innerHTML = `👤 Mi Link Personal`;
+    backAulaBtn.title = `Ir a tu portal y link personal de estudiante`;
+    backAulaBtn.style.display = 'inline-block';
+  }
 
   // Pre-seed immediately with fallback profile if available so student view NEVER hangs
   if (FALLBACK_STUDENT_PROFILES[studentToken]) {
@@ -933,6 +979,8 @@ function applyStudentUI() {
   const backAulaBtn = $('btn-back-aula');
   if (backAulaBtn) {
     backAulaBtn.href = `${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(studentToken)}`;
+    backAulaBtn.innerHTML = `👤 Mi Link Personal`;
+    backAulaBtn.title = `Ir al portal personal de ${studentData.nombre || 'estudiante'}`;
     backAulaBtn.style.display = 'inline-block';
   }
 
@@ -967,7 +1015,7 @@ function applyStudentUI() {
   $('btn-ignite').textContent = `✨ ${firstName}'s Galaxy`;
   $('btn-ignite').onclick = () => {
     setAurora('celebrando');
-    say(`<b>${firstName}'s Mastery Sky:</b><br>✦ <b>${supernovas}</b> Supernovas (≥85%)<br>★ <b>${brillantes}</b> Proficient (75–84%)<br>⟳ <b>${tenues}</b> In Progress<br>◎ <b>${pendingCount}</b> Pending Quests<br><br><a href="${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(studentToken)}" style="color:var(--gold); text-decoration:underline; font-weight:600;">← Open Student Portal</a>`);
+    say(`<b>${firstName}'s Mastery Sky:</b><br>✦ <b>${supernovas}</b> Supernovas (≥85%)<br>★ <b>${brillantes}</b> Proficient (75–84%)<br>⟳ <b>${tenues}</b> In Progress<br>◎ <b>${pendingCount}</b> Pending Quests<br><br><a href="${ROOT_PREFIX}aula/estudiante.html?t=${encodeURIComponent(studentToken)}" style="color:var(--gold); text-decoration:underline; font-weight:600;">👤 Ir a Mi Link Personal</a>`);
   };
 }
 

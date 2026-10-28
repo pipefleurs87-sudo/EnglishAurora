@@ -74,7 +74,7 @@
         "Ben: Harsh, but probably accurate.",
         "Abuela Carmen: By the time you all finish deciding who was going to do what, the day will be over."
       ],
-      "gaps": ["client", "report", "started", "accurate"],
+      "gaps": ["client", "report", "start", "accurate"],
       "comprension": [
         {"pregunta": "What was Sofía going to do this morning?", "opciones": ["Call the client", "Finish a report", "Leave early"], "respuesta": "Call the client"},
         {"pregunta": "What did Ben say he would do?", "opciones": ["Help with the report", "Call the client", "Leave the office"], "respuesta": "Help with the report"}

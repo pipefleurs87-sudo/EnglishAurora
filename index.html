@@ -256,7 +256,15 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
 .level-item.on{color:#fff;border-color:rgba(242,193,78,.45);border-right-color:var(--gold);
   background:rgba(242,193,78,.07);box-shadow:0 0 18px rgba(242,193,78,.2);
   text-shadow:0 0 10px rgba(242,193,78,.7)}
-@media (max-width:640px){.levels-rail{display:none}}
+@media (max-width:640px){
+  .levels-rail{display:none}
+  .hud{padding:10px 14px;}
+  .brand{font-size:18px;}
+  .tagline{font-size:9px;}
+  .btn-hud{padding:6px 10px;font-size:10px;}
+  .star-search-wrap #star-search{width:125px;padding:6px 10px;font-size:10px;}
+  .esencia{padding:6px 10px;font-size:10px;}
+}
 </style>
 </head>
 <body>
@@ -268,7 +276,6 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
     <div class="tagline" id="hud-tagline">88 stars · A1 → C1 · the arcane academy of English</div>
   </div>
   <div class="hud-right">
-    <a class="btn-hud gold" id="btn-back-aula" href="#" style="display:none;" title="Back to My Classroom">← My Classroom</a>
     <div class="esencia" id="esencia">✦ 0 ESSENCE</div>
     <div class="star-search-wrap">
       <input type="search" id="star-search" placeholder="🔎 Find star (/)" autocomplete="off" aria-label="Search stars by topic or CEFR level">
@@ -280,6 +287,7 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
     <a class="btn-hud gold" id="btn-cambridge" href="cambridge-preparation.html">🎓 Cambridge</a>
     <a class="btn-hud" id="btn-worksheets" href="herramientas/fichas-imprimibles.html">📄 PDF Worksheets</a>
     <a class="btn-hud" id="btn-curriculum" href="curriculum.html">📜 Curriculum</a>
+    <a class="btn-hud gold" id="btn-back-aula" href="aula/estudiante.html" title="Ir a mi link personal de estudiante">👤 Mi Link Personal</a>
     <a class="btn-hud gold" id="btn-teacher-hub" href="herramientas/teacher-hub.html" title="Access Teacher's Hub & Live Classroom">🔭 Teacher's Hub</a>
     <button class="btn-hud gold" id="btn-ignite">✨ My galaxy</button>
   </div>
@@ -409,6 +417,7 @@ body.zoomed .levels-rail{opacity:0;pointer-events:none;transform:translateY(-50%
     <li><a href="leccion/b1-present-perfect-ever-experiences-01.html">B1: Have You Ever...? — Experiences (details in past simple) — Lesson</a> · <a href="leccion/b1-present-perfect-ever-experiences-01-wave-b.html">B1: Have You Ever...? — Experiences (details in past simple) — Wave B Masterclass & Printable PDF Worksheet</a> · <a href="preview/b1-present-perfect-ever-experiences-01.html">B1: Have You Ever...? — Experiences (details in past simple) — Interactive Practice</a> · <a href="evaluacion/b1-present-perfect-ever-experiences-01.html">B1: Have You Ever...? — Experiences (details in past simple) — Assessment Test</a> · <a href="juegos/b1-present-perfect-ever-experiences-01.html">B1: Have You Ever...? — Experiences (details in past simple) — Vocabulary Game</a></li>
     <li><a href="leccion/b1-present-perfect-vs-past-simple-01.html">B1: Present Perfect vs Past Simple — Which One? — Lesson</a> · <a href="leccion/b1-present-perfect-vs-past-simple-01-wave-b.html">B1: Present Perfect vs Past Simple — Which One? — Wave B Masterclass & Printable PDF Worksheet</a> · <a href="preview/b1-present-perfect-vs-past-simple-01.html">B1: Present Perfect vs Past Simple — Which One? — Interactive Practice</a> · <a href="evaluacion/b1-present-perfect-vs-past-simple-01.html">B1: Present Perfect vs Past Simple — Which One? — Assessment Test</a> · <a href="juegos/b1-present-perfect-vs-past-simple-01.html">B1: Present Perfect vs Past Simple — Which One? — Vocabulary Game</a></li>
     <li><a href="leccion/b1-review-grand-01.html">B1: B1 Grand Review — All Topics Together — Lesson</a> · <a href="leccion/b1-review-grand-01-wave-b.html">B1: B1 Grand Review — All Topics Together — Wave B Masterclass & Printable PDF Worksheet</a> · <a href="preview/b1-review-grand-01.html">B1: B1 Grand Review — All Topics Together — Interactive Practice</a> · <a href="evaluacion/b1-review-grand-01.html">B1: B1 Grand Review — All Topics Together — Assessment Test</a> · <a href="juegos/b1-review-grand-01.html">B1: B1 Grand Review — All Topics Together — Vocabulary Game</a></li>
+    <li><a href="leccion/b1-tag-questions-01.html">B1: Tag Questions — Checking &amp; Confirming (aren&#x27;t you? / do you?) — Lesson</a> · <a href="preview/b1-tag-questions-01.html">B1: Tag Questions — Checking &amp; Confirming (aren&#x27;t you? / do you?) — Interactive Practice</a> · <a href="evaluacion/b1-tag-questions-01.html">B1: Tag Questions — Checking &amp; Confirming (aren&#x27;t you? / do you?) — Assessment Test</a> · <a href="juegos/b1-tag-questions-01.html">B1: Tag Questions — Checking &amp; Confirming (aren&#x27;t you? / do you?) — Vocabulary Game</a></li>
     <li><a href="leccion/b1-used-to-01.html">B1: Used to — Past Habits That Are Gone — Lesson</a> · <a href="leccion/b1-used-to-01-wave-b.html">B1: Used to — Past Habits That Are Gone — Wave B Masterclass & Printable PDF Worksheet</a> · <a href="preview/b1-used-to-01.html">B1: Used to — Past Habits That Are Gone — Interactive Practice</a> · <a href="evaluacion/b1-used-to-01.html">B1: Used to — Past Habits That Are Gone — Assessment Test</a> · <a href="juegos/b1-used-to-01.html">B1: Used to — Past Habits That Are Gone — Vocabulary Game</a></li>
     <li><a href="leccion/b1-will-vs-going-to-01.html">B1: Will vs Going to — Plans, Decisions &amp; Promises — Lesson</a> · <a href="leccion/b1-will-vs-going-to-01-wave-b.html">B1: Will vs Going to — Plans, Decisions &amp; Promises — Wave B Masterclass & Printable PDF Worksheet</a> · <a href="preview/b1-will-vs-going-to-01.html">B1: Will vs Going to — Plans, Decisions &amp; Promises — Interactive Practice</a> · <a href="evaluacion/b1-will-vs-going-to-01.html">B1: Will vs Going to — Plans, Decisions &amp; Promises — Assessment Test</a> · <a href="juegos/b1-will-vs-going-to-01.html">B1: Will vs Going to — Plans, Decisions &amp; Promises — Vocabulary Game</a></li>
     <li><a href="leccion/b2-causative-01.html">B2: Causative — Have / Get Something Done — Lesson</a> · <a href="leccion/b2-causative-01-wave-b.html">B2: Causative — Have / Get Something Done — Wave B Masterclass & Printable PDF Worksheet</a> · <a href="preview/b2-causative-01.html">B2: Causative — Have / Get Something Done — Interactive Practice</a> · <a href="evaluacion/b2-causative-01.html">B2: Causative — Have / Get Something Done — Assessment Test</a> · <a href="juegos/b2-causative-01.html">B2: Causative — Have / Get Something Done — Vocabulary Game</a></li>
