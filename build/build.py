@@ -595,7 +595,10 @@ def build_pistas(seqs):
                     continue
                 pista, clase = None, None
                 if molde and defin:
-                    pista = molde.format(w="______", d=defin)
+                    if tid == "a1-relative-clauses-objects-01" and w.lower() in {"computer", "laptop", "printer", "calculator"}:
+                        pista = "A ______ is a device that you use to " + defin + "."
+                    else:
+                        pista = molde.format(w="______", d=defin)
                     clase = "def"
                 else:
                     rx = re.compile(r"\b" + re.escape(w) + r"\b", re.I)

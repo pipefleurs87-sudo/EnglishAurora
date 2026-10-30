@@ -77,7 +77,7 @@
     {
       "id": "s2",
       "forma": "afirmativo",
-      "oracion": "A computer is a thing which you use to work and study."
+      "oracion": "A computer is a device that you use to work and study."
     },
     {
       "id": "s3",
@@ -87,7 +87,7 @@
     {
       "id": "s4",
       "forma": "negativo",
-      "oracion": "A printer isn't a thing you use to cook."
+      "oracion": "A printer isn't a device you use to cook."
     },
     {
       "id": "s5",
@@ -117,9 +117,9 @@
         "opcion_b": "A pen is a thing that you use to write.",
         "correcta": "b"
       },
-      "definicion_pragmatica": "We use 'which' or 'that' (not 'who') to define a thing by its use: 'a thing that you use to + verb'.",
+      "definicion_pragmatica": "We use 'which' or 'that' (not 'who') to define objects and devices: 'a thing that...' for everyday objects and 'a device that...' for electronic devices.",
       "tabla": {
-        "titulo": "a thing that you use to + action",
+        "titulo": "a thing / device that you use to + action",
         "encabezados": [
           "Object",
           "Definition"
@@ -131,7 +131,7 @@
           ],
           [
             "A computer",
-            "is a thing that you use to work"
+            "is a device that you use to work"
           ],
           [
             "A ruler",
@@ -174,7 +174,7 @@
         },
         {
           "tipo": "gap_fill",
-          "texto": "A printer is a thing that you use to ___ documents.",
+          "texto": "A printer is a device that you use to ___ documents.",
           "respuesta": "print"
         },
         {
@@ -184,8 +184,8 @@
         },
         {
           "tipo": "correct_mistake",
-          "texto_con_error": "A computer is a thing who you use to work.",
-          "respuesta": "A computer is a thing that you use to work."
+          "texto_con_error": "A computer is a device who you use to work.",
+          "respuesta": "A computer is a device that you use to work."
         },
         {
           "tipo": "transformation",
@@ -235,7 +235,7 @@
       ]
     },
     "reading": {
-      "texto": "On Sofía's desk there are many useful things. A pen is a thing that she uses to write, and a notebook is a thing that she uses to take notes. Her computer is a thing that she uses to work, and a dictionary is a thing that she uses to check English words. 'What is the most important thing on your desk?' asks Kenji. 'My coffee!' Sofía laughs. 'It's a thing that I use to wake up!'",
+      "texto": "On Sofía's desk there are many useful things. A pen is a thing that she uses to write, and a notebook is a thing that she uses to take notes. Her computer is a device that she uses to work, and a dictionary is a thing that she uses to check English words. 'What is the most important thing on your desk?' asks Kenji. 'My coffee!' Sofía laughs. 'It's a thing that I use to wake up!'",
       "preguntas": [
         {
           "afirmacion": "A pen is a thing that Sofía uses to write.",
